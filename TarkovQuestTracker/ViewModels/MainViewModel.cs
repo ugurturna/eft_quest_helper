@@ -84,6 +84,7 @@ public sealed partial class MainViewModel : ObservableObject
         UiLanguage = Loc.Languages.Contains(Settings.UiLanguage) ? Settings.UiLanguage : "tr";
         _loading = false;
         OnPropertyChanged(nameof(Settings));
+        OnPropertyChanged(nameof(CheckForUpdates));
         LoadData();
     }
 

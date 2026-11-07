@@ -254,4 +254,16 @@
     <sys:String x:Key="a.summary">{0} aktif görev · {1} tanesi overlay'de</sys:String>
     <sys:String x:Key="s.set.fleaOpacity">Flea araması opaklığı</sys:String>
     <sys:String x:Key="s.set.fleaOpacity.hint">(Ctrl+Shift+F penceresi; düşürürsen arkada oyun görünür)</sys:String>
+    <sys:String x:Key="s.u.title">GÜNCELLEMELER</sys:String>
+    <sys:String x:Key="s.u.auto">Açılışta GitHub'da yeni sürüm var mı bak</sys:String>
+    <sys:String x:Key="s.u.check">Şimdi kontrol et</sys:String>
+    <sys:String x:Key="s.u.install">Güncelle</sys:String>
+    <sys:String x:Key="s.u.notes">Yenilikler</sys:String>
+    <sys:String x:Key="u.available">Yeni sürüm {0} hazır (sendeki {1}).</sys:String>
+    <sys:String x:Key="u.checking">Kontrol ediliyor…</sys:String>
+    <sys:String x:Key="u.upToDate">Güncelsin ({0}).</sys:String>
+    <sys:String x:Key="u.checkFailed">Kontrol edilemedi: {0}</sys:String>
+    <sys:String x:Key="u.downloading">{0} indiriliyor… {1:P0}</sys:String>
+    <sys:String x:Key="u.installing">Kuruluyor, uygulama yeniden başlayacak…</sys:String>
+    <sys:String x:Key="u.failed">Güncellenemedi: {0} Yeni sürümü GitHub'dan elle de indirebilirsin (Yenilikler).</sys:String>
 </ResourceDictionary>

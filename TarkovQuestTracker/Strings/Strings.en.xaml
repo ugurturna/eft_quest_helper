@@ -254,4 +254,16 @@
     <sys:String x:Key="a.summary">{0} active quests · {1} on the overlay</sys:String>
     <sys:String x:Key="s.set.fleaOpacity">Flea search opacity</sys:String>
     <sys:String x:Key="s.set.fleaOpacity.hint">(Ctrl+Shift+F window; lower it to see the game behind)</sys:String>
+    <sys:String x:Key="s.u.title">UPDATES</sys:String>
+    <sys:String x:Key="s.u.auto">Check GitHub for a new version at start</sys:String>
+    <sys:String x:Key="s.u.check">Check now</sys:String>
+    <sys:String x:Key="s.u.install">Update</sys:String>
+    <sys:String x:Key="s.u.notes">What's new</sys:String>
+    <sys:String x:Key="u.available">New version {0} is ready (you have {1}).</sys:String>
+    <sys:String x:Key="u.checking">Checking…</sys:String>
+    <sys:String x:Key="u.upToDate">You are up to date ({0}).</sys:String>
+    <sys:String x:Key="u.checkFailed">Could not check: {0}</sys:String>
+    <sys:String x:Key="u.downloading">Downloading {0}… {1:P0}</sys:String>
+    <sys:String x:Key="u.installing">Installing, the app will restart…</sys:String>
+    <sys:String x:Key="u.failed">Update failed: {0} You can also download the new version from GitHub (What's new).</sys:String>
 </ResourceDictionary>

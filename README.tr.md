@@ -152,7 +152,9 @@ Yine de çalıştırmak için: **Ek bilgi** → **Yine de çalıştır**.
 
 ### Güncelleme
 
-İlerlemen exe'nin yanındaki `data\profiles` klasöründe. Yeni sürümü ayrı bir klasöre çıkarıp `data\profiles`'ı oraya kopyala ya da eski sürümde **Ayarlar → Dışa aktar**, yenisinde **İçe aktar** kullan.
+**Otomatik (v0.1.2'den sonraki sürümden itibaren):** yeni sürüm çıkınca ana pencerenin üstünde bir bant çıkar. **Güncelle**'ye bas: uygulama release zip'ini GitHub'dan indirir, release'in SHA-256 özetiyle doğrular, kendi dosyalarını değiştirir ve yeniden başlar. `data\profiles` (ilerleme, ayarlar) ve flea fiyat önbelleğine asla dokunulmaz. Açılıştaki kontrolü kapatmak ya da elle kontrol etmek için **Ayarlar → Güncellemeler**.
+
+**Elle (ya da v0.1.2 ve öncesinden):** ilerlemen exe'nin yanındaki `data\profiles` klasöründe. Yeni sürümü ayrı bir klasöre çıkarıp `data\profiles`'ı oraya kopyala ya da eski sürümde **Ayarlar → Dışa aktar**, yenisinde **İçe aktar** kullan.
 
 ## İlerlemem nerede saklanıyor?
 

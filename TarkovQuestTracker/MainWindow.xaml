@@ -304,6 +304,25 @@
             </DockPanel>
         </Border>
 
+        <!-- a newer version on GitHub: one click downloads, installs and restarts -->
+        <Border DockPanel.Dock="Top" Background="#2A2616" BorderBrush="{StaticResource AccentBrush}" BorderThickness="0,0,0,1" Padding="14,6"
+                Visibility="{Binding HasUpdate, Converter={StaticResource BoolToVis}}">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Content="{DynamicResource s.u.install}" Style="{StaticResource SmallButton}" Command="{Binding InstallUpdateCommand}"
+                            IsEnabled="{Binding IsInstallingUpdate, Converter={StaticResource InvertBool}}" />
+                    <Button Content="{DynamicResource s.u.notes}" Style="{StaticResource SmallButton}" Command="{Binding OpenReleaseNotesCommand}" />
+                    <Button Content="✕" Style="{StaticResource SmallButton}" Margin="0" Command="{Binding DismissUpdateCommand}"
+                            IsEnabled="{Binding IsInstallingUpdate, Converter={StaticResource InvertBool}}" />
+                </StackPanel>
+                <TextBlock VerticalAlignment="Center" TextWrapping="Wrap">
+                    <Run Text="⬆" Foreground="{StaticResource AccentBrush}" />
+                    <Run Text="{Binding UpdateText, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
+                    <Run Text="{Binding UpdateStatus, Mode=OneWay}" Foreground="{StaticResource TextBrush}" />
+                </TextBlock>
+            </DockPanel>
+        </Border>
+
         <!-- toast -->
         <Border DockPanel.Dock="Bottom" Background="{StaticResource PanelBrush}" Padding="14,4" BorderBrush="{StaticResource LineBrush}" BorderThickness="0,1,0,0">
             <DockPanel>
@@ -700,6 +719,13 @@
                                     <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Text="{DynamicResource s.keys.note}" Style="{StaticResource Muted}" FontSize="11" Margin="0,6,0,0" />
                                 </Grid>
                             </Border>
+
+                            <TextBlock Text="{DynamicResource s.u.title}" Style="{StaticResource H2}" />
+                            <CheckBox Content="{DynamicResource s.u.auto}" IsChecked="{Binding CheckForUpdates}" Margin="0,4,0,4" />
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <Button Content="{DynamicResource s.u.check}" Style="{StaticResource SmallButton}" Command="{Binding CheckUpdatesCommand}" />
+                                <TextBlock Text="{Binding UpdateStatus}" Style="{StaticResource Muted}" VerticalAlignment="Center" TextWrapping="Wrap" />
+                            </StackPanel>
 
                             <TextBlock Text="{DynamicResource s.set.lang}" Style="{StaticResource H2}" />
                             <TextBlock Text="{DynamicResource s.set.lang.desc}" Style="{StaticResource Muted}" />

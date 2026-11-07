@@ -42,4 +42,6 @@ public sealed class AppSettings
     public string FleaSearchHotkey { get; set; } = "Ctrl+Shift+F";
     /// <summary>Flea price search window opacity (lower = more of the game shows through).</summary>
     public double FleaOpacity { get; set; } = 0.9;
+    /// <summary>Look for a newer release on GitHub when the app starts.</summary>
+    public bool CheckForUpdates { get; set; } = true;
 }

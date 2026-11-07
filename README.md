@@ -152,7 +152,9 @@ If you'd rather check it first, the full source is in this repo and every releas
 
 ### Updating
 
-Your progress is in `data\profiles` next to the exe. Extract the new version to a new folder and copy `data\profiles` over, or use **Settings → Export** in the old version and **Import** in the new one.
+**Automatic (from the version after v0.1.2):** when a new release is out, a bar at the top of the main window says so. Click **Update**: the app downloads the release zip from GitHub, checks it against the release's SHA-256, replaces its own files and restarts. Your `data\profiles` (progress, settings) and the flea price cache are never touched. You can turn the start-up check off, or check by hand, under **Settings → Updates**.
+
+**By hand (or from v0.1.2 and older):** your progress is in `data\profiles` next to the exe. Extract the new version to a new folder and copy `data\profiles` over, or use **Settings → Export** in the old version and **Import** in the new one.
 
 ## Where is my progress stored?
 
