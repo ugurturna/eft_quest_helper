@@ -136,3 +136,5 @@ Run the tests with `dotnet test`.
 
 - Quest data: [Escape from Tarkov Wiki (Fandom)](https://escapefromtarkov.fandom.com/), content available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), and [tarkov.dev](https://tarkov.dev/).
 - *Escape from Tarkov*, trader names and trader portraits are trademarks/property of **Battlestate Games**. They are used here only to identify in-game content. This is a non-commercial fan project.
+- Free code signing provided by [SignPath.io](https://signpath.io), certificate by [SignPath Foundation](https://signpath.org).
+- Licensed under the [MIT License](LICENSE).

@@ -67,3 +67,10 @@ $RECYCLE.BIN/
 *.log
 *.tmp
 *.broken
+
+# ---- Certificates & Private Keys ----
+*.pfx
+*.p12
+*.pem
+*.key
+tools/certs/*.pfx

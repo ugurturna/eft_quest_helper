@@ -136,3 +136,5 @@ data/                        данные заданий, поставляемы
 
 - Данные заданий: [Escape from Tarkov Wiki (Fandom)](https://escapefromtarkov.fandom.com/) — контент доступен по лицензии [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) — и [tarkov.dev](https://tarkov.dev/).
 - *Escape from Tarkov*, имена и портреты торговцев являются товарными знаками/собственностью **Battlestate Games** и используются здесь только для обозначения игрового контента. Это некоммерческий фанатский проект.
+- Free code signing provided by [SignPath.io](https://signpath.io), certificate by [SignPath Foundation](https://signpath.org).
+- Лицензия: [MIT License](LICENSE).
