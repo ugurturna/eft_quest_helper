@@ -1,0 +1,66 @@
+# Uploads release files to VirusTotal, waits for every scan to finish and writes the results:
+# JSON for the landing page (docs/virustotal.json) and a Markdown table for the release notes.
+# Needs VT_API_KEY (free key from virustotal.com, stored as a repo secret).
+param(
+    [Parameter(Mandatory)] [string] $Version,
+    [Parameter(Mandatory)] [string[]] $Files,
+    [string] $Out = 'virustotal.json',
+    [string] $Notes = 'vt-notes.md',
+    [int] $TimeoutMinutes = 20
+)
+
+$ErrorActionPreference = 'Stop'
+if (-not $env:VT_API_KEY) { throw 'VT_API_KEY is not set' }
+$api = 'https://www.virustotal.com/api/v3'
+$headers = @{ 'x-apikey' = $env:VT_API_KEY }
+
+function Submit-File([string] $path) {
+    # files over 32 MB need a one-off upload URL (the free API takes up to 650 MB)
+    $url = "$api/files"
+    if ((Get-Item $path).Length -gt 32MB) {
+        $url = (Invoke-RestMethod "$api/files/upload_url" -Headers $headers).data
+    }
+    (Invoke-RestMethod $url -Method Post -Headers $headers -Form @{ file = Get-Item $path }).data.id
+}
+
+$analyses = [ordered]@{}
+foreach ($file in $Files) {
+    $name = Split-Path $file -Leaf
+    $analyses[$name] = Submit-File $file
+    Write-Host "Uploaded $name"
+}
+
+$results = [ordered]@{}
+$deadline = (Get-Date).AddMinutes($TimeoutMinutes)
+while ($results.Count -lt $analyses.Count) {
+    if ((Get-Date) -gt $deadline) { throw "VirusTotal did not finish within $TimeoutMinutes minutes" }
+    Start-Sleep -Seconds 60   # free API: 4 requests a minute
+    foreach ($name in @($analyses.Keys)) {
+        if ($results.Contains($name)) { continue }
+        $r = Invoke-RestMethod "$api/analyses/$($analyses[$name])" -Headers $headers
+        if ($r.data.attributes.status -ne 'completed') { continue }
+        $s = $r.data.attributes.stats
+        $sha = $r.meta.file_info.sha256
+        $results[$name] = [ordered]@{
+            name       = $name
+            sha256     = $sha
+            malicious  = $s.malicious
+            suspicious = $s.suspicious
+            engines    = $s.malicious + $s.suspicious + $s.undetected + $s.harmless
+            url        = "https://www.virustotal.com/gui/file/$sha"
+        }
+        Write-Host "$name : $($s.malicious) malicious, $($s.suspicious) suspicious"
+    }
+}
+
+[ordered]@{
+    version   = $Version
+    scannedAt = [DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ssZ')
+    files     = @($results.Values)
+} | ConvertTo-Json -Depth 4 | Set-Content $Out -Encoding utf8
+
+$rows = $results.Values | ForEach-Object {
+    "| [$($_.name)]($($_.url)) | $($_.malicious + $_.suspicious) / $($_.engines) | ``$($_.sha256)`` |"
+}
+@('', '### VirusTotal', '', '| File | Detections | SHA-256 |', '|---|---|---|') + $rows |
+    Set-Content $Notes -Encoding utf8
