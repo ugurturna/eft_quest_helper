@@ -11,8 +11,17 @@ param(
 
 $ErrorActionPreference = 'Stop'
 if (-not $env:VT_API_KEY) { throw 'VT_API_KEY is not set' }
+
+# Pasting the key into the GitHub secret can bring along spaces, a BOM or zero-width characters
+$key = $env:VT_API_KEY -replace '[\s\u200B-\u200D\u2060\uFEFF]', ''
+if ($key -notmatch '^[0-9a-fA-F]{64}$') {
+    # describe the problem without printing the key itself
+    $bad = ($key.ToCharArray() | Where-Object { $_ -notmatch '[0-9a-fA-F]' } |
+        ForEach-Object { 'U+{0:X4}' -f [int]$_ } | Select-Object -Unique) -join ', '
+    throw "VT_API_KEY should be 64 hex characters but has $($key.Length) characters$(if ($bad) { "; unexpected: $bad" }). Copy it again from virustotal.com > API key and update the repository secret."
+}
 $api = 'https://www.virustotal.com/api/v3'
-$headers = @{ 'x-apikey' = $env:VT_API_KEY }
+$headers = @{ 'x-apikey' = $key }
 
 function Submit-File([string] $path) {
     # files over 32 MB need a one-off upload URL (the free API takes up to 650 MB)
