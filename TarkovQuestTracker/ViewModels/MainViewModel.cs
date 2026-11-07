@@ -287,12 +287,14 @@ public sealed partial class MainViewModel : ObservableObject
     void RefreshSearch()
     {
         if (_loading || _repo == null) return;
-        IEnumerable<Quest> source = string.IsNullOrWhiteSpace(SearchText)
+        var searching = !string.IsNullOrWhiteSpace(SearchText);
+        IEnumerable<Quest> source = !searching
             ? _repo.Quests.OrderBy(q => q.Trader).ThenBy(q => q.MinLevel ?? 0).ThenBy(q => q.Name)
             : _search.Search(SearchText, 100);
         if (!string.IsNullOrEmpty(TraderFilter)) source = source.Where(q => q.Trader == TraderFilter);
         if (!string.IsNullOrEmpty(LoyaltyFilter)) source = source.Where(q => q.TraderLoyalty == LoyaltyFilter);
-        if (!string.IsNullOrEmpty(CategoryFilter)) source = source.Where(q => q.Category == CategoryFilter);
+        // a typed name finds the quest whatever its type: a side quest still shows while "Event" is picked
+        if (!searching && !string.IsNullOrEmpty(CategoryFilter)) source = source.Where(q => q.Category == CategoryFilter);
         var rows = source.Select(Row);
         rows = Filter switch
         {
@@ -448,7 +450,12 @@ public sealed partial class MainViewModel : ObservableObject
         if (AsQuest(arg) is not { } q) return;
         if (!Progress.Goals.Remove(q.Id))
         {
+            Snapshot();
             Progress.Goals.Add(q.Id);
+            var started = _planner.ActivateGoalSteps(Progress, q.Id);
+            Toast = started.Count == 0
+                ? Loc.F("t.goal", q.DisplayName)
+                : Loc.F("t.goalStarted", q.DisplayName, string.Join(", ", started.Select(s => s.DisplayName)));
             SaveProgress();
             Refresh();
             SelectedGoal = q;

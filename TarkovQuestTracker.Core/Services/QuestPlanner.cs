@@ -81,6 +81,19 @@ public sealed class QuestPlanner
         return new GoalPlan(goal, chain, remaining, available);
     }
 
+    /// <summary>
+    /// Making a quest a goal starts the step the player is at: every quest of its chain that can be done
+    /// now goes to the active list (the first quests with no progress, the next step otherwise).
+    /// Not put on the overlay. Returns the newly activated quests.
+    /// </summary>
+    public IReadOnlyList<Quest> ActivateGoalSteps(Progress p, string goalId)
+    {
+        var started = PlanFor(goalId, p).AvailableNow.Where(q => !p.Active.Contains(q.Id)).ToList();
+        foreach (var q in started) p.Active.Add(q.Id);
+        if (started.Count > 0) p.UpdatedAt = DateTime.UtcNow;
+        return started;
+    }
+
     /// <summary>Collector + every kappa-required quest + all their prerequisites.</summary>
     public HashSet<string> KappaSet()
     {

@@ -181,6 +181,8 @@
     <sys:String x:Key="t.completedUnlocked">✔ {0} → açıldı: {1}</sys:String>
     <sys:String x:Key="t.completedAccepted">✔ {0} → kabul edildi (aktif): {1}</sys:String>
     <sys:String x:Key="t.active">Aktif: {0}</sys:String>
+    <sys:String x:Key="t.goal">☆ Hedef: {0}</sys:String>
+    <sys:String x:Key="t.goalStarted">☆ Hedef: {0} → aktif edildi: {1}</sys:String>
     <sys:String x:Key="t.activeChain">Aktif: {0} - önceki {1} görev tamamlandı sayıldı ({2}). Yanlışsa "Geri al".</sys:String>
     <sys:String x:Key="t.undoDone">Son işlem geri alındı.</sys:String>
     <sys:String x:Key="t.allObjectives">{0}: tüm hedefler tamam - teslim et ve "Bitir"e bas.</sys:String>

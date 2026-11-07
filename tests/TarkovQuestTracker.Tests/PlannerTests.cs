@@ -79,6 +79,20 @@ public sealed class PlannerTests : IDisposable
     }
 
     [Fact]
+    public void A_new_goal_activates_the_step_the_player_is_at()
+    {
+        var planner = new QuestPlanner(Repo());
+        var p = new Progress();
+        Assert.Equal(["shootout-picnic"], planner.ActivateGoalSteps(p, "punisher-3").Select(q => q.Id));   // nothing done: first quest
+
+        p = new Progress { Completed = ["shootout-picnic", "punisher-1"] };
+        Assert.Equal(["punisher-2"], planner.ActivateGoalSteps(p, "punisher-3").Select(q => q.Id));        // part of it done: next step
+        Assert.Equal(["punisher-2"], p.Active);
+        Assert.Empty(p.Tracked);
+        Assert.Empty(planner.ActivateGoalSteps(p, "punisher-3"));                                          // already active
+    }
+
+    [Fact]
     public void Starting_a_quest_marks_its_whole_chain_done()
     {
         var planner = new QuestPlanner(Repo());
