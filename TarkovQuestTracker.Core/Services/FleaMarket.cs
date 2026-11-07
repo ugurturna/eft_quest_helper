@@ -1,4 +1,5 @@
 using System.Net;
+using System.Runtime;
 using System.Text.Json;
 using TarkovQuestTracker.Core.Models;
 
@@ -95,18 +96,19 @@ public sealed class FleaMarket(string folder)
     public bool IsRefreshing(GameMode mode) => _refreshing.ContainsKey(mode);
 
     /// <summary>
-    /// Background update of both modes (app start), then parses them so the first search is instant.
-    /// Failures only mean the old files stay.
+    /// Background update of the mode being played (app start), then parses it so the first search is instant;
+    /// the other mode loads when a search opens in it. Failures only mean the old files stay.
     /// </summary>
-    public async Task RefreshAllAsync(string lang)
+    public async Task PrepareAsync(GameMode mode, string lang)
     {
-        foreach (var mode in Modes)
-        {
-            try { await RefreshAsync(mode, lang); }
-            catch (Exception e) when (IsDownloadError(e)) { }
-            try { await LoadAsync(mode, lang); }
-            catch (Exception e) when (IsDownloadError(e)) { }
-        }
+        try { await RefreshAsync(mode, lang); }
+        catch (Exception e) when (IsDownloadError(e)) { }
+        try { await LoadAsync(mode, lang); }
+        catch (Exception e) when (IsDownloadError(e)) { }
+        // parsing the ~17 MB dump peaks at ~150 MB of short-lived objects; give that back to Windows once
+        // instead of keeping the peak as the app's footprint while the game runs
+        GCSettings.LargeObjectHeapCompactionMode = GCLargeObjectHeapCompactionMode.CompactOnce;
+        GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, blocking: true, compacting: true);
     }
 
     /// <summary>Downloads the mode's dumps to disk and stamps the time; a refresh already running is shared.</summary>
@@ -196,8 +198,9 @@ public sealed class FleaMarket(string folder)
     static async Task<JsonDocument?> ReadJsonAsync(string path)
     {
         if (!File.Exists(path)) return null;
-        await using var file = File.OpenRead(path);
-        return await JsonDocument.ParseAsync(file);
+        // parse the file's own bytes: ParseAsync(stream) rents a pooled copy of the whole file, and the shared
+        // pool keeps those big arrays alive after the document is disposed
+        return JsonDocument.Parse(await File.ReadAllBytesAsync(path));
     }
 
     /// <summary>Network, disk or broken-JSON failures of a download / local read.</summary>

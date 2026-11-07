@@ -224,6 +224,8 @@ def parse_objectives(body):
             "optional": "(optional)" in text.lower(),
             "fir": "in raid" in text.lower(),
             "map": maps[0] if maps else None,
+            # every linked map: "Eliminate 5 Scavs on Woods, Ground Zero, Interchange, Customs" counts on any
+            "maps": list(dict.fromkeys(maps)),
             "pveOnly": bool(re.search(r"\bPvE\b", raw)),
             "details": [],
         })

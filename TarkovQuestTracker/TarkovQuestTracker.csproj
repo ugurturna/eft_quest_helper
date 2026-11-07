@@ -9,6 +9,11 @@
     </ItemGroup>
 
     <ItemGroup>
+      <!-- compact the heap more eagerly (0-9); keeps the long-running process small -->
+      <RuntimeHostConfigurationOption Include="System.GC.ConserveMemory" Value="7" />
+    </ItemGroup>
+
+    <ItemGroup>
       <!-- trader portraits; a missing one falls back to the trader's initial -->
       <Resource Include="Assets\Traders\*.png" />
       <!-- The Ticket ending achievement pictures -->
@@ -27,11 +32,13 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
-        <Version>0.2.5</Version>
+        <Version>0.2.6</Version>
         <!-- built with tools\make_icon.ps1 -->
         <ApplicationIcon Condition="Exists('Assets\app.ico')">Assets\app.ico</ApplicationIcon>
-        <AssemblyVersion>0.2.5</AssemblyVersion>
-        <FileVersion>0.2.5</FileVersion>
+        <!-- runs next to the game all session: prefer a small footprint over GC throughput -->
+        <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+        <AssemblyVersion>0.2.6</AssemblyVersion>
+        <FileVersion>0.2.6</FileVersion>
     </PropertyGroup>
 
 </Project>

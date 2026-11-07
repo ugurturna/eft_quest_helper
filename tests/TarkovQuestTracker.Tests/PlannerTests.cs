@@ -79,6 +79,33 @@ public sealed class PlannerTests : IDisposable
     }
 
     [Fact]
+    public void Raid_filter_keeps_raid_objectives_of_the_map()
+    {
+        var quest = new Quest
+        {
+            Id = "q", Name = "Multi", Map = ["Customs", "Woods"], Objectives =
+            [
+                new Objective { Id = "o1", Text = "Find the folder on Customs", Map = "Customs", Maps = ["Customs"] },
+                new Objective { Id = "o2", Text = "Stash it on Woods", Map = "Woods" },   // old data: Map only
+                new Objective { Id = "o3", Text = "Survive and extract from the location" },
+                new Objective { Id = "o4", Text = "Hand over the folder" },
+            ],
+        };
+        Assert.Equal(["o1", "o3"], RaidFilter.Objectives(quest, "Customs").Select(o => o.Id));
+        Assert.Equal(["o2", "o3"], RaidFilter.Objectives(quest, "Woods").Select(o => o.Id));
+        Assert.Empty(RaidFilter.Objectives(quest, "Factory"));
+
+        // no map = any map; a quest that only hands items over has nothing to do in the raid
+        var anywhere = new Quest { Id = "a", Objectives = [new Objective { Id = "o1", Text = "Eliminate 5 PMCs" }] };
+        var handIn = new Quest { Id = "h", Objectives = [new Objective { Id = "o1", Text = "Hand over 3 Salewa" }] };
+        Assert.Single(RaidFilter.Objectives(anywhere, "Factory"));
+        Assert.Empty(RaidFilter.Objectives(handIn, "Factory"));
+
+        Assert.Equal(["Customs", "Woods", "Factory"],
+            RaidFilter.Maps([quest, new Quest { Map = ["Factory", QuestPlanner.AnyMap] }]));
+    }
+
+    [Fact]
     public void A_new_goal_activates_the_step_the_player_is_at()
     {
         var planner = new QuestPlanner(Repo());

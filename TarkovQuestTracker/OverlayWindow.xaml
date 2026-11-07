@@ -42,6 +42,39 @@
                         ToolTip="{DynamicResource s.ov.sizeTip}" />
             </Grid>
 
+            <!-- in a raid: which map, ✕ ends it -->
+            <DockPanel Margin="0,6,0,0" Visibility="{Binding IsInRaid, Converter={StaticResource BoolToVis}}">
+                <Button DockPanel.Dock="Right" Content="✕" Style="{StaticResource SmallButton}" FontSize="11" Padding="5,0" Margin="0"
+                        ToolTip="{DynamicResource s.raid.end}" Command="{Binding EndRaidCommand}" />
+                <TextBlock FontSize="12" FontWeight="SemiBold" Foreground="{StaticResource AccentBrush}" VerticalAlignment="Center">
+                    <Run Text="🎯" /> <Run Text="{Binding RaidMap, Mode=OneWay}" />
+                </TextBlock>
+            </DockPanel>
+
+            <!-- raid hotkey: pick the map without leaving the game -->
+            <Border x:Name="MapPicker" Visibility="Collapsed" Margin="0,6,0,0" Padding="6" CornerRadius="4" Background="#C025251F">
+                <StackPanel>
+                    <TextBlock Text="{DynamicResource s.raid.pick}" Foreground="{StaticResource AccentBrush}" FontSize="12" FontWeight="SemiBold" Margin="0,0,0,4" />
+                    <ItemsControl ItemsSource="{Binding RaidMaps}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type vm:MapCardVm}">
+                                <Button Style="{StaticResource SmallButton}" FontSize="11" Padding="6,2" Margin="0,0,4,4"
+                                        Click="PickMap_Click" Tag="{Binding Name}" ToolTip="{Binding CountText}"
+                                        AutomationProperties.Name="{Binding Name}">
+                                    <TextBlock>
+                                        <Run Text="{Binding Name, Mode=OneWay}" />
+                                        <Run Text="{Binding ActiveCount, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" />
+                                    </TextBlock>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </Border>
+
             <TextBlock Text="{Binding Toast}" Foreground="{StaticResource DoneBrush}" FontSize="11" TextWrapping="Wrap" Margin="0,6,0,0" />
 
             <TextBlock Text="{DynamicResource s.ov.empty}" Margin="0,8">
@@ -49,7 +82,7 @@
                     <Style TargetType="TextBlock" BasedOn="{StaticResource Muted}">
                         <Setter Property="Visibility" Value="Collapsed" />
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding HasTracked}" Value="False">
+                            <DataTrigger Binding="{Binding HasOverlayQuests}" Value="False">
                                 <Setter Property="Visibility" Value="Visible" />
                             </DataTrigger>
                         </Style.Triggers>
@@ -58,7 +91,7 @@
             </TextBlock>
 
             <ScrollViewer x:Name="Scroller" VerticalScrollBarVisibility="Auto" Margin="0,6,0,0">
-                <ItemsControl ItemsSource="{Binding TrackedQuests}">
+                <ItemsControl ItemsSource="{Binding OverlayQuests}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate DataType="{x:Type vm:ActiveQuestVm}">
                             <Border Background="#C025251F" CornerRadius="4" Padding="8,6" Margin="0,0,0,6"

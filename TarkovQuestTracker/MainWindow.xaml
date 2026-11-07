@@ -330,6 +330,8 @@
                     <Run Text="{DynamicResource s.keys.barToggle}" />
                     <Run Text="  ·  " /><Run Text="{Binding Settings.FleaSearchHotkey, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
                     <Run Text="{DynamicResource s.keys.barFlea}" />
+                    <Run Text="  ·  " /><Run Text="{Binding Settings.RaidHotkey, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
+                    <Run Text="{DynamicResource s.keys.barRaid}" />
                     <Run Text="  ·  " /><Run Text="Ctrl + 🖱" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
                     <Run Text="{DynamicResource s.keys.barWheel}" />
                 </TextBlock>
@@ -390,6 +392,22 @@
                         </Setter>
                     </Style>
                 </TabControl.Resources>
+                <!-- entering a raid: pick the map, the overlay shows its quests -->
+                <TabItem Header="{DynamicResource s.tab.raid}" Tag="&#xE707;">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="0,8,0,0">
+                            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource RaidBanner}" />
+                            <TextBlock Text="{DynamicResource s.raid.pick}" Style="{StaticResource Body}" FontWeight="SemiBold" FontSize="15" />
+                            <TextBlock Text="{DynamicResource s.raid.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,2,0,10" />
+                            <ItemsControl ItemsSource="{Binding RaidMaps}" ItemTemplate="{StaticResource MapCard}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+
                 <!-- search -->
                 <TabItem Header="{DynamicResource s.tab.quests}" Tag="&#xE8FD;">
                     <DockPanel Margin="0,8,0,0">
@@ -579,6 +597,16 @@
                                 <TextBlock Text="{DynamicResource s.active.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" />
                             </StackPanel>
                         </DockPanel>
+                        <!-- entering a raid from here too: one small button per map -->
+                        <StackPanel DockPanel.Dock="Top" Margin="0,8,0,0">
+                            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource RaidBanner}" />
+                            <TextBlock Text="{DynamicResource s.raid.pick}" Style="{StaticResource Muted}" FontSize="12" Margin="0,0,0,4" />
+                            <ItemsControl ItemsSource="{Binding RaidMaps}" ItemTemplate="{StaticResource MapChip}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </StackPanel>
                         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
                             <ItemsControl ItemsSource="{Binding ActiveQuests}">
                                 <ItemsControl.ItemTemplate>
@@ -700,7 +728,7 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition />
+                                        <RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Border Style="{StaticResource KeyCap}">
                                         <TextBlock Text="{Binding Settings.ClickThroughHotkey}" Style="{StaticResource KeyText}" />
@@ -722,7 +750,11 @@
                                         <TextBlock Text="{Binding Settings.FleaSearchHotkey}" Style="{StaticResource KeyText}" />
                                     </Border>
                                     <TextBlock Grid.Row="4" Grid.Column="1" Text="{DynamicResource s.keys.flea}" Style="{StaticResource KeyDesc}" />
-                                    <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Text="{DynamicResource s.keys.note}" Style="{StaticResource Muted}" FontSize="11" Margin="0,6,0,0" />
+                                    <Border Grid.Row="5" Style="{StaticResource KeyCap}">
+                                        <TextBlock Text="{Binding Settings.RaidHotkey}" Style="{StaticResource KeyText}" />
+                                    </Border>
+                                    <TextBlock Grid.Row="5" Grid.Column="1" Text="{DynamicResource s.keys.raid}" Style="{StaticResource KeyDesc}" />
+                                    <TextBlock Grid.Row="6" Grid.ColumnSpan="2" Text="{DynamicResource s.keys.note}" Style="{StaticResource Muted}" FontSize="11" Margin="0,6,0,0" />
                                 </Grid>
                             </Border>
 

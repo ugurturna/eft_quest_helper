@@ -49,6 +49,19 @@ public sealed class RealDataTests
     }
 
     [Theory]
+    // an objective that counts on several maps knows all of them, not only the first link
+    [InlineData("debut", "Customs", new[] { "o1" })]
+    [InlineData("debut", "Woods", new[] { "o1" })]
+    // a multi-map quest shows only the line of the map you are on
+    [InlineData("escort", "Factory", new[] { "o1" })]
+    [InlineData("escort", "The Lab", new[] { "o7" })]
+    [InlineData("delivery-from-the-past", "Factory", new[] { "o2" })]
+    [InlineData("delivery-from-the-past", "Customs", new[] { "o1" })]
+    [InlineData("delivery-from-the-past", "Woods", new string[0])]
+    public void Raid_shows_the_objectives_of_that_map(string quest, string map, string[] objectives) =>
+        Assert.Equal(objectives, RaidFilter.Objectives(Repo.ById[quest], map).Select(o => o.Id));
+
+    [Theory]
     // a number inside the item name is not the amount
     [InlineData("collector", "o1", 1)]          // "42 Signature Blend English Tea"
     [InlineData("battery-change", "o2", 1)]     // "6-STEN-140-M military battery"

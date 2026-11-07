@@ -44,7 +44,7 @@
 
     <!-- active -->
     <sys:String x:Key="s.clearAll">Hepsini temizle</sys:String>
-    <sys:String x:Key="s.active.desc">Aktif yaptığın her görev burada. Overlay'de sadece 📌 Overlay açık olanlar görünür; tek tek aktif yaptığın görev otomatik eklenir.</sys:String>
+    <sys:String x:Key="s.active.desc">Aktif yaptığın her görev burada. Overlay'de sadece 📌 Overlay açık olanlar görünür, raid'deyken de o haritanın görevleri.</sys:String>
     <sys:String x:Key="s.finish">Bitir</sys:String>
     <sys:String x:Key="s.remove">Çıkar</sys:String>
     <sys:String x:Key="s.details">Detay</sys:String>
@@ -243,6 +243,8 @@
     <sys:String x:Key="s.keys.barTip">Overlay kısayolları - açıklamaları Ayarlar sekmesinin en üstünde</sys:String>
     <sys:String x:Key="s.keys.flea">Flea market fiyat araması: ekranın ortasında açılır, eşya adının 3 harfini yazınca seçili moddaki (PvP / PvE) fiyatları tarkov.dev'den gösterir. Esc kapatır ve oyuna döner.</sys:String>
     <sys:String x:Key="s.keys.barFlea">flea fiyatı</sys:String>
+    <sys:String x:Key="s.keys.raid">Raid'e giriyorum: overlay'de harita listesi açılır (tıklayabilmen için kilidi açılır); haritayı seç, overlay o haritanın aktif görevlerini göstersin. Tekrar basınca kapanır.</sys:String>
+    <sys:String x:Key="s.keys.barRaid">raid haritası</sys:String>
     <sys:String x:Key="s.flea.title">FLEA MARKET</sys:String>
     <sys:String x:Key="s.flea.esc">Esc: oyuna dön</sys:String>
     <sys:String x:Key="s.flea.placeholder">Eşya adı yaz (en az 3 harf)…</sys:String>
@@ -263,6 +265,14 @@
     <sys:String x:Key="s.untrackAll">Overlay'i temizle</sys:String>
     <sys:String x:Key="s.untrackAll.tip">Tüm görevleri overlay'den kaldırır; aktif kalırlar.</sys:String>
     <sys:String x:Key="a.summary">{0} aktif görev · {1} tanesi overlay'de</sys:String>
+    <sys:String x:Key="s.tab.raid">Raid'e giriyorum</sys:String>
+    <sys:String x:Key="s.raid.pick">Hangi haritaya giriyorsun?</sys:String>
+    <sys:String x:Key="s.raid.desc">Overlay o haritadaki bütün aktif görevleri kendiliğinden gösterir (birden çok haritalı görevlerde sadece bu haritanın hedefleri), 📌 ile sabitlediklerin de kalır. Oyundayken Ctrl+Shift+R ile harita seçebilirsin.</sys:String>
+    <sys:String x:Key="s.raid.end">Raid bitti</sys:String>
+    <sys:String x:Key="raid.active">🎯 {0} raid'indesin: {1} görev overlay'de</sys:String>
+    <sys:String x:Key="raid.count">{0} aktif görev</sys:String>
+    <sys:String x:Key="t.raidStart">🎯 {0}: {1} görev overlay'de</sys:String>
+    <sys:String x:Key="t.raidEnd">Raid bitti: overlay yine sabitlediğin görevleri gösteriyor</sys:String>
     <sys:String x:Key="s.set.fleaOpacity">Flea araması opaklığı</sys:String>
     <sys:String x:Key="s.set.fleaOpacity.hint">(Ctrl+Shift+F penceresi; düşürürsen arkada oyun görünür)</sys:String>
     <sys:String x:Key="s.u.title">GÜNCELLEMELER</sys:String>

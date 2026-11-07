@@ -28,6 +28,8 @@ public sealed class TraderImageConverter : IValueConverter
             bitmap.BeginInit();
             bitmap.UriSource = uri;
             bitmap.CacheOption = BitmapCacheOption.OnLoad;
+            // the portraits are ~1300 px wide (≈4 MB each decoded) but drawn at ≤80 px: 160 stays sharp at 200 % DPI
+            bitmap.DecodePixelHeight = 160;
             bitmap.EndInit();
             bitmap.Freeze();
             image = bitmap;

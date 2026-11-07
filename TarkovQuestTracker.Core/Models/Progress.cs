@@ -41,6 +41,8 @@ public sealed class AppSettings
     public string ToggleOverlayHotkey { get; set; } = "Ctrl+Shift+H";
     /// <summary>Opens the flea market price search in the middle of the screen.</summary>
     public string FleaSearchHotkey { get; set; } = "Ctrl+Shift+F";
+    /// <summary>Opens the map list on the overlay to start a raid ("which map am I going to").</summary>
+    public string RaidHotkey { get; set; } = "Ctrl+Shift+R";
     /// <summary>Flea price search window opacity (lower = more of the game shows through).</summary>
     public double FleaOpacity { get; set; } = 0.9;
     /// <summary>Look for a newer release on GitHub when the app starts.</summary>

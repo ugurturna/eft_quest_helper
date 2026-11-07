@@ -44,7 +44,7 @@
 
     <!-- active -->
     <sys:String x:Key="s.clearAll">Clear all</sys:String>
-    <sys:String x:Key="s.active.desc">Every quest you activated is here. The overlay only shows the ones with 📌 Overlay on; a quest you activate by hand is added automatically.</sys:String>
+    <sys:String x:Key="s.active.desc">Every quest you activated is here. The overlay only shows the ones with 📌 Overlay on, and in a raid the quests of that map.</sys:String>
     <sys:String x:Key="s.finish">Done</sys:String>
     <sys:String x:Key="s.remove">Remove</sys:String>
     <sys:String x:Key="s.details">Details</sys:String>
@@ -243,6 +243,8 @@
     <sys:String x:Key="s.keys.barTip">Overlay shortcuts - explained at the top of the Settings tab</sys:String>
     <sys:String x:Key="s.keys.flea">Flea market price search: opens in the middle of the screen; type 3 letters of an item name to see its prices for the selected mode (PvP / PvE) from tarkov.dev. Esc closes it and returns to the game.</sys:String>
     <sys:String x:Key="s.keys.barFlea">flea price</sys:String>
+    <sys:String x:Key="s.keys.raid">Entering a raid: a map list opens on the overlay (it unlocks for the click); pick the map and the overlay shows that map's active quests. Press again to close it.</sys:String>
+    <sys:String x:Key="s.keys.barRaid">raid map</sys:String>
     <sys:String x:Key="s.flea.title">FLEA MARKET</sys:String>
     <sys:String x:Key="s.flea.esc">Esc: back to game</sys:String>
     <sys:String x:Key="s.flea.placeholder">Type an item name (at least 3 letters)…</sys:String>
@@ -263,6 +265,14 @@
     <sys:String x:Key="s.untrackAll">Clear overlay</sys:String>
     <sys:String x:Key="s.untrackAll.tip">Removes every quest from the overlay; they stay active.</sys:String>
     <sys:String x:Key="a.summary">{0} active quests · {1} on the overlay</sys:String>
+    <sys:String x:Key="s.tab.raid">Entering a raid</sys:String>
+    <sys:String x:Key="s.raid.pick">Which map are you going to?</sys:String>
+    <sys:String x:Key="s.raid.desc">The overlay then shows every active quest on that map by itself (for quests on several maps only the objectives of this one), plus the ones you pinned with 📌. Ctrl+Shift+R picks the map in game.</sys:String>
+    <sys:String x:Key="s.raid.end">Raid over</sys:String>
+    <sys:String x:Key="raid.active">🎯 In a raid on {0}: {1} quests on the overlay</sys:String>
+    <sys:String x:Key="raid.count">{0} active quests</sys:String>
+    <sys:String x:Key="t.raidStart">🎯 {0}: {1} quests on the overlay</sys:String>
+    <sys:String x:Key="t.raidEnd">Raid over: the overlay shows your pinned quests again</sys:String>
     <sys:String x:Key="s.set.fleaOpacity">Flea search opacity</sys:String>
     <sys:String x:Key="s.set.fleaOpacity.hint">(Ctrl+Shift+F window; lower it to see the game behind)</sys:String>
     <sys:String x:Key="s.u.title">UPDATES</sys:String>

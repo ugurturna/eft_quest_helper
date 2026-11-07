@@ -132,6 +132,8 @@ public partial class OverlayWindow : Window
             failed.Add(_vm.Settings.ToggleOverlayHotkey);
         if (!_hotkeys.Register(_vm.Settings.FleaSearchHotkey, () => (_flea ??= new FleaSearchWindow(_vm)).Toggle()))
             failed.Add(_vm.Settings.FleaSearchHotkey);
+        if (!_hotkeys.Register(_vm.Settings.RaidHotkey, ToggleMapPicker))
+            failed.Add(_vm.Settings.RaidHotkey);
         if (failed.Count > 0) _vm.Toast = Loc.F("t.hotkeyFail", string.Join(", ", failed));
     }
 
@@ -166,4 +168,32 @@ public partial class OverlayWindow : Window
     }
 
     void Hide_Click(object sender, RoutedEventArgs e) => ToggleVisible();
+
+    // raid hotkey: a map list in the overlay; clicks must reach it, so it unlocks until a map is picked
+    bool _lockedBeforePicker;
+
+    void ToggleMapPicker()
+    {
+        if (MapPicker.Visibility == Visibility.Visible)
+        {
+            CloseMapPicker();
+            return;
+        }
+        if (!IsVisible) ToggleVisible();
+        _lockedBeforePicker = ClickThrough;
+        SetClickThrough(false);
+        MapPicker.Visibility = Visibility.Visible;
+    }
+
+    void CloseMapPicker()
+    {
+        MapPicker.Visibility = Visibility.Collapsed;
+        SetClickThrough(_lockedBeforePicker);
+    }
+
+    void PickMap_Click(object sender, RoutedEventArgs e)
+    {
+        if (sender is FrameworkElement { Tag: string map }) _vm.StartRaidCommand.Execute(map);
+        CloseMapPicker();
+    }
 }

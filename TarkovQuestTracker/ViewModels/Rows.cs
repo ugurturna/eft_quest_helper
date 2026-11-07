@@ -229,3 +229,16 @@ public sealed partial class ObjectiveVm : ObservableObject
         _changed(this);
     }
 }
+
+/// <summary>One map in the "entering a raid" picker.</summary>
+public sealed class MapCardVm(string name, int activeCount, bool isSelected)
+{
+    public string Name { get; } = name;
+    /// <summary>"CUSTOMS": the big label of the card.</summary>
+    public string Title => Name.ToUpperInvariant();
+    /// <summary>Active quests with something to do on this map.</summary>
+    public int ActiveCount { get; } = activeCount;
+    public bool IsSelected { get; } = isSelected;
+    public bool HasQuests => ActiveCount > 0;
+    public string CountText { get; } = Loc.F("raid.count", activeCount);
+}

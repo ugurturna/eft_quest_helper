@@ -69,6 +69,8 @@ public sealed class Objective
     public bool Optional { get; set; }
     public bool Fir { get; set; }
     public string? Map { get; set; }
+    /// <summary>Every map the objective counts on ("on Woods, Ground Zero, Interchange, Customs"); Map is the first.</summary>
+    public List<string> Maps { get; set; } = [];
     public bool PveOnly { get; set; }
     public List<string> Details { get; set; } = [];
 
@@ -76,6 +78,8 @@ public sealed class Objective
     [JsonIgnore] public List<string> DisplayDetails { get; set; } = [];
     /// <summary>The item this objective is about (icon in the UI), from data/quest_items.json.</summary>
     [JsonIgnore] public ItemNeed? Item { get; set; }
+    /// <summary><see cref="Maps"/>, or <see cref="Map"/> for data written before Maps existed.</summary>
+    [JsonIgnore] public IReadOnlyList<string> AllMaps => Maps.Count > 0 ? Maps : Map is { } m ? [m] : [];
 }
 
 public sealed class RequiredItem

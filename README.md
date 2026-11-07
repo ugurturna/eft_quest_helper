@@ -44,6 +44,7 @@
 - **Flea market prices in game** — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> opens a price search in the middle of the screen; type 3 letters of an item and see its flea price for your mode (PvP / PvE). See [Flea market prices](#flea-market-prices).
 - **Side menu** — pages (Quests, Goal Planner, Kappa, Items, Active Quests, End Game, Settings) are in a menu on the left.
 - **What to bring into the raid** — keys, markers (with how many you need), items to plant, the weapon to use and the clothes to wear are shown at the top of each quest and on its *Active Quests* card.
+- **Entering a raid** — the first item of the side menu: pick the map you are going to (a card per map with how many active quests it has) and the overlay shows every active quest on that map by itself, plus the ones you pinned. For quests on several maps only the objectives of that map are shown, and "hand over" steps are left out. <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> picks the map in game; **Raid over** goes back to the pinned list.
 - **Handing in accepts the next quests** — complete an active quest and the quests it unlocks become active (not pinned to the overlay: you still have to take them from the trader).
 - **Activating a quest completes its chain** — set *Punisher Part 5* active and Parts 1–4 are marked done automatically (one-click undo).
 - **PvP and PvE** — separate progress for each mode; PvE-specific differences (levels, objectives, items) are shown.
@@ -101,7 +102,7 @@ Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> in game to check what an ite
 - Results appear as soon as you type **3 letters**, in English or Turkish (`gpu`, `ledx`, `salewa`, `ekran kartı`).
 - Prices follow your **game mode**: PvP and PvE flea prices are different, the window shows the mode you selected.
 - For each item: **flea price** (lowest offer, or the 24 h average when nobody is selling), **price per slot** for bigger items, **24 h average**, **48 h trend**, the **best trader** to sell to, and *Can't be sold on flea* for banned items.
-- Prices come from [tarkov.dev](https://tarkov.dev) (`json.tarkov.dev/regular/items` and `/pve/items`). Both modes are downloaded in the background when the app starts and kept on disk with a timestamp; if they are older than **15 minutes** when you open the search, your mode is downloaded again while you search the saved copy. Searching never waits for the network.
+- Prices come from [tarkov.dev](https://tarkov.dev) (`json.tarkov.dev/regular/items` and `/pve/items`). The mode you play is downloaded in the background when the app starts (the other one when you search in it) and kept on disk with a timestamp; if they are older than **15 minutes** when you open the search, your mode is downloaded again while you search the saved copy. Searching never waits for the network.
 
 ### Overlay
 
@@ -128,12 +129,13 @@ Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> in game to check what an ite
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> | **Lock / unlock the overlay.** While locked it can't be clicked and every click goes through to the game, so leave it locked while you play. Unlock it to change settings or move it. |
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> | **Show / hide the overlay**, e.g. to clear the screen mid-raid. |
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | **Flea market price search** in the middle of the screen, for your mode (PvP / PvE). <kbd>Esc</kbd> closes it and returns to the game. |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> | **Entering a raid**: a map list opens on the overlay (unlocked for the click); pick the map and the overlay shows its active quests. Press again to close it. |
 | <kbd>Ctrl</kbd> + mouse wheel | With the mouse over the (unlocked) overlay: **make it bigger / smaller** (60–200 %). |
 | Drag the overlay header | **Move the overlay anywhere** on the screen (unlocked only). |
 
 - The shortcuts work while the game is running and the app is in the background.
 - They are always shown in the bottom bar of the main window, and explained at the top of **Settings**, because the overlay's own hint can be hard to read in game.
-- To change them, edit `clickThroughHotkey` / `toggleOverlayHotkey` / `fleaSearchHotkey` in the profile's `settings.json` (e.g. `"Ctrl+Alt+F9"`). If a shortcut is already taken by another program, the app tells you at start.
+- To change them, edit `clickThroughHotkey` / `toggleOverlayHotkey` / `fleaSearchHotkey` / `raidHotkey` in the profile's `settings.json` (e.g. `"Ctrl+Alt+F9"`). If a shortcut is already taken by another program, the app tells you at start.
 
 ## Download & run
 
@@ -174,7 +176,7 @@ Without a `data` folder next to the exe, the same files go to `%APPDATA%\TarkovQ
 
 Progress is saved on every click. Use **Settings → Export / Import** to back it up or move it to another PC.
 
-Hotkeys can be changed in `settings.json` (`clickThroughHotkey`, `toggleOverlayHotkey`, `fleaSearchHotkey`, e.g. `"Ctrl+Alt+F9"`).
+Hotkeys can be changed in `settings.json` (`clickThroughHotkey`, `toggleOverlayHotkey`, `fleaSearchHotkey`, `raidHotkey`, e.g. `"Ctrl+Alt+F9"`).
 
 ## Credits & legal
 

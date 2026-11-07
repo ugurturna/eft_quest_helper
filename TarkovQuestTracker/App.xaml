@@ -98,11 +98,47 @@
             <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
             <Setter Property="TextWrapping" Value="Wrap" />
         </Style>
-        <Style x:Key="SmallButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-            <Setter Property="Padding" Value="8,2" />
+        <!-- small button with a visible raised surface (the Fluent default is dark-on-dark and reads as a label);
+             Background / BorderBrush / Foreground can still be overridden, e.g. the pinned 📌 Overlay button -->
+        <Style x:Key="SmallButton" TargetType="Button">
+            <Setter Property="Padding" Value="9,3" />
             <Setter Property="Margin" Value="0,0,6,0" />
             <Setter Property="FontSize" Value="12" />
             <Setter Property="MinHeight" Value="0" />
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+            <Setter Property="Background" Value="#34342C" />
+            <Setter Property="BorderBrush" Value="#55554A" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="root">
+                            <Border x:Name="bd" CornerRadius="4" Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+                            <Border x:Name="hover" CornerRadius="4" Background="White" Opacity="0" />
+                            <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              TextElement.Foreground="{TemplateBinding Foreground}" RecognizesAccessKey="True" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="hover" Property="Opacity" Value="0.08" />
+                                <Setter TargetName="bd" Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="hover" Property="Opacity" Value="0.16" />
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="bd" Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="root" Property="Opacity" Value="0.4" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <!-- big outlined action button; Foreground is the accent colour (border + text).
@@ -125,13 +161,16 @@
                         <Grid x:Name="root">
                             <Border x:Name="bd" CornerRadius="5" Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+                            <!-- filled with its own colour so it reads as a button, not an outlined label -->
+                            <Border x:Name="tint" CornerRadius="5" Background="{TemplateBinding Foreground}" Opacity="0.24" />
                             <Border x:Name="hover" CornerRadius="5" Background="White" Opacity="0" />
                             <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="Center" VerticalAlignment="Center"
                                               TextElement.Foreground="{TemplateBinding Foreground}" RecognizesAccessKey="True" />
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="hover" Property="Opacity" Value="0.10" />
+                                <Setter TargetName="tint" Property="Opacity" Value="0.40" />
+                                <Setter TargetName="hover" Property="Opacity" Value="0.06" />
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter TargetName="hover" Property="Opacity" Value="0.20" />
@@ -147,6 +186,82 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <!-- one map of the "entering a raid" picker: big map name, active quest count; click = start the raid there -->
+        <DataTemplate x:Key="MapCard" DataType="{x:Type vm:MapCardVm}">
+            <Button Command="{Binding DataContext.StartRaidCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                    CommandParameter="{Binding Name}" Cursor="Hand" Margin="0,0,8,8" ToolTip="{Binding CountText}"
+                    AutomationProperties.Name="{Binding Name}">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Frame" Width="200" Height="113" CornerRadius="5" ClipToBounds="True"
+                                Background="{StaticResource CardBrush}" BorderBrush="{StaticResource LineBrush}" BorderThickness="2">
+                            <StackPanel VerticalAlignment="Center" Margin="8,0">
+                                <Viewbox StretchDirection="DownOnly" MaxHeight="40">
+                                    <TextBlock Text="{Binding Title}" Foreground="{StaticResource TextBrush}" FontWeight="Bold" FontSize="26" />
+                                </Viewbox>
+                                <TextBlock x:Name="Count" Text="{Binding CountText}" Foreground="{StaticResource MutedBrush}" FontSize="12"
+                                           HorizontalAlignment="Center" Margin="0,4,0,0" />
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <DataTrigger Binding="{Binding HasQuests}" Value="True">
+                                <Setter TargetName="Count" Property="Foreground" Value="{StaticResource AccentBrush}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding HasQuests}" Value="False">
+                                <Setter TargetName="Frame" Property="Opacity" Value="0.55" />
+                            </DataTrigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Frame" Property="BorderBrush" Value="{StaticResource MutedBrush}" />
+                                <Setter TargetName="Frame" Property="Opacity" Value="1" />
+                            </Trigger>
+                            <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                <Setter TargetName="Frame" Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+                                <Setter TargetName="Frame" Property="Opacity" Value="1" />
+                            </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </DataTemplate>
+
+        <!-- small map button ("Customs 5") for the Active Quests page -->
+        <DataTemplate x:Key="MapChip" DataType="{x:Type vm:MapCardVm}">
+            <Button x:Name="Chip" Command="{Binding DataContext.StartRaidCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                    CommandParameter="{Binding Name}" Style="{StaticResource SmallButton}" Margin="0,0,6,6" Padding="8,3"
+                    ToolTip="{Binding CountText}" AutomationProperties.Name="{Binding Name}">
+                <TextBlock>
+                    <Run Text="{Binding Name, Mode=OneWay}" />
+                    <Run Text="{Binding ActiveCount, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
+                </TextBlock>
+            </Button>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding HasQuests}" Value="False">
+                    <Setter TargetName="Chip" Property="Opacity" Value="0.55" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                    <Setter TargetName="Chip" Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+                    <Setter TargetName="Chip" Property="Foreground" Value="{StaticResource AccentBrush}" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+        <!-- "in a raid on Customs: 5 quests on the overlay · [Raid over]"; content = MainViewModel -->
+        <DataTemplate x:Key="RaidBanner">
+            <Border BorderBrush="{StaticResource AccentBrush}" BorderThickness="3,0,0,0" Background="{StaticResource CardBrush}"
+                    CornerRadius="4" Padding="10,6" Margin="0,0,0,8"
+                    Visibility="{Binding IsInRaid, Converter={StaticResource BoolToVis}}">
+                <DockPanel>
+                    <!-- the banner's one action: filled accent so it stands out -->
+                    <Button DockPanel.Dock="Right" Content="{DynamicResource s.raid.end}" Style="{StaticResource SmallButton}" Margin="8,0,0,0"
+                            Padding="14,5" FontSize="13" FontWeight="SemiBold" Background="{StaticResource AccentBrush}"
+                            BorderBrush="{StaticResource AccentBrush}" Foreground="{StaticResource BgBrush}"
+                            Command="{Binding EndRaidCommand}" />
+                    <TextBlock Text="{Binding RaidSummary}" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold"
+                               VerticalAlignment="Center" TextWrapping="Wrap" />
+                </DockPanel>
+            </Border>
+        </DataTemplate>
 
         <!-- coloured status pill for QuestRow -->
         <DataTemplate x:Key="StatusPill" DataType="{x:Type vm:QuestRow}">

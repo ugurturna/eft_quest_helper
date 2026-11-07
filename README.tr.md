@@ -44,6 +44,7 @@
 - **Oyun içinde flea fiyatları** — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> ekranın ortasında fiyat araması açar; item'ın 3 harfini yaz, modundaki (PvP / PvE) flea fiyatını gör. [Flea market fiyatları](#flea-market-fiyatları) bölümüne bak.
 - **Sol menü** — sayfalar (Görevler, Hedef Planlayıcı, Kappa, Eşyalar, Aktif Görevler, End Game, Ayarlar) soldaki menüde.
 - **Baskına ne götürmeli** — anahtarlar, markerlar (kaç tane gerektiğiyle), yerleştirilecek itemler, kullanılacak silah ve giyilecek kıyafet her görevin en üstünde ve *Aktif Görevler* kartında görünür.
+- **Raid'e giriyorum** — sol menünün ilk maddesi: gireceğin haritayı seç (her harita için kaç aktif görevin olduğunu gösteren kartlar), overlay o haritadaki bütün aktif görevleri kendiliğinden göstersin, sabitlediklerin de kalsın. Birden çok haritalı görevlerde sadece o haritanın hedefleri görünür, "teslim et" adımları gizlenir. Oyunda <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> ile harita seçilir; **Raid bitti** sabitlenmiş listeye döner.
 - **Teslim edince sonraki görevler kabul edilir** — aktif bir görevi tamamla, açtığı görevler aktif olsun (overlay'e eklenmez: trader'dan almayı yine sen yaparsın).
 - **Bir görevi aktif yapmak zincirini tamamlar** — *Punisher Part 5*'i aktif yap, Part 1–4 otomatik tamamlandı sayılsın (tek tıkla geri alınabilir).
 - **PvP ve PvE** — her mod için ayrı ilerleme; PvE'ye özel farklar (seviye, hedefler, itemler) gösterilir.
@@ -101,7 +102,7 @@ Oyundayken bir item'ın kaça gittiğini görmek için tarayıcıya alt-tab yapm
 - **3 harf** yazınca sonuçlar gelir; İngilizce ya da Türkçe (`gpu`, `ledx`, `salewa`, `ekran kartı`).
 - Fiyatlar **oyun moduna** göredir: PvP ve PvE flea fiyatları farklıdır, pencere seçtiğin modu gösterir.
 - Her item için: **flea fiyatı** (en düşük teklif, satan yoksa 24 saatlik ortalama), büyük itemlerde **slot başı fiyat**, **24s ortalama**, **48 saatlik değişim**, satılabilecek **en iyi trader** ve flea'da satılamayanlar için *Flea'da satılamaz*.
-- Fiyatlar [tarkov.dev](https://tarkov.dev)'den gelir (`json.tarkov.dev/regular/items` ve `/pve/items`). Uygulama açılınca iki mod da arka planda indirilir ve zaman damgasıyla diske kaydedilir; aramayı açtığında **15 dakikadan** eskiyse senin modun yeniden indirilir, bu sırada kayıtlı kopyada aramaya devam edersin. Arama asla internet beklemez.
+- Fiyatlar [tarkov.dev](https://tarkov.dev)'den gelir (`json.tarkov.dev/regular/items` ve `/pve/items`). Uygulama açılınca oynadığın mod arka planda indirilir (diğeri o modda arama açınca) ve zaman damgasıyla diske kaydedilir; aramayı açtığında **15 dakikadan** eskiyse senin modun yeniden indirilir, bu sırada kayıtlı kopyada aramaya devam edersin. Arama asla internet beklemez.
 
 ### Overlay
 
@@ -128,12 +129,13 @@ Oyundayken bir item'ın kaça gittiğini görmek için tarayıcıya alt-tab yapm
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> | **Overlay'i kilitle / kilidi aç.** Kilitliyken overlay'e tıklanamaz, tüm tıklamalar oyuna geçer; oynarken kilitli bırak. Ayar yapmak ya da taşımak için kilidi aç. |
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> | **Overlay'i göster / gizle**, ör. raid ortasında ekranı temizlemek için. |
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | Ekranın ortasında **flea market fiyat araması**, modundaki (PvP / PvE) fiyatlarla. <kbd>Esc</kbd> kapatır ve oyuna döner. |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> | **Raid'e giriyorum**: overlay'de harita listesi açılır (tıklayabilmen için kilidi açılır); haritayı seç, overlay o haritanın aktif görevlerini göstersin. Tekrar basınca kapanır. |
 | <kbd>Ctrl</kbd> + fare tekerleği | Fare (kilidi açık) overlay'in üstündeyken: **büyüt / küçült** (%60–200). |
 | Overlay başlığını sürükle | **Overlay'i ekranda istediğin yere taşı** (sadece kilit açıkken). |
 
 - Kısayollar oyun açıkken ve uygulama arka plandayken de çalışır.
 - Overlay'deki ipucu oyunda zor okunabildiği için kısayollar ana pencerenin alt çubuğunda hep görünür, **Ayarlar**'ın en üstünde de açıklamalı olarak yazar.
-- Değiştirmek için profilin `settings.json` dosyasında `clickThroughHotkey` / `toggleOverlayHotkey` / `fleaSearchHotkey` (ör. `"Ctrl+Alt+F9"`). Kısayol başka bir program tarafından kullanılıyorsa uygulama açılışta söyler.
+- Değiştirmek için profilin `settings.json` dosyasında `clickThroughHotkey` / `toggleOverlayHotkey` / `fleaSearchHotkey` / `raidHotkey` (ör. `"Ctrl+Alt+F9"`). Kısayol başka bir program tarafından kullanılıyorsa uygulama açılışta söyler.
 
 ## İndir & çalıştır
 
@@ -174,7 +176,7 @@ Exe'nin yanında `data` klasörü yoksa aynı dosyalar `%APPDATA%\TarkovQuestTra
 
 İlerleme her tıklamada kaydedilir. Yedeklemek ya da başka bilgisayara taşımak için **Ayarlar → Dışa / İçe aktar**'ı kullan.
 
-Kısayollar `settings.json` içinden değiştirilebilir (`clickThroughHotkey`, `toggleOverlayHotkey`, `fleaSearchHotkey`, ör. `"Ctrl+Alt+F9"`).
+Kısayollar `settings.json` içinden değiştirilebilir (`clickThroughHotkey`, `toggleOverlayHotkey`, `fleaSearchHotkey`, `raidHotkey`, ör. `"Ctrl+Alt+F9"`).
 
 ## Kaynaklar & yasal
 

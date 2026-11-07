@@ -622,6 +622,39 @@ public sealed partial class MainViewModel : ObservableObject
     public bool HasTracked => TrackedQuests.Count > 0;
     public string ActiveSummary => Loc.F("a.summary", ActiveQuests.Count, TrackedQuests.Count);
 
+    /// <summary>The map the player is raiding (not saved): the overlay then shows that map's active quests.</summary>
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsInRaid))]
+    private string? _raidMap;
+    public bool IsInRaid => RaidMap != null;
+    /// <summary>Map picker cards, with how many active quests each map has.</summary>
+    public BulkObservableCollection<MapCardVm> RaidMaps { get; } = [];
+    /// <summary>What the overlay shows: the pinned quests, or in a raid the map's quests (only their objectives there) + the pinned ones.</summary>
+    public BulkObservableCollection<ActiveQuestVm> OverlayQuests { get; } = [];
+    public bool HasOverlayQuests => OverlayQuests.Count > 0;
+    public string RaidSummary => RaidMap == null ? "" : Loc.F("raid.active", RaidMap, OverlayQuests.Count);
+
+    partial void OnRaidMapChanged(string? value)
+    {
+        if (_repo != null) RefreshActive();
+    }
+
+    [RelayCommand]
+    void StartRaid(string? map)
+    {
+        if (string.IsNullOrEmpty(map)) return;
+        RaidMap = map;
+        Toast = Loc.F("t.raidStart", map, OverlayQuests.Count);
+    }
+
+    [RelayCommand]
+    void EndRaid()
+    {
+        if (RaidMap == null) return;
+        RaidMap = null;
+        Toast = Loc.T("t.raidEnd");
+    }
+
     void RefreshActive()
     {
         Progress.Active.RemoveAll(id => !_repo.ById.ContainsKey(id));
@@ -632,8 +665,22 @@ public sealed partial class MainViewModel : ObservableObject
             Progress.Tracked.Contains(q.Id))));
         // overlay order follows the order the quests were tracked in
         Replace(TrackedQuests, Progress.Tracked.Select(id => ActiveQuests.First(a => a.Quest.Id == id)));
+
+        // in a raid: the map's quests with only the objectives done there (same ObjectiveVm, counters stay in sync),
+        // then the pinned quests that are not on the map
+        var onMap = RaidMap is not { } map ? [] : ActiveQuests
+            .Select(a => (a, show: RaidFilter.Objectives(a.Quest, map).ToHashSet()))
+            .Where(x => x.show.Count > 0)
+            .Select(x => new ActiveQuestVm(x.a.Quest, x.a.Objectives.Where(o => x.show.Contains(o.Objective)), x.a.IsTracked))
+            .ToList();
+        Replace(OverlayQuests, onMap.Concat(TrackedQuests.Where(t => onMap.All(m => m.Quest.Id != t.Quest.Id))));
+        Replace(RaidMaps, RaidFilter.Maps(_repo.Quests)
+            .Select(m => new MapCardVm(m, ActiveQuests.Count(a => RaidFilter.Objectives(a.Quest, m).Count > 0), m == RaidMap))
+            .OrderByDescending(c => c.ActiveCount > 0));
         OnPropertyChanged(nameof(HasActive));
         OnPropertyChanged(nameof(HasTracked));
+        OnPropertyChanged(nameof(HasOverlayQuests));
+        OnPropertyChanged(nameof(RaidSummary));
         OnPropertyChanged(nameof(ActiveSummary));
     }
 
