@@ -12,6 +12,9 @@ permissions:
 jobs:
   build:
     runs-on: windows-latest
+    env:
+      # optional: without this secret the release still ships, just without the scan
+      VT_API_KEY: ${{ secrets.VT_API_KEY }}
     steps:
       - uses: actions/checkout@v4
 
@@ -44,3 +47,34 @@ jobs:
         with:
           files: ${{ env.ZIP }}
           generate_release_notes: true
+
+      # Scan the exe and the zip; a failed or slow scan never fails the release
+      - name: VirusTotal scan
+        id: vt
+        if: env.VT_API_KEY != ''
+        continue-on-error: true
+        shell: pwsh
+        run: >
+          ./.github/scripts/virustotal.ps1 -Version "${{ github.ref_name }}"
+          -Files publish/TarkovQuestTracker.exe, $env:ZIP -Out virustotal.json -Notes vt-notes.md
+
+      - name: Add scan to release notes
+        if: steps.vt.outcome == 'success'
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: vt-notes.md
+          append_body: true
+
+      # docs/ is the GitHub Pages site; the landing page reads docs/virustotal.json
+      - name: Publish scan to landing page
+        if: steps.vt.outcome == 'success'
+        shell: pwsh
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          Copy-Item virustotal.json docs/virustotal.json -Force
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/virustotal.json
+          git commit -m "VirusTotal scan for ${{ github.ref_name }}"
+          git push origin main

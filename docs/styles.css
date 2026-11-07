@@ -124,13 +124,16 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   height: 72px;
 }
 
 .nav-brand {
   display: flex;
   align-items: center;
+  min-width: 0;
   gap: 12px;
+  white-space: nowrap;
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -705,6 +708,90 @@ img {
   color: var(--text-secondary);
 }
 
+.vt-scan {
+  margin-top: 32px;
+  padding: 20px 22px;
+  background: rgba(46, 164, 79, 0.06);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.vt-scan[hidden] {
+  display: none;
+}
+
+.vt-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.vt-head h4 {
+  font-size: 1.1rem;
+  color: var(--accent-green);
+}
+
+.vt-meta {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.vt-files {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* the result drops under the file name when both don't fit on one line */
+.vt-files li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 16px;
+}
+
+.vt-name {
+  min-width: 0;
+  color: var(--text-primary);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.vt-result {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-green);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.vt-result.flagged {
+  color: var(--accent-gold);
+}
+
+.vt-result:hover {
+  text-decoration: underline;
+}
+
+.vt-sha {
+  flex-basis: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+.vt-note {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
 /* How to use / Quickstart */
 .steps-section {
   padding: 90px 0;
@@ -1029,7 +1116,8 @@ kbd {
   }
 }
 
-@media (max-width: 768px) {
+/* six nav links + brand + actions only fit side by side on wide screens */
+@media (max-width: 1100px) {
   .nav-links {
     display: none;
     position: absolute;
@@ -1045,10 +1133,47 @@ kbd {
   .nav-links.mobile-open {
     display: flex;
   }
+  /* the download button already shows the version */
+  .nav-brand .brand-tag {
+    display: none;
+  }
   .mobile-toggle {
     display: block;
   }
+}
+
+@media (max-width: 768px) {
   .cta-box {
     padding: 40px 20px;
+  }
+}
+
+/* Phones: brand, language switcher and download button share one row */
+@media (max-width: 560px) {
+  .nav-brand {
+    gap: 8px;
+    font-size: 1.05rem;
+  }
+  .nav-brand img {
+    width: 32px;
+    height: 32px;
+  }
+  .nav-actions {
+    gap: 8px;
+  }
+  /* icon-only download (label kept for screen readers); the hero has the full button */
+  .nav-actions .btn span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-brand .brand-title {
+    display: none;
   }
 }

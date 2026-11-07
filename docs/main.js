@@ -66,6 +66,10 @@ const translations = {
     safeDoes3: "Uses standard Windows RegisterHotKey API for hotkeys.",
     safeDoes4: "Stores all progress locally in the data folder next to the app.",
     safeDisclaimer: "Notice: EFT Quest Helper is an independent fan project not affiliated with Battlestate Games. Always play Tarkov in Borderless or Windowed mode to allow Windows to render overlays.",
+    vtTitle: "🛡️ VIRUSTOTAL SCAN",
+    vtMeta: "{v} · scanned {d}",
+    vtResult: "{n} / {t} engines flagged it →",
+    vtNote: "Every release is uploaded to VirusTotal automatically when it is built. You can compare the SHA-256 with the file you downloaded.",
 
     guideTag: "Quick Start",
     guideTitle: "Get Started in 4 Easy Steps",
@@ -191,6 +195,10 @@ const translations = {
     safeDoes3: "Kısayol tuşları için standart Windows RegisterHotKey API'sini kullanır.",
     safeDoes4: "Tüm ilerlemenizi uygulamanın yanındaki data klasöründe, yerel olarak saklar.",
     safeDisclaimer: "Bilgilendirme: EFT Quest Helper, Battlestate Games ile bağı olmayan bağımsız bir hayran projesidir. Windows'un pencere çizebilmesi için Tarkov'u Çerçevesiz (Borderless) modda oynayın.",
+    vtTitle: "🛡️ VIRUSTOTAL TARAMASI",
+    vtMeta: "{v} · {d} tarihinde tarandı",
+    vtResult: "{t} motordan {n} tanesi işaretledi →",
+    vtNote: "Her sürüm derlendiği anda otomatik olarak VirusTotal'a yüklenir. SHA-256 değerini indirdiğiniz dosyayla karşılaştırabilirsiniz.",
 
     guideTag: "Hızlı Başlangıç",
     guideTitle: "4 Kolay Adımda Kullanmaya Başla",
@@ -316,6 +324,10 @@ const translations = {
     safeDoes3: "Использует официальный Windows API RegisterHotKey для горячих клавиш.",
     safeDoes4: "Хранит весь прогресс локально в папке data рядом с приложением.",
     safeDisclaimer: "Примечание: EFT Quest Helper — независимый фанатский проект, не связанный с Battlestate Games. Запускайте Tarkov в режиме 'Без рамки' (Borderless).",
+    vtTitle: "🛡️ ПРОВЕРКА VIRUSTOTAL",
+    vtMeta: "{v} · проверено {d}",
+    vtResult: "Сработало {n} из {t} антивирусов →",
+    vtNote: "Каждый релиз автоматически загружается в VirusTotal сразу после сборки. Сравните SHA-256 со скачанным файлом.",
 
     guideTag: "Быстрый старт",
     guideTitle: "Начните за 4 простых шага",
@@ -413,9 +425,53 @@ function setLanguage(lang) {
     }
   });
   document.querySelectorAll('[data-version]').forEach(el => { el.textContent = version; });
+  renderVirusTotal();
 
   // Update HTML lang attribute
   document.documentElement.lang = lang;
+}
+
+// VirusTotal results of the latest release; written to docs/virustotal.json by the release workflow
+let virusTotal = null;
+
+function loadVirusTotal() {
+  fetch('virustotal.json', { cache: 'no-cache' })
+    .then(r => (r.ok ? r.json() : null))
+    .then(data => {
+      if (!data || !Array.isArray(data.files) || !data.files.length) return;
+      virusTotal = data;
+      renderVirusTotal();
+    })
+    .catch(() => { /* no scan published yet: the block stays hidden */ });
+}
+
+function renderVirusTotal() {
+  const box = document.getElementById('vt-scan');
+  if (!box || !virusTotal) return;
+  const t = translations[currentLang];
+  const date = new Date(virusTotal.scannedAt).toLocaleDateString(currentLang, { year: 'numeric', month: 'long', day: 'numeric' });
+  document.getElementById('vt-meta').textContent = t.vtMeta.replace('{v}', virusTotal.version).replace('{d}', date);
+
+  const list = document.getElementById('vt-files');
+  list.replaceChildren(...virusTotal.files.map(f => {
+    const li = document.createElement('li');
+    const name = document.createElement('span');
+    name.className = 'vt-name';
+    name.textContent = f.name;
+    const flagged = f.malicious + f.suspicious;
+    const link = document.createElement('a');
+    link.className = flagged ? 'vt-result flagged' : 'vt-result';
+    link.href = f.url;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = t.vtResult.replace('{n}', flagged).replace('{t}', f.engines);
+    const sha = document.createElement('code');
+    sha.className = 'vt-sha';
+    sha.textContent = `SHA-256: ${f.sha256}`;
+    li.append(name, link, sha);
+    return li;
+  }));
+  box.hidden = false;
 }
 
 // Latest release: version label everywhere, download buttons point straight at the zip
@@ -549,4 +605,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupFaq();
   setupMobileMenu();
   loadLatestRelease();
+  loadVirusTotal();
 });

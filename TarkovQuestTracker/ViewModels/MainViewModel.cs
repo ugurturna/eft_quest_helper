@@ -156,6 +156,7 @@ public sealed partial class MainViewModel : ObservableObject
         Refresh();
     }
     [ObservableProperty] private bool _isPve;
+    public const int MinPlayerLevel = 1, MaxPlayerLevel = 99;
     [ObservableProperty] private int _playerLevel = 1;
 
     partial void OnLanguageChanged(string value)
@@ -178,8 +179,11 @@ public sealed partial class MainViewModel : ObservableObject
 
     partial void OnPlayerLevelChanged(int value)
     {
+        // re-entering with the clamped value also pushes it back into the level box
+        var clamped = Math.Clamp(value, MinPlayerLevel, MaxPlayerLevel);
+        if (clamped != value) { PlayerLevel = clamped; return; }
         if (_loading) return;
-        Progress.PlayerLevel = Math.Clamp(value, 1, 79);
+        Progress.PlayerLevel = value;
         SaveProgress();
         Refresh();
     }

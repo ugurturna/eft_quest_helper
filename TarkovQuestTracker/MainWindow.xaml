@@ -113,7 +113,10 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,2,14,2">
                         <TextBlock Text="{DynamicResource s.level}" Style="{StaticResource Muted}" VerticalAlignment="Center" Margin="0,0,6,0" />
-                        <TextBox Text="{Binding PlayerLevel, UpdateSourceTrigger=LostFocus}" Width="56" KeyDown="Level_KeyDown" />
+                        <TextBox Text="{Binding PlayerLevel, UpdateSourceTrigger=Explicit}" Width="72" TextAlignment="Center"
+                                 VerticalContentAlignment="Center" InputMethod.IsInputMethodEnabled="False"
+                                 KeyDown="Level_KeyDown" LostFocus="Level_LostFocus" PreviewTextInput="Level_PreviewTextInput"
+                                 DataObject.Pasting="Level_Pasting" />
                     </StackPanel>
                     <Button Content="{DynamicResource s.overlayToggle}" Margin="0,2" Click="ToggleOverlay_Click" />
                 </WrapPanel>

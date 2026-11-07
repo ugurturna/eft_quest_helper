@@ -254,6 +254,16 @@
             </div>
           </div>
 
+          <!-- filled from virustotal.json, which the release workflow writes after every release -->
+          <div class="vt-scan" id="vt-scan" hidden>
+            <div class="vt-head">
+              <h4 data-i18n="vtTitle">🛡️ VIRUSTOTAL SCAN</h4>
+              <span class="vt-meta" id="vt-meta"></span>
+            </div>
+            <ul class="vt-files" id="vt-files"></ul>
+            <p class="vt-note" data-i18n="vtNote">Every release is uploaded to VirusTotal automatically when it is built. You can compare the SHA-256 with the file you downloaded.</p>
+          </div>
+
           <div class="safety-disclaimer">
             <p data-i18n="safeDisclaimer">
               Notice: EFT Quest Helper is an independent fan project not affiliated with Battlestate Games. Always play Tarkov in Borderless or Windowed mode to allow Windows to render overlays.

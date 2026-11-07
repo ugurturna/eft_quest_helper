@@ -88,6 +88,14 @@ Item icons also appear **inside the quests**: find / hand-over / plant objective
 
 Extract the zip anywhere and run `TarkovQuestTracker.exe`. Nothing to install: .NET is included. Keep the `data` folder next to the exe; it holds the quest data, the item icons and your progress.
 
+### "Windows protected your PC" warning
+
+The exe is not code-signed yet, so Microsoft Defender SmartScreen may show **"Windows protected your PC — Unknown publisher"** the first time you run it. This is expected for new, unsigned open-source apps and goes away as more people use it.
+
+To run it anyway: click **More info** → **Run anyway**.
+
+If you'd rather check it first, the full source is in this repo and every release is built by [GitHub Actions](.github/workflows/release.yml) from a tagged commit. You can also scan the zip on [VirusTotal](https://www.virustotal.com/) before running it.
+
 ### Updating
 
 Your progress is in `data\profiles` next to the exe. Extract the new version to a new folder and copy `data\profiles` over, or use **Settings → Export** in the old version and **Import** in the new one.
