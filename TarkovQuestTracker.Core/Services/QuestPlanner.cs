@@ -68,19 +68,16 @@ public sealed class QuestPlanner
         }
     }
 
-    public bool IsAvailable(Quest q, Progress p, bool ignoreLevel = false) =>
-        !p.Completed.Contains(q.Id)
-        && q.Prerequisites.All(p.Completed.Contains)
-        && (ignoreLevel || (q.MinLevel ?? 0) <= p.PlayerLevel);
-
-    public bool IsLevelLocked(Quest q, Progress p) => (q.MinLevel ?? 0) > p.PlayerLevel;
+    /// <summary>All prerequisites done; the required level is only shown, not checked.</summary>
+    public bool IsAvailable(Quest q, Progress p) =>
+        !p.Completed.Contains(q.Id) && q.Prerequisites.All(p.Completed.Contains);
 
     public GoalPlan PlanFor(string goalId, Progress p)
     {
         var goal = _repo.ById[goalId];
         var chain = TopoSort(Ancestors(goalId).Append(goalId));
         var remaining = chain.Where(q => !p.Completed.Contains(q.Id)).ToList();
-        var available = remaining.Where(q => IsAvailable(q, p, ignoreLevel: true)).ToList();
+        var available = remaining.Where(q => IsAvailable(q, p)).ToList();
         return new GoalPlan(goal, chain, remaining, available);
     }
 
@@ -98,7 +95,7 @@ public sealed class QuestPlanner
     {
         var chain = TopoSort(KappaSet());
         var remaining = chain.Where(q => !p.Completed.Contains(q.Id)).ToList();
-        var available = remaining.Where(q => IsAvailable(q, p, ignoreLevel: true)).ToList();
+        var available = remaining.Where(q => IsAvailable(q, p)).ToList();
         var goal = Get(CollectorId) ?? chain.LastOrDefault() ?? new Quest { Id = CollectorId, Name = "Collector" };
         return new GoalPlan(goal, chain, remaining, available);
     }
@@ -141,7 +138,19 @@ public sealed class QuestPlanner
 
     /// <summary>Quests that become available once <paramref name="id"/> is completed.</summary>
     public IReadOnlyList<Quest> UnlockedBy(string id, Progress p) =>
-        Dependents(id).Where(q => IsAvailable(q, p, ignoreLevel: true)).ToList();
+        Dependents(id).Where(q => IsAvailable(q, p)).ToList();
+
+    /// <summary>
+    /// After an active quest is handed in, the trader offers the next ones: they go to the active list
+    /// (not on the overlay, the player still has to accept them in game).
+    /// </summary>
+    public IReadOnlyList<Quest> AcceptUnlocked(Progress p, string id)
+    {
+        var accepted = UnlockedBy(id, p).Where(q => !p.Active.Contains(q.Id)).ToList();
+        foreach (var q in accepted) p.Active.Add(q.Id);
+        if (accepted.Count > 0) p.UpdatedAt = DateTime.UtcNow;
+        return accepted;
+    }
 
     public const string AnyMap = "Any";
 

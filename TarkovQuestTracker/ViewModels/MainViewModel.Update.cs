@@ -80,9 +80,14 @@ public sealed partial class MainViewModel
             var progress = new Progress<double>(p => UpdateStatus = Loc.F("u.downloading", release.Tag, p));
             var root = await Task.Run(() => updater.DownloadAsync(release, progress));
             UpdateStatus = Loc.T("u.installing");
-            await Task.Run(() => updater.Apply(root));
+            // flush the player's data to disk and back it up first; a failed backup aborts the update
             SaveSettings();
             SaveProgress();
+            await Task.Run(() =>
+            {
+                updater.BackupUserData();
+                updater.Apply(root);
+            });
             RestartRequested?.Invoke();
         }
         catch (Exception e) when (AppUpdater.IsUpdateError(e))

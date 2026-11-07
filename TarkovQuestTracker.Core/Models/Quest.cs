@@ -47,6 +47,9 @@ public sealed class Quest
     [JsonIgnore] public List<string> ModeWarnings { get; set; } = [];
     /// <summary>Items to hand over / plant (data/quest_items.json) for the active mode.</summary>
     [JsonIgnore] public List<ItemNeed> ItemNeeds { get; set; } = [];
+    /// <summary>What to bring into the raid (keys, markers, items to plant, weapon, clothes), by kind.</summary>
+    [JsonIgnore] public List<RaidNeedGroup> RaidNeeds { get; set; } = [];
+    [JsonIgnore] public IEnumerable<ItemNeed> RaidNeedItems => RaidNeeds.SelectMany(g => g.Items);
 
     [JsonIgnore] public bool IsKappa => KappaRequired == true;
     [JsonIgnore] public bool IsPastEvent => Category == "event" && EventActive == false;

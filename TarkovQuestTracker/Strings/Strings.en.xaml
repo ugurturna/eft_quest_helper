@@ -10,7 +10,6 @@
     <sys:String x:Key="s.mode.tip">PvP and PvE progress are kept separately</sys:String>
     <sys:String x:Key="s.appLang">App language</sys:String>
     <sys:String x:Key="s.questLang">Quest language</sys:String>
-    <sys:String x:Key="s.level">My level</sys:String>
     <sys:String x:Key="s.overlayToggle">Show/hide overlay</sys:String>
     <sys:String x:Key="s.undo">↶ Undo</sys:String>
 
@@ -41,7 +40,6 @@
 
     <!-- kappa -->
     <sys:String x:Key="s.activateAll">Activate all</sys:String>
-    <sys:String x:Key="s.kappa.levelWait">WAITING FOR LEVEL</sys:String>
     <sys:String x:Key="s.kappa.remaining">All remaining Kappa quests (in order)</sys:String>
 
     <!-- active -->
@@ -72,6 +70,8 @@
     <sys:String x:Key="s.view.detailed">Title + details (trader, map, objectives)</sys:String>
     <sys:String x:Key="s.set.position">Vertical position:</sys:String>
     <sys:String x:Key="s.set.position.hint">  (0% = top, 100% = bottom - you can also drag the overlay header)</sys:String>
+    <sys:String x:Key="s.set.positionX">Horizontal position:</sys:String>
+    <sys:String x:Key="s.set.positionX.hint">  (0% = left, 100% = right)</sys:String>
     <sys:String x:Key="s.set.opacity">Opacity:</sys:String>
     <sys:String x:Key="s.set.width">Width:</sys:String>
     <sys:String x:Key="s.set.scale">Size (text + buttons):</sys:String>
@@ -124,11 +124,20 @@
     <sys:String x:Key="s.trader">Trader: </sys:String>
     <sys:String x:Key="s.map">Map: </sys:String>
     <sys:String x:Key="s.lvl">Level: </sys:String>
-    <sys:String x:Key="s.btn.active">Activate / remove</sys:String>
-    <sys:String x:Key="s.btn.complete">Completed / undo</sys:String>
-    <sys:String x:Key="s.btn.goal">★ Set / remove goal</sys:String>
+    <sys:String x:Key="s.btn.active.on">▶  Activate</sys:String>
+    <sys:String x:Key="s.btn.active.off">■  Deactivate</sys:String>
+    <sys:String x:Key="s.btn.complete.on">✔  Mark completed</sys:String>
+    <sys:String x:Key="s.btn.complete.off">↺  Undo completed</sys:String>
+    <sys:String x:Key="s.btn.goal.on">☆  Set as goal</sys:String>
+    <sys:String x:Key="s.btn.goal.off">★  Remove goal</sys:String>
     <sys:String x:Key="s.objectives">OBJECTIVES</sys:String>
     <sys:String x:Key="s.reqItems">REQUIRED ITEMS</sys:String>
+    <sys:String x:Key="s.raidNeeds">BRING INTO THE RAID</sys:String>
+    <sys:String x:Key="s.need.key">Keys</sys:String>
+    <sys:String x:Key="s.need.mark">Markers</sys:String>
+    <sys:String x:Key="s.need.plant">To plant</sys:String>
+    <sys:String x:Key="s.need.weapon">Weapon</sys:String>
+    <sys:String x:Key="s.need.wear">Wear</sys:String>
     <sys:String x:Key="s.prereqs">PREREQUISITES</sys:String>
     <sys:String x:Key="s.unlocks">UNLOCKS</sys:String>
     <sys:String x:Key="s.rewards">REWARDS</sys:String>
@@ -150,7 +159,6 @@
     <sys:String x:Key="st.done">Completed</sys:String>
     <sys:String x:Key="st.active">Active</sys:String>
     <sys:String x:Key="st.available">Available</sys:String>
-    <sys:String x:Key="st.level">Level {0}</sys:String>
     <sys:String x:Key="st.locked">Locked</sys:String>
     <sys:String x:Key="badge.story">STORY</sys:String>
     <sys:String x:Key="badge.event">EVENT</sys:String>
@@ -171,6 +179,7 @@
     <sys:String x:Key="t.undone">Undone: {0}</sys:String>
     <sys:String x:Key="t.completed">✔ {0}</sys:String>
     <sys:String x:Key="t.completedUnlocked">✔ {0} → unlocked: {1}</sys:String>
+    <sys:String x:Key="t.completedAccepted">✔ {0} → accepted: {1}</sys:String>
     <sys:String x:Key="t.active">Active: {0}</sys:String>
     <sys:String x:Key="t.activeChain">Active: {0} - {1} earlier quests marked as done ({2}). Wrong? Press "Undo".</sys:String>
     <sys:String x:Key="t.undoDone">Last action undone.</sys:String>
@@ -224,7 +233,7 @@
     <sys:String x:Key="s.keys.wheel">Ctrl + mouse wheel</sys:String>
     <sys:String x:Key="s.keys.wheel.desc">With the mouse over the overlay: make it bigger / smaller (60–200 %). The overlay must be unlocked.</sys:String>
     <sys:String x:Key="s.keys.drag">Drag the header</sys:String>
-    <sys:String x:Key="s.keys.drag.desc">Move the overlay up / down along the right edge of the screen. The overlay must be unlocked.</sys:String>
+    <sys:String x:Key="s.keys.drag.desc">Move the overlay anywhere on the screen. The overlay must be unlocked.</sys:String>
     <sys:String x:Key="s.keys.note">Shortcuts work while the game is running and the app is in the background. To change the keys, edit clickThroughHotkey / toggleOverlayHotkey / fleaSearchHotkey in the profile's settings.json (e.g. "Ctrl+Alt+F9"). If a shortcut clashes with another program, the app warns you at start.</sys:String>
     <sys:String x:Key="s.keys.barLock">lock</sys:String>
     <sys:String x:Key="s.keys.barToggle">show/hide</sys:String>

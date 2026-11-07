@@ -6,13 +6,12 @@ public sealed class Progress
     public HashSet<string> Completed { get; set; } = [];
     /// <summary>Quests the player is doing right now, in the order they were started.</summary>
     public List<string> Active { get; set; } = [];
-    /// <summary>Active quests shown on the in-game overlay (a quest is tracked when activated; untrack to declutter).</summary>
+    /// <summary>Active quests shown on the in-game overlay; only the ones the player pins (activating does not track).</summary>
     public List<string> Tracked { get; set; } = [];
     /// <summary>Objective counters, key "questId/objectiveId".</summary>
     public Dictionary<string, int> Objectives { get; set; } = [];
     /// <summary>Target quests (e.g. "the-punisher-part-3", "collector").</summary>
     public List<string> Goals { get; set; } = [];
-    public int PlayerLevel { get; set; } = 1;
     /// <summary>"The Ticket" endings guide: choices, target ending, ticked steps.</summary>
     public TicketProgress Ticket { get; set; } = new();
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
@@ -33,6 +32,8 @@ public sealed class AppSettings
     public double OverlayScale { get; set; } = 1.0;
     /// <summary>Vertical position as a fraction of the free screen height (0 = top, 1 = bottom), resolution independent.</summary>
     public double OverlayPosition { get; set; } = 0.05;
+    /// <summary>Horizontal position as a fraction of the free screen width (0 = left, 1 = right edge, the old docked spot).</summary>
+    public double OverlayPositionX { get; set; } = 1.0;
     /// <summary>true: quest title + trader/map + objectives; false: titles only.</summary>
     public bool OverlayDetailed { get; set; } = true;
     public bool OverlayVisible { get; set; } = true;

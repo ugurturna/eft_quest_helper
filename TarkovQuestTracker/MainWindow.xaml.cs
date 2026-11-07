@@ -72,42 +72,6 @@ public partial class MainWindow : Window
         return timer;
     }
 
-    void Level_KeyDown(object sender, KeyEventArgs e)
-    {
-        if (e.Key == Key.Enter && sender is TextBox box) CommitLevel(box);
-    }
-
-    void Level_LostFocus(object sender, RoutedEventArgs e)
-    {
-        if (sender is TextBox box) CommitLevel(box);
-    }
-
-    void Level_PreviewTextInput(object sender, TextCompositionEventArgs e) =>
-        e.Handled = !e.Text.All(char.IsAsciiDigit);
-
-    void Level_Pasting(object sender, DataObjectPastingEventArgs e)
-    {
-        if (e.DataObject.GetData(DataFormats.UnicodeText) is not string text || !text.Trim().All(char.IsAsciiDigit))
-            e.CancelCommand();
-    }
-
-    /// <summary>Anything above 99 (even 548787 or past int range) becomes 99; empty or 0 becomes 1.</summary>
-    static void CommitLevel(TextBox box)
-    {
-        var digits = box.Text.Trim();
-        if (digits.Length == 0 || !digits.All(char.IsAsciiDigit))
-        {
-            // nothing usable typed: show the current level again
-            box.GetBindingExpression(TextBox.TextProperty)?.UpdateTarget();
-            return;
-        }
-        var level = digits.TrimStart('0').Length > 2
-            ? MainViewModel.MaxPlayerLevel
-            : Math.Clamp(int.Parse(digits), MainViewModel.MinPlayerLevel, MainViewModel.MaxPlayerLevel);
-        box.Text = level.ToString();
-        box.GetBindingExpression(TextBox.TextProperty)?.UpdateSource();
-    }
-
     void ToggleOverlay_Click(object sender, RoutedEventArgs e) => _overlay.ToggleVisible();
 
     void OpenTicketGuide_Click(object sender, RoutedEventArgs e) => TicketTab.IsSelected = true;

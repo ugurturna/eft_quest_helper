@@ -79,6 +79,7 @@ public sealed partial class MainViewModel : ObservableObject
         OverlayWidth = Settings.OverlayWidth;
         OverlayScale = Math.Clamp(Settings.OverlayScale, MinOverlayScale, MaxOverlayScale);
         OverlayPosition = Math.Clamp(Settings.OverlayPosition, 0, 1);
+        OverlayPositionX = Math.Clamp(Settings.OverlayPositionX, 0, 1);
         OverlayDetailed = Settings.OverlayDetailed;
         IsPve = Settings.Mode == GameMode.Pve;
         UiLanguage = Loc.Languages.Contains(Settings.UiLanguage) ? Settings.UiLanguage : "tr";
@@ -169,8 +170,6 @@ public sealed partial class MainViewModel : ObservableObject
         Refresh();
     }
     [ObservableProperty] private bool _isPve;
-    public const int MinPlayerLevel = 1, MaxPlayerLevel = 99;
-    [ObservableProperty] private int _playerLevel = 1;
 
     partial void OnLanguageChanged(string value)
     {
@@ -188,17 +187,6 @@ public sealed partial class MainViewModel : ObservableObject
         Settings.Mode = value ? GameMode.Pve : GameMode.Pvp;
         SaveSettings();
         LoadData();
-    }
-
-    partial void OnPlayerLevelChanged(int value)
-    {
-        // re-entering with the clamped value also pushes it back into the level box
-        var clamped = Math.Clamp(value, MinPlayerLevel, MaxPlayerLevel);
-        if (clamped != value) { PlayerLevel = clamped; return; }
-        if (_loading) return;
-        Progress.PlayerLevel = value;
-        SaveProgress();
-        Refresh();
     }
 
     public string ModeText => IsPve ? "PvE" : "PvP";
@@ -226,7 +214,6 @@ public sealed partial class MainViewModel : ObservableObject
 
         Replace(Languages, _repo.Languages.Select(l => Option.Fixed(l, Loc.LanguageName(l))));
         Language = _repo.Language;
-        PlayerLevel = Progress.PlayerLevel;
         Replace(Traders, _repo.Quests.Select(q => q.Trader).Distinct().Order()
                               .Select(t => Option.Fixed(t, t)).Prepend(Option.Localized("", "traders.all")));
         TraderFilter = "";
@@ -328,7 +315,6 @@ public sealed partial class MainViewModel : ObservableObject
         var status = Progress.Completed.Contains(q.Id) ? QuestStatus.Done
             : Progress.Active.Contains(q.Id) ? QuestStatus.Active
             : !q.Prerequisites.All(Progress.Completed.Contains) ? QuestStatus.Locked
-            : _planner.IsLevelLocked(q, Progress) ? QuestStatus.LevelLocked
             : QuestStatus.Available;
         return new QuestRow(q, status, Progress.Goals.Contains(q.Id));
     }
@@ -396,12 +382,17 @@ public sealed partial class MainViewModel : ObservableObject
 
     void Complete(Quest q)
     {
+        var wasActive = Progress.Active.Contains(q.Id);
         _planner.Complete(Progress, q.Id);
         foreach (var o in q.Objectives) Progress.Objectives.Remove(Progress.ObjectiveKey(q.Id, o.Id));
+        // handing in an active quest accepts what it unlocks; marking old quests done from the list does not
+        var accepted = wasActive ? _planner.AcceptUnlocked(Progress, q.Id) : [];
         var unlocked = _planner.UnlockedBy(q.Id, Progress);
-        Toast = unlocked.Count == 0
-            ? Loc.F("t.completed", q.DisplayName)
-            : Loc.F("t.completedUnlocked", q.DisplayName, string.Join(", ", unlocked.Select(u => u.DisplayName)));
+        Toast = accepted.Count > 0
+            ? Loc.F("t.completedAccepted", q.DisplayName, string.Join(", ", accepted.Select(u => u.DisplayName)))
+            : unlocked.Count == 0
+                ? Loc.F("t.completed", q.DisplayName)
+                : Loc.F("t.completedUnlocked", q.DisplayName, string.Join(", ", unlocked.Select(u => u.DisplayName)));
     }
 
     [RelayCommand]
@@ -416,9 +407,8 @@ public sealed partial class MainViewModel : ObservableObject
             return;
         }
         Snapshot();
+        // active ≠ on the overlay: the player pins quests there with "📌 Overlay"
         var marked = _planner.Start(Progress, q.Id);
-        // one quest activated by hand goes on the overlay; bulk "activate all" below does not (it would flood it)
-        if (!Progress.Tracked.Contains(q.Id)) Progress.Tracked.Add(q.Id);
         Toast = marked.Count == 0
             ? Loc.F("t.active", q.DisplayName)
             : Loc.F("t.activeChain", q.DisplayName, marked.Count,
@@ -475,7 +465,7 @@ public sealed partial class MainViewModel : ObservableObject
         var list = which == "kappa" ? KappaAvailable.SelectMany(g => g.Quests).Select(r => r.Quest)
                                      : GoalAvailable.Select(r => r.Quest);
         Snapshot();
-        foreach (var q in list.Where(q => !_planner.IsLevelLocked(q, Progress)).ToList())
+        foreach (var q in list.ToList())
             if (!Progress.Active.Contains(q.Id)) Progress.Active.Add(q.Id);
         SaveProgress();
         Refresh();
@@ -549,7 +539,6 @@ public sealed partial class MainViewModel : ObservableObject
 
 
     public BulkObservableCollection<MapGroup> KappaAvailable { get; } = [];
-    public BulkObservableCollection<QuestRow> KappaLevelLocked { get; } = [];
     public BulkObservableCollection<QuestRow> KappaRemaining { get; } = [];
     [ObservableProperty] private double _kappaPercent;
     [ObservableProperty] private string _kappaSummary = "";
@@ -569,13 +558,12 @@ public sealed partial class MainViewModel : ObservableObject
         var unknown = _repo.Quests.Count(q => q.Category == "side" && q.KappaRequired == null);
         KappaSummary = Loc.F("k.summary", done, plan.Chain.Count, KappaPercent)
                        + (unknown > 0 ? Loc.F("k.unknown", unknown) : "");
-        var available = plan.AvailableNow.Where(q => !_planner.IsLevelLocked(q, Progress)).ToList();
+        var available = plan.AvailableNow;
         Replace(KappaAvailable, KappaGroupBy == "loyalty"
             ? available.GroupBy(q => q.TraderLoyalty ?? "")
                        .OrderBy(g => g.Key == "" ? "9" : g.Key)
                        .Select(g => new MapGroup(g.Key == "" ? Loc.T("ll.none") : "LL" + g.Key, g.Select(Row).ToList()))
             : QuestPlanner.GroupByMap(available).Select(g => new MapGroup(g.Key, g.Select(Row).ToList())));
-        Replace(KappaLevelLocked, plan.AvailableNow.Where(q => _planner.IsLevelLocked(q, Progress)).Select(Row));
         Replace(KappaRemaining, plan.Remaining.Select(Row));
     }
 
@@ -590,6 +578,14 @@ public sealed partial class MainViewModel : ObservableObject
     partial void OnItemsHideDoneChanged(bool value) => RefreshItems();
     partial void OnItemsFirOnlyChanged(bool value) => RefreshItems();
 
+    readonly HashSet<string> _expandedTraders = [];
+
+    void OnTraderExpandedChanged(string trader, bool expanded)
+    {
+        if (expanded) _expandedTraders.Add(trader);
+        else _expandedTraders.Remove(trader);
+    }
+
     void RefreshItems()
     {
         if (_loading || _repo == null) return;
@@ -603,8 +599,11 @@ public sealed partial class MainViewModel : ObservableObject
             .Select(q => new QuestItemsRow(Row(q), q.ItemNeeds.Where(Match).ToList()))
             .Where(r => r.Items.Count > 0)
             .ToList();
-        Replace(ItemGroups, rows.GroupBy(r => r.Row.Quest.Trader).OrderBy(g => g.Key)
-            .Select(g => new TraderItems(g.Key, g.ToList())));
+        var groups = rows.GroupBy(r => r.Row.Quest.Trader).OrderBy(g => g.Key)
+            .Select(g => new TraderItems(g.Key, g.ToList(), OnTraderExpandedChanged)).ToList();
+        Replace(ItemGroups, groups);
+        // keep the traders the user opened open across refreshes (they reload in the background)
+        foreach (var g in groups) g.IsExpanded = _expandedTraders.Contains(g.Trader);
         ItemsSummary = Loc.F("i.summary", rows.Count, rows.SelectMany(r => r.Items).Select(i => i.ItemId).Distinct().Count());
     }
 
@@ -766,6 +765,8 @@ public sealed partial class MainViewModel : ObservableObject
 
     /// <summary>0 = top of the screen, 1 = bottom. Set by dragging the overlay header or the settings slider.</summary>
     [ObservableProperty] private double _overlayPosition;
+    /// <summary>0 = left edge, 1 = right edge. Set by dragging the overlay header or the settings slider.</summary>
+    [ObservableProperty] private double _overlayPositionX = 1;
     /// <summary>true = title + details, false = titles only.</summary>
     [ObservableProperty] private bool _overlayDetailed = true;
 
@@ -773,6 +774,13 @@ public sealed partial class MainViewModel : ObservableObject
     {
         if (_loading) return;
         Settings.OverlayPosition = Math.Clamp(value, 0, 1);
+        SaveSettings();
+    }
+
+    partial void OnOverlayPositionXChanged(double value)
+    {
+        if (_loading) return;
+        Settings.OverlayPositionX = Math.Clamp(value, 0, 1);
         SaveSettings();
     }
 

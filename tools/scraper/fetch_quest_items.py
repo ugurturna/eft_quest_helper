@@ -76,13 +76,42 @@ def match_objectives(ours, theirs, item_names):
     return out
 
 
+def raid_needs(td):
+    """What to bring into the raid besides plantItem: keys, markers, the weapon to use, the clothes
+    to wear -> (type, items, count, objective or None); items are alternatives, the first gets the icon."""
+    out, keys = [], set()
+
+    def key(alternatives):
+        alternatives = [k for k in alternatives if k]
+        if alternatives and tuple(alternatives) not in keys:
+            keys.add(tuple(alternatives))
+            out.append(("key", alternatives, 1, None))
+
+    for needed in td.get("neededKeys") or []:
+        for k in needed.get("keys") or []:
+            key([k])
+    for o in td["objectives"]:
+        for alternatives in o.get("requiredKeys") or []:
+            key(alternatives)
+        if o["type"] == "mark" and o.get("markerItem"):
+            out.append(("mark", [o["markerItem"]], o.get("count") or 1, o))
+        if o.get("usingWeapon"):
+            out.append(("useWeapon", o["usingWeapon"], 1, None))
+        for group in o.get("wearing") or []:
+            ids = [w["id"] if isinstance(w, dict) else w for w in group]
+            if ids:
+                out.append(("wear", ids, 1, None))
+    return out
+
+
 def needs(mode, tasks, task_names, ours, item_name):
     by_wiki = {wiki_key(t["wikiUrl"]): t for t in ours}
     by_name = {name_key(t["name"]): t for t in ours}
     out, unmatched = {}, []
     for td in tasks.values():
         objs = [o for o in td["objectives"] if o["type"] in TYPES and o.get("items")]
-        if not objs:
+        extra = raid_needs(td)
+        if not objs and not extra:
             continue
         name = task_names.get(td["name"], td["name"])
         quest = by_wiki.get(wiki_key(td.get("wikiLink"))) or by_name.get(name_key(name))
@@ -94,6 +123,15 @@ def needs(mode, tasks, task_names, ours, item_name):
         out[quest["id"]] = [{"type": o["type"], "items": o["items"], "count": o.get("count") or 1,
                              "fir": bool(o.get("foundInRaid")), "objective": linked.get(i)}
                             for i, o in enumerate(objs)]
+        # markers also get an icon on their objective; keys / weapons / clothes only go to the "bring" list
+        used = set(linked.values())
+        marks = [(i, o) for i, (t, _, _, o) in enumerate(extra) if t == "mark"]
+        mark_links = match_objectives([o for o in quest["objectives"] if o["id"] not in used],
+                                      [task_names.get(o["description"], "") for _, o in marks],
+                                      [item_name(extra[i][1][0]) for i, _ in marks])
+        mark_at = {i: mark_links.get(k) for k, (i, _) in enumerate(marks)}
+        out[quest["id"]] += [{"type": t, "items": items, "count": count, "fir": False, "objective": mark_at.get(i)}
+                             for i, (t, items, count, _) in enumerate(extra)]
     if unmatched:
         print(f"{mode}: {len(unmatched)} tasks not matched: {', '.join(sorted(unmatched)[:10])}...")
     return out

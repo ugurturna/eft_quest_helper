@@ -39,10 +39,12 @@
 - **Quest items with icons** — which trader needs which items for which quest, with item icons, counts and Found-in-Raid flags (see [Quest items](#quest-items)).
 - **Prerequisite chains** — every quest knows what it needs and what it unlocks.
 - **Goal planner** — pick a goal (e.g. *The Punisher – Part 3* or *Collector*) and see the whole chain in order, what you can do right now and what is left.
-- **Kappa / Collector path** — the quests Kappa really needs: *Collector* and its whole prerequisite chain. Progress bar, available quests **grouped by map** so you can do several in one raid, and quests waiting for your level.
-- **Active quests + overlay** — all the quests you are doing are listed under *Active Quests*; only the ones you pin with **📌 Overlay** appear in the small tracker on the right edge of the screen (a quest you activate is pinned automatically), with objective checkboxes, kill/item counters and item icons.
+- **Kappa / Collector path** — the quests Kappa really needs: *Collector* and its whole prerequisite chain. Progress bar, available quests **grouped by map** so you can do several in one raid; each quest shows its required level.
+- **Active quests + overlay** — all the quests you are doing are listed under *Active Quests*; only the ones you pin with **📌 Overlay** appear in the small tracker on the right edge of the screen, with objective checkboxes, kill/item counters and item icons. Activating a quest does not pin it; you decide what goes on the overlay.
 - **Flea market prices in game** — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> opens a price search in the middle of the screen; type 3 letters of an item and see its flea price for your mode (PvP / PvE). See [Flea market prices](#flea-market-prices).
 - **Side menu** — pages (Quests, Goal Planner, Kappa, Items, Active Quests, End Game, Settings) are in a menu on the left.
+- **What to bring into the raid** — keys, markers (with how many you need), items to plant, the weapon to use and the clothes to wear are shown at the top of each quest and on its *Active Quests* card.
+- **Handing in accepts the next quests** — complete an active quest and the quests it unlocks become active (not pinned to the overlay: you still have to take them from the trader).
 - **Activating a quest completes its chain** — set *Punisher Part 5* active and Parts 1–4 are marked done automatically (one-click undo).
 - **PvP and PvE** — separate progress for each mode; PvE-specific differences (levels, objectives, items) are shown.
 - **Search in English and Turkish** — tolerant of typos and Turkish characters (`punisher 3`, `punişır 3`, `cezalandırıcı`).
@@ -105,7 +107,7 @@ Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> in game to check what an ite
 
 <img src="docs/screenshots/overlay.webp" width="320" align="right" alt="Overlay">
 
-- Docked to the right edge, **moves only up/down** (drag the header).
+- Starts on the right edge; **drag the header to move it anywhere** on the screen (or use the position sliders in Settings).
 - Adjustable **opacity**, **size** (60–200 %, also <kbd>Ctrl</kbd> + mouse wheel) and **width**.
 - Two views: **titles only** or **title + details**.
 - Item objectives show the **item icon**, so you recognise the loot mid-raid.
@@ -127,7 +129,7 @@ Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> in game to check what an ite
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> | **Show / hide the overlay**, e.g. to clear the screen mid-raid. |
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | **Flea market price search** in the middle of the screen, for your mode (PvP / PvE). <kbd>Esc</kbd> closes it and returns to the game. |
 | <kbd>Ctrl</kbd> + mouse wheel | With the mouse over the (unlocked) overlay: **make it bigger / smaller** (60–200 %). |
-| Drag the overlay header | **Move the overlay up / down** along the right edge of the screen (unlocked only). |
+| Drag the overlay header | **Move the overlay anywhere** on the screen (unlocked only). |
 
 - The shortcuts work while the game is running and the app is in the background.
 - They are always shown in the bottom bar of the main window, and explained at the top of **Settings**, because the overlay's own hint can be hard to read in game.

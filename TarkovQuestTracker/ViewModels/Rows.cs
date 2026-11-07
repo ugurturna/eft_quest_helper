@@ -8,7 +8,7 @@ using TarkovQuestTracker.Core.Services;
 
 namespace TarkovQuestTracker.ViewModels;
 
-public enum QuestStatus { Done, Active, Available, LevelLocked, Locked }
+public enum QuestStatus { Done, Active, Available, Locked }
 
 /// <summary>ObservableCollection that swaps its whole content with a single Reset notification.</summary>
 public sealed class BulkObservableCollection<T> : ObservableCollection<T>
@@ -37,7 +37,6 @@ public sealed class QuestRow(Quest quest, QuestStatus status, bool isGoal)
         QuestStatus.Done => Loc.T("st.done"),
         QuestStatus.Active => Loc.T("st.active"),
         QuestStatus.Available => Loc.T("st.available"),
-        QuestStatus.LevelLocked => Loc.F("st.level", Quest.MinLevel),
         _ => Loc.T("st.locked"),
     };
 
@@ -57,12 +56,45 @@ public sealed class MapGroup(string map, IReadOnlyList<QuestRow> quests)
     public string Header => $"{Map}  ({Quests.Count})";
 }
 
-/// <summary>"Items" tab: one trader's quests that need items.</summary>
-public sealed class TraderItems(string trader, IReadOnlyList<QuestItemsRow> quests)
+/// <summary>
+/// "Items" tab: one trader's quests that need items. Starts collapsed; on expand the rows are
+/// added to <see cref="Loaded"/> a few at a time, yielding to the dispatcher in between so
+/// building hundreds of item chips never freezes the window.
+/// </summary>
+public sealed partial class TraderItems(string trader, IReadOnlyList<QuestItemsRow> quests, Action<string, bool>? expandedChanged = null)
+    : ObservableObject
 {
+    const int Chunk = 4;
+
     public string Trader { get; } = trader;
     public IReadOnlyList<QuestItemsRow> Quests { get; } = quests;
     public string Header => $"{Trader}  ({Quests.Count})";
+    public ObservableCollection<QuestItemsRow> Loaded { get; } = [];
+
+    [ObservableProperty] private bool _isExpanded;
+    bool _loading;
+
+    partial void OnIsExpandedChanged(bool value)
+    {
+        expandedChanged?.Invoke(Trader, value);
+        if (value) _ = LoadAsync();
+    }
+
+    async Task LoadAsync()
+    {
+        if (_loading) return;
+        _loading = true;
+        try
+        {
+            // stops early when collapsed again; re-expanding resumes where it left off
+            while (IsExpanded && Loaded.Count < Quests.Count)
+            {
+                foreach (var row in Quests.Skip(Loaded.Count).Take(Chunk)) Loaded.Add(row);
+                await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.Background);
+            }
+        }
+        finally { _loading = false; }
+    }
 }
 
 public sealed class QuestItemsRow(QuestRow row, IReadOnlyList<ItemNeed> items)

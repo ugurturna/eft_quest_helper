@@ -35,6 +35,19 @@ public sealed class RealDataTests
         Assert.True(linked > 400, $"{linked} objectives with an item");
     }
 
+    [Fact]
+    public void Raid_needs_list_keys_markers_and_weapons()
+    {
+        RaidNeedGroup Group(string quest, string kind) => Repo.ById[quest].RaidNeeds.Single(g => g.Kind == kind);
+
+        Assert.Contains(Group("bad-rep-evidence", "key").Items, n => n.ItemId == "5938144586f77473c2087145");
+        Assert.Equal(6, Group("route-deviation", "mark").Items.Sum(n => n.Count));
+        Assert.NotEmpty(Group("the-punisher-part-1", "useWeapon").Items);
+        Assert.NotNull(Repo.ById["tigr-safari"].Objectives.Single(o => o.Id == "o1").Item);
+        // keys / weapons are not handed over, so they stay off the items tab
+        Assert.DoesNotContain(Repo.ById["bad-rep-evidence"].ItemNeeds, n => n.ItemId == "5938144586f77473c2087145");
+    }
+
     [Theory]
     // a number inside the item name is not the amount
     [InlineData("collector", "o1", 1)]          // "42 Signature Blend English Tea"

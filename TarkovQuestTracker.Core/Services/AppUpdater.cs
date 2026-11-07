@@ -11,7 +11,8 @@ public sealed record ReleaseInfo(Version Version, string Tag, string Notes, stri
 /// <summary>
 /// Self-update from the GitHub releases (the zip release.yml publishes: the exe plus data\).
 /// The running exe can't be overwritten but can be renamed, so files are swapped in place:
-/// old ones become *.old (deleted on the next start), the player's data\profiles and data\flea are never touched.
+/// old ones become *.old (deleted on the next start). The player's files (<see cref="Keep"/>) are never touched,
+/// and are copied to data\backups first (<see cref="BackupUserData"/>).
 /// </summary>
 public sealed class AppUpdater(string installDir)
 {
@@ -20,8 +21,20 @@ public sealed class AppUpdater(string installDir)
     public const string ReleasesPage = $"https://github.com/{Repo}/releases/latest";
     const string OldSuffix = ".old";
 
-    /// <summary>Kept across updates: progress, settings and the flea price cache (relative to the install folder).</summary>
-    static readonly string[] Keep = [Path.Combine("data", "profiles"), Path.Combine("data", "flea"), Path.Combine("data", "app.json"), "portable.txt"];
+    /// <summary>
+    /// Kept across updates (relative to the install folder): progress, settings, pre-profile files that were
+    /// not migrated yet, the update backups and the flea price cache. An update never writes or deletes these.
+    /// </summary>
+    static readonly string[] Keep =
+    [
+        Path.Combine("data", "profiles"), Path.Combine("data", "app.json"),
+        Path.Combine("data", "settings.json"), Path.Combine("data", "progress_pvp.json"), Path.Combine("data", "progress_pve.json"),
+        Path.Combine("data", BackupFolder), Path.Combine("data", "flea"), "portable.txt",
+    ];
+
+    const string BackupFolder = "backups";
+    /// <summary>How many pre-update backups stay in data\backups (oldest are pruned).</summary>
+    public const int BackupsKept = 5;
 
     static readonly HttpClient Http = CreateClient();
 
@@ -161,6 +174,48 @@ public sealed class AppUpdater(string installDir)
             }
             throw;
         }
+    }
+
+    /// <summary>
+    /// Copies the player's files (<see cref="Keep"/>, minus the re-downloadable flea cache and older backups) to
+    /// data\backups\{timestamp}\ before an update; returns that folder, or null when there was nothing to back up.
+    /// Throws on a failed copy so the update is not applied without a backup.
+    /// </summary>
+    public string? BackupUserData(DateTime? now = null)
+    {
+        var sources = Keep
+            .Where(k => k != Path.Combine("data", BackupFolder) && k != Path.Combine("data", "flea"))
+            .Select(k => (Relative: k, Full: Path.Combine(InstallDir, k)))
+            .Where(s => File.Exists(s.Full) || Directory.Exists(s.Full))
+            .ToList();
+        if (sources.Count == 0) return null;
+
+        var root = Path.Combine(InstallDir, "data", BackupFolder);
+        var target = Path.Combine(root, (now ?? DateTime.Now).ToString("yyyyMMdd-HHmmss"));
+        foreach (var (relative, full) in sources)
+        {
+            var dest = Path.Combine(target, relative);
+            if (File.Exists(full))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(dest)!);
+                File.Copy(full, dest, overwrite: true);
+                continue;
+            }
+            foreach (var file in Directory.EnumerateFiles(full, "*", SearchOption.AllDirectories))
+            {
+                var fileDest = Path.Combine(dest, Path.GetRelativePath(full, file));
+                Directory.CreateDirectory(Path.GetDirectoryName(fileDest)!);
+                File.Copy(file, fileDest, overwrite: true);
+            }
+        }
+
+        // timestamped names sort chronologically; prune beyond the newest few (best effort)
+        foreach (var old in Directory.GetDirectories(root).Order(StringComparer.Ordinal).SkipLast(BackupsKept))
+        {
+            try { Directory.Delete(old, recursive: true); }
+            catch (Exception e) when (e is IOException or UnauthorizedAccessException) { }
+        }
+        return target;
     }
 
     public static bool IsKept(string relative) =>

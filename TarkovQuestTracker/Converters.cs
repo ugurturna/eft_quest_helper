@@ -56,6 +56,8 @@ public sealed class ItemIconConverter : IValueConverter
         bitmap.BeginInit();
         bitmap.UriSource = new Uri(path);
         bitmap.CacheOption = BitmapCacheOption.OnLoad;
+        // icons are drawn at ≤32 px; decoding at 64 keeps them sharp on 200% DPI and is cheaper
+        bitmap.DecodePixelWidth = 64;
         bitmap.EndInit();
         bitmap.Freeze();
         return Cache[path] = bitmap;

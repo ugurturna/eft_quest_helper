@@ -17,7 +17,8 @@ public sealed class ItemInfo
 
 public sealed class ItemObjective
 {
-    /// <summary>"giveItem", "plantItem" or "findItem" (find only labels its objective).</summary>
+    /// <summary>"giveItem", "plantItem" or "findItem" (find only labels its objective); things to bring
+    /// into the raid: "key", "mark" (marker item), "useWeapon", "wear".</summary>
     public string Type { get; set; } = "";
     /// <summary>Id of our matching <see cref="Models.Objective"/>, when the texts could be matched.</summary>
     public string? Objective { get; set; }
@@ -36,3 +37,6 @@ public sealed record ItemNeed(string ItemId, string Name, string ShortName, int 
     public string ToolTip => string.Join("\n", new[] { Name }.Concat(Alternatives.Take(12))
         .Append(Alternatives.Count > 12 ? "…" : null).OfType<string>());
 }
+
+/// <summary>Items of one kind to bring into the raid; Kind is a <see cref="ItemObjective.Type"/>.</summary>
+public sealed record RaidNeedGroup(string Kind, IReadOnlyList<ItemNeed> Items);

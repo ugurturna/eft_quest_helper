@@ -86,6 +86,15 @@ public sealed partial class QuestRepository
     [GeneratedRegex(@"^\s*(hand over|find|stash|plant|hide|place|install|mark|obtain)\s+(the\s+|any\s+)?\d[\d,]*\s", RegexOptions.IgnoreCase)]
     private static partial Regex StatedAmount();
 
+    /// <summary>Order of the "bring into the raid" groups.</summary>
+    static readonly string[] RaidKinds = ["key", "mark", "plantItem", "useWeapon", "wear"];
+
+    // the same item over several objectives (plant 3× one by one) becomes one entry
+    static List<ItemNeed> Merge(IEnumerable<ItemNeed> needs) => needs
+        .GroupBy(n => (n.ItemId, n.Fir, n.Alternatives.Count))
+        .Select(g => g.First() with { Count = g.Sum(n => n.Count) })
+        .ToList();
+
     static void LoadItemNeeds(string dataDir, List<Quest> quests, string modeKey, string language)
     {
         var data = Read<QuestItemData>(Path.Combine(dataDir, "quest_items.json"));
@@ -128,10 +137,10 @@ public sealed partial class QuestRepository
                 else if (find.Item == null && find.Text.StartsWith("Find", StringComparison.OrdinalIgnoreCase)) find.Item = give.Item;
             }
 
-            q.ItemNeeds = needs.Where(x => x.o.Type != "findItem").Select(x => x.need)
-                // the same item over several objectives (plant 3× one by one) becomes one entry
-                .GroupBy(n => (n.ItemId, n.Fir, n.Alternatives.Count))
-                .Select(g => g.First() with { Count = g.Sum(n => n.Count) })
+            q.ItemNeeds = Merge(needs.Where(x => x.o.Type is "giveItem" or "plantItem").Select(x => x.need));
+            q.RaidNeeds = RaidKinds
+                .Select(kind => new RaidNeedGroup(kind, Merge(needs.Where(x => x.o.Type == kind).Select(x => x.need))))
+                .Where(g => g.Items.Count > 0)
                 .ToList();
         }
     }

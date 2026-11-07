@@ -105,6 +105,49 @@
             <Setter Property="MinHeight" Value="0" />
         </Style>
 
+        <!-- big outlined action button; Foreground is the accent colour (border + text).
+             A DataTrigger can flip it to "on" by setting Background to the accent and Foreground to BgBrush. -->
+        <Style x:Key="ActionButton" TargetType="Button">
+            <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+            <Setter Property="Background" Value="{StaticResource CardBrush}" />
+            <Setter Property="BorderBrush" Value="{Binding Foreground, RelativeSource={RelativeSource Self}}" />
+            <Setter Property="BorderThickness" Value="1.5" />
+            <Setter Property="Padding" Value="14,7" />
+            <Setter Property="Margin" Value="0,0,8,8" />
+            <Setter Property="MinWidth" Value="120" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="root">
+                            <Border x:Name="bd" CornerRadius="5" Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+                            <Border x:Name="hover" CornerRadius="5" Background="White" Opacity="0" />
+                            <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              TextElement.Foreground="{TemplateBinding Foreground}" RecognizesAccessKey="True" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="hover" Property="Opacity" Value="0.10" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="hover" Property="Opacity" Value="0.20" />
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="bd" Property="BorderThickness" Value="2.5" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="root" Property="Opacity" Value="0.4" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <!-- coloured status pill for QuestRow -->
         <DataTemplate x:Key="StatusPill" DataType="{x:Type vm:QuestRow}">
             <Border x:Name="pill" CornerRadius="3" Padding="6,1" Background="{StaticResource LockedBrush}">
@@ -119,9 +162,6 @@
                 </DataTrigger>
                 <DataTrigger Binding="{Binding Status}" Value="Available">
                     <Setter TargetName="pill" Property="Background" Value="{StaticResource AvailableBrush}" />
-                </DataTrigger>
-                <DataTrigger Binding="{Binding Status}" Value="LevelLocked">
-                    <Setter TargetName="pill" Property="Background" Value="{StaticResource LevelBrush}" />
                 </DataTrigger>
             </DataTemplate.Triggers>
         </DataTemplate>
@@ -149,7 +189,7 @@
                     </StackPanel>
                     <TextBlock Style="{StaticResource Muted}" FontSize="11">
                         <Run Text="{Binding Quest.Trader, Mode=OneWay}" /> · <Run Text="{Binding Quest.MapText, Mode=OneWay}" />
-                        <Run Text="{Binding Quest.LevelText, Mode=OneWay}" />
+                        <Run Text="{Binding Quest.LevelText, Mode=OneWay}" Foreground="{StaticResource LevelBrush}" FontWeight="SemiBold" />
                     </TextBlock>
                 </StackPanel>
                 <ContentPresenter Grid.Column="2" Content="{Binding}" ContentTemplate="{StaticResource StatusPill}" VerticalAlignment="Center" />

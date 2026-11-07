@@ -7,7 +7,7 @@ using TarkovQuestTracker.ViewModels;
 
 namespace TarkovQuestTracker;
 
-/// <summary>Always-on-top tracker docked to the right edge of the screen; moves only up and down.</summary>
+/// <summary>Always-on-top tracker; drag its header to put it anywhere on the screen (starts at the right edge).</summary>
 public partial class OverlayWindow : Window
 {
     readonly MainViewModel _vm;
@@ -28,7 +28,8 @@ public partial class OverlayWindow : Window
         vm.PropertyChanged += (_, e) =>
         {
             if (e.PropertyName == nameof(MainViewModel.OverlayScale)) FitHeight();
-            if (e.PropertyName == nameof(MainViewModel.OverlayPosition) && _dragStart == null) ApplyPosition();
+            if (e.PropertyName is nameof(MainViewModel.OverlayPosition) or nameof(MainViewModel.OverlayPositionX)
+                && _dragStart == null) ApplyPosition();
         };
     }
 
@@ -60,14 +61,21 @@ public partial class OverlayWindow : Window
     }
 
 
-    /// <summary>Right edge, at the saved vertical position (fraction of the free height).</summary>
+    /// <summary>
+    /// At the saved position (fractions of the free width / height, resolution independent). Fractions keep
+    /// the overlay on screen when its size changes; at 1 it stays flush against the right edge.
+    /// </summary>
     void ApplyPosition()
     {
         var area = SystemParameters.WorkArea;
-        Left = area.Right - ActualWidth - 6;
+        Left = area.Left + Edge + Math.Clamp(_vm.OverlayPositionX, 0, 1) * FreeWidth(area);
         Top = area.Top + Math.Clamp(_vm.OverlayPosition, 0, 1) * FreeHeight(area);
     }
 
+    /// <summary>Gap kept from the left / right screen edges.</summary>
+    const double Edge = 6;
+
+    double FreeWidth(Rect area) => Math.Max(0, area.Width - ActualWidth - 2 * Edge);
     double FreeHeight(Rect area) => Math.Max(0, area.Height - ActualHeight);
 
     /// <summary>Keeps the scaled overlay inside the screen height.</summary>
@@ -77,7 +85,7 @@ public partial class OverlayWindow : Window
         Scroller.MaxHeight = Math.Max(120, (area.Height - 40) / _vm.OverlayScale - 150);
     }
 
-    // header drag: vertical only
+    // header drag: anywhere on the screen, kept inside the work area
     void Header_MouseDown(object sender, MouseButtonEventArgs e)
     {
         _dragStart = e.GetPosition(this);
@@ -89,10 +97,15 @@ public partial class OverlayWindow : Window
     {
         if (_dragStart is not { } start || e.LeftButton != MouseButtonState.Pressed) return;
         var area = SystemParameters.WorkArea;
-        var top = Math.Clamp(Top + e.GetPosition(this).Y - start.Y, area.Top, area.Top + FreeHeight(area));
+        var mouse = e.GetPosition(this);
+        var freeX = FreeWidth(area);
+        var freeY = FreeHeight(area);
+        var left = Math.Clamp(Left + mouse.X - start.X, area.Left + Edge, area.Left + Edge + freeX);
+        var top = Math.Clamp(Top + mouse.Y - start.Y, area.Top, area.Top + freeY);
+        Left = left;
         Top = top;
-        var free = FreeHeight(area);
-        _vm.OverlayPosition = free <= 0 ? 0 : (top - area.Top) / free;
+        _vm.OverlayPositionX = freeX <= 0 ? 1 : (left - area.Left - Edge) / freeX;
+        _vm.OverlayPosition = freeY <= 0 ? 0 : (top - area.Top) / freeY;
     }
 
     void Header_MouseUp(object sender, MouseButtonEventArgs e)

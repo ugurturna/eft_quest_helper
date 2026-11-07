@@ -10,7 +10,6 @@
     <sys:String x:Key="s.mode.tip">PvP ve PvE ilerlemesi ayrı tutulur</sys:String>
     <sys:String x:Key="s.appLang">Uygulama dili</sys:String>
     <sys:String x:Key="s.questLang">Görev dili</sys:String>
-    <sys:String x:Key="s.level">Seviyem</sys:String>
     <sys:String x:Key="s.overlayToggle">Overlay göster/gizle</sys:String>
     <sys:String x:Key="s.undo">↶ Geri al</sys:String>
 
@@ -41,7 +40,6 @@
 
     <!-- kappa -->
     <sys:String x:Key="s.activateAll">Hepsini aktif yap</sys:String>
-    <sys:String x:Key="s.kappa.levelWait">SEVİYE BEKLEYENLER</sys:String>
     <sys:String x:Key="s.kappa.remaining">Kalan tüm Kappa görevleri (sırayla)</sys:String>
 
     <!-- active -->
@@ -72,6 +70,8 @@
     <sys:String x:Key="s.view.detailed">Başlık + detay (trader, harita, hedefler)</sys:String>
     <sys:String x:Key="s.set.position">Dikey konum:</sys:String>
     <sys:String x:Key="s.set.position.hint">  (0% = en üst, 100% = en alt - overlay başlığını sürükleyerek de taşıyabilirsin)</sys:String>
+    <sys:String x:Key="s.set.positionX">Yatay konum:</sys:String>
+    <sys:String x:Key="s.set.positionX.hint">  (0% = en sol, 100% = en sağ)</sys:String>
     <sys:String x:Key="s.set.opacity">Opaklık:</sys:String>
     <sys:String x:Key="s.set.width">Genişlik:</sys:String>
     <sys:String x:Key="s.set.scale">Boyut (yazı + butonlar):</sys:String>
@@ -124,11 +124,20 @@
     <sys:String x:Key="s.trader">Trader: </sys:String>
     <sys:String x:Key="s.map">Harita: </sys:String>
     <sys:String x:Key="s.lvl">Seviye: </sys:String>
-    <sys:String x:Key="s.btn.active">Aktif yap / çıkar</sys:String>
-    <sys:String x:Key="s.btn.complete">Tamamlandı / geri al</sys:String>
-    <sys:String x:Key="s.btn.goal">★ Hedef yap / çıkar</sys:String>
+    <sys:String x:Key="s.btn.active.on">▶  Aktif yap</sys:String>
+    <sys:String x:Key="s.btn.active.off">■  Aktiften çıkar</sys:String>
+    <sys:String x:Key="s.btn.complete.on">✔  Tamamlandı</sys:String>
+    <sys:String x:Key="s.btn.complete.off">↺  Tamamlanmayı geri al</sys:String>
+    <sys:String x:Key="s.btn.goal.on">☆  Hedef yap</sys:String>
+    <sys:String x:Key="s.btn.goal.off">★  Hedeften çıkar</sys:String>
     <sys:String x:Key="s.objectives">HEDEFLER</sys:String>
     <sys:String x:Key="s.reqItems">GEREKLİ İTEMLER</sys:String>
+    <sys:String x:Key="s.raidNeeds">BASKINA GÖTÜR</sys:String>
+    <sys:String x:Key="s.need.key">Anahtarlar</sys:String>
+    <sys:String x:Key="s.need.mark">Marker</sys:String>
+    <sys:String x:Key="s.need.plant">Yerleştirilecek</sys:String>
+    <sys:String x:Key="s.need.weapon">Silah</sys:String>
+    <sys:String x:Key="s.need.wear">Giyilecek</sys:String>
     <sys:String x:Key="s.prereqs">ÖN KOŞULLAR</sys:String>
     <sys:String x:Key="s.unlocks">AÇTIĞI GÖREVLER</sys:String>
     <sys:String x:Key="s.rewards">ÖDÜLLER</sys:String>
@@ -150,7 +159,6 @@
     <sys:String x:Key="st.done">Tamamlandı</sys:String>
     <sys:String x:Key="st.active">Aktif</sys:String>
     <sys:String x:Key="st.available">Yapılabilir</sys:String>
-    <sys:String x:Key="st.level">Seviye {0}</sys:String>
     <sys:String x:Key="st.locked">Kilitli</sys:String>
     <sys:String x:Key="badge.story">HİKAYE</sys:String>
     <sys:String x:Key="badge.event">EVENT</sys:String>
@@ -171,6 +179,7 @@
     <sys:String x:Key="t.undone">Geri alındı: {0}</sys:String>
     <sys:String x:Key="t.completed">✔ {0}</sys:String>
     <sys:String x:Key="t.completedUnlocked">✔ {0} → açıldı: {1}</sys:String>
+    <sys:String x:Key="t.completedAccepted">✔ {0} → kabul edildi (aktif): {1}</sys:String>
     <sys:String x:Key="t.active">Aktif: {0}</sys:String>
     <sys:String x:Key="t.activeChain">Aktif: {0} - önceki {1} görev tamamlandı sayıldı ({2}). Yanlışsa "Geri al".</sys:String>
     <sys:String x:Key="t.undoDone">Son işlem geri alındı.</sys:String>
@@ -224,7 +233,7 @@
     <sys:String x:Key="s.keys.wheel">Ctrl + fare tekerleği</sys:String>
     <sys:String x:Key="s.keys.wheel.desc">Fare overlay'in üstündeyken: overlay'i büyüt / küçült (%60–200). Kilit açık olmalı.</sys:String>
     <sys:String x:Key="s.keys.drag">Başlığı sürükle</sys:String>
-    <sys:String x:Key="s.keys.drag.desc">Overlay'i ekranın sağ kenarında yukarı / aşağı taşı. Kilit açık olmalı.</sys:String>
+    <sys:String x:Key="s.keys.drag.desc">Overlay'i ekranda istediğin yere taşı. Kilit açık olmalı.</sys:String>
     <sys:String x:Key="s.keys.note">Kısayollar oyun açıkken de, uygulama arka plandayken de çalışır. Tuşları değiştirmek için profilin settings.json dosyasında clickThroughHotkey / toggleOverlayHotkey / fleaSearchHotkey (ör. "Ctrl+Alt+F9"). Bir kısayol başka bir programla çakışırsa uygulama açılışta uyarır.</sys:String>
     <sys:String x:Key="s.keys.barLock">kilitle</sys:String>
     <sys:String x:Key="s.keys.barToggle">göster/gizle</sys:String>

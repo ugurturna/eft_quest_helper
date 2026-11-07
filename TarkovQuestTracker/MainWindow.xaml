@@ -292,13 +292,6 @@
                         <ComboBox ItemsSource="{Binding Languages}" DisplayMemberPath="Label" SelectedValuePath="Key"
                                   SelectedValue="{Binding Language}" MinWidth="100" />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,2,14,2">
-                        <TextBlock Text="{DynamicResource s.level}" Style="{StaticResource Muted}" VerticalAlignment="Center" Margin="0,0,6,0" />
-                        <TextBox Text="{Binding PlayerLevel, UpdateSourceTrigger=Explicit}" Width="72" TextAlignment="Center"
-                                 VerticalContentAlignment="Center" InputMethod.IsInputMethodEnabled="False"
-                                 KeyDown="Level_KeyDown" LostFocus="Level_LostFocus" PreviewTextInput="Level_PreviewTextInput"
-                                 DataObject.Pasting="Level_Pasting" />
-                    </StackPanel>
                     <Button Content="{DynamicResource s.overlayToggle}" Margin="0,2" Click="ToggleOverlay_Click" />
                 </WrapPanel>
             </DockPanel>
@@ -513,8 +506,6 @@
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
-                            <TextBlock Text="{DynamicResource s.kappa.levelWait}" Style="{StaticResource H2}" />
-                            <ItemsControl ItemsSource="{Binding KappaLevelLocked}" ItemTemplate="{StaticResource CheckRow}" />
                             <Expander Header="{DynamicResource s.kappa.remaining}" Margin="0,12,0,0">
                                 <ItemsControl ItemsSource="{Binding KappaRemaining}" ItemTemplate="{StaticResource CheckRow}" />
                             </Expander>
@@ -536,7 +527,7 @@
                             <ItemsControl ItemsSource="{Binding ItemGroups}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate DataType="{x:Type vm:TraderItems}">
-                                        <Expander IsExpanded="True" Margin="0,4,0,0">
+                                        <Expander IsExpanded="{Binding IsExpanded}" Margin="0,4,0,0">
                                             <Expander.Header>
                                                 <StackPanel Orientation="Horizontal">
                                                     <ContentPresenter Content="{Binding Trader}" ContentTemplate="{StaticResource TraderAvatar}"
@@ -544,7 +535,7 @@
                                                     <TextBlock Text="{Binding Header}" Style="{StaticResource H2}" Margin="0" VerticalAlignment="Center" />
                                                 </StackPanel>
                                             </Expander.Header>
-                                            <ItemsControl ItemsSource="{Binding Quests}" Margin="8,4,0,0">
+                                            <ItemsControl ItemsSource="{Binding Loaded}" Margin="8,4,0,0">
                                                 <ItemsControl.ItemTemplate>
                                                     <DataTemplate DataType="{x:Type vm:QuestItemsRow}">
                                                         <StackPanel Margin="0,0,0,6">
@@ -613,6 +604,21 @@
                                                         <Run Text="{Binding Quest.MapText, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" FontWeight="Normal" FontSize="12" />
                                                     </TextBlock>
                                                 </DockPanel>
+                                                <!-- what to bring into the raid, compact -->
+                                                <ItemsControl ItemsSource="{Binding Quest.RaidNeedItems}" Margin="40,4,0,0">
+                                                    <ItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                                                    </ItemsControl.ItemsPanel>
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate DataType="{x:Type core:ItemNeed}">
+                                                            <StackPanel Orientation="Horizontal" Margin="0,0,8,0" ToolTip="{Binding ToolTip}">
+                                                                <Image Source="{Binding IconPath, Converter={StaticResource ItemIcon}}" Width="22" Height="22" />
+                                                                <TextBlock Text="{Binding CountText}" Foreground="{StaticResource WarnBrush}" FontSize="11"
+                                                                           FontWeight="SemiBold" VerticalAlignment="Center" Margin="2,0,0,0" />
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
                                                 <ItemsControl ItemsSource="{Binding Objectives}" Margin="0,6,0,0">
                                                     <ItemsControl.ItemTemplate>
                                                         <DataTemplate DataType="{x:Type vm:ObjectiveVm}">
@@ -771,6 +777,11 @@
                             </TextBlock>
                             <Slider Minimum="0" Maximum="1" Value="{Binding OverlayPosition}" Margin="0,0,0,8" />
                             <TextBlock Style="{StaticResource Body}">
+                                <Run Text="{DynamicResource s.set.positionX}" /> <Run Text="{Binding OverlayPositionX, StringFormat={}{0:P0}, Mode=OneWay}" />
+                                <Run Text="{DynamicResource s.set.positionX.hint}" Foreground="{StaticResource MutedBrush}" />
+                            </TextBlock>
+                            <Slider Minimum="0" Maximum="1" Value="{Binding OverlayPositionX}" Margin="0,0,0,8" />
+                            <TextBlock Style="{StaticResource Body}">
                                 <Run Text="{DynamicResource s.set.opacity}" /> <Run Text="{Binding OverlayOpacity, StringFormat={}{0:P0}, Mode=OneWay}" />
                             </TextBlock>
                             <Slider Minimum="0.15" Maximum="1" Value="{Binding OverlayOpacity}" />
@@ -887,16 +898,59 @@
                                 <Run Text="   Trader LL: " Foreground="{StaticResource MutedBrush}" /><Run Text="{Binding SelectedQuest.TraderLoyalty, Mode=OneWay, TargetNullValue=-}" />
                             </TextBlock>
 
-                            <WrapPanel Margin="0,10,0,0">
-                                <Button Content="{DynamicResource s.btn.active}" Style="{StaticResource SmallButton}" Margin="0,0,6,6"
-                                        Command="{Binding ToggleActiveCommand}" CommandParameter="{Binding SelectedQuest}" />
-                                <Button Content="{DynamicResource s.btn.complete}" Style="{StaticResource SmallButton}" Margin="0,0,6,6"
-                                        Command="{Binding ToggleCompleteCommand}" CommandParameter="{Binding SelectedQuest}" />
-                                <Button Content="{DynamicResource s.btn.goal}" Style="{StaticResource SmallButton}" Margin="0,0,6,6"
-                                        Command="{Binding ToggleGoalCommand}" CommandParameter="{Binding SelectedQuest}" />
-                                <Button Content="Wiki ↗" Style="{StaticResource SmallButton}" Margin="0,0,6,6"
+                            <!-- action buttons: outlined when off, filled with their colour when the quest is in that state -->
+                            <WrapPanel Margin="0,12,0,4">
+                                <Button Command="{Binding ToggleActiveCommand}" CommandParameter="{Binding SelectedQuest}">
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource ActionButton}">
+                                            <Setter Property="Foreground" Value="{StaticResource ActiveBrush}" />
+                                            <Setter Property="Content" Value="{DynamicResource s.btn.active.on}" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding SelectedRow.Status}" Value="Active">
+                                                    <Setter Property="Background" Value="{StaticResource ActiveBrush}" />
+                                                    <Setter Property="Foreground" Value="{StaticResource BgBrush}" />
+                                                    <Setter Property="BorderBrush" Value="{StaticResource ActiveBrush}" />
+                                                    <Setter Property="Content" Value="{DynamicResource s.btn.active.off}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                                <Button Command="{Binding ToggleCompleteCommand}" CommandParameter="{Binding SelectedQuest}">
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource ActionButton}">
+                                            <Setter Property="Foreground" Value="{StaticResource DoneBrush}" />
+                                            <Setter Property="Content" Value="{DynamicResource s.btn.complete.on}" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding SelectedRow.IsDone}" Value="True">
+                                                    <Setter Property="Background" Value="{StaticResource DoneBrush}" />
+                                                    <Setter Property="Foreground" Value="{StaticResource BgBrush}" />
+                                                    <Setter Property="BorderBrush" Value="{StaticResource DoneBrush}" />
+                                                    <Setter Property="Content" Value="{DynamicResource s.btn.complete.off}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                                <Button Command="{Binding ToggleGoalCommand}" CommandParameter="{Binding SelectedQuest}">
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource ActionButton}">
+                                            <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+                                            <Setter Property="Content" Value="{DynamicResource s.btn.goal.on}" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding SelectedRow.IsGoal}" Value="True">
+                                                    <Setter Property="Background" Value="{StaticResource AccentBrush}" />
+                                                    <Setter Property="Foreground" Value="{StaticResource BgBrush}" />
+                                                    <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+                                                    <Setter Property="Content" Value="{DynamicResource s.btn.goal.off}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                                <Button Content="Wiki ↗" Style="{StaticResource ActionButton}" Foreground="{StaticResource TextBrush}" MinWidth="90"
                                         Command="{Binding OpenWikiCommand}" CommandParameter="{Binding SelectedQuest}" />
-                                <Button Content="{DynamicResource s.tk.openGuide}" Style="{StaticResource SmallButton}" Margin="0,0,6,6"
+                                <Button Content="{DynamicResource s.tk.openGuide}" Style="{StaticResource ActionButton}" Foreground="{StaticResource OptionalBrush}"
                                         Click="OpenTicketGuide_Click" Visibility="{Binding IsTicketSelected, Converter={StaticResource BoolToVis}}" />
                             </WrapPanel>
 
@@ -909,6 +963,51 @@
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
+
+                            <!-- keys, markers, items to plant, weapon, clothes: what to take into the raid -->
+                            <Border BorderBrush="{StaticResource WarnBrush}" BorderThickness="2,0,0,0" Padding="8,4" Margin="0,8,0,0">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding SelectedQuest.RaidNeeds.Count}" Value="0">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SelectedQuest}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.raidNeeds}" Foreground="{StaticResource WarnBrush}" FontWeight="SemiBold" Margin="0,0,0,4" />
+                                    <ItemsControl ItemsSource="{Binding SelectedQuest.RaidNeeds}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate DataType="{x:Type core:RaidNeedGroup}">
+                                                <DockPanel Margin="0,0,0,2">
+                                                    <TextBlock DockPanel.Dock="Left" Width="100" Margin="0,10,6,0" FontSize="12" Foreground="{StaticResource MutedBrush}">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding Kind}" Value="key"><Setter Property="Text" Value="{DynamicResource s.need.key}" /></DataTrigger>
+                                                                    <DataTrigger Binding="{Binding Kind}" Value="mark"><Setter Property="Text" Value="{DynamicResource s.need.mark}" /></DataTrigger>
+                                                                    <DataTrigger Binding="{Binding Kind}" Value="plantItem"><Setter Property="Text" Value="{DynamicResource s.need.plant}" /></DataTrigger>
+                                                                    <DataTrigger Binding="{Binding Kind}" Value="useWeapon"><Setter Property="Text" Value="{DynamicResource s.need.weapon}" /></DataTrigger>
+                                                                    <DataTrigger Binding="{Binding Kind}" Value="wear"><Setter Property="Text" Value="{DynamicResource s.need.wear}" /></DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                    <ItemsControl ItemsSource="{Binding Items}" ItemTemplate="{StaticResource ItemChip}">
+                                                        <ItemsControl.ItemsPanel>
+                                                            <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                                                        </ItemsControl.ItemsPanel>
+                                                    </ItemsControl>
+                                                </DockPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </Border>
 
                             <TextBlock Text="{DynamicResource s.objectives}" Style="{StaticResource H2}" />
                             <ItemsControl ItemsSource="{Binding SelectedQuest.Objectives}">

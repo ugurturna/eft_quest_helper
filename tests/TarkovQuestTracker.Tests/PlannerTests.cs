@@ -64,6 +64,21 @@ public sealed class PlannerTests : IDisposable
     }
 
     [Fact]
+    public void Handing_in_accepts_the_next_quests_without_tracking_them()
+    {
+        var planner = new QuestPlanner(Repo());
+        var p = new Progress { Active = ["punisher-1"], Tracked = ["punisher-1"] };
+        planner.Complete(p, "punisher-1");
+        Assert.Equal(["punisher-2"], planner.AcceptUnlocked(p, "punisher-1").Select(q => q.Id));
+        Assert.Equal(["punisher-2"], p.Active);
+        Assert.DoesNotContain("punisher-2", p.Tracked);   // not on the overlay until pinned
+
+        p = new Progress { Completed = ["shootout-picnic", "punisher-1", "punisher-2"], Active = ["punisher-3"] };
+        planner.Complete(p, "punisher-3");
+        Assert.Equal(["collector"], planner.AcceptUnlocked(p, "punisher-3").Select(q => q.Id));   // level 40 is only shown
+    }
+
+    [Fact]
     public void Starting_a_quest_marks_its_whole_chain_done()
     {
         var planner = new QuestPlanner(Repo());
@@ -93,13 +108,11 @@ public sealed class PlannerTests : IDisposable
     }
 
     [Fact]
-    public void Level_lock_respects_player_level()
+    public void Required_level_does_not_lock_a_quest()
     {
         var repo = Repo();
-        var planner = new QuestPlanner(repo);
-        var p = new Progress { PlayerLevel = 5, Completed = ["shootout-picnic"] };
-        Assert.False(planner.IsAvailable(repo.ById["punisher-1"], p));
-        Assert.True(planner.IsAvailable(repo.ById["punisher-1"], p, ignoreLevel: true));
+        var p = new Progress { Completed = ["shootout-picnic"] };
+        Assert.True(new QuestPlanner(repo).IsAvailable(repo.ById["punisher-1"], p));   // needs level 10
     }
 
     [Fact]
@@ -173,11 +186,11 @@ public sealed class PlannerTests : IDisposable
     public void Progress_round_trips()
     {
         var store = new ProgressStore(_dir);
-        var p = new Progress { PlayerLevel = 22, Completed = ["a"], Active = ["b"], Goals = ["collector"] };
+        var p = new Progress { Completed = ["a"], Active = ["b"], Goals = ["collector"] };
         p.Objectives[Progress.ObjectiveKey("b", "o1")] = 3;
         store.SaveProgress(GameMode.Pve, p);
         var back = store.LoadProgress(GameMode.Pve);
-        Assert.Equal(22, back.PlayerLevel);
+        Assert.Equal(["collector"], back.Goals);
         Assert.Equal(3, back.Objectives["b/o1"]);
         Assert.Empty(store.LoadProgress(GameMode.Pvp).Completed);
     }
