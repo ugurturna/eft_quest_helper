@@ -92,6 +92,9 @@ Extract the zip anywhere and run `TarkovQuestTracker.exe`. Nothing to install: .
 
 The exe is not code-signed yet, so Microsoft Defender SmartScreen may show **"Windows protected your PC — Unknown publisher"** the first time you run it. This is expected for new, unsigned open-source apps and goes away as more people use it.
 
+> [!IMPORTANT]
+> **Every release is submitted to Microsoft for malware analysis.** Microsoft's review takes **3–5 business days**, so a brand-new release can show this warning until the review is done.
+
 To run it anyway: click **More info** → **Run anyway**.
 
 If you'd rather check it first, the full source is in this repo and every release is built by [GitHub Actions](.github/workflows/release.yml) from a tagged commit. You can also scan the zip on [VirusTotal](https://www.virustotal.com/) before running it.

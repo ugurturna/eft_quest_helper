@@ -88,6 +88,17 @@ Item ikonları **görevlerin içinde de** görünür: bulma / teslim / yerleşti
 
 Zip'i istediğin yere çıkar ve `TarkovQuestTracker.exe`'yi çalıştır. Kurulum yok, .NET içinde geliyor. `data` klasörünü exe'nin yanında tut; görev verisi, item ikonları ve ilerlemen orada.
 
+### "Windows bilgisayarınızı korudu" uyarısı
+
+Exe henüz kod imzalı değil, bu yüzden ilk çalıştırmada Microsoft Defender SmartScreen **"Windows bilgisayarınızı korudu — Bilinmeyen yayımcı"** uyarısı gösterebilir. Yeni ve imzasız açık kaynak uygulamalarda bu normaldir; uygulamayı kullanan kişi sayısı arttıkça kaybolur.
+
+> [!IMPORTANT]
+> **Her sürüm, zararlı yazılım analizi için Microsoft'a gönderilir.** Microsoft'un incelemesi **3–5 iş günü** sürer; bu yüzden yeni çıkan bir sürüm, inceleme bitene kadar bu uyarıyı gösterebilir.
+
+Yine de çalıştırmak için: **Ek bilgi** → **Yine de çalıştır**.
+
+Önce kontrol etmek istersen: kaynak kodun tamamı bu repoda ve her sürüm, etiketlenmiş bir commit'ten [GitHub Actions](.github/workflows/release.yml) ile derlenir. Çalıştırmadan önce zip'i [VirusTotal](https://www.virustotal.com/)'da da taratabilirsin.
+
 ### Güncelleme
 
 İlerlemen exe'nin yanındaki `data\profiles` klasöründe. Yeni sürümü ayrı bir klasöre çıkarıp `data\profiles`'ı oraya kopyala ya da eski sürümde **Ayarlar → Dışa aktar**, yenisinde **İçe aktar** kullan.
