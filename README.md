@@ -92,23 +92,6 @@ Extract the zip anywhere and run `TarkovQuestTracker.exe`. Nothing to install: .
 
 Your progress is in `data\profiles` next to the exe. Extract the new version to a new folder and copy `data\profiles` over, or use **Settings → Export** in the old version and **Import** in the new one.
 
-### Building from source
-
-Requirements: **Windows 10/11** and the **[.NET 10 SDK](https://dotnet.microsoft.com/download)**.
-
-```powershell
-git clone git@github.com:ugurturna/eft_quest_helper.git
-cd eft_quest_helper
-dotnet run --project TarkovQuestTracker
-```
-
-Build a standalone folder you can copy anywhere:
-
-```powershell
-dotnet publish TarkovQuestTracker -c Release -r win-x64 --self-contained true -o publish
-# start publish\TarkovQuestTracker.exe
-```
-
 ## Where is my progress stored?
 
 Everything is stored locally, nothing is uploaded. When there is a `data` folder next to the exe (release zip, published or built app), it is used:
@@ -126,51 +109,6 @@ Without a `data` folder next to the exe, the same files go to `%APPDATA%\TarkovQ
 Progress is saved on every click. Use **Settings → Export / Import** to back it up or move it to another PC.
 
 Hotkeys can be changed in `settings.json` (`clickThroughHotkey`, `toggleOverlayHotkey`, e.g. `"Ctrl+Alt+F9"`).
-
-## Quest data
-
-Quest data lives in `data/` and is built by the scripts in `tools/scraper/` (Python 3.12). Run them in this order:
-
-| Command | What it does |
-|---|---|
-| `python tools/scraper/scrape_wiki.py` | Downloads all quests from the [EFT Fandom wiki](https://escapefromtarkov.fandom.com/) → `data/tasks_en.json` (`--refresh` ignores the local cache) |
-| `python tools/scraper/fetch_tarkovdev.py` | Downloads [tarkov.dev](https://tarkov.dev/) data from its static dumps on `json.tarkov.dev` (levels, missing prerequisites, PvE differences, Turkish names) |
-| `python tools/scraper/merge.py` | Merges tarkov.dev into the wiki data, marks the Kappa quests (Collector and its prerequisite chain) and writes `data/diff_report.md` showing where the sources disagree |
-| `python tools/scraper/build_translations.py tr` | Merges the hand-written translations in `tools/translations/tr/` into `data/tasks_tr.json` |
-| `python tools/scraper/fetch_quest_items.py` | Downloads the items each quest needs → `data/quest_items.json`, and their icons → `data/icons/` (needs [Pillow](https://pypi.org/project/pillow/): `pip install pillow`) |
-
-All scripts except `fetch_quest_items.py` use only the standard library. Every quest records where each field came from (`sources`), so you can tell wiki data from tarkov.dev data.
-
-### Translating
-
-Translations are plain JSON files, one per quest, in `tools/translations/<lang>/`. They survive re-scraping. Copy an existing file (e.g. `tools/translations/tr/story/tour.json`), translate `name`, `objectives[].text`, `objectives[].details` and `guide`, then run `build_translations.py`. The script reports missing or mismatched objectives.
-
-App (menu) texts are in `TarkovQuestTracker/Strings/Strings.<lang>.xaml`.
-
-## Releasing
-
-The version is set in `TarkovQuestTracker/TarkovQuestTracker.csproj` (`<Version>`) and shown next to the app title. Pushing a tag such as `v0.0.3` runs [`.github/workflows/release.yml`](.github/workflows/release.yml): tests, a self-contained single-file publish, a zip, and a GitHub release with the zip attached. The website picks up the newest release by itself.
-
-```powershell
-git tag v0.0.3
-git push origin v0.0.3
-```
-
-## Project structure
-
-```
-TarkovQuestTracker/          WPF app (.NET 10): windows, overlay, view models, UI strings
-TarkovQuestTracker.Core/     quest and item models, data loading, search, prerequisite graph, profiles/progress
-tests/                       xUnit tests (planner, search, profiles, real data sanity checks)
-tools/scraper/               data scripts (wiki, tarkov.dev, merge, translations, quest items)
-tools/translations/          hand-written translations
-tools/make_icon.ps1          builds the .ico from a PNG
-data/                        generated quest data, quest items and item icons shipped with the app
-docs/                        the website (GitHub Pages)
-.github/workflows/           release workflow
-```
-
-Run the tests with `dotnet test`.
 
 ## Credits & legal
 

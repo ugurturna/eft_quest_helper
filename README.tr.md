@@ -92,23 +92,6 @@ Zip'i istediğin yere çıkar ve `TarkovQuestTracker.exe`'yi çalıştır. Kurul
 
 İlerlemen exe'nin yanındaki `data\profiles` klasöründe. Yeni sürümü ayrı bir klasöre çıkarıp `data\profiles`'ı oraya kopyala ya da eski sürümde **Ayarlar → Dışa aktar**, yenisinde **İçe aktar** kullan.
 
-### Kaynaktan derleme
-
-Gereksinimler: **Windows 10/11** ve **[.NET 10 SDK](https://dotnet.microsoft.com/download)**.
-
-```powershell
-git clone git@github.com:ugurturna/eft_quest_helper.git
-cd eft_quest_helper
-dotnet run --project TarkovQuestTracker
-```
-
-Her yere kopyalanabilen bağımsız bir klasör üretmek için:
-
-```powershell
-dotnet publish TarkovQuestTracker -c Release -r win-x64 --self-contained true -o publish
-# publish\TarkovQuestTracker.exe dosyasını çalıştır
-```
-
 ## İlerlemem nerede saklanıyor?
 
 Her şey bilgisayarında saklanır, hiçbir yere yüklenmez. Exe'nin yanında `data` klasörü varsa (release zip'i, publish ya da derlenmiş uygulama) orası kullanılır:
@@ -126,51 +109,6 @@ Exe'nin yanında `data` klasörü yoksa aynı dosyalar `%APPDATA%\TarkovQuestTra
 İlerleme her tıklamada kaydedilir. Yedeklemek ya da başka bilgisayara taşımak için **Ayarlar → Dışa / İçe aktar**'ı kullan.
 
 Kısayollar `settings.json` içinden değiştirilebilir (`clickThroughHotkey`, `toggleOverlayHotkey`, ör. `"Ctrl+Alt+F9"`).
-
-## Görev verisi
-
-Görev verisi `data/` klasöründedir ve `tools/scraper/` içindeki scriptlerle üretilir (Python 3.12). Bu sırayla çalıştır:
-
-| Komut | Ne yapar |
-|---|---|
-| `python tools/scraper/scrape_wiki.py` | Tüm görevleri [EFT Fandom wiki](https://escapefromtarkov.fandom.com/)'den indirir → `data/tasks_en.json` (`--refresh` yerel önbelleği yok sayar) |
-| `python tools/scraper/fetch_tarkovdev.py` | [tarkov.dev](https://tarkov.dev/) verisini `json.tarkov.dev` üzerindeki hazır dump'lardan indirir (seviyeler, eksik ön koşullar, PvE farkları, Türkçe adlar) |
-| `python tools/scraper/merge.py` | tarkov.dev verisini wiki verisine ekler, Kappa görevlerini işaretler (Collector ve ön koşul zinciri) ve kaynakların ayrıştığı yerleri `data/diff_report.md`'ye yazar |
-| `python tools/scraper/build_translations.py tr` | `tools/translations/tr/` içindeki elle yazılmış çevirileri `data/tasks_tr.json`'a işler |
-| `python tools/scraper/fetch_quest_items.py` | Her görevin istediği itemleri indirir → `data/quest_items.json`, ikonlarını → `data/icons/` ([Pillow](https://pypi.org/project/pillow/) gerekir: `pip install pillow`) |
-
-`fetch_quest_items.py` dışındaki scriptler sadece standart kütüphaneyi kullanır. Her görev, her alanın hangi kaynaktan geldiğini (`sources`) saklar; wiki verisini tarkov.dev verisinden ayırt edebilirsin.
-
-### Çeviri yapmak
-
-Çeviriler `tools/translations/<dil>/` içinde, her görev için ayrı düz JSON dosyalarıdır ve wiki yeniden çekilse de kaybolmaz. Var olan bir dosyayı kopyala (ör. `tools/translations/tr/story/tour.json`), `name`, `objectives[].text`, `objectives[].details` ve `guide` alanlarını çevir, sonra `build_translations.py`'yi çalıştır. Script eksik ya da uyumsuz hedefleri bildirir.
-
-Uygulama (menü) metinleri `TarkovQuestTracker/Strings/Strings.<dil>.xaml` dosyalarındadır.
-
-## Sürüm çıkarma
-
-Sürüm `TarkovQuestTracker/TarkovQuestTracker.csproj` içindeki `<Version>` ile belirlenir ve uygulamada başlığın yanında görünür. `v0.0.3` gibi bir tag push edilince [`.github/workflows/release.yml`](.github/workflows/release.yml) çalışır: testler, tek dosyalık bağımsız publish, zip ve zip'in eklendiği bir GitHub release. Web sitesi en yeni sürümü kendisi bulur.
-
-```powershell
-git tag v0.0.3
-git push origin v0.0.3
-```
-
-## Proje yapısı
-
-```
-TarkovQuestTracker/          WPF uygulaması (.NET 10): pencereler, overlay, view model'ler, arayüz metinleri
-TarkovQuestTracker.Core/     görev ve item modelleri, veri yükleme, arama, ön koşul grafiği, profiller/ilerleme
-tests/                       xUnit testleri (planlayıcı, arama, profiller, gerçek veri kontrolleri)
-tools/scraper/               veri scriptleri (wiki, tarkov.dev, birleştirme, çeviriler, görev itemleri)
-tools/translations/          elle yazılmış çeviriler
-tools/make_icon.ps1          PNG'den .ico üretir
-data/                        uygulamayla gelen görev verisi, görev itemleri ve item ikonları
-docs/                        web sitesi (GitHub Pages)
-.github/workflows/           release workflow'u
-```
-
-Testleri `dotnet test` ile çalıştır.
 
 ## Kaynaklar & yasal
 
