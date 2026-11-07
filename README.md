@@ -9,6 +9,13 @@
   <b>English</b> · <a href="README.tr.md">Türkçe</a> · <a href="README.ru.md">Русский</a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1">
+    <img src="https://img.shields.io/badge/Download-v0.0.1-2ea44f?style=for-the-badge&logo=windows&logoColor=white" alt="Download v0.0.1">
+  </a><br>
+  <a href="https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1">https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1</a>
+</p>
+
 ---
 
 ## Ban risk
@@ -57,6 +64,8 @@
 <br clear="right">
 
 ## Download & run
+
+**Download release (recommended):** [v0.0.1 Release](https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1)
 
 Requirements: **Windows 10/11** and the **[.NET 10 SDK](https://dotnet.microsoft.com/download)** (to build) or .NET 10 Desktop Runtime (to run a published build).
 
