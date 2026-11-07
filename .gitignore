@@ -45,6 +45,9 @@ venv/
 tools/scraper/cache/
 data/sources/
 data/diff_report.md
+data/profiles/
+data/app.json
+portable.txt
 
 # ---- Local AI / tooling artifacts ----
 graphify-out/

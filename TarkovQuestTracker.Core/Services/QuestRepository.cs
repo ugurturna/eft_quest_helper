@@ -103,6 +103,6 @@ public sealed class QuestRepository
             var candidate = Path.Combine(dir.FullName, "data");
             if (File.Exists(Path.Combine(candidate, "tasks_en.json"))) return candidate;
         }
-        throw new FileNotFoundException("data/tasks_en.json bulunamadı. Önce tools/scraper/scrape_wiki.py çalıştırın.");
+        throw new FileNotFoundException("data/tasks_en.json bulunamadı. Programı yanındaki 'data' klasörüyle birlikte kullandığınızdan emin olun.");
     }
 }

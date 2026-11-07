@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
       <ProjectReference Include="..\TarkovQuestTracker.Core\TarkovQuestTracker.Core.csproj" />
@@ -14,8 +14,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="..\data\tasks_*.json;..\data\meta.json" Link="data\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+      <Content Include="..\data\tasks_*.json;..\data\meta.json" Link="data\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
     </ItemGroup>
+
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>

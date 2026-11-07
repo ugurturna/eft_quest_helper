@@ -28,10 +28,28 @@ public sealed class ProgressStore
     public ProgressStore(string? folder = null)
     {
         var home = Environment.GetEnvironmentVariable(HomeVariable);
-        Folder = folder
-                 ?? (string.IsNullOrEmpty(home)
-                     ? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TarkovQuestTracker")
-                     : home);
+        if (!string.IsNullOrEmpty(folder))
+        {
+            Folder = folder;
+        }
+        else if (!string.IsNullOrEmpty(home))
+        {
+            Folder = home;
+        }
+        else
+        {
+            // Portable mode: if "data" directory or a "portable.txt" marker exists next to the exe, use it.
+            var localData = Path.Combine(AppContext.BaseDirectory, "data");
+            var portableMarker = Path.Combine(AppContext.BaseDirectory, "portable.txt");
+            if (Directory.Exists(localData) || File.Exists(portableMarker))
+            {
+                Folder = Directory.Exists(localData) ? localData : AppContext.BaseDirectory;
+            }
+            else
+            {
+                Folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TarkovQuestTracker");
+            }
+        }
         MigrateLegacyFiles();
         var state = Read<AppState>(AppStatePath) ?? new AppState();
         Profile = ProfileExists(state.CurrentProfile) ? state.CurrentProfile : ListProfiles().FirstOrDefault() ?? DefaultProfile;

@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Windows;
 using System.Windows.Interop;
 using TarkovQuestTracker.ViewModels;
@@ -24,7 +24,7 @@ public partial class App : Application
         {
             vm = new MainViewModel();
         }
-        catch (FileNotFoundException ex)
+        catch (Exception ex)
         {
             MessageBox.Show(ex.Message, "Tarkov Quest Tracker", MessageBoxButton.OK, MessageBoxImage.Error);
             Shutdown(1);
