@@ -20,6 +20,8 @@ if ($key -notmatch '^[0-9a-fA-F]{64}$') {
         ForEach-Object { 'U+{0:X4}' -f [int]$_ } | Select-Object -Unique) -join ', '
     throw "VT_API_KEY should be 64 hex characters but has $($key.Length) characters$(if ($bad) { "; unexpected: $bad" }). Copy it again from virustotal.com > API key and update the repository secret."
 }
+# the cleaned key may differ from the raw secret, which is the only thing GitHub masks
+Write-Host "::add-mask::$key"
 $api = 'https://www.virustotal.com/api/v3'
 $headers = @{ 'x-apikey' = $key }
 
@@ -29,7 +31,11 @@ function Submit-File([string] $path) {
     if ((Get-Item $path).Length -gt 32MB) {
         $url = (Invoke-RestMethod "$api/files/upload_url" -Headers $headers).data
     }
-    (Invoke-RestMethod $url -Method Post -Headers $headers -Form @{ file = Get-Item $path }).data.id
+    # curl, not Invoke-RestMethod -Form: VirusTotal answers "Malformed multipart body" to the
+    # quoted boundary and filename* field that PowerShell's multipart writer produces
+    $response = & curl.exe --silent --show-error --fail-with-body -X POST $url -H "x-apikey: $key" -F "file=@$path"
+    if ($LASTEXITCODE -ne 0) { throw "Uploading $path to VirusTotal failed (curl exit $LASTEXITCODE): $response" }
+    ($response | ConvertFrom-Json).data.id
 }
 
 $analyses = [ordered]@{}
