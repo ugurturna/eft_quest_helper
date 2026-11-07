@@ -107,10 +107,14 @@ public sealed class QuestRepository
             foreach (var (o, need) in needs)
                 if (o.Objective != null && byId.TryGetValue(o.Objective, out var target))
                     target.Item ??= need;
-            // "Hand over the items" right after "Find X in raid" is about the same item
+            // "Find X in raid" + "Hand over the items" are about the same item, whichever side was matched
             for (var i = 1; i < q.Objectives.Count; i++)
-                if (q.Objectives[i].Item == null && q.Objectives[i].Text.StartsWith("Hand over", StringComparison.OrdinalIgnoreCase))
-                    q.Objectives[i].Item = q.Objectives[i - 1].Item;
+            {
+                var (find, give) = (q.Objectives[i - 1], q.Objectives[i]);
+                if (!give.Text.StartsWith("Hand over", StringComparison.OrdinalIgnoreCase)) continue;
+                if (give.Item == null) give.Item = find.Item;
+                else if (find.Item == null && find.Text.StartsWith("Find", StringComparison.OrdinalIgnoreCase)) find.Item = give.Item;
+            }
 
             q.ItemNeeds = needs.Where(x => x.o.Type != "findItem").Select(x => x.need)
                 // the same item over several objectives (plant 3× one by one) becomes one entry

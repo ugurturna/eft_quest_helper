@@ -30,7 +30,7 @@
 ---
 
 <p align="center">
-  <img src="docs/main-window.png" width="780" alt="Главное окно">
+  <img src="docs/screenshots/main-window.webp" width="780" alt="Главное окно">
 </p>
 
 ## Возможности
@@ -50,7 +50,7 @@
 
 ### Оверлей
 
-<img src="docs/overlay.png" width="320" align="right" alt="Оверлей">
+<img src="docs/screenshots/overlay.webp" width="320" align="right" alt="Оверлей">
 
 - Прикреплён к правому краю, **двигается только вверх/вниз** (перетаскивайте заголовок).
 - Настраиваемые **прозрачность**, **размер** (60–200 %, также <kbd>Ctrl</kbd> + колесо мыши) и **ширина**.

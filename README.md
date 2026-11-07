@@ -10,10 +10,10 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1">
-    <img src="https://img.shields.io/badge/Download-v0.0.1-2ea44f?style=for-the-badge&logo=windows&logoColor=white" alt="Download v0.0.1">
+  <a href="https://github.com/ugurturna/eft_quest_helper/releases/latest">
+    <img src="https://img.shields.io/github/v/release/ugurturna/eft_quest_helper?style=for-the-badge&label=Download&color=2ea44f&logo=windows&logoColor=white" alt="Download the latest release">
   </a><br>
-  <a href="https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1">https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1</a><br>
+  <a href="https://github.com/ugurturna/eft_quest_helper/releases/latest">https://github.com/ugurturna/eft_quest_helper/releases/latest</a><br>
   🌐 <b>Website:</b> <a href="https://ugurturna.github.io/eft_quest_helper/">https://ugurturna.github.io/eft_quest_helper/</a>
 </p>
 
@@ -30,31 +30,49 @@
 ---
 
 <p align="center">
-  <img src="docs/main-window.png" width="780" alt="Main window">
+  <img src="docs/screenshots/main-window.webp" width="780" alt="Main window">
 </p>
 
 ## Features
 
 - **All quests in one place** — ~870 quests: trader (side) quests, story chapters and event quests, with objectives, required items, rewards, guides and notes.
+- **Quest items with icons** — which trader needs which items for which quest, with item icons, counts and Found-in-Raid flags (see [Quest items](#quest-items)).
 - **Prerequisite chains** — every quest knows what it needs and what it unlocks.
 - **Goal planner** — pick a goal (e.g. *The Punisher – Part 3* or *Collector*) and see the whole chain in order, what you can do right now and what is left.
-- **Kappa / Collector path** — progress bar, available Kappa quests **grouped by map** so you can do several in one raid, and quests waiting for your level.
-- **Active quests + overlay** — the quests you are doing right now appear in a small tracker on the right edge of the screen, with objective checkboxes and kill/item counters.
+- **Kappa / Collector path** — the quests Kappa really needs: *Collector* and its whole prerequisite chain. Progress bar, available quests **grouped by map** so you can do several in one raid, and quests waiting for your level.
+- **Active quests + overlay** — the quests you are doing right now appear in a small tracker on the right edge of the screen, with objective checkboxes, kill/item counters and item icons.
 - **Activating a quest completes its chain** — set *Punisher Part 5* active and Parts 1–4 are marked done automatically (one-click undo).
-- **PvP and PvE** — separate progress for each mode; PvE-specific differences (levels, objectives) are shown.
+- **PvP and PvE** — separate progress for each mode; PvE-specific differences (levels, objectives, items) are shown.
 - **Search in English and Turkish** — tolerant of typos and Turkish characters (`punisher 3`, `punişır 3`, `cezalandırıcı`).
-- **Two languages, independently** — app language (menus) and quest language (quest text) can differ, e.g. Turkish app with English quests. All story chapters are translated to Turkish.
+- **Two languages, independently** — app language (menus) and quest language (quest and item names) can differ, e.g. Turkish app with English quests. All story chapters are translated to Turkish.
 - **Profiles** — several players on one PC, each with their own progress and settings.
 - **Event quests** — active events are listed; past events can be shown in Settings.
 - **Fast** — lists load page by page while you scroll.
 
+### Quest items
+
+<p align="center">
+  <img src="docs/screenshots/items.webp" width="780" alt="Items tab: items each trader needs, quest by quest">
+</p>
+
+The **Items** tab answers "what do I need to keep for my quests?":
+
+- Grouped **by trader**, then **by quest**; every item is a small card with its **icon**, short name, **count** and a **FIR** mark when it has to be found in raid. Hover a card for the full name.
+- Objectives that accept several items (e.g. *any 3 medical items*) show the first one with **+N**; the tooltip lists the alternatives.
+- **Search** an item (`Salewa`, `GPU`, `Tushonka`…) to see every quest that wants it.
+- **Hide completed** (on by default) and **FIR only** filters; the header shows how many quests and distinct items are left.
+- Click a quest name to open it in the detail panel.
+
+Item icons also appear **inside the quests**: find / hand-over / plant objectives show the item's icon in the quest details, on the *Active Quests* cards and in the overlay, and the detail panel lists the quest's required items as cards. Items are shown in the quest language (English or Turkish).
+
 ### Overlay
 
-<img src="docs/overlay.png" width="320" align="right" alt="Overlay">
+<img src="docs/screenshots/overlay.webp" width="320" align="right" alt="Overlay">
 
 - Docked to the right edge, **moves only up/down** (drag the header).
 - Adjustable **opacity**, **size** (60–200 %, also <kbd>Ctrl</kbd> + mouse wheel) and **width**.
 - Two views: **titles only** or **title + details**.
+- Item objectives show the **item icon**, so you recognise the loot mid-raid.
 - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> — lock the overlay (clicks go through to the game) / unlock.
 - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> — show / hide the overlay.
 - It never takes focus away from the game.
@@ -66,9 +84,17 @@
 
 ## Download & run
 
-**Download release (recommended):** [v0.0.1 Release](https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1)
+**Download the latest release (recommended):** [Releases](https://github.com/ugurturna/eft_quest_helper/releases/latest) → `TarkovQuestTracker-vX.Y.Z-win-x64.zip`
 
-Requirements: **Windows 10/11** and the **[.NET 10 SDK](https://dotnet.microsoft.com/download)** (to build) or .NET 10 Desktop Runtime (to run a published build).
+Extract the zip anywhere and run `TarkovQuestTracker.exe`. Nothing to install: .NET is included. Keep the `data` folder next to the exe; it holds the quest data, the item icons and your progress.
+
+### Updating
+
+Your progress is in `data\profiles` next to the exe. Extract the new version to a new folder and copy `data\profiles` over, or use **Settings → Export** in the old version and **Import** in the new one.
+
+### Building from source
+
+Requirements: **Windows 10/11** and the **[.NET 10 SDK](https://dotnet.microsoft.com/download)**.
 
 ```powershell
 git clone git@github.com:ugurturna/eft_quest_helper.git
@@ -85,32 +111,35 @@ dotnet publish TarkovQuestTracker -c Release -r win-x64 --self-contained true -o
 
 ## Where is my progress stored?
 
-Everything is stored locally, nothing is uploaded:
+Everything is stored locally, nothing is uploaded. When there is a `data` folder next to the exe (release zip, published or built app), it is used:
 
 ```
-%APPDATA%\TarkovQuestTracker\
+data\
   app.json                      last used profile
   profiles\<name>\settings.json overlay, languages, hotkeys
   profiles\<name>\progress_pvp.json
   profiles\<name>\progress_pve.json
 ```
 
-Progress is saved on every click. Use **Settings → Export / Import** to back it up or move it to another PC. Set the `TARKOV_TRACKER_HOME` environment variable to keep the data somewhere else (portable use).
+Without a `data` folder next to the exe, the same files go to `%APPDATA%\TarkovQuestTracker\`. Set the `TARKOV_TRACKER_HOME` environment variable to keep them anywhere else.
+
+Progress is saved on every click. Use **Settings → Export / Import** to back it up or move it to another PC.
 
 Hotkeys can be changed in `settings.json` (`clickThroughHotkey`, `toggleOverlayHotkey`, e.g. `"Ctrl+Alt+F9"`).
 
 ## Quest data
 
-Quest data lives in `data/` and is built by the scripts in `tools/scraper/` (Python 3.12, standard library only):
+Quest data lives in `data/` and is built by the scripts in `tools/scraper/` (Python 3.12). Run them in this order:
 
 | Command | What it does |
 |---|---|
 | `python tools/scraper/scrape_wiki.py` | Downloads all quests from the [EFT Fandom wiki](https://escapefromtarkov.fandom.com/) → `data/tasks_en.json` (`--refresh` ignores the local cache) |
-| `python tools/scraper/fetch_tarkovdev.py` | Downloads extra data from [tarkov.dev](https://tarkov.dev/) (Kappa flags, levels, missing prerequisites, Turkish names) |
-| `python tools/scraper/merge.py` | Merges tarkov.dev into the wiki data and writes `data/diff_report.md` showing where the two sources disagree |
+| `python tools/scraper/fetch_tarkovdev.py` | Downloads [tarkov.dev](https://tarkov.dev/) data from its static dumps on `json.tarkov.dev` (levels, missing prerequisites, PvE differences, Turkish names) |
+| `python tools/scraper/merge.py` | Merges tarkov.dev into the wiki data, marks the Kappa quests (Collector and its prerequisite chain) and writes `data/diff_report.md` showing where the sources disagree |
 | `python tools/scraper/build_translations.py tr` | Merges the hand-written translations in `tools/translations/tr/` into `data/tasks_tr.json` |
+| `python tools/scraper/fetch_quest_items.py` | Downloads the items each quest needs → `data/quest_items.json`, and their icons → `data/icons/` (needs [Pillow](https://pypi.org/project/pillow/): `pip install pillow`) |
 
-Every quest records where each field came from (`sources`), so you can tell wiki data from tarkov.dev data.
+All scripts except `fetch_quest_items.py` use only the standard library. Every quest records where each field came from (`sources`), so you can tell wiki data from tarkov.dev data.
 
 ### Translating
 
@@ -118,23 +147,34 @@ Translations are plain JSON files, one per quest, in `tools/translations/<lang>/
 
 App (menu) texts are in `TarkovQuestTracker/Strings/Strings.<lang>.xaml`.
 
+## Releasing
+
+The version is set in `TarkovQuestTracker/TarkovQuestTracker.csproj` (`<Version>`) and shown next to the app title. Pushing a tag such as `v0.0.3` runs [`.github/workflows/release.yml`](.github/workflows/release.yml): tests, a self-contained single-file publish, a zip, and a GitHub release with the zip attached. The website picks up the newest release by itself.
+
+```powershell
+git tag v0.0.3
+git push origin v0.0.3
+```
+
 ## Project structure
 
 ```
 TarkovQuestTracker/          WPF app (.NET 10): windows, overlay, view models, UI strings
-TarkovQuestTracker.Core/     quest models, data loading, search, prerequisite graph, profiles/progress
+TarkovQuestTracker.Core/     quest and item models, data loading, search, prerequisite graph, profiles/progress
 tests/                       xUnit tests (planner, search, profiles, real data sanity checks)
-tools/scraper/               data scripts (wiki, tarkov.dev, merge, translations)
+tools/scraper/               data scripts (wiki, tarkov.dev, merge, translations, quest items)
 tools/translations/          hand-written translations
 tools/make_icon.ps1          builds the .ico from a PNG
-data/                        generated quest data shipped with the app
+data/                        generated quest data, quest items and item icons shipped with the app
+docs/                        the website (GitHub Pages)
+.github/workflows/           release workflow
 ```
 
 Run the tests with `dotnet test`.
 
 ## Credits & legal
 
-- Quest data: [Escape from Tarkov Wiki (Fandom)](https://escapefromtarkov.fandom.com/), content available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), and [tarkov.dev](https://tarkov.dev/).
-- *Escape from Tarkov*, trader names and trader portraits are trademarks/property of **Battlestate Games**. They are used here only to identify in-game content. This is a non-commercial fan project.
+- Quest data: [Escape from Tarkov Wiki (Fandom)](https://escapefromtarkov.fandom.com/), content available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), and [tarkov.dev](https://tarkov.dev/) (quest items and item icons).
+- *Escape from Tarkov*, trader names, trader portraits and item images are trademarks/property of **Battlestate Games**. They are used here only to identify in-game content. This is a non-commercial fan project.
 - Free code signing provided by [SignPath.io](https://signpath.io), certificate by [SignPath Foundation](https://signpath.org).
 - Licensed under the [MIT License](LICENSE).

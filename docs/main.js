@@ -4,19 +4,19 @@
 
 const translations = {
   en: {
-    announcement: "🚀 v0.0.1 is here! Zero ban risk, instant quest overlay for Escape from Tarkov.",
+    announcement: "🚀 {v} is here! Zero ban risk, instant quest overlay for Escape from Tarkov.",
     navFeatures: "Features",
     navSafety: "Ban Safety",
     navGuide: "How to Use",
     navTraders: "Traders",
     navFaq: "FAQ",
-    navDownload: "Download v0.0.1",
+    navDownload: "Download {v}",
     
     heroBadge: "Escape from Tarkov Desktop Companion",
     heroTitlePre: "Master Every Quest.",
     heroTitleHighlight: "Escape with Kappa.",
     heroSubtitle: "A blazing-fast, zero-ban-risk quest tracker and goal planner with an always-on-top, click-through in-game overlay. Track objectives live without Alt+Tabbing.",
-    btnDownload: "Download for Windows (v0.0.1)",
+    btnDownload: "Download for Windows ({v})",
     btnGithub: "View on GitHub",
     metaSafe: "100% Safe (No Memory Hooks)",
     metaWin: "Windows 10 / 11 (64-bit)",
@@ -33,7 +33,7 @@ const translations = {
     f1Badge: "Always-on-top · Click-through",
 
     f2Title: "Goal Planner & Kappa Path",
-    f2Desc: "Pick any target quest (like Punisher Part 6 or The Collector). The app calculates the exact chain, what to do right now, and what's left.",
+    f2Desc: "Pick any target quest, like Punisher Part 6 or Collector. The app works out the exact chain, what you can do right now and what's left. The Kappa path follows Collector's real prerequisite chain.",
     f2Badge: "Chain solver · Map grouping",
 
     f3Title: "Auto-Chain Completion",
@@ -64,14 +64,14 @@ const translations = {
     safeDoes1: "Runs as a completely separate, standard Windows WPF application.",
     safeDoes2: "Overlay is a standard transparent top-level Windows window (like a sticky note).",
     safeDoes3: "Uses standard Windows RegisterHotKey API for hotkeys.",
-    safeDoes4: "Stores all quest state locally in your AppData folder.",
+    safeDoes4: "Stores all progress locally in the data folder next to the app.",
     safeDisclaimer: "Notice: EFT Quest Helper is an independent fan project not affiliated with Battlestate Games. Always play Tarkov in Borderless or Windowed mode to allow Windows to render overlays.",
 
     guideTag: "Quick Start",
     guideTitle: "Get Started in 4 Easy Steps",
     guideSub: "No complex configuration or setup required. Up and running in less than 60 seconds.",
     step1Title: "1. Download & Launch",
-    step1Desc: "Download the standalone v0.0.1 release from GitHub and run TarkovQuestTracker.exe. No installation needed.",
+    step1Desc: "Download the latest release zip from GitHub, extract it anywhere and run TarkovQuestTracker.exe. No installation needed.",
     step2Title: "2. Set Game to Borderless",
     step2Desc: "In Escape from Tarkov display settings, select Borderless or Windowed mode (Windows cannot overlay exclusive fullscreen).",
     step3Title: "3. Choose Your Quests",
@@ -98,29 +98,50 @@ const translations = {
     faq3Q: "Does the app automatically detect in-raid progress?",
     faq3A: "No, EFT Quest Helper does not read game memory or network packets to ensure 100% ban safety. You check off objectives manually or between raids.",
     faq4Q: "Can I transfer my progress to another computer?",
-    faq4A: "Yes! Open Settings in the app and click 'Export Progress'. You can import the resulting file on any PC, or copy your %APPDATA%\\TarkovQuestTracker folder.",
+    faq4A: "Yes! Open Settings in the app and click 'Export'. You can import the resulting file on any PC, or copy the data\\profiles folder next to TarkovQuestTracker.exe.",
 
     ctaTitle: "Ready to Conquer Your Tarkov Wipe?",
     ctaSub: "Download EFT Quest Helper today. Free, open source, and built for PMCs.",
-    ctaBtn: "Download v0.0.1 for Windows",
+    ctaBtn: "Download {v} for Windows",
     
+    navShots: "Screenshots",
+    newTag: "New",
+    f7Title: "Quest Items Tracker",
+    f7Desc: "See which trader needs which items for which quest, grouped by trader, with item icons, counts and Found-in-Raid flags. Search an item to find every quest that wants it.",
+    f7Badge: "FIR flags · Item search",
+    f8Title: "Item Icons in Every Objective",
+    f8Desc: "Find and hand-over objectives show the item's icon in quest details, the active quest list and the overlay, so you recognise loot at a glance mid-raid.",
+    f8Badge: "Overlay ready",
+    shotsTag: "Screenshots",
+    shotsTitle: "See It in Action",
+    shotsSub: "Real screenshots from the app. No mockups.",
+    tabQuests: "Quests",
+    tabItems: "Items",
+    tabKappa: "Kappa",
+    tabPlanner: "Goal Planner",
+    capQuests: "Search every quest, filter by type, status and trader. The detail panel shows objectives with item icons, required items, prerequisites and rewards.",
+    capItems: "Every item each trader wants, quest by quest, with counts and FIR flags. Hide completed quests or search for a single item.",
+    capKappa: "Your Kappa progress and what you can do right now, grouped by map so you can stack quests in the same raid.",
+    capPlanner: "Pick a goal and get the full chain in order, with what is available right now.",
+    faq5Q: "How do I update to a new version without losing progress?",
+    faq5A: "Your progress lives in the data\\profiles folder next to the exe. Extract the new release to a new folder and copy data\\profiles over, or use Export in the old version and Import in the new one.",
     footerDisclaimer: "Escape from Tarkov, trader names and logos are trademarks of Battlestate Games. This application is an unofficial, non-commercial fan-made tool."
   },
 
   tr: {
-    announcement: "🚀 v0.0.1 yayında! Sıfır ban riski, Escape from Tarkov için anlık görev overlay'i.",
+    announcement: "🚀 {v} yayında! Sıfır ban riski, Escape from Tarkov için anlık görev overlay'i.",
     navFeatures: "Özellikler",
     navSafety: "Ban Güvenliği",
     navGuide: "Nasıl Kullanılır",
     navTraders: "Traderlar",
     navFaq: "SSS",
-    navDownload: "v0.0.1 İndir",
+    navDownload: "{v} İndir",
     
     heroBadge: "Escape from Tarkov Masaüstü Yardımcısı",
     heroTitlePre: "Tüm Görevleri Yönet.",
     heroTitleHighlight: "Kappa'ya Hızla Ulaş.",
     heroSubtitle: "Her zaman üstte duran, tıklama geçiren (click-through) oyun içi overlay'e ve zincirleme hedef planlayıcısına sahip, sıfır ban riskli masaüstü görev yardımcısı.",
-    btnDownload: "Windows İçin v0.0.1 İndir",
+    btnDownload: "Windows İçin {v} İndir",
     btnGithub: "GitHub'da İncele",
     metaSafe: "%100 Güvenli (Bellek Kancası Yok)",
     metaWin: "Windows 10 / 11 (64-bit)",
@@ -137,7 +158,7 @@ const translations = {
     f1Badge: "Her zaman üstte · Tıklama geçirir",
 
     f2Title: "Hedef Planlayıcı & Kappa Yolu",
-    f2Desc: "İstediğin hedefi seç (ör. Punisher Part 6 veya Collector). Uygulama tüm zinciri, şu an yapabileceklerini ve kalanları listelesin.",
+    f2Desc: "İstediğin hedefi seç (ör. Punisher Part 6 veya Collector). Uygulama tüm zinciri, şu an yapabileceklerini ve kalanları listeler. Kappa yolu, Collector'ın gerçek ön koşul zincirini izler.",
     f2Badge: "Zincir çözücü · Harita gruplama",
 
     f3Title: "Otomatik Zincir Tamamlama",
@@ -168,14 +189,14 @@ const translations = {
     safeDoes1: "Tamamen bağımsız, standart bir Windows masaüstü uygulamasıdır.",
     safeDoes2: "Overlay, ekranda tutulan standart şeffaf bir Windows penceresidir.",
     safeDoes3: "Kısayol tuşları için standart Windows RegisterHotKey API'sini kullanır.",
-    safeDoes4: "Tüm ilerlemenizi yalnızca yerel AppData klasörünüzde saklar.",
+    safeDoes4: "Tüm ilerlemenizi uygulamanın yanındaki data klasöründe, yerel olarak saklar.",
     safeDisclaimer: "Bilgilendirme: EFT Quest Helper, Battlestate Games ile bağı olmayan bağımsız bir hayran projesidir. Windows'un pencere çizebilmesi için Tarkov'u Çerçevesiz (Borderless) modda oynayın.",
 
     guideTag: "Hızlı Başlangıç",
     guideTitle: "4 Kolay Adımda Kullanmaya Başla",
     guideSub: "Karmaşık ayarlar veya yükleme süreçleri yok. 60 saniyede hazır.",
     step1Title: "1. İndir ve Çalıştır",
-    step1Desc: "GitHub Releases sayfasından hazır v0.0.1 sürümünü indir ve TarkovQuestTracker.exe'yi aç. Kurulum gerektirmez.",
+    step1Desc: "GitHub'dan son sürümün zip'ini indir, istediğin yere çıkar ve TarkovQuestTracker.exe'yi aç. Kurulum gerektirmez.",
     step2Title: "2. Tarkov'u Çerçevesiz Yap",
     step2Desc: "Escape from Tarkov grafik ayarlarında ekran modunu Borderless (Çerçevesiz) veya Windowed olarak seç.",
     step3Title: "3. Görevlerini Seç",
@@ -202,29 +223,50 @@ const translations = {
     faq3Q: "Raiddeki ilerlememi otomatik algılar mı?",
     faq3A: "%100 ban güvenliğini korumak için oyun belleği veya paketleri okunmaz; hedefleri raid içinde veya sonrasında kutucuklara tıklayarak işaretlersiniz.",
     faq4Q: "İlerlememi başka bir bilgisayara aktarabilir miyim?",
-    faq4A: "Evet! Ayarlar menüsünden 'İlerlemeyi Dışa Aktar' butonuna tıklayarak dosyanızı alabilir ve yeni bilgisayarınıza kolayca yükleyebilirsiniz.",
+    faq4A: "Evet! Ayarlar'dan 'Dışa aktar' ile dosyanızı alıp başka bilgisayarda içe aktarabilir ya da exe'nin yanındaki data\\profiles klasörünü kopyalayabilirsiniz.",
 
     ctaTitle: "Tarkov Wipe'ını Fethetmeye Hazır mısın?",
     ctaSub: "EFT Quest Helper'ı hemen ücretsiz indir. Açık kaynak kodlu ve oyuncular için üretildi.",
-    ctaBtn: "Windows İçin v0.0.1 İndir",
+    ctaBtn: "Windows İçin {v} İndir",
     
+    navShots: "Ekran Görüntüleri",
+    newTag: "Yeni",
+    f7Title: "Görev Eşyaları Takibi",
+    f7Desc: "Hangi trader'ın hangi görev için hangi item'lara ihtiyacı olduğunu ikonları, adetleri ve FIR işaretleriyle trader bazında gör. Bir item'ı arat, onu isteyen tüm görevleri bul.",
+    f7Badge: "FIR işareti · Item arama",
+    f8Title: "Her Hedefte Item İkonu",
+    f8Desc: "Bulma ve teslim hedefleri; görev detayında, aktif görevlerde ve overlay'de item'ın ikonunu gösterir. Raid ortasında loot'u bir bakışta tanırsın.",
+    f8Badge: "Overlay'de de var",
+    shotsTag: "Ekran Görüntüleri",
+    shotsTitle: "Uygulamayı Yakından Gör",
+    shotsSub: "Uygulamadan alınmış gerçek ekran görüntüleri.",
+    tabQuests: "Görevler",
+    tabItems: "Eşyalar",
+    tabKappa: "Kappa",
+    tabPlanner: "Hedef Planlayıcı",
+    capQuests: "Tüm görevlerde ara; tür, durum ve trader'a göre filtrele. Detay panelinde item ikonlu hedefler, gerekli item'lar, ön koşullar ve ödüller.",
+    capItems: "Her trader'ın görev görev istediği tüm item'lar; adet ve FIR işaretiyle. Bitenleri gizle ya da tek bir item'ı arat.",
+    capKappa: "Kappa ilerlemen ve şu an yapabileceklerin; aynı raid'de birleştirebilmen için haritaya göre gruplu.",
+    capPlanner: "Bir hedef seç; tüm zinciri sırasıyla ve şu an yapılabilenleri gör.",
+    faq5Q: "İlerlememi kaybetmeden yeni sürüme nasıl geçerim?",
+    faq5A: "İlerlemeniz exe'nin yanındaki data\\profiles klasöründedir. Yeni sürümü ayrı bir klasöre çıkarıp data\\profiles'ı oraya kopyalayın ya da eski sürümde Dışa aktar, yenisinde İçe aktar kullanın.",
     footerDisclaimer: "Escape from Tarkov, trader isimleri ve logoları Battlestate Games'in tescilli markalarıdır. Bu uygulama bağımsız, ticari olmayan bir hayran projesidir."
   },
 
   ru: {
-    announcement: "🚀 Доступна версия v0.0.1! Без риска бана, оверлей для Escape from Tarkov.",
+    announcement: "🚀 Доступна версия {v}! Без риска бана, оверлей для Escape from Tarkov.",
     navFeatures: "Функции",
     navSafety: "Безопасность",
     navGuide: "Инструкция",
     navTraders: "Торговцы",
     navFaq: "FAQ",
-    navDownload: "Скачать v0.0.1",
+    navDownload: "Скачать {v}",
     
     heroBadge: "Десктопный помощник для Escape from Tarkov",
     heroTitlePre: "Все квесты под контролем.",
     heroTitleHighlight: "Путь к Каппе открыт.",
     heroSubtitle: "Быстрый трекер квестов и планировщик без риска бана с оверлеем поверх экрана и сквозными кликами. Отслеживайте цели прямо в рейде.",
-    btnDownload: "Скачать для Windows (v0.0.1)",
+    btnDownload: "Скачать для Windows ({v})",
     btnGithub: "Открыть на GitHub",
     metaSafe: "100% безопасно (без вмешательства в память)",
     metaWin: "Windows 10 / 11 (64-бит)",
@@ -241,7 +283,7 @@ const translations = {
     f1Badge: "Поверх всех окон · Сквозные клики",
 
     f2Title: "Планировщик целей и Каппы",
-    f2Desc: "Выберите желаемый квест (например Каратель 6 или Коллекционер). Приложение рассчитает всю цепочку и доступные шаги.",
+    f2Desc: "Выберите желаемый квест (например Каратель 6 или Коллекционер). Приложение рассчитает всю цепочку и доступные шаги. Путь к Каппе следует реальной цепочке требований Коллекционера.",
     f2Badge: "Цепочки квестов · Группировка по картам",
 
     f3Title: "Авто-закрытие требований",
@@ -272,14 +314,14 @@ const translations = {
     safeDoes1: "Является отдельным стандартным приложением Windows (WPF).",
     safeDoes2: "Оверлей — обычное прозрачное верхнее окно Windows (как стикер).",
     safeDoes3: "Использует официальный Windows API RegisterHotKey для горячих клавиш.",
-    safeDoes4: "Хранит весь прогресс только локально в вашей папке AppData.",
+    safeDoes4: "Хранит весь прогресс локально в папке data рядом с приложением.",
     safeDisclaimer: "Примечание: EFT Quest Helper — независимый фанатский проект, не связанный с Battlestate Games. Запускайте Tarkov в режиме 'Без рамки' (Borderless).",
 
     guideTag: "Быстрый старт",
     guideTitle: "Начните за 4 простых шага",
     guideSub: "Без сложной настройки и установки. Готов к работе за минуту.",
     step1Title: "1. Скачайте и запустите",
-    step1Desc: "Скачайте релиз v0.0.1 с GitHub и запустите TarkovQuestTracker.exe. Установка не требуется.",
+    step1Desc: "Скачайте zip последнего релиза с GitHub, распакуйте и запустите TarkovQuestTracker.exe. Установка не требуется.",
     step2Title: "2. Выберите режим 'Без рамки'",
     step2Desc: "В настройках графики Tarkov переключитесь в 'Borderless' или 'В окне' (Windows не рисует окна поверх полноэкранного режима).",
     step3Title: "3. Выберите квесты",
@@ -306,22 +348,57 @@ const translations = {
     faq3Q: "Отслеживаются ли цели автоматически в рейде?",
     faq3A: "Нет, ради 100% гарантии от бана приложение не считывает память игры. Вы отмечаете галочки вручную.",
     faq4Q: "Можно ли перенести прогресс на другой ПК?",
-    faq4A: "Да, используйте 'Экспорт' в настройках приложения или просто скопируйте папку %APPDATA%\\TarkovQuestTracker.",
+    faq4A: "Да, используйте 'Экспорт' в настройках приложения или скопируйте папку data\\profiles рядом с TarkovQuestTracker.exe.",
 
     ctaTitle: "Готовы покорять вайп Tarkov?",
     ctaSub: "Скачайте EFT Quest Helper прямо сейчас. Бесплатно и с открытым исходным кодом.",
-    ctaBtn: "Скачать v0.0.1 для Windows",
+    ctaBtn: "Скачать {v} для Windows",
     
+    navShots: "Скриншоты",
+    newTag: "Новое",
+    f7Title: "Предметы для квестов",
+    f7Desc: "Какие предметы нужны каждому торговцу и для каких квестов: с иконками, количеством и пометкой «найдено в рейде». Поиск по предмету покажет все квесты, где он нужен.",
+    f7Badge: "FIR · Поиск предметов",
+    f8Title: "Иконки предметов в целях",
+    f8Desc: "Цели «найти» и «передать» показывают иконку предмета в деталях квеста, списке активных квестов и оверлее.",
+    f8Badge: "Работает в оверлее",
+    shotsTag: "Скриншоты",
+    shotsTitle: "Посмотрите в деле",
+    shotsSub: "Настоящие скриншоты приложения.",
+    tabQuests: "Квесты",
+    tabItems: "Предметы",
+    tabKappa: "Каппа",
+    tabPlanner: "Планировщик",
+    capQuests: "Поиск по всем квестам, фильтры по типу, статусу и торговцу. В деталях — цели с иконками предметов, нужные предметы, требования и награды.",
+    capItems: "Все предметы, которые нужны каждому торговцу, по квестам — с количеством и пометкой FIR.",
+    capKappa: "Прогресс к Каппе и доступные квесты, сгруппированные по картам.",
+    capPlanner: "Выберите цель и получите всю цепочку по порядку.",
+    faq5Q: "Как обновиться, не потеряв прогресс?",
+    faq5A: "Прогресс хранится в папке data\\profiles рядом с exe. Распакуйте новую версию в новую папку и скопируйте туда data\\profiles, либо используйте Экспорт/Импорт.",
     footerDisclaimer: "Escape from Tarkov, имена и портреты торговцев являются собственностью Battlestate Games. Приложение является неофициальным некоммерческим инструментом."
   }
 };
 
 let currentLang = 'en';
 
+// "{v}" in the texts; replaced by the latest GitHub release tag once it is known
+const REPO = 'ugurturna/eft_quest_helper';
+let version = (document.querySelector('[data-version]') || {}).textContent || '';
+
+function storage(key, value) {
+  try {
+    if (value === undefined) return localStorage.getItem(key);
+    localStorage.setItem(key, value);
+  } catch (e) {
+    // private mode / blocked storage: language just isn't remembered
+  }
+  return null;
+}
+
 function setLanguage(lang) {
   if (!translations[lang]) lang = 'en';
   currentLang = lang;
-  localStorage.setItem('eqh_lang', lang);
+  storage('eqh_lang', lang);
 
   // Update button active states
   document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -332,12 +409,48 @@ function setLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (translations[lang][key]) {
-      el.textContent = translations[lang][key];
+      el.textContent = translations[lang][key].replaceAll('{v}', version);
     }
   });
+  document.querySelectorAll('[data-version]').forEach(el => { el.textContent = version; });
 
   // Update HTML lang attribute
   document.documentElement.lang = lang;
+}
+
+// Latest release: version label everywhere, download buttons point straight at the zip
+function loadLatestRelease() {
+  fetch(`https://api.github.com/repos/${REPO}/releases/latest`)
+    .then(r => (r.ok ? r.json() : null))
+    .then(release => {
+      if (!release || !release.tag_name) return;
+      version = release.tag_name;
+      const zip = (release.assets || []).find(a => a.name.endsWith('.zip'));
+      if (zip) document.querySelectorAll('[data-download]').forEach(a => { a.href = zip.browser_download_url; });
+      document.querySelectorAll('[data-release]').forEach(a => { a.href = release.html_url; });
+      setLanguage(currentLang);
+    })
+    .catch(() => { /* offline or rate limited: keep the version baked into the page */ });
+}
+
+// Screenshot gallery tabs
+function setupGallery() {
+  const img = document.getElementById('gallery-img');
+  const caption = document.getElementById('gallery-caption');
+  if (!img || !caption) return;
+
+  document.querySelectorAll('.gallery-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.gallery-tab').forEach(t => {
+        t.classList.toggle('active', t === tab);
+        t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+      });
+      img.src = tab.dataset.shot;
+      img.dataset.zoom = tab.dataset.shot;
+      caption.setAttribute('data-i18n', tab.dataset.caption);
+      caption.textContent = translations[currentLang][tab.dataset.caption] || '';
+    });
+  });
 }
 
 // Lightbox Logic
@@ -350,6 +463,8 @@ function setupLightbox() {
 
   document.querySelectorAll('[data-zoom]').forEach(el => {
     el.addEventListener('click', (e) => {
+      // the overlay preview sits inside the main screenshot; open only the one clicked
+      e.stopPropagation();
       const src = el.getAttribute('data-zoom') || el.getAttribute('src');
       if (src) {
         img.src = src;
@@ -409,7 +524,7 @@ function setupMobileMenu() {
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   // Determine initial language: saved, or browser
-  const savedLang = localStorage.getItem('eqh_lang');
+  const savedLang = storage('eqh_lang');
   if (savedLang && translations[savedLang]) {
     setLanguage(savedLang);
   } else {
@@ -430,6 +545,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   setupLightbox();
+  setupGallery();
   setupFaq();
   setupMobileMenu();
+  loadLatestRelease();
 });

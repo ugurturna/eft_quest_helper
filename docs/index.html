@@ -10,11 +10,14 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="EFT Quest Helper — Escape from Tarkov Quest Companion">
   <meta property="og:description" content="Always-on-top click-through overlay, prerequisite chains, and Kappa goal planner with zero ban risk.">
-  <meta property="og:image" content="main-window.png">
-  
+  <meta property="og:url" content="https://ugurturna.github.io/eft_quest_helper/">
+  <meta property="og:image" content="https://ugurturna.github.io/eft_quest_helper/screenshots/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#090c12">
+
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="assets/app.ico">
-  <link rel="apple-touch-icon" href="assets/app-icon.png">
+  <link rel="apple-touch-icon" href="assets/app-icon-180.png">
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
@@ -23,21 +26,22 @@
 
   <!-- Announcement Bar -->
   <aside class="announcement-bar">
-    <span data-i18n="announcement">🚀 v0.0.1 is here! Zero ban risk, instant quest overlay for Escape from Tarkov.</span>
-    <a href="https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1" target="_blank" rel="noopener">v0.0.1 Release &rarr;</a>
+    <span data-i18n="announcement">🚀 v0.0.2 is here! Zero ban risk, instant quest overlay for Escape from Tarkov.</span>
+    <a href="https://github.com/ugurturna/eft_quest_helper/releases/latest" data-release target="_blank" rel="noopener"><span data-version>v0.0.2</span> Release &rarr;</a>
   </aside>
 
   <!-- Navigation Header -->
   <header class="header">
     <div class="container nav">
       <a href="#" class="nav-brand">
-        <img src="assets/app-icon.png" alt="EFT Quest Helper Logo">
+        <img src="assets/app-icon-128.png" width="40" height="40" alt="EFT Quest Helper Logo">
         <span class="brand-title">EFT Quest Helper</span>
-        <span class="brand-tag">v0.0.1</span>
+        <span class="brand-tag" data-version>v0.0.2</span>
       </a>
 
       <ul class="nav-links">
         <li><a href="#features" data-i18n="navFeatures">Features</a></li>
+        <li><a href="#screenshots" data-i18n="navShots">Screenshots</a></li>
         <li><a href="#safety" data-i18n="navSafety">Ban Safety</a></li>
         <li><a href="#guide" data-i18n="navGuide">How to Use</a></li>
         <li><a href="#traders" data-i18n="navTraders">Traders</a></li>
@@ -52,9 +56,9 @@
           <button type="button" class="lang-btn" data-lang="ru">RU</button>
         </div>
 
-        <a href="https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1" class="btn btn-primary btn-sm" target="_blank" rel="noopener">
+        <a href="https://github.com/ugurturna/eft_quest_helper/releases/latest" data-download class="btn btn-primary btn-sm" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span data-i18n="navDownload">Download v0.0.1</span>
+          <span data-i18n="navDownload">Download v0.0.2</span>
         </a>
 
         <button type="button" class="mobile-toggle" aria-label="Toggle Navigation Menu">&#9776;</button>
@@ -81,9 +85,9 @@
         </p>
 
         <div class="hero-cta">
-          <a href="https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+          <a href="https://github.com/ugurturna/eft_quest_helper/releases/latest" data-download class="btn btn-primary btn-lg" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span data-i18n="btnDownload">Download for Windows (v0.0.1)</span>
+            <span data-i18n="btnDownload">Download for Windows (v0.0.2)</span>
           </a>
 
           <a href="https://github.com/ugurturna/eft_quest_helper" class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
@@ -100,12 +104,12 @@
 
         <!-- Interactive Hero Showcase -->
         <div class="hero-showcase">
-          <div class="showcase-inner" data-zoom="main-window.png" title="Click to enlarge">
-            <img src="main-window.png" class="showcase-main-img" alt="EFT Quest Helper Main Window">
-            
-            <div class="showcase-overlay-preview" data-zoom="overlay.png" title="Click to enlarge overlay">
+          <div class="showcase-inner" data-zoom="screenshots/main-window.webp" title="Click to enlarge">
+            <img src="screenshots/main-window.webp" width="1800" height="1042" class="showcase-main-img" alt="EFT Quest Helper main window: quest list and quest details with item icons">
+
+            <div class="showcase-overlay-preview" data-zoom="screenshots/overlay.webp" title="Click to enlarge overlay">
               <span class="overlay-badge-tag" data-i18n="overlayTag">In-Game Overlay</span>
-              <img src="overlay.png" alt="EFT Quest Helper In-Game Overlay">
+              <img src="screenshots/overlay.webp" width="520" height="990" alt="EFT Quest Helper in-game overlay with active quests">
             </div>
 
             <div class="zoom-hint">
@@ -173,7 +177,48 @@
             <p data-i18n="f6Desc">Your data never leaves your computer. Multiple profiles allow several players or accounts on the same PC to track their own progress.</p>
             <span class="feature-highlight" data-i18n="f6Badge">Zero telemetry · Portable</span>
           </article>
+
+          <!-- Feature 7 -->
+          <article class="feature-card feature-new">
+            <span class="feature-new-tag" data-i18n="newTag">New</span>
+            <div class="feature-icon">🎒</div>
+            <h3 data-i18n="f7Title">Quest Items Tracker</h3>
+            <p data-i18n="f7Desc">See which trader needs which items for which quest, grouped by trader, with item icons, counts and Found-in-Raid flags. Search an item to find every quest that wants it.</p>
+            <span class="feature-highlight" data-i18n="f7Badge">FIR flags · Item search</span>
+          </article>
+
+          <!-- Feature 8 -->
+          <article class="feature-card feature-new">
+            <span class="feature-new-tag" data-i18n="newTag">New</span>
+            <div class="feature-icon">🖼️</div>
+            <h3 data-i18n="f8Title">Item Icons in Every Objective</h3>
+            <p data-i18n="f8Desc">Find and hand-over objectives show the item's icon in quest details, the active quest list and the overlay, so you recognise loot at a glance mid-raid.</p>
+            <span class="feature-highlight" data-i18n="f8Badge">Overlay ready</span>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Gallery -->
+    <section id="screenshots" class="gallery-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="shotsTag">Screenshots</span>
+          <h2 class="section-title" data-i18n="shotsTitle">See It in Action</h2>
+          <p class="section-subtitle" data-i18n="shotsSub">Real screenshots from the app. No mockups.</p>
+        </div>
+
+        <div class="gallery-tabs" role="tablist">
+          <button type="button" class="gallery-tab active" role="tab" aria-selected="true" data-shot="screenshots/main-window.webp" data-caption="capQuests" data-i18n="tabQuests">Quests</button>
+          <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/items.webp" data-caption="capItems" data-i18n="tabItems">Items</button>
+          <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/kappa.webp" data-caption="capKappa" data-i18n="tabKappa">Kappa</button>
+          <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/planner.webp" data-caption="capPlanner" data-i18n="tabPlanner">Goal Planner</button>
+        </div>
+
+        <figure class="gallery-frame">
+          <img id="gallery-img" src="screenshots/main-window.webp" width="1800" height="1042" loading="lazy" data-zoom="screenshots/main-window.webp" alt="EFT Quest Helper screenshot">
+          <figcaption id="gallery-caption" data-i18n="capQuests">Search every quest, filter by type, status and trader. The detail panel shows objectives with item icons, required items, prerequisites and rewards.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -232,7 +277,7 @@
             <span class="step-number">01</span>
             <div class="step-icon">📦</div>
             <h3 data-i18n="step1Title">1. Download & Launch</h3>
-            <p data-i18n="step1Desc">Download the standalone v0.0.1 release from GitHub and run TarkovQuestTracker.exe. No installation needed.</p>
+            <p data-i18n="step1Desc">Download the standalone v0.0.2 release from GitHub and run TarkovQuestTracker.exe. No installation needed.</p>
           </div>
 
           <div class="step-card">
@@ -389,7 +434,17 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p data-i18n="faq4A">Yes! Open Settings in the app and click 'Export Progress'. You can import the resulting file on any PC, or copy your %APPDATA%\TarkovQuestTracker folder.</p>
+              <p data-i18n="faq4A">Yes! Open Settings in the app and click 'Export'. You can import the resulting file on any PC, or copy the data\profiles folder next to TarkovQuestTracker.exe.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span data-i18n="faq5Q">How do I update to a new version without losing progress?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq5A">Your progress lives in the data\profiles folder next to the exe. Extract the new release to a new folder and copy data\profiles over, or use Export in the old version and Import in the new one.</p>
             </div>
           </div>
         </div>
@@ -402,9 +457,9 @@
         <div class="cta-box">
           <h2 data-i18n="ctaTitle">Ready to Conquer Your Tarkov Wipe?</h2>
           <p data-i18n="ctaSub">Download EFT Quest Helper today. Free, open source, and built for PMCs.</p>
-          <a href="https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+          <a href="https://github.com/ugurturna/eft_quest_helper/releases/latest" data-download class="btn btn-primary btn-lg" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span data-i18n="ctaBtn">Download v0.0.1 for Windows</span>
+            <span data-i18n="ctaBtn">Download v0.0.2 for Windows</span>
           </a>
         </div>
       </div>
@@ -416,13 +471,13 @@
     <div class="container">
       <div class="footer-top">
         <div style="display: flex; align-items: center; gap: 10px;">
-          <img src="assets/app-icon.png" width="28" height="28" alt="Logo">
+          <img src="assets/app-icon-128.png" width="28" height="28" alt="Logo">
           <strong style="color: #fff;">EFT Quest Helper</strong>
         </div>
 
         <ul class="footer-links">
           <li><a href="https://github.com/ugurturna/eft_quest_helper" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1" target="_blank" rel="noopener">Releases</a></li>
+          <li><a href="https://github.com/ugurturna/eft_quest_helper/releases/latest" data-release target="_blank" rel="noopener">Releases</a></li>
           <li><a href="https://github.com/ugurturna/eft_quest_helper/issues" target="_blank" rel="noopener">Issues</a></li>
         </ul>
       </div>
