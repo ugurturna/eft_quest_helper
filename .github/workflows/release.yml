@@ -48,6 +48,10 @@ jobs:
           files: ${{ env.ZIP }}
           generate_release_notes: true
 
+      - name: VirusTotal key missing
+        if: env.VT_API_KEY == ''
+        run: echo "::warning::VT_API_KEY repository secret is not set, so the VirusTotal scan was skipped"
+
       # Scan the exe and the zip; a failed or slow scan never fails the release
       - name: VirusTotal scan
         id: vt
