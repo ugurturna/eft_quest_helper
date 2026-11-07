@@ -52,6 +52,8 @@ public sealed class Quest
     [JsonIgnore] public bool IsPastEvent => Category == "event" && EventActive == false;
     [JsonIgnore] public string MapText => Map.Count == 0 ? "-" : string.Join(", ", Map);
     [JsonIgnore] public string LevelText => MinLevel is > 1 ? $"Lv {MinLevel}" : "";
+    /// <summary>"LL2" (trader loyalty level the quest needs, from the wiki), empty when unknown.</summary>
+    [JsonIgnore] public string LoyaltyText => string.IsNullOrEmpty(TraderLoyalty) ? "" : $"LL{TraderLoyalty}";
 
     public override string ToString() => DisplayName;
 }

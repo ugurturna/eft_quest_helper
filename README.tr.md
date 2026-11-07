@@ -46,7 +46,8 @@
 - **İngilizce ve Türkçe arama** — yazım hatalarına ve Türkçe karakterlere toleranslı (`punisher 3`, `punişır 3`, `cezalandırıcı`).
 - **İki ayrı dil** — uygulama dili (menüler) ve görev dili (görev ve item adları) farklı olabilir; ör. uygulama Türkçe, görevler İngilizce. Tüm hikaye bölümleri Türkçeye çevrildi.
 - **Profiller** — aynı bilgisayarda birden fazla oyuncu, herkesin kendi ilerlemesi ve ayarları.
-- **Event görevleri** — aktif eventler listelenir; geçmiş eventler Ayarlar'dan gösterilebilir.
+- **Event görevleri** — aktif eventler listelenir; artık yapılamayan geçmiş eventler gösterilmez.
+- **End Game (The Ticket sonları)** — 4 sondan hangilerine hâlâ ulaşabileceğin, hedef sonuna giden yol ve şu an nerede olduğun ([End Game](#end-game-the-ticket-sonları) bölümüne bak).
 - **Hızlı** — listeler kaydırdıkça sayfa sayfa yüklenir.
 
 ### Görev itemleri
@@ -65,6 +66,24 @@
 
 Item ikonları **görevlerin içinde de** görünür: bulma / teslim / yerleştirme hedefleri; görev detayında, *Aktif Görevler* kartlarında ve overlay'de item'ın ikonunu gösterir. Detay paneli de görevin gerekli itemlerini kart olarak listeler. Itemler görev dilinde (İngilizce veya Türkçe) gösterilir.
 
+### End Game (The Ticket sonları)
+
+<p align="center">
+  <img src="docs/screenshots/endgame.jpg" width="780" alt="End Game sekmesi: 4 son ve hedef sona giden yol">
+</p>
+
+**The Ticket** hikaye bölümünün 4 sonu var: **Survivor**, **Savior**, **Debtor** ve **Fallen**. Geri dönüşü olmayan 3 karar da var: zırhlı çantayla ne yaptığın, Kerman'la çalışıp çalışmadığın ve TerraGroup kanıtlarında ona ne kadar yardım ettiğin. **End Game** sekmesi bunu senin için planlar:
+
+1. **Aç** — *End Game* sekmesi ya da *Hedef Planlayıcı*'da *The Ticket*'ı hedef yap: rehberin tamamı görev zincirinin altında çıkar. *The Ticket*'ın detay panelinde de **🎫 End Game rehberi** butonu var.
+2. **Kararlarını işaretle** — oyunda verdiğin kararlara tıkla (geri almak için tekrar tıkla). Her seçenek hangi sonları açık tuttuğunu gösterir, ör. *Kerman'la çalışma → Survivor*.
+3. **Hedef sonunu seç** — bir son kartında **★ Hedef yap**'a bas (her kartta o sonun başarım resmi var). Önündeki kararlarda **★ Hedefin için bunu seç** işareti çıkar; kararların o sonu zaten kapattıysa uyarı ve hâlâ ulaşabileceğin sonlar gösterilir.
+4. **Yolu takip et** — her adım sırayla ve işaret kutusuyla: görevler, yoldaki başarımlar (*Easy Way*, *U Turn*, *Enough of Your Games!*, *Will It Blow*, isteğe bağlı *I Am Speed* ve 36 küçük kanıtın hepsi için *Little Triumph*), uyarılar (BTR / Skier, 72 saat sınırı, her ses kaydını dinle) ve kaçış kuralları (Shoreline 21:00–06:00, elinde silah olmadan, kaçış başarısız olursa ne yapılır). **◀ ŞU AN BURADASIN** sıradaki adımı gösterir.
+
+- Önceki seçimlere bağlı adımlar onlarla birlikte değişir: ör. çantayı Prapor'a verdiysen 300M, sakladıysan 500M ruble ister.
+- **PvP ve PvE** hedefleri farklıdır (Co-Op çıkışları yerine Scav öldürmeden 5 PMC); rehber senin modununkini gösterir.
+- Seçimler, hedef ve işaretlenen adımlar ilerlemenle birlikte, profil ve mod başına kaydedilir. **Sıfırla** hepsini temizler.
+- Yol verisi `data/ticket_endings.json` dosyasında (İngilizce ve Türkçe) ve topluluğun *Story Endings* akış şeması v1.7.6'yı (Callsign_Smokey / Kay08x) takip eder.
+
 ### Overlay
 
 <img src="docs/screenshots/overlay.webp" width="320" align="right" alt="Overlay">
@@ -81,6 +100,19 @@ Item ikonları **görevlerin içinde de** görünür: bulma / teslim / yerleşti
 > Tarkov'u **Borderless (Çerçevesiz)** ya da **Windowed (Pencere)** modda çalıştır. Windows, tam ekran (exclusive fullscreen) bir oyunun üstüne başka pencere çizemez.
 
 <br clear="right">
+
+## Kısayollar
+
+| Kısayol | Ne yapar |
+|---|---|
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> | **Overlay'i kilitle / kilidi aç.** Kilitliyken overlay'e tıklanamaz, tüm tıklamalar oyuna geçer; oynarken kilitli bırak. Ayar yapmak ya da taşımak için kilidi aç. |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> | **Overlay'i göster / gizle**, ör. raid ortasında ekranı temizlemek için. |
+| <kbd>Ctrl</kbd> + fare tekerleği | Fare (kilidi açık) overlay'in üstündeyken: **büyüt / küçült** (%60–200). |
+| Overlay başlığını sürükle | **Overlay'i ekranın sağ kenarında yukarı / aşağı taşı** (sadece kilit açıkken). |
+
+- Kısayollar oyun açıkken ve uygulama arka plandayken de çalışır.
+- Overlay'deki ipucu oyunda zor okunabildiği için kısayollar ana pencerenin alt çubuğunda hep görünür, **Ayarlar**'ın en üstünde de açıklamalı olarak yazar.
+- Değiştirmek için profilin `settings.json` dosyasında `clickThroughHotkey` / `toggleOverlayHotkey` (ör. `"Ctrl+Alt+F9"`). Kısayol başka bir program tarafından kullanılıyorsa uygulama açılışta söyler.
 
 ## İndir & çalıştır
 

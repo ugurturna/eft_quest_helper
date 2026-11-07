@@ -61,14 +61,11 @@ public sealed class RealDataTests
     }
 
     [Fact]
-    public void Has_story_chapters_and_events_and_hides_past_events_by_default()
+    public void Has_story_chapters_and_events_but_never_past_events()
     {
         Assert.Contains(Repo.Quests, q => q.Category == "story" && q.Name == "Tour");
         Assert.Contains(Repo.Quests, q => q.Category == "event" && q.EventActive == true);
         Assert.DoesNotContain(Repo.Quests, q => q.IsPastEvent);
-
-        var withPast = QuestRepository.Load(QuestRepository.FindDataDir(AppContext.BaseDirectory), "en", GameMode.Pvp, includePastEvents: true);
-        Assert.Contains(withPast.Quests, q => q.IsPastEvent);
     }
 
     [Fact]

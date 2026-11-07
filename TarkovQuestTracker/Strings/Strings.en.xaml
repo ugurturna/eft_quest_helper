@@ -1,4 +1,4 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=System.Runtime"
                     xml:space="preserve">
@@ -41,7 +41,6 @@
 
     <!-- kappa -->
     <sys:String x:Key="s.activateAll">Activate all</sys:String>
-    <sys:String x:Key="s.kappa.byMap">AVAILABLE NOW - BY MAP (do them in the same raid)</sys:String>
     <sys:String x:Key="s.kappa.levelWait">WAITING FOR LEVEL</sys:String>
     <sys:String x:Key="s.kappa.remaining">All remaining Kappa quests (in order)</sys:String>
 
@@ -77,16 +76,47 @@
     <sys:String x:Key="s.set.width">Width:</sys:String>
     <sys:String x:Key="s.set.scale">Size (text + buttons):</sys:String>
     <sys:String x:Key="s.set.scale.hint">  - also Ctrl + mouse wheel over the overlay</sys:String>
-    <sys:String x:Key="s.set.hk.lock">: lock overlay (clicks go to the game) / unlock</sys:String>
-    <sys:String x:Key="s.set.hk.toggle">: show/hide overlay</sys:String>
     <sys:String x:Key="s.set.borderless">Note: run Tarkov in Borderless or Windowed mode; the overlay is not visible in exclusive fullscreen.</sys:String>
     <sys:String x:Key="s.set.progress">PROGRESS</sys:String>
     <sys:String x:Key="s.set.progress.desc">This profile's PvP and PvE progress is stored in separate files:</sys:String>
-    <sys:String x:Key="s.set.pastEvents">Also show past (no longer available) event quests</sys:String>
     <sys:String x:Key="s.export">Export...</sys:String>
     <sys:String x:Key="s.import">Import...</sys:String>
     <sys:String x:Key="s.set.data">DATA</sys:String>
     <sys:String x:Key="s.set.data.update">To update the data, run in the project folder:</sys:String>
+
+    <!-- The Ticket endings -->
+    <sys:String x:Key="s.tab.ticket">End Game</sys:String>
+    <sys:String x:Key="s.tk.plannerTitle">END GAME: ENDINGS AND THE WHOLE ROUTE</sys:String>
+    <sys:String x:Key="s.tk.desc">"The Ticket" has 4 endings. Mark the decisions you made in game to see which endings are still reachable, which way to go and where you are right now. Make an ending your target and it also tells you what to pick at the decisions ahead.</sys:String>
+    <sys:String x:Key="s.tk.reset">Reset</sys:String>
+    <sys:String x:Key="s.tk.endings">ENDINGS (achievements)</sys:String>
+    <sys:String x:Key="s.tk.route">YOUR ROUTE</sys:String>
+    <sys:String x:Key="s.tk.here">◀ YOU ARE HERE</sys:String>
+    <sys:String x:Key="s.tk.setTarget">★ Make target</sys:String>
+    <sys:String x:Key="s.tk.unsetTarget">Remove target</sys:String>
+    <sys:String x:Key="s.tk.chosen">✔ Chosen</sys:String>
+    <sys:String x:Key="s.tk.suggested">★ Pick this for your target</sys:String>
+    <sys:String x:Key="s.tk.choiceTip">Click if you made this choice in game (click again to undo)</sys:String>
+    <sys:String x:Key="s.tk.source">Source: "Story Endings" flowchart v1.7.6 (Callsign_Smokey / Kay08x). May change with game updates.</sys:String>
+    <sys:String x:Key="s.tk.openGuide">🎫 End Game guide</sys:String>
+    <sys:String x:Key="tk.state.target">★ Your target</sys:String>
+    <sys:String x:Key="tk.state.blocked">✖ Your target, but no longer reachable</sys:String>
+    <sys:String x:Key="tk.state.closed">✖ No longer reachable</sys:String>
+    <sys:String x:Key="tk.state.route">➜ You are on this route</sys:String>
+    <sys:String x:Key="tk.state.open">Still reachable</sys:String>
+    <sys:String x:Key="tk.leadsTo">This route leads to the ending: {0}</sys:String>
+    <sys:String x:Key="tk.stillOpen">A decision is ahead. Endings still possible: {0}</sys:String>
+    <sys:String x:Key="tk.blocked">You can no longer reach your target {0}: your decisions closed it. Still possible: {1}</sys:String>
+    <sys:String x:Key="tk.progress">{0}/{1} steps done</sys:String>
+    <sys:String x:Key="tk.progressOpen"> (the route grows once you decide)</sys:String>
+    <sys:String x:Key="tk.kind.decision">⚠ NO RETURN</sys:String>
+    <sys:String x:Key="tk.kind.achievement">🏆 ACHIEVEMENT</sys:String>
+    <sys:String x:Key="tk.kind.optional">OPTIONAL</sys:String>
+    <sys:String x:Key="tk.kind.warning">⚠ CAREFUL</sys:String>
+    <sys:String x:Key="tk.kind.note">NOTE</sys:String>
+    <sys:String x:Key="tk.kind.escape">ESCAPE</sys:String>
+    <sys:String x:Key="tk.kind.ending">🏁 ENDING</sys:String>
+    <sys:String x:Key="t.ticketReset">End Game guide reset.</sys:String>
 
     <!-- detail panel -->
     <sys:String x:Key="s.selectQuest">Select a quest.</sys:String>
@@ -124,7 +154,6 @@
     <sys:String x:Key="st.locked">Locked</sys:String>
     <sys:String x:Key="badge.story">STORY</sys:String>
     <sys:String x:Key="badge.event">EVENT</sys:String>
-    <sys:String x:Key="badge.pastEvent">PAST EVENT</sys:String>
     <sys:String x:Key="map.any">Any</sys:String>
     <sys:String x:Key="f.all">All</sys:String>
     <sys:String x:Key="f.available">Available</sys:String>
@@ -173,4 +202,32 @@
     <sys:String x:Key="err.profile.long">Name can be at most 40 characters.</sys:String>
     <sys:String x:Key="err.profile.chars">Name cannot contain \ / : * ? " &lt; &gt; |</sys:String>
     <sys:String x:Key="err.profile.exists">A profile with this name already exists.</sys:String>
+    <!-- loyalty / wiki update -->
+    <sys:String x:Key="s.kappa.available">AVAILABLE NOW - group:</sys:String>
+    <sys:String x:Key="s.ll.tip">Trader loyalty level (from the wiki) the quest needs</sys:String>
+    <sys:String x:Key="ll.all">Any LL</sys:String>
+    <sys:String x:Key="ll.none">No LL info</sys:String>
+    <sys:String x:Key="k.byMap">By map (do them in the same raid)</sys:String>
+    <sys:String x:Key="k.byLoyalty">By loyalty level (LL)</sys:String>
+    <sys:String x:Key="s.wiki.update">⟳ Update from wiki</sys:String>
+    <sys:String x:Key="s.wiki.stop">■ Stop</sys:String>
+    <sys:String x:Key="s.wiki.running">Running... (can take a few minutes)</sys:String>
+    <sys:String x:Key="s.wiki.desc">Runs the 4 scripts above in order (needs Python 3) and loads the new data when done. Your progress is kept.</sys:String>
+    <sys:String x:Key="s.wiki.unavailable">Scripts not found: this button only works when the app runs from the project folder (with tools/scraper).</sys:String>
+    <sys:String x:Key="t.wikiUpdated">Updated from the wiki, data reloaded ({0} files copied).</sys:String>
+    <sys:String x:Key="t.wikiFailed">Wiki update failed - see the output in Settings.</sys:String>
+    <sys:String x:Key="t.wikiCancelled">Wiki update stopped.</sys:String>
+    <!-- shortcuts -->
+    <sys:String x:Key="s.keys.title">SHORTCUTS</sys:String>
+    <sys:String x:Key="s.keys.lock">Lock / unlock the overlay. While locked it can't be clicked and clicks go through to the game (leave it like this while playing). Unlock it to change settings or drag it.</sys:String>
+    <sys:String x:Key="s.keys.toggle">Show / hide the overlay, e.g. to clear the screen mid-raid.</sys:String>
+    <sys:String x:Key="s.keys.wheel">Ctrl + mouse wheel</sys:String>
+    <sys:String x:Key="s.keys.wheel.desc">With the mouse over the overlay: make it bigger / smaller (60–200 %). The overlay must be unlocked.</sys:String>
+    <sys:String x:Key="s.keys.drag">Drag the header</sys:String>
+    <sys:String x:Key="s.keys.drag.desc">Move the overlay up / down along the right edge of the screen. The overlay must be unlocked.</sys:String>
+    <sys:String x:Key="s.keys.note">Shortcuts work while the game is running and the app is in the background. To change the keys, edit clickThroughHotkey / toggleOverlayHotkey in the profile's settings.json (e.g. "Ctrl+Alt+F9"). If a shortcut clashes with another program, the app warns you at start.</sys:String>
+    <sys:String x:Key="s.keys.barLock">lock</sys:String>
+    <sys:String x:Key="s.keys.barToggle">show/hide</sys:String>
+    <sys:String x:Key="s.keys.barWheel">overlay size</sys:String>
+    <sys:String x:Key="s.keys.barTip">Overlay shortcuts - explained at the top of the Settings tab</sys:String>
 </ResourceDictionary>

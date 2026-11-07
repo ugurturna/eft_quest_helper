@@ -17,6 +17,7 @@ public sealed partial class MainViewModel : ObservableObject
     QuestRepository _repo = null!;
     QuestPlanner _planner = null!;
     SearchService _search = null!;
+    TicketPlanner _ticket = null!;
 
     /// <summary>"v0.0.2", from &lt;Version&gt; in TarkovQuestTracker.csproj.</summary>
     public static string AppVersion { get; } =
@@ -79,7 +80,6 @@ public sealed partial class MainViewModel : ObservableObject
         UiLanguage = Loc.Languages.Contains(Settings.UiLanguage) ? Settings.UiLanguage : "tr";
         _loading = false;
         OnPropertyChanged(nameof(Settings));
-        OnPropertyChanged(nameof(ShowPastEvents));
         LoadData();
     }
 
@@ -129,6 +129,14 @@ public sealed partial class MainViewModel : ObservableObject
         Option.Localized("", "cat.all"), Option.Localized("side", "cat.side"),
         Option.Localized("story", "cat.story"), Option.Localized("event", "cat.event"),
     ];
+    /// <summary>Trader loyalty level the quest needs; key "" = any.</summary>
+    public IReadOnlyList<Option> Loyalties { get; } =
+    [
+        Option.Localized("", "ll.all"), Option.Fixed("1", "LL1"), Option.Fixed("2", "LL2"),
+        Option.Fixed("3", "LL3"), Option.Fixed("4", "LL4"),
+    ];
+    public IReadOnlyList<Option> KappaGroupings { get; } =
+        [Option.Localized("map", "k.byMap"), Option.Localized("loyalty", "k.byLoyalty")];
     /// <summary>Key "" = all traders.</summary>
     public ObservableCollection<Option> Traders { get; } = [];
     public string DataInfo { get; private set; } = "";
@@ -149,7 +157,7 @@ public sealed partial class MainViewModel : ObservableObject
     void OnLocChanged()
     {
         if (_loading || _repo == null) return;  // a data load follows and builds everything anyway
-        foreach (var o in Filters.Concat(Categories).Concat(Traders)) o.Relabel();
+        foreach (var o in Filters.Concat(Categories).Concat(Traders).Concat(Loyalties).Concat(KappaGroupings)) o.Relabel();
         DataInfo = BuildDataInfo();
         OnPropertyChanged(nameof(DataInfo));
         OnPropertyChanged(nameof(SelectedSources));
@@ -203,9 +211,10 @@ public sealed partial class MainViewModel : ObservableObject
     {
         _loading = true;
         var selectedId = SelectedQuest?.Id;
-        _repo = QuestRepository.Load(_dataDir, Settings.Language, Settings.Mode, Settings.ShowPastEvents);
+        _repo = QuestRepository.Load(_dataDir, Settings.Language, Settings.Mode);
         _planner = new QuestPlanner(_repo);
         _search = new SearchService(_repo.Quests);
+        _ticket = TicketPlanner.Load(_dataDir);
         Progress = _store.LoadProgress(Settings.Mode);
         _undo = null;
         OnPropertyChanged(nameof(CanUndo));
@@ -242,6 +251,7 @@ public sealed partial class MainViewModel : ObservableObject
     // filter values are Option keys (language independent)
     [ObservableProperty] private string _filter = "all";
     [ObservableProperty] private string _traderFilter = "";
+    [ObservableProperty] private string _loyaltyFilter = "";
     // story chapters by default; the full list is paged
     [ObservableProperty] private string _categoryFilter = "story";
 
@@ -279,20 +289,8 @@ public sealed partial class MainViewModel : ObservableObject
     }
     partial void OnFilterChanged(string value) => RefreshSearch();
     partial void OnTraderFilterChanged(string value) => RefreshSearch();
+    partial void OnLoyaltyFilterChanged(string value) => RefreshSearch();
     partial void OnCategoryFilterChanged(string value) => RefreshSearch();
-
-    public bool ShowPastEvents
-    {
-        get => Settings.ShowPastEvents;
-        set
-        {
-            if (Settings.ShowPastEvents == value) return;
-            Settings.ShowPastEvents = value;
-            SaveSettings();
-            LoadData();
-            OnPropertyChanged();
-        }
-    }
 
     void RefreshSearch()
     {
@@ -301,6 +299,7 @@ public sealed partial class MainViewModel : ObservableObject
             ? _repo.Quests.OrderBy(q => q.Trader).ThenBy(q => q.MinLevel ?? 0).ThenBy(q => q.Name)
             : _search.Search(SearchText, 100);
         if (!string.IsNullOrEmpty(TraderFilter)) source = source.Where(q => q.Trader == TraderFilter);
+        if (!string.IsNullOrEmpty(LoyaltyFilter)) source = source.Where(q => q.TraderLoyalty == LoyaltyFilter);
         if (!string.IsNullOrEmpty(CategoryFilter)) source = source.Where(q => q.Category == CategoryFilter);
         var rows = source.Select(Row);
         rows = Filter switch
@@ -344,11 +343,14 @@ public sealed partial class MainViewModel : ObservableObject
         Loc.T("s.sources") + string.Join(", ", SelectedQuest.Sources.Select(kv => $"{kv.Key}={JsonSerializer.Serialize(kv.Value)}"));
     public string SelectedOtherNames => SelectedQuest == null ? "" :
         string.Join(" / ", SelectedQuest.AllNames.Where(n => n != SelectedQuest.DisplayName));
+    /// <summary>The detail panel shows a link to the endings guide for "The Ticket".</summary>
+    public bool IsTicketSelected => SelectedQuest?.Id == TicketGuide.QuestId;
 
     partial void OnSelectedQuestChanged(Quest? value) => NotifyDetail();
 
     void NotifyDetail()
     {
+        OnPropertyChanged(nameof(IsTicketSelected));
         OnPropertyChanged(nameof(SelectedRow));
         OnPropertyChanged(nameof(SelectedPrerequisites));
         OnPropertyChanged(nameof(SelectedUnlocks));
@@ -492,8 +494,12 @@ public sealed partial class MainViewModel : ObservableObject
     partial void OnGoalSearchTextChanged(string value) =>
         Replace(GoalSearchResults, string.IsNullOrWhiteSpace(value) ? [] : _search.Search(value, 15));
 
+    /// <summary>The planner shows the endings guide under the chain of "The Ticket".</summary>
+    public bool IsTicketGoal => SelectedGoal?.Id == TicketGuide.QuestId;
+
     partial void OnSelectedGoalChanged(Quest? value)
     {
+        OnPropertyChanged(nameof(IsTicketGoal));
         if (!_loading) RefreshGoal();
     }
 
@@ -520,6 +526,13 @@ public sealed partial class MainViewModel : ObservableObject
     public BulkObservableCollection<QuestRow> KappaRemaining { get; } = [];
     [ObservableProperty] private double _kappaPercent;
     [ObservableProperty] private string _kappaSummary = "";
+    /// <summary>"map" or "loyalty": how the available Kappa quests are grouped.</summary>
+    [ObservableProperty] private string _kappaGroupBy = "map";
+
+    partial void OnKappaGroupByChanged(string value)
+    {
+        if (!_loading && _repo != null) RefreshKappa();
+    }
 
     void RefreshKappa()
     {
@@ -530,8 +543,11 @@ public sealed partial class MainViewModel : ObservableObject
         KappaSummary = Loc.F("k.summary", done, plan.Chain.Count, KappaPercent)
                        + (unknown > 0 ? Loc.F("k.unknown", unknown) : "");
         var available = plan.AvailableNow.Where(q => !_planner.IsLevelLocked(q, Progress)).ToList();
-        Replace(KappaAvailable, QuestPlanner.GroupByMap(available)
-            .Select(g => new MapGroup(g.Key, g.Select(Row).ToList())));
+        Replace(KappaAvailable, KappaGroupBy == "loyalty"
+            ? available.GroupBy(q => q.TraderLoyalty ?? "")
+                       .OrderBy(g => g.Key == "" ? "9" : g.Key)
+                       .Select(g => new MapGroup(g.Key == "" ? Loc.T("ll.none") : "LL" + g.Key, g.Select(Row).ToList()))
+            : QuestPlanner.GroupByMap(available).Select(g => new MapGroup(g.Key, g.Select(Row).ToList())));
         Replace(KappaLevelLocked, plan.AvailableNow.Where(q => _planner.IsLevelLocked(q, Progress)).Select(Row));
         Replace(KappaRemaining, plan.Remaining.Select(Row));
     }
@@ -587,6 +603,99 @@ public sealed partial class MainViewModel : ObservableObject
         var card = ActiveQuests.FirstOrDefault(a => a.Quest.Id == o.QuestId);
         if (card != null && card.Objectives.Where(x => !x.Objective.Optional).All(x => x.IsDone))
             Toast = Loc.F("t.allObjectives", card.Quest.DisplayName);
+    }
+
+
+    public BulkObservableCollection<TicketEndingVm> TicketEndings { get; } = [];
+    public BulkObservableCollection<TicketStepVm> TicketSteps { get; } = [];
+    [ObservableProperty] private string _ticketSummary = "";
+    /// <summary>Shown when the target ending is no longer reachable; empty otherwise.</summary>
+    [ObservableProperty] private string _ticketWarning = "";
+    [ObservableProperty] private string _ticketProgressText = "";
+
+    void RefreshTicket()
+    {
+        var t = Progress.Ticket;
+        var lang = Loc.Lang;
+        var route = _ticket.Plan(t, Settings.Mode);
+        string Names(IEnumerable<TicketEnding> endings) => string.Join(", ", endings.Select(e => e.Name.In(lang)));
+
+        Replace(TicketEndings, _ticket.Guide.Endings.Select(e =>
+        {
+            var reachable = !TicketPlanner.Conflicts(e, route.Made);
+            var isTarget = route.Target == e;
+            var isRoute = route.Ending == e;
+            var state = isTarget && !reachable ? Loc.T("tk.state.blocked")
+                : isTarget ? Loc.T("tk.state.target")
+                : !reachable ? Loc.T("tk.state.closed")
+                : isRoute ? Loc.T("tk.state.route")
+                : Loc.T("tk.state.open");
+            return new TicketEndingVm(e, lang, state, isTarget, reachable, isRoute);
+        }));
+
+        Replace(TicketSteps, route.Steps.Select(s =>
+        {
+            IReadOnlyList<TicketOptionVm> options = [];
+            var text = s.Text.In(lang);
+            if (s.Kind == "decision" && _ticket.Decision(s.Decision) is { } d)
+            {
+                text = d.Title.In(lang);
+                route.Made.TryGetValue(d.Id, out var chosen);
+                route.Effective.TryGetValue(d.Id, out var planned);
+                options = d.Options.Select(o => new TicketOptionVm(d.Id, o.Id, o.Label.In(lang),
+                    "→ " + Names(_ticket.EndingsAfter(t, d.Id, o.Id)),
+                    isChosen: chosen == o.Id, isSuggested: chosen == null && planned == o.Id)).ToList();
+            }
+            var tag = s.Kind == "step" ? "" : Loc.T("tk.kind." + s.Kind);
+            return new TicketStepVm(s, text, tag, t.Done.Contains(s.Id), route.Current == s, options, OnTicketStepToggled);
+        }));
+
+        TicketSummary = route.Ending is { } ending
+            ? Loc.F("tk.leadsTo", ending.Name.In(lang))
+            : Loc.F("tk.stillOpen", Names(route.Possible));
+        TicketWarning = route.TargetBlocked ? Loc.F("tk.blocked", route.Target!.Name.In(lang), Names(route.Possible)) : "";
+        var checkable = route.Steps.Where(s => s.IsCheckable && s.Kind != "optional").ToList();
+        TicketProgressText = Loc.F("tk.progress", checkable.Count(s => t.Done.Contains(s.Id)), checkable.Count)
+                             + (route.Pending != null ? Loc.T("tk.progressOpen") : "");
+    }
+
+    void OnTicketStepToggled(TicketStepVm step, bool done)
+    {
+        if (done) Progress.Ticket.Done.Add(step.Step.Id);
+        else Progress.Ticket.Done.Remove(step.Step.Id);
+        SaveProgress();
+        // rebuild after the checkbox binding has finished writing back
+        Dispatcher.CurrentDispatcher.BeginInvoke(RefreshTicket);
+    }
+
+    [RelayCommand]
+    void TicketTarget(string? endingId)
+    {
+        var t = Progress.Ticket;
+        t.Target = t.Target == endingId ? null : endingId;
+        SaveProgress();
+        RefreshTicket();
+    }
+
+    /// <summary>Records a decision made in game; picking the chosen option again clears it.</summary>
+    [RelayCommand]
+    void TicketChoose(TicketOptionVm? option)
+    {
+        if (option == null) return;
+        var choices = Progress.Ticket.Choices;
+        if (option.IsChosen) choices.Remove(option.DecisionId);
+        else choices[option.DecisionId] = option.OptionId;
+        SaveProgress();
+        RefreshTicket();
+    }
+
+    [RelayCommand]
+    void TicketReset()
+    {
+        Progress.Ticket = new TicketProgress();
+        SaveProgress();
+        RefreshTicket();
+        Toast = Loc.T("t.ticketReset");
     }
 
 
@@ -660,6 +769,61 @@ public sealed partial class MainViewModel : ObservableObject
     public string ProgressFolder => _store.ProfileFolder;
 
 
+    WikiUpdater? _updater;
+    CancellationTokenSource? _updateCts;
+    readonly Queue<string> _updateLines = new();
+    const int MaxUpdateLines = 300;
+
+    /// <summary>The scraper scripts are only next to a project checkout, not in a release zip.</summary>
+    public bool CanUpdateFromWiki => (_updater ??= WikiUpdater.Find(_dataDir)) != null;
+    [ObservableProperty] private bool _isUpdating;
+    [ObservableProperty] private string _updateLog = "";
+
+    /// <summary>Runs the scraper scripts, copies the new data in and reloads; clicking again while running stops it.</summary>
+    [RelayCommand(AllowConcurrentExecutions = true)]
+    async Task UpdateFromWiki()
+    {
+        if (IsUpdating)
+        {
+            _updateCts?.Cancel();
+            return;
+        }
+        if (!CanUpdateFromWiki) return;
+        IsUpdating = true;
+        _updateLines.Clear();
+        UpdateLog = "";
+        _updateCts = new CancellationTokenSource();
+        var dispatcher = Dispatcher.CurrentDispatcher;
+        void Log(string line) => dispatcher.BeginInvoke(() =>
+        {
+            _updateLines.Enqueue(line);
+            while (_updateLines.Count > MaxUpdateLines) _updateLines.Dequeue();
+            UpdateLog = string.Join("\n", _updateLines);
+        });
+        try
+        {
+            if (await Task.Run(() => _updater!.RunAsync(Log, _updateCts.Token)))
+            {
+                var copied = _updater!.CopyInto(_dataDir);
+                SaveProgress();
+                LoadData();
+                Toast = Loc.F("t.wikiUpdated", copied);
+            }
+            else Toast = Loc.T("t.wikiFailed");
+        }
+        catch (OperationCanceledException)
+        {
+            Toast = Loc.T("t.wikiCancelled");
+        }
+        finally
+        {
+            IsUpdating = false;
+            _updateCts.Dispose();
+            _updateCts = null;
+        }
+    }
+
+
     public void Refresh()
     {
         Replace(Goals, Progress.Goals.Where(_repo.ById.ContainsKey).Select(id => _repo.ById[id]));
@@ -669,6 +833,7 @@ public sealed partial class MainViewModel : ObservableObject
         RefreshKappa();
         RefreshItems();
         RefreshActive();
+        RefreshTicket();
         NotifyDetail();
     }
 

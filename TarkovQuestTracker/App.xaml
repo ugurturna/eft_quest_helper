@@ -20,6 +20,9 @@
         <SolidColorBrush x:Key="LockedBrush" Color="#6B675C" />
         <SolidColorBrush x:Key="KappaBrush" Color="#B79BE0" />
         <SolidColorBrush x:Key="WarnBrush" Color="#E0A040" />
+        <!-- Ticket endings guide: point-of-no-return decisions and optional achievements -->
+        <SolidColorBrush x:Key="DecisionBrush" Color="#D9605A" />
+        <SolidColorBrush x:Key="OptionalBrush" Color="#C98BB9" />
 
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
         <local:InvertBoolConverter x:Key="InvertBool" />
@@ -136,6 +139,8 @@
                 <StackPanel Grid.Column="1">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Quest.DisplayName}" Foreground="{StaticResource TextBrush}" FontWeight="SemiBold" />
+                        <TextBlock Text="{Binding Quest.LoyaltyText, StringFormat='  {0}'}" Foreground="{StaticResource LevelBrush}" FontSize="10"
+                                   FontWeight="SemiBold" VerticalAlignment="Center" ToolTip="Trader loyalty level" />
                         <TextBlock Text="  KAPPA" Foreground="{StaticResource KappaBrush}" FontSize="10" VerticalAlignment="Center"
                                    Visibility="{Binding Quest.IsKappa, Converter={StaticResource BoolToVis}}" />
                         <TextBlock Text="  ★ hedef" Foreground="{StaticResource AccentBrush}" FontSize="10" VerticalAlignment="Center"

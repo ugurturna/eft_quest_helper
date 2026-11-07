@@ -41,6 +41,7 @@
 
       <ul class="nav-links">
         <li><a href="#features" data-i18n="navFeatures">Features</a></li>
+        <li><a href="#endgame" data-i18n="navEndgame">End Game</a></li>
         <li><a href="#screenshots" data-i18n="navShots">Screenshots</a></li>
         <li><a href="#safety" data-i18n="navSafety">Ban Safety</a></li>
         <li><a href="#guide" data-i18n="navGuide">How to Use</a></li>
@@ -195,7 +196,75 @@
             <p data-i18n="f8Desc">Find and hand-over objectives show the item's icon in quest details, the active quest list and the overlay, so you recognise loot at a glance mid-raid.</p>
             <span class="feature-highlight" data-i18n="f8Badge">Overlay ready</span>
           </article>
+
+          <!-- Feature 9 -->
+          <article class="feature-card feature-new feature-wide">
+            <span class="feature-new-tag" data-i18n="newTag">New</span>
+            <div class="feature-icon">🎫</div>
+            <h3 data-i18n="f9Title">End Game: The Ticket Endings</h3>
+            <p data-i18n="f9Desc">Which of the 4 endings can you still reach, which way do you go, and where are you right now? Mark your decisions, pick a target ending and follow the route step by step.</p>
+            <a href="#endgame" class="feature-highlight" data-i18n="f9Badge">4 endings · Route planner →</a>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <!-- End Game: The Ticket endings guide -->
+    <section id="endgame" class="endgame-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="egTag">End Game · The Ticket</span>
+          <h2 class="section-title" data-i18n="egTitle">Plan Your Ending in The Ticket</h2>
+          <p class="section-subtitle" data-i18n="egSub">The Ticket has 4 endings and 3 point-of-no-return decisions. The End Game guide shows which endings you can still reach, which way to go and where you are right now.</p>
+        </div>
+
+        <div class="endings-row">
+          <figure class="ending-card">
+            <img src="assets/endings/survivor.png" width="112" height="112" loading="lazy" alt="Survivor ending achievement">
+            <figcaption><strong>Survivor</strong><span data-i18n="egSurvivor">Refuse Kerman, pay Prapor and finish his tasks.</span></figcaption>
+          </figure>
+          <figure class="ending-card">
+            <img src="assets/endings/savior.png" width="112" height="112" loading="lazy" alt="Savior ending achievement">
+            <figcaption><strong>Savior</strong><span data-i18n="egSavior">Bring Kerman every major TerraGroup evidence, then work with Fence and the BTR driver.</span></figcaption>
+          </figure>
+          <figure class="ending-card">
+            <img src="assets/endings/debtor.png" width="112" height="112" loading="lazy" alt="Debtor ending achievement">
+            <figcaption><strong>Debtor</strong><span data-i18n="egDebtor">Give Kerman 2 major evidence, then turn away and work for Lightkeeper.</span></figcaption>
+          </figure>
+          <figure class="ending-card">
+            <img src="assets/endings/fallen.png" width="112" height="112" loading="lazy" alt="Fallen ending achievement">
+            <figcaption><strong>Fallen</strong><span data-i18n="egFallen">Refuse to dig up evidence for Kerman and side with Prapor.</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-number">01</span>
+            <div class="step-icon">🎫</div>
+            <h3 data-i18n="eg1Title">1. Open End Game</h3>
+            <p data-i18n="eg1Desc">Open the End Game tab, or make The Ticket a goal in the Goal Planner: the whole guide appears right under its quest chain.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">02</span>
+            <div class="step-icon">⚠️</div>
+            <h3 data-i18n="eg2Title">2. Mark Your Decisions</h3>
+            <p data-i18n="eg2Desc">Click the choices you already made in game: the armored case, working with Kerman, the evidence. Every option shows which endings it keeps open. Click again to undo.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">03</span>
+            <div class="step-icon">★</div>
+            <h3 data-i18n="eg3Title">3. Pick a Target Ending</h3>
+            <p data-i18n="eg3Desc">Press "Make target" on an ending. The decisions ahead get a "Pick this for your target" mark, and you are warned if your choices already closed that ending.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">04</span>
+            <div class="step-icon">✅</div>
+            <h3 data-i18n="eg4Title">4. Tick Off the Route</h3>
+            <p data-i18n="eg4Desc">Every step, achievement (Easy Way, U Turn, Will It Blow, Little Triumph…) and the escape rules are listed in order. Tick what you did; "You are here" marks the next step.</p>
+          </div>
+        </div>
+
+        <p class="endgame-note" data-i18n="egNote">PvP and PvE objectives differ (e.g. Co-Op extracts vs. 5 PMC kills without killing Scavs) and the guide shows the ones for your mode. Choices are saved per profile and mode. Based on the community "Story Endings" flowchart v1.7.6 by Callsign_Smokey / Kay08x.</p>
       </div>
     </section>
 
@@ -213,6 +282,7 @@
           <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/items.webp" data-caption="capItems" data-i18n="tabItems">Items</button>
           <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/kappa.webp" data-caption="capKappa" data-i18n="tabKappa">Kappa</button>
           <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/planner.webp" data-caption="capPlanner" data-i18n="tabPlanner">Goal Planner</button>
+          <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/endgame.jpg" data-caption="capEndgame" data-i18n="tabEndgame">End Game</button>
         </div>
 
         <figure class="gallery-frame">

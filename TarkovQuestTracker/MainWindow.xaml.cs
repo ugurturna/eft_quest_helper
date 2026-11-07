@@ -110,6 +110,11 @@ public partial class MainWindow : Window
 
     void ToggleOverlay_Click(object sender, RoutedEventArgs e) => _overlay.ToggleVisible();
 
+    void OpenTicketGuide_Click(object sender, RoutedEventArgs e) => TicketTab.IsSelected = true;
+
+    // keep the newest script output in view
+    void UpdateLog_TextChanged(object sender, TextChangedEventArgs e) => ((TextBox)sender).ScrollToEnd();
+
 
     void NewProfile_Click(object sender, RoutedEventArgs e) =>
         AskName(Loc.T("dlg.newProfile.title"), Loc.T("dlg.newProfile.label"), "", _vm.CreateProfile);

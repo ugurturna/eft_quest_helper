@@ -11,10 +11,12 @@
     <ItemGroup>
       <!-- trader portraits; a missing one falls back to the trader's initial -->
       <Resource Include="Assets\Traders\*.png" />
+      <!-- The Ticket ending achievement pictures -->
+      <Resource Include="Assets\Endings\*.png" />
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="..\data\tasks_*.json;..\data\meta.json;..\data\quest_items.json" Link="data\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
+      <Content Include="..\data\tasks_*.json;..\data\meta.json;..\data\quest_items.json;..\data\ticket_endings.json" Link="data\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
       <Content Include="..\data\icons\*.png" Link="data\icons\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
     </ItemGroup>
 

@@ -11,6 +11,8 @@ public sealed class Progress
     /// <summary>Target quests (e.g. "the-punisher-part-3", "collector").</summary>
     public List<string> Goals { get; set; } = [];
     public int PlayerLevel { get; set; } = 1;
+    /// <summary>"The Ticket" endings guide: choices, target ending, ticked steps.</summary>
+    public TicketProgress Ticket { get; set; } = new();
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
     public static string ObjectiveKey(string questId, string objectiveId) => $"{questId}/{objectiveId}";
@@ -23,8 +25,6 @@ public sealed class AppSettings
     /// <summary>App UI language (menus, buttons, messages): "tr" or "en".</summary>
     public string UiLanguage { get; set; } = "tr";
     public GameMode Mode { get; set; } = GameMode.Pvp;
-    /// <summary>Past (historical) event quests are hidden unless this is on.</summary>
-    public bool ShowPastEvents { get; set; }
     public double OverlayOpacity { get; set; } = 0.85;
     public double OverlayWidth { get; set; } = 340;
     /// <summary>Overlay zoom (text, buttons, width) so it reads well at any resolution.</summary>

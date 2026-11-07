@@ -26,7 +26,8 @@ public sealed class QuestRepository
     public string Language { get; private set; } = "en";
     public GameMode Mode { get; private set; }
 
-    public static QuestRepository Load(string dataDir, string language, GameMode mode, bool includePastEvents = false)
+    /// <summary>Past (historical) events are never loaded: they can't be done any more.</summary>
+    public static QuestRepository Load(string dataDir, string language, GameMode mode)
     {
         var repo = new QuestRepository { Mode = mode };
         var all = Read<List<Quest>>(Path.Combine(dataDir, "tasks_en.json")) ?? [];
@@ -45,7 +46,7 @@ public sealed class QuestRepository
         translations.TryGetValue(repo.Language, out var current);
 
         var quests = all.Where(q => q.GameModes.Count == 0 || q.GameModes.Contains(modeKey))
-                        .Where(q => includePastEvents || !q.IsPastEvent)
+                        .Where(q => !q.IsPastEvent)
                         .ToList();
         var ids = quests.Select(q => q.Id).ToHashSet();
         foreach (var q in quests)

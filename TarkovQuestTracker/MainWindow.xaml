@@ -51,6 +51,187 @@
             </Grid>
         </DataTemplate>
 
+        <!-- "The Ticket" endings guide; DataContext = MainViewModel. Used by the End Game tab and the planner. -->
+        <DataTemplate x:Key="TicketGuideView">
+            <StackPanel>
+                <DockPanel>
+                    <Button DockPanel.Dock="Right" Content="{DynamicResource s.tk.reset}" Style="{StaticResource SmallButton}" Margin="8,0,0,0"
+                            VerticalAlignment="Top" Command="{Binding TicketResetCommand}" />
+                    <TextBlock Text="{DynamicResource s.tk.desc}" Style="{StaticResource Muted}" />
+                </DockPanel>
+
+                <TextBlock Text="{DynamicResource s.tk.endings}" Style="{StaticResource H2}" />
+                <ItemsControl ItemsSource="{Binding TicketEndings}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate><UniformGrid Rows="1" /></ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type vm:TicketEndingVm}">
+                            <Border x:Name="card" Background="{StaticResource CardBrush}" BorderBrush="{StaticResource LineBrush}"
+                                    BorderThickness="1" CornerRadius="4" Padding="10,8" Margin="0,0,6,0">
+                                <DockPanel>
+                                    <Button x:Name="targetBtn" DockPanel.Dock="Bottom" Content="{DynamicResource s.tk.setTarget}"
+                                            Style="{StaticResource SmallButton}" Margin="0,8,0,0" HorizontalAlignment="Left"
+                                            Command="{Binding DataContext.TicketTargetCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                            CommandParameter="{Binding Id}" />
+                                    <TextBlock x:Name="state" DockPanel.Dock="Bottom" Text="{Binding StateText}" FontSize="11" FontWeight="SemiBold"
+                                               Foreground="{StaticResource MutedBrush}" TextWrapping="Wrap" Margin="0,6,0,0" />
+                                    <Border DockPanel.Dock="Top" BorderBrush="{StaticResource LineBrush}" BorderThickness="2" CornerRadius="3"
+                                            HorizontalAlignment="Center" Margin="0,0,0,8">
+                                        <Image Source="{Binding Image}" Width="96" Height="96" RenderOptions.BitmapScalingMode="HighQuality" />
+                                    </Border>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Name}" Style="{StaticResource H1}" FontSize="16" />
+                                        <TextBlock Text="{Binding Summary}" Style="{StaticResource Muted}" FontSize="12" Margin="0,2,0,0" />
+                                    </StackPanel>
+                                </DockPanel>
+                            </Border>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding IsReachable}" Value="False">
+                                    <Setter TargetName="card" Property="Opacity" Value="0.45" />
+                                    <Setter TargetName="state" Property="Foreground" Value="{StaticResource DecisionBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsRoute}" Value="True">
+                                    <Setter TargetName="card" Property="BorderBrush" Value="{StaticResource ActiveBrush}" />
+                                    <Setter TargetName="state" Property="Foreground" Value="{StaticResource ActiveBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsTarget}" Value="True">
+                                    <Setter TargetName="card" Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+                                    <Setter TargetName="card" Property="BorderThickness" Value="2" />
+                                    <Setter TargetName="state" Property="Foreground" Value="{StaticResource AccentBrush}" />
+                                    <Setter TargetName="targetBtn" Property="Content" Value="{DynamicResource s.tk.unsetTarget}" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <TextBlock Text="{Binding TicketSummary}" Style="{StaticResource Body}" FontSize="15" FontWeight="SemiBold" Margin="0,12,0,0" />
+                <Border BorderBrush="{StaticResource DecisionBrush}" BorderThickness="2,0,0,0" Padding="8,2" Margin="0,6,0,0">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding TicketWarning}" Value="">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <TextBlock Text="{Binding TicketWarning}" Foreground="{StaticResource DecisionBrush}" TextWrapping="Wrap" />
+                </Border>
+
+                <DockPanel Margin="0,12,0,4">
+                    <TextBlock DockPanel.Dock="Right" Text="{Binding TicketProgressText}" Style="{StaticResource Muted}" VerticalAlignment="Center" />
+                    <TextBlock Text="{DynamicResource s.tk.route}" Style="{StaticResource H2}" Margin="0" VerticalAlignment="Center" />
+                </DockPanel>
+                <ItemsControl ItemsSource="{Binding TicketSteps}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type vm:TicketStepVm}">
+                            <Border x:Name="card" Background="{StaticResource CardBrush}" BorderBrush="{StaticResource LineBrush}"
+                                    BorderThickness="3,0,0,0" CornerRadius="0,4,4,0" Padding="10,6" Margin="0,0,0,4">
+                                <StackPanel>
+                                    <DockPanel>
+                                        <TextBlock DockPanel.Dock="Right" Text="{DynamicResource s.tk.here}" Foreground="{StaticResource ActiveBrush}"
+                                                   FontWeight="Bold" FontSize="11" Margin="8,0,0,0" VerticalAlignment="Center"
+                                                   Visibility="{Binding IsCurrent, Converter={StaticResource BoolToVis}}" />
+                                        <TextBlock x:Name="tag" DockPanel.Dock="Top" Text="{Binding Tag}" FontSize="10" FontWeight="Bold"
+                                                   Foreground="{StaticResource MutedBrush}" Margin="0,0,0,2"
+                                                   Visibility="{Binding HasTag, Converter={StaticResource BoolToVis}}" />
+                                        <Image DockPanel.Dock="Left" Source="{Binding Image}" Width="56" Height="56" Margin="0,2,10,0"
+                                               RenderOptions.BitmapScalingMode="HighQuality"
+                                               Visibility="{Binding HasImage, Converter={StaticResource BoolToVis}}" />
+                                        <Grid VerticalAlignment="Center">
+                                            <CheckBox IsChecked="{Binding IsDone, Mode=TwoWay}" VerticalContentAlignment="Top"
+                                                      Visibility="{Binding IsCheckable, Converter={StaticResource BoolToVis}}">
+                                                <TextBlock x:Name="checkText" Text="{Binding Text}" TextWrapping="Wrap" Foreground="{StaticResource TextBrush}" />
+                                            </CheckBox>
+                                            <TextBlock x:Name="plainText" Text="{Binding Text}" TextWrapping="Wrap" Foreground="{StaticResource TextBrush}"
+                                                       Visibility="{Binding IsPlain, Converter={StaticResource BoolToVis}}" />
+                                        </Grid>
+                                    </DockPanel>
+                                    <ItemsControl ItemsSource="{Binding Options}" Margin="0,6,0,0"
+                                                  Visibility="{Binding IsDecision, Converter={StaticResource BoolToVis}}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate DataType="{x:Type vm:TicketOptionVm}">
+                                                <Button x:Name="opt" Margin="0,0,6,6" Padding="10,4" HorizontalContentAlignment="Left"
+                                                        ToolTip="{DynamicResource s.tk.choiceTip}"
+                                                        Command="{Binding DataContext.TicketChooseCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                        CommandParameter="{Binding}">
+                                                    <StackPanel>
+                                                        <TextBlock x:Name="mark" FontSize="10" FontWeight="Bold" Visibility="Collapsed" />
+                                                        <TextBlock Text="{Binding Label}" FontWeight="SemiBold" />
+                                                        <TextBlock Text="{Binding EndingsText}" FontSize="11" Opacity="0.8" />
+                                                    </StackPanel>
+                                                </Button>
+                                                <DataTemplate.Triggers>
+                                                    <DataTrigger Binding="{Binding IsSuggested}" Value="True">
+                                                        <Setter TargetName="mark" Property="Visibility" Value="Visible" />
+                                                        <Setter TargetName="mark" Property="Text" Value="{DynamicResource s.tk.suggested}" />
+                                                        <Setter TargetName="opt" Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+                                                        <Setter TargetName="opt" Property="BorderThickness" Value="2" />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding IsChosen}" Value="True">
+                                                        <Setter TargetName="mark" Property="Visibility" Value="Visible" />
+                                                        <Setter TargetName="mark" Property="Text" Value="{DynamicResource s.tk.chosen}" />
+                                                        <Setter TargetName="opt" Property="Background" Value="{StaticResource AccentBrush}" />
+                                                        <Setter TargetName="opt" Property="Foreground" Value="{StaticResource BgBrush}" />
+                                                    </DataTrigger>
+                                                </DataTemplate.Triggers>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </Border>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding Kind}" Value="decision">
+                                    <Setter TargetName="card" Property="BorderBrush" Value="{StaticResource DecisionBrush}" />
+                                    <Setter TargetName="tag" Property="Foreground" Value="{StaticResource DecisionBrush}" />
+                                    <Setter TargetName="plainText" Property="FontWeight" Value="SemiBold" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Kind}" Value="achievement">
+                                    <Setter TargetName="card" Property="BorderBrush" Value="{StaticResource DoneBrush}" />
+                                    <Setter TargetName="tag" Property="Foreground" Value="{StaticResource DoneBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Kind}" Value="optional">
+                                    <Setter TargetName="card" Property="BorderBrush" Value="{StaticResource OptionalBrush}" />
+                                    <Setter TargetName="tag" Property="Foreground" Value="{StaticResource OptionalBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Kind}" Value="warning">
+                                    <Setter TargetName="card" Property="BorderBrush" Value="{StaticResource WarnBrush}" />
+                                    <Setter TargetName="tag" Property="Foreground" Value="{StaticResource WarnBrush}" />
+                                    <Setter TargetName="plainText" Property="Foreground" Value="{StaticResource WarnBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Kind}" Value="note">
+                                    <Setter TargetName="plainText" Property="Foreground" Value="{StaticResource MutedBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Kind}" Value="escape">
+                                    <Setter TargetName="card" Property="BorderBrush" Value="{StaticResource LevelBrush}" />
+                                    <Setter TargetName="tag" Property="Foreground" Value="{StaticResource LevelBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Kind}" Value="ending">
+                                    <Setter TargetName="card" Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+                                    <Setter TargetName="tag" Property="Foreground" Value="{StaticResource AccentBrush}" />
+                                    <Setter TargetName="plainText" Property="Foreground" Value="{StaticResource AccentBrush}" />
+                                    <Setter TargetName="plainText" Property="FontSize" Value="16" />
+                                    <Setter TargetName="plainText" Property="FontWeight" Value="Bold" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsDone}" Value="True">
+                                    <Setter TargetName="checkText" Property="Foreground" Value="{StaticResource MutedBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsCurrent}" Value="True">
+                                    <Setter TargetName="card" Property="Background" Value="#1F2A33" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <TextBlock Text="{DynamicResource s.tk.source}" Style="{StaticResource Muted}" FontSize="10" Margin="0,8,0,0" />
+            </StackPanel>
+        </DataTemplate>
+
         <!-- PvP | PvE segmented switch: both visible, the selected one is filled -->
         <Style x:Key="Segment" TargetType="RadioButton">
             <Setter Property="Foreground" Value="{StaticResource MutedBrush}" />
@@ -128,6 +309,16 @@
             <DockPanel>
                 <Button DockPanel.Dock="Right" Content="{DynamicResource s.undo}" Style="{StaticResource SmallButton}" Margin="8,0,0,0"
                         Command="{Binding UndoCommand}" Visibility="{Binding CanUndo, Converter={StaticResource BoolToVis}}" />
+                <!-- always-visible shortcut reminder (the overlay's own hint is hard to read in game) -->
+                <TextBlock DockPanel.Dock="Right" Style="{StaticResource Muted}" FontSize="11" VerticalAlignment="Center" Margin="12,0,0,0"
+                           ToolTip="{DynamicResource s.keys.barTip}">
+                    <Run Text="⌨ " /><Run Text="{Binding Settings.ClickThroughHotkey, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
+                    <Run Text="{DynamicResource s.keys.barLock}" />
+                    <Run Text="  ·  " /><Run Text="{Binding Settings.ToggleOverlayHotkey, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
+                    <Run Text="{DynamicResource s.keys.barToggle}" />
+                    <Run Text="  ·  " /><Run Text="Ctrl + 🖱" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
+                    <Run Text="{DynamicResource s.keys.barWheel}" />
+                </TextBlock>
                 <TextBlock Text="{Binding Toast}" Foreground="{StaticResource DoneBrush}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" />
             </DockPanel>
         </Border>
@@ -151,6 +342,9 @@
                                           SelectedValue="{Binding CategoryFilter}" MinWidth="140" Margin="0,0,8,4" />
                                 <ComboBox ItemsSource="{Binding Filters}" DisplayMemberPath="Label" SelectedValuePath="Key"
                                           SelectedValue="{Binding Filter}" MinWidth="150" Margin="0,0,8,4" />
+                                <ComboBox ItemsSource="{Binding Loyalties}" DisplayMemberPath="Label" SelectedValuePath="Key"
+                                          SelectedValue="{Binding LoyaltyFilter}" MinWidth="110" Margin="0,0,8,4"
+                                          ToolTip="{DynamicResource s.ll.tip}" />
                                 <ComboBox ItemsSource="{Binding Traders}" SelectedValuePath="Key" SelectedValue="{Binding TraderFilter}"
                                           MinWidth="170" Margin="0,0,8,4">
                                     <ComboBox.ItemTemplate>
@@ -217,7 +411,14 @@
                             <TextBlock Text="{DynamicResource s.chainAll}" Style="{StaticResource H2}" />
                         </StackPanel>
                         <ScrollViewer VerticalScrollBarVisibility="Auto">
-                            <ItemsControl ItemsSource="{Binding GoalChain}" ItemTemplate="{StaticResource CheckRow}" />
+                            <StackPanel>
+                                <ItemsControl ItemsSource="{Binding GoalChain}" ItemTemplate="{StaticResource CheckRow}" />
+                                <!-- goal "The Ticket": its endings, decisions and the whole route with done / not done -->
+                                <StackPanel Visibility="{Binding IsTicketGoal, Converter={StaticResource BoolToVis}}" Margin="0,8,6,0">
+                                    <TextBlock Text="{DynamicResource s.tk.plannerTitle}" Style="{StaticResource H2}" FontSize="15" />
+                                    <ContentControl Content="{Binding}" ContentTemplate="{StaticResource TicketGuideView}" />
+                                </StackPanel>
+                            </StackPanel>
                         </ScrollViewer>
                     </DockPanel>
                 </TabItem>
@@ -231,7 +432,11 @@
                             <DockPanel Margin="0,12,0,0">
                                 <Button DockPanel.Dock="Right" Content="{DynamicResource s.activateAll}" Style="{StaticResource SmallButton}" Margin="0"
                                         Command="{Binding ActivateAvailableCommand}" CommandParameter="kappa" />
-                                <TextBlock Text="{DynamicResource s.kappa.byMap}" Style="{StaticResource H2}" Margin="0" VerticalAlignment="Center" />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{DynamicResource s.kappa.available}" Style="{StaticResource H2}" Margin="0,0,8,0" VerticalAlignment="Center" />
+                                    <ComboBox ItemsSource="{Binding KappaGroupings}" DisplayMemberPath="Label" SelectedValuePath="Key"
+                                              SelectedValue="{Binding KappaGroupBy}" MinWidth="200" />
+                                </StackPanel>
                             </DockPanel>
                             <ItemsControl ItemsSource="{Binding KappaAvailable}">
                                 <ItemsControl.ItemTemplate>
@@ -363,11 +568,71 @@
                     </DockPanel>
                 </TabItem>
 
+                <!-- The Ticket: endings, decisions and the route to the chosen ending -->
+                <TabItem x:Name="TicketTab" Header="{DynamicResource s.tab.ticket}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
+                        <StackPanel Margin="0,0,6,0">
+                            <ContentControl Content="{Binding}" ContentTemplate="{StaticResource TicketGuideView}" />
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+
                 <!-- settings -->
                 <TabItem Header="{DynamicResource s.tab.settings}">
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
                         <StackPanel MaxWidth="640" HorizontalAlignment="Left">
-                            <TextBlock Text="{DynamicResource s.set.lang}" Style="{StaticResource H2}" Margin="0,0,0,4" />
+                            <!-- shortcuts, explained -->
+                            <TextBlock Text="{DynamicResource s.keys.title}" Style="{StaticResource H2}" Margin="0,0,0,4" />
+                            <Border Background="{StaticResource CardBrush}" CornerRadius="4" Padding="12,8" Margin="0,0,0,4">
+                                <Grid>
+                                    <Grid.Resources>
+                                        <Style x:Key="KeyCap" TargetType="Border">
+                                            <Setter Property="Background" Value="{StaticResource BgBrush}" />
+                                            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+                                            <Setter Property="BorderThickness" Value="1" />
+                                            <Setter Property="CornerRadius" Value="3" />
+                                            <Setter Property="Padding" Value="8,3" />
+                                            <Setter Property="Margin" Value="0,4,14,4" />
+                                            <Setter Property="HorizontalAlignment" Value="Left" />
+                                            <Setter Property="VerticalAlignment" Value="Top" />
+                                        </Style>
+                                        <Style x:Key="KeyText" TargetType="TextBlock">
+                                            <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+                                            <Setter Property="FontWeight" Value="SemiBold" />
+                                            <Setter Property="FontFamily" Value="Consolas" />
+                                        </Style>
+                                        <Style x:Key="KeyDesc" TargetType="TextBlock" BasedOn="{StaticResource Body}">
+                                            <Setter Property="Margin" Value="0,6,0,4" />
+                                        </Style>
+                                    </Grid.Resources>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Border Style="{StaticResource KeyCap}">
+                                        <TextBlock Text="{Binding Settings.ClickThroughHotkey}" Style="{StaticResource KeyText}" />
+                                    </Border>
+                                    <TextBlock Grid.Column="1" Text="{DynamicResource s.keys.lock}" Style="{StaticResource KeyDesc}" />
+                                    <Border Grid.Row="1" Style="{StaticResource KeyCap}">
+                                        <TextBlock Text="{Binding Settings.ToggleOverlayHotkey}" Style="{StaticResource KeyText}" />
+                                    </Border>
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{DynamicResource s.keys.toggle}" Style="{StaticResource KeyDesc}" />
+                                    <Border Grid.Row="2" Style="{StaticResource KeyCap}">
+                                        <TextBlock Text="{DynamicResource s.keys.wheel}" Style="{StaticResource KeyText}" />
+                                    </Border>
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{DynamicResource s.keys.wheel.desc}" Style="{StaticResource KeyDesc}" />
+                                    <Border Grid.Row="3" Style="{StaticResource KeyCap}">
+                                        <TextBlock Text="{DynamicResource s.keys.drag}" Style="{StaticResource KeyText}" />
+                                    </Border>
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{DynamicResource s.keys.drag.desc}" Style="{StaticResource KeyDesc}" />
+                                    <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Text="{DynamicResource s.keys.note}" Style="{StaticResource Muted}" FontSize="11" Margin="0,6,0,0" />
+                                </Grid>
+                            </Border>
+
+                            <TextBlock Text="{DynamicResource s.set.lang}" Style="{StaticResource H2}" />
                             <TextBlock Text="{DynamicResource s.set.lang.desc}" Style="{StaticResource Muted}" />
                             <Grid Margin="0,6,0,0">
                                 <Grid.ColumnDefinitions>
@@ -423,17 +688,12 @@
                                 <Run Text="{DynamicResource s.set.scale.hint}" Foreground="{StaticResource MutedBrush}" />
                             </TextBlock>
                             <Slider Minimum="0.6" Maximum="2" Value="{Binding OverlayScale}" />
-                            <TextBlock Style="{StaticResource Muted}" Margin="0,8,0,0">
-                                <Run Text="{Binding Settings.ClickThroughHotkey, Mode=OneWay}" /><Run Text="{DynamicResource s.set.hk.lock}" /><LineBreak />
-                                <Run Text="{Binding Settings.ToggleOverlayHotkey, Mode=OneWay}" /><Run Text="{DynamicResource s.set.hk.toggle}" /><LineBreak />
-                                <Run Text="{DynamicResource s.set.borderless}" />
-                            </TextBlock>
+                            <TextBlock Text="{DynamicResource s.set.borderless}" Style="{StaticResource Muted}" Margin="0,8,0,0" />
 
                             <TextBlock Text="{DynamicResource s.set.progress}" Style="{StaticResource H2}" />
                             <TextBlock Style="{StaticResource Muted}">
                                 <Run Text="{DynamicResource s.set.progress.desc}" /> <Run Text="{Binding ProgressFolder, Mode=OneWay}" />
                             </TextBlock>
-                            <CheckBox IsChecked="{Binding ShowPastEvents}" Margin="0,6,0,0" Content="{DynamicResource s.set.pastEvents}" />
                             <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
                                 <Button Content="{DynamicResource s.export}" Style="{StaticResource SmallButton}" Click="Export_Click" />
                                 <Button Content="{DynamicResource s.import}" Style="{StaticResource SmallButton}" Click="Import_Click" />
@@ -448,6 +708,37 @@
                                 python tools/scraper/merge.py<LineBreak />
                                 python tools/scraper/fetch_quest_items.py
                             </TextBlock>
+                            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                                <Button Command="{Binding UpdateFromWikiCommand}" IsEnabled="{Binding CanUpdateFromWiki}">
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource SmallButton}">
+                                            <Setter Property="Content" Value="{DynamicResource s.wiki.update}" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsUpdating}" Value="True">
+                                                    <Setter Property="Content" Value="{DynamicResource s.wiki.stop}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                                <TextBlock Text="{DynamicResource s.wiki.running}" Foreground="{StaticResource ActiveBrush}" VerticalAlignment="Center"
+                                           Visibility="{Binding IsUpdating, Converter={StaticResource BoolToVis}}" />
+                            </StackPanel>
+                            <TextBlock Text="{DynamicResource s.wiki.desc}" Style="{StaticResource Muted}" FontSize="11" Margin="0,4,0,0" />
+                            <TextBlock Text="{DynamicResource s.wiki.unavailable}" Foreground="{StaticResource WarnBrush}" TextWrapping="Wrap" Margin="0,4,0,0">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding CanUpdateFromWiki}" Value="True">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <TextBox Text="{Binding UpdateLog, Mode=OneWay}" IsReadOnly="True" TextWrapping="NoWrap" FontFamily="Consolas" FontSize="11"
+                                     Height="200" Margin="0,6,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                                     TextChanged="UpdateLog_TextChanged" />
                         </StackPanel>
                     </ScrollViewer>
                 </TabItem>
@@ -505,6 +796,8 @@
                                         Command="{Binding ToggleGoalCommand}" CommandParameter="{Binding SelectedQuest}" />
                                 <Button Content="Wiki ↗" Style="{StaticResource SmallButton}" Margin="0,0,6,6"
                                         Command="{Binding OpenWikiCommand}" CommandParameter="{Binding SelectedQuest}" />
+                                <Button Content="{DynamicResource s.tk.openGuide}" Style="{StaticResource SmallButton}" Margin="0,0,6,6"
+                                        Click="OpenTicketGuide_Click" Visibility="{Binding IsTicketSelected, Converter={StaticResource BoolToVis}}" />
                             </WrapPanel>
 
                             <ItemsControl ItemsSource="{Binding SelectedQuest.ModeWarnings}">

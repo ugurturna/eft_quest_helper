@@ -41,11 +41,11 @@ public sealed class QuestRow(Quest quest, QuestStatus status, bool isGoal)
         _ => Loc.T("st.locked"),
     };
 
-    /// <summary>"STORY" / "EVENT" / "PAST EVENT" (UI language), empty for side quests.</summary>
+    /// <summary>"STORY" / "EVENT" (UI language), empty for side quests.</summary>
     public string CategoryBadge => Quest.Category switch
     {
         "story" => Loc.T("badge.story"),
-        "event" => Loc.T(Quest.IsPastEvent ? "badge.pastEvent" : "badge.event"),
+        "event" => Loc.T("badge.event"),
         _ => "",
     };
 }
@@ -69,6 +69,73 @@ public sealed class QuestItemsRow(QuestRow row, IReadOnlyList<ItemNeed> items)
 {
     public QuestRow Row { get; } = row;
     public IReadOnlyList<ItemNeed> Items { get; } = items;
+}
+
+/// <summary>"Ticket endings" tab: one ending card.</summary>
+public sealed class TicketEndingVm(TicketEnding ending, string lang, string state, bool isTarget, bool isReachable, bool isRoute)
+{
+    public string Id { get; } = ending.Id;
+    public string Name { get; } = ending.Name.In(lang);
+    public string Summary { get; } = ending.Summary.In(lang);
+    /// <summary>The ending's achievement picture.</summary>
+    public string Image { get; } = TicketImages.For(ending.Id);
+    public string StateText { get; } = state;
+    public bool IsTarget { get; } = isTarget;
+    /// <summary>Still possible with the decisions already made.</summary>
+    public bool IsReachable { get; } = isReachable;
+    /// <summary>The ending the current route leads to.</summary>
+    public bool IsRoute { get; } = isRoute;
+}
+
+/// <summary>"Ticket endings" tab: one line of the route (step, decision, achievement, note...).</summary>
+public sealed class TicketStepVm(TicketStep step, string text, string tag, bool isDone, bool isCurrent,
+                                 IReadOnlyList<TicketOptionVm> options, Action<TicketStepVm, bool> toggled)
+{
+    public TicketStep Step { get; } = step;
+    public string Kind => Step.Kind;
+    public string Text { get; } = text;
+    /// <summary>Short label in front of the text ("NO RETURN", "ACHIEVEMENT"...), empty for plain steps.</summary>
+    public string Tag { get; } = tag;
+    public bool HasTag => Tag.Length > 0;
+    public bool IsCheckable => Step.IsCheckable;
+    public bool IsPlain => !Step.IsCheckable;
+    public bool IsCurrent { get; } = isCurrent;
+    public IReadOnlyList<TicketOptionVm> Options { get; } = options;
+    public bool IsDecision => Options.Count > 0;
+    /// <summary>Ending steps show the ending's picture.</summary>
+    public string? Image { get; } = step.Kind == "ending" && step.Endings.Count == 1 ? TicketImages.For(step.Endings[0]) : null;
+    public bool HasImage => Image != null;
+
+    public bool IsDone
+    {
+        get => isDone;
+        set
+        {
+            if (value == isDone) return;
+            isDone = value;
+            toggled(this, value);
+        }
+    }
+}
+
+static class TicketImages
+{
+    /// <summary>Assets/Endings/{id}.png, cut from the "Story Endings" flowchart.</summary>
+    public static string For(string endingId) => $"pack://application:,,,/Assets/Endings/{endingId}.png";
+}
+
+/// <summary>One answer of a Ticket decision, with the endings it keeps open.</summary>
+public sealed class TicketOptionVm(string decisionId, string optionId, string label, string endings, bool isChosen, bool isSuggested)
+{
+    public string DecisionId { get; } = decisionId;
+    public string OptionId { get; } = optionId;
+    public string Label { get; } = label;
+    /// <summary>"→ Savior, Debtor"</summary>
+    public string EndingsText { get; } = endings;
+    /// <summary>The player made this choice in game.</summary>
+    public bool IsChosen { get; } = isChosen;
+    /// <summary>Not chosen yet, but the target ending needs it.</summary>
+    public bool IsSuggested { get; } = isSuggested;
 }
 
 /// <summary>An active quest card (main window "Aktif" tab and the overlay).</summary>

@@ -1,0 +1,546 @@
+{
+  "source": "\"Story Endings\" flowchart v1.7.6 by Callsign_Smokey / Kay08x (12.10.2026), checked against the wiki objectives of The Ticket",
+  "endings": [
+    {
+      "id": "survivor",
+      "name": { "en": "Survivor", "tr": "Survivor" },
+      "summary": {
+        "en": "Refuse Kerman, pay Prapor and finish his tasks.",
+        "tr": "Kerman'ı reddet, Prapor'a para öde ve onun görevlerini bitir."
+      },
+      "requires": { "kerman": "refuse" }
+    },
+    {
+      "id": "savior",
+      "name": { "en": "Savior", "tr": "Savior" },
+      "summary": {
+        "en": "Bring Kerman every major TerraGroup evidence, then work with Fence and the BTR driver.",
+        "tr": "Kerman'a tüm büyük TerraGroup kanıtlarını getir, sonra Fence ve BTR sürücüsüyle çalış."
+      },
+      "requires": { "kerman": "work", "evidence": "savior" }
+    },
+    {
+      "id": "debtor",
+      "name": { "en": "Debtor", "tr": "Debtor" },
+      "summary": {
+        "en": "Give Kerman 2 major evidence, then turn away from him and work for Lightkeeper.",
+        "tr": "Kerman'a 2 büyük kanıt ver, sonra ondan dönüp Lightkeeper için çalış."
+      },
+      "requires": { "kerman": "work", "evidence": "uturn" }
+    },
+    {
+      "id": "fallen",
+      "name": { "en": "Fallen", "tr": "Fallen" },
+      "summary": {
+        "en": "Refuse to dig up evidence for Kerman and side with Prapor.",
+        "tr": "Kerman için kanıt aramayı reddet ve Prapor'un tarafına geç."
+      },
+      "requires": { "kerman": "work", "evidence": "refuse" }
+    }
+  ],
+  "decisions": [
+    {
+      "id": "case",
+      "title": {
+        "en": "What did you do with the armored case from Falling Skies?",
+        "tr": "Falling Skies'taki zırhlı çantayla ne yaptın?"
+      },
+      "options": [
+        { "id": "keep", "label": { "en": "Kept the case for myself", "tr": "Çantayı kendime sakladım" } },
+        { "id": "prapor", "label": { "en": "Handed the case over to Prapor", "tr": "Çantayı Prapor'a verdim" } }
+      ]
+    },
+    {
+      "id": "kerman",
+      "title": {
+        "en": "The case is open. Work together with Kerman?",
+        "tr": "Çanta açıldı. Kerman'la birlikte çalışacak mısın?"
+      },
+      "options": [
+        { "id": "work", "label": { "en": "Work together with Kerman", "tr": "Kerman'la birlikte çalış" } },
+        { "id": "refuse", "label": { "en": "Don't work with Kerman", "tr": "Kerman'la çalışma" } }
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": {
+        "en": "Kerman wants dirt on TerraGroup. How far do you help him?",
+        "tr": "Kerman TerraGroup hakkında kanıt istiyor. Ona ne kadar yardım edeceksin?"
+      },
+      "options": [
+        { "id": "savior", "label": { "en": "Help him find all the evidence", "tr": "Tüm kanıtları bulmasına yardım et" } },
+        { "id": "uturn", "label": { "en": "Hand in 2 major evidence, then stop", "tr": "2 büyük kanıt ver, sonra bırak" } },
+        { "id": "refuse", "label": { "en": "Don't help him find evidence", "tr": "Kanıt bulmasına yardım etme" } }
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": "recover-case",
+      "text": {
+        "en": "Falling Skies: recover the armored case from the crashed plane on Woods",
+        "tr": "Falling Skies: Woods'taki düşen uçaktan zırhlı çantayı al"
+      }
+    },
+    { "id": "case", "kind": "decision", "decision": "case" },
+
+    {
+      "id": "prapor-dirt", "when": { "case": "prapor" },
+      "text": {
+        "en": "Find compromising material on Prapor at his people's camp on Lighthouse",
+        "tr": "Lighthouse'taki Prapor'un adamlarının kampında Prapor hakkında kompromize edici materyal bul"
+      }
+    },
+    {
+      "id": "prapor-lk-access", "when": { "case": "prapor" },
+      "text": {
+        "en": "Gain access to Lightkeeper (the \"To the Light\" questline)",
+        "tr": "Lightkeeper'a erişim kazan (\"To the Light\" görev zinciri)"
+      }
+    },
+    {
+      "id": "prapor-lk-folders", "when": { "case": "prapor" },
+      "text": {
+        "en": "Talk to Lightkeeper and pay him 3 TerraGroup \"Blue Folders\" materials",
+        "tr": "Lightkeeper ile konuş, ona 3 TerraGroup \"Blue Folders\" belgesi öde"
+      }
+    },
+    {
+      "id": "prapor-flare", "when": { "case": "prapor" },
+      "text": {
+        "en": "Launch a yellow flare in front of ULTRA's main entrance on Interchange",
+        "tr": "Interchange'de ULTRA'nın ana girişi önünde sarı işaret fişeği at"
+      }
+    },
+    {
+      "id": "prapor-15-kills", "when": { "case": "prapor" }, "mode": "pvp",
+      "text": {
+        "en": "Eliminate any 15 targets on Interchange in one raid without dying",
+        "tr": "Interchange'de tek raidde, ölmeden herhangi 15 hedefi öldür"
+      }
+    },
+    {
+      "id": "prapor-5-pmc", "when": { "case": "prapor" }, "mode": "pve",
+      "text": {
+        "en": "Eliminate 5 PMCs on Interchange in one raid without killing Scavs",
+        "tr": "Interchange'de tek raidde Scav öldürmeden 5 PMC öldür"
+      }
+    },
+    {
+      "id": "prapor-collect-case", "when": { "case": "prapor" },
+      "text": {
+        "en": "Collect the case from Lightkeeper (it goes into the special slot)",
+        "tr": "Çantayı Lightkeeper'dan geri al (özel slota gider)"
+      }
+    },
+
+    {
+      "id": "jammer",
+      "text": {
+        "en": "Find the Experimental signal jammer on The Lab",
+        "tr": "Labs'ta Deneysel sinyal karıştırıcıyı (Experimental signal jammer) bul"
+      }
+    },
+    {
+      "id": "open-case",
+      "text": {
+        "en": "Open the case with the jammer and read the instructions inside",
+        "tr": "Çantayı jammer ile aç ve içindeki talimatları oku"
+      }
+    },
+    { "id": "kerman", "kind": "decision", "decision": "kerman" },
+
+    {
+      "id": "sv-intercom", "endings": [ "survivor" ],
+      "text": {
+        "en": "Go to the port entrance on Shoreline and swipe the keycard at the intercom",
+        "tr": "Shoreline'daki liman girişine git, interkomda kartı okut"
+      }
+    },
+    {
+      "id": "sv-easy-way", "kind": "achievement", "endings": [ "survivor" ],
+      "text": { "en": "\"Easy Way\" achievement", "tr": "\"Easy Way\" başarımı" }
+    },
+    {
+      "id": "sv-ask-prapor", "endings": [ "survivor" ],
+      "text": {
+        "en": "The keycard didn't work: ask Prapor for help",
+        "tr": "Kart çalışmadı: Prapor'dan yardım iste"
+      }
+    },
+    {
+      "id": "sv-pay-300", "endings": [ "survivor" ], "when": { "case": "prapor" },
+      "text": {
+        "en": "Hand over 300,000,000 roubles to Prapor (less, because you gave him the case)",
+        "tr": "Prapor'a 300.000.000 ruble ver (çantayı ona verdiğin için daha az)"
+      }
+    },
+    {
+      "id": "sv-pay-500", "endings": [ "survivor" ], "when": { "case": "keep" },
+      "text": {
+        "en": "Hand over 500,000,000 roubles to Prapor (more, because you kept the case)",
+        "tr": "Prapor'a 500.000.000 ruble ver (çantayı sakladığın için daha fazla)"
+      }
+    },
+    {
+      "id": "sv-72h", "kind": "warning", "endings": [ "survivor" ],
+      "text": {
+        "en": "Prapor's next tasks run on a 72 hour timer. In time: \"I Am Speed\" achievement. Too late: you have to hand him a Secure container Kappa.",
+        "tr": "Prapor'un sıradaki görevleri için 72 saatin var. Yetişirsen \"I Am Speed\" başarımı; yetişemezsen ona Kappa güvenli konteyneri vermek zorundasın."
+      }
+    },
+    {
+      "id": "sv-folders", "endings": [ "survivor" ],
+      "text": {
+        "en": "Find the 4 TerraGroup evidence folders on The Lab (Reports, Staff, Developments, Finances)",
+        "tr": "Labs'ta 4 TerraGroup kanıt klasörünü bul (Reports, Staff, Developments, Finances)"
+      }
+    },
+    {
+      "id": "sv-ssd", "endings": [ "survivor" ],
+      "text": {
+        "en": "Convert the folders to digital format, save them to an SSD and give it to Prapor",
+        "tr": "Klasörleri dijitale çevirip SSD'ye kaydet ve Prapor'a ver"
+      }
+    },
+    {
+      "id": "sv-50-streets", "endings": [ "survivor" ],
+      "text": {
+        "en": "Eliminate any 50 targets on Streets of Tarkov",
+        "tr": "Streets of Tarkov'da herhangi 50 hedefi öldür"
+      }
+    },
+    {
+      "id": "sv-4-pmc", "endings": [ "survivor" ],
+      "text": {
+        "en": "Eliminate 4 PMCs in one raid and survive",
+        "tr": "Tek raidde 4 PMC öldür ve hayatta çık"
+      }
+    },
+    {
+      "id": "sv-i-am-speed", "kind": "optional", "endings": [ "survivor" ],
+      "text": {
+        "en": "\"I Am Speed\" achievement (Prapor's tasks done within 72 hours)",
+        "tr": "\"I Am Speed\" başarımı (Prapor'un görevleri 72 saat içinde bitti)"
+      }
+    },
+    {
+      "id": "sv-note", "endings": [ "survivor" ],
+      "text": {
+        "en": "Prapor hands you a note for the soldiers at the Terminal",
+        "tr": "Prapor sana Terminal'deki askerler için bir not veriyor"
+      }
+    },
+
+    {
+      "id": "w-labs", "endings": [ "savior", "debtor", "fallen" ],
+      "text": {
+        "en": "Look for the Laboratory master pass and the RFID card encryption device on The Lab",
+        "tr": "Labs'ta Laboratory master pass kartını ve RFID kart şifreleme cihazını ara"
+      }
+    },
+    {
+      "id": "w-mechanic", "endings": [ "savior", "debtor", "fallen" ],
+      "text": {
+        "en": "Master pass found but no device: talk to Mechanic",
+        "tr": "Master pass bulundu ama cihaz yok: Mechanic ile konuş"
+      }
+    },
+    {
+      "id": "w-bitcoins", "endings": [ "savior", "debtor", "fallen" ],
+      "text": {
+        "en": "Pay Mechanic 40 Physical Bitcoins",
+        "tr": "Mechanic'e 40 Physical Bitcoin öde"
+      }
+    },
+    {
+      "id": "w-elektronik", "endings": [ "savior", "debtor", "fallen" ],
+      "text": {
+        "en": "Take Mechanic's keys to Elektronik's (Kruglov's) apartment on Streets and get the RFID device",
+        "tr": "Mechanic'in anahtarlarıyla Streets'teki Elektronik'in (Kruglov) dairesine git, RFID cihazını al"
+      }
+    },
+    {
+      "id": "w-activate", "endings": [ "savior", "debtor", "fallen" ],
+      "text": {
+        "en": "Activate the RFID card from the armored case",
+        "tr": "Zırhlı çantadaki RFID kartını aktive et"
+      }
+    },
+    {
+      "id": "w-intercom", "endings": [ "savior", "debtor", "fallen" ],
+      "text": {
+        "en": "Go to the port entrance on Shoreline and swipe the keycard at the intercom",
+        "tr": "Shoreline'daki liman girişine git, interkomda kartı okut"
+      }
+    },
+    { "id": "evidence", "kind": "decision", "decision": "evidence", "endings": [ "savior", "debtor", "fallen" ] },
+
+    {
+      "id": "sa-listen", "kind": "warning", "endings": [ "savior" ],
+      "text": {
+        "en": "Listen to every audio tape and read every note you find, in every chapter!",
+        "tr": "Tüm bölümlerde bulduğun her ses kaydını dinle ve her notu oku!"
+      }
+    },
+    {
+      "id": "sa-major", "endings": [ "savior" ],
+      "text": {
+        "en": "Hand in all 8 major TerraGroup evidence to Kerman",
+        "tr": "8 büyük TerraGroup kanıtının hepsini Kerman'a teslim et"
+      }
+    },
+    {
+      "id": "sa-little-triumph", "kind": "optional", "endings": [ "savior" ],
+      "text": {
+        "en": "Hand in all 36 minor TerraGroup evidence to Kerman: \"Little Triumph\" achievement",
+        "tr": "36 küçük (minor) TerraGroup kanıtının hepsini Kerman'a teslim et: \"Little Triumph\" başarımı"
+      }
+    },
+    {
+      "id": "sa-intel3", "endings": [ "savior" ],
+      "text": {
+        "en": "Build Intelligence Center level 3 (mandatory)",
+        "tr": "İstihbarat Merkezi seviye 3'ü kur (zorunlu)"
+      }
+    },
+    {
+      "id": "sa-fence-contact", "endings": [ "savior" ],
+      "text": {
+        "en": "Kerman's trusted contact reaches out: Fence",
+        "tr": "Kerman'ın güvendiği kişi seninle iletişime geçiyor: Fence"
+      }
+    },
+    {
+      "id": "sa-fence-4", "endings": [ "savior" ],
+      "text": {
+        "en": "Reach 4.0 reputation with Fence (keep it above 4.0)",
+        "tr": "Fence itibarını 4.0'a çıkar (4.0'ın üstünde tut)"
+      }
+    },
+    {
+      "id": "sa-coop", "endings": [ "savior" ], "mode": "pvp",
+      "text": {
+        "en": "Extract with a Scav through the Co-Op extracts: Friendship Bridge on Woods and Scav Lands on Reserve",
+        "tr": "Co-Op çıkışlarından bir Scav ile çık: Woods'ta Friendship Bridge, Reserve'de Scav Lands"
+      }
+    },
+    {
+      "id": "sa-5-pmc", "endings": [ "savior" ], "mode": "pve",
+      "text": {
+        "en": "Eliminate 5 PMCs in one raid without killing Scavs, on Interchange and on Shoreline",
+        "tr": "Interchange'de ve Shoreline'da tek raidde Scav öldürmeden 5 PMC öldür"
+      }
+    },
+    {
+      "id": "sa-btr", "endings": [ "savior" ],
+      "text": {
+        "en": "Raise your standing with the BTR Driver to 0.4 (complete \"The Price of Independence\")",
+        "tr": "BTR Sürücüsü itibarını 0.4'e çıkar (\"The Price of Independence\" görevini bitir)"
+      }
+    },
+    {
+      "id": "sa-btr-warning", "kind": "warning", "endings": [ "savior" ],
+      "text": {
+        "en": "If you fail the BTR reputation by siding with Skier, Kerman stops helping you and you are pushed onto the Survivor path.",
+        "tr": "BTR itibarını Skier'in tarafını tutarak kaybedersen Kerman yardımı keser ve Survivor yoluna düşersin."
+      }
+    },
+    {
+      "id": "sa-solar", "endings": [ "savior" ],
+      "text": {
+        "en": "Build Solar Power in the Hideout (mandatory)",
+        "tr": "Saklanakta Solar Power'ı kur (zorunlu)"
+      }
+    },
+    {
+      "id": "sa-craft", "endings": [ "savior" ],
+      "text": {
+        "en": "Do the final craft for the keycard",
+        "tr": "Kart için son craft'ı yap"
+      }
+    },
+
+    {
+      "id": "de-intel3", "endings": [ "debtor" ],
+      "text": {
+        "en": "Build Intelligence Center level 3 (mandatory)",
+        "tr": "İstihbarat Merkezi seviye 3'ü kur (zorunlu)"
+      }
+    },
+    {
+      "id": "de-two-major", "endings": [ "debtor" ],
+      "text": {
+        "en": "Hand in 2 major evidence to Kerman, then stop working with him",
+        "tr": "Kerman'a 2 büyük kanıt ver, sonra onunla çalışmayı bırak"
+      }
+    },
+    {
+      "id": "de-u-turn", "kind": "achievement", "endings": [ "debtor" ],
+      "text": { "en": "\"U Turn\" achievement", "tr": "\"U Turn\" başarımı" }
+    },
+    {
+      "id": "de-lk-access", "endings": [ "debtor" ],
+      "text": {
+        "en": "Gain access to Lightkeeper (\"Network Provider - Part 1\" if available)",
+        "tr": "Lightkeeper'a erişim kazan (varsa \"Network Provider - Part 1\")"
+      }
+    },
+    {
+      "id": "de-lk-talk", "endings": [ "debtor" ],
+      "text": { "en": "Talk to Lightkeeper", "tr": "Lightkeeper ile konuş" }
+    },
+    {
+      "id": "de-topo", "endings": [ "debtor" ],
+      "text": {
+        "en": "Find the topographic intel documents, one per map: Lighthouse, Woods, Customs, Ground Zero, Factory",
+        "tr": "Topografik istihbarat belgelerini bul, her haritada bir tane: Lighthouse, Woods, Customs, Ground Zero, Factory"
+      }
+    },
+    {
+      "id": "de-flash", "endings": [ "debtor" ],
+      "text": {
+        "en": "Record the data to a military flash drive and bring it to Lightkeeper",
+        "tr": "Verileri askeri flash belleğe kaydet ve Lightkeeper'a getir"
+      }
+    },
+    {
+      "id": "de-woods-dogtags", "endings": [ "debtor" ],
+      "text": {
+        "en": "Eliminate 30 PMCs on Woods and hand over 100 PMC dogtags to Lightkeeper",
+        "tr": "Woods'ta 30 PMC öldür ve Lightkeeper'a 100 PMC künyesi ver"
+      }
+    },
+    {
+      "id": "de-amulets", "endings": [ "debtor" ],
+      "text": {
+        "en": "Get the cultist amulet from each marked room: Customs, Streets (2), Reserve (3)",
+        "tr": "Her işaretli odadan kültist muskasını al: Customs, Streets (2), Reserve (3)"
+      }
+    },
+    {
+      "id": "de-stash", "endings": [ "debtor" ],
+      "text": {
+        "en": "Stash all 6 amulets in Lightkeeper's stash room on the Lighthouse island",
+        "tr": "6 muskanın hepsini Lighthouse adasındaki Lightkeeper'ın zula odasına bırak"
+      }
+    },
+    {
+      "id": "de-keycard", "endings": [ "debtor" ],
+      "text": {
+        "en": "Lightkeeper hands you a keycard for the Terminal",
+        "tr": "Lightkeeper sana Terminal için bir kart veriyor"
+      }
+    },
+
+    {
+      "id": "fa-enough", "kind": "achievement", "endings": [ "fallen" ],
+      "text": { "en": "\"Enough of Your Games!\" achievement", "tr": "\"Enough of Your Games!\" başarımı" }
+    },
+    {
+      "id": "fa-prapor", "endings": [ "fallen" ],
+      "text": { "en": "Talk to Prapor", "tr": "Prapor ile konuş" }
+    },
+    {
+      "id": "fa-skip", "kind": "note", "endings": [ "fallen" ], "when": { "case": "prapor" },
+      "text": {
+        "en": "You handed Prapor the case earlier and got it back from Lightkeeper, so his extra tasks are skipped.",
+        "tr": "Çantayı daha önce Prapor'a verip Lightkeeper'dan geri aldığın için onun ek görevlerini atlıyorsun."
+      }
+    },
+    {
+      "id": "fa-repair-kits", "endings": [ "fallen" ], "when": { "case": "keep" },
+      "text": {
+        "en": "Hand over 40 weapon and armor repair kits with full durability to Prapor",
+        "tr": "Prapor'a %100 dayanıklılıkta 40 silah ve zırh tamir kiti ver"
+      }
+    },
+    {
+      "id": "fa-container", "endings": [ "fallen" ], "when": { "case": "keep" },
+      "text": {
+        "en": "Hand over a Secure container Kappa, Theta or Epsilon to Prapor",
+        "tr": "Prapor'a Kappa, Theta veya Epsilon güvenli konteyner ver"
+      }
+    },
+    {
+      "id": "fa-electronics", "endings": [ "fallen" ], "when": { "case": "keep" },
+      "text": {
+        "en": "Hand over 50 military or advanced electronics (Virtex, COFDM etc.) to Prapor",
+        "tr": "Prapor'a 50 askeri / gelişmiş elektronik parça ver (Virtex, COFDM vb.)"
+      }
+    },
+    {
+      "id": "fa-cargo", "endings": [ "fallen" ],
+      "text": {
+        "en": "Find the Case with dangerous cargo and hand it over to Prapor",
+        "tr": "\"Case with dangerous cargo\"yu bul ve Prapor'a teslim et"
+      }
+    },
+    {
+      "id": "fa-dollars", "endings": [ "fallen" ],
+      "text": { "en": "Hand over 1,000,000 dollars to Prapor", "tr": "Prapor'a 1.000.000 dolar ver" }
+    },
+    {
+      "id": "fa-will-it-blow", "kind": "achievement", "endings": [ "fallen" ],
+      "text": { "en": "\"Will It Blow\" achievement", "tr": "\"Will It Blow\" başarımı" }
+    },
+    {
+      "id": "fa-usb", "endings": [ "fallen" ],
+      "text": {
+        "en": "Prapor gives you a USB stick with his hash codes",
+        "tr": "Prapor sana hash kodlarının olduğu USB belleği veriyor"
+      }
+    },
+    {
+      "id": "fa-solar", "endings": [ "fallen" ],
+      "text": {
+        "en": "Build Solar Power in the Hideout (mandatory)",
+        "tr": "Saklanakta Solar Power'ı kur (zorunlu)"
+      }
+    },
+    {
+      "id": "fa-craft", "endings": [ "fallen" ],
+      "text": { "en": "Do the final craft for the keycard", "tr": "Kart için son craft'ı yap" }
+    },
+
+    {
+      "id": "escape", "kind": "escape",
+      "text": {
+        "en": "Go to Shoreline between 21:00 and 06:00, talk to the intercom at the tower and swipe your keycard. Approach the Terminal with no weapon in your hands and start the escape attempt.",
+        "tr": "Shoreline'a 21:00 ile 06:00 arasında gir, kuledeki interkomla konuş ve kartını okut. Terminal'e elinde silah OLMADAN yaklaş ve kaçış denemesini başlat."
+      }
+    },
+    {
+      "id": "retry-survivor", "kind": "note", "endings": [ "survivor" ],
+      "text": {
+        "en": "Escape failed? Buy a new note from Prapor for 5,000,000 roubles (2 per reset).",
+        "tr": "Kaçış başarısız mı? Prapor'dan 5.000.000 rubleye yeni not al (her resette 2 tane)."
+      }
+    },
+    {
+      "id": "retry-savior", "kind": "note", "endings": [ "savior" ],
+      "text": {
+        "en": "Escape failed? Craft the keycard again; every craft needs a new Blank RFID card.",
+        "tr": "Kaçış başarısız mı? Kartı tekrar craft et; her craft için yeni bir Blank RFID card gerekir."
+      }
+    },
+    {
+      "id": "retry-debtor", "kind": "note", "endings": [ "debtor" ],
+      "text": {
+        "en": "Escape failed? Barter a new keycard from Lightkeeper for 1 Blue Folder.",
+        "tr": "Kaçış başarısız mı? Lightkeeper'dan 1 Blue Folder karşılığında yeni kart al (barter)."
+      }
+    },
+    {
+      "id": "retry-fallen", "kind": "note", "endings": [ "fallen" ],
+      "text": {
+        "en": "Escape failed? Craft the keycard again; every craft needs a new Blank RFID card.",
+        "tr": "Kaçış başarısız mı? Kartı tekrar craft et; her craft için yeni bir Blank RFID card gerekir."
+      }
+    },
+    { "id": "end-survivor", "kind": "ending", "endings": [ "survivor" ], "text": { "en": "SURVIVOR ENDING", "tr": "SURVIVOR SONU" } },
+    { "id": "end-savior", "kind": "ending", "endings": [ "savior" ], "text": { "en": "SAVIOR ENDING", "tr": "SAVIOR SONU" } },
+    { "id": "end-debtor", "kind": "ending", "endings": [ "debtor" ], "text": { "en": "DEBTOR ENDING", "tr": "DEBTOR SONU" } },
+    { "id": "end-fallen", "kind": "ending", "endings": [ "fallen" ], "text": { "en": "FALLEN ENDING", "tr": "FALLEN SONU" } }
+  ]
+}

@@ -46,7 +46,8 @@
 - **Search in English and Turkish** — tolerant of typos and Turkish characters (`punisher 3`, `punişır 3`, `cezalandırıcı`).
 - **Two languages, independently** — app language (menus) and quest language (quest and item names) can differ, e.g. Turkish app with English quests. All story chapters are translated to Turkish.
 - **Profiles** — several players on one PC, each with their own progress and settings.
-- **Event quests** — active events are listed; past events can be shown in Settings.
+- **Event quests** — active events are listed; past events that can't be done any more are left out.
+- **End Game (The Ticket endings)** — which of the 4 endings you can still reach, the route to your target ending and where you are right now (see [End Game](#end-game-the-ticket-endings)).
 - **Fast** — lists load page by page while you scroll.
 
 ### Quest items
@@ -65,6 +66,24 @@ The **Items** tab answers "what do I need to keep for my quests?":
 
 Item icons also appear **inside the quests**: find / hand-over / plant objectives show the item's icon in the quest details, on the *Active Quests* cards and in the overlay, and the detail panel lists the quest's required items as cards. Items are shown in the quest language (English or Turkish).
 
+### End Game (The Ticket endings)
+
+<p align="center">
+  <img src="docs/screenshots/endgame.jpg" width="780" alt="End Game tab: the 4 endings and the route to the target ending">
+</p>
+
+The story chapter **The Ticket** has 4 endings — **Survivor**, **Savior**, **Debtor** and **Fallen** — and 3 decisions you can't take back: what you did with the armored case, whether you work with Kerman, and how far you help him with the TerraGroup evidence. The **End Game** tab plans this for you:
+
+1. **Open it** — the *End Game* tab, or make *The Ticket* a goal in the *Goal Planner*: the whole guide appears under its quest chain. *The Ticket*'s detail panel also has an **🎫 End Game guide** button.
+2. **Mark your decisions** — click the choices you already made in game (click again to undo). Each option shows which endings it keeps open, e.g. *Don't work with Kerman → Survivor*.
+3. **Pick a target ending** — press **★ Make target** on an ending card (each card shows the ending's achievement picture). The decisions ahead are marked **★ Pick this for your target**; if your choices already closed that ending you get a warning and the endings you can still reach.
+4. **Follow the route** — every step in order with a checkbox: tasks, achievements on the way (*Easy Way*, *U Turn*, *Enough of Your Games!*, *Will It Blow*, optional *I Am Speed* and *Little Triumph* for all 36 minor evidence), warnings (BTR / Skier, the 72-hour timer, listen to every tape) and the escape rules (Shoreline 21:00–06:00, no weapon in hands, what to do if the escape fails). **◀ YOU ARE HERE** marks the next step.
+
+- Steps that depend on earlier choices change with them: e.g. Prapor wants 300M roubles if you gave him the case and 500M if you kept it.
+- **PvP and PvE** objectives differ (Co-Op extracts vs. 5 PMC kills without killing Scavs); the guide shows the ones for your mode.
+- Choices, target and ticked steps are saved with your progress, per profile and mode. **Reset** clears them.
+- The route data lives in `data/ticket_endings.json` (English and Turkish) and follows the community *Story Endings* flowchart v1.7.6 by Callsign_Smokey / Kay08x.
+
 ### Overlay
 
 <img src="docs/screenshots/overlay.webp" width="320" align="right" alt="Overlay">
@@ -81,6 +100,19 @@ Item icons also appear **inside the quests**: find / hand-over / plant objective
 > Run Tarkov in **Borderless** or **Windowed** mode. Windows cannot draw other windows over a game in exclusive fullscreen.
 
 <br clear="right">
+
+## Shortcuts
+
+| Shortcut | What it does |
+|---|---|
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> | **Lock / unlock the overlay.** While locked it can't be clicked and every click goes through to the game, so leave it locked while you play. Unlock it to change settings or move it. |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> | **Show / hide the overlay**, e.g. to clear the screen mid-raid. |
+| <kbd>Ctrl</kbd> + mouse wheel | With the mouse over the (unlocked) overlay: **make it bigger / smaller** (60–200 %). |
+| Drag the overlay header | **Move the overlay up / down** along the right edge of the screen (unlocked only). |
+
+- The shortcuts work while the game is running and the app is in the background.
+- They are always shown in the bottom bar of the main window, and explained at the top of **Settings**, because the overlay's own hint can be hard to read in game.
+- To change them, edit `clickThroughHotkey` / `toggleOverlayHotkey` in the profile's `settings.json` (e.g. `"Ctrl+Alt+F9"`). If a shortcut is already taken by another program, the app tells you at start.
 
 ## Download & run
 
