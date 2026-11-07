@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/tests/">
+    <Project Path="tests/TarkovQuestTracker.Tests/TarkovQuestTracker.Tests.csproj" />
+  </Folder>
+  <Project Path="TarkovQuestTracker.Core/TarkovQuestTracker.Core.csproj" />
+  <Project Path="TarkovQuestTracker/TarkovQuestTracker.csproj" />
+</Solution>

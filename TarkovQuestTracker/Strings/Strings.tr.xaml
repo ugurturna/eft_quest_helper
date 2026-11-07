@@ -1,0 +1,171 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+                    xml:space="preserve">
+    <!-- top bar -->
+    <sys:String x:Key="s.profile">Profil</sys:String>
+    <sys:String x:Key="s.profile.tip">Her profilin kendi ilerlemesi ve ayarları var</sys:String>
+    <sys:String x:Key="s.profile.newTip">Yeni profil</sys:String>
+    <sys:String x:Key="s.mode">Mod</sys:String>
+    <sys:String x:Key="s.mode.tip">PvP ve PvE ilerlemesi ayrı tutulur</sys:String>
+    <sys:String x:Key="s.appLang">Uygulama dili</sys:String>
+    <sys:String x:Key="s.questLang">Görev dili</sys:String>
+    <sys:String x:Key="s.level">Seviyem</sys:String>
+    <sys:String x:Key="s.overlayToggle">Overlay göster/gizle</sys:String>
+    <sys:String x:Key="s.undo">↶ Geri al</sys:String>
+
+    <!-- tabs -->
+    <sys:String x:Key="s.tab.quests">Görevler</sys:String>
+    <sys:String x:Key="s.tab.planner">Hedef Planlayıcı</sys:String>
+    <sys:String x:Key="s.tab.kappa">Kappa / Collector</sys:String>
+    <sys:String x:Key="s.tab.active">Aktif Görevler</sys:String>
+    <sys:String x:Key="s.tab.settings">Ayarlar</sys:String>
+
+    <!-- search -->
+    <sys:String x:Key="s.search.tip">İngilizce veya Türkçe ara: punisher 3, punişır, cezalandırıcı...</sys:String>
+    <sys:String x:Key="s.questCount">görev</sys:String>
+
+    <!-- planner -->
+    <sys:String x:Key="s.planner.ask">Hangi görevi yapmak istiyorsun?</sys:String>
+    <sys:String x:Key="s.planner.tip">ör. punisher part 3, collector</sys:String>
+    <sys:String x:Key="s.goal.make">★ Hedef yap</sys:String>
+    <sys:String x:Key="s.goals.mine">Hedeflerim:</sys:String>
+    <sys:String x:Key="s.goal.remove">Hedeften çıkar</sys:String>
+    <sys:String x:Key="s.activateAvailable">Yapılabilirleri aktif yap</sys:String>
+    <sys:String x:Key="s.availableNow">ŞU AN YAPILABİLİR</sys:String>
+    <sys:String x:Key="s.chainAll">TÜM ZİNCİR (sırayla) - önceden yaptıklarına "✔ Yaptım" de</sys:String>
+
+    <!-- kappa -->
+    <sys:String x:Key="s.activateAll">Hepsini aktif yap</sys:String>
+    <sys:String x:Key="s.kappa.byMap">ŞU AN YAPILABİLİR - HARİTAYA GÖRE (aynı raidde birlikte yap)</sys:String>
+    <sys:String x:Key="s.kappa.levelWait">SEVİYE BEKLEYENLER</sys:String>
+    <sys:String x:Key="s.kappa.remaining">Kalan tüm Kappa görevleri (sırayla)</sys:String>
+
+    <!-- active -->
+    <sys:String x:Key="s.clearAll">Hepsini temizle</sys:String>
+    <sys:String x:Key="s.active.desc">Şu an yaptığın görevler - sağdaki overlay'de görünür.</sys:String>
+    <sys:String x:Key="s.finish">Bitir</sys:String>
+    <sys:String x:Key="s.remove">Çıkar</sys:String>
+    <sys:String x:Key="s.details">Detay</sys:String>
+    <sys:String x:Key="s.done.tip">Bu görevi yaptım (öncekiler de tamamlandı sayılır)</sys:String>
+    <sys:String x:Key="s.doneBtn">✔ Yaptım</sys:String>
+    <sys:String x:Key="s.undoneBtn">↶ Geri al</sys:String>
+    <sys:String x:Key="s.undone.tip">Tamamlandı işaretini kaldır (sonraki görevlerin de kalkar)</sys:String>
+    <sys:String x:Key="s.activeBtn">Aktif</sys:String>
+    <sys:String x:Key="s.activeBtn.tip">Aktif listeye ekle/çıkar (overlay) - öncekiler tamamlandı sayılır</sys:String>
+
+    <!-- settings -->
+    <sys:String x:Key="s.set.lang">DİL</sys:String>
+    <sys:String x:Key="s.set.lang.desc">Uygulama dili menüleri ve butonları, görev dili görev adlarını, hedefleri ve notları değiştirir. Örneğin uygulama Türkçe, görevler İngilizce olabilir. Arama her zaman iki dilde de çalışır.</sys:String>
+    <sys:String x:Key="s.set.profile">PROFİL</sys:String>
+    <sys:String x:Key="s.set.profile.current">Aktif profil:</sys:String>
+    <sys:String x:Key="s.set.profile.desc">Her profilin PvP/PvE ilerlemesi, overlay ayarları, dilleri ve kısayolları ayrıdır. Aynı bilgisayarda birden fazla kişi oynuyorsa herkes kendi profilini seçer.</sys:String>
+    <sys:String x:Key="s.profile.newDots">Yeni profil...</sys:String>
+    <sys:String x:Key="s.profile.rename">Yeniden adlandır...</sys:String>
+    <sys:String x:Key="s.profile.delete">Bu profili sil...</sys:String>
+    <sys:String x:Key="s.set.overlay">OVERLAY</sys:String>
+    <sys:String x:Key="s.set.view">Görünüm</sys:String>
+    <sys:String x:Key="s.view.titles">Sadece görev başlığı</sys:String>
+    <sys:String x:Key="s.view.detailed">Başlık + detay (trader, harita, hedefler)</sys:String>
+    <sys:String x:Key="s.set.position">Dikey konum:</sys:String>
+    <sys:String x:Key="s.set.position.hint">  (0% = en üst, 100% = en alt - overlay başlığını sürükleyerek de taşıyabilirsin)</sys:String>
+    <sys:String x:Key="s.set.opacity">Opaklık:</sys:String>
+    <sys:String x:Key="s.set.width">Genişlik:</sys:String>
+    <sys:String x:Key="s.set.scale">Boyut (yazı + butonlar):</sys:String>
+    <sys:String x:Key="s.set.scale.hint">  - overlay üzerindeyken Ctrl + fare tekerleği ile de değişir</sys:String>
+    <sys:String x:Key="s.set.hk.lock">: overlay'i kilitle (tıklamalar oyuna geçer) / aç</sys:String>
+    <sys:String x:Key="s.set.hk.toggle">: overlay göster/gizle</sys:String>
+    <sys:String x:Key="s.set.borderless">Not: Tarkov'u Borderless (Çerçevesiz) veya Windowed modda çalıştır; tam ekranda overlay görünmez.</sys:String>
+    <sys:String x:Key="s.set.progress">İLERLEME</sys:String>
+    <sys:String x:Key="s.set.progress.desc">Bu profilin PvP ve PvE ilerlemesi ayrı dosyalarda tutulur:</sys:String>
+    <sys:String x:Key="s.set.pastEvents">Geçmiş (artık yapılamayan) event görevlerini de göster</sys:String>
+    <sys:String x:Key="s.export">Dışa aktar...</sys:String>
+    <sys:String x:Key="s.import">İçe aktar...</sys:String>
+    <sys:String x:Key="s.set.data">VERİ</sys:String>
+    <sys:String x:Key="s.set.data.update">Veriyi güncellemek için proje klasöründe:</sys:String>
+
+    <!-- detail panel -->
+    <sys:String x:Key="s.selectQuest">Bir görev seç.</sys:String>
+    <sys:String x:Key="s.kappaRequired">  KAPPA GEREKLİ</sys:String>
+    <sys:String x:Key="s.trader">Trader: </sys:String>
+    <sys:String x:Key="s.map">Harita: </sys:String>
+    <sys:String x:Key="s.lvl">Seviye: </sys:String>
+    <sys:String x:Key="s.btn.active">Aktif yap / çıkar</sys:String>
+    <sys:String x:Key="s.btn.complete">Tamamlandı / geri al</sys:String>
+    <sys:String x:Key="s.btn.goal">★ Hedef yap / çıkar</sys:String>
+    <sys:String x:Key="s.objectives">HEDEFLER</sys:String>
+    <sys:String x:Key="s.reqItems">GEREKLİ İTEMLER</sys:String>
+    <sys:String x:Key="s.prereqs">ÖN KOŞULLAR</sys:String>
+    <sys:String x:Key="s.unlocks">AÇTIĞI GÖREVLER</sys:String>
+    <sys:String x:Key="s.rewards">ÖDÜLLER</sys:String>
+    <sys:String x:Key="s.guide">REHBER / NOTLAR</sys:String>
+    <sys:String x:Key="s.sources">Kaynak: </sys:String>
+
+    <!-- overlay -->
+    <sys:String x:Key="s.ov.opacity">Opaklık</sys:String>
+    <sys:String x:Key="s.ov.size">Boyut</sys:String>
+    <sys:String x:Key="s.ov.sizeTip">Ctrl + fare tekerleği ile de ayarlanır</sys:String>
+    <sys:String x:Key="s.ov.hide">Gizle</sys:String>
+    <sys:String x:Key="s.ov.empty">Aktif görev yok. Ana pencereden görev ekle (Aktif yap).</sys:String>
+    <sys:String x:Key="s.ov.removeTip">Aktiften çıkar</sys:String>
+    <sys:String x:Key="s.ov.dragTip">Yukarı / aşağı sürükle</sys:String>
+    <sys:String x:Key="ov.locked">🔒 tıklama geçer · {0}</sys:String>
+    <sys:String x:Key="ov.unlocked">↕ sürükle · {0}: kilitle</sys:String>
+
+    <!-- code: status / badges / filters -->
+    <sys:String x:Key="st.done">Tamamlandı</sys:String>
+    <sys:String x:Key="st.active">Aktif</sys:String>
+    <sys:String x:Key="st.available">Yapılabilir</sys:String>
+    <sys:String x:Key="st.level">Seviye {0}</sys:String>
+    <sys:String x:Key="st.locked">Kilitli</sys:String>
+    <sys:String x:Key="badge.story">HİKAYE</sys:String>
+    <sys:String x:Key="badge.event">EVENT</sys:String>
+    <sys:String x:Key="badge.pastEvent">GEÇMİŞ EVENT</sys:String>
+    <sys:String x:Key="map.any">Herhangi</sys:String>
+    <sys:String x:Key="f.all">Tümü</sys:String>
+    <sys:String x:Key="f.available">Yapılabilir</sys:String>
+    <sys:String x:Key="f.active">Aktif</sys:String>
+    <sys:String x:Key="f.kappa">Kappa</sys:String>
+    <sys:String x:Key="f.notDone">Tamamlanmamış</sys:String>
+    <sys:String x:Key="f.done">Tamamlanmış</sys:String>
+    <sys:String x:Key="cat.all">Tüm türler</sys:String>
+    <sys:String x:Key="cat.side">Yan görevler</sys:String>
+    <sys:String x:Key="cat.story">Hikaye</sys:String>
+    <sys:String x:Key="cat.event">Event</sys:String>
+    <sys:String x:Key="traders.all">Tüm traderlar</sys:String>
+
+    <!-- code: messages -->
+    <sys:String x:Key="t.undone">Geri alındı: {0}</sys:String>
+    <sys:String x:Key="t.completed">✔ {0}</sys:String>
+    <sys:String x:Key="t.completedUnlocked">✔ {0} → açıldı: {1}</sys:String>
+    <sys:String x:Key="t.active">Aktif: {0}</sys:String>
+    <sys:String x:Key="t.activeChain">Aktif: {0} - önceki {1} görev tamamlandı sayıldı ({2}). Yanlışsa "Geri al".</sys:String>
+    <sys:String x:Key="t.undoDone">Son işlem geri alındı.</sys:String>
+    <sys:String x:Key="t.allObjectives">{0}: tüm hedefler tamam - teslim et ve "Bitir"e bas.</sys:String>
+    <sys:String x:Key="t.exported">Dışa aktarıldı: {0}</sys:String>
+    <sys:String x:Key="t.imported">İçe aktarıldı.</sys:String>
+    <sys:String x:Key="t.profile">Profil: {0}</sys:String>
+    <sys:String x:Key="t.profileDeleted">Silindi: {0}</sys:String>
+    <sys:String x:Key="t.hotkeyFail">Kısayol kaydedilemedi (başka program kullanıyor olabilir): {0}</sys:String>
+    <sys:String x:Key="g.none">Bir hedef görev ara ve "Hedef yap" de (ör. Punisher Part 3 veya Collector).</sys:String>
+    <sys:String x:Key="g.allDone">{0}: hepsi tamam!</sys:String>
+    <sys:String x:Key="g.progress">{0}: {1}/{2} tamam, {3} görev kaldı. Önceden yaptıklarını işaretle (öncekiler otomatik işaretlenir).</sys:String>
+    <sys:String x:Key="k.summary">Kappa yolu: {0}/{1} görev  (%{2:0})</sys:String>
+    <sys:String x:Key="k.unknown">   ⚠ {0} yan görevin Kappa bilgisi eksik - tarkov.dev ile tamamlanacak (Ayarlar).</sys:String>
+    <sys:String x:Key="d.info">{0} görev ({1}): {2} yan, {3} hikaye, {4} event · görev dilleri: {5}</sys:String>
+    <sys:String x:Key="d.noTarkovDev">⚠ tarkov.dev verisi yok: tools/scraper/fetch_tarkovdev.py + merge.py çalıştırın.</sys:String>
+    <sys:String x:Key="dlg.ok">Tamam</sys:String>
+    <sys:String x:Key="dlg.cancel">Vazgeç</sys:String>
+    <sys:String x:Key="dlg.newProfile.title">Yeni profil</sys:String>
+    <sys:String x:Key="dlg.newProfile.label">Profil adı (ör. oyuncu adın):</sys:String>
+    <sys:String x:Key="dlg.rename.title">Profili yeniden adlandır</sys:String>
+    <sys:String x:Key="dlg.rename.label">Yeni ad:</sys:String>
+    <sys:String x:Key="dlg.delete.title">Profili sil</sys:String>
+    <sys:String x:Key="dlg.delete.msg">"{0}" profili ve tüm ilerlemesi (PvP + PvE) silinecek. Geri alınamaz. Devam?</sys:String>
+    <sys:String x:Key="dlg.import.title">İçe aktar</sys:String>
+    <sys:String x:Key="dlg.import.msg">{0} ilerlemen bu dosyayla değiştirilecek. Devam?</sys:String>
+    <sys:String x:Key="err.profile.empty">İsim boş olamaz.</sys:String>
+    <sys:String x:Key="err.profile.long">İsim en fazla 40 karakter olabilir.</sys:String>
+    <sys:String x:Key="err.profile.chars">İsimde \ / : * ? " &lt; &gt; | karakterleri olamaz.</sys:String>
+    <sys:String x:Key="err.profile.exists">Bu isimde bir profil zaten var.</sys:String>
+</ResourceDictionary>

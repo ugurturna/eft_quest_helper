@@ -1,0 +1,120 @@
+﻿<Application x:Class="TarkovQuestTracker.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:TarkovQuestTracker.ViewModels"
+             xmlns:local="clr-namespace:TarkovQuestTracker"
+             ShutdownMode="OnMainWindowClose">
+    <Application.Resources>
+        <SolidColorBrush x:Key="BgBrush" Color="#141412" />
+        <SolidColorBrush x:Key="PanelBrush" Color="#1D1D1A" />
+        <SolidColorBrush x:Key="CardBrush" Color="#25251F" />
+        <SolidColorBrush x:Key="LineBrush" Color="#3A3A31" />
+        <SolidColorBrush x:Key="TextBrush" Color="#DDD7C4" />
+        <SolidColorBrush x:Key="MutedBrush" Color="#8E897A" />
+        <SolidColorBrush x:Key="AccentBrush" Color="#C2AE72" />
+        <SolidColorBrush x:Key="DoneBrush" Color="#78A85E" />
+        <SolidColorBrush x:Key="ActiveBrush" Color="#5FA2DB" />
+        <SolidColorBrush x:Key="AvailableBrush" Color="#C2AE72" />
+        <SolidColorBrush x:Key="LevelBrush" Color="#D98E3A" />
+        <SolidColorBrush x:Key="LockedBrush" Color="#6B675C" />
+        <SolidColorBrush x:Key="KappaBrush" Color="#B79BE0" />
+        <SolidColorBrush x:Key="WarnBrush" Color="#E0A040" />
+
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <local:InvertBoolConverter x:Key="InvertBool" />
+        <local:TraderImageConverter x:Key="TraderImage" />
+        <local:InitialConverter x:Key="Initial" />
+
+        <!-- trader portrait (content = trader name); size comes from the ContentPresenter -->
+        <DataTemplate x:Key="TraderAvatar">
+            <Grid ToolTip="{Binding}">
+                <Border CornerRadius="4" Background="{StaticResource LineBrush}">
+                    <Viewbox Margin="4">
+                        <TextBlock Text="{Binding Converter={StaticResource Initial}}" Foreground="{StaticResource AccentBrush}" FontWeight="Bold" />
+                    </Viewbox>
+                </Border>
+                <Border CornerRadius="4">
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding Converter={StaticResource TraderImage}}" Stretch="UniformToFill" />
+                    </Border.Background>
+                </Border>
+            </Grid>
+        </DataTemplate>
+
+        <Style x:Key="H1" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+        <Style x:Key="H2" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+            <Setter Property="Margin" Value="0,12,0,4" />
+        </Style>
+        <Style x:Key="Muted" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource MutedBrush}" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+        <Style x:Key="Body" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+        <Style x:Key="SmallButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Padding" Value="8,2" />
+            <Setter Property="Margin" Value="0,0,6,0" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="MinHeight" Value="0" />
+        </Style>
+
+        <!-- coloured status pill for QuestRow -->
+        <DataTemplate x:Key="StatusPill" DataType="{x:Type vm:QuestRow}">
+            <Border x:Name="pill" CornerRadius="3" Padding="6,1" Background="{StaticResource LockedBrush}">
+                <TextBlock Text="{Binding StatusText}" FontSize="11" Foreground="#141412" FontWeight="SemiBold" />
+            </Border>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Status}" Value="Done">
+                    <Setter TargetName="pill" Property="Background" Value="{StaticResource DoneBrush}" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Status}" Value="Active">
+                    <Setter TargetName="pill" Property="Background" Value="{StaticResource ActiveBrush}" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Status}" Value="Available">
+                    <Setter TargetName="pill" Property="Background" Value="{StaticResource AvailableBrush}" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Status}" Value="LevelLocked">
+                    <Setter TargetName="pill" Property="Background" Value="{StaticResource LevelBrush}" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+        <!-- one quest line: name, trader · map, badges -->
+        <DataTemplate x:Key="QuestRowTemplate" DataType="{x:Type vm:QuestRow}">
+            <Grid Margin="2,3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <ContentPresenter Content="{Binding Quest.Trader}" ContentTemplate="{StaticResource TraderAvatar}"
+                                  Width="34" Height="34" Margin="0,0,10,0" VerticalAlignment="Center" />
+                <StackPanel Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Quest.DisplayName}" Foreground="{StaticResource TextBrush}" FontWeight="SemiBold" />
+                        <TextBlock Text="  KAPPA" Foreground="{StaticResource KappaBrush}" FontSize="10" VerticalAlignment="Center"
+                                   Visibility="{Binding Quest.IsKappa, Converter={StaticResource BoolToVis}}" />
+                        <TextBlock Text="  ★ hedef" Foreground="{StaticResource AccentBrush}" FontSize="10" VerticalAlignment="Center"
+                                   Visibility="{Binding IsGoal, Converter={StaticResource BoolToVis}}" />
+                        <TextBlock Text="{Binding CategoryBadge, StringFormat='  {0}'}" Foreground="{StaticResource ActiveBrush}" FontSize="10" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <TextBlock Style="{StaticResource Muted}" FontSize="11">
+                        <Run Text="{Binding Quest.Trader, Mode=OneWay}" /> · <Run Text="{Binding Quest.MapText, Mode=OneWay}" />
+                        <Run Text="{Binding Quest.LevelText, Mode=OneWay}" />
+                    </TextBlock>
+                </StackPanel>
+                <ContentPresenter Grid.Column="2" Content="{Binding}" ContentTemplate="{StaticResource StatusPill}" VerticalAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Application.Resources>
+</Application>

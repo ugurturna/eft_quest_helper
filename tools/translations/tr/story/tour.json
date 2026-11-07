@@ -1,0 +1,45 @@
+{
+ "id": "tour",
+ "name": "Tur",
+ "objectives": [
+  {"id": "o1", "text": "Ground Zero'dan kaç", "details": []},
+  {"id": "o2", "text": "Therapist ile konuş", "details": []},
+  {"id": "o3", "text": "Streets of Tarkov'a erişimi sağla", "details": [
+   "Parayı Therapist'e teslim et",
+   "(İsteğe bağlı) Gereken 250.000 Rubleyi topla"]},
+  {"id": "o4", "text": "Ragman ile konuş", "details": []},
+  {"id": "o5", "text": "Interchange'den hayatta kalarak tahliye ol ya da Interchange'e 3 kez gir", "details": []},
+  {"id": "o6", "text": "Keşifte bulduklarını Ragman'e anlat", "details": []},
+  {"id": "o7", "text": "Skier ile konuş", "details": []},
+  {"id": "o8", "text": "Customs'tan hayatta kalarak tahliye ol ya da Customs'a 3 kez gir", "details": []},
+  {"id": "o9", "text": "Raidde bulunmuş (FIR) herhangi 5 inşaat malzemesini Skier'a teslim et", "details": [
+   "(İsteğe bağlı) İnşaat malzemeleri kategorisinden raidde herhangi 5 eşya bul"]},
+  {"id": "o10", "text": "Mechanic ile konuş", "details": []},
+  {"id": "o11", "text": "Factory'den hayatta kalarak tahliye ol ya da Factory'ye 3 kez gir", "details": []},
+  {"id": "o12", "text": "Raidde bulunmuş (FIR) herhangi 2 silahı Mechanic'e teslim et", "details": [
+   "(İsteğe bağlı) Raidde herhangi 2 silah bul"]},
+  {"id": "o13", "text": "Skier ile konuş", "details": []},
+  {"id": "o14", "text": "Woods'ta herhangi 3 hedefi etkisiz hale getir", "details": []},
+  {"id": "o15", "text": "Woods'tan hayatta kalarak tahliye ol ya da Woods'a 3 kez gir", "details": []},
+  {"id": "o16", "text": "Liman Terminali'nin girişini bul", "details": []},
+  {"id": "o17", "text": "Terminal'deki askerlerle iletişim kurmanın bir yolunu bul", "details": []},
+  {"id": "o18", "text": "İnterkomu kullanarak liman garnizonuyla iletişime geç", "details": []},
+  {"id": "o19", "text": "Tarkov'dan nasıl kaçılacağını öğren", "details": []},
+  {"id": "o20", "text": "Reserve'e erişimi sağla", "details": [
+   "Shoreline'dan hayatta kalarak tahliye ol ya da Shoreline'a 3 kez gir",
+   "5 PMC künyesini Prapor'a teslim et",
+   "(İsteğe bağlı) Raidde 5 PMC künyesi bul"]},
+  {"id": "o21", "text": "Lighthouse'a erişimi sağla", "details": [
+   "8.000 Doları Mechanic'e teslim et",
+   "(İsteğe bağlı) Gereken 8.000 Doları topla"]},
+  {"id": "o22", "text": "The Lab'e erişimi sağla", "details": [
+   "Gizli TerraGroup tesisine gir",
+   "(İsteğe bağlı) Tesise girmek için bir anahtar kart ya da giriş kodları edin",
+   "(İsteğe bağlı) Factory'deki tesis girişini bul",
+   "(İsteğe bağlı) Streets of Tarkov'daki tesis girişini bul",
+   "The Lab'deki üst yönetim ofislerini ara",
+   "The Lab'deki sunucu odasını ara",
+   "The Lab'de kanalizasyon sistemi üzerinden kaçış yolunu bul"]}
+ ],
+ "guide": "▸ Ground Zero'dan kaç\nEğitim raidini \"Skyside\" iş merkezinin arkasındaki \"Klimov Street\" tahliye noktasından çıkarak bitir. Eğitim boyunca kontroller ve oyun mekanikleri hakkında pek çok ipucu gösterilir, ancak raidi bitirmek için hiçbirini uygulaman gerekmez.\n\n▸ Therapist ile konuş\nMenüdeki trader ekranından Therapist'i ziyaret et ve diyalog seçeneği çıktığında 250.000 Ruble teslim et.\nÖdül: Streets of Tarkov harita seçiminde açılır.\n\n▸ Ragman – Interchange\nInterchange'den \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol veya haritaya 3 kez gir.\nÖdül: Skier trader olarak açılır, Customs harita seçiminde açılır.\n\n▸ Skier – Customs\nCustoms'tan \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol veya haritaya 3 kez gir.\nÖdül: Mechanic trader olarak açılır, Factory harita seçiminde açılır.\n\n▸ Mechanic – Factory\nFactory'den \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol veya haritaya 3 kez gir.\nÖdül: Prapor trader olarak açılır, Woods harita seçiminde açılır.\n\n▸ Skier – Woods\nWoods'ta herhangi 3 hedefi öldür ve \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol veya haritaya 3 kez gir. Öldürmelerin \"hayatta kal\" hedefiyle aynı raidde olması gerekmez.\nÖdül: Peacekeeper trader olarak açılır, Shoreline harita seçiminde açılır.\n\n▸ Terminal\nSonraki birkaç hedef için Shoreline'ın güneydoğu köşesine git ve Terminal'in önündeki gözetleme kulesindeki interkomu kullan.\nTerminal duvarına fazla yaklaşma; oradaki muhafızlar herkese ateş açar. Onları öldürmeye çalışma, ölümcül bir isabetle karşılık verirler. Uzaklaşman söylendikten sonra interkomu tekrar tekrar kullanmak da muhafızlar tarafından vurulmana yol açar.\n\n▸ Prapor – Reserve\nShoreline'dan \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol veya haritaya 3 kez gir. Ardından menüdeki trader ekranından Prapor'u ziyaret et ve diyalog seçeneği çıktığında 5 künye teslim et. Künyeler ölü PMC'lerden alınabilir (senin öldürmüş olman gerekmez).\nÖdül: Reserve harita seçiminde açılır.\n\n▸ Mechanic – Lighthouse\nMenüdeki trader ekranından Mechanic'i ziyaret et ve diyalog seçeneği çıktığında 8.000 Dolar teslim et. Dolar, Peacekeeper'dan Ruble ile satın alınabilir.\nÖdül: Lighthouse harita seçiminde açılır.\n\n▸ Gizli TerraGroup tesisi: The Lab\nThe Lab'e girmek için şu iki geçişten biri kullanılmalı:\n• Streets of Tarkov → The Lab: Kozmonot duvar resmi olan Klimova 16A binasının önündeki yeraltı girişi. TerraGroup Labs access keycard gerekir. Geçişler raid başladıktan 1 dakika sonra kullanılabilir.\n• Factory → The Lab: Yeraltındaki su basmış bölgeye bağlanan kanalizasyon tünelinde. TerraGroup Labs access keycard gerekir. Geçişler raid başladıktan 1 dakika sonra kullanılabilir.\n\n▸ Üst yönetim ofislerini ara\nİkinci kattaki laboratuvar müdürü ofisi (O21).\n\n▸ Sunucu odasını ara\nBirinci katta, hangarın yanında.\n\n▸ Kanalizasyondan kaçış yolunu bul\nBodrumdaki \"Sewage Conduit\" tahliye noktasında. Bu hedef için tahliyenin aktif edilmesi ya da raidden sağ çıkman gerekmez.\n\nÖdüller:\n• The Lab harita seçiminde açılır\n• Pathfinder başarımı açılır"
+}

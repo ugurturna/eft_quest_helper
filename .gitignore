@@ -1,0 +1,66 @@
+# ---- .NET build output ----
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]64/
+publish/
+artifacts/
+*.user
+*.suo
+*.userprefs
+*.rsuser
+*.cache
+project.lock.json
+project.fragment.lock.json
+
+# ---- Test results / coverage ----
+TestResults/
+[Tt]est[Rr]esult*/
+*.trx
+coverage*.json
+coverage*.xml
+*.coverage
+*.coveragexml
+
+# ---- IDEs / editors ----
+.idea/
+.vs/
+.vscode/
+*.sln.iml
+*.DotSettings.user
+*.swp
+*~
+
+# ---- Python (data tools) ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# ---- Data tool caches (re-downloadable) ----
+tools/scraper/cache/
+data/sources/
+data/diff_report.md
+
+# ---- Local AI / tooling artifacts ----
+graphify-out/
+.claude/
+CLAUDE.md
+.cursor/
+.aider*
+
+# ---- OS ----
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# ---- Logs / temp ----
+*.log
+*.tmp
+*.broken

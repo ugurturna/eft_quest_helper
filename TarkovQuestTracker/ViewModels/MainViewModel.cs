@@ -1,0 +1,656 @@
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
+using System.Text.Json;
+using System.Windows.Threading;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using TarkovQuestTracker.Core.Models;
+using TarkovQuestTracker.Core.Services;
+
+namespace TarkovQuestTracker.ViewModels;
+
+public sealed partial class MainViewModel : ObservableObject
+{
+    readonly ProgressStore _store = new();
+    readonly string _dataDir;
+    QuestRepository _repo = null!;
+    QuestPlanner _planner = null!;
+    SearchService _search = null!;
+
+    public AppSettings Settings { get; private set; } = new();
+    public Progress Progress { get; private set; } = new();
+
+    public MainViewModel()
+    {
+        _dataDir = QuestRepository.FindDataDir(AppContext.BaseDirectory);
+        _currentProfile = _store.Profile;
+        _searchDelay.Tick += (_, _) =>
+        {
+            _searchDelay.Stop();
+            RefreshSearch();
+        };
+        Loc.Changed += OnLocChanged;
+        ReloadProfiles();
+        ApplyProfileSettings();
+    }
+
+
+    /// <summary>Raised after switching profile, so the overlay can re-read position and hotkeys.</summary>
+    public event Action? ProfileChanged;
+
+    public ObservableCollection<string> Profiles { get; } = [];
+    [ObservableProperty] private string _currentProfile;
+
+    partial void OnCurrentProfileChanged(string value)
+    {
+        if (_loading || value == null || value == _store.Profile) return;
+        SaveProgress();
+        _store.SwitchProfile(value);
+        ApplyProfileSettings();
+        Toast = Loc.F("t.profile", value);
+        ProfileChanged?.Invoke();
+    }
+
+    void ReloadProfiles()
+    {
+        _loading = true;
+        Replace(Profiles, _store.ListProfiles());
+        CurrentProfile = _store.Profile;
+        _loading = false;
+        OnPropertyChanged(nameof(CanDeleteProfile));
+    }
+
+    /// <summary>Loads the current profile's settings into the bindable properties, then its progress.</summary>
+    void ApplyProfileSettings()
+    {
+        Settings = _store.LoadSettings();
+        _loading = true;
+        OverlayOpacity = Settings.OverlayOpacity;
+        OverlayWidth = Settings.OverlayWidth;
+        OverlayScale = Math.Clamp(Settings.OverlayScale, MinOverlayScale, MaxOverlayScale);
+        OverlayPosition = Math.Clamp(Settings.OverlayPosition, 0, 1);
+        OverlayDetailed = Settings.OverlayDetailed;
+        IsPve = Settings.Mode == GameMode.Pve;
+        UiLanguage = Loc.Languages.Contains(Settings.UiLanguage) ? Settings.UiLanguage : "tr";
+        _loading = false;
+        OnPropertyChanged(nameof(Settings));
+        OnPropertyChanged(nameof(ShowPastEvents));
+        LoadData();
+    }
+
+    /// <summary>Returns an error message, or null on success.</summary>
+    public string? CreateProfile(string name)
+    {
+        if (_store.ValidateName(name) is { } error) return Loc.T(error);
+        _store.CreateProfile(name);
+        ReloadProfiles();
+        CurrentProfile = name.Trim();
+        return null;
+    }
+
+    public string? RenameProfile(string newName)
+    {
+        if (_store.ValidateName(newName, ignore: CurrentProfile) is { } error) return Loc.T(error);
+        _store.RenameProfile(CurrentProfile, newName);
+        ReloadProfiles();
+        Toast = Loc.F("t.profile", CurrentProfile);
+        return null;
+    }
+
+    public bool CanDeleteProfile => Profiles.Count > 1;
+
+    /// <summary>Deletes the current profile and switches to another one.</summary>
+    public void DeleteCurrentProfile()
+    {
+        var doomed = CurrentProfile;
+        CurrentProfile = Profiles.First(p => p != doomed);
+        _store.DeleteProfile(doomed);
+        ReloadProfiles();
+        Toast = Loc.F("t.profileDeleted", doomed);
+    }
+
+
+    /// <summary>Quest data languages (tasks_{lang}.json files that exist).</summary>
+    public ObservableCollection<Option> Languages { get; } = [];
+    public IReadOnlyList<Option> UiLanguages { get; } = Loc.Languages.Select(l => Option.Fixed(l, Loc.LanguageName(l))).ToList();
+
+    public IReadOnlyList<Option> Filters { get; } =
+    [
+        Option.Localized("all", "f.all"), Option.Localized("available", "f.available"), Option.Localized("active", "f.active"),
+        Option.Localized("kappa", "f.kappa"), Option.Localized("notDone", "f.notDone"), Option.Localized("done", "f.done"),
+    ];
+    public IReadOnlyList<Option> Categories { get; } =
+    [
+        Option.Localized("", "cat.all"), Option.Localized("side", "cat.side"),
+        Option.Localized("story", "cat.story"), Option.Localized("event", "cat.event"),
+    ];
+    /// <summary>Key "" = all traders.</summary>
+    public ObservableCollection<Option> Traders { get; } = [];
+    public string DataInfo { get; private set; } = "";
+
+    [ObservableProperty] private string _language = "en";
+    [ObservableProperty] private string _uiLanguage = "tr";
+
+    partial void OnUiLanguageChanged(string value)
+    {
+        if (value == null) return;
+        if (Loc.Lang != value) Loc.Set(value);
+        if (_loading || Settings.UiLanguage == value) return;
+        Settings.UiLanguage = value;
+        SaveSettings();
+    }
+
+    /// <summary>Called when the UI string table changed: rebuild every string made in code.</summary>
+    void OnLocChanged()
+    {
+        if (_loading || _repo == null) return;  // a data load follows and builds everything anyway
+        foreach (var o in Filters.Concat(Categories).Concat(Traders)) o.Relabel();
+        DataInfo = BuildDataInfo();
+        OnPropertyChanged(nameof(DataInfo));
+        OnPropertyChanged(nameof(SelectedSources));
+        Refresh();
+    }
+    [ObservableProperty] private bool _isPve;
+    [ObservableProperty] private int _playerLevel = 1;
+
+    partial void OnLanguageChanged(string value)
+    {
+        if (_loading || value == null || value == _repo.Language) return;
+        Settings.Language = value;
+        SaveSettings();
+        LoadData();
+    }
+
+    partial void OnIsPveChanged(bool value)
+    {
+        OnPropertyChanged(nameof(IsPvp));
+        OnPropertyChanged(nameof(ModeText));
+        if (_loading) return;
+        Settings.Mode = value ? GameMode.Pve : GameMode.Pvp;
+        SaveSettings();
+        LoadData();
+    }
+
+    partial void OnPlayerLevelChanged(int value)
+    {
+        if (_loading) return;
+        Progress.PlayerLevel = Math.Clamp(value, 1, 79);
+        SaveProgress();
+        Refresh();
+    }
+
+    public string ModeText => IsPve ? "PvE" : "PvP";
+
+    /// <summary>Other side of <see cref="IsPve"/> for the PvP | PvE segmented switch.</summary>
+    public bool IsPvp
+    {
+        get => !IsPve;
+        set { if (value) IsPve = false; }
+    }
+
+    bool _loading;
+
+    void LoadData()
+    {
+        _loading = true;
+        var selectedId = SelectedQuest?.Id;
+        _repo = QuestRepository.Load(_dataDir, Settings.Language, Settings.Mode, Settings.ShowPastEvents);
+        _planner = new QuestPlanner(_repo);
+        _search = new SearchService(_repo.Quests);
+        Progress = _store.LoadProgress(Settings.Mode);
+        _undo = null;
+        OnPropertyChanged(nameof(CanUndo));
+
+        Replace(Languages, _repo.Languages.Select(l => Option.Fixed(l, Loc.LanguageName(l))));
+        Language = _repo.Language;
+        PlayerLevel = Progress.PlayerLevel;
+        Replace(Traders, _repo.Quests.Select(q => q.Trader).Distinct().Order()
+                              .Select(t => Option.Fixed(t, t)).Prepend(Option.Localized("", "traders.all")));
+        TraderFilter = "";
+        DataInfo = BuildDataInfo();
+        OnPropertyChanged(nameof(DataInfo));
+        OnPropertyChanged(nameof(ModeText));
+        OnPropertyChanged(nameof(ProgressFolder));
+        SelectedGoal = null;
+        _loading = false;
+
+        SelectedQuest = selectedId != null ? _planner.Get(selectedId) : null;
+        Refresh();
+    }
+
+    string BuildDataInfo()
+    {
+        var meta = Path.Combine(_dataDir, "meta.json");
+        var q = _repo.Quests;
+        return Loc.F("d.info", q.Count, ModeText, q.Count(x => x.Category == "side"), q.Count(x => x.Category == "story"),
+                     q.Count(x => x.Category == "event"), string.Join(", ", _repo.Languages.Select(Loc.LanguageName)))
+               + (q.Any(x => x.TarkovDevId != null) ? "" : "\n" + Loc.T("d.noTarkovDev"))
+               + (File.Exists(meta) ? "\n" + File.ReadAllText(meta) : "");
+    }
+
+
+    [ObservableProperty] private string _searchText = "";
+    // filter values are Option keys (language independent)
+    [ObservableProperty] private string _filter = "all";
+    [ObservableProperty] private string _traderFilter = "";
+    // story chapters by default; the full list is paged
+    [ObservableProperty] private string _categoryFilter = "story";
+
+    /// <summary>The page of results currently shown; more are appended while scrolling (<see cref="LoadMoreResults"/>).</summary>
+    public BulkObservableCollection<QuestRow> SearchResults { get; } = [];
+    List<QuestRow> _allResults = [];
+    const int PageSize = 60;
+
+    /// <summary>Total matches for the current search/filters (SearchResults may hold fewer).</summary>
+    public int SearchTotal => _allResults.Count;
+
+    bool _loadingMore;
+
+    public void LoadMoreResults()
+    {
+        if (_loadingMore || SearchResults.Count >= _allResults.Count) return;
+        _loadingMore = true;
+        try
+        {
+            foreach (var row in _allResults.Skip(SearchResults.Count).Take(PageSize)) SearchResults.Add(row);
+        }
+        finally
+        {
+            _loadingMore = false;
+        }
+    }
+
+    // debounce search input
+    readonly DispatcherTimer _searchDelay = new() { Interval = TimeSpan.FromMilliseconds(180) };
+
+    partial void OnSearchTextChanged(string value)
+    {
+        _searchDelay.Stop();
+        _searchDelay.Start();
+    }
+    partial void OnFilterChanged(string value) => RefreshSearch();
+    partial void OnTraderFilterChanged(string value) => RefreshSearch();
+    partial void OnCategoryFilterChanged(string value) => RefreshSearch();
+
+    public bool ShowPastEvents
+    {
+        get => Settings.ShowPastEvents;
+        set
+        {
+            if (Settings.ShowPastEvents == value) return;
+            Settings.ShowPastEvents = value;
+            SaveSettings();
+            LoadData();
+            OnPropertyChanged();
+        }
+    }
+
+    void RefreshSearch()
+    {
+        if (_loading || _repo == null) return;
+        IEnumerable<Quest> source = string.IsNullOrWhiteSpace(SearchText)
+            ? _repo.Quests.OrderBy(q => q.Trader).ThenBy(q => q.MinLevel ?? 0).ThenBy(q => q.Name)
+            : _search.Search(SearchText, 100);
+        if (!string.IsNullOrEmpty(TraderFilter)) source = source.Where(q => q.Trader == TraderFilter);
+        if (!string.IsNullOrEmpty(CategoryFilter)) source = source.Where(q => q.Category == CategoryFilter);
+        var rows = source.Select(Row);
+        rows = Filter switch
+        {
+            "available" => rows.Where(r => r.Status is QuestStatus.Available or QuestStatus.Active),
+            "active" => rows.Where(r => r.Status == QuestStatus.Active),
+            "kappa" => rows.Where(r => r.Quest.IsKappa),
+            "notDone" => rows.Where(r => !r.IsDone),
+            "done" => rows.Where(r => r.IsDone),
+            _ => rows,
+        };
+        // keep already loaded rows so a refresh doesn't jump back to the top
+        var shown = Math.Max(PageSize, SearchResults.Count);
+        _allResults = rows.ToList();
+        SearchResults.ReplaceAll(_allResults.Take(shown));
+        OnPropertyChanged(nameof(SearchTotal));
+    }
+
+    QuestRow Row(Quest q)
+    {
+        var status = Progress.Completed.Contains(q.Id) ? QuestStatus.Done
+            : Progress.Active.Contains(q.Id) ? QuestStatus.Active
+            : !q.Prerequisites.All(Progress.Completed.Contains) ? QuestStatus.Locked
+            : _planner.IsLevelLocked(q, Progress) ? QuestStatus.LevelLocked
+            : QuestStatus.Available;
+        return new QuestRow(q, status, Progress.Goals.Contains(q.Id));
+    }
+
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(HasSelection))]
+    private Quest? _selectedQuest;
+
+    public bool HasSelection => SelectedQuest != null;
+    public QuestRow? SelectedRow => SelectedQuest == null ? null : Row(SelectedQuest);
+    public IReadOnlyList<QuestRow> SelectedPrerequisites =>
+        SelectedQuest?.Prerequisites.Select(id => Row(_repo.ById[id])).ToList() ?? [];
+    public IReadOnlyList<QuestRow> SelectedUnlocks =>
+        SelectedQuest == null ? [] : _planner.Dependents(SelectedQuest.Id).Select(Row).ToList();
+    public string SelectedSources => SelectedQuest == null ? "" :
+        Loc.T("s.sources") + string.Join(", ", SelectedQuest.Sources.Select(kv => $"{kv.Key}={JsonSerializer.Serialize(kv.Value)}"));
+    public string SelectedOtherNames => SelectedQuest == null ? "" :
+        string.Join(" / ", SelectedQuest.AllNames.Where(n => n != SelectedQuest.DisplayName));
+
+    partial void OnSelectedQuestChanged(Quest? value) => NotifyDetail();
+
+    void NotifyDetail()
+    {
+        OnPropertyChanged(nameof(SelectedRow));
+        OnPropertyChanged(nameof(SelectedPrerequisites));
+        OnPropertyChanged(nameof(SelectedUnlocks));
+        OnPropertyChanged(nameof(SelectedSources));
+        OnPropertyChanged(nameof(SelectedOtherNames));
+    }
+
+    [RelayCommand]
+    void Select(object? arg)
+    {
+        var q = arg switch { Quest x => x, QuestRow r => r.Quest, string id => _planner.Get(id), _ => null };
+        if (q != null) SelectedQuest = q;
+    }
+
+    [RelayCommand]
+    void OpenWiki(Quest? q)
+    {
+        if (q?.WikiUrl is { Length: > 0 } url) Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+    }
+
+
+    static Quest? AsQuest(object? arg) => arg as Quest ?? (arg as QuestRow)?.Quest ?? (arg as ActiveQuestVm)?.Quest;
+
+    [RelayCommand]
+    void ToggleComplete(object? arg)
+    {
+        if (AsQuest(arg) is not { } q) return;
+        Snapshot();
+        if (Progress.Completed.Contains(q.Id))
+        {
+            _planner.Uncomplete(Progress, q.Id);
+            Toast = Loc.F("t.undone", q.DisplayName);
+        }
+        else Complete(q);
+        SaveProgress();
+        Refresh();
+    }
+
+    void Complete(Quest q)
+    {
+        _planner.Complete(Progress, q.Id);
+        foreach (var o in q.Objectives) Progress.Objectives.Remove(Progress.ObjectiveKey(q.Id, o.Id));
+        var unlocked = _planner.UnlockedBy(q.Id, Progress);
+        Toast = unlocked.Count == 0
+            ? Loc.F("t.completed", q.DisplayName)
+            : Loc.F("t.completedUnlocked", q.DisplayName, string.Join(", ", unlocked.Select(u => u.DisplayName)));
+    }
+
+    [RelayCommand]
+    void ToggleActive(object? arg)
+    {
+        if (AsQuest(arg) is not { } q) return;
+        if (Progress.Active.Remove(q.Id))
+        {
+            SaveProgress();
+            Refresh();
+            return;
+        }
+        Snapshot();
+        var marked = _planner.Start(Progress, q.Id);
+        Toast = marked.Count == 0
+            ? Loc.F("t.active", q.DisplayName)
+            : Loc.F("t.activeChain", q.DisplayName, marked.Count,
+                    string.Join(", ", marked.Take(4).Select(m => m.DisplayName)) + (marked.Count > 4 ? ", ..." : ""));
+        SaveProgress();
+        Refresh();
+    }
+
+    // one-step undo for actions that change many quests at once
+    (HashSet<string> Completed, List<string> Active)? _undo;
+
+    public bool CanUndo => _undo != null;
+
+    void Snapshot()
+    {
+        _undo = ([.. Progress.Completed], [.. Progress.Active]);
+        OnPropertyChanged(nameof(CanUndo));
+    }
+
+    [RelayCommand]
+    void Undo()
+    {
+        if (_undo is not { } u) return;
+        Progress.Completed = u.Completed;
+        Progress.Active = u.Active;
+        _undo = null;
+        OnPropertyChanged(nameof(CanUndo));
+        Toast = Loc.T("t.undoDone");
+        SaveProgress();
+        Refresh();
+    }
+
+    [RelayCommand]
+    void ToggleGoal(object? arg)
+    {
+        if (AsQuest(arg) is not { } q) return;
+        if (!Progress.Goals.Remove(q.Id))
+        {
+            Progress.Goals.Add(q.Id);
+            SaveProgress();
+            Refresh();
+            SelectedGoal = q;
+            GoalSearchText = "";
+            return;
+        }
+        SaveProgress();
+        Refresh();
+    }
+
+    [RelayCommand]
+    void ActivateAvailable(string? which)
+    {
+        var list = which == "kappa" ? KappaAvailable.SelectMany(g => g.Quests).Select(r => r.Quest)
+                                     : GoalAvailable.Select(r => r.Quest);
+        Snapshot();
+        foreach (var q in list.Where(q => !_planner.IsLevelLocked(q, Progress)).ToList())
+            if (!Progress.Active.Contains(q.Id)) Progress.Active.Add(q.Id);
+        SaveProgress();
+        Refresh();
+    }
+
+    [RelayCommand]
+    void ClearActive()
+    {
+        Progress.Active.Clear();
+        SaveProgress();
+        Refresh();
+    }
+
+    [ObservableProperty] private string _toast = "";
+
+
+    public ObservableCollection<Quest> Goals { get; } = [];
+    [ObservableProperty] private Quest? _selectedGoal;
+    [ObservableProperty] private string _goalSearchText = "";
+    public BulkObservableCollection<Quest> GoalSearchResults { get; } = [];
+    public BulkObservableCollection<QuestRow> GoalChain { get; } = [];
+    public BulkObservableCollection<QuestRow> GoalAvailable { get; } = [];
+    [ObservableProperty] private string _goalSummary = "";
+
+    partial void OnGoalSearchTextChanged(string value) =>
+        Replace(GoalSearchResults, string.IsNullOrWhiteSpace(value) ? [] : _search.Search(value, 15));
+
+    partial void OnSelectedGoalChanged(Quest? value)
+    {
+        if (!_loading) RefreshGoal();
+    }
+
+    void RefreshGoal()
+    {
+        if (SelectedGoal == null || !_repo.ById.ContainsKey(SelectedGoal.Id))
+        {
+            GoalChain.Clear();
+            GoalAvailable.Clear();
+            GoalSummary = Loc.T("g.none");
+            return;
+        }
+        var plan = _planner.PlanFor(SelectedGoal.Id, Progress);
+        Replace(GoalChain, plan.Chain.Select(Row));
+        Replace(GoalAvailable, plan.AvailableNow.Select(Row));
+        GoalSummary = plan.Remaining.Count == 0
+            ? Loc.F("g.allDone", plan.Goal.DisplayName)
+            : Loc.F("g.progress", plan.Goal.DisplayName, plan.Chain.Count - plan.Remaining.Count, plan.Chain.Count, plan.Remaining.Count);
+    }
+
+
+    public BulkObservableCollection<MapGroup> KappaAvailable { get; } = [];
+    public BulkObservableCollection<QuestRow> KappaLevelLocked { get; } = [];
+    public BulkObservableCollection<QuestRow> KappaRemaining { get; } = [];
+    [ObservableProperty] private double _kappaPercent;
+    [ObservableProperty] private string _kappaSummary = "";
+
+    void RefreshKappa()
+    {
+        var plan = _planner.KappaPlan(Progress);
+        var done = plan.Chain.Count - plan.Remaining.Count;
+        KappaPercent = plan.Chain.Count == 0 ? 0 : 100.0 * done / plan.Chain.Count;
+        var unknown = _repo.Quests.Count(q => q.Category == "side" && q.KappaRequired == null);
+        KappaSummary = Loc.F("k.summary", done, plan.Chain.Count, KappaPercent)
+                       + (unknown > 0 ? Loc.F("k.unknown", unknown) : "");
+        var available = plan.AvailableNow.Where(q => !_planner.IsLevelLocked(q, Progress)).ToList();
+        Replace(KappaAvailable, QuestPlanner.GroupByMap(available)
+            .Select(g => new MapGroup(g.Key, g.Select(Row).ToList())));
+        Replace(KappaLevelLocked, plan.AvailableNow.Where(q => _planner.IsLevelLocked(q, Progress)).Select(Row));
+        Replace(KappaRemaining, plan.Remaining.Select(Row));
+    }
+
+
+    public BulkObservableCollection<ActiveQuestVm> ActiveQuests { get; } = [];
+    public bool HasActive => ActiveQuests.Count > 0;
+
+    void RefreshActive()
+    {
+        Progress.Active.RemoveAll(id => !_repo.ById.ContainsKey(id));
+        Replace(ActiveQuests, Progress.Active.Select(id => _repo.ById[id]).Select(q => new ActiveQuestVm(q,
+            q.Objectives.Select(o => new ObjectiveVm(q.Id, o,
+                Progress.Objectives.GetValueOrDefault(Progress.ObjectiveKey(q.Id, o.Id)), OnObjectiveChanged)))));
+        OnPropertyChanged(nameof(HasActive));
+    }
+
+    void OnObjectiveChanged(ObjectiveVm o)
+    {
+        var key = Progress.ObjectiveKey(o.QuestId, o.Objective.Id);
+        if (o.Current == 0) Progress.Objectives.Remove(key);
+        else Progress.Objectives[key] = o.Current;
+        SaveProgress();
+        var card = ActiveQuests.FirstOrDefault(a => a.Quest.Id == o.QuestId);
+        if (card != null && card.Objectives.Where(x => !x.Objective.Optional).All(x => x.IsDone))
+            Toast = Loc.F("t.allObjectives", card.Quest.DisplayName);
+    }
+
+
+    [ObservableProperty] private double _overlayOpacity;
+    [ObservableProperty] private double _overlayWidth;
+    [ObservableProperty] private bool _overlayClickThrough;
+
+    partial void OnOverlayOpacityChanged(double value)
+    {
+        if (_loading) return;
+        Settings.OverlayOpacity = value;
+        SaveSettings();
+    }
+
+    partial void OnOverlayWidthChanged(double value)
+    {
+        if (_loading) return;
+        Settings.OverlayWidth = value;
+        SaveSettings();
+    }
+
+    /// <summary>0 = top of the screen, 1 = bottom. Set by dragging the overlay header or the settings slider.</summary>
+    [ObservableProperty] private double _overlayPosition;
+    /// <summary>true = title + details, false = titles only.</summary>
+    [ObservableProperty] private bool _overlayDetailed = true;
+
+    partial void OnOverlayPositionChanged(double value)
+    {
+        if (_loading) return;
+        Settings.OverlayPosition = Math.Clamp(value, 0, 1);
+        SaveSettings();
+    }
+
+    partial void OnOverlayDetailedChanged(bool value)
+    {
+        if (_loading) return;
+        Settings.OverlayDetailed = value;
+        SaveSettings();
+    }
+
+    public const double MinOverlayScale = 0.6, MaxOverlayScale = 2.0;
+    [ObservableProperty] private double _overlayScale;
+
+    partial void OnOverlayScaleChanged(double value)
+    {
+        var clamped = Math.Round(Math.Clamp(value, MinOverlayScale, MaxOverlayScale), 2);
+        if (clamped != value)
+        {
+            OverlayScale = clamped;
+            return;
+        }
+        if (_loading) return;
+        Settings.OverlayScale = value;
+        SaveSettings();
+    }
+
+    public void ExportProgress(string path)
+    {
+        SaveProgress();
+        _store.Export(Settings.Mode, path);
+        Toast = Loc.F("t.exported", path);
+    }
+
+    public void ImportProgress(string path)
+    {
+        _store.Import(Settings.Mode, path);
+        LoadData();
+        Toast = Loc.T("t.imported");
+    }
+
+    public string ProgressFolder => _store.ProfileFolder;
+
+
+    public void Refresh()
+    {
+        Replace(Goals, Progress.Goals.Where(_repo.ById.ContainsKey).Select(id => _repo.ById[id]));
+        if (SelectedGoal == null || !Goals.Contains(SelectedGoal)) SelectedGoal = Goals.FirstOrDefault();
+        RefreshGoal();
+        RefreshSearch();
+        RefreshKappa();
+        RefreshActive();
+        NotifyDetail();
+    }
+
+    public void SaveProgress()
+    {
+        Progress.UpdatedAt = DateTime.UtcNow;
+        _store.SaveProgress(Settings.Mode, Progress);
+    }
+
+    public void SaveSettings() => _store.SaveSettings(Settings);
+
+    static void Replace<T>(ObservableCollection<T> target, IEnumerable<T> items)
+    {
+        if (target is BulkObservableCollection<T> bulk)
+        {
+            bulk.ReplaceAll(items);
+            return;
+        }
+        var list = items.ToList();
+        target.Clear();
+        foreach (var i in list) target.Add(i);
+    }
+}

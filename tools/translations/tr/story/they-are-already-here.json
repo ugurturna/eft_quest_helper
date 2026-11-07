@@ -1,0 +1,42 @@
+{
+ "id": "they-are-already-here",
+ "name": "Onlar Zaten Burada",
+ "objectives": [
+  {"id": "o1", "text": "Kapüşonlu adamlar hakkında daha fazlasını öğren / Tarkov'a tuhaf semboller bırakan insanlar hakkında daha fazlasını öğren", "details": []},
+  {"id": "o2", "text": "Dünyanın Gözü ile bağlantılı bir yer bul", "details": []},
+  {"id": "o3", "text": "İşkence odasındaki tarikat kurbanı hakkında daha fazlasını öğren", "details": []},
+  {"id": "o4", "text": "Tarikat kurbanının dairesini bul", "details": [
+   "(İsteğe bağlı) Dairenin anahtarını al"]},
+  {"id": "o5", "text": "Kurbanın dairesini incele", "details": []},
+  {"id": "o6", "text": "Kurbanın ilk ses kasetini al", "details": []},
+  {"id": "o7", "text": "Tarikatçıların Igor'un yanına bıraktığı kitabı al ve oku", "details": []},
+  {"id": "o8", "text": "Mechanic'e Dünyanın Gözü'nü sor", "details": [
+   "(İsteğe bağlı) Mechanic'e erişim sağla"]},
+  {"id": "o9", "text": "Bir tarikat rahibini (Cultist priest) bul ve etkisiz hale getir", "details": []},
+  {"id": "o10", "text": "Dünyanın Gözü hakkında daha fazla bilgi edin", "details": []},
+  {"id": "o11", "text": "Lighthouse'ta Dünyanın Gözü ile işaretlenmiş yeri bul", "details": []},
+  {"id": "o12", "text": "Dağ evindeki talan edilmiş tarikat odasını incele", "details": [
+   "(İsteğe bağlı) Kurbanın eşyalarını bul"]},
+  {"id": "o13", "text": "Kurbanın notunda bahsedilen anahtarı bul ve al", "details": []},
+  {"id": "o14", "text": "Woods'ta Dünyanın Gözü ile işaretlenmiş yeri bul", "details": []},
+  {"id": "o15", "text": "Dünyanın Gözü ile işaretlenmiş tarikat evini incele", "details": []},
+  {"id": "o16", "text": "Shoreline'da Dünyanın Gözü ile işaretlenmiş yeri bul", "details": []},
+  {"id": "o17", "text": "Sordi iletişim kulesinin çevresini incele", "details": []},
+  {"id": "o18", "text": "Sordi kulesini onar", "details": []},
+  {"id": "o19", "text": "Arshavin'in anahtar kartını onar", "details": []},
+  {"id": "o20", "text": "NGO Cobalt'ın gizli tesisine erişim sağla", "details": []},
+  {"id": "o21", "text": "İstasyona elektriği geri ver", "details": []},
+  {"id": "o22", "text": "Sunucu odasındaki soğutma sistemini çalıştır", "details": []},
+  {"id": "o23", "text": "Verileri indirmek için bir flash bellek tak", "details": []},
+  {"id": "o24", "text": "ARRS İstasyonu 14-4 KORD'u baştan sona incele", "details": []},
+  {"id": "o25", "text": "Interchange'den hayatta kalarak tahliye ol", "details": []},
+  {"id": "o26", "text": "İstasyonun dış ajanlarla bağlantısını kesmenin bir yolunu bul", "details": []},
+  {"id": "o27", "text": "ARRS istasyonunu yedek ayarlara geri döndür", "details": [
+   "(İsteğe bağlı) İstasyonun elektriğinin açık olduğunu kontrol et"]},
+  {"id": "o28", "text": "Flash belleği ARRS istasyonundan al", "details": []},
+  {"id": "o29", "text": "Interchange'den hayatta kalarak tahliye ol", "details": []},
+  {"id": "o30", "text": "Verilerin olduğu flash belleği Mechanic'e teslim et", "details": []},
+  {"id": "o31", "text": "ARRS istasyonunun teknik özelliklerini oku", "details": []}
+ ],
+ "guide": "▸ Kapüşonlu adamlar / Tarkov'a tuhaf semboller bırakanlar hakkında bilgi edin\nGereksinimlere bak.\n\n▸ Dünyanın Gözü ile bağlantılı bir yer bul / İşkence odasındaki kurban hakkında bilgi edin\nBu hedefler için Lighthouse'taki tarikat işkence evini (Cultist's torture house) bulman ve oradaki ses kasetini alıp dinlemen gerekiyor.\nSonraki hedef için gereken Cult victim's apartment key de bu evde bulunabilir.\n\n▸ Tarikat kurbanının dairesini bul\nAranan daire, Streets of Tarkov'daki Klimov AVM'sinin arkasındaki eski apartmanın üçüncü katında. Girmek için Cult victim's apartment key gerekiyor.\n\n▸ Kurbanın dairesini incele / İlk ses kasetini ve tarikatçıların bıraktığı kitabı al\nBu hedefler için dairenin içindeki çalışma odasından 2 not alıp okuman ve bir ses kaseti alıp dinlemen gerekiyor. Kapının kırılması (breach) gerekiyor.\n\n▸ Mechanic'e Dünyanın Gözü'nü sor\nMenüdeki trader ekranından Mechanic'i ziyaret et ve ona Dünyanın Gözü'nü sor.\n\n▸ Bir tarikat rahibini bul ve etkisiz hale getir\nHerhangi bir haritada bir Cultist priest öldür.\n\n▸ Dünyanın Gözü hakkında daha fazla bilgi edin\nBu hedef için Customs, Streets of Tarkov ya da Reserve'deki işaretli odalardan birinden \"Cultist priest's note\"u alıp okuman gerekiyor. Not: Eşya, önceki hedef tamamlanmadan doğmaz. (Hedef için anahtarlardan yalnızca biri yeterli.)\n• Customs: Üç katlı yurdun üçüncü katındaki işaretli oda. Girmek için Dorm room 314 marked key gerekiyor.\n• Streets of Tarkov: Kuzeydeki terk edilmiş fabrika binasının üçüncü katındaki işaretli oda. Girmek için Abandoned factory marked key gerekiyor.\n• Reserve (RB-BK): Siyah piyon kışlasının birinci katındaki işaretli oda. Girmek için RB-BK marked key gerekiyor.\n• Reserve (RB-PKPM): Yeraltı tünel sistemindeki komuta ofisinin yanındaki işaretli oda. Girmek için RB-PKPM marked key gerekiyor.\n• Reserve (RB-VO): Güvenlik kışlası binasındaki işaretli oda. Girmek için RB-VO marked key gerekiyor.\n\n▸ Lighthouse'taki işaretli yeri bul / Dağ evindeki tarikat odasını incele / Kurbanın anahtarını al\nAranan yer, Lighthouse'taki kuzey mavi dağ evinin ikinci katındaki küçük güney yatak odası. Alıp okuman gereken \"Victim's note\" bitişikteki balkonda.\n\"Station 14-4 KORD Arshavin K. pass (Damaged)\", dağ evinin karşısındaki garajın önündeki bir ATV'nin üzerinde.\n\n▸ Woods'taki işaretli yeri bul\nAranan yer, Woods'un kuzeyindeki harap köydeki bir ev. Alıp okuman gereken \"Newspaper clipping from the cultists' house\" masanın yanındaki beyaz tahtada.\n\n▸ Shoreline'daki işaretli yeri bul / Çevreyi incele / Sordi kulesini onar\nAranan yer, Shoreline'daki \"Road to Customs\" tahliye noktasının yakınındaki radyo kulesinin dibindeki kırmızı metal kulübe. Alıp okuman gereken \"Programmer's note\" kulenin yanındaki bir cesedin üzerinde. Kuleyi onarmak için kulübenin içinde bir Toolset kullanman gerekiyor.\n\n▸ Mechanic'ten Station 14-4 KORD hakkında bilgi al\nMenüdeki trader ekranından Mechanic'i ziyaret et ve ona Dünyanın Gözü'nü tekrar sor.\n\n▸ Arshavin'in anahtar kartını onar\nSığınaktaki 1. seviye İstihbarat Merkezi'nde \"Station 14-4 KORD Arshavin K. pass (Restored)\" kartını üret. Üretim boyunca elektrik olmalı, yoksa işlem durur.\n\n▸ NGO Cobalt'ın gizli tesisine erişim sağla\nNGO Cobalt'ın gizli tesisi, Interchange'deki elektrik santralinin bodrumunda. Girmek için \"Station 14-4 KORD Arshavin K. pass (Restored)\" gerekiyor.\n\n▸ İstasyona elektriği geri ver\nElektriği geri vermek için onarılmış kartı giriş kapısının hemen yanındaki kart okuyucuya okut.\n\n▸ Sunucu odasındaki soğutma sistemini çalıştır\nSunucu odası ızgaralı kapının arkasında. Soğutma sistemini çalıştırmak için arkadaki kolu çevir.\n\n▸ Verileri indirmek için bir flash bellek tak\nSecure Flash drive, sunucu odasında soğutma sistemi kolunun soluna bırakılmalı.\n\n▸ ARRS İstasyonu 14-4 KORD'u baştan sona incele\nBu hedef için giriş kapısının yanındaki kasadan \"Mysterious audio tape\"i alıp dinlemen gerekiyor. Kasa, soğutma sistemi çalıştırılınca kendiliğinden açılıyor.\n\n▸ Interchange'den hayatta kalarak tahliye ol\nInterchange'den \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol.\n\n▸ İstasyonun dış ajanlarla bağlantısını kesmenin yolunu bul\nInterchange'deki gizli tesise geri dön ve büyük masadaki \"ARRS station mechanic's notes\"u alıp oku.\n\n▸ ARRS istasyonunu yedek ayarlara geri döndür\nElektriği tekrar aç, sonra sunucu odasına gir ve masanın altındaki düğmeye bas.\nNot: Her raidde düğmeye yalnızca 1 oyuncu basıp bu hedefte ilerleme kaydedebilir. Etkileşime giremiyorsan yeni bir raidde tekrar gel.\n\n▸ Flash belleği ARRS istasyonundan al\n\"Flash drive for ARRS station\"ı soğutma sistemi kolunun yanındaki sunucudan al.\n\n▸ Interchange'den hayatta kalarak tahliye ol\nInterchange'den \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol.\n\n▸ Verilerin olduğu flash belleği Mechanic'e teslim et\n\"Flash drive for ARRS station\"ı trader ekranından Mechanic'e teslim et.\n\n▸ ARRS istasyonunun teknik özelliklerini oku\nEl kitabından (handbook) \"ARRS system specifications\"ı oku.\n\nÖdüller:\n• +128.000 EXP\n• Through Another's Eyes başarımı açılır\n• When the Light Fades başarımı açılır"
+}

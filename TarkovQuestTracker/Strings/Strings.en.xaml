@@ -1,0 +1,171 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+                    xml:space="preserve">
+    <!-- top bar -->
+    <sys:String x:Key="s.profile">Profile</sys:String>
+    <sys:String x:Key="s.profile.tip">Every profile has its own progress and settings</sys:String>
+    <sys:String x:Key="s.profile.newTip">New profile</sys:String>
+    <sys:String x:Key="s.mode">Mode</sys:String>
+    <sys:String x:Key="s.mode.tip">PvP and PvE progress are kept separately</sys:String>
+    <sys:String x:Key="s.appLang">App language</sys:String>
+    <sys:String x:Key="s.questLang">Quest language</sys:String>
+    <sys:String x:Key="s.level">My level</sys:String>
+    <sys:String x:Key="s.overlayToggle">Show/hide overlay</sys:String>
+    <sys:String x:Key="s.undo">↶ Undo</sys:String>
+
+    <!-- tabs -->
+    <sys:String x:Key="s.tab.quests">Quests</sys:String>
+    <sys:String x:Key="s.tab.planner">Goal Planner</sys:String>
+    <sys:String x:Key="s.tab.kappa">Kappa / Collector</sys:String>
+    <sys:String x:Key="s.tab.active">Active Quests</sys:String>
+    <sys:String x:Key="s.tab.settings">Settings</sys:String>
+
+    <!-- search -->
+    <sys:String x:Key="s.search.tip">Search in English or Turkish: punisher 3, cezalandırıcı...</sys:String>
+    <sys:String x:Key="s.questCount">quests</sys:String>
+
+    <!-- planner -->
+    <sys:String x:Key="s.planner.ask">Which quest do you want to do?</sys:String>
+    <sys:String x:Key="s.planner.tip">e.g. punisher part 3, collector</sys:String>
+    <sys:String x:Key="s.goal.make">★ Set as goal</sys:String>
+    <sys:String x:Key="s.goals.mine">My goals:</sys:String>
+    <sys:String x:Key="s.goal.remove">Remove goal</sys:String>
+    <sys:String x:Key="s.activateAvailable">Activate available</sys:String>
+    <sys:String x:Key="s.availableNow">AVAILABLE NOW</sys:String>
+    <sys:String x:Key="s.chainAll">FULL CHAIN (in order) - press "✔ Done" on what you already did</sys:String>
+
+    <!-- kappa -->
+    <sys:String x:Key="s.activateAll">Activate all</sys:String>
+    <sys:String x:Key="s.kappa.byMap">AVAILABLE NOW - BY MAP (do them in the same raid)</sys:String>
+    <sys:String x:Key="s.kappa.levelWait">WAITING FOR LEVEL</sys:String>
+    <sys:String x:Key="s.kappa.remaining">All remaining Kappa quests (in order)</sys:String>
+
+    <!-- active -->
+    <sys:String x:Key="s.clearAll">Clear all</sys:String>
+    <sys:String x:Key="s.active.desc">Quests you are doing right now - shown on the overlay.</sys:String>
+    <sys:String x:Key="s.finish">Done</sys:String>
+    <sys:String x:Key="s.remove">Remove</sys:String>
+    <sys:String x:Key="s.details">Details</sys:String>
+    <sys:String x:Key="s.done.tip">I did this quest (earlier ones count as done too)</sys:String>
+    <sys:String x:Key="s.doneBtn">✔ Done</sys:String>
+    <sys:String x:Key="s.undoneBtn">↶ Undo</sys:String>
+    <sys:String x:Key="s.undone.tip">Remove the completed mark (later quests lose it too)</sys:String>
+    <sys:String x:Key="s.activeBtn">Active</sys:String>
+    <sys:String x:Key="s.activeBtn.tip">Add to / remove from active list (overlay) - earlier quests count as done</sys:String>
+
+    <!-- settings -->
+    <sys:String x:Key="s.set.lang">LANGUAGE</sys:String>
+    <sys:String x:Key="s.set.lang.desc">App language changes menus and buttons; quest language changes quest names, objectives and notes. E.g. the app can be in Turkish while quests stay in English. Search always works in both languages.</sys:String>
+    <sys:String x:Key="s.set.profile">PROFILE</sys:String>
+    <sys:String x:Key="s.set.profile.current">Active profile:</sys:String>
+    <sys:String x:Key="s.set.profile.desc">Each profile has its own PvP/PvE progress, overlay settings, languages and hotkeys. If several people play on the same PC, everyone picks their own profile.</sys:String>
+    <sys:String x:Key="s.profile.newDots">New profile...</sys:String>
+    <sys:String x:Key="s.profile.rename">Rename...</sys:String>
+    <sys:String x:Key="s.profile.delete">Delete this profile...</sys:String>
+    <sys:String x:Key="s.set.overlay">OVERLAY</sys:String>
+    <sys:String x:Key="s.set.view">View</sys:String>
+    <sys:String x:Key="s.view.titles">Quest titles only</sys:String>
+    <sys:String x:Key="s.view.detailed">Title + details (trader, map, objectives)</sys:String>
+    <sys:String x:Key="s.set.position">Vertical position:</sys:String>
+    <sys:String x:Key="s.set.position.hint">  (0% = top, 100% = bottom - you can also drag the overlay header)</sys:String>
+    <sys:String x:Key="s.set.opacity">Opacity:</sys:String>
+    <sys:String x:Key="s.set.width">Width:</sys:String>
+    <sys:String x:Key="s.set.scale">Size (text + buttons):</sys:String>
+    <sys:String x:Key="s.set.scale.hint">  - also Ctrl + mouse wheel over the overlay</sys:String>
+    <sys:String x:Key="s.set.hk.lock">: lock overlay (clicks go to the game) / unlock</sys:String>
+    <sys:String x:Key="s.set.hk.toggle">: show/hide overlay</sys:String>
+    <sys:String x:Key="s.set.borderless">Note: run Tarkov in Borderless or Windowed mode; the overlay is not visible in exclusive fullscreen.</sys:String>
+    <sys:String x:Key="s.set.progress">PROGRESS</sys:String>
+    <sys:String x:Key="s.set.progress.desc">This profile's PvP and PvE progress is stored in separate files:</sys:String>
+    <sys:String x:Key="s.set.pastEvents">Also show past (no longer available) event quests</sys:String>
+    <sys:String x:Key="s.export">Export...</sys:String>
+    <sys:String x:Key="s.import">Import...</sys:String>
+    <sys:String x:Key="s.set.data">DATA</sys:String>
+    <sys:String x:Key="s.set.data.update">To update the data, run in the project folder:</sys:String>
+
+    <!-- detail panel -->
+    <sys:String x:Key="s.selectQuest">Select a quest.</sys:String>
+    <sys:String x:Key="s.kappaRequired">  KAPPA REQUIRED</sys:String>
+    <sys:String x:Key="s.trader">Trader: </sys:String>
+    <sys:String x:Key="s.map">Map: </sys:String>
+    <sys:String x:Key="s.lvl">Level: </sys:String>
+    <sys:String x:Key="s.btn.active">Activate / remove</sys:String>
+    <sys:String x:Key="s.btn.complete">Completed / undo</sys:String>
+    <sys:String x:Key="s.btn.goal">★ Set / remove goal</sys:String>
+    <sys:String x:Key="s.objectives">OBJECTIVES</sys:String>
+    <sys:String x:Key="s.reqItems">REQUIRED ITEMS</sys:String>
+    <sys:String x:Key="s.prereqs">PREREQUISITES</sys:String>
+    <sys:String x:Key="s.unlocks">UNLOCKS</sys:String>
+    <sys:String x:Key="s.rewards">REWARDS</sys:String>
+    <sys:String x:Key="s.guide">GUIDE / NOTES</sys:String>
+    <sys:String x:Key="s.sources">Source: </sys:String>
+
+    <!-- overlay -->
+    <sys:String x:Key="s.ov.opacity">Opacity</sys:String>
+    <sys:String x:Key="s.ov.size">Size</sys:String>
+    <sys:String x:Key="s.ov.sizeTip">Also Ctrl + mouse wheel</sys:String>
+    <sys:String x:Key="s.ov.hide">Hide</sys:String>
+    <sys:String x:Key="s.ov.empty">No active quests. Add some from the main window (Activate).</sys:String>
+    <sys:String x:Key="s.ov.removeTip">Remove from active</sys:String>
+    <sys:String x:Key="s.ov.dragTip">Drag up / down</sys:String>
+    <sys:String x:Key="ov.locked">🔒 click-through · {0}</sys:String>
+    <sys:String x:Key="ov.unlocked">↕ drag · {0}: lock</sys:String>
+
+    <!-- code: status / badges / filters -->
+    <sys:String x:Key="st.done">Completed</sys:String>
+    <sys:String x:Key="st.active">Active</sys:String>
+    <sys:String x:Key="st.available">Available</sys:String>
+    <sys:String x:Key="st.level">Level {0}</sys:String>
+    <sys:String x:Key="st.locked">Locked</sys:String>
+    <sys:String x:Key="badge.story">STORY</sys:String>
+    <sys:String x:Key="badge.event">EVENT</sys:String>
+    <sys:String x:Key="badge.pastEvent">PAST EVENT</sys:String>
+    <sys:String x:Key="map.any">Any</sys:String>
+    <sys:String x:Key="f.all">All</sys:String>
+    <sys:String x:Key="f.available">Available</sys:String>
+    <sys:String x:Key="f.active">Active</sys:String>
+    <sys:String x:Key="f.kappa">Kappa</sys:String>
+    <sys:String x:Key="f.notDone">Not completed</sys:String>
+    <sys:String x:Key="f.done">Completed</sys:String>
+    <sys:String x:Key="cat.all">All types</sys:String>
+    <sys:String x:Key="cat.side">Side quests</sys:String>
+    <sys:String x:Key="cat.story">Story</sys:String>
+    <sys:String x:Key="cat.event">Event</sys:String>
+    <sys:String x:Key="traders.all">All traders</sys:String>
+
+    <!-- code: messages -->
+    <sys:String x:Key="t.undone">Undone: {0}</sys:String>
+    <sys:String x:Key="t.completed">✔ {0}</sys:String>
+    <sys:String x:Key="t.completedUnlocked">✔ {0} → unlocked: {1}</sys:String>
+    <sys:String x:Key="t.active">Active: {0}</sys:String>
+    <sys:String x:Key="t.activeChain">Active: {0} - {1} earlier quests marked as done ({2}). Wrong? Press "Undo".</sys:String>
+    <sys:String x:Key="t.undoDone">Last action undone.</sys:String>
+    <sys:String x:Key="t.allObjectives">{0}: all objectives done - hand it in and press "Done".</sys:String>
+    <sys:String x:Key="t.exported">Exported: {0}</sys:String>
+    <sys:String x:Key="t.imported">Imported.</sys:String>
+    <sys:String x:Key="t.profile">Profile: {0}</sys:String>
+    <sys:String x:Key="t.profileDeleted">Deleted: {0}</sys:String>
+    <sys:String x:Key="t.hotkeyFail">Could not register hotkey (another program may be using it): {0}</sys:String>
+    <sys:String x:Key="g.none">Search a quest and press "Set as goal" (e.g. Punisher Part 3 or Collector).</sys:String>
+    <sys:String x:Key="g.allDone">{0}: all done!</sys:String>
+    <sys:String x:Key="g.progress">{0}: {1}/{2} done, {3} quests left. Tick what you already did (earlier ones are ticked automatically).</sys:String>
+    <sys:String x:Key="k.summary">Kappa path: {0}/{1} quests  ({2:0}%)</sys:String>
+    <sys:String x:Key="k.unknown">   ⚠ Kappa info missing for {0} side quests - will be filled from tarkov.dev (Settings).</sys:String>
+    <sys:String x:Key="d.info">{0} quests ({1}): {2} side, {3} story, {4} event · quest languages: {5}</sys:String>
+    <sys:String x:Key="d.noTarkovDev">⚠ No tarkov.dev data: run tools/scraper/fetch_tarkovdev.py + merge.py.</sys:String>
+    <sys:String x:Key="dlg.ok">OK</sys:String>
+    <sys:String x:Key="dlg.cancel">Cancel</sys:String>
+    <sys:String x:Key="dlg.newProfile.title">New profile</sys:String>
+    <sys:String x:Key="dlg.newProfile.label">Profile name (e.g. your player name):</sys:String>
+    <sys:String x:Key="dlg.rename.title">Rename profile</sys:String>
+    <sys:String x:Key="dlg.rename.label">New name:</sys:String>
+    <sys:String x:Key="dlg.delete.title">Delete profile</sys:String>
+    <sys:String x:Key="dlg.delete.msg">Profile "{0}" and all of its progress (PvP + PvE) will be deleted. This cannot be undone. Continue?</sys:String>
+    <sys:String x:Key="dlg.import.title">Import</sys:String>
+    <sys:String x:Key="dlg.import.msg">Your {0} progress will be replaced by this file. Continue?</sys:String>
+    <sys:String x:Key="err.profile.empty">Name cannot be empty.</sys:String>
+    <sys:String x:Key="err.profile.long">Name can be at most 40 characters.</sys:String>
+    <sys:String x:Key="err.profile.chars">Name cannot contain \ / : * ? " &lt; &gt; |</sys:String>
+    <sys:String x:Key="err.profile.exists">A profile with this name already exists.</sys:String>
+</ResourceDictionary>

@@ -1,0 +1,1975 @@
+[
+ {
+  "id": "accidental-witness",
+  "sources": {
+   "name": "manual",
+   "objectives": "manual",
+   "guide": "manual"
+  },
+  "name": "Tesadüfi Tanık",
+  "objectives": [
+   {
+    "id": "o1",
+    "text": "Kozlov'un nerede yaşadığını bul",
+    "details": []
+   },
+   {
+    "id": "o2",
+    "text": "Kozlov'un kapısındaki notu oku",
+    "details": []
+   },
+   {
+    "id": "o3",
+    "text": "Kozlov'un neyin içinde olduğunu öğren",
+    "details": [
+     "(İsteğe bağlı) Kozlov'un odasına gir",
+     "(İsteğe bağlı) Kozlov'un anahtarını nereden bulabileceğini öğren",
+     "(İsteğe bağlı) Kozlov'un odasını incele"
+    ]
+   },
+   {
+    "id": "o4",
+    "text": "Trader'lara Anastasia'yı sor",
+    "details": []
+   },
+   {
+    "id": "o5",
+    "text": "Skier'ın suç ortağının dairesine gir",
+    "details": [
+     "(İsteğe bağlı) Dairenin anahtarını bul"
+    ]
+   },
+   {
+    "id": "o6",
+    "text": "Skier'ın suç ortağı hakkında daha fazlasını öğren",
+    "details": [
+     "(İsteğe bağlı) Daireyi incele"
+    ]
+   },
+   {
+    "id": "o7",
+    "text": "Skier'ın suç ortağının dairesindeki belgeleri oku",
+    "details": []
+   },
+   {
+    "id": "o8",
+    "text": "Streets of Tarkov'dan hayatta kalarak tahliye ol",
+    "details": []
+   },
+   {
+    "id": "o9",
+    "text": "Skier'a rapor ver",
+    "details": []
+   },
+   {
+    "id": "o10",
+    "text": "Ragman ile konuş",
+    "details": []
+   },
+   {
+    "id": "o11",
+    "text": "Anastasia'nın dairesini bul",
+    "details": []
+   },
+   {
+    "id": "o12",
+    "text": "Anastasia hakkında daha fazlasını öğren",
+    "details": []
+   },
+   {
+    "id": "o13",
+    "text": "Anastasia'nın binasının girişini incele",
+    "details": []
+   },
+   {
+    "id": "o14",
+    "text": "Kurye Pasha'yı bul",
+    "details": []
+   },
+   {
+    "id": "o15",
+    "text": "Pusu kurulan yeri ara",
+    "details": []
+   },
+   {
+    "id": "o16",
+    "text": "Skier ile konuş",
+    "details": []
+   },
+   {
+    "id": "o17",
+    "text": "Reshala'nın zulasını bul",
+    "details": [
+     "(İsteğe bağlı) Reshala'yı bul ve etkisiz hale getir",
+     "(İsteğe bağlı) Reshala'nın zulasının anahtarını ele geçir"
+    ]
+   },
+   {
+    "id": "o18",
+    "text": "Reshala'nın barakasını incele",
+    "details": [
+     "(İsteğe bağlı) Reshala'nın iş notlarını ele geçir",
+     "(İsteğe bağlı) Kurye Pasha'nın eşyalarını ele geçir"
+    ]
+   },
+   {
+    "id": "o19",
+    "text": "Kozlov'un saklandığı yeri bul",
+    "details": []
+   },
+   {
+    "id": "o20",
+    "text": "Kozlov'un kanıtını bul ve al",
+    "details": []
+   }
+  ],
+  "guide": "▸ Kozlov'un nerede yaşadığını bul / Kapısındaki notu oku\nKozlov, Customs'taki iki katlı yurdun birinci katındaki 110 numaralı odada yaşıyordu. Alıp okuman gereken not, oda numarasının hemen altında.\n\n▸ Kozlov'un neyin içinde olduğunu öğren\nBu hedef için önce Dorm room 110 key ile Kozlov'un odasına girmen, ardından komodinin üzerindeki mektubu alıp okuman gerekiyor.\nİsteğe bağlı \"Note from the repair shop\", 110 numaralı odanın yanındaki mutfakta duvarda asılı.\n\n▸ Trader'lara Anastasia'yı sor\nMenüdeki trader ekranından Skier'ı ziyaret et ve ona Anastasia'yı sor.\n\n▸ Skier'ın suç ortağının dairesine gir\nAranan daire, Streets of Tarkov'daki Zmeisky 3 binasının birinci katında. Giriş arka bahçe tarafında. İçeri girmek için Zmeisky 3 apartment key gerekiyor.\n\n▸ Skier'ın suç ortağı hakkında bilgi edin / Dairedeki belgeleri oku\nDairenin içinde alıp okuman gereken 4 belge var; her birinin birden fazla doğma noktası olabilir:\n• The Ninth Circle Issue #19\n• Tarkov Herald summary\n• FSB report\n• The Ninth Circle Issue #14\n\n▸ Streets of Tarkov'dan hayatta kalarak tahliye ol\nStreets of Tarkov'dan \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol.\n\n▸ Skier'a rapor ver\nMenüdeki trader ekranından Skier'ı ziyaret et.\n\n▸ Ragman ile konuş\nMenüdeki trader ekranından Ragman'i ziyaret et.\n\n▸ Anastasia'nın dairesini bul\nAranan daire, Streets of Tarkov'daki Chekannaya 13 apartmanının ikinci katında.\n\n▸ Anastasia hakkında bilgi edin / Binanın girişini incele\nBu hedef için merdivenlerden aşağı geri in ve posta kutusundaki mektubu ve gazeteyi alıp oku.\n\n▸ Kurye Pasha'yı bul / Pusu yerini ara\nPasha'nın pusuya düşürüldüğü yer, Customs'taki iki katlı yurdun yanında. Alıp okuman gereken not bisikletin yanında.\n\n▸ Skier'a rapor ver\nMenüdeki trader ekranından Skier'ı ziyaret et.\n\n▸ Reshala'nın zulasını bul ve incele\nReshala'nın zulası Customs'taki bir baraka. İçeride alıp okuman gereken 3 not var. Girmek için Reshala's bunkhouse key gerekiyor.\n\n▸ Kozlov'un saklandığı yeri bul ve kanıtını al\nKozlov'un saklandığı yer, Shoreline'daki batı köyünün doğu kısmındaki 3 numaralı ev. Kanıt bir ses kaseti; girişin yanındaki çiçek tarhında duruyor, alıp dinlemen gerekiyor.\nİsteğe bağlı \"Newspaper clipping with a photo of Anastasia\" evin içinde, yerde.\n\nÖdüller:\n• +64.000 EXP\n• Pay Your Debt başarımı açılır"
+ },
+ {
+  "id": "batya",
+  "sources": {
+   "name": "manual",
+   "objectives": "manual",
+   "guide": "manual"
+  },
+  "name": "Batya",
+  "objectives": [
+   {
+    "id": "o1",
+    "text": "BEAR özel timinin izlerini bul",
+    "details": [
+     "(İsteğe bağlı) Bogatyr timi armasını bul ve al"
+    ]
+   },
+   {
+    "id": "o2",
+    "text": "Trader'lardan Bogatyr timi hakkında bilgi al",
+    "details": []
+   },
+   {
+    "id": "o3",
+    "text": "Ryabina karakolunu bul",
+    "details": []
+   },
+   {
+    "id": "o4",
+    "text": "Bogatyr timi hakkında daha fazla bilgi bul",
+    "details": [
+     "(İsteğe bağlı) Bogatyr'lerden birine ait bir hatırayı bul ve al"
+    ]
+   },
+   {
+    "id": "o5",
+    "text": "Carousel karakolunu bul",
+    "details": []
+   },
+   {
+    "id": "o6",
+    "text": "Bogatyr timinin kişisel notlarını bul",
+    "details": []
+   },
+   {
+    "id": "o7",
+    "text": "Strelets hakkında daha fazlasını öğren",
+    "details": []
+   },
+   {
+    "id": "o8",
+    "text": "Taran hakkında daha fazlasını öğren",
+    "details": [
+     "(İsteğe bağlı) Bogatyr'lerden birine ait kişisel bir eşyayı bul ve al"
+    ]
+   },
+   {
+    "id": "o9",
+    "text": "Voevoda hakkında daha fazlasını öğren",
+    "details": []
+   },
+   {
+    "id": "o10",
+    "text": "Voevoda'nın kişisel eşyalarını bul",
+    "details": [
+     "(İsteğe bağlı) Tim komutanının ses kayıt cihazını bul ve al"
+    ]
+   },
+   {
+    "id": "o11",
+    "text": "Gnezdo karakolunu bul",
+    "details": []
+   },
+   {
+    "id": "o12",
+    "text": "Gnezdo karakolunu ara",
+    "details": []
+   },
+   {
+    "id": "o13",
+    "text": "Bogatyr timine ne olduğunu çöz",
+    "details": []
+   },
+   {
+    "id": "o14",
+    "text": "Bogatyr timinin nerede pusuya düşürüldüğünü bul",
+    "details": []
+   },
+   {
+    "id": "o15",
+    "text": "Bogatyr timinin faaliyetleri hakkında daha fazlasını öğren",
+    "details": []
+   },
+   {
+    "id": "o16",
+    "text": "Bogatyr timinin üyeleri hakkında daha fazlasını öğren",
+    "details": []
+   },
+   {
+    "id": "o17",
+    "text": "Pusu yerini bul",
+    "details": []
+   },
+   {
+    "id": "o18",
+    "text": "Bogatyr timi hakkında daha fazla bilgi edin",
+    "details": []
+   },
+   {
+    "id": "o19",
+    "text": "Moreman'ın cesedini incele",
+    "details": [
+     "(İsteğe bağlı) Moreman'ın telefonunu bul ve al",
+     "(İsteğe bağlı) Bogatyr'lerden birinin künyesini bul ve al"
+    ]
+   },
+   {
+    "id": "o20",
+    "text": "Moreman'ın telefonundan pusu hakkında daha fazla bilgi çıkar",
+    "details": []
+   },
+   {
+    "id": "o21",
+    "text": "İstihbarat Merkezi'ni 3. seviyeye yükselt",
+    "details": []
+   },
+   {
+    "id": "o22",
+    "text": "Bogatyr timiyle iletişime geç",
+    "details": []
+   },
+   {
+    "id": "o23",
+    "text": "Lightkeeper'a erişim sağla",
+    "details": []
+   },
+   {
+    "id": "o24",
+    "text": "Lightkeeper ile arandaki iyi ilişkiyi koru",
+    "details": []
+   },
+   {
+    "id": "o25",
+    "text": "Bogatyr timinin tüm eşyalarını Lightkeeper'a getir",
+    "details": []
+   },
+   {
+    "id": "o26",
+    "text": "Voevoda'nın sana ulaşmasını bekle",
+    "details": []
+   },
+   {
+    "id": "o27",
+    "text": "Hafif Makineli Tüfekler (Light Machine Guns) becerisini 5. seviyeye çıkar",
+    "details": []
+   },
+   {
+    "id": "o28",
+    "text": "Saldırı Tüfekleri (Assault Rifles) becerisini 10. seviyeye çıkar",
+    "details": []
+   },
+   {
+    "id": "o29",
+    "text": "Strese Dayanıklılık (Stress Resistance) becerisini 10. seviyeye çıkar",
+    "details": []
+   },
+   {
+    "id": "o30",
+    "text": "Güç (Strength) becerisini 15. seviyeye çıkar",
+    "details": []
+   },
+   {
+    "id": "o31",
+    "text": "Ölmeden herhangi 15 hedefi etkisiz hale getir",
+    "details": []
+   },
+   {
+    "id": "o32",
+    "text": "Ölmeden 4 PMC operatifini etkisiz hale getir",
+    "details": []
+   },
+   {
+    "id": "o33",
+    "text": "Voevoda ile iletişime geç",
+    "details": []
+   },
+   {
+    "id": "o34",
+    "text": "Hainlerin izlerini bul",
+    "details": [
+     "(İsteğe bağlı) Reserve'deki komuta sığınağını incele",
+     "(İsteğe bağlı) Lighthouse'taki BEAR kampını incele",
+     "(İsteğe bağlı) Interchange'de Ultra AVM'nin doğusundaki BEAR kampını incele"
+    ]
+   },
+   {
+    "id": "o35",
+    "text": "Prapor'u sorguya çek",
+    "details": []
+   },
+   {
+    "id": "o36",
+    "text": "Tarikatçıların General ile bağlantısını çöz",
+    "details": []
+   },
+   {
+    "id": "o37",
+    "text": "Lightkeeper ile konuş",
+    "details": []
+   },
+   {
+    "id": "o38",
+    "text": "Lightkeeper'ın The Unheard hakkındaki belgeleri hazırlamasını bekle",
+    "details": []
+   }
+  ],
+  "guide": "▸ BEAR özel timinin izlerini bul\nBu hedef için Customs, Woods, Reserve ya da Lighthouse'tan Bogatyrs patch'i alıp incelemen gerekiyor:\n• Customs: Yeni benzin istasyonunun güneybatısındaki tepenin üstündeki kulübede, bir kanepenin üzerinde.\n• Woods: Kargo konvoyundaki BRDM'nin yanında, yerde.\n• Reserve: Beyaz şahla işaretli hava sahası kontrol merkezinin üst çatısında, bir paketin üzerinde.\n• Lighthouse: BEAR kampında, bir uyku tulumunun üzerinde.\n\n▸ Trader'lardan Bogatyr timi hakkında bilgi al\nMenüdeki trader ekranından Jaeger'ı ziyaret et ve ona BEAR armasını sor.\n\n▸ Ryabina karakolunu bul\nRyabina karakolu, Woods'taki kereste fabrikasının kuzeyinde.\n\n▸ Bogatyr timi hakkında daha fazla bilgi bul\nBu hedef için kamptan bir not alıp okuman ve bir görev eşyası alman gerekiyor. Strelets' amulet'i sonraki raidlerde kaybetmemek için raid dışı görev envanterine aktar; ileride lazım olacak.\n\n▸ Carousel karakolunu bul\nCarousel karakolu, Interchange'deki ULTRA alışveriş merkezinin içinde, IDEA mağazasının kasa alanının karşısında. Karakoldan iki görev eşyası alman, 4 not okuman ve bir ses kaseti alman gerekiyor. Taran's postcard ve Voevoda's audio recorder'ı sonraki raidlerde kaybetmemek için raid dışı görev envanterine aktar; ileride lazım olacaklar.\n\n▸ Gnezdo karakolunu bul\nGnezdo karakolu, Interchange'de ULTRA alışveriş merkezinin doğusunda.\n\n▸ Gnezdo karakolunu ara\nBu hedef için karakoldan 5 not alıp okuman ve bir ses kaseti alman gerekiyor.\n\n▸ Pusu yerini bul\nPusu yeri, yani Moreman'ın mezarı, Woods'un doğusundaki ZB-016 tahliye noktasının yakınında.\n\n▸ Bogatyr timi hakkında daha fazla bilgi edin\nBu hedef için mezardan bir not alıp okuman ve iki görev eşyası alman gerekiyor. Moreman's dogtag'i sonraki raidlerde kaybetmemek için raid dışı görev envanterine aktar; ileride lazım olacak.\n\n▸ Moreman'ın telefonundan pusu hakkında bilgi çıkar\nSığınaktaki 1. seviye Tezgâh'ta (Workbench) Moreman's audio tape #1 ve Moreman's audio tape #2'yi üret ve dinle. Üretim boyunca elektrik olmalı, yoksa işlem durur.\n\n▸ İstihbarat Merkezi'ni 3. seviyeye yükselt\nSığınaktaki İstihbarat Merkezi'ni (Intelligence Center) 3. seviyeye yükselt.\n\n▸ Bogatyr timiyle iletişime geç\nSığınaktaki İstihbarat Merkezi'nin telsiz sistemi üzerinden Voevoda'ya ulaş. Önce, First piece of code note ve Second piece of code note'taki ipuçlarına göre \"35.70\" frekansını gir. Ardından Strelets' note'taki ipucuna göre \"27.893.2000\" kodunu gir.\n\n▸ Lightkeeper'a erişim sağla\nLightkeeper, Lighthouse haritasında; yarımadadaki deniz feneri binasının 3. katında, kilitli bir alanda bulunuyor.\nDeniz fenerine giden köprüyü Zryachiy koruyor ve köprü Claymore'larla dolu. Köprüden güvenle geçip Lightkeeper ile konuşmak için kodlanmış bir Digital secure DSP radio transmitter gerekiyor; bu cihaz Claymore'ları devre dışı bırakır ve Zryachiy'nin sana ateş etmesini engeller. Bunu elde etmek için görev zinciri To the Light - Trust but Verify göreviyle başlıyor.\nFener bölgesinde Zryachiy'ye, adamlarından birine ya da Lightkeeper'ın tanıdığı bir PMC'ye zarar verirsen, kuşanılı Digital secure DSP radio transmitter'ının kodu silinir (Dikkat: Yerel PvE raidlerinde cihazı çıkarmak bunu engellemez). Lightkeeper'ın tanıdığı PMC'ler, tanınmayan davetsiz misafirleri cezasız öldürebilir.\n\n▸ Bogatyr timinin tüm eşyalarını Lightkeeper'a getir\nTaran's postcard, Voevoda's audio recorder, Strelets' amulet, Moreman's dogtag ve Bogatyrs patch'i raid içi görev envanterine aktar ve Lightkeeper'a teslim et.\n\n▸ Voevoda'nın sana ulaşmasını bekle\nVoevoda'nın ulaşması için 6-12 saat bekle, ardından Sığınaktaki İstihbarat Merkezi'nin telsiziyle ona ulaş. Yine \"35.70\" frekansını ve \"27.893.2000\" kodunu gir.\n\n▸ Voevoda'nın görevlerini tamamla\n• Hafif Makineli Tüfekler becerisini 5. seviyeye çıkar\n• Saldırı Tüfekleri becerisini 10. seviyeye çıkar\n• Strese Dayanıklılık becerisini 10. seviyeye çıkar\n• Güç becerisini 15. seviyeye çıkar\n• Ölmeden herhangi 15 hedefi etkisiz hale getir\n• Ölmeden 4 PMC operatifini etkisiz hale getir\n\n▸ Voevoda ile iletişime geç\nSığınaktaki İstihbarat Merkezi'nin telsiziyle Voevoda'ya ulaş. Yine \"35.70\" frekansını ve \"27.893.2000\" kodunu gir.\n\n▸ Hainlerin izlerini bul\nBu hedef için alıp okuman gereken \"Note mentioning Prapor\", Lighthouse'taki BEAR kampında.\n\n▸ Prapor'u sorguya çek\nMenüdeki trader ekranından Prapor'u ziyaret et.\n\n▸ Tarikatçıların General ile bağlantısını çöz\nBu hedef için biri Shoreline'dan, diğeri Woods ya da Customs'tan olmak üzere 2 not alıp okuman gerekiyor. (Görev eşyasının her doğma noktası anahtar gerektirmez; anahtar şart değil.)\n• Voevoda's photo with a cultist mark – Shoreline: Adadaki evde.\n• Note mentioning General – Woods: Kereste fabrikasının batısında, kontrol noktasının yakınındaki ormanda işaretli çemberde.\n• Note mentioning General – Customs: Üç katlı yurdun üçüncü katındaki işaretli odada. Girmek için Dorm room 314 marked key gerekiyor.\n\n▸ Lightkeeper ile konuş\nLighthouse'ta Lightkeeper'ı ziyaret et.\n\n▸ Lightkeeper'ın The Unheard belgelerini hazırlamasını bekle\nYeni bir raidde Lighthouse'taki Lightkeeper bölgesine dön ve \"Agent network deployment report\"u alıp oku. Hedef 6 saat sonra tamamlanır.\n\nÖdüller:\n• +144.000 EXP\n• Voevoda's audio recorder\n• This Is All (Not) Coincidence başarımı açılır"
+ },
+ {
+  "id": "blue-fire",
+  "sources": {
+   "name": "manual",
+   "objectives": "manual",
+   "guide": "manual"
+  },
+  "name": "Mavi Ateş",
+  "objectives": [
+   {
+    "id": "o1",
+    "text": "EMP patlaması hakkında Mechanic ile konuş",
+    "details": [
+     "(İsteğe bağlı) Mechanic'e erişim sağla"
+    ]
+   },
+   {
+    "id": "o2",
+    "text": "Cihaz parçasını bul ve al",
+    "details": []
+   },
+   {
+    "id": "o3",
+    "text": "Cihaz parçasını Mechanic'e teslim et",
+    "details": []
+   },
+   {
+    "id": "o4",
+    "text": "Hackleme cihazını The Lab'deki sunucu odasına yerleştir",
+    "details": []
+   },
+   {
+    "id": "o5",
+    "text": "Mechanic ile konuş",
+    "details": []
+   },
+   {
+    "id": "o6",
+    "text": "Item 1156 parçasını kendine sakla ya da Mechanic'e teslim et",
+    "details": []
+   },
+   {
+    "id": "o7",
+    "text": "Item 1156 hakkında bir ipucu bul",
+    "details": []
+   },
+   {
+    "id": "o8",
+    "text": "Rus Post postanesini incele",
+    "details": []
+   },
+   {
+    "id": "o9",
+    "text": "Rus Post aracını bul",
+    "details": []
+   },
+   {
+    "id": "o10",
+    "text": "Item 1156'nın planını ele geçir",
+    "details": []
+   }
+  ],
+  "guide": "▸ EMP patlaması hakkında Mechanic ile konuş\nMenüdeki trader ekranından Mechanic'i ziyaret et ve ona EMP patlamasını sor.\n\n▸ Cihaz parçasını bul ve al\nUnknown device fragment, Streets of Tarkov'da ya LexOs bayisinin ikinci katındaki kapalı bölümde ya da Chekannaya 13 apartmanının içindeki işaretli odada bulunabilir. (Hedef için anahtarlardan yalnızca biri yeterli.)\n• LexOs bayisi: Kapalı bölüme girmek için Car dealership closed section key gerekiyor. Dikkat: LexOs bayisinin içi Claymore'larla dolu.\n• Chekannaya 13 işaretli oda: Odaya girmek için Mysterious room marked key gerekiyor.\n\n▸ Cihaz parçasını Mechanic'e teslim et\nMenüdeki trader ekranından Mechanic'i ziyaret et ve cihazı teslim et.\n\n▸ Hackleme cihazını The Lab'deki sunucu odasına yerleştir\nLocal network hacking device, The Lab'in birinci katındaki sunucu odasına bırakılmalı. Mechanic bir tanesini oyun içi posta ile gönderiyor; daha fazlası için takası (barter) da var.\n\n▸ Mechanic ile konuş\nMenüdeki trader ekranından Mechanic'i ziyaret et.\n\n▸ Item 1156 parçasını kendine sakla ya da Mechanic'e teslim et\n• Karar – Parçayı sakla: Better Served başarımı açılır.\n• Karar – Parçayı Mechanic'e ver: 1.500.000 Ruble.\n\n▸ Item 1156 hakkında bir ipucu bul\nAlıp okuman gereken \"Note mentioning Item #1156\" Ground Zero (Seviye 21+), Lighthouse ya da The Lab'de bulunabilir. (Eşyanın her doğma noktası anahtar gerektirmez; anahtar şart değil.)\n• Ground Zero (Seviye 21+): TerraGroup ana binasının ikinci katındaki 4 numaralı ofiste. Girmek için TerraGroup science office key gerekiyor.\n• Lighthouse: Kuzeydeki mavi dağ evinin birinci katında, orta merdivenin yanındaki kitaplıkta.\n• The Lab: İkinci kattaki O22 ofisinde, bir masanın üzerinde.\n\n▸ Rus Post postanesini incele\nBu hedef için Streets of Tarkov'daki postanede bulunan 3 ses kasetini alıp dinlemen gerekiyor.\n\n▸ Rus Post aracını bul / Item 1156'nın planını ele geçir\nAraç postanenin önünde. Alıp okuman gereken \"Item #1156 specification\" aracın arka kısmında. Açmak için Rus Post car key gerekiyor; her raidde aracın sağ arka tekerleğinin yanında yerde bir anahtar garanti olarak çıkıyor.\n\nÖdüller:\n• +112.000 EXP\n• Inferno başarımı açılır"
+ },
+ {
+  "id": "boreas",
+  "sources": {
+   "name": "manual",
+   "objectives": "manual",
+   "guide": "manual"
+  },
+  "name": "Boreas",
+  "objectives": [
+   {
+    "id": "o1",
+    "text": "Trader'lardan TerraGroup ile Paradigm Shipping arasındaki bağlantı hakkında bilgi al / Mechanic'e imdat sinyalinin nereden geldiğini sor",
+    "details": []
+   },
+   {
+    "id": "o2",
+    "text": "Woods'taki baz istasyonu kulesinin altındaki ekipmanı bul",
+    "details": []
+   },
+   {
+    "id": "o3",
+    "text": "Woods'taki baz istasyonu kulesinin altındaki ekipmanı onar",
+    "details": []
+   },
+   {
+    "id": "o4",
+    "text": "Mechanic'e rapor ver",
+    "details": []
+   },
+   {
+    "id": "o5",
+    "text": "Paradigm Shipping belgelerini bul ve al",
+    "details": []
+   },
+   {
+    "id": "o6",
+    "text": "Mechanic'e \"Boreas\"tan bahset",
+    "details": []
+   },
+   {
+    "id": "o7",
+    "text": "Buzkırana (Icebreaker) ulaşım ayarla",
+    "details": []
+   },
+   {
+    "id": "o8",
+    "text": "AMG-10 sıvısını Prapor'a teslim et",
+    "details": []
+   },
+   {
+    "id": "o9",
+    "text": "Raidde bulunmuş (FIR) 3 Military power filter'ı Prapor'a teslim et",
+    "details": []
+   },
+   {
+    "id": "o10",
+    "text": "AMG-10 sıvısını Prapor'a teslim et",
+    "details": []
+   },
+   {
+    "id": "o11",
+    "text": "Reserve'de herhangi 30 hedefi etkisiz hale getir",
+    "details": []
+   },
+   {
+    "id": "o12",
+    "text": "Reserve'deki Woods geçiş noktasında sarı işaret fişeği at",
+    "details": []
+   },
+   {
+    "id": "o13",
+    "text": "AMG-10 sıvısını Prapor'a teslim et",
+    "details": []
+   },
+   {
+    "id": "o14",
+    "text": "Buzkırana alternatif bir ulaşım bul",
+    "details": []
+   },
+   {
+    "id": "o15",
+    "text": "BTR Driver ile konuş",
+    "details": []
+   },
+   {
+    "id": "o16",
+    "text": "Sığınağa (Hideout) dön",
+    "details": []
+   },
+   {
+    "id": "o17",
+    "text": "BTR Driver'a geri dön",
+    "details": []
+   },
+   {
+    "id": "o18",
+    "text": "Mechanic'e buzkırana ulaşım bulduğunu söyle",
+    "details": []
+   },
+   {
+    "id": "o19",
+    "text": "200 adet 7.62x54mm R BT gzh teslim et",
+    "details": []
+   },
+   {
+    "id": "o20",
+    "text": "Customs'ta Skier'ın raporlarını bul ve al",
+    "details": []
+   },
+   {
+    "id": "o21",
+    "text": "Skier'ın raporlarını Customs'ta yak",
+    "details": []
+   },
+   {
+    "id": "o22",
+    "text": "Kaçakçıların bölgelerinde herhangi 15 hedefi etkisiz hale getir",
+    "details": []
+   },
+   {
+    "id": "o23",
+    "text": "BTR Driver'a rapor ver",
+    "details": []
+   },
+   {
+    "id": "o24",
+    "text": "Mechanic'e buzkırana ulaşım bulduğunu söyle",
+    "details": []
+   },
+   {
+    "id": "o25",
+    "text": "Kaçakçıların bölgelerinde herhangi 10 hedefi etkisiz hale getir",
+    "details": []
+   },
+   {
+    "id": "o26",
+    "text": "BTR Driver'a rapor ver",
+    "details": []
+   },
+   {
+    "id": "o27",
+    "text": "Mechanic'e buzkırana ulaşım bulduğunu söyle",
+    "details": []
+   },
+   {
+    "id": "o28",
+    "text": "Shoreline ya da Lighthouse'ta kaçakçıların hovercraft'ına bin",
+    "details": [
+     "(İsteğe bağlı) Bir deniz tamir kiti getir",
+     "(İsteğe bağlı) Yeşil bir RSP işaret fişeği getir",
+     "(İsteğe bağlı) Buzkırandan tahliye ücreti için 2.500 Euro getir"
+    ]
+   },
+   {
+    "id": "o29",
+    "text": "Buzkırana var",
+    "details": []
+   },
+   {
+    "id": "o30",
+    "text": "Gemide hayatta kalan mürettebat olup olmadığını kontrol et",
+    "details": []
+   },
+   {
+    "id": "o31",
+    "text": "Makine dairesine gir",
+    "details": [
+     "(İsteğe bağlı) Makine dairesi anahtar kartını bul ve al",
+     "(İsteğe bağlı) Makine dairesine ulaş"
+    ]
+   },
+   {
+    "id": "o32",
+    "text": "Buzkıranın üst yapısına girmenin bir yolunu bul",
+    "details": []
+   },
+   {
+    "id": "o33",
+    "text": "Mechanic'e patlayıcıları sor",
+    "details": []
+   },
+   {
+    "id": "o34",
+    "text": "Prapor'a patlayıcıları sor",
+    "details": []
+   },
+   {
+    "id": "o35",
+    "text": "Buzkırana var",
+    "details": []
+   },
+   {
+    "id": "o36",
+    "text": "Makine dairesinin çatısındaki hasarlı kapıya ulaş",
+    "details": []
+   },
+   {
+    "id": "o37",
+    "text": "Makine dairesinin çatısındaki kapının zincirini SZ-1 patlayıcısıyla kır",
+    "details": []
+   },
+   {
+    "id": "o38",
+    "text": "Makine dairesinin çatısından buzkıranın üst yapısına gir",
+    "details": [
+     "(İsteğe bağlı) Üst yapıdaki mürettebat yaşam alanlarını incele"
+    ]
+   },
+   {
+    "id": "o39",
+    "text": "Buzkıran üst yapısının üst güvertelerine çıkmanın bir yolunu bul",
+    "details": []
+   },
+   {
+    "id": "o40",
+    "text": "Hayatta kalan bilim insanına 6. kattaki şifreli kapının nasıl açılacağını sor",
+    "details": []
+   },
+   {
+    "id": "o41",
+    "text": "6. kattaki kilitli kapının şifresinin ikinci kısmını bulmak için Mechanic'ten yardım iste",
+    "details": []
+   },
+   {
+    "id": "o42",
+    "text": "Hackleme cihazını The Lab'deki sunucu odasına yerleştir",
+    "details": []
+   },
+   {
+    "id": "o43",
+    "text": "Mechanic'e geri dön",
+    "details": []
+   },
+   {
+    "id": "o44",
+    "text": "Buzkırana var",
+    "details": []
+   },
+   {
+    "id": "o45",
+    "text": "Makine dairesine ulaş",
+    "details": [
+     "(İsteğe bağlı) Makine dairesi anahtar kartını bul ve al"
+    ]
+   },
+   {
+    "id": "o46",
+    "text": "Makine dairesinin çatısındaki hasarlı kapıya ulaş",
+    "details": []
+   },
+   {
+    "id": "o47",
+    "text": "BTR Driver'a geri dön",
+    "details": []
+   },
+   {
+    "id": "o48",
+    "text": "BTR Driver'a geri dön",
+    "details": []
+   },
+   {
+    "id": "o49",
+    "text": "Makine dairesinin çatısındaki kapının zincirini SZ-1 patlayıcısıyla kır",
+    "details": []
+   },
+   {
+    "id": "o50",
+    "text": "Şifreli kapıya ulaş",
+    "details": []
+   },
+   {
+    "id": "o51",
+    "text": "Doğru giriş şifresini kullan",
+    "details": []
+   },
+   {
+    "id": "o52",
+    "text": "C-1 bölmesini bul",
+    "details": [
+     "(İsteğe bağlı) C-1 bölmesine erişim veren anahtar kartı bul ve al",
+     "(İsteğe bağlı) Köprü üstünün girişini bul",
+     "(İsteğe bağlı) Köprü üstüne alternatif bir yol bul"
+    ]
+   },
+   {
+    "id": "o53",
+    "text": "Üst güvertelere ulaş",
+    "details": []
+   },
+   {
+    "id": "o54",
+    "text": "Köprü üstünün çatısındaki kapağın buzunu çöz",
+    "details": [
+     "(İsteğe bağlı) Köprü üstü çatısındaki kapağı çözmek için bir şey bul"
+    ]
+   },
+   {
+    "id": "o55",
+    "text": "Buzkıranın kaptanını kurtar",
+    "details": []
+   },
+   {
+    "id": "o56",
+    "text": "C-1 bölmesine gir",
+    "details": []
+   },
+   {
+    "id": "o57",
+    "text": "C-1 bölmesindeki rafları ara",
+    "details": []
+   },
+   {
+    "id": "o58",
+    "text": "C-1 bölmesindeki iş istasyonunun çevresini ara",
+    "details": []
+   },
+   {
+    "id": "o59",
+    "text": "C-1 bölmesindeki sunucuları ara",
+    "details": []
+   },
+   {
+    "id": "o60",
+    "text": "Buzkırandaki sabit disklerin çözülmesi için Mechanic'ten yardım iste",
+    "details": []
+   },
+   {
+    "id": "o61",
+    "text": "Raidde bulunmuş (FIR) 3 Ultralink uydu modülünü Mechanic'e teslim et",
+    "details": [
+     "(İsteğe bağlı) Buzkıranda Ultralink uydu modüllerini bul ve al"
+    ]
+   },
+   {
+    "id": "o62",
+    "text": "Raidde bulunmuş (FIR) 4 sunucu RAM modülünü Mechanic'e teslim et",
+    "details": [
+     "(İsteğe bağlı) Buzkıranda sunucu RAM modüllerini bul ve al"
+    ]
+   },
+   {
+    "id": "o63",
+    "text": "Raidde bulunmuş (FIR) 2 kriptografik işlemciyi Mechanic'e teslim et",
+    "details": [
+     "(İsteğe bağlı) Buzkıranda kriptografik işlemcileri bul ve al"
+    ]
+   },
+   {
+    "id": "o64",
+    "text": "Buzkırandan gelen verileri analiz et",
+    "details": []
+   },
+   {
+    "id": "o65",
+    "text": "Bilim insanına kaptanın öldüğünü bildir",
+    "details": []
+   },
+   {
+    "id": "o66",
+    "text": "BTR Driver'a bilim insanını buzkırandan tahliye etmeye yardım edip edemeyeceğini sor",
+    "details": []
+   },
+   {
+    "id": "o67",
+    "text": "Kaçakçılara Rogue'larla olan çatışmalarında yardım et",
+    "details": []
+   },
+   {
+    "id": "o68",
+    "text": "BTR Driver'a geri dön",
+    "details": []
+   },
+   {
+    "id": "o69",
+    "text": "Buzkıranda 20 hedefi etkisiz hale getir",
+    "details": []
+   },
+   {
+    "id": "o70",
+    "text": "5 respiratörü BTR Driver'a teslim et",
+    "details": [
+     "(İsteğe bağlı) BTR Driver için respiratör bul"
+    ]
+   },
+   {
+    "id": "o71",
+    "text": "2 adet 5. sınıf veya üstü balistik plakayı BTR Driver'a teslim et",
+    "details": [
+     "(İsteğe bağlı) BTR Driver için 5+ sınıf balistik plaka bul"
+    ]
+   },
+   {
+    "id": "o72",
+    "text": "Kirasa-N zırhını BTR Driver'a teslim et",
+    "details": [
+     "(İsteğe bağlı) BTR Driver için Kirasa-N zırhını bul"
+    ]
+   },
+   {
+    "id": "o73",
+    "text": "Bilim insanına tahliyesi için her şeyin hazır olduğunu bildir",
+    "details": []
+   },
+   {
+    "id": "o74",
+    "text": "BTR Driver'a bilim insanının kurtarılmasının nasıl geçtiğini sor",
+    "details": []
+   }
+  ],
+  "guide": "▸ Mechanic ile konuş\nMenüdeki trader ekranından Mechanic'i ziyaret et.\n\n▸ Woods'taki baz istasyonu kulesinin altındaki ekipmanı bul ve onar\nWoods'taki Scav sığınağındaki ekipmanı bul ve bir Toolset ile onar.\n\n▸ Mechanic'e rapor ver\nMenüdeki trader ekranından Mechanic'i ziyaret et.\n\n▸ Paradigm Shipping belgelerini bul ve al\nAlıp okuman gereken \"Paradigm Shipping directive\", Lighthouse'un kuzeyindeki yük sahasındaki depoda.\n\n▸ Mechanic'e \"Boreas\"tan bahset\nMenüdeki trader ekranından Mechanic'i ziyaret et.\n\n▸ Buzkırana ulaşım ayarla\nMenüdeki trader ekranından Prapor'u ziyaret et ve ona ulaşımı sor.\n• 3 Military power filter'ı Prapor'a teslim et: Bu hedef yalnızca Düşen Gökyüzü (Falling Skies) bölümünde Prapor'un zırhlı çantasını kendine sakladıysan çıkar.\n• Reserve'de herhangi 30 hedefi etkisiz hale getir: Bu hedef yalnızca Düşen Gökyüzü bölümünü tamamlamadıysan çıkar.\n• Reserve'deki Woods geçiş noktasında sarı işaret fişeği at: Bu hedef de yalnızca Düşen Gökyüzü bölümünü tamamlamadıysan çıkar. Reserve'deki Woods geçiş noktasındayken gökyüzüne sarı fişek at. Fişek belli bir yüksekliğe çıkmazsa hedef tamamlanmaz. Prapor'dan Sadakat 1'de alınabilen el tipi RSP-30 yellow flare'i ya da Jaeger'dan Sadakat 1'de alınabilen ve işaret tabancasıyla atılan 26x75mm yellow flare cartridge'ı kullanabilirsin. El tipi RSP-30 kullanıyorsan yukarı nişan al ama çok fazla değil, yoksa arkana düşer.\n\n▸ AMG-10 sıvısını Prapor'a teslim et\nAMG-10 hydraulic fluid (görev eşyası) Reserve'de bulunuyor; harita genelinde birden fazla doğma noktası var. Not: Takas (barter) eşyası olan AMG-10 hydraulic fluid bu hedef için geçerli değil.\n\n▸ Buzkırana alternatif bir ulaşım bul\nBTR Driver ile konuş ve ona ulaşımı sor.\n• Sığınağa dön: Bu hedef yalnızca The Price of Independence görevini tamamladıysan çıkar. Raidden tahliye olarak ya da ölerek çık.\n• 200 adet 7.62x54mm R BT gzh mermiyi BTR Driver'a teslim et: Bu hedef yalnızca Choose Your Friends Wisely görevini tamamladıysan çıkar.\n• Customs'ta Skier'ın raporlarını bul ve al: Bu hedef yalnızca Choose Your Friends Wisely görevini tamamladıysan çıkar. Skier's docs, Customs'ta Scav üssü ile laboratuvar arasındaki hendekte.\n• Skier'ın raporlarını Customs'ta yak: Bu hedef yalnızca Choose Your Friends Wisely görevini tamamladıysan çıkar. Skier's docs'u Customs'taki herhangi bir ateş varilinde yak. Alma noktasına en yakın olanı Scav üssünün ortadaki yaşam alanında.\n• Kaçakçıların bölgelerinde herhangi 15 hedefi etkisiz hale getir: Bu hedef yalnızca Choose Your Friends Wisely görevini tamamladıysan çıkar. Shoreline ya da Interchange'deki kaçakçı üslerinde herhangi 15 hedef öldür.\n• Kaçakçıların bölgelerinde herhangi 10 hedefi etkisiz hale getir: Bu hedef yalnızca The Price of Independence ya da Choose Your Friends Wisely görevlerinden hiçbirini tamamlamadıysan çıkar. Shoreline ya da Interchange'deki kaçakçı üslerinde herhangi 10 hedef öldür.\n\n▸ BTR Driver'a geri dön\nBTR Driver ile konuş.\n\n▸ Mechanic'e buzkırana ulaşım bulduğunu söyle\nMenüdeki trader ekranından Mechanic'i ziyaret et.\n\n▸ Shoreline ya da Lighthouse'ta kaçakçıların hovercraft'ına bin\nHovercraft, Shoreline ve Lighthouse'taki iskelelerde. Yalnızca üzerinde Sudak-Tudak marine repair kit varken binilebiliyor. Buzkırandan tahliye olmak için yeşil bir fişek ve 2.400 Euro gerekiyor.\n\n▸ Buzkırana var\nBuzkırana Shoreline ya da Lighthouse geçişi üzerinden gir.\n\n▸ Gemide hayatta kalan mürettebat olup olmadığını kontrol et\nGeminin doğu tarafında, 1. kattaki interkom üzerinden bilim insanıyla konuş.\n\n▸ Makine dairesine gir\nMakine dairesine Boreas engine room keycard ile gir. Makine dairesinin yarısına geldiğinde Black Division operatifleri önündeki iskele yollarındaki kapılardan çıkıyor.\n• Makine dairesi anahtar kartı: 1. kattaki ortadaki revirde, bir mühendisin cesedinin yanında.\n• Makine dairesine ulaşmak: Geminin doğu tarafında 0. kata in ve kontrol odasının hemen yanındaki kart okuyuculu kilitli kapıyı bul. Gemide ilerlemeye devam et, merdivenlerden 1. kata çıkıp makine dairesinin kapılarını bul. Mühürlerini aç, odaya gir ve aşağıda -2. kata in.\n\n▸ Buzkıranın üst yapısına girmenin bir yolunu bul\nTahliye bölgesine git ama tahliye olmak yerine iki kat aşağı in, helipadin etrafından dön, geminin yan tarafına kadar git ve 3. kata çıkıp zincirli bir kapı bul.\nHelipadin üstünde bir grup Black Division operatifi, altında da başka bir grup seni bekliyor.\nHedefe ulaşınca zincirle kilitlenmiş hasarlı kapıyı açmayı dene; senden bir patlayıcı bulman istenecek. Artık buzkırandan tahliye olabilirsin. Bu noktada Stick to It görevi açılıyor.\n\n▸ Mechanic'e patlayıcıları sor\nMenüdeki trader ekranından Mechanic'i ziyaret et.\n\n▸ Prapor'a patlayıcıları sor\nMenüdeki trader ekranından Prapor'u ziyaret et.\nÖdül: Prapor'da Sadakat 1'de SZ-1 explosive charge (Icebreaker) satın alınabilir hale gelir.\n\n▸ Makine dairesinin çatısındaki hasarlı kapıya ulaş\nZincirli hasarlı kapıya geri dönmen gerekiyor.\n\n▸ Kapının zincirini SZ-1 patlayıcısıyla kır\nÜzerinde SZ-1 explosive charge (Icebreaker) varken hasarlı kapıya ulaşınca patlayıcıyı zincire yerleştirip zinciri kırabilirsin.\n\n▸ Makine dairesinin çatısından buzkıranın üst yapısına gir\nKapıdan sonra mürettebat yaşam alanına girmen gerekiyor. Dikkat: The Wedge timi mürettebat yaşam alanında bulunuyor. Yaşam alanının giriş kapısına tuzak teli olarak bir göz yaşartıcı bomba kurulmuş.\n\n▸ Üst güvertelere çıkmanın bir yolunu bul\nMürettebat yaşam alanı temizlenip The Wedge öldürüldükten sonra geminin 5. katına çık, yaşam alanından dışarı çıkıp merdivenleri kullan ve üst güvertelere açılan şifreli kapıyı bul.\n\n▸ Hayatta kalan bilim insanına 6. kattaki şifreli kapıyı sor\nGeminin doğu tarafında, 1. kattaki interkom üzerinden bilim insanıyla konuş.\n\n▸ Şifrenin ikinci kısmı için Mechanic'ten yardım iste\nMenüdeki trader ekranından Mechanic'i ziyaret et.\n\n▸ Hackleme cihazını The Lab'deki sunucu odasına yerleştir\nLocal network hacking device, The Lab'in birinci katındaki sunucu odasına bırakılmalı. Mechanic bir tanesini oyun içi posta ile gönderiyor; daha fazlası için takası (barter) da var.\n\n▸ Mechanic'e geri dön\nMenüdeki trader ekranından Mechanic'i ziyaret et.\n\n▸ Buzkırana var (tekrar)\nBuzkırana Shoreline geçişi üzerinden ya da menüden gir.\n\n▸ Makine dairesine ulaş (tekrar)\nMakine dairesine Boreas engine room keycard ile gir; yine yarı yolda Black Division operatifleri önündeki iskele yollarındaki kapılardan çıkıyor. Anahtar kart 1. kattaki ortadaki revirde, bir mühendisin cesedinin yanında. Geminin doğu tarafında 0. kata in, kontrol odasının yanındaki kart okuyuculu kapıyı bul, sonra merdivenlerden 1. kata çıkıp makine dairesine gir ve -2. kata in.\n\n▸ Hasarlı kapıya ulaş ve zinciri SZ-1 ile kır\nZincirli hasarlı kapıya geri dön; üzerinde SZ-1 explosive charge (Icebreaker) varken patlayıcıyı zincire yerleştirip zinciri kır.\n\n▸ Şifreli kapıya ulaş\nMürettebat yaşam alanı temizlenip The Wedge öldürüldükten sonra 5. kata çık, yaşam alanından dışarı çıkıp merdivenleri kullan ve üst güvertelere açılan şifreli kapıyı bul.\n\n▸ Doğru giriş şifresini kullan\nKapıyı açmak için tuş takımına 3-1-2-2-2-0 kodunu gir. Kod her raidde aynı, değişmiyor ve bölgede dışarıya açılan tüm kapılar için geçerli.\n\n▸ C-1 bölmesini bul\nC-1 bölmesi 7. katta, dışarıya açılan çıkışın yanında. Açmak için Compartment C-1 keycard gerekiyor.\n\n▸ Üst güvertelere ulaş\n7. kattaki odalardan 3-1-2-2-2-0 koduyla çık ve yukarı çıkarak köprü üstünü bul.\n\n▸ Köprü üstünün çatısındaki kapağın buzunu çöz\nKapak köprü üstünün çatısında; donmuş bir kolu olan donmuş bir kapak.\nKapağı çözmek için gereken BBQ-S43 gas torch, 3. kattaki mutfakta, The Wedge'in çıktığı yerde.\n\n▸ C-1 bölmesine gir\nOdaya girmek için Compartment C-1 keycard gerekiyor.\n\n▸ Buzkıranın kaptanını kurtar\nBu hedef, 9. kattaki köprü üstünde kaptanın cesedine ulaştığında tamamlanıyor.\n\n▸ C-1 bölmesini ara\n• Raflar: \"Hard drive from compartment C-1 (3)\", odaya girince soldaki raflarda.\n• İş istasyonu: \"Hard drive from compartment C-1 (1)\", masanın altında, PC kasalarının üzerinde.\n• Sunucular: \"Hard drive from compartment C-1 (2)\", yerdeki sunucuların üstünde.\n\n▸ Sabit disklerin çözülmesi için Mechanic'ten yardım iste\nMenüdeki trader ekranından Mechanic'i ziyaret et ve 3 sabit diski teslim et.\nNot: Diskleri teslim edince A Wedge Between Us, Fresh Stock, Oil Change ve War Never Changes görevleri açılıyor. Bu bölüme devam etmek için bunları tamamlaman gerekmiyor.\n\n▸ Mechanic'e teslimatlar\n• 3 Ultralink satellite communication module (FIR)\n• 4 Memento Server RAM Module (FIR)\n• 2 IBX Gigachad cryptographic processor (FIR)\nHepsini menüdeki trader ekranından Mechanic'e teslim et.\nÖdül: 1× Icebreaker archive data\n\n▸ Buzkırandan gelen verileri analiz et\nMesajlarından aldıktan sonra Icebreaker archive data'yı el kitabından (handbook) oku.\n\n▸ Bilim insanına kaptanın öldüğünü bildir\nGeminin doğu tarafında, 1. kattaki interkom üzerinden bilim insanıyla konuş.\n\n▸ BTR Driver'a bilim insanının tahliyesini sor\nBTR Driver ile konuş.\n\n▸ Kaçakçılara Rogue'larla çatışmalarında yardım et\nBu hedef için Hangover görevini tamamlaman gerekiyor.\n\n▸ BTR Driver'a geri dön\nBTR Driver ile konuş.\n\n▸ Buzkıranda 20 hedefi etkisiz hale getir\nBuzkıranda herhangi 20 hedef öldür.\n\n▸ BTR Driver'a teslimatlar\n• 5 respiratör\n• 2 adet 5. sınıf veya üstü balistik plaka\n• Kirasa-N zırhı\n\n▸ Bilim insanına tahliyenin hazır olduğunu bildir\nGeminin doğu tarafında, 1. kattaki interkom üzerinden bilim insanıyla konuş.\n\n▸ BTR Driver'a kurtarmanın nasıl geçtiğini sor\nWoods ya da Streets of Tarkov'da BTR Driver'ı ziyaret et."
+ },
+ {
+  "id": "falling-skies",
+  "sources": {
+   "name": "manual",
+   "objectives": "manual",
+   "guide": "manual"
+  },
+  "name": "Düşen Gökyüzü",
+  "objectives": [
+   {
+    "id": "o1",
+    "text": "Düşen uçağı bul",
+    "details": []
+   },
+   {
+    "id": "o2",
+    "text": "Prapor ile Sadakat Seviyesi 2'ye ulaş",
+    "details": []
+   },
+   {
+    "id": "o3",
+    "text": "Trader'lara düşen uçağı sor",
+    "details": []
+   },
+   {
+    "id": "o4",
+    "text": "(İsteğe bağlı) Doğru G-Wagon hakkında bilgi almak için Therapist'e 2.000 Dolar ver",
+    "details": []
+   },
+   {
+    "id": "o5",
+    "text": "G-Wagon araçlarından birindeki flash belleği al",
+    "details": []
+   },
+   {
+    "id": "o6",
+    "text": "Flash belleği Prapor'a teslim et",
+    "details": []
+   },
+   {
+    "id": "o7",
+    "text": "Prapor'dan haber bekle",
+    "details": []
+   },
+   {
+    "id": "o8",
+    "text": "Uçağın uçuş kayıt cihazını (kara kutu) al",
+    "details": []
+   },
+   {
+    "id": "o9",
+    "text": "Uçuş kayıt cihazını belirtilen yere bırak",
+    "details": []
+   },
+   {
+    "id": "o10",
+    "text": "Prapor'u ziyaret et",
+    "details": []
+   },
+   {
+    "id": "o11",
+    "text": "Raidde bulunmuş (FIR) 3 Rechargeable battery teslim et",
+    "details": []
+   },
+   {
+    "id": "o12",
+    "text": "Raidde bulunmuş (FIR) 5 Printed circuit board teslim et",
+    "details": []
+   },
+   {
+    "id": "o13",
+    "text": "Raidde bulunmuş (FIR) 2 Toolset teslim et",
+    "details": []
+   },
+   {
+    "id": "o14",
+    "text": "Prapor'dan haber bekle",
+    "details": []
+   },
+   {
+    "id": "o15",
+    "text": "Uçuş ekibinin konuşma dökümünü Prapor'a teslim et",
+    "details": []
+   },
+   {
+    "id": "o16",
+    "text": "Elektronik'in şifreli flash belleğini Prapor'a teslim et",
+    "details": []
+   },
+   {
+    "id": "o17",
+    "text": "Prapor'dan haber bekle",
+    "details": []
+   },
+   {
+    "id": "o18",
+    "text": "Zırhlı çantayı al",
+    "details": [
+     "(İsteğe bağlı) Başka ipuçları bul"
+    ]
+   },
+   {
+    "id": "o19",
+    "text": "Zırhlı çantayı kendine sakla ya da Prapor'a teslim et",
+    "details": []
+   }
+  ],
+  "guide": "▸ Düşen uçağı bul\nDüşen uçak Woods'un doğu tarafında.\n\n▸ Prapor ile konuş\nMenüdeki trader ekranından Prapor'u ziyaret et ve ona düşen uçağı sor.\n\n▸ Prapor ile Sadakat Seviyesi 2'ye ulaş\nUçak hakkında daha fazla bilgi almak için Prapor ile sadakat seviyesi 2'ye ulaşman, sonra ona uçağı tekrar sorman gerekiyor.\n\n▸ Trader'lara düşen uçağı sor\nMenüdeki trader ekranından Prapor, Therapist, Skier, Mechanic ve Jaeger'ı ziyaret et ve hepsine düşen uçağı sor.\n\n▸ (İsteğe bağlı) Doğru G-Wagon için Therapist'e 2.000 Dolar ver\nMenüdeki trader ekranından Therapist'i ziyaret et ve ona düşen uçakla ilgili bilgi sor. 2.000 Dolar verdiğinde aranan aracın yerini söylüyor.\n\n▸ G-Wagon araçlarından birindeki flash belleği al\nG-Wagon flash drive, Shoreline'daki \"Tunnel\" tahliye noktasının yanındaki G-Wagon'un sürücü tarafındaki basamakta.\nG-Wagon flash drive'ı trader ekranından Prapor'a teslim et.\n\n▸ Prapor'dan haber bekle\n30 dakika bekle, sonra menüdeki trader ekranından Prapor'u ziyaret et ve ona düşen uçağı sor.\n\n▸ Uçağın uçuş kayıt cihazını al\nDüşen uçak Woods'un doğu tarafında; Crashed plane's flight recorder, uçağın sağ tarafında, arkaya yakın kırık bölümde.\n\n▸ Uçuş kayıt cihazını belirtilen yere bırak\nCrashed plane's flight recorder, Shoreline adasındaki evin yıkık odasına bırakılmalı.\n\n▸ Prapor'u ziyaret et\nPrapor devam etmek için bu eşyaları istiyor: 3 Rechargeable battery, 5 Printed circuit board, 2 Toolset (hepsi raidde bulunmuş).\n\n▸ Prapor'dan haber bekle\n3-5 saat bekle, sonra menüdeki trader ekranından Prapor'u ziyaret et ve ona düşen uçağı sor.\n\n▸ Uçuş ekibinin dökümünü ve Elektronik'in şifreli flash belleğini Prapor'a teslim et\nİki eşya da Shoreline'daki muhtarın evinde (chairman's house) bulunuyor.\nÖdül (iki eşyayı da teslim edince):\n• 300.000 Ruble (İstihbarat Merkezi 1. seviyede 315.000, 2. seviyede 345.000)\n\n▸ Prapor'dan haber bekle\n1-3 saat bekle, sonra menüdeki trader ekranından Prapor'u ziyaret et ve ona düşen uçağı sor. Prapor dökümü okuyup okumadığını soruyor; \"evet\" dersen ödül alırsın, \"hayır\" dersen almazsın.\nÖdül:\n• 300.000 Ruble (İstihbarat Merkezi 1. seviyede 315.000, 2. seviyede 345.000)\n\n▸ Zırhlı çantayı al / Başka ipuçları bul\nArmored case, düşen uçağın kokpitinin arkasında; isteğe bağlı \"Note from Mr. Kerman\" pilot koltuğunda.\n\n▸ Zırhlı çantayı kendine sakla ya da Prapor'a teslim et\nBu, geri dönüşü olmayan önemli bir karar! The Ticket (Bilet) bölümünün gidişatını etkiliyor.\n• Karar – Çantayı sakla: +80.000 EXP, Prapor itibarı -0,7, 1× Armored case, Just Business başarımı.\n• Karar – Çantayı doğrudan Prapor'a ver: +80.000 EXP, 1.000.000 Ruble (İstihbarat Merkezi 1. seviyede 1.050.000, 2. seviyede 1.150.000), Man of His Word başarımı.\n• Karar – Çantayı bulamamış gibi yap ama yine de Prapor'a ver: +80.000 EXP, 1.000.000 Ruble (İstihbarat Merkezi 1. seviyede 1.050.000, 2. seviyede 1.150.000), Man of His Word başarımı."
+ },
+ {
+  "id": "the-labyrinth-story-chapter",
+  "sources": {
+   "name": "manual",
+   "objectives": "manual",
+   "guide": "manual"
+  },
+  "name": "Labirent",
+  "objectives": [
+   {
+    "id": "o1",
+    "text": "Trader'lara yeraltı tesisini sor",
+    "details": [
+     "(İsteğe bağlı) Yeraltı tesisine nasıl girileceğini Therapist'e sor"
+    ]
+   },
+   {
+    "id": "o2",
+    "text": "Jaeger'ın anahtar kartları toplamasını bekle",
+    "details": []
+   },
+   {
+    "id": "o3",
+    "text": "BEAR timine ne olduğunu çöz",
+    "details": [
+     "(İsteğe bağlı) Sağlık Tesisi'nin (Health Resort) altındaki yeraltı tesisinin girişini bul",
+     "(İsteğe bağlı) Tesise gir",
+     "(İsteğe bağlı) Labirent'te BEAR timinin izlerini bul",
+     "(İsteğe bağlı) Item 1156'daki BEAR timi toplanma noktasını incele",
+     "(İsteğe bağlı) Tim liderini bul",
+     "(İsteğe bağlı) Tim hakkında daha fazla bilgi topla",
+     "(İsteğe bağlı) 5 laboratuvar çalışanının cesedini incele",
+     "(İsteğe bağlı) Kilitli ofise gir"
+    ]
+   },
+   {
+    "id": "o4",
+    "text": "Ofisteki ses kasetini dinle",
+    "details": []
+   },
+   {
+    "id": "o5",
+    "text": "Ses kasetini Jaeger'a teslim et",
+    "details": []
+   },
+   {
+    "id": "o6",
+    "text": "Labirent tesisi araştırma raporunu oku",
+    "details": [
+     "(İsteğe bağlı) Labirent tesisi araştırma raporunu bul ve al"
+    ]
+   }
+  ],
+  "guide": "▸ Jaeger ile konuş\nMenüdeki trader ekranından Jaeger'ı ziyaret et ve ona yeraltı tesisini sor.\n\n▸ Jaeger'ın anahtar kartları toplamasını bekle\n12-24 saat bekle, sonra menüdeki trader ekranından Jaeger'ı ziyaret et ve ona Labirent'i sor. Diyalog bitince Jaeger oyun içi posta ile 2 Labrys access keycard gönderiyor; daha fazlası için takası (barter) da var.\n\n▸ Yeraltı tesisine gir\nLabirent'e yalnızca Labrys access keycard ile, Shoreline'dan geçiş (transit) yaparak girilebilir. Geçiş noktası Sağlık Tesisi batı kanadının bodrumunda ve Knossos LLC facility key gerektiriyor. Not: Bu haritanın kendine has özellikleri var; ilk girişinden önce bunlar hakkında okuman iyi olur.\n\n▸ BEAR timinin izlerini bul\nBu hedef için Leshy's orders bulunmalı. 2 numaralı doğma odasının önünde, yerdeki bir yiyecek kabının içinde.\n\n▸ Item 1156'daki BEAR timi toplanma noktasını incele\nToplanma noktası prototip silah alanında.\n\n▸ Tim liderini bul / Tim hakkında daha fazla bilgi topla\nTim lideri işkence odasında. Leshy's diary hemen yanında.\n\n▸ 5 laboratuvar çalışanının cesedini incele\nBu hedef için laboratuvar bilim insanlarının cesetlerinin yanındaki 5 notu alman gerekiyor. 4 numaralı not için Observation room key gerekiyor.\n\n▸ Kilitli ofise gir\nKilitli ofis, gözlem odası. Girmek için Observation room key gerekiyor.\n\n▸ Ofisteki ses kasetini dinle\nSes kaseti, bilim insanının sağ elinin altında, yerde.\n\n▸ Ses kasetini Jaeger'a teslim et\nDeceased scientist's audio tape'i trader ekranından Jaeger'a teslim et.\nÖdüller:\n• 500.000 Ruble\n• 1× Accuracy International AXMC .338 LM sürgü mekanizmalı keskin nişancı tüfeği\n• 2× AI AXMC .338 LM 10-round magazine\n• 2× .338 Lapua Magnum FMJ ammo pack (20 pcs)\n\n▸ Labirent tesisi araştırma raporunu al ve oku\nRapor, Shoreline'daki iskelenin yanındaki drenaj borusunda.\n\nÖdüller:\n• +160.000 EXP\n• Theseus başarımı açılır"
+ },
+ {
+  "id": "the-ticket",
+  "sources": {
+   "name": "manual",
+   "objectives": "manual"
+  },
+  "name": "Bilet",
+  "objectives": [
+   {
+    "id": "o1",
+    "text": "İstihbarat Merkezi'ni 1. seviyeye yükselt",
+    "details": []
+   },
+   {
+    "id": "o2",
+    "text": "Mr. Kerman ile konuş",
+    "details": []
+   },
+   {
+    "id": "o3",
+    "text": "Mr. Kerman'ın sana ulaşmasını bekle",
+    "details": []
+   },
+   {
+    "id": "o4",
+    "text": "Prapor ile konuş",
+    "details": []
+   },
+   {
+    "id": "o5",
+    "text": "Mr. Kerman ile konuş",
+    "details": []
+   },
+   {
+    "id": "o6",
+    "text": "Lighthouse'ta Prapor'un adamlarının kampını bul",
+    "details": []
+   },
+   {
+    "id": "o7",
+    "text": "Prapor'un adamlarının niyetine dair ipucu bul",
+    "details": []
+   },
+   {
+    "id": "o8",
+    "text": "Mr. Kerman ile konuş",
+    "details": []
+   },
+   {
+    "id": "o9",
+    "text": "Lightkeeper ile konuş",
+    "details": []
+   },
+   {
+    "id": "o10",
+    "text": "Lightkeeper'a erişim sağla",
+    "details": []
+   },
+   {
+    "id": "o11",
+    "text": "Lightkeeper ile arandaki iyi ilişkiyi koru",
+    "details": []
+   },
+   {
+    "id": "o12",
+    "text": "3 adet TerraGroup \"Blue Folders\" belgesi edin",
+    "details": []
+   },
+   {
+    "id": "o13",
+    "text": "Bulduğun eşyaları Lightkeeper'a getir",
+    "details": []
+   },
+   {
+    "id": "o14",
+    "text": "Interchange'de ULTRA'nın ana girişinin önünde sarı işaret fişeği at",
+    "details": []
+   },
+   {
+    "id": "o15",
+    "text": "Interchange'de tek raidde herhangi 15 hedefi etkisiz hale getir",
+    "details": []
+   },
+   {
+    "id": "o16",
+    "text": "Lightkeeper ile konuş",
+    "details": []
+   },
+   {
+    "id": "o17",
+    "text": "Zırhlı çantanın kilidini aç",
+    "details": []
+   },
+   {
+    "id": "o18",
+    "text": "\"Bilet\"i ele geçir",
+    "details": []
+   },
+   {
+    "id": "o19",
+    "text": "Mechanic'ten yardım iste",
+    "details": []
+   },
+   {
+    "id": "o20",
+    "text": "Deneysel sinyal karıştırıcıyı (Experimental signal jammer) edin",
+    "details": [
+     "(İsteğe bağlı) The Lab'e erişim sağla",
+     "(İsteğe bağlı) TerraGroup Labs access keycard edin"
+    ]
+   },
+   {
+    "id": "o21",
+    "text": "Çantanın kilidini açmak için deneysel sinyal karıştırıcıyı kullan",
+    "details": []
+   },
+   {
+    "id": "o22",
+    "text": "Zırhlı çantadaki talimatları oku",
+    "details": []
+   },
+   {
+    "id": "o23",
+    "text": "Mr. Kerman ile iletişime geç",
+    "details": []
+   },
+   {
+    "id": "o24",
+    "text": "Mr. Kerman'ın teklifini kabul et",
+    "details": []
+   },
+   {
+    "id": "o25",
+    "text": "Çantadan çıkan RFID kartı etkinleştir",
+    "details": [
+     "(İsteğe bağlı) Güneş Enerjisi'ni (Solar Power) 1. seviyeye yükselt",
+     "(İsteğe bağlı) Boş bir RFID anahtar kart edin"
+    ]
+   },
+   {
+    "id": "o26",
+    "text": "Laboratuvar ana geçiş kartını (Laboratory master pass) edin",
+    "details": []
+   },
+   {
+    "id": "o27",
+    "text": "Kruglov'un anahtar kartını etkinleştirmek için Laboratuvar ana geçiş kartını kullan",
+    "details": [
+     "(İsteğe bağlı) The Lab'e erişim sağla"
+    ]
+   },
+   {
+    "id": "o28",
+    "text": "Bir RFID kart şifreleme cihazı edin",
+    "details": []
+   },
+   {
+    "id": "o29",
+    "text": "Mr. Kerman ile konuş",
+    "details": []
+   },
+   {
+    "id": "o30",
+    "text": "Mechanic ile konuş",
+    "details": []
+   },
+   {
+    "id": "o31",
+    "text": "Mechanic'ten yanıt bekle",
+    "details": []
+   },
+   {
+    "id": "o32",
+    "text": "40 Physical Bitcoin'i Mechanic'e teslim et",
+    "details": [
+     "(İsteğe bağlı) Bitcoin Çiftliği'ni (Bitcoin Farm) 1. seviyeye yükselt",
+     "(İsteğe bağlı) Elektronik'in hizmetinin karşılığı için 40 Physical Bitcoin edin"
+    ]
+   },
+   {
+    "id": "o33",
+    "text": "Kruglov'un anahtar kartını etkinleştirmek için RFID kart şifreleme cihazını al",
+    "details": [
+     "(İsteğe bağlı) Streets of Tarkov'a erişim sağla",
+     "(İsteğe bağlı) Streets of Tarkov'daki Kruglov'un dairesine gir"
+    ]
+   },
+   {
+    "id": "o34",
+    "text": "Liman Terminali'nin giriş yoluna var",
+    "details": []
+   },
+   {
+    "id": "o35",
+    "text": "Anahtar kartı interkom okuyucusuna okut",
+    "details": []
+   },
+   {
+    "id": "o36",
+    "text": "Liman Terminali'nin giriş yoluna var",
+    "details": []
+   },
+   {
+    "id": "o37",
+    "text": "Anahtar kartı interkom okuyucusuna okut",
+    "details": []
+   },
+   {
+    "id": "o38",
+    "text": "Prapor ile konuş",
+    "details": []
+   },
+   {
+    "id": "o39",
+    "text": "Parayı Prapor'a teslim et",
+    "details": [
+     "(İsteğe bağlı) Gereken miktarı Ruble olarak topla: 300.000.000"
+    ]
+   },
+   {
+    "id": "o40",
+    "text": "Parayı Prapor'a teslim et",
+    "details": [
+     "(İsteğe bağlı) Gereken miktarı Ruble olarak topla: 500.000.000"
+    ]
+   },
+   {
+    "id": "o41",
+    "text": "Prapor'un tüm görevlerini zamanında tamamla",
+    "details": [
+     "Kanıt dosyalarını dijital formata çevir ve bir SSD'ye kaydet",
+     "(İsteğe bağlı) Şu eşyayı edin: Folder with TerraGroup Labs evidence (Reports)",
+     "(İsteğe bağlı) Şu eşyayı edin: Folder with TerraGroup evidence (Staff)",
+     "(İsteğe bağlı) Şu eşyayı edin: Folder with TerraGroup Labs evidence (Developments)",
+     "(İsteğe bağlı) Şu eşyayı edin: Folder with TerraGroup evidence (Finances)",
+     "Streets of Tarkov'da herhangi 50 hedefi etkisiz hale getir",
+     "Tek raidde 4 PMC operatifini etkisiz hale getir"
+    ]
+   },
+   {
+    "id": "o42",
+    "text": "Prapor'a rapor ver",
+    "details": []
+   },
+   {
+    "id": "o43",
+    "text": "Secure container Kappa'yı Prapor'a teslim et",
+    "details": []
+   },
+   {
+    "id": "o44",
+    "text": "Mr. Kerman ile konuş",
+    "details": []
+   },
+   {
+    "id": "o45",
+    "text": "Mr. Kerman için TerraGroup hakkında kirli bilgi bulmayı kabul et",
+    "details": []
+   },
+   {
+    "id": "o46",
+    "text": "İstihbarat Merkezi'ni 3. seviyeye yükselt",
+    "details": []
+   },
+   {
+    "id": "o47",
+    "text": "Mr. Kerman'ın verdiği ikinci şansı boşa harcama",
+    "details": []
+   },
+   {
+    "id": "o48",
+    "text": "8 büyük TerraGroup kanıtını Mr. Kerman'a teslim et",
+    "details": [
+     "(İsteğe bağlı) 36 küçük TerraGroup kanıtını Mr. Kerman'a teslim et"
+    ]
+   },
+   {
+    "id": "o49",
+    "text": "Mr. Kerman ile pazarlık yap",
+    "details": []
+   },
+   {
+    "id": "o50",
+    "text": "Tüm kanıtların teslim edildiğini Mr. Kerman'a doğrula",
+    "details": []
+   },
+   {
+    "id": "o51",
+    "text": "Mr. Kerman'ın güvendiği kişinin seninle iletişime geçmesini bekle",
+    "details": []
+   },
+   {
+    "id": "o52",
+    "text": "Fence ile konuş",
+    "details": []
+   },
+   {
+    "id": "o53",
+    "text": "Fence ile 4.0 itibara ulaş",
+    "details": []
+   },
+   {
+    "id": "o54",
+    "text": "Fence'in görevlerini tamamla",
+    "details": []
+   },
+   {
+    "id": "o55",
+    "text": "Fence ile itibarını 4.0'ın üzerinde tut",
+    "details": []
+   },
+   {
+    "id": "o56",
+    "text": "Woods'ta Friendship Bridge (Co-Op) üzerinden tahliye ol",
+    "details": []
+   },
+   {
+    "id": "o57",
+    "text": "Reserve'de Scav Lands (Co-Op) üzerinden tahliye ol",
+    "details": []
+   },
+   {
+    "id": "o58",
+    "text": "BTR Driver ile 0.4 itibara ulaş",
+    "details": []
+   },
+   {
+    "id": "o59",
+    "text": "Fence'e görevin tamamlandığını söyle",
+    "details": []
+   },
+   {
+    "id": "o60",
+    "text": "Güneş Enerjisi'ni (Solar Power) 1. seviyeye yükselt",
+    "details": []
+   },
+   {
+    "id": "o61",
+    "text": "Trader'lara Tarkov'dan nasıl ayrılacağını sor",
+    "details": []
+   },
+   {
+    "id": "o62",
+    "text": "Derlenmiş verilerin olduğu askeri flash belleği Lightkeeper'a teslim et",
+    "details": [
+     "(İsteğe bağlı) Derlenmiş verileri askeri bir flash belleğe kaydet",
+     "(İsteğe bağlı) Lighthouse'taki topografik istihbarat belgelerini edin",
+     "(İsteğe bağlı) Woods'taki topografik istihbarat belgelerini edin",
+     "(İsteğe bağlı) Customs'taki topografik istihbarat belgelerini edin",
+     "(İsteğe bağlı) Ground Zero'daki topografik istihbarat belgelerini edin",
+     "(İsteğe bağlı) Factory'deki topografik istihbarat belgelerini edin"
+    ]
+   },
+   {
+    "id": "o63",
+    "text": "Woods'ta 30 PMC'yi etkisiz hale getir",
+    "details": []
+   },
+   {
+    "id": "o64",
+    "text": "100 PMC künyesini Lightkeeper'a teslim et",
+    "details": [
+     "(İsteğe bağlı) 100 PMC künyesi edin"
+    ]
+   },
+   {
+    "id": "o65",
+    "text": "Birinci muskayı Lighthouse'taki Lightkeeper'ın zula odasına bırak",
+    "details": [
+     "(İsteğe bağlı) Customs'taki işaretli odadan muskayı al"
+    ]
+   },
+   {
+    "id": "o66",
+    "text": "İkinci muskayı Lighthouse'taki Lightkeeper'ın zula odasına bırak",
+    "details": [
+     "(İsteğe bağlı) Streets of Tarkov'daki birinci işaretli odadan muskayı al"
+    ]
+   },
+   {
+    "id": "o67",
+    "text": "Üçüncü muskayı Lighthouse'taki Lightkeeper'ın zula odasına bırak",
+    "details": [
+     "(İsteğe bağlı) Streets of Tarkov'daki ikinci işaretli odadan muskayı al"
+    ]
+   },
+   {
+    "id": "o68",
+    "text": "Dördüncü muskayı Lighthouse'taki Lightkeeper'ın zula odasına bırak",
+    "details": [
+     "(İsteğe bağlı) Reserve'deki birinci işaretli odadan muskayı al"
+    ]
+   },
+   {
+    "id": "o69",
+    "text": "Beşinci muskayı Lighthouse'taki Lightkeeper'ın zula odasına bırak",
+    "details": [
+     "(İsteğe bağlı) Reserve'deki ikinci işaretli odadan muskayı al"
+    ]
+   },
+   {
+    "id": "o70",
+    "text": "Altıncı muskayı Lighthouse'taki Lightkeeper'ın zula odasına bırak",
+    "details": [
+     "(İsteğe bağlı) Reserve'deki üçüncü işaretli odadan muskayı al"
+    ]
+   },
+   {
+    "id": "o71",
+    "text": "Lightkeeper'a rapor ver",
+    "details": []
+   },
+   {
+    "id": "o72",
+    "text": "Mr. Kerman ile konuş",
+    "details": []
+   },
+   {
+    "id": "o73",
+    "text": "Trader'lara Tarkov'dan nasıl ayrılacağını sor",
+    "details": []
+   },
+   {
+    "id": "o74",
+    "text": "Prapor'un görevlerini tamamla",
+    "details": [
+     "Herhangi bir askeri ya da gelişmiş elektronik eşyayı Prapor'a teslim et",
+     "(İsteğe bağlı) Herhangi 50 askeri ya da gelişmiş elektronik eşya edin",
+     "Secure container Theta, Epsilon ya da Kappa'yı Prapor'a teslim et",
+     "(İsteğe bağlı) Secure container Kappa edin",
+     "(İsteğe bağlı) Secure container Epsilon edin",
+     "(İsteğe bağlı) Secure container Theta edin",
+     "40 silah ve zırh tamir kitini Prapor'a teslim et",
+     "(İsteğe bağlı) Dayanıklılığı tam 40 silah ve zırh tamir kiti edin"
+    ]
+   },
+   {
+    "id": "o75",
+    "text": "Tehlikeli kargo çantasını (Case with dangerous cargo) Prapor'a teslim et",
+    "details": [
+     "(İsteğe bağlı) Tehlikeli kargo çantasını bul ve al"
+    ]
+   },
+   {
+    "id": "o76",
+    "text": "Prapor'a rapor ver",
+    "details": []
+   },
+   {
+    "id": "o77",
+    "text": "1.000.000 Doları Prapor'a teslim et",
+    "details": [
+     "(İsteğe bağlı) Gereken miktarı Dolar olarak topla: 1.000.000"
+    ]
+   },
+   {
+    "id": "o78",
+    "text": "Prapor'dan bilgi bekle",
+    "details": []
+   },
+   {
+    "id": "o79",
+    "text": "Güncellenmiş hash kodlarını Prapor'dan al",
+    "details": []
+   },
+   {
+    "id": "o80",
+    "text": "Güneş Enerjisi'ni (Solar Power) 1. seviyeye yükselt",
+    "details": []
+   },
+   {
+    "id": "o81",
+    "text": "Liman Terminali'nin giriş yoluna var",
+    "details": [
+     "(İsteğe bağlı) Mr. Kerman'ın hash kodlarıyla yeniden programlanmış RFID kartı getir",
+     "(İsteğe bağlı) İsmi bilinmeyen RFID kartı getir",
+     "(İsteğe bağlı) Prapor'un liman kontrol noktası için yazdığı mektubu getir",
+     "(İsteğe bağlı) Prapor'un hash kodlarıyla yeniden programlanmış RFID kartı getir"
+    ]
+   },
+   {
+    "id": "o82",
+    "text": "Anahtar kartı interkom okuyucusuna okut",
+    "details": []
+   },
+   {
+    "id": "o83",
+    "text": "Liman Terminali'ne gir",
+    "details": [
+     "(İsteğe bağlı) TerraGroup kanıtlarının olduğu Secure container Alpha-1'i getir"
+    ]
+   },
+   {
+    "id": "o84",
+    "text": "Güvenlik kontrolünden geç",
+    "details": []
+   },
+   {
+    "id": "o85",
+    "text": "Tarkov'dan kaç",
+    "details": [
+     "(İsteğe bağlı) El konulan ekipmanın bulunduğu cephaneliği bul",
+     "(İsteğe bağlı) Secure container Alpha-1'i geri al",
+     "(İsteğe bağlı) Servis geçidinin kilidini açan anahtar kartı edin",
+     "(İsteğe bağlı) Terminal yükleme bölgesine çıkan yolu bul",
+     "(İsteğe bağlı) Liman binasının içindeki servis geçidinin kilidini aç",
+     "(İsteğe bağlı) Terminal yükleme bölgesine gir",
+     "(İsteğe bağlı) Yakıt deposuna giden yolu bul",
+     "(İsteğe bağlı) Pompa istasyonuna elektriği nasıl geri vereceğini bul",
+     "(İsteğe bağlı) Elektrik panolarının şemasını edin",
+     "(İsteğe bağlı) Pompa istasyonundaki suyu boşalt",
+     "(İsteğe bağlı) İskeleye giden yolu kapatan kapının anahtarını edin",
+     "(İsteğe bağlı) İskeleye çıkan yolu bul",
+     "(İsteğe bağlı) İskeledeki tahliye bölgesine ulaş"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "the-unheard",
+  "sources": {
+   "name": "manual",
+   "objectives": "manual",
+   "guide": "manual"
+  },
+  "name": "Duyulmayanlar",
+  "objectives": [
+   {
+    "id": "o1",
+    "text": "The Unheard hakkında daha fazlasını öğren",
+    "details": []
+   },
+   {
+    "id": "o2",
+    "text": "TerraGroup'un faaliyetleri hakkında daha fazlasını öğren",
+    "details": []
+   },
+   {
+    "id": "o3",
+    "text": "Notta bahsedilen \"yakıt\" hakkında daha fazlasını öğren",
+    "details": []
+   },
+   {
+    "id": "o4",
+    "text": "Özel katalizör sevkiyatı hakkında daha fazla bilgi bul",
+    "details": []
+   },
+   {
+    "id": "o5",
+    "text": "Rzhevsky'nin hizmet aracını bul ve kişisel eşyalarını al",
+    "details": []
+   },
+   {
+    "id": "o6",
+    "text": "Rzhevsky'nin aracındaki sabit diskten verileri çıkar",
+    "details": []
+   },
+   {
+    "id": "o7",
+    "text": "Rzhevsky'nin konuşmasının dökümünü oku",
+    "details": []
+   },
+   {
+    "id": "o8",
+    "text": "Blue Ice yakıt katalizörü araştırmasına ait belgeleri bul ve al",
+    "details": []
+   },
+   {
+    "id": "o9",
+    "text": "The Unheard'ün planları hakkında olabildiğince çok bilgi bul",
+    "details": []
+   },
+   {
+    "id": "o10",
+    "text": "A.P.'nin faaliyetleri hakkında daha fazlasını öğren",
+    "details": []
+   },
+   {
+    "id": "o11",
+    "text": "A.P.'nin rolü hakkında daha fazlasını öğren",
+    "details": []
+   },
+   {
+    "id": "o12",
+    "text": "The Lab'de A.P.'den bahseden herhangi bir iz ara",
+    "details": []
+   },
+   {
+    "id": "o13",
+    "text": "Sağlık Tesisi'nde A.P.'nin odasını bul",
+    "details": [
+     "(İsteğe bağlı) A.P.'ye hangi odanın verildiğini öğren"
+    ]
+   },
+   {
+    "id": "o14",
+    "text": "A.P.'nin kişisel eşyalarını al",
+    "details": []
+   },
+   {
+    "id": "o15",
+    "text": "A.P.'nin veri depolama cihazını al",
+    "details": []
+   },
+   {
+    "id": "o16",
+    "text": "A.P.'nin odasındaki flash belleğin şifresini çöz",
+    "details": []
+   },
+   {
+    "id": "o17",
+    "text": "Mechanic'ten yardım iste",
+    "details": []
+   },
+   {
+    "id": "o18",
+    "text": "5.000.000 Rubleyi Mechanic'e teslim et",
+    "details": []
+   },
+   {
+    "id": "o19",
+    "text": "A.P.'nin flash belleğini Mechanic'e teslim et",
+    "details": []
+   },
+   {
+    "id": "o20",
+    "text": "Elektronik'ten haber bekle",
+    "details": []
+   },
+   {
+    "id": "o21",
+    "text": "A.P.'nin flash belleğindeki teknik dosyaları bir TerraGroup anahtar kartına aktar",
+    "details": []
+   },
+   {
+    "id": "o22",
+    "text": "A.P.'nin şirket dairesine gir",
+    "details": []
+   },
+   {
+    "id": "o23",
+    "text": "A.P.'nin dairesini incele",
+    "details": []
+   },
+   {
+    "id": "o24",
+    "text": "A.P.'nin dairesindeki gizli odaya gir",
+    "details": []
+   },
+   {
+    "id": "o25",
+    "text": "A.P.'nin ofisindeki TerraGroup belgelerini incele",
+    "details": []
+   },
+   {
+    "id": "o26",
+    "text": "Blue Ice katalizörünün The Unheard protokolündeki rolünü incele",
+    "details": []
+   },
+   {
+    "id": "o27",
+    "text": "The Unheard protokolü hakkında daha fazlasını öğren",
+    "details": []
+   },
+   {
+    "id": "o28",
+    "text": "The Unheard'ün Tarkov ile bağlantısını çöz",
+    "details": []
+   }
+  ],
+  "guide": "▸ The Unheard hakkında daha fazlasını öğren\nGereksinimlere bak.\n\n▸ TerraGroup'un faaliyetleri ve notta bahsedilen \"yakıt\" hakkında bilgi edin\nBu hedefler için The Lab'den 2 not alıp okuman gerekiyor. \"Document on changes in enterprise interactions\" birinci kattaki kubbenin yanındaki laboratuvarda; \"Cargo transport fax\" ise ikinci kattaki O23 ofisinde.\n\n▸ Özel katalizör sevkiyatı hakkında daha fazla bilgi bul\nAlıp okuman gereken \"Transport log with notes\" Factory'de.\n\n▸ Rzhevsky'nin hizmet aracını bul ve kişisel eşyalarını al\nAranan araç, Streets of Tarkov'daki LexOs bayisinin yakınında. \"Hard drive from Rzhevsky's car\" aracın orta konsolunda.\n\n▸ Sabit diskten verileri çıkar / Konuşmanın dökümünü oku\nSığınaktaki 1. seviye İstihbarat Merkezi'nde \"Hard drive printout\"u üret ve raid dışı görev envanterinden oku. Üretim boyunca elektrik olmalı, yoksa işlem durur.\n\n▸ Blue Ice yakıt katalizörü belgelerini al / The Unheard'ün planları hakkında bilgi topla\nAlıp okuman gereken \"Fuel catalyst test report\" ve \"Burnt document\", Factory'deki TerraGroup depo odasında; bu oda \"Camera Bunker Door\" Scav tahliye noktasının hemen yanındaki yeraltı tünellerinde. Girmek için TerraGroup storage room keycard gerekiyor. İki belgenin de oda içinde birden fazla doğma noktası var.\n\n▸ The Lab'de A.P.'den bahseden izleri ara / A.P.'nin rolü ve faaliyetleri hakkında bilgi edin\nBu hedef için The Lab'deki 2 beyaz tahtadan birini bulman ve 2 ses kasetini alıp dinlemen gerekiyor.\n\n▸ Sağlık Tesisi'nde A.P.'nin odasını bul / Veri cihazını ve kişisel eşyalarını al\nA.P.'nin odası, Shoreline'daki Sağlık Tesisi'nin doğu kanadındaki 305 numaralı oda. \"Sliderkey flash drive marked with A.P.\" masadaki dizüstü bilgisayara takılı. A.P.'nin eşyası olan TerraGroup corporate apartment key sağdaki komodinde. İsteğe bağlı \"Fragment of an unknown document\" soldaki komodinde.\nOdayı bulmak için isteğe bağlı \"Guard post note\", Sağlık Tesisi batı kanadının birinci katında, güney girişindeki güvenlik odasının yanındaki masada.\n\n▸ A.P.'nin flash belleğinin şifresini çöz\nSığınaktaki 1. seviye İstihbarat Merkezi'nde \"Decrypted Sliderkey flash drive marked with A.P.\"yi üret. Üretim boyunca elektrik olmalı, yoksa işlem durur.\n\n▸ Mechanic'ten yardım iste\nMenüdeki trader ekranından Mechanic'i ziyaret et ve ona flash belleği sor. Kendisinin yardım edemeyeceğini ama 5.000.000 Ruble verirsen Elektronik'in edebileceğini söylüyor.\n\n▸ 5.000.000 Rubleyi ve A.P.'nin flash belleğini Mechanic'e teslim et\n5.000.000 Rubleyi ve \"Decrypted Sliderkey flash drive marked with A.P.\"yi trader ekranından Mechanic'e teslim et.\n\n▸ Elektronik'ten haber bekle\nDaha önce Mr. Kerman ile temasın olmadıysa: 6-12 saat bekle, sonra menüdeki trader ekranından Mechanic'i ziyaret et.\nDaha önce Mr. Kerman ile temasın olduysa: Mr. Kerman'ın sana ulaşması için bir buçuk saat bekle ve onunla konuş.\n\n▸ Dosyaları bir anahtar karta aktar ve dairedeki gizli odaya gir\nÖnce Sığınaktaki 1. seviye İstihbarat Merkezi'nde \"Reprogrammed keycard for A.P.'s apartment lock (Green)\" kartını üretmen gerekiyor. Mavi ve kırmızı olanlar yanlış ipuçları.\nA.P.'nin dairesi, Streets of Tarkov'daki Cardinal apartman kompleksinin ikinci katındaki 1 numaralı daire. Girmek için TerraGroup corporate apartment key gerekiyor. Daireye girdikten sonra koridorun sonundaki gizli odayı ürettiğin kartla aç. Odada alıp okuman gereken 4 not var:\n• A.P.'nin ofisindeki TerraGroup belgeleri\n• Blue Ice katalizörünün The Unheard protokolündeki rolü\n• The Unheard protokolü\n• The Unheard'ün Tarkov ile bağlantısı\n\nÖdüller:\n• +128.000 EXP\n• Trail of Breadcrumbs başarımı açılır"
+ },
+ {
+  "id": "they-are-already-here",
+  "sources": {
+   "name": "manual",
+   "objectives": "manual",
+   "guide": "manual"
+  },
+  "name": "Onlar Zaten Burada",
+  "objectives": [
+   {
+    "id": "o1",
+    "text": "Kapüşonlu adamlar hakkında daha fazlasını öğren / Tarkov'a tuhaf semboller bırakan insanlar hakkında daha fazlasını öğren",
+    "details": []
+   },
+   {
+    "id": "o2",
+    "text": "Dünyanın Gözü ile bağlantılı bir yer bul",
+    "details": []
+   },
+   {
+    "id": "o3",
+    "text": "İşkence odasındaki tarikat kurbanı hakkında daha fazlasını öğren",
+    "details": []
+   },
+   {
+    "id": "o4",
+    "text": "Tarikat kurbanının dairesini bul",
+    "details": [
+     "(İsteğe bağlı) Dairenin anahtarını al"
+    ]
+   },
+   {
+    "id": "o5",
+    "text": "Kurbanın dairesini incele",
+    "details": []
+   },
+   {
+    "id": "o6",
+    "text": "Kurbanın ilk ses kasetini al",
+    "details": []
+   },
+   {
+    "id": "o7",
+    "text": "Tarikatçıların Igor'un yanına bıraktığı kitabı al ve oku",
+    "details": []
+   },
+   {
+    "id": "o8",
+    "text": "Mechanic'e Dünyanın Gözü'nü sor",
+    "details": [
+     "(İsteğe bağlı) Mechanic'e erişim sağla"
+    ]
+   },
+   {
+    "id": "o9",
+    "text": "Bir tarikat rahibini (Cultist priest) bul ve etkisiz hale getir",
+    "details": []
+   },
+   {
+    "id": "o10",
+    "text": "Dünyanın Gözü hakkında daha fazla bilgi edin",
+    "details": []
+   },
+   {
+    "id": "o11",
+    "text": "Lighthouse'ta Dünyanın Gözü ile işaretlenmiş yeri bul",
+    "details": []
+   },
+   {
+    "id": "o12",
+    "text": "Dağ evindeki talan edilmiş tarikat odasını incele",
+    "details": [
+     "(İsteğe bağlı) Kurbanın eşyalarını bul"
+    ]
+   },
+   {
+    "id": "o13",
+    "text": "Kurbanın notunda bahsedilen anahtarı bul ve al",
+    "details": []
+   },
+   {
+    "id": "o14",
+    "text": "Woods'ta Dünyanın Gözü ile işaretlenmiş yeri bul",
+    "details": []
+   },
+   {
+    "id": "o15",
+    "text": "Dünyanın Gözü ile işaretlenmiş tarikat evini incele",
+    "details": []
+   },
+   {
+    "id": "o16",
+    "text": "Shoreline'da Dünyanın Gözü ile işaretlenmiş yeri bul",
+    "details": []
+   },
+   {
+    "id": "o17",
+    "text": "Sordi iletişim kulesinin çevresini incele",
+    "details": []
+   },
+   {
+    "id": "o18",
+    "text": "Sordi kulesini onar",
+    "details": []
+   },
+   {
+    "id": "o19",
+    "text": "Arshavin'in anahtar kartını onar",
+    "details": []
+   },
+   {
+    "id": "o20",
+    "text": "NGO Cobalt'ın gizli tesisine erişim sağla",
+    "details": []
+   },
+   {
+    "id": "o21",
+    "text": "İstasyona elektriği geri ver",
+    "details": []
+   },
+   {
+    "id": "o22",
+    "text": "Sunucu odasındaki soğutma sistemini çalıştır",
+    "details": []
+   },
+   {
+    "id": "o23",
+    "text": "Verileri indirmek için bir flash bellek tak",
+    "details": []
+   },
+   {
+    "id": "o24",
+    "text": "ARRS İstasyonu 14-4 KORD'u baştan sona incele",
+    "details": []
+   },
+   {
+    "id": "o25",
+    "text": "Interchange'den hayatta kalarak tahliye ol",
+    "details": []
+   },
+   {
+    "id": "o26",
+    "text": "İstasyonun dış ajanlarla bağlantısını kesmenin bir yolunu bul",
+    "details": []
+   },
+   {
+    "id": "o27",
+    "text": "ARRS istasyonunu yedek ayarlara geri döndür",
+    "details": [
+     "(İsteğe bağlı) İstasyonun elektriğinin açık olduğunu kontrol et"
+    ]
+   },
+   {
+    "id": "o28",
+    "text": "Flash belleği ARRS istasyonundan al",
+    "details": []
+   },
+   {
+    "id": "o29",
+    "text": "Interchange'den hayatta kalarak tahliye ol",
+    "details": []
+   },
+   {
+    "id": "o30",
+    "text": "Verilerin olduğu flash belleği Mechanic'e teslim et",
+    "details": []
+   },
+   {
+    "id": "o31",
+    "text": "ARRS istasyonunun teknik özelliklerini oku",
+    "details": []
+   }
+  ],
+  "guide": "▸ Kapüşonlu adamlar / Tarkov'a tuhaf semboller bırakanlar hakkında bilgi edin\nGereksinimlere bak.\n\n▸ Dünyanın Gözü ile bağlantılı bir yer bul / İşkence odasındaki kurban hakkında bilgi edin\nBu hedefler için Lighthouse'taki tarikat işkence evini (Cultist's torture house) bulman ve oradaki ses kasetini alıp dinlemen gerekiyor.\nSonraki hedef için gereken Cult victim's apartment key de bu evde bulunabilir.\n\n▸ Tarikat kurbanının dairesini bul\nAranan daire, Streets of Tarkov'daki Klimov AVM'sinin arkasındaki eski apartmanın üçüncü katında. Girmek için Cult victim's apartment key gerekiyor.\n\n▸ Kurbanın dairesini incele / İlk ses kasetini ve tarikatçıların bıraktığı kitabı al\nBu hedefler için dairenin içindeki çalışma odasından 2 not alıp okuman ve bir ses kaseti alıp dinlemen gerekiyor. Kapının kırılması (breach) gerekiyor.\n\n▸ Mechanic'e Dünyanın Gözü'nü sor\nMenüdeki trader ekranından Mechanic'i ziyaret et ve ona Dünyanın Gözü'nü sor.\n\n▸ Bir tarikat rahibini bul ve etkisiz hale getir\nHerhangi bir haritada bir Cultist priest öldür.\n\n▸ Dünyanın Gözü hakkında daha fazla bilgi edin\nBu hedef için Customs, Streets of Tarkov ya da Reserve'deki işaretli odalardan birinden \"Cultist priest's note\"u alıp okuman gerekiyor. Not: Eşya, önceki hedef tamamlanmadan doğmaz. (Hedef için anahtarlardan yalnızca biri yeterli.)\n• Customs: Üç katlı yurdun üçüncü katındaki işaretli oda. Girmek için Dorm room 314 marked key gerekiyor.\n• Streets of Tarkov: Kuzeydeki terk edilmiş fabrika binasının üçüncü katındaki işaretli oda. Girmek için Abandoned factory marked key gerekiyor.\n• Reserve (RB-BK): Siyah piyon kışlasının birinci katındaki işaretli oda. Girmek için RB-BK marked key gerekiyor.\n• Reserve (RB-PKPM): Yeraltı tünel sistemindeki komuta ofisinin yanındaki işaretli oda. Girmek için RB-PKPM marked key gerekiyor.\n• Reserve (RB-VO): Güvenlik kışlası binasındaki işaretli oda. Girmek için RB-VO marked key gerekiyor.\n\n▸ Lighthouse'taki işaretli yeri bul / Dağ evindeki tarikat odasını incele / Kurbanın anahtarını al\nAranan yer, Lighthouse'taki kuzey mavi dağ evinin ikinci katındaki küçük güney yatak odası. Alıp okuman gereken \"Victim's note\" bitişikteki balkonda.\n\"Station 14-4 KORD Arshavin K. pass (Damaged)\", dağ evinin karşısındaki garajın önündeki bir ATV'nin üzerinde.\n\n▸ Woods'taki işaretli yeri bul\nAranan yer, Woods'un kuzeyindeki harap köydeki bir ev. Alıp okuman gereken \"Newspaper clipping from the cultists' house\" masanın yanındaki beyaz tahtada.\n\n▸ Shoreline'daki işaretli yeri bul / Çevreyi incele / Sordi kulesini onar\nAranan yer, Shoreline'daki \"Road to Customs\" tahliye noktasının yakınındaki radyo kulesinin dibindeki kırmızı metal kulübe. Alıp okuman gereken \"Programmer's note\" kulenin yanındaki bir cesedin üzerinde. Kuleyi onarmak için kulübenin içinde bir Toolset kullanman gerekiyor.\n\n▸ Mechanic'ten Station 14-4 KORD hakkında bilgi al\nMenüdeki trader ekranından Mechanic'i ziyaret et ve ona Dünyanın Gözü'nü tekrar sor.\n\n▸ Arshavin'in anahtar kartını onar\nSığınaktaki 1. seviye İstihbarat Merkezi'nde \"Station 14-4 KORD Arshavin K. pass (Restored)\" kartını üret. Üretim boyunca elektrik olmalı, yoksa işlem durur.\n\n▸ NGO Cobalt'ın gizli tesisine erişim sağla\nNGO Cobalt'ın gizli tesisi, Interchange'deki elektrik santralinin bodrumunda. Girmek için \"Station 14-4 KORD Arshavin K. pass (Restored)\" gerekiyor.\n\n▸ İstasyona elektriği geri ver\nElektriği geri vermek için onarılmış kartı giriş kapısının hemen yanındaki kart okuyucuya okut.\n\n▸ Sunucu odasındaki soğutma sistemini çalıştır\nSunucu odası ızgaralı kapının arkasında. Soğutma sistemini çalıştırmak için arkadaki kolu çevir.\n\n▸ Verileri indirmek için bir flash bellek tak\nSecure Flash drive, sunucu odasında soğutma sistemi kolunun soluna bırakılmalı.\n\n▸ ARRS İstasyonu 14-4 KORD'u baştan sona incele\nBu hedef için giriş kapısının yanındaki kasadan \"Mysterious audio tape\"i alıp dinlemen gerekiyor. Kasa, soğutma sistemi çalıştırılınca kendiliğinden açılıyor.\n\n▸ Interchange'den hayatta kalarak tahliye ol\nInterchange'den \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol.\n\n▸ İstasyonun dış ajanlarla bağlantısını kesmenin yolunu bul\nInterchange'deki gizli tesise geri dön ve büyük masadaki \"ARRS station mechanic's notes\"u alıp oku.\n\n▸ ARRS istasyonunu yedek ayarlara geri döndür\nElektriği tekrar aç, sonra sunucu odasına gir ve masanın altındaki düğmeye bas.\nNot: Her raidde düğmeye yalnızca 1 oyuncu basıp bu hedefte ilerleme kaydedebilir. Etkileşime giremiyorsan yeni bir raidde tekrar gel.\n\n▸ Flash belleği ARRS istasyonundan al\n\"Flash drive for ARRS station\"ı soğutma sistemi kolunun yanındaki sunucudan al.\n\n▸ Interchange'den hayatta kalarak tahliye ol\nInterchange'den \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol.\n\n▸ Verilerin olduğu flash belleği Mechanic'e teslim et\n\"Flash drive for ARRS station\"ı trader ekranından Mechanic'e teslim et.\n\n▸ ARRS istasyonunun teknik özelliklerini oku\nEl kitabından (handbook) \"ARRS system specifications\"ı oku.\n\nÖdüller:\n• +128.000 EXP\n• Through Another's Eyes başarımı açılır\n• When the Light Fades başarımı açılır"
+ },
+ {
+  "id": "tour",
+  "sources": {
+   "name": "manual",
+   "objectives": "manual",
+   "guide": "manual"
+  },
+  "name": "Tur",
+  "objectives": [
+   {
+    "id": "o1",
+    "text": "Ground Zero'dan kaç",
+    "details": []
+   },
+   {
+    "id": "o2",
+    "text": "Therapist ile konuş",
+    "details": []
+   },
+   {
+    "id": "o3",
+    "text": "Streets of Tarkov'a erişimi sağla",
+    "details": [
+     "Parayı Therapist'e teslim et",
+     "(İsteğe bağlı) Gereken 250.000 Rubleyi topla"
+    ]
+   },
+   {
+    "id": "o4",
+    "text": "Ragman ile konuş",
+    "details": []
+   },
+   {
+    "id": "o5",
+    "text": "Interchange'den hayatta kalarak tahliye ol ya da Interchange'e 3 kez gir",
+    "details": []
+   },
+   {
+    "id": "o6",
+    "text": "Keşifte bulduklarını Ragman'e anlat",
+    "details": []
+   },
+   {
+    "id": "o7",
+    "text": "Skier ile konuş",
+    "details": []
+   },
+   {
+    "id": "o8",
+    "text": "Customs'tan hayatta kalarak tahliye ol ya da Customs'a 3 kez gir",
+    "details": []
+   },
+   {
+    "id": "o9",
+    "text": "Raidde bulunmuş (FIR) herhangi 5 inşaat malzemesini Skier'a teslim et",
+    "details": [
+     "(İsteğe bağlı) İnşaat malzemeleri kategorisinden raidde herhangi 5 eşya bul"
+    ]
+   },
+   {
+    "id": "o10",
+    "text": "Mechanic ile konuş",
+    "details": []
+   },
+   {
+    "id": "o11",
+    "text": "Factory'den hayatta kalarak tahliye ol ya da Factory'ye 3 kez gir",
+    "details": []
+   },
+   {
+    "id": "o12",
+    "text": "Raidde bulunmuş (FIR) herhangi 2 silahı Mechanic'e teslim et",
+    "details": [
+     "(İsteğe bağlı) Raidde herhangi 2 silah bul"
+    ]
+   },
+   {
+    "id": "o13",
+    "text": "Skier ile konuş",
+    "details": []
+   },
+   {
+    "id": "o14",
+    "text": "Woods'ta herhangi 3 hedefi etkisiz hale getir",
+    "details": []
+   },
+   {
+    "id": "o15",
+    "text": "Woods'tan hayatta kalarak tahliye ol ya da Woods'a 3 kez gir",
+    "details": []
+   },
+   {
+    "id": "o16",
+    "text": "Liman Terminali'nin girişini bul",
+    "details": []
+   },
+   {
+    "id": "o17",
+    "text": "Terminal'deki askerlerle iletişim kurmanın bir yolunu bul",
+    "details": []
+   },
+   {
+    "id": "o18",
+    "text": "İnterkomu kullanarak liman garnizonuyla iletişime geç",
+    "details": []
+   },
+   {
+    "id": "o19",
+    "text": "Tarkov'dan nasıl kaçılacağını öğren",
+    "details": []
+   },
+   {
+    "id": "o20",
+    "text": "Reserve'e erişimi sağla",
+    "details": [
+     "Shoreline'dan hayatta kalarak tahliye ol ya da Shoreline'a 3 kez gir",
+     "5 PMC künyesini Prapor'a teslim et",
+     "(İsteğe bağlı) Raidde 5 PMC künyesi bul"
+    ]
+   },
+   {
+    "id": "o21",
+    "text": "Lighthouse'a erişimi sağla",
+    "details": [
+     "8.000 Doları Mechanic'e teslim et",
+     "(İsteğe bağlı) Gereken 8.000 Doları topla"
+    ]
+   },
+   {
+    "id": "o22",
+    "text": "The Lab'e erişimi sağla",
+    "details": [
+     "Gizli TerraGroup tesisine gir",
+     "(İsteğe bağlı) Tesise girmek için bir anahtar kart ya da giriş kodları edin",
+     "(İsteğe bağlı) Factory'deki tesis girişini bul",
+     "(İsteğe bağlı) Streets of Tarkov'daki tesis girişini bul",
+     "The Lab'deki üst yönetim ofislerini ara",
+     "The Lab'deki sunucu odasını ara",
+     "The Lab'de kanalizasyon sistemi üzerinden kaçış yolunu bul"
+    ]
+   }
+  ],
+  "guide": "▸ Ground Zero'dan kaç\nEğitim raidini \"Skyside\" iş merkezinin arkasındaki \"Klimov Street\" tahliye noktasından çıkarak bitir. Eğitim boyunca kontroller ve oyun mekanikleri hakkında pek çok ipucu gösterilir, ancak raidi bitirmek için hiçbirini uygulaman gerekmez.\n\n▸ Therapist ile konuş\nMenüdeki trader ekranından Therapist'i ziyaret et ve diyalog seçeneği çıktığında 250.000 Ruble teslim et.\nÖdül: Streets of Tarkov harita seçiminde açılır.\n\n▸ Ragman – Interchange\nInterchange'den \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol veya haritaya 3 kez gir.\nÖdül: Skier trader olarak açılır, Customs harita seçiminde açılır.\n\n▸ Skier – Customs\nCustoms'tan \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol veya haritaya 3 kez gir.\nÖdül: Mechanic trader olarak açılır, Factory harita seçiminde açılır.\n\n▸ Mechanic – Factory\nFactory'den \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol veya haritaya 3 kez gir.\nÖdül: Prapor trader olarak açılır, Woods harita seçiminde açılır.\n\n▸ Skier – Woods\nWoods'ta herhangi 3 hedefi öldür ve \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol veya haritaya 3 kez gir. Öldürmelerin \"hayatta kal\" hedefiyle aynı raidde olması gerekmez.\nÖdül: Peacekeeper trader olarak açılır, Shoreline harita seçiminde açılır.\n\n▸ Terminal\nSonraki birkaç hedef için Shoreline'ın güneydoğu köşesine git ve Terminal'in önündeki gözetleme kulesindeki interkomu kullan.\nTerminal duvarına fazla yaklaşma; oradaki muhafızlar herkese ateş açar. Onları öldürmeye çalışma, ölümcül bir isabetle karşılık verirler. Uzaklaşman söylendikten sonra interkomu tekrar tekrar kullanmak da muhafızlar tarafından vurulmana yol açar.\n\n▸ Prapor – Reserve\nShoreline'dan \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol veya haritaya 3 kez gir. Ardından menüdeki trader ekranından Prapor'u ziyaret et ve diyalog seçeneği çıktığında 5 künye teslim et. Künyeler ölü PMC'lerden alınabilir (senin öldürmüş olman gerekmez).\nÖdül: Reserve harita seçiminde açılır.\n\n▸ Mechanic – Lighthouse\nMenüdeki trader ekranından Mechanic'i ziyaret et ve diyalog seçeneği çıktığında 8.000 Dolar teslim et. Dolar, Peacekeeper'dan Ruble ile satın alınabilir.\nÖdül: Lighthouse harita seçiminde açılır.\n\n▸ Gizli TerraGroup tesisi: The Lab\nThe Lab'e girmek için şu iki geçişten biri kullanılmalı:\n• Streets of Tarkov → The Lab: Kozmonot duvar resmi olan Klimova 16A binasının önündeki yeraltı girişi. TerraGroup Labs access keycard gerekir. Geçişler raid başladıktan 1 dakika sonra kullanılabilir.\n• Factory → The Lab: Yeraltındaki su basmış bölgeye bağlanan kanalizasyon tünelinde. TerraGroup Labs access keycard gerekir. Geçişler raid başladıktan 1 dakika sonra kullanılabilir.\n\n▸ Üst yönetim ofislerini ara\nİkinci kattaki laboratuvar müdürü ofisi (O21).\n\n▸ Sunucu odasını ara\nBirinci katta, hangarın yanında.\n\n▸ Kanalizasyondan kaçış yolunu bul\nBodrumdaki \"Sewage Conduit\" tahliye noktasında. Bu hedef için tahliyenin aktif edilmesi ya da raidden sağ çıkman gerekmez.\n\nÖdüller:\n• The Lab harita seçiminde açılır\n• Pathfinder başarımı açılır"
+ }
+]

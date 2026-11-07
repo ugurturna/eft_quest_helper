@@ -1,0 +1,36 @@
+{
+ "id": "the-unheard",
+ "name": "Duyulmayanlar",
+ "objectives": [
+  {"id": "o1", "text": "The Unheard hakkında daha fazlasını öğren", "details": []},
+  {"id": "o2", "text": "TerraGroup'un faaliyetleri hakkında daha fazlasını öğren", "details": []},
+  {"id": "o3", "text": "Notta bahsedilen \"yakıt\" hakkında daha fazlasını öğren", "details": []},
+  {"id": "o4", "text": "Özel katalizör sevkiyatı hakkında daha fazla bilgi bul", "details": []},
+  {"id": "o5", "text": "Rzhevsky'nin hizmet aracını bul ve kişisel eşyalarını al", "details": []},
+  {"id": "o6", "text": "Rzhevsky'nin aracındaki sabit diskten verileri çıkar", "details": []},
+  {"id": "o7", "text": "Rzhevsky'nin konuşmasının dökümünü oku", "details": []},
+  {"id": "o8", "text": "Blue Ice yakıt katalizörü araştırmasına ait belgeleri bul ve al", "details": []},
+  {"id": "o9", "text": "The Unheard'ün planları hakkında olabildiğince çok bilgi bul", "details": []},
+  {"id": "o10", "text": "A.P.'nin faaliyetleri hakkında daha fazlasını öğren", "details": []},
+  {"id": "o11", "text": "A.P.'nin rolü hakkında daha fazlasını öğren", "details": []},
+  {"id": "o12", "text": "The Lab'de A.P.'den bahseden herhangi bir iz ara", "details": []},
+  {"id": "o13", "text": "Sağlık Tesisi'nde A.P.'nin odasını bul", "details": [
+   "(İsteğe bağlı) A.P.'ye hangi odanın verildiğini öğren"]},
+  {"id": "o14", "text": "A.P.'nin kişisel eşyalarını al", "details": []},
+  {"id": "o15", "text": "A.P.'nin veri depolama cihazını al", "details": []},
+  {"id": "o16", "text": "A.P.'nin odasındaki flash belleğin şifresini çöz", "details": []},
+  {"id": "o17", "text": "Mechanic'ten yardım iste", "details": []},
+  {"id": "o18", "text": "5.000.000 Rubleyi Mechanic'e teslim et", "details": []},
+  {"id": "o19", "text": "A.P.'nin flash belleğini Mechanic'e teslim et", "details": []},
+  {"id": "o20", "text": "Elektronik'ten haber bekle", "details": []},
+  {"id": "o21", "text": "A.P.'nin flash belleğindeki teknik dosyaları bir TerraGroup anahtar kartına aktar", "details": []},
+  {"id": "o22", "text": "A.P.'nin şirket dairesine gir", "details": []},
+  {"id": "o23", "text": "A.P.'nin dairesini incele", "details": []},
+  {"id": "o24", "text": "A.P.'nin dairesindeki gizli odaya gir", "details": []},
+  {"id": "o25", "text": "A.P.'nin ofisindeki TerraGroup belgelerini incele", "details": []},
+  {"id": "o26", "text": "Blue Ice katalizörünün The Unheard protokolündeki rolünü incele", "details": []},
+  {"id": "o27", "text": "The Unheard protokolü hakkında daha fazlasını öğren", "details": []},
+  {"id": "o28", "text": "The Unheard'ün Tarkov ile bağlantısını çöz", "details": []}
+ ],
+ "guide": "▸ The Unheard hakkında daha fazlasını öğren\nGereksinimlere bak.\n\n▸ TerraGroup'un faaliyetleri ve notta bahsedilen \"yakıt\" hakkında bilgi edin\nBu hedefler için The Lab'den 2 not alıp okuman gerekiyor. \"Document on changes in enterprise interactions\" birinci kattaki kubbenin yanındaki laboratuvarda; \"Cargo transport fax\" ise ikinci kattaki O23 ofisinde.\n\n▸ Özel katalizör sevkiyatı hakkında daha fazla bilgi bul\nAlıp okuman gereken \"Transport log with notes\" Factory'de.\n\n▸ Rzhevsky'nin hizmet aracını bul ve kişisel eşyalarını al\nAranan araç, Streets of Tarkov'daki LexOs bayisinin yakınında. \"Hard drive from Rzhevsky's car\" aracın orta konsolunda.\n\n▸ Sabit diskten verileri çıkar / Konuşmanın dökümünü oku\nSığınaktaki 1. seviye İstihbarat Merkezi'nde \"Hard drive printout\"u üret ve raid dışı görev envanterinden oku. Üretim boyunca elektrik olmalı, yoksa işlem durur.\n\n▸ Blue Ice yakıt katalizörü belgelerini al / The Unheard'ün planları hakkında bilgi topla\nAlıp okuman gereken \"Fuel catalyst test report\" ve \"Burnt document\", Factory'deki TerraGroup depo odasında; bu oda \"Camera Bunker Door\" Scav tahliye noktasının hemen yanındaki yeraltı tünellerinde. Girmek için TerraGroup storage room keycard gerekiyor. İki belgenin de oda içinde birden fazla doğma noktası var.\n\n▸ The Lab'de A.P.'den bahseden izleri ara / A.P.'nin rolü ve faaliyetleri hakkında bilgi edin\nBu hedef için The Lab'deki 2 beyaz tahtadan birini bulman ve 2 ses kasetini alıp dinlemen gerekiyor.\n\n▸ Sağlık Tesisi'nde A.P.'nin odasını bul / Veri cihazını ve kişisel eşyalarını al\nA.P.'nin odası, Shoreline'daki Sağlık Tesisi'nin doğu kanadındaki 305 numaralı oda. \"Sliderkey flash drive marked with A.P.\" masadaki dizüstü bilgisayara takılı. A.P.'nin eşyası olan TerraGroup corporate apartment key sağdaki komodinde. İsteğe bağlı \"Fragment of an unknown document\" soldaki komodinde.\nOdayı bulmak için isteğe bağlı \"Guard post note\", Sağlık Tesisi batı kanadının birinci katında, güney girişindeki güvenlik odasının yanındaki masada.\n\n▸ A.P.'nin flash belleğinin şifresini çöz\nSığınaktaki 1. seviye İstihbarat Merkezi'nde \"Decrypted Sliderkey flash drive marked with A.P.\"yi üret. Üretim boyunca elektrik olmalı, yoksa işlem durur.\n\n▸ Mechanic'ten yardım iste\nMenüdeki trader ekranından Mechanic'i ziyaret et ve ona flash belleği sor. Kendisinin yardım edemeyeceğini ama 5.000.000 Ruble verirsen Elektronik'in edebileceğini söylüyor.\n\n▸ 5.000.000 Rubleyi ve A.P.'nin flash belleğini Mechanic'e teslim et\n5.000.000 Rubleyi ve \"Decrypted Sliderkey flash drive marked with A.P.\"yi trader ekranından Mechanic'e teslim et.\n\n▸ Elektronik'ten haber bekle\nDaha önce Mr. Kerman ile temasın olmadıysa: 6-12 saat bekle, sonra menüdeki trader ekranından Mechanic'i ziyaret et.\nDaha önce Mr. Kerman ile temasın olduysa: Mr. Kerman'ın sana ulaşması için bir buçuk saat bekle ve onunla konuş.\n\n▸ Dosyaları bir anahtar karta aktar ve dairedeki gizli odaya gir\nÖnce Sığınaktaki 1. seviye İstihbarat Merkezi'nde \"Reprogrammed keycard for A.P.'s apartment lock (Green)\" kartını üretmen gerekiyor. Mavi ve kırmızı olanlar yanlış ipuçları.\nA.P.'nin dairesi, Streets of Tarkov'daki Cardinal apartman kompleksinin ikinci katındaki 1 numaralı daire. Girmek için TerraGroup corporate apartment key gerekiyor. Daireye girdikten sonra koridorun sonundaki gizli odayı ürettiğin kartla aç. Odada alıp okuman gereken 4 not var:\n• A.P.'nin ofisindeki TerraGroup belgeleri\n• Blue Ice katalizörünün The Unheard protokolündeki rolü\n• The Unheard protokolü\n• The Unheard'ün Tarkov ile bağlantısı\n\nÖdüller:\n• +128.000 EXP\n• Trail of Breadcrumbs başarımı açılır"
+}

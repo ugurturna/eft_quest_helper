@@ -1,0 +1,27 @@
+{
+ "id": "falling-skies",
+ "name": "Düşen Gökyüzü",
+ "objectives": [
+  {"id": "o1", "text": "Düşen uçağı bul", "details": []},
+  {"id": "o2", "text": "Prapor ile Sadakat Seviyesi 2'ye ulaş", "details": []},
+  {"id": "o3", "text": "Trader'lara düşen uçağı sor", "details": []},
+  {"id": "o4", "text": "(İsteğe bağlı) Doğru G-Wagon hakkında bilgi almak için Therapist'e 2.000 Dolar ver", "details": []},
+  {"id": "o5", "text": "G-Wagon araçlarından birindeki flash belleği al", "details": []},
+  {"id": "o6", "text": "Flash belleği Prapor'a teslim et", "details": []},
+  {"id": "o7", "text": "Prapor'dan haber bekle", "details": []},
+  {"id": "o8", "text": "Uçağın uçuş kayıt cihazını (kara kutu) al", "details": []},
+  {"id": "o9", "text": "Uçuş kayıt cihazını belirtilen yere bırak", "details": []},
+  {"id": "o10", "text": "Prapor'u ziyaret et", "details": []},
+  {"id": "o11", "text": "Raidde bulunmuş (FIR) 3 Rechargeable battery teslim et", "details": []},
+  {"id": "o12", "text": "Raidde bulunmuş (FIR) 5 Printed circuit board teslim et", "details": []},
+  {"id": "o13", "text": "Raidde bulunmuş (FIR) 2 Toolset teslim et", "details": []},
+  {"id": "o14", "text": "Prapor'dan haber bekle", "details": []},
+  {"id": "o15", "text": "Uçuş ekibinin konuşma dökümünü Prapor'a teslim et", "details": []},
+  {"id": "o16", "text": "Elektronik'in şifreli flash belleğini Prapor'a teslim et", "details": []},
+  {"id": "o17", "text": "Prapor'dan haber bekle", "details": []},
+  {"id": "o18", "text": "Zırhlı çantayı al", "details": [
+   "(İsteğe bağlı) Başka ipuçları bul"]},
+  {"id": "o19", "text": "Zırhlı çantayı kendine sakla ya da Prapor'a teslim et", "details": []}
+ ],
+ "guide": "▸ Düşen uçağı bul\nDüşen uçak Woods'un doğu tarafında.\n\n▸ Prapor ile konuş\nMenüdeki trader ekranından Prapor'u ziyaret et ve ona düşen uçağı sor.\n\n▸ Prapor ile Sadakat Seviyesi 2'ye ulaş\nUçak hakkında daha fazla bilgi almak için Prapor ile sadakat seviyesi 2'ye ulaşman, sonra ona uçağı tekrar sorman gerekiyor.\n\n▸ Trader'lara düşen uçağı sor\nMenüdeki trader ekranından Prapor, Therapist, Skier, Mechanic ve Jaeger'ı ziyaret et ve hepsine düşen uçağı sor.\n\n▸ (İsteğe bağlı) Doğru G-Wagon için Therapist'e 2.000 Dolar ver\nMenüdeki trader ekranından Therapist'i ziyaret et ve ona düşen uçakla ilgili bilgi sor. 2.000 Dolar verdiğinde aranan aracın yerini söylüyor.\n\n▸ G-Wagon araçlarından birindeki flash belleği al\nG-Wagon flash drive, Shoreline'daki \"Tunnel\" tahliye noktasının yanındaki G-Wagon'un sürücü tarafındaki basamakta.\nG-Wagon flash drive'ı trader ekranından Prapor'a teslim et.\n\n▸ Prapor'dan haber bekle\n30 dakika bekle, sonra menüdeki trader ekranından Prapor'u ziyaret et ve ona düşen uçağı sor.\n\n▸ Uçağın uçuş kayıt cihazını al\nDüşen uçak Woods'un doğu tarafında; Crashed plane's flight recorder, uçağın sağ tarafında, arkaya yakın kırık bölümde.\n\n▸ Uçuş kayıt cihazını belirtilen yere bırak\nCrashed plane's flight recorder, Shoreline adasındaki evin yıkık odasına bırakılmalı.\n\n▸ Prapor'u ziyaret et\nPrapor devam etmek için bu eşyaları istiyor: 3 Rechargeable battery, 5 Printed circuit board, 2 Toolset (hepsi raidde bulunmuş).\n\n▸ Prapor'dan haber bekle\n3-5 saat bekle, sonra menüdeki trader ekranından Prapor'u ziyaret et ve ona düşen uçağı sor.\n\n▸ Uçuş ekibinin dökümünü ve Elektronik'in şifreli flash belleğini Prapor'a teslim et\nİki eşya da Shoreline'daki muhtarın evinde (chairman's house) bulunuyor.\nÖdül (iki eşyayı da teslim edince):\n• 300.000 Ruble (İstihbarat Merkezi 1. seviyede 315.000, 2. seviyede 345.000)\n\n▸ Prapor'dan haber bekle\n1-3 saat bekle, sonra menüdeki trader ekranından Prapor'u ziyaret et ve ona düşen uçağı sor. Prapor dökümü okuyup okumadığını soruyor; \"evet\" dersen ödül alırsın, \"hayır\" dersen almazsın.\nÖdül:\n• 300.000 Ruble (İstihbarat Merkezi 1. seviyede 315.000, 2. seviyede 345.000)\n\n▸ Zırhlı çantayı al / Başka ipuçları bul\nArmored case, düşen uçağın kokpitinin arkasında; isteğe bağlı \"Note from Mr. Kerman\" pilot koltuğunda.\n\n▸ Zırhlı çantayı kendine sakla ya da Prapor'a teslim et\nBu, geri dönüşü olmayan önemli bir karar! The Ticket (Bilet) bölümünün gidişatını etkiliyor.\n• Karar – Çantayı sakla: +80.000 EXP, Prapor itibarı -0,7, 1× Armored case, Just Business başarımı.\n• Karar – Çantayı doğrudan Prapor'a ver: +80.000 EXP, 1.000.000 Ruble (İstihbarat Merkezi 1. seviyede 1.050.000, 2. seviyede 1.150.000), Man of His Word başarımı.\n• Karar – Çantayı bulamamış gibi yap ama yine de Prapor'a ver: +80.000 EXP, 1.000.000 Ruble (İstihbarat Merkezi 1. seviyede 1.050.000, 2. seviyede 1.150.000), Man of His Word başarımı."
+}
