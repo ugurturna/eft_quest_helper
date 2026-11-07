@@ -57,6 +57,20 @@ public sealed class MapGroup(string map, IReadOnlyList<QuestRow> quests)
     public string Header => $"{Map}  ({Quests.Count})";
 }
 
+/// <summary>"Items" tab: one trader's quests that need items.</summary>
+public sealed class TraderItems(string trader, IReadOnlyList<QuestItemsRow> quests)
+{
+    public string Trader { get; } = trader;
+    public IReadOnlyList<QuestItemsRow> Quests { get; } = quests;
+    public string Header => $"{Trader}  ({Quests.Count})";
+}
+
+public sealed class QuestItemsRow(QuestRow row, IReadOnlyList<ItemNeed> items)
+{
+    public QuestRow Row { get; } = row;
+    public IReadOnlyList<ItemNeed> Items { get; } = items;
+}
+
 /// <summary>An active quest card (main window "Aktif" tab and the overlay).</summary>
 public sealed class ActiveQuestVm : ObservableObject
 {

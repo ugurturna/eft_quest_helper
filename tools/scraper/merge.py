@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
 SRC = DATA / "sources"
+COLLECTOR = "collector"
 
 
 def load(name):
@@ -81,15 +82,8 @@ def main():
         if not td:
             continue
         t["tarkovDevId"] = td["id"]
-        td_kappa = bool(td.get("kappaRequired"))
-        if t["kappaRequired"] is None:
-            t["kappaRequired"] = td_kappa
-            t["sources"]["kappaRequired"] = "tarkov.dev"
-        elif t["kappaRequired"] != td_kappa:
-            log["kappa_diff"].append(f"- {t['name']}: wiki {t['kappaRequired']} / tarkov.dev {td_kappa}")
         t["lightkeeperRequired"] = bool(td.get("lightkeeperRequired"))
         t["sources"]["lightkeeperRequired"] = "tarkov.dev"
-        stats["kappa"] += bool(t["kappaRequired"])
 
         lvl = td.get("minPlayerLevel") or 0
         if t["minLevel"] is None and lvl > 1:
@@ -121,6 +115,17 @@ def main():
             t["prerequisites"].append(p)
             t["sources"].setdefault("prerequisitesAdded", []).append(p)
             log["prereq"].append(f"- {t['name']}: + {by_id[p]['name']}")
+
+    # Kappa = Collector and everything it needs; the wiki's per-quest "reqkappa" predates the change
+    # that left only Collector's own chain required (tarkov.dev agrees)
+    kappa = closure(by_id, COLLECTOR) | {COLLECTOR} if COLLECTOR in by_id else set()
+    for t in tasks:
+        new = t["id"] in kappa
+        if t["kappaRequired"] != new:
+            log["kappa_diff"].append(f"- {t['name']}: wiki {t['kappaRequired']} -> {new}")
+        t["kappaRequired"] = new
+        t["sources"]["kappaRequired"] = "collector chain"
+    stats["kappa"] = len(kappa)
 
     # PvE overrides: only where tarkov.dev's PvE data differs from PvP
     for t in tasks:
@@ -158,7 +163,7 @@ def main():
               f"- dangling prerequisite ids: {len(dangling)}", ""]
     for title, body in [("Prerequisites added from tarkov.dev", log["prereq"]),
                         ("Level disagreements", log["level_diff"]),
-                        ("Kappa disagreements (wiki kept)", log["kappa_diff"]),
+                        ("Kappa changes (Collector chain)", log["kappa_diff"]),
                         ("Game mode availability changes", log["modes"]),
                         ("PvE differences", log["pve"]),
                         ("tarkov.dev PvP tasks not on wiki", [f"- {n}" for n in unmatched["pvp"]]),

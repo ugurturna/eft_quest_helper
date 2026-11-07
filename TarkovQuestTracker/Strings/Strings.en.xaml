@@ -18,6 +18,10 @@
     <sys:String x:Key="s.tab.quests">Quests</sys:String>
     <sys:String x:Key="s.tab.planner">Goal Planner</sys:String>
     <sys:String x:Key="s.tab.kappa">Kappa / Collector</sys:String>
+    <sys:String x:Key="s.tab.items">Items</sys:String>
+    <sys:String x:Key="s.items.search">Search items (e.g. Salewa, GPU)</sys:String>
+    <sys:String x:Key="s.items.hideDone">Hide completed</sys:String>
+    <sys:String x:Key="s.items.firOnly">FIR only</sys:String>
     <sys:String x:Key="s.tab.active">Active Quests</sys:String>
     <sys:String x:Key="s.tab.settings">Settings</sys:String>
 
@@ -150,6 +154,7 @@
     <sys:String x:Key="g.none">Search a quest and press "Set as goal" (e.g. Punisher Part 3 or Collector).</sys:String>
     <sys:String x:Key="g.allDone">{0}: all done!</sys:String>
     <sys:String x:Key="g.progress">{0}: {1}/{2} done, {3} quests left. Tick what you already did (earlier ones are ticked automatically).</sys:String>
+    <sys:String x:Key="i.summary">{0} quests · {1} distinct items</sys:String>
     <sys:String x:Key="k.summary">Kappa path: {0}/{1} quests  ({2:0}%)</sys:String>
     <sys:String x:Key="k.unknown">   ⚠ Kappa info missing for {0} side quests - will be filled from tarkov.dev (Settings).</sys:String>
     <sys:String x:Key="d.info">{0} quests ({1}): {2} side, {3} story, {4} event · quest languages: {5}</sys:String>

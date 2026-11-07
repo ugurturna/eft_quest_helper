@@ -18,6 +18,10 @@ public sealed partial class MainViewModel : ObservableObject
     QuestPlanner _planner = null!;
     SearchService _search = null!;
 
+    /// <summary>"v0.0.2", from &lt;Version&gt; in TarkovQuestTracker.csproj.</summary>
+    public static string AppVersion { get; } =
+        typeof(MainViewModel).Assembly.GetName().Version is { } v ? $"v{v.Major}.{v.Minor}.{v.Build}" : "";
+
     public AppSettings Settings { get; private set; } = new();
     public Progress Progress { get; private set; } = new();
 
@@ -529,6 +533,35 @@ public sealed partial class MainViewModel : ObservableObject
     }
 
 
+    public BulkObservableCollection<TraderItems> ItemGroups { get; } = [];
+    [ObservableProperty] private string _itemSearchText = "";
+    [ObservableProperty] private bool _itemsHideDone = true;
+    [ObservableProperty] private bool _itemsFirOnly;
+    [ObservableProperty] private string _itemsSummary = "";
+
+    partial void OnItemSearchTextChanged(string value) => RefreshItems();
+    partial void OnItemsHideDoneChanged(bool value) => RefreshItems();
+    partial void OnItemsFirOnlyChanged(bool value) => RefreshItems();
+
+    void RefreshItems()
+    {
+        if (_loading || _repo == null) return;
+        var text = ItemSearchText.Trim();
+        bool Hit(string s) => s.Contains(text, StringComparison.OrdinalIgnoreCase);
+        bool Match(ItemNeed n) => (!ItemsFirOnly || n.Fir)
+                                  && (text.Length == 0 || Hit(n.Name) || Hit(n.ShortName) || n.Alternatives.Any(Hit));
+        var rows = _repo.Quests
+            .Where(q => q.ItemNeeds.Count > 0 && !(ItemsHideDone && Progress.Completed.Contains(q.Id)))
+            .OrderBy(q => q.MinLevel ?? 0).ThenBy(q => q.DisplayName)
+            .Select(q => new QuestItemsRow(Row(q), q.ItemNeeds.Where(Match).ToList()))
+            .Where(r => r.Items.Count > 0)
+            .ToList();
+        Replace(ItemGroups, rows.GroupBy(r => r.Row.Quest.Trader).OrderBy(g => g.Key)
+            .Select(g => new TraderItems(g.Key, g.ToList())));
+        ItemsSummary = Loc.F("i.summary", rows.Count, rows.SelectMany(r => r.Items).Select(i => i.ItemId).Distinct().Count());
+    }
+
+
     public BulkObservableCollection<ActiveQuestVm> ActiveQuests { get; } = [];
     public bool HasActive => ActiveQuests.Count > 0;
 
@@ -630,6 +663,7 @@ public sealed partial class MainViewModel : ObservableObject
         RefreshGoal();
         RefreshSearch();
         RefreshKappa();
+        RefreshItems();
         RefreshActive();
         NotifyDetail();
     }

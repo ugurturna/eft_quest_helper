@@ -1,0 +1,46 @@
+# Push a tag like v0.0.2 -> tests, self-contained publish, zip, GitHub release with the zip attached.
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Version from tag
+        shell: pwsh
+        run: |
+          $version = "${{ github.ref_name }}".TrimStart('v')
+          "VERSION=$version" >> $env:GITHUB_ENV
+          "ZIP=TarkovQuestTracker-v$version-win-x64.zip" >> $env:GITHUB_ENV
+
+      - name: Test
+        run: dotnet test -c Release
+
+      # data\ (quests, item list, icons) is copied next to the exe, outside the single file
+      - name: Publish
+        run: >
+          dotnet publish TarkovQuestTracker/TarkovQuestTracker.csproj -c Release -r win-x64
+          --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+          -p:Version=${{ env.VERSION }} -o publish
+
+      - name: Zip
+        shell: pwsh
+        run: Compress-Archive -Path publish\* -DestinationPath $env:ZIP
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.ZIP }}
+          generate_release_notes: true

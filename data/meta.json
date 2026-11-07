@@ -1,7 +1,11 @@
 {
  "fandom": {
-  "scrapedAt": "2026-11-07T10:56:57+00:00",
+  "scrapedAt": "2026-11-07T15:09:55+00:00",
   "source": "https://escapefromtarkov.fandom.com/wiki/Quests",
   "count": 870
+ },
+ "tarkovDev": {
+  "fetchedAt": "2026-11-07T15:08:13+00:00",
+  "source": "https://json.tarkov.dev"
  }
 }

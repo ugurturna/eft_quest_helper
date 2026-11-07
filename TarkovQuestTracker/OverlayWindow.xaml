@@ -95,8 +95,12 @@
                                                     <CheckBox IsChecked="{Binding IsDone, Mode=TwoWay}" VerticalAlignment="Top" MinWidth="0" MinHeight="0"
                                                               Margin="0,1,6,0" Padding="0" />
                                                     <StackPanel Grid.Column="1">
-                                                        <TextBlock x:Name="ObjText" Text="{Binding Text}" FontSize="12" TextWrapping="Wrap"
-                                                                   Foreground="{StaticResource TextBrush}" />
+                                                        <DockPanel>
+                                                            <Image Source="{Binding Objective.Item.IconPath, Converter={StaticResource ItemIcon}}"
+                                                                   Style="{StaticResource ObjectiveIcon}" Width="22" Height="22" />
+                                                            <TextBlock x:Name="ObjText" Text="{Binding Text}" FontSize="12" TextWrapping="Wrap"
+                                                                       Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" />
+                                                        </DockPanel>
                                                         <StackPanel Orientation="Horizontal" Margin="0,2,0,0"
                                                                     Visibility="{Binding IsCounter, Converter={StaticResource BoolToVis}}">
                                                             <Button Content="−" Command="{Binding DecrementCommand}" Style="{StaticResource SmallButton}" Padding="7,0" />

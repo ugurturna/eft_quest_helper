@@ -308,6 +308,11 @@ def parse_quest(title, trader, text):
         (accept if re.match(r"\s*accept\b", part, flags=re.I) else prev).extend(
             l for l in links(part) if l != title)
     req_other += [f"Accept: {a}" for a in accept]
+    # "[[A]]<br/>or<br/>[[B]]": either one unlocks the quest; prerequisites mean "all of", so keep them as text
+    alternatives = []
+    if re.search(r"(?:<br\s*/?>|\n)\s*or\s*(?:<br\s*/?>|\n)", box.get("previous", ""), flags=re.I):
+        alternatives, prev = prev, []
+        req_other.append("One of: " + " / ".join(alternatives))
     guide = sec.get("guide", "")
     notes_parts = [plain(sec[k]) for k in ("notes", "trivia") if k in sec]
     guide = re.sub(r"\{\|.*?\n\|\}", "", guide, flags=re.S)
@@ -328,6 +333,7 @@ def parse_quest(title, trader, text):
         "pveMinLevel": pve_level,
         "traderLoyalty": plain(box.get("ll requirement", "")) or None,
         "prevTitles": prev,
+        "altTitles": alternatives,
         "reqTitles": req_quests,
         "leadsToTitles": links(box.get("leads to", "")),
         "relatedTitles": links(box.get("related", "")),
@@ -414,7 +420,7 @@ def main():
             "category": q["category"],
             "eventName": q.get("eventName"),
             "eventActive": q.get("eventActive"),
-            "kappaRequired": q["kappa"],    # infobox "reqkappa"; missing ones filled by merge.py (tarkov.dev)
+            "kappaRequired": q["kappa"],    # infobox "reqkappa"; merge.py replaces it with the Collector chain
             "lightkeeperRequired": None,
             "gameModes": q["gameModes"],
             "prerequisites": prereq,
@@ -433,11 +439,15 @@ def main():
             "tarkovDevId": None,
         })
 
-    # "leads to" on A means A is a prerequisite of B, even if B's "previous" is empty.
+    # "leads to" on A means A is a prerequisite of B, even if B's "previous" is empty,
+    # unless B lists A as one of several alternatives.
     by_id = {t["id"]: t for t in tasks}
+    alternatives = {q["id"]: set(ids(q["altTitles"])) for q in raw}
     for t in tasks:
         for nxt in t["leadsTo"]:
             target = by_id[nxt]
+            if t["id"] in alternatives[nxt]:
+                continue
             if t["id"] not in target["prerequisites"] and nxt not in prereq_closure(by_id, t["id"]):
                 target["prerequisites"].append(t["id"])
 

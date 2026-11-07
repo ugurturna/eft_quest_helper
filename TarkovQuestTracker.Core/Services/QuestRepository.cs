@@ -74,9 +74,50 @@ public sealed class QuestRepository
             }
         }
 
+        LoadItemNeeds(dataDir, quests, modeKey, repo.Language);
         repo.Quests = quests;
         repo.ById = quests.ToDictionary(q => q.Id);
         return repo;
+    }
+
+    static void LoadItemNeeds(string dataDir, List<Quest> quests, string modeKey, string language)
+    {
+        var data = Read<QuestItemData>(Path.Combine(dataDir, "quest_items.json"));
+        if (data == null || !data.Modes.TryGetValue(modeKey, out var byQuest)) return;
+        var iconDir = Path.Combine(dataDir, "icons");
+        string Pick(Dictionary<string, string>? names, string id) =>
+            names?.GetValueOrDefault(language) ?? names?.GetValueOrDefault("en") ?? id;
+
+        ItemNeed Need(ItemObjective o)
+        {
+            var id = o.Items[0];
+            var info = data.Items.GetValueOrDefault(id);
+            var icon = Path.Combine(iconDir, id + ".png");
+            return new ItemNeed(id, Pick(info?.Name, id), Pick(info?.Short, id), o.Count, o.Fir,
+                o.Items.Skip(1).Select(a => Pick(data.Items.GetValueOrDefault(a)?.Name, a)).ToList(),
+                File.Exists(icon) ? icon : null);
+        }
+
+        foreach (var q in quests)
+        {
+            if (!byQuest.TryGetValue(q.Id, out var objectives)) continue;
+            var needs = objectives.Where(o => o.Items.Count > 0).Select(o => (o, need: Need(o))).ToList();
+
+            var byId = q.Objectives.ToDictionary(o => o.Id);
+            foreach (var (o, need) in needs)
+                if (o.Objective != null && byId.TryGetValue(o.Objective, out var target))
+                    target.Item ??= need;
+            // "Hand over the items" right after "Find X in raid" is about the same item
+            for (var i = 1; i < q.Objectives.Count; i++)
+                if (q.Objectives[i].Item == null && q.Objectives[i].Text.StartsWith("Hand over", StringComparison.OrdinalIgnoreCase))
+                    q.Objectives[i].Item = q.Objectives[i - 1].Item;
+
+            q.ItemNeeds = needs.Where(x => x.o.Type != "findItem").Select(x => x.need)
+                // the same item over several objectives (plant 3× one by one) becomes one entry
+                .GroupBy(n => (n.ItemId, n.Fir, n.Alternatives.Count))
+                .Select(g => g.First() with { Count = g.Sum(n => n.Count) })
+                .ToList();
+        }
     }
 
     static void ApplyMode(Quest q, string modeKey)

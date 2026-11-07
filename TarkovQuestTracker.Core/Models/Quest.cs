@@ -45,6 +45,8 @@ public sealed class Quest
     [JsonIgnore] public string DisplayGuide { get; set; } = "";
     /// <summary>PvE notes / differing objectives for the active mode, shown as a warning.</summary>
     [JsonIgnore] public List<string> ModeWarnings { get; set; } = [];
+    /// <summary>Items to hand over / plant (data/quest_items.json) for the active mode.</summary>
+    [JsonIgnore] public List<ItemNeed> ItemNeeds { get; set; } = [];
 
     [JsonIgnore] public bool IsKappa => KappaRequired == true;
     [JsonIgnore] public bool IsPastEvent => Category == "event" && EventActive == false;
@@ -67,6 +69,8 @@ public sealed class Objective
 
     [JsonIgnore] public string DisplayText { get; set; } = "";
     [JsonIgnore] public List<string> DisplayDetails { get; set; } = [];
+    /// <summary>The item this objective is about (icon in the UI), from data/quest_items.json.</summary>
+    [JsonIgnore] public ItemNeed? Item { get; set; }
 }
 
 public sealed class RequiredItem

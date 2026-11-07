@@ -18,6 +18,10 @@
     <sys:String x:Key="s.tab.quests">Görevler</sys:String>
     <sys:String x:Key="s.tab.planner">Hedef Planlayıcı</sys:String>
     <sys:String x:Key="s.tab.kappa">Kappa / Collector</sys:String>
+    <sys:String x:Key="s.tab.items">Eşyalar</sys:String>
+    <sys:String x:Key="s.items.search">Item ara (ör. Salewa, GPU)</sys:String>
+    <sys:String x:Key="s.items.hideDone">Bitenleri gizle</sys:String>
+    <sys:String x:Key="s.items.firOnly">Sadece FIR</sys:String>
     <sys:String x:Key="s.tab.active">Aktif Görevler</sys:String>
     <sys:String x:Key="s.tab.settings">Ayarlar</sys:String>
 
@@ -150,6 +154,7 @@
     <sys:String x:Key="g.none">Bir hedef görev ara ve "Hedef yap" de (ör. Punisher Part 3 veya Collector).</sys:String>
     <sys:String x:Key="g.allDone">{0}: hepsi tamam!</sys:String>
     <sys:String x:Key="g.progress">{0}: {1}/{2} tamam, {3} görev kaldı. Önceden yaptıklarını işaretle (öncekiler otomatik işaretlenir).</sys:String>
+    <sys:String x:Key="i.summary">{0} görev · {1} farklı item</sys:String>
     <sys:String x:Key="k.summary">Kappa yolu: {0}/{1} görev  (%{2:0})</sys:String>
     <sys:String x:Key="k.unknown">   ⚠ {0} yan görevin Kappa bilgisi eksik - tarkov.dev ile tamamlanacak (Ayarlar).</sys:String>
     <sys:String x:Key="d.info">{0} görev ({1}): {2} yan, {3} hikaye, {4} event · görev dilleri: {5}</sys:String>

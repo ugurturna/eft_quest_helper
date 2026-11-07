@@ -18,6 +18,33 @@ public sealed class RealDataTests
     }
 
     [Fact]
+    public void Quest_items_are_loaded_with_names_and_icons()
+    {
+        var needs = Repo.Quests.SelectMany(q => q.ItemNeeds).ToList();
+        Assert.True(Repo.Quests.Count(q => q.ItemNeeds.Count > 0) > 100);
+        Assert.All(needs, n => Assert.NotEqual(n.ItemId, n.Name));
+        Assert.All(needs, n => Assert.True(n.IconPath != null && File.Exists(n.IconPath), n.ItemId));
+    }
+
+    [Fact]
+    public void Item_objectives_show_their_item()
+    {
+        var collector = Repo.ById["collector"];
+        Assert.All(collector.Objectives, o => Assert.NotNull(o.Item));
+        var linked = Repo.Quests.SelectMany(q => q.Objectives).Count(o => o.Item != null);
+        Assert.True(linked > 400, $"{linked} objectives with an item");
+    }
+
+    [Fact]
+    public void Kappa_is_the_collector_chain()
+    {
+        var kappa = Repo.Quests.Where(q => q.IsKappa).Select(q => q.Id).ToHashSet();
+        Assert.Contains("collector", kappa);
+        Assert.Contains("chemical-part-1", kappa);
+        Assert.Equal(kappa, new QuestPlanner(Repo).KappaSet());
+    }
+
+    [Fact]
     public void Graph_is_acyclic()
     {
         var planner = new QuestPlanner(Repo);

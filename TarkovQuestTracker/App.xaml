@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="clr-namespace:TarkovQuestTracker.ViewModels"
              xmlns:local="clr-namespace:TarkovQuestTracker"
+             xmlns:core="clr-namespace:TarkovQuestTracker.Core.Models;assembly=TarkovQuestTracker.Core"
              ShutdownMode="OnMainWindowClose">
     <Application.Resources>
         <SolidColorBrush x:Key="BgBrush" Color="#141412" />
@@ -24,6 +25,39 @@
         <local:InvertBoolConverter x:Key="InvertBool" />
         <local:TraderImageConverter x:Key="TraderImage" />
         <local:InitialConverter x:Key="Initial" />
+        <local:ItemIconConverter x:Key="ItemIcon" />
+
+        <!-- small item icon in front of an objective; hidden when the objective has no item -->
+        <Style x:Key="ObjectiveIcon" TargetType="Image">
+            <Setter Property="Width" Value="26" />
+            <Setter Property="Height" Value="26" />
+            <Setter Property="Margin" Value="0,0,6,0" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Style.Triggers>
+                <Trigger Property="Source" Value="{x:Null}">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- one needed item: icon, short name, count, FIR; full name + alternatives in the tooltip -->
+        <DataTemplate x:Key="ItemChip" DataType="{x:Type core:ItemNeed}">
+            <Border Background="{StaticResource CardBrush}" CornerRadius="3" Padding="2,2,6,2" Margin="0,0,4,4" ToolTip="{Binding ToolTip}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{Binding IconPath, Converter={StaticResource ItemIcon}}" Width="32" Height="32" />
+                    <StackPanel VerticalAlignment="Center" Margin="5,0,0,0">
+                        <TextBlock Text="{Binding ShortName}" Foreground="{StaticResource TextBrush}" FontSize="11"
+                                   MaxWidth="110" TextTrimming="CharacterEllipsis" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding CountText}" Foreground="{StaticResource AccentBrush}" FontSize="11" FontWeight="SemiBold" />
+                            <TextBlock Text=" FIR" Foreground="{StaticResource WarnBrush}" FontSize="10" VerticalAlignment="Center"
+                                       Visibility="{Binding Fir, Converter={StaticResource BoolToVis}}" />
+                            <TextBlock Text="{Binding MoreText, StringFormat=' {0}'}" Foreground="{StaticResource MutedBrush}" FontSize="10" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
 
         <!-- trader portrait (content = trader name); size comes from the ContentPresenter -->
         <DataTemplate x:Key="TraderAvatar">

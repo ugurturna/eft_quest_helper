@@ -83,6 +83,8 @@
         <Border DockPanel.Dock="Top" Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource LineBrush}" BorderThickness="0,0,0,1" Padding="14,8">
             <DockPanel>
                 <TextBlock Text="◆ TARKOV QUEST TRACKER" Style="{StaticResource H1}" FontSize="16" VerticalAlignment="Center" />
+                <TextBlock Text="{x:Static vm:MainViewModel.AppVersion}" Style="{StaticResource Muted}" FontSize="11"
+                           VerticalAlignment="Center" Margin="8,3,0,0" />
                 <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal" Margin="0,2,14,2">
                         <TextBlock Text="{DynamicResource s.profile}" Style="{StaticResource Muted}" VerticalAlignment="Center" Margin="0,0,6,0" />
@@ -246,6 +248,58 @@
                     </ScrollViewer>
                 </TabItem>
 
+                <!-- quest items: trader → quest → items to hand over -->
+                <TabItem Header="{DynamicResource s.tab.items}">
+                    <DockPanel Margin="0,8,0,0">
+                        <WrapPanel DockPanel.Dock="Top" Margin="0,0,0,6">
+                            <TextBox Text="{Binding ItemSearchText, UpdateSourceTrigger=PropertyChanged}" Width="220" Margin="0,0,12,4"
+                                     ToolTip="{DynamicResource s.items.search}" />
+                            <CheckBox Content="{DynamicResource s.items.hideDone}" IsChecked="{Binding ItemsHideDone}" Margin="0,0,12,4" VerticalAlignment="Center" />
+                            <CheckBox Content="{DynamicResource s.items.firOnly}" IsChecked="{Binding ItemsFirOnly}" Margin="0,0,12,4" VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding ItemsSummary}" Style="{StaticResource Muted}" VerticalAlignment="Center" Margin="0,0,0,4" />
+                        </WrapPanel>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <ItemsControl ItemsSource="{Binding ItemGroups}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type vm:TraderItems}">
+                                        <Expander IsExpanded="True" Margin="0,4,0,0">
+                                            <Expander.Header>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <ContentPresenter Content="{Binding Trader}" ContentTemplate="{StaticResource TraderAvatar}"
+                                                                      Width="22" Height="22" Margin="0,0,8,0" />
+                                                    <TextBlock Text="{Binding Header}" Style="{StaticResource H2}" Margin="0" VerticalAlignment="Center" />
+                                                </StackPanel>
+                                            </Expander.Header>
+                                            <ItemsControl ItemsSource="{Binding Quests}" Margin="8,4,0,0">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type vm:QuestItemsRow}">
+                                                        <StackPanel Margin="0,0,0,6">
+                                                            <Button Command="{Binding DataContext.SelectCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                                    CommandParameter="{Binding Row.Quest}" HorizontalAlignment="Left"
+                                                                    Background="Transparent" BorderThickness="0" Padding="0,1">
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <TextBlock Text="{Binding Row.Quest.DisplayName}" Foreground="{StaticResource TextBrush}" FontWeight="SemiBold" />
+                                                                    <TextBlock Text="{Binding Row.Quest.LevelText, StringFormat='  {0}'}" Style="{StaticResource Muted}" FontSize="11" VerticalAlignment="Center" />
+                                                                    <ContentPresenter Content="{Binding Row}" ContentTemplate="{StaticResource StatusPill}" Margin="8,0,0,0" VerticalAlignment="Center" />
+                                                                </StackPanel>
+                                                            </Button>
+                                                            <ItemsControl ItemsSource="{Binding Items}" ItemTemplate="{StaticResource ItemChip}" Margin="0,3,0,0">
+                                                                <ItemsControl.ItemsPanel>
+                                                                    <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                                                                </ItemsControl.ItemsPanel>
+                                                            </ItemsControl>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Expander>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </DockPanel>
+                </TabItem>
+
                 <!-- active -->
                 <TabItem Header="{DynamicResource s.tab.active}">
                     <DockPanel Margin="0,8,0,0">
@@ -287,7 +341,11 @@
                                                                     <Button Content="+" Command="{Binding IncrementCommand}" Style="{StaticResource SmallButton}" Margin="6,0,0,0" />
                                                                 </StackPanel>
                                                                 <CheckBox IsChecked="{Binding IsDone, Mode=TwoWay}">
-                                                                    <TextBlock Text="{Binding Text}" TextWrapping="Wrap" Foreground="{StaticResource TextBrush}" />
+                                                                    <DockPanel>
+                                                                        <Image Source="{Binding Objective.Item.IconPath, Converter={StaticResource ItemIcon}}"
+                                                                               Style="{StaticResource ObjectiveIcon}" ToolTip="{Binding Objective.Item.ToolTip}" />
+                                                                        <TextBlock Text="{Binding Text}" TextWrapping="Wrap" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" />
+                                                                    </DockPanel>
                                                                 </CheckBox>
                                                             </DockPanel>
                                                         </DataTemplate>
@@ -384,7 +442,8 @@
                                 <Run Text="{DynamicResource s.set.data.update}" /><LineBreak />
                                 python tools/scraper/scrape_wiki.py --refresh<LineBreak />
                                 python tools/scraper/fetch_tarkovdev.py<LineBreak />
-                                python tools/scraper/merge.py
+                                python tools/scraper/merge.py<LineBreak />
+                                python tools/scraper/fetch_quest_items.py
                             </TextBlock>
                         </StackPanel>
                     </ScrollViewer>
@@ -460,9 +519,13 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate DataType="{x:Type core:Objective}">
                                         <StackPanel Margin="0,2">
-                                            <TextBlock Style="{StaticResource Body}">
-                                                <Run Text="• " /><Run Text="{Binding DisplayText, Mode=OneWay}" />
-                                            </TextBlock>
+                                            <DockPanel>
+                                                <Image Source="{Binding Item.IconPath, Converter={StaticResource ItemIcon}}" Style="{StaticResource ObjectiveIcon}"
+                                                       ToolTip="{Binding Item.ToolTip}" />
+                                                <TextBlock Style="{StaticResource Body}" VerticalAlignment="Center">
+                                                    <Run Text="• " /><Run Text="{Binding DisplayText, Mode=OneWay}" />
+                                                </TextBlock>
+                                            </DockPanel>
                                             <ItemsControl ItemsSource="{Binding DisplayDetails}" Margin="14,0,0,0">
                                                 <ItemsControl.ItemTemplate>
                                                     <DataTemplate>
@@ -476,12 +539,10 @@
                             </ItemsControl>
 
                             <TextBlock Text="{DynamicResource s.reqItems}" Style="{StaticResource H2}" />
-                            <ItemsControl ItemsSource="{Binding SelectedQuest.RequiredItems}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" Style="{StaticResource Body}" />
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
+                            <ItemsControl ItemsSource="{Binding SelectedQuest.ItemNeeds}" ItemTemplate="{StaticResource ItemChip}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
                             </ItemsControl>
 
                             <TextBlock Text="{DynamicResource s.prereqs}" Style="{StaticResource H2}" />

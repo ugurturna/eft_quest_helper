@@ -14,7 +14,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="..\data\tasks_*.json;..\data\meta.json" Link="data\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
+      <Content Include="..\data\tasks_*.json;..\data\meta.json;..\data\quest_items.json" Link="data\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
+      <Content Include="..\data\icons\*.png" Link="data\icons\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
     </ItemGroup>
 
 
@@ -24,6 +25,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
+        <Version>0.0.2</Version>
         <!-- built with tools\make_icon.ps1 -->
         <ApplicationIcon Condition="Exists('Assets\app.ico')">Assets\app.ico</ApplicationIcon>
     </PropertyGroup>

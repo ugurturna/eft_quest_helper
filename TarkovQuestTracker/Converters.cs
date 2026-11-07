@@ -43,6 +43,28 @@ public sealed class TraderImageConverter : IValueConverter
         throw new NotSupportedException();
 }
 
+/// <summary>Icon file path (data/icons/{itemId}.png) → cached image; null path → no image.</summary>
+public sealed class ItemIconConverter : IValueConverter
+{
+    static readonly Dictionary<string, ImageSource> Cache = [];
+
+    public object? Convert(object value, Type targetType, object? parameter, CultureInfo culture)
+    {
+        if (value is not string path) return null;
+        if (Cache.TryGetValue(path, out var cached)) return cached;
+        var bitmap = new BitmapImage();
+        bitmap.BeginInit();
+        bitmap.UriSource = new Uri(path);
+        bitmap.CacheOption = BitmapCacheOption.OnLoad;
+        bitmap.EndInit();
+        bitmap.Freeze();
+        return Cache[path] = bitmap;
+    }
+
+    public object ConvertBack(object value, Type targetType, object? parameter, CultureInfo culture) =>
+        throw new NotSupportedException();
+}
+
 /// <summary>"Prapor" → "P"; fallback badge when no portrait is bundled ("all traders" gets a star).</summary>
 public sealed class InitialConverter : IValueConverter
 {
