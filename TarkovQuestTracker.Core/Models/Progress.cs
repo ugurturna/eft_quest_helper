@@ -36,4 +36,6 @@ public sealed class AppSettings
     public bool OverlayVisible { get; set; } = true;
     public string ClickThroughHotkey { get; set; } = "Ctrl+Shift+T";
     public string ToggleOverlayHotkey { get; set; } = "Ctrl+Shift+H";
+    /// <summary>Opens the flea market price search in the middle of the screen.</summary>
+    public string FleaSearchHotkey { get; set; } = "Ctrl+Shift+F";
 }

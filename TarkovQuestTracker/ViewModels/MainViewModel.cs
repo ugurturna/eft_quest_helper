@@ -25,10 +25,13 @@ public sealed partial class MainViewModel : ObservableObject
 
     public AppSettings Settings { get; private set; } = new();
     public Progress Progress { get; private set; } = new();
+    /// <summary>Flea prices of both modes, kept as local files next to the profiles.</summary>
+    public FleaMarket Flea { get; }
 
     public MainViewModel()
     {
         _dataDir = QuestRepository.FindDataDir(AppContext.BaseDirectory);
+        Flea = new FleaMarket(Path.Combine(_store.Folder, "flea"));
         _currentProfile = _store.Profile;
         _searchDelay.Tick += (_, _) =>
         {

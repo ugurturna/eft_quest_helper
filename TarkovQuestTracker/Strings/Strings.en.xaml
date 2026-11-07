@@ -225,9 +225,26 @@
     <sys:String x:Key="s.keys.wheel.desc">With the mouse over the overlay: make it bigger / smaller (60–200 %). The overlay must be unlocked.</sys:String>
     <sys:String x:Key="s.keys.drag">Drag the header</sys:String>
     <sys:String x:Key="s.keys.drag.desc">Move the overlay up / down along the right edge of the screen. The overlay must be unlocked.</sys:String>
-    <sys:String x:Key="s.keys.note">Shortcuts work while the game is running and the app is in the background. To change the keys, edit clickThroughHotkey / toggleOverlayHotkey in the profile's settings.json (e.g. "Ctrl+Alt+F9"). If a shortcut clashes with another program, the app warns you at start.</sys:String>
+    <sys:String x:Key="s.keys.note">Shortcuts work while the game is running and the app is in the background. To change the keys, edit clickThroughHotkey / toggleOverlayHotkey / fleaSearchHotkey in the profile's settings.json (e.g. "Ctrl+Alt+F9"). If a shortcut clashes with another program, the app warns you at start.</sys:String>
     <sys:String x:Key="s.keys.barLock">lock</sys:String>
     <sys:String x:Key="s.keys.barToggle">show/hide</sys:String>
     <sys:String x:Key="s.keys.barWheel">overlay size</sys:String>
     <sys:String x:Key="s.keys.barTip">Overlay shortcuts - explained at the top of the Settings tab</sys:String>
+    <sys:String x:Key="s.keys.flea">Flea market price search: opens in the middle of the screen; type 3 letters of an item name to see its prices for the selected mode (PvP / PvE) from tarkov.dev. Esc closes it and returns to the game.</sys:String>
+    <sys:String x:Key="s.keys.barFlea">flea price</sys:String>
+    <sys:String x:Key="s.flea.title">FLEA MARKET</sys:String>
+    <sys:String x:Key="s.flea.esc">Esc: back to game</sys:String>
+    <sys:String x:Key="s.flea.placeholder">Type an item name (at least 3 letters)…</sys:String>
+    <sys:String x:Key="flea.hint">Type at least 3 letters</sys:String>
+    <sys:String x:Key="flea.loading">Loading {0} prices from tarkov.dev…</sys:String>
+    <sys:String x:Key="flea.error">Could not load prices: {0}</sys:String>
+    <sys:String x:Key="flea.none">No item found for "{0}"</sys:String>
+    <sys:String x:Key="flea.banned">Can't be sold on flea</sys:String>
+    <sys:String x:Key="flea.noOffers">No offers</sys:String>
+    <sys:String x:Key="flea.perSlot">{0}/slot</sys:String>
+    <sys:String x:Key="flea.avg">24h avg {0}</sys:String>
+    <sys:String x:Key="flea.trader">{0}: {1}</sys:String>
+    <sys:String x:Key="flea.source">{0} prices · tarkov.dev · last update {1}</sys:String>
+    <sys:String x:Key="flea.updating">updating…</sys:String>
+    <sys:String x:Key="flea.updateFailed">update failed, showing older prices</sys:String>
 </ResourceDictionary>

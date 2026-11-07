@@ -13,6 +13,7 @@ public partial class OverlayWindow : Window
     readonly MainViewModel _vm;
     readonly DispatcherTimer _topmostTimer = new() { Interval = TimeSpan.FromSeconds(2) };
     HotkeyManager? _hotkeys;
+    FleaSearchWindow? _flea;
     IntPtr _hwnd;
     Point? _dragStart;
 
@@ -54,6 +55,7 @@ public partial class OverlayWindow : Window
     {
         _topmostTimer.Stop();
         _hotkeys?.Dispose();
+        _flea?.Close();
         base.OnClosed(e);
     }
 
@@ -115,6 +117,8 @@ public partial class OverlayWindow : Window
             failed.Add(_vm.Settings.ClickThroughHotkey);
         if (!_hotkeys.Register(_vm.Settings.ToggleOverlayHotkey, ToggleVisible))
             failed.Add(_vm.Settings.ToggleOverlayHotkey);
+        if (!_hotkeys.Register(_vm.Settings.FleaSearchHotkey, () => (_flea ??= new FleaSearchWindow(_vm)).Toggle()))
+            failed.Add(_vm.Settings.FleaSearchHotkey);
         if (failed.Count > 0) _vm.Toast = Loc.F("t.hotkeyFail", string.Join(", ", failed));
     }
 

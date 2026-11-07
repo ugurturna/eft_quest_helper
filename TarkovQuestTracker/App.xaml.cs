@@ -38,5 +38,7 @@ public partial class App : Application
         // hotkeys live on the overlay's window handle, so create it even when the overlay starts hidden
         new WindowInteropHelper(overlay).EnsureHandle();
         if (vm.Settings.OverlayVisible) overlay.Show();
+        // flea prices for both modes, once per start, in the background
+        _ = vm.Flea.RefreshAllAsync(vm.Settings.Language);
     }
 }

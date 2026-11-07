@@ -225,9 +225,26 @@
     <sys:String x:Key="s.keys.wheel.desc">Fare overlay'in üstündeyken: overlay'i büyüt / küçült (%60–200). Kilit açık olmalı.</sys:String>
     <sys:String x:Key="s.keys.drag">Başlığı sürükle</sys:String>
     <sys:String x:Key="s.keys.drag.desc">Overlay'i ekranın sağ kenarında yukarı / aşağı taşı. Kilit açık olmalı.</sys:String>
-    <sys:String x:Key="s.keys.note">Kısayollar oyun açıkken de, uygulama arka plandayken de çalışır. Tuşları değiştirmek için profilin settings.json dosyasında clickThroughHotkey / toggleOverlayHotkey (ör. "Ctrl+Alt+F9"). Bir kısayol başka bir programla çakışırsa uygulama açılışta uyarır.</sys:String>
+    <sys:String x:Key="s.keys.note">Kısayollar oyun açıkken de, uygulama arka plandayken de çalışır. Tuşları değiştirmek için profilin settings.json dosyasında clickThroughHotkey / toggleOverlayHotkey / fleaSearchHotkey (ör. "Ctrl+Alt+F9"). Bir kısayol başka bir programla çakışırsa uygulama açılışta uyarır.</sys:String>
     <sys:String x:Key="s.keys.barLock">kilitle</sys:String>
     <sys:String x:Key="s.keys.barToggle">göster/gizle</sys:String>
     <sys:String x:Key="s.keys.barWheel">overlay boyutu</sys:String>
     <sys:String x:Key="s.keys.barTip">Overlay kısayolları - açıklamaları Ayarlar sekmesinin en üstünde</sys:String>
+    <sys:String x:Key="s.keys.flea">Flea market fiyat araması: ekranın ortasında açılır, eşya adının 3 harfini yazınca seçili moddaki (PvP / PvE) fiyatları tarkov.dev'den gösterir. Esc kapatır ve oyuna döner.</sys:String>
+    <sys:String x:Key="s.keys.barFlea">flea fiyatı</sys:String>
+    <sys:String x:Key="s.flea.title">FLEA MARKET</sys:String>
+    <sys:String x:Key="s.flea.esc">Esc: oyuna dön</sys:String>
+    <sys:String x:Key="s.flea.placeholder">Eşya adı yaz (en az 3 harf)…</sys:String>
+    <sys:String x:Key="flea.hint">En az 3 harf yaz</sys:String>
+    <sys:String x:Key="flea.loading">{0} fiyatları tarkov.dev'den yükleniyor…</sys:String>
+    <sys:String x:Key="flea.error">Fiyatlar alınamadı: {0}</sys:String>
+    <sys:String x:Key="flea.none">"{0}" için eşya bulunamadı</sys:String>
+    <sys:String x:Key="flea.banned">Flea'da satılamaz</sys:String>
+    <sys:String x:Key="flea.noOffers">Teklif yok</sys:String>
+    <sys:String x:Key="flea.perSlot">{0}/slot</sys:String>
+    <sys:String x:Key="flea.avg">24s ort. {0}</sys:String>
+    <sys:String x:Key="flea.trader">{0}: {1}</sys:String>
+    <sys:String x:Key="flea.source">{0} fiyatları · tarkov.dev · son güncelleme {1}</sys:String>
+    <sys:String x:Key="flea.updating">güncelleniyor…</sys:String>
+    <sys:String x:Key="flea.updateFailed">güncellenemedi, eski fiyatlar</sys:String>
 </ResourceDictionary>

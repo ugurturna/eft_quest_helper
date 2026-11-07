@@ -128,10 +128,16 @@ img {
   height: 72px;
 }
 
+/* the header is wider than the page content so the brand sits further left and the
+   longer Turkish / Russian menu labels have room */
+.header .container {
+  max-width: 1480px;
+}
+
 .nav-brand {
   display: flex;
   align-items: center;
-  min-width: 0;
+  flex-shrink: 0;
   gap: 12px;
   white-space: nowrap;
   font-size: 1.25rem;
@@ -1197,7 +1203,7 @@ kbd {
 }
 
 /* six nav links + brand + actions only fit side by side on wide screens */
-@media (max-width: 1240px) {
+@media (max-width: 1320px) {
   .nav-links {
     display: none;
     position: absolute;

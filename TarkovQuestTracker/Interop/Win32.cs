@@ -29,6 +29,45 @@ static class Win32
     [DllImport("user32.dll")]
     public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
 
+    [DllImport("user32.dll")]
+    public static extern IntPtr GetForegroundWindow();
+
+    [DllImport("user32.dll")]
+    public static extern bool SetForegroundWindow(IntPtr hWnd);
+
+    [StructLayout(LayoutKind.Sequential)]
+    struct RECT { public int Left, Top, Right, Bottom; }
+
+    [StructLayout(LayoutKind.Sequential)]
+    struct MONITORINFO { public int Size; public RECT Monitor, Work; public uint Flags; }
+
+    [DllImport("user32.dll")]
+    static extern IntPtr MonitorFromWindow(IntPtr hwnd, uint flags);
+
+    [DllImport("user32.dll")]
+    static extern bool GetMonitorInfo(IntPtr monitor, ref MONITORINFO info);
+
+    [DllImport("user32.dll")]
+    static extern bool GetWindowRect(IntPtr hwnd, out RECT rect);
+
+    /// <summary>
+    /// Centers the window on the monitor showing <paramref name="reference"/> (the game), in physical pixels,
+    /// so display scaling (125 %, 150 %) can't push it off center.
+    /// </summary>
+    public static void CenterOnMonitorOf(IntPtr hwnd, IntPtr reference)
+    {
+        const uint MONITOR_DEFAULTTOPRIMARY = 1, SWP_NOZORDER = 0x0004;
+        var info = new MONITORINFO { Size = Marshal.SizeOf<MONITORINFO>() };
+        if (!GetMonitorInfo(MonitorFromWindow(reference, MONITOR_DEFAULTTOPRIMARY), ref info) || !GetWindowRect(hwnd, out var r)) return;
+        var m = info.Monitor;
+        int w = r.Right - r.Left, h = r.Bottom - r.Top;
+        SetWindowPos(hwnd, IntPtr.Zero, m.Left + (m.Right - m.Left - w) / 2, m.Top + (m.Bottom - m.Top - h) / 2, 0, 0,
+                     SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE);
+    }
+
+    /// <summary>No taskbar/alt-tab entry, but can take keyboard focus (for typing).</summary>
+    public static void MakeToolWindow(IntPtr hwnd) => SetExStyle(hwnd, Ex(hwnd) | WS_EX_TOOLWINDOW);
+
     /// <summary>Overlay base style: no taskbar/alt-tab entry and never steals focus from the game.</summary>
     public static void MakeOverlay(IntPtr hwnd) =>
         SetExStyle(hwnd, Ex(hwnd) | WS_EX_TOOLWINDOW | WS_EX_NOACTIVATE | WS_EX_LAYERED);

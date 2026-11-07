@@ -316,6 +316,8 @@
                     <Run Text="{DynamicResource s.keys.barLock}" />
                     <Run Text="  ·  " /><Run Text="{Binding Settings.ToggleOverlayHotkey, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
                     <Run Text="{DynamicResource s.keys.barToggle}" />
+                    <Run Text="  ·  " /><Run Text="{Binding Settings.FleaSearchHotkey, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
+                    <Run Text="{DynamicResource s.keys.barFlea}" />
                     <Run Text="  ·  " /><Run Text="Ctrl + 🖱" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
                     <Run Text="{DynamicResource s.keys.barWheel}" />
                 </TextBlock>
@@ -610,7 +612,7 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition />
+                                        <RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition />
                                     </Grid.RowDefinitions>
                                     <Border Style="{StaticResource KeyCap}">
                                         <TextBlock Text="{Binding Settings.ClickThroughHotkey}" Style="{StaticResource KeyText}" />
@@ -628,7 +630,11 @@
                                         <TextBlock Text="{DynamicResource s.keys.drag}" Style="{StaticResource KeyText}" />
                                     </Border>
                                     <TextBlock Grid.Row="3" Grid.Column="1" Text="{DynamicResource s.keys.drag.desc}" Style="{StaticResource KeyDesc}" />
-                                    <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Text="{DynamicResource s.keys.note}" Style="{StaticResource Muted}" FontSize="11" Margin="0,6,0,0" />
+                                    <Border Grid.Row="4" Style="{StaticResource KeyCap}">
+                                        <TextBlock Text="{Binding Settings.FleaSearchHotkey}" Style="{StaticResource KeyText}" />
+                                    </Border>
+                                    <TextBlock Grid.Row="4" Grid.Column="1" Text="{DynamicResource s.keys.flea}" Style="{StaticResource KeyDesc}" />
+                                    <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Text="{DynamicResource s.keys.note}" Style="{StaticResource Muted}" FontSize="11" Margin="0,6,0,0" />
                                 </Grid>
                             </Border>
 
