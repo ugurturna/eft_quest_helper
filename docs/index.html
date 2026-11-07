@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EFT Quest Helper — Desktop Quest Tracker & In-Game Overlay for Escape from Tarkov</title>
+  <meta name="description" content="A blazing-fast, zero-ban-risk quest tracker and goal planner with an always-on-top, click-through in-game overlay for Escape from Tarkov (PvP & PvE).">
+  
+  <!-- Open Graph / Discord -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="EFT Quest Helper — Escape from Tarkov Quest Companion">
+  <meta property="og:description" content="Always-on-top click-through overlay, prerequisite chains, and Kappa goal planner with zero ban risk.">
+  <meta property="og:image" content="main-window.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/app.ico">
+  <link rel="apple-touch-icon" href="assets/app-icon.png">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <aside class="announcement-bar">
+    <span data-i18n="announcement">🚀 v0.0.1 is here! Zero ban risk, instant quest overlay for Escape from Tarkov.</span>
+    <a href="https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1" target="_blank" rel="noopener">v0.0.1 Release &rarr;</a>
+  </aside>
+
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="nav-brand">
+        <img src="assets/app-icon.png" alt="EFT Quest Helper Logo">
+        <span class="brand-title">EFT Quest Helper</span>
+        <span class="brand-tag">v0.0.1</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#features" data-i18n="navFeatures">Features</a></li>
+        <li><a href="#safety" data-i18n="navSafety">Ban Safety</a></li>
+        <li><a href="#guide" data-i18n="navGuide">How to Use</a></li>
+        <li><a href="#traders" data-i18n="navTraders">Traders</a></li>
+        <li><a href="#faq" data-i18n="navFaq">FAQ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <div class="lang-switcher" aria-label="Language Selector">
+          <button type="button" class="lang-btn active" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="tr">TR</button>
+          <button type="button" class="lang-btn" data-lang="ru">RU</button>
+        </div>
+
+        <a href="https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1" class="btn btn-primary btn-sm" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-i18n="navDownload">Download v0.0.1</span>
+        </a>
+
+        <button type="button" class="mobile-toggle" aria-label="Toggle Navigation Menu">&#9776;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-pill">
+          <span class="hero-pill-pulse"></span>
+          <span data-i18n="heroBadge">Escape from Tarkov Desktop Companion</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span data-i18n="heroTitlePre">Master Every Quest.</span><br>
+          <span class="gradient-text" data-i18n="heroTitleHighlight">Escape with Kappa.</span>
+        </h1>
+
+        <p class="hero-subtitle" data-i18n="heroSubtitle">
+          A blazing-fast, zero-ban-risk quest tracker and goal planner with an always-on-top, click-through in-game overlay. Track objectives live without Alt+Tabbing.
+        </p>
+
+        <div class="hero-cta">
+          <a href="https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-i18n="btnDownload">Download for Windows (v0.0.1)</span>
+          </a>
+
+          <a href="https://github.com/ugurturna/eft_quest_helper" class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <span data-i18n="btnGithub">View on GitHub</span>
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span>🛡️ <strong data-i18n="metaSafe">100% Safe (No Memory Hooks)</strong></span>
+          <span>💻 <span data-i18n="metaWin">Windows 10 / 11 (64-bit)</span></span>
+          <span>🔒 <span data-i18n="metaOffline">Offline & Fully Private</span></span>
+        </div>
+
+        <!-- Interactive Hero Showcase -->
+        <div class="hero-showcase">
+          <div class="showcase-inner" data-zoom="main-window.png" title="Click to enlarge">
+            <img src="main-window.png" class="showcase-main-img" alt="EFT Quest Helper Main Window">
+            
+            <div class="showcase-overlay-preview" data-zoom="overlay.png" title="Click to enlarge overlay">
+              <span class="overlay-badge-tag" data-i18n="overlayTag">In-Game Overlay</span>
+              <img src="overlay.png" alt="EFT Quest Helper In-Game Overlay">
+            </div>
+
+            <div class="zoom-hint">
+              <span data-i18n="zoomHint">🔍 Click image to enlarge</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="featTag">Engineered for PMCs</span>
+          <h2 class="section-title" data-i18n="featTitle">Everything You Need to Conquer Tarkov</h2>
+          <p class="section-subtitle" data-i18n="featSub">Designed from the ground up for seamless raiding, zero distractions, and ultimate progression.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <article class="feature-card">
+            <div class="feature-icon">🖥️</div>
+            <h3 data-i18n="f1Title">Live In-Game Overlay</h3>
+            <p data-i18n="f1Desc">Docked transparently to the side of your screen. Lock it with Ctrl+Shift+T so clicks go directly to the game. Check off items and kill counts mid-raid.</p>
+            <span class="feature-highlight" data-i18n="f1Badge">Always-on-top · Click-through</span>
+          </article>
+
+          <!-- Feature 2 -->
+          <article class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3 data-i18n="f2Title">Goal Planner & Kappa Path</h3>
+            <p data-i18n="f2Desc">Pick any target quest (like Punisher Part 6 or The Collector). The app calculates the exact chain, what to do right now, and what's left.</p>
+            <span class="feature-highlight" data-i18n="f2Badge">Chain solver · Map grouping</span>
+          </article>
+
+          <!-- Feature 3 -->
+          <article class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 data-i18n="f3Title">Auto-Chain Completion</h3>
+            <p data-i18n="f3Desc">Mark Punisher Part 5 as active, and Parts 1–4 are automatically marked completed. Made a mistake? Undo in a single click.</p>
+            <span class="feature-highlight" data-i18n="f3Badge">Smart prerequisites</span>
+          </article>
+
+          <!-- Feature 4 -->
+          <article class="feature-card">
+            <div class="feature-icon">⚔️</div>
+            <h3 data-i18n="f4Title">PvP and PvE Modes</h3>
+            <p data-i18n="f4Desc">Separate, isolated progress tracking for PvP and PvE raids. PvE-specific requirements and level discrepancies are built-in.</p>
+            <span class="feature-highlight" data-i18n="f4Badge">Independent saves</span>
+          </article>
+
+          <!-- Feature 5 -->
+          <article class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3 data-i18n="f5Title">Fuzzy Multilingual Search</h3>
+            <p data-i18n="f5Desc">Search in English or Turkish. Tolerant of typos, alternate trader names, and accented characters (e.g., 'cezalandırıcı', 'punisher 3').</p>
+            <span class="feature-highlight" data-i18n="f5Badge">Instant search</span>
+          </article>
+
+          <!-- Feature 6 -->
+          <article class="feature-card">
+            <div class="feature-icon">💾</div>
+            <h3 data-i18n="f6Title">100% Local & Multi-Profile</h3>
+            <p data-i18n="f6Desc">Your data never leaves your computer. Multiple profiles allow several players or accounts on the same PC to track their own progress.</p>
+            <span class="feature-highlight" data-i18n="f6Badge">Zero telemetry · Portable</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ban Risk & Safety Section -->
+    <section id="safety" class="safety-section">
+      <div class="container">
+        <div class="safety-card">
+          <div class="section-header" style="margin-bottom: 24px;">
+            <span class="section-tag" data-i18n="safeTag">Fair Play & Security</span>
+            <h2 class="section-title" data-i18n="safeTitle">Is EFT Quest Helper Safe? (Ban Risk Explained)</h2>
+            <p class="section-subtitle" data-i18n="safeSub">We take account security very seriously. Here is exactly how EFT Quest Helper works under the hood.</p>
+          </div>
+
+          <div class="safety-grid">
+            <div class="safety-col safe">
+              <h4 data-i18n="safeDoesTitle">✅ HOW IT WORKS</h4>
+              <ul class="safety-list">
+                <li><span>🔹</span> <span data-i18n="safeDoes1">Runs as a completely separate, standard Windows WPF application.</span></li>
+                <li><span>🔹</span> <span data-i18n="safeDoes2">Overlay is a standard transparent top-level Windows window (like a sticky note).</span></li>
+                <li><span>🔹</span> <span data-i18n="safeDoes3">Uses standard Windows RegisterHotKey API for hotkeys.</span></li>
+                <li><span>🔹</span> <span data-i18n="safeDoes4">Stores all quest state locally in your AppData folder.</span></li>
+              </ul>
+            </div>
+
+            <div class="safety-col danger">
+              <h4 data-i18n="safeDoesNotTitle">❌ WHAT IT DOES NOT DO</h4>
+              <ul class="safety-list">
+                <li><span>🛑</span> <span data-i18n="safeDoesNot1">Does NOT inject DLLs or hook game memory.</span></li>
+                <li><span>🛑</span> <span data-i18n="safeDoesNot2">Does NOT read or modify game files or client logs.</span></li>
+                <li><span>🛑</span> <span data-i18n="safeDoesNot3">Does NOT send simulated keystrokes or mouse clicks to the game.</span></li>
+                <li><span>🛑</span> <span data-i18n="safeDoesNot4">Does NOT intercept network traffic or talk to BSG servers.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="safety-disclaimer">
+            <p data-i18n="safeDisclaimer">
+              Notice: EFT Quest Helper is an independent fan project not affiliated with Battlestate Games. Always play Tarkov in Borderless or Windowed mode to allow Windows to render overlays.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quickstart Guide Section -->
+    <section id="guide" class="steps-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="guideTag">Quick Start</span>
+          <h2 class="section-title" data-i18n="guideTitle">Get Started in 4 Easy Steps</h2>
+          <p class="section-subtitle" data-i18n="guideSub">No complex configuration or setup required. Up and running in less than 60 seconds.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-number">01</span>
+            <div class="step-icon">📦</div>
+            <h3 data-i18n="step1Title">1. Download & Launch</h3>
+            <p data-i18n="step1Desc">Download the standalone v0.0.1 release from GitHub and run TarkovQuestTracker.exe. No installation needed.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-number">02</span>
+            <div class="step-icon">⚙️</div>
+            <h3 data-i18n="step2Title">2. Set Game to Borderless</h3>
+            <p data-i18n="step2Desc">In Escape from Tarkov display settings, select Borderless or Windowed mode (Windows cannot overlay exclusive fullscreen).</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-number">03</span>
+            <div class="step-icon">📋</div>
+            <h3 data-i18n="step3Title">3. Choose Your Quests</h3>
+            <p data-i18n="step3Desc">Mark your completed quests or pick a goal. Active quests automatically appear on the in-game overlay tracker.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-number">04</span>
+            <div class="step-icon">🎮</div>
+            <h3 data-i18n="step4Title">4. Lock & Raid</h3>
+            <p data-i18n="step4Desc">Press Ctrl+Shift+T to lock overlay click-through, launch into your raid, and track objectives in real-time!</p>
+          </div>
+        </div>
+
+        <!-- Hotkeys Card -->
+        <div class="hotkeys-card">
+          <h3 style="margin-bottom: 20px; font-size: 1.25rem;" data-i18n="hotkeysTitle">Keyboard Shortcuts</h3>
+          <div class="hotkeys-grid">
+            <div class="hotkey-item">
+              <div><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd></div>
+              <div class="hotkey-desc" data-i18n="hk1Desc">Lock / unlock overlay click-through</div>
+            </div>
+            <div class="hotkey-item">
+              <div><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd></div>
+              <div class="hotkey-desc" data-i18n="hk2Desc">Show / hide overlay completely</div>
+            </div>
+            <div class="hotkey-item">
+              <div><kbd>Ctrl</kbd> + <kbd>Mouse Wheel</kbd></div>
+              <div class="hotkey-desc" data-i18n="hk3Desc">Scale overlay size (60% to 200%)</div>
+            </div>
+            <div class="hotkey-item">
+              <div><kbd>Drag Header</kbd></div>
+              <div class="hotkey-desc" data-i18n="hk4Desc">Reposition overlay vertically on screen</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Traders Roster Section -->
+    <section id="traders" class="traders-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="tradersTag">Comprehensive Database</span>
+          <h2 class="section-title" data-i18n="tradersTitle">All 12 Traders & Story Chapters Included</h2>
+          <p class="section-subtitle" data-i18n="tradersSub">Over 870+ quests updated with objectives, keys, guides, and rewards.</p>
+        </div>
+
+        <div class="traders-grid">
+          <div class="trader-card">
+            <img src="assets/Traders/prapor.png" alt="Prapor" loading="lazy">
+            <span class="trader-name">Prapor</span>
+          </div>
+          <div class="trader-card">
+            <img src="assets/Traders/therapist.png" alt="Therapist" loading="lazy">
+            <span class="trader-name">Therapist</span>
+          </div>
+          <div class="trader-card">
+            <img src="assets/Traders/skier.png" alt="Skier" loading="lazy">
+            <span class="trader-name">Skier</span>
+          </div>
+          <div class="trader-card">
+            <img src="assets/Traders/peacekeeper.png" alt="Peacekeeper" loading="lazy">
+            <span class="trader-name">Peacekeeper</span>
+          </div>
+          <div class="trader-card">
+            <img src="assets/Traders/mechanic.png" alt="Mechanic" loading="lazy">
+            <span class="trader-name">Mechanic</span>
+          </div>
+          <div class="trader-card">
+            <img src="assets/Traders/ragman.png" alt="Ragman" loading="lazy">
+            <span class="trader-name">Ragman</span>
+          </div>
+          <div class="trader-card">
+            <img src="assets/Traders/jaeger.png" alt="Jaeger" loading="lazy">
+            <span class="trader-name">Jaeger</span>
+          </div>
+          <div class="trader-card">
+            <img src="assets/Traders/fence.png" alt="Fence" loading="lazy">
+            <span class="trader-name">Fence</span>
+          </div>
+          <div class="trader-card">
+            <img src="assets/Traders/lightkeeper.png" alt="Lightkeeper" loading="lazy">
+            <span class="trader-name">Lightkeeper</span>
+          </div>
+          <div class="trader-card">
+            <img src="assets/Traders/ref.png" alt="Ref" loading="lazy">
+            <span class="trader-name">Ref</span>
+          </div>
+          <div class="trader-card">
+            <img src="assets/Traders/btr-driver.png" alt="BTR Driver" loading="lazy">
+            <span class="trader-name">BTR Driver</span>
+          </div>
+          <div class="trader-card">
+            <img src="assets/Traders/story.png" alt="Story Chapters" loading="lazy">
+            <span class="trader-name">Story Chapters</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="faqTag">Got Questions?</span>
+          <h2 class="section-title" data-i18n="faqTitle">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span data-i18n="faq1Q">Do I need to install .NET to run the release?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq1A">The standalone release build has .NET embedded, so you can just run the executable directly on any modern Windows 10/11 64-bit PC.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span data-i18n="faq2Q">Why does the overlay disappear when I launch Tarkov?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq2A">Make sure Escape from Tarkov is set to 'Borderless' or 'Windowed' mode in the graphics settings. Windows does not allow any external window to render over an exclusive fullscreen game.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span data-i18n="faq3Q">Does the app automatically detect in-raid progress?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq3A">No, EFT Quest Helper does not read game memory or network packets to ensure 100% ban safety. You check off objectives manually or between raids.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span data-i18n="faq4Q">Can I transfer my progress to another computer?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq4A">Yes! Open Settings in the app and click 'Export Progress'. You can import the resulting file on any PC, or copy your %APPDATA%\TarkovQuestTracker folder.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Banner -->
+    <section class="cta-banner">
+      <div class="container">
+        <div class="cta-box">
+          <h2 data-i18n="ctaTitle">Ready to Conquer Your Tarkov Wipe?</h2>
+          <p data-i18n="ctaSub">Download EFT Quest Helper today. Free, open source, and built for PMCs.</p>
+          <a href="https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-i18n="ctaBtn">Download v0.0.1 for Windows</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <img src="assets/app-icon.png" width="28" height="28" alt="Logo">
+          <strong style="color: #fff;">EFT Quest Helper</strong>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="https://github.com/ugurturna/eft_quest_helper" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://github.com/ugurturna/eft_quest_helper/releases/tag/v0.0.1" target="_blank" rel="noopener">Releases</a></li>
+          <li><a href="https://github.com/ugurturna/eft_quest_helper/issues" target="_blank" rel="noopener">Issues</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-disclaimer">
+        <p data-i18n="footerDisclaimer">
+          Escape from Tarkov, trader names and logos are trademarks of Battlestate Games. This application is an unofficial, non-commercial fan-made tool.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Screenshots -->
+  <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Screenshot Preview">
+    <div class="lightbox-content">
+      <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close Preview">&times;</button>
+      <img id="lightbox-img" class="lightbox-img" src="" alt="Enlarged screenshot">
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
