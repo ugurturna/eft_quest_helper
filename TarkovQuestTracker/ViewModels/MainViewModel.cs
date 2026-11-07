@@ -75,6 +75,7 @@ public sealed partial class MainViewModel : ObservableObject
         Settings = _store.LoadSettings();
         _loading = true;
         OverlayOpacity = Settings.OverlayOpacity;
+        FleaOpacity = Math.Clamp(Settings.FleaOpacity, MinFleaOpacity, 1);
         OverlayWidth = Settings.OverlayWidth;
         OverlayScale = Math.Clamp(Settings.OverlayScale, MinOverlayScale, MaxOverlayScale);
         OverlayPosition = Math.Clamp(Settings.OverlayPosition, 0, 1);
@@ -408,12 +409,15 @@ public sealed partial class MainViewModel : ObservableObject
         if (AsQuest(arg) is not { } q) return;
         if (Progress.Active.Remove(q.Id))
         {
+            Progress.Tracked.Remove(q.Id);
             SaveProgress();
             Refresh();
             return;
         }
         Snapshot();
         var marked = _planner.Start(Progress, q.Id);
+        // one quest activated by hand goes on the overlay; bulk "activate all" below does not (it would flood it)
+        if (!Progress.Tracked.Contains(q.Id)) Progress.Tracked.Add(q.Id);
         Toast = marked.Count == 0
             ? Loc.F("t.active", q.DisplayName)
             : Loc.F("t.activeChain", q.DisplayName, marked.Count,
@@ -423,13 +427,13 @@ public sealed partial class MainViewModel : ObservableObject
     }
 
     // one-step undo for actions that change many quests at once
-    (HashSet<string> Completed, List<string> Active)? _undo;
+    (HashSet<string> Completed, List<string> Active, List<string> Tracked)? _undo;
 
     public bool CanUndo => _undo != null;
 
     void Snapshot()
     {
-        _undo = ([.. Progress.Completed], [.. Progress.Active]);
+        _undo = ([.. Progress.Completed], [.. Progress.Active], [.. Progress.Tracked]);
         OnPropertyChanged(nameof(CanUndo));
     }
 
@@ -439,6 +443,7 @@ public sealed partial class MainViewModel : ObservableObject
         if (_undo is not { } u) return;
         Progress.Completed = u.Completed;
         Progress.Active = u.Active;
+        Progress.Tracked = u.Tracked;
         _undo = null;
         OnPropertyChanged(nameof(CanUndo));
         Toast = Loc.T("t.undoDone");
@@ -473,6 +478,24 @@ public sealed partial class MainViewModel : ObservableObject
             if (!Progress.Active.Contains(q.Id)) Progress.Active.Add(q.Id);
         SaveProgress();
         Refresh();
+    }
+
+    /// <summary>Shows / hides an active quest on the overlay; it stays active either way.</summary>
+    [RelayCommand]
+    void ToggleTracked(object? arg)
+    {
+        if (AsQuest(arg) is not { } q || !Progress.Active.Contains(q.Id)) return;
+        if (!Progress.Tracked.Remove(q.Id)) Progress.Tracked.Add(q.Id);
+        SaveProgress();
+        RefreshActive();
+    }
+
+    [RelayCommand]
+    void UntrackAll()
+    {
+        Progress.Tracked.Clear();
+        SaveProgress();
+        RefreshActive();
     }
 
     [RelayCommand]
@@ -587,14 +610,24 @@ public sealed partial class MainViewModel : ObservableObject
 
     public BulkObservableCollection<ActiveQuestVm> ActiveQuests { get; } = [];
     public bool HasActive => ActiveQuests.Count > 0;
+    /// <summary>The active quests shown on the overlay (same objects as in <see cref="ActiveQuests"/>).</summary>
+    public BulkObservableCollection<ActiveQuestVm> TrackedQuests { get; } = [];
+    public bool HasTracked => TrackedQuests.Count > 0;
+    public string ActiveSummary => Loc.F("a.summary", ActiveQuests.Count, TrackedQuests.Count);
 
     void RefreshActive()
     {
         Progress.Active.RemoveAll(id => !_repo.ById.ContainsKey(id));
+        Progress.Tracked.RemoveAll(id => !Progress.Active.Contains(id));  // completed / removed quests leave the overlay
         Replace(ActiveQuests, Progress.Active.Select(id => _repo.ById[id]).Select(q => new ActiveQuestVm(q,
             q.Objectives.Select(o => new ObjectiveVm(q.Id, o,
-                Progress.Objectives.GetValueOrDefault(Progress.ObjectiveKey(q.Id, o.Id)), OnObjectiveChanged)))));
+                Progress.Objectives.GetValueOrDefault(Progress.ObjectiveKey(q.Id, o.Id)), OnObjectiveChanged)),
+            Progress.Tracked.Contains(q.Id))));
+        // overlay order follows the order the quests were tracked in
+        Replace(TrackedQuests, Progress.Tracked.Select(id => ActiveQuests.First(a => a.Quest.Id == id)));
         OnPropertyChanged(nameof(HasActive));
+        OnPropertyChanged(nameof(HasTracked));
+        OnPropertyChanged(nameof(ActiveSummary));
     }
 
     void OnObjectiveChanged(ObjectiveVm o)
@@ -710,6 +743,16 @@ public sealed partial class MainViewModel : ObservableObject
     {
         if (_loading) return;
         Settings.OverlayOpacity = value;
+        SaveSettings();
+    }
+
+    public const double MinFleaOpacity = 0.3;
+    [ObservableProperty] private double _fleaOpacity = 0.9;
+
+    partial void OnFleaOpacityChanged(double value)
+    {
+        if (_loading) return;
+        Settings.FleaOpacity = value;
         SaveSettings();
     }
 

@@ -46,7 +46,7 @@
 
     <!-- active -->
     <sys:String x:Key="s.clearAll">Hepsini temizle</sys:String>
-    <sys:String x:Key="s.active.desc">Şu an yaptığın görevler - sağdaki overlay'de görünür.</sys:String>
+    <sys:String x:Key="s.active.desc">Aktif yaptığın her görev burada. Overlay'de sadece 📌 Overlay açık olanlar görünür; tek tek aktif yaptığın görev otomatik eklenir.</sys:String>
     <sys:String x:Key="s.finish">Bitir</sys:String>
     <sys:String x:Key="s.remove">Çıkar</sys:String>
     <sys:String x:Key="s.details">Detay</sys:String>
@@ -140,8 +140,8 @@
     <sys:String x:Key="s.ov.size">Boyut</sys:String>
     <sys:String x:Key="s.ov.sizeTip">Ctrl + fare tekerleği ile de ayarlanır</sys:String>
     <sys:String x:Key="s.ov.hide">Gizle</sys:String>
-    <sys:String x:Key="s.ov.empty">Aktif görev yok. Ana pencereden görev ekle (Aktif yap).</sys:String>
-    <sys:String x:Key="s.ov.removeTip">Aktiften çıkar</sys:String>
+    <sys:String x:Key="s.ov.empty">Overlay'de görev yok. Ana pencerede Aktif Görevler'den 📌 Overlay ile ekle.</sys:String>
+    <sys:String x:Key="s.ov.removeTip">Overlay'den kaldır (görev aktif kalır)</sys:String>
     <sys:String x:Key="s.ov.dragTip">Yukarı / aşağı sürükle</sys:String>
     <sys:String x:Key="ov.locked">🔒 tıklama geçer · {0}</sys:String>
     <sys:String x:Key="ov.unlocked">↕ sürükle · {0}: kilitle</sys:String>
@@ -247,4 +247,11 @@
     <sys:String x:Key="flea.source">{0} fiyatları · tarkov.dev · son güncelleme {1}</sys:String>
     <sys:String x:Key="flea.updating">güncelleniyor…</sys:String>
     <sys:String x:Key="flea.updateFailed">güncellenemedi, eski fiyatlar</sys:String>
+    <sys:String x:Key="s.track">📌 Overlay</sys:String>
+    <sys:String x:Key="s.track.tip">Bu görevi oyundaki overlay'de göster / gizle. Görev aktif kalır.</sys:String>
+    <sys:String x:Key="s.untrackAll">Overlay'i temizle</sys:String>
+    <sys:String x:Key="s.untrackAll.tip">Tüm görevleri overlay'den kaldırır; aktif kalırlar.</sys:String>
+    <sys:String x:Key="a.summary">{0} aktif görev · {1} tanesi overlay'de</sys:String>
+    <sys:String x:Key="s.set.fleaOpacity">Flea araması opaklığı</sys:String>
+    <sys:String x:Key="s.set.fleaOpacity.hint">(Ctrl+Shift+F penceresi; düşürürsen arkada oyun görünür)</sys:String>
 </ResourceDictionary>

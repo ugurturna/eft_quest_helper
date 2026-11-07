@@ -40,7 +40,9 @@
 - **Prerequisite chains** — every quest knows what it needs and what it unlocks.
 - **Goal planner** — pick a goal (e.g. *The Punisher – Part 3* or *Collector*) and see the whole chain in order, what you can do right now and what is left.
 - **Kappa / Collector path** — the quests Kappa really needs: *Collector* and its whole prerequisite chain. Progress bar, available quests **grouped by map** so you can do several in one raid, and quests waiting for your level.
-- **Active quests + overlay** — the quests you are doing right now appear in a small tracker on the right edge of the screen, with objective checkboxes, kill/item counters and item icons.
+- **Active quests + overlay** — all the quests you are doing are listed under *Active Quests*; only the ones you pin with **📌 Overlay** appear in the small tracker on the right edge of the screen (a quest you activate is pinned automatically), with objective checkboxes, kill/item counters and item icons.
+- **Flea market prices in game** — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> opens a price search in the middle of the screen; type 3 letters of an item and see its flea price for your mode (PvP / PvE). See [Flea market prices](#flea-market-prices).
+- **Side menu** — pages (Quests, Goal Planner, Kappa, Items, Active Quests, End Game, Settings) are in a menu on the left.
 - **Activating a quest completes its chain** — set *Punisher Part 5* active and Parts 1–4 are marked done automatically (one-click undo).
 - **PvP and PvE** — separate progress for each mode; PvE-specific differences (levels, objectives, items) are shown.
 - **Search in English and Turkish** — tolerant of typos and Turkish characters (`punisher 3`, `punişır 3`, `cezalandırıcı`).
@@ -84,6 +86,21 @@ The story chapter **The Ticket** has 4 endings — **Survivor**, **Savior**, **D
 - Choices, target and ticked steps are saved with your progress, per profile and mode. **Reset** clears them.
 - The route data lives in `data/ticket_endings.json` (English and Turkish) and follows the community *Story Endings* flowchart v1.7.6 by Callsign_Smokey / Kay08x.
 
+### Flea market prices
+
+<p align="center">
+  <img src="docs/screenshots/flea.webp" width="470" alt="Flea market price search, PvP">
+  <img src="docs/screenshots/flea-pve.webp" width="470" alt="Flea market price search, PvE">
+</p>
+
+Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> in game to check what an item sells for, without alt-tabbing to a browser:
+
+- Opens **in the middle of the screen** and takes the keyboard; **<kbd>Esc</kbd> closes it and puts you back in the game**.
+- Results appear as soon as you type **3 letters**, in English or Turkish (`gpu`, `ledx`, `salewa`, `ekran kartı`).
+- Prices follow your **game mode**: PvP and PvE flea prices are different, the window shows the mode you selected.
+- For each item: **flea price** (lowest offer, or the 24 h average when nobody is selling), **price per slot** for bigger items, **24 h average**, **48 h trend**, the **best trader** to sell to, and *Can't be sold on flea* for banned items.
+- Prices come from [tarkov.dev](https://tarkov.dev) (`json.tarkov.dev/regular/items` and `/pve/items`). Both modes are downloaded in the background when the app starts and kept on disk with a timestamp; if they are older than **15 minutes** when you open the search, your mode is downloaded again while you search the saved copy. Searching never waits for the network.
+
 ### Overlay
 
 <img src="docs/screenshots/overlay.webp" width="320" align="right" alt="Overlay">
@@ -94,6 +111,7 @@ The story chapter **The Ticket** has 4 endings — **Survivor**, **Savior**, **D
 - Item objectives show the **item icon**, so you recognise the loot mid-raid.
 - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> — lock the overlay (clicks go through to the game) / unlock.
 - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> — show / hide the overlay.
+- Shows only the quests pinned with **📌 Overlay** (even with 70 active quests). Pin / unpin them under *Active Quests*; the ✕ on the overlay only unpins, the quest stays active.
 - It never takes focus away from the game.
 
 > [!NOTE]
@@ -107,12 +125,13 @@ The story chapter **The Ticket** has 4 endings — **Survivor**, **Savior**, **D
 |---|---|
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> | **Lock / unlock the overlay.** While locked it can't be clicked and every click goes through to the game, so leave it locked while you play. Unlock it to change settings or move it. |
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> | **Show / hide the overlay**, e.g. to clear the screen mid-raid. |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | **Flea market price search** in the middle of the screen, for your mode (PvP / PvE). <kbd>Esc</kbd> closes it and returns to the game. |
 | <kbd>Ctrl</kbd> + mouse wheel | With the mouse over the (unlocked) overlay: **make it bigger / smaller** (60–200 %). |
 | Drag the overlay header | **Move the overlay up / down** along the right edge of the screen (unlocked only). |
 
 - The shortcuts work while the game is running and the app is in the background.
 - They are always shown in the bottom bar of the main window, and explained at the top of **Settings**, because the overlay's own hint can be hard to read in game.
-- To change them, edit `clickThroughHotkey` / `toggleOverlayHotkey` in the profile's `settings.json` (e.g. `"Ctrl+Alt+F9"`). If a shortcut is already taken by another program, the app tells you at start.
+- To change them, edit `clickThroughHotkey` / `toggleOverlayHotkey` / `fleaSearchHotkey` in the profile's `settings.json` (e.g. `"Ctrl+Alt+F9"`). If a shortcut is already taken by another program, the app tells you at start.
 
 ## Download & run
 
@@ -151,7 +170,7 @@ Without a `data` folder next to the exe, the same files go to `%APPDATA%\TarkovQ
 
 Progress is saved on every click. Use **Settings → Export / Import** to back it up or move it to another PC.
 
-Hotkeys can be changed in `settings.json` (`clickThroughHotkey`, `toggleOverlayHotkey`, e.g. `"Ctrl+Alt+F9"`).
+Hotkeys can be changed in `settings.json` (`clickThroughHotkey`, `toggleOverlayHotkey`, `fleaSearchHotkey`, e.g. `"Ctrl+Alt+F9"`).
 
 ## Credits & legal
 

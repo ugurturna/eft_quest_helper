@@ -4,8 +4,10 @@ namespace TarkovQuestTracker.Core.Models;
 public sealed class Progress
 {
     public HashSet<string> Completed { get; set; } = [];
-    /// <summary>Quests the player is doing right now, in overlay order.</summary>
+    /// <summary>Quests the player is doing right now, in the order they were started.</summary>
     public List<string> Active { get; set; } = [];
+    /// <summary>Active quests shown on the in-game overlay (a quest is tracked when activated; untrack to declutter).</summary>
+    public List<string> Tracked { get; set; } = [];
     /// <summary>Objective counters, key "questId/objectiveId".</summary>
     public Dictionary<string, int> Objectives { get; set; } = [];
     /// <summary>Target quests (e.g. "the-punisher-part-3", "collector").</summary>
@@ -38,4 +40,6 @@ public sealed class AppSettings
     public string ToggleOverlayHotkey { get; set; } = "Ctrl+Shift+H";
     /// <summary>Opens the flea market price search in the middle of the screen.</summary>
     public string FleaSearchHotkey { get; set; } = "Ctrl+Shift+F";
+    /// <summary>Flea price search window opacity (lower = more of the game shows through).</summary>
+    public double FleaOpacity { get; set; } = 0.9;
 }

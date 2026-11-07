@@ -35,6 +35,19 @@ public sealed class RealDataTests
         Assert.True(linked > 400, $"{linked} objectives with an item");
     }
 
+    [Theory]
+    // a number inside the item name is not the amount
+    [InlineData("collector", "o1", 1)]          // "42 Signature Blend English Tea"
+    [InlineData("battery-change", "o2", 1)]     // "6-STEN-140-M military battery"
+    [InlineData("golden-swag", "o2", 1)]        // "Dorm room 303"
+    // "Hand over the items" takes the amount of the find objective
+    [InlineData("the-punisher-part-3", "o3", 7)]
+    // an amount the text states itself wins
+    [InlineData("crisis", "o8", 2)]             // "Hand over the 2 LEDX"
+    [InlineData("crisis", "o10", 10)]           // "Hand over the 10 multivitamins"
+    public void Item_objective_counts_are_the_real_amounts(string quest, string objective, int count) =>
+        Assert.Equal(count, Repo.ById[quest].Objectives.Single(o => o.Id == objective).Count);
+
     [Fact]
     public void Kappa_is_the_collector_chain()
     {

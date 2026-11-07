@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 using TarkovQuestTracker.Core.Models;
 
 namespace TarkovQuestTracker.Core.Services;
@@ -8,7 +9,7 @@ namespace TarkovQuestTracker.Core.Services;
 /// Loads tasks_en.json (structure + English text), overlays the selected language's
 /// tasks_{lang}.json and applies the game mode's overrides.
 /// </summary>
-public sealed class QuestRepository
+public sealed partial class QuestRepository
 {
     public static readonly JsonSerializerOptions Json = new()
     {
@@ -81,6 +82,10 @@ public sealed class QuestRepository
         return repo;
     }
 
+    /// <summary>The text itself says how many: "Hand over 5 items", "Hand over the 2 LEDX", "Find 3 ... in raid".</summary>
+    [GeneratedRegex(@"^\s*(hand over|find|stash|plant|hide|place|install|mark|obtain)\s+(the\s+|any\s+)?\d[\d,]*\s", RegexOptions.IgnoreCase)]
+    private static partial Regex StatedAmount();
+
     static void LoadItemNeeds(string dataDir, List<Quest> quests, string modeKey, string language)
     {
         var data = Read<QuestItemData>(Path.Combine(dataDir, "quest_items.json"));
@@ -107,7 +112,13 @@ public sealed class QuestRepository
             var byId = q.Objectives.ToDictionary(o => o.Id);
             foreach (var (o, need) in needs)
                 if (o.Objective != null && byId.TryGetValue(o.Objective, out var target))
+                {
                     target.Item ??= need;
+                    // the scraper takes the first number of the text, often part of an item name
+                    // ("42 Signature Blend English Tea", "6-STEN-140-M"); tarkov.dev knows the amount,
+                    // unless the text states it itself ("Hand over the 2 LEDX")
+                    if (!StatedAmount().IsMatch(target.Text)) target.Count = Math.Max(1, o.Count);
+                }
             // "Find X in raid" + "Hand over the items" are about the same item, whichever side was matched
             for (var i = 1; i < q.Objectives.Count; i++)
             {

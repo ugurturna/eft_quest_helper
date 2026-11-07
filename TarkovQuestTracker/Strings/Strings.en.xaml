@@ -46,7 +46,7 @@
 
     <!-- active -->
     <sys:String x:Key="s.clearAll">Clear all</sys:String>
-    <sys:String x:Key="s.active.desc">Quests you are doing right now - shown on the overlay.</sys:String>
+    <sys:String x:Key="s.active.desc">Every quest you activated is here. The overlay only shows the ones with 📌 Overlay on; a quest you activate by hand is added automatically.</sys:String>
     <sys:String x:Key="s.finish">Done</sys:String>
     <sys:String x:Key="s.remove">Remove</sys:String>
     <sys:String x:Key="s.details">Details</sys:String>
@@ -140,8 +140,8 @@
     <sys:String x:Key="s.ov.size">Size</sys:String>
     <sys:String x:Key="s.ov.sizeTip">Also Ctrl + mouse wheel</sys:String>
     <sys:String x:Key="s.ov.hide">Hide</sys:String>
-    <sys:String x:Key="s.ov.empty">No active quests. Add some from the main window (Activate).</sys:String>
-    <sys:String x:Key="s.ov.removeTip">Remove from active</sys:String>
+    <sys:String x:Key="s.ov.empty">Nothing on the overlay. In the main window, open Active Quests and turn on 📌 Overlay.</sys:String>
+    <sys:String x:Key="s.ov.removeTip">Remove from the overlay (stays active)</sys:String>
     <sys:String x:Key="s.ov.dragTip">Drag up / down</sys:String>
     <sys:String x:Key="ov.locked">🔒 click-through · {0}</sys:String>
     <sys:String x:Key="ov.unlocked">↕ drag · {0}: lock</sys:String>
@@ -247,4 +247,11 @@
     <sys:String x:Key="flea.source">{0} prices · tarkov.dev · last update {1}</sys:String>
     <sys:String x:Key="flea.updating">updating…</sys:String>
     <sys:String x:Key="flea.updateFailed">update failed, showing older prices</sys:String>
+    <sys:String x:Key="s.track">📌 Overlay</sys:String>
+    <sys:String x:Key="s.track.tip">Show / hide this quest on the in-game overlay. It stays active.</sys:String>
+    <sys:String x:Key="s.untrackAll">Clear overlay</sys:String>
+    <sys:String x:Key="s.untrackAll.tip">Removes every quest from the overlay; they stay active.</sys:String>
+    <sys:String x:Key="a.summary">{0} active quests · {1} on the overlay</sys:String>
+    <sys:String x:Key="s.set.fleaOpacity">Flea search opacity</sys:String>
+    <sys:String x:Key="s.set.fleaOpacity.hint">(Ctrl+Shift+F window; lower it to see the game behind)</sys:String>
 </ResourceDictionary>

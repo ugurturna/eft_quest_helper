@@ -49,7 +49,7 @@
                     <Style TargetType="TextBlock" BasedOn="{StaticResource Muted}">
                         <Setter Property="Visibility" Value="Collapsed" />
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding HasActive}" Value="False">
+                            <DataTrigger Binding="{Binding HasTracked}" Value="False">
                                 <Setter Property="Visibility" Value="Visible" />
                             </DataTrigger>
                         </Style.Triggers>
@@ -58,7 +58,7 @@
             </TextBlock>
 
             <ScrollViewer x:Name="Scroller" VerticalScrollBarVisibility="Auto" Margin="0,6,0,0">
-                <ItemsControl ItemsSource="{Binding ActiveQuests}">
+                <ItemsControl ItemsSource="{Binding TrackedQuests}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate DataType="{x:Type vm:ActiveQuestVm}">
                             <Border Background="#C025251F" CornerRadius="4" Padding="8,6" Margin="0,0,0,6"
@@ -71,7 +71,7 @@
                                                     CommandParameter="{Binding Quest}" />
                                             <Button Content="✕" Style="{StaticResource SmallButton}" FontSize="11" Padding="5,0" Margin="0"
                                                     ToolTip="{DynamicResource s.ov.removeTip}"
-                                                    Command="{Binding DataContext.ToggleActiveCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                    Command="{Binding DataContext.ToggleTrackedCommand, RelativeSource={RelativeSource AncestorType=Window}}"
                                                     CommandParameter="{Binding Quest}" />
                                         </StackPanel>
                                         <ContentPresenter Content="{Binding Quest.Trader}" ContentTemplate="{StaticResource TraderAvatar}"

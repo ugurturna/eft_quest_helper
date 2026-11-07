@@ -40,7 +40,9 @@
 - **Ön koşul zincirleri** — her görev neye ihtiyaç duyduğunu ve neyi açtığını bilir.
 - **Hedef planlayıcı** — bir hedef seç (ör. *The Punisher – Part 3* ya da *Collector*), tüm zinciri sırayla, şu an yapabildiklerini ve kalanları gör.
 - **Kappa / Collector yolu** — Kappa için gerçekten gereken görevler: *Collector* ve tüm ön koşul zinciri. İlerleme çubuğu, yapılabilir görevler **haritaya göre gruplu** (aynı raidde birkaçını birden yap) ve seviye bekleyen görevler.
-- **Aktif görevler + overlay** — şu an yaptığın görevler ekranın sağ kenarındaki küçük takipçide görünür; hedef kutucukları, öldürme/item sayaçları ve item ikonlarıyla.
+- **Aktif görevler + overlay** — yaptığın tüm görevler *Aktif Görevler*'de listelenir; ekranın sağ kenarındaki küçük takipçide sadece **📌 Overlay** ile sabitlediklerin görünür (aktif yaptığın görev otomatik sabitlenir). Hedef kutucukları, öldürme/item sayaçları ve item ikonlarıyla.
+- **Oyun içinde flea fiyatları** — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> ekranın ortasında fiyat araması açar; item'ın 3 harfini yaz, modundaki (PvP / PvE) flea fiyatını gör. [Flea market fiyatları](#flea-market-fiyatları) bölümüne bak.
+- **Sol menü** — sayfalar (Görevler, Hedef Planlayıcı, Kappa, Eşyalar, Aktif Görevler, End Game, Ayarlar) soldaki menüde.
 - **Bir görevi aktif yapmak zincirini tamamlar** — *Punisher Part 5*'i aktif yap, Part 1–4 otomatik tamamlandı sayılsın (tek tıkla geri alınabilir).
 - **PvP ve PvE** — her mod için ayrı ilerleme; PvE'ye özel farklar (seviye, hedefler, itemler) gösterilir.
 - **İngilizce ve Türkçe arama** — yazım hatalarına ve Türkçe karakterlere toleranslı (`punisher 3`, `punişır 3`, `cezalandırıcı`).
@@ -84,6 +86,21 @@ Item ikonları **görevlerin içinde de** görünür: bulma / teslim / yerleşti
 - Seçimler, hedef ve işaretlenen adımlar ilerlemenle birlikte, profil ve mod başına kaydedilir. **Sıfırla** hepsini temizler.
 - Yol verisi `data/ticket_endings.json` dosyasında (İngilizce ve Türkçe) ve topluluğun *Story Endings* akış şeması v1.7.6'yı (Callsign_Smokey / Kay08x) takip eder.
 
+### Flea market fiyatları
+
+<p align="center">
+  <img src="docs/screenshots/flea.webp" width="470" alt="Flea market fiyat araması, PvP">
+  <img src="docs/screenshots/flea-pve.webp" width="470" alt="Flea market fiyat araması, PvE">
+</p>
+
+Oyundayken bir item'ın kaça gittiğini görmek için tarayıcıya alt-tab yapmadan <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>:
+
+- **Ekranın tam ortasında** açılır ve klavyeyi alır; **<kbd>Esc</kbd> kapatır ve seni oyuna geri döndürür**.
+- **3 harf** yazınca sonuçlar gelir; İngilizce ya da Türkçe (`gpu`, `ledx`, `salewa`, `ekran kartı`).
+- Fiyatlar **oyun moduna** göredir: PvP ve PvE flea fiyatları farklıdır, pencere seçtiğin modu gösterir.
+- Her item için: **flea fiyatı** (en düşük teklif, satan yoksa 24 saatlik ortalama), büyük itemlerde **slot başı fiyat**, **24s ortalama**, **48 saatlik değişim**, satılabilecek **en iyi trader** ve flea'da satılamayanlar için *Flea'da satılamaz*.
+- Fiyatlar [tarkov.dev](https://tarkov.dev)'den gelir (`json.tarkov.dev/regular/items` ve `/pve/items`). Uygulama açılınca iki mod da arka planda indirilir ve zaman damgasıyla diske kaydedilir; aramayı açtığında **15 dakikadan** eskiyse senin modun yeniden indirilir, bu sırada kayıtlı kopyada aramaya devam edersin. Arama asla internet beklemez.
+
 ### Overlay
 
 <img src="docs/screenshots/overlay.webp" width="320" align="right" alt="Overlay">
@@ -94,6 +111,7 @@ Item ikonları **görevlerin içinde de** görünür: bulma / teslim / yerleşti
 - Item hedeflerinde **item ikonu** görünür; raid ortasında loot'u bir bakışta tanırsın.
 - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> — overlay'i kilitle (tıklamalar oyuna geçer) / aç.
 - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> — overlay'i göster / gizle.
+- Sadece **📌 Overlay** ile sabitlenen görevleri gösterir (70 aktif görevin olsa bile). *Aktif Görevler*'den sabitle / kaldır; overlay'deki ✕ sadece overlay'den kaldırır, görev aktif kalır.
 - Oyundan odağı asla çalmaz.
 
 > [!NOTE]
@@ -107,12 +125,13 @@ Item ikonları **görevlerin içinde de** görünür: bulma / teslim / yerleşti
 |---|---|
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> | **Overlay'i kilitle / kilidi aç.** Kilitliyken overlay'e tıklanamaz, tüm tıklamalar oyuna geçer; oynarken kilitli bırak. Ayar yapmak ya da taşımak için kilidi aç. |
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> | **Overlay'i göster / gizle**, ör. raid ortasında ekranı temizlemek için. |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | Ekranın ortasında **flea market fiyat araması**, modundaki (PvP / PvE) fiyatlarla. <kbd>Esc</kbd> kapatır ve oyuna döner. |
 | <kbd>Ctrl</kbd> + fare tekerleği | Fare (kilidi açık) overlay'in üstündeyken: **büyüt / küçült** (%60–200). |
 | Overlay başlığını sürükle | **Overlay'i ekranın sağ kenarında yukarı / aşağı taşı** (sadece kilit açıkken). |
 
 - Kısayollar oyun açıkken ve uygulama arka plandayken de çalışır.
 - Overlay'deki ipucu oyunda zor okunabildiği için kısayollar ana pencerenin alt çubuğunda hep görünür, **Ayarlar**'ın en üstünde de açıklamalı olarak yazar.
-- Değiştirmek için profilin `settings.json` dosyasında `clickThroughHotkey` / `toggleOverlayHotkey` (ör. `"Ctrl+Alt+F9"`). Kısayol başka bir program tarafından kullanılıyorsa uygulama açılışta söyler.
+- Değiştirmek için profilin `settings.json` dosyasında `clickThroughHotkey` / `toggleOverlayHotkey` / `fleaSearchHotkey` (ör. `"Ctrl+Alt+F9"`). Kısayol başka bir program tarafından kullanılıyorsa uygulama açılışta söyler.
 
 ## İndir & çalıştır
 
@@ -151,7 +170,7 @@ Exe'nin yanında `data` klasörü yoksa aynı dosyalar `%APPDATA%\TarkovQuestTra
 
 İlerleme her tıklamada kaydedilir. Yedeklemek ya da başka bilgisayara taşımak için **Ayarlar → Dışa / İçe aktar**'ı kullan.
 
-Kısayollar `settings.json` içinden değiştirilebilir (`clickThroughHotkey`, `toggleOverlayHotkey`, ör. `"Ctrl+Alt+F9"`).
+Kısayollar `settings.json` içinden değiştirilebilir (`clickThroughHotkey`, `toggleOverlayHotkey`, `fleaSearchHotkey`, ör. `"Ctrl+Alt+F9"`).
 
 ## Kaynaklar & yasal
 

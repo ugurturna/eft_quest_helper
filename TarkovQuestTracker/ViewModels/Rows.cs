@@ -141,15 +141,18 @@ public sealed class TicketOptionVm(string decisionId, string optionId, string la
 /// <summary>An active quest card (main window "Aktif" tab and the overlay).</summary>
 public sealed class ActiveQuestVm : ObservableObject
 {
-    public ActiveQuestVm(Quest quest, IEnumerable<ObjectiveVm> objectives)
+    public ActiveQuestVm(Quest quest, IEnumerable<ObjectiveVm> objectives, bool isTracked)
     {
         Quest = quest;
+        IsTracked = isTracked;
         Objectives = objectives.ToList();
         foreach (var o in Objectives) o.PropertyChanged += (_, _) => OnPropertyChanged(nameof(Progress));
     }
 
     public Quest Quest { get; }
     public IReadOnlyList<ObjectiveVm> Objectives { get; }
+    /// <summary>Shown on the overlay.</summary>
+    public bool IsTracked { get; }
     public string Progress => $"{Objectives.Count(o => o.IsDone)}/{Objectives.Count}";
 }
 

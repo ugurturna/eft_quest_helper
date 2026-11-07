@@ -32,6 +32,7 @@ public partial class FleaSearchWindow : Window
     public FleaSearchWindow(MainViewModel vm)
     {
         _vm = vm;
+        DataContext = vm;  // opacity comes from the settings
         InitializeComponent();
     }
 

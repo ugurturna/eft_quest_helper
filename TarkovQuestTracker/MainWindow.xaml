@@ -332,9 +332,54 @@
                 <ColumnDefinition Width="430" MinWidth="320" />
             </Grid.ColumnDefinitions>
 
-            <TabControl Margin="8,8,0,8">
+            <!-- pages as a left side menu: icon + name, the selected one gets an accent bar -->
+            <TabControl Margin="0,0,0,8" TabStripPlacement="Left">
+                <TabControl.Template>
+                    <ControlTemplate TargetType="TabControl">
+                        <DockPanel>
+                            <Border DockPanel.Dock="Left" Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource LineBrush}"
+                                    BorderThickness="0,0,1,0" Padding="8,10" MinWidth="190">
+                                <StackPanel IsItemsHost="True" KeyboardNavigation.TabNavigation="Once" />
+                            </Border>
+                            <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="12,8,0,0" />
+                        </DockPanel>
+                    </ControlTemplate>
+                </TabControl.Template>
+                <TabControl.Resources>
+                    <Style TargetType="TabItem">
+                        <Setter Property="Foreground" Value="{StaticResource MutedBrush}" />
+                        <Setter Property="FontSize" Value="14" />
+                        <Setter Property="Cursor" Value="Hand" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="TabItem">
+                                    <Border x:Name="Bd" Background="Transparent" CornerRadius="4" Margin="0,1" Padding="0,9,12,9">
+                                        <DockPanel>
+                                            <Border x:Name="Bar" DockPanel.Dock="Left" Width="3" CornerRadius="2" Margin="0,0,10,0" Background="Transparent" />
+                                            <TextBlock DockPanel.Dock="Left" Text="{TemplateBinding Tag}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                                       FontSize="16" Width="20" Margin="0,0,10,0" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" />
+                                            <TextBlock Text="{TemplateBinding Header}" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" />
+                                        </DockPanel>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource CardBrush}" />
+                                            <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource CardBrush}" />
+                                            <Setter TargetName="Bar" Property="Background" Value="{StaticResource AccentBrush}" />
+                                            <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+                                            <Setter Property="FontWeight" Value="SemiBold" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TabControl.Resources>
                 <!-- search -->
-                <TabItem Header="{DynamicResource s.tab.quests}">
+                <TabItem Header="{DynamicResource s.tab.quests}" Tag="&#xE8FD;">
                     <DockPanel Margin="0,8,0,0">
                         <StackPanel DockPanel.Dock="Top">
                             <TextBox x:Name="SearchBox" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" FontSize="15"
@@ -374,7 +419,7 @@
                 </TabItem>
 
                 <!-- planner -->
-                <TabItem Header="{DynamicResource s.tab.planner}">
+                <TabItem Header="{DynamicResource s.tab.planner}" Tag="&#xE7C1;">
                     <DockPanel Margin="0,8,0,0">
                         <StackPanel DockPanel.Dock="Top">
                             <TextBlock Text="{DynamicResource s.planner.ask}" Style="{StaticResource Body}" />
@@ -426,7 +471,7 @@
                 </TabItem>
 
                 <!-- kappa -->
-                <TabItem Header="{DynamicResource s.tab.kappa}">
+                <TabItem Header="{DynamicResource s.tab.kappa}" Tag="&#xE734;">
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
                         <StackPanel>
                             <TextBlock Text="{Binding KappaSummary}" Style="{StaticResource Body}" FontSize="14" />
@@ -459,7 +504,7 @@
                 </TabItem>
 
                 <!-- quest items: trader → quest → items to hand over -->
-                <TabItem Header="{DynamicResource s.tab.items}">
+                <TabItem Header="{DynamicResource s.tab.items}" Tag="&#xE7B8;">
                     <DockPanel Margin="0,8,0,0">
                         <WrapPanel DockPanel.Dock="Top" Margin="0,0,0,6">
                             <TextBox Text="{Binding ItemSearchText, UpdateSourceTrigger=PropertyChanged}" Width="220" Margin="0,0,12,4"
@@ -511,20 +556,30 @@
                 </TabItem>
 
                 <!-- active -->
-                <TabItem Header="{DynamicResource s.tab.active}">
+                <TabItem Header="{DynamicResource s.tab.active}" Tag="&#xE768;">
                     <DockPanel Margin="0,8,0,0">
                         <DockPanel DockPanel.Dock="Top">
-                            <Button DockPanel.Dock="Right" Content="{DynamicResource s.clearAll}" Style="{StaticResource SmallButton}" Margin="0" Command="{Binding ClearActiveCommand}" />
-                            <TextBlock Text="{DynamicResource s.active.desc}" Style="{StaticResource Muted}" VerticalAlignment="Center" />
+                            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Top">
+                                <Button Content="{DynamicResource s.untrackAll}" Style="{StaticResource SmallButton}" Command="{Binding UntrackAllCommand}"
+                                        ToolTip="{DynamicResource s.untrackAll.tip}" />
+                                <Button Content="{DynamicResource s.clearAll}" Style="{StaticResource SmallButton}" Margin="0" Command="{Binding ClearActiveCommand}" />
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock Text="{Binding ActiveSummary}" Style="{StaticResource Body}" FontWeight="SemiBold" />
+                                <TextBlock Text="{DynamicResource s.active.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" />
+                            </StackPanel>
                         </DockPanel>
                         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
                             <ItemsControl ItemsSource="{Binding ActiveQuests}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate DataType="{x:Type vm:ActiveQuestVm}">
-                                        <Border Background="{StaticResource CardBrush}" CornerRadius="4" Padding="10,8" Margin="0,0,0,8">
+                                        <Border x:Name="Card" Background="{StaticResource CardBrush}" CornerRadius="4" Padding="10,8" Margin="0,0,0,8"
+                                                BorderBrush="Transparent" BorderThickness="3,0,0,0">
                                             <StackPanel>
                                                 <DockPanel>
                                                     <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                                                        <Button x:Name="Pin" Content="{DynamicResource s.track}" Style="{StaticResource SmallButton}" ToolTip="{DynamicResource s.track.tip}"
+                                                                Command="{Binding DataContext.ToggleTrackedCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding Quest}" />
                                                         <Button Content="{DynamicResource s.finish}" Style="{StaticResource SmallButton}"
                                                                 Command="{Binding DataContext.ToggleCompleteCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding Quest}" />
                                                         <Button Content="{DynamicResource s.remove}" Style="{StaticResource SmallButton}"
@@ -563,6 +618,14 @@
                                                 </ItemsControl>
                                             </StackPanel>
                                         </Border>
+                                        <DataTemplate.Triggers>
+                                            <!-- tracked = on the overlay -->
+                                            <DataTrigger Binding="{Binding IsTracked}" Value="True">
+                                                <Setter TargetName="Card" Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+                                                <Setter TargetName="Pin" Property="Background" Value="{StaticResource AccentBrush}" />
+                                                <Setter TargetName="Pin" Property="Foreground" Value="{StaticResource BgBrush}" />
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
@@ -571,7 +634,7 @@
                 </TabItem>
 
                 <!-- The Ticket: endings, decisions and the route to the chosen ending -->
-                <TabItem x:Name="TicketTab" Header="{DynamicResource s.tab.ticket}">
+                <TabItem x:Name="TicketTab" Header="{DynamicResource s.tab.ticket}" Tag="&#xEA18;">
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
                         <StackPanel Margin="0,0,6,0">
                             <ContentControl Content="{Binding}" ContentTemplate="{StaticResource TicketGuideView}" />
@@ -580,7 +643,7 @@
                 </TabItem>
 
                 <!-- settings -->
-                <TabItem Header="{DynamicResource s.tab.settings}">
+                <TabItem Header="{DynamicResource s.tab.settings}" Tag="&#xE713;">
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
                         <StackPanel MaxWidth="640" HorizontalAlignment="Left">
                             <!-- shortcuts, explained -->
@@ -694,6 +757,11 @@
                                 <Run Text="{DynamicResource s.set.scale.hint}" Foreground="{StaticResource MutedBrush}" />
                             </TextBlock>
                             <Slider Minimum="0.6" Maximum="2" Value="{Binding OverlayScale}" />
+                            <TextBlock Style="{StaticResource Body}" Margin="0,8,0,0">
+                                <Run Text="{DynamicResource s.set.fleaOpacity}" /> <Run Text="{Binding FleaOpacity, StringFormat={}{0:P0}, Mode=OneWay}" />
+                                <Run Text="{DynamicResource s.set.fleaOpacity.hint}" Foreground="{StaticResource MutedBrush}" />
+                            </TextBlock>
+                            <Slider Minimum="0.3" Maximum="1" Value="{Binding FleaOpacity}" />
                             <TextBlock Text="{DynamicResource s.set.borderless}" Style="{StaticResource Muted}" Margin="0,8,0,0" />
 
                             <TextBlock Text="{DynamicResource s.set.progress}" Style="{StaticResource H2}" />

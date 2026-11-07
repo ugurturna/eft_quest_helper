@@ -5,9 +5,10 @@
         Title="Tarkov Tracker Flea Search"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent"
         Topmost="True" ShowInTaskbar="False" ResizeMode="NoResize"
-        Width="640" Height="560" PreviewKeyDown="Window_PreviewKeyDown">
-    <!-- fixed size, so the box stays in the middle of the screen while results come and go -->
-    <Border Background="#F2141412" BorderBrush="{StaticResource AccentBrush}" BorderThickness="1" CornerRadius="8" Padding="14,12">
+        Width="640" Height="560" PreviewKeyDown="Window_PreviewKeyDown"
+        Opacity="{Binding FleaOpacity}">
+    <!-- fixed size, so the box stays in the middle of the screen while results come and go; opaque, so the game never bleeds through the prices -->
+    <Border Background="{StaticResource BgBrush}" BorderBrush="{StaticResource AccentBrush}" BorderThickness="1" CornerRadius="8" Padding="14,12">
         <DockPanel>
             <DockPanel DockPanel.Dock="Top" Margin="0,0,0,8">
                 <TextBlock DockPanel.Dock="Right" Text="{DynamicResource s.flea.esc}" Style="{StaticResource Muted}" FontSize="11" VerticalAlignment="Center" />
