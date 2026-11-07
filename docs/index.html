@@ -26,8 +26,8 @@
 
   <!-- Announcement Bar -->
   <aside class="announcement-bar">
-    <span data-i18n="announcement">🚀 v0.0.2 is here! Zero ban risk, instant quest overlay for Escape from Tarkov.</span>
-    <a href="https://github.com/ugurturna/eft_quest_helper/releases/latest" data-release target="_blank" rel="noopener"><span data-version>v0.0.2</span> Release &rarr;</a>
+    <span data-i18n="announcement">🚀 v0.2.6 is here! Zero ban risk, instant quest overlay for Escape from Tarkov.</span>
+    <a href="https://github.com/ugurturna/eft_quest_helper/releases/latest" data-release target="_blank" rel="noopener"><span data-version>v0.2.6</span> Release &rarr;</a>
   </aside>
 
   <!-- Navigation Header -->
@@ -36,7 +36,7 @@
       <a href="#" class="nav-brand">
         <img src="assets/app-icon-128.png" width="40" height="40" alt="EFT Quest Helper Logo">
         <span class="brand-title">EFT Quest Helper</span>
-        <span class="brand-tag" data-version>v0.0.2</span>
+        <span class="brand-tag" data-version>v0.2.6</span>
       </a>
 
       <ul class="nav-links">
@@ -59,7 +59,7 @@
 
         <a href="https://github.com/ugurturna/eft_quest_helper/releases/latest" data-download class="btn btn-primary btn-sm" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span data-i18n="navDownload">Download v0.0.2</span>
+          <span data-i18n="navDownload">Download v0.2.6</span>
         </a>
 
         <button type="button" class="mobile-toggle" aria-label="Toggle Navigation Menu">&#9776;</button>
@@ -88,7 +88,7 @@
         <div class="hero-cta">
           <a href="https://github.com/ugurturna/eft_quest_helper/releases/latest" data-download class="btn btn-primary btn-lg" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span data-i18n="btnDownload">Download for Windows (v0.0.2)</span>
+            <span data-i18n="btnDownload">Download for Windows (v0.2.6)</span>
           </a>
 
           <a href="https://github.com/ugurturna/eft_quest_helper" class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
@@ -131,11 +131,36 @@
         </div>
 
         <div class="features-grid">
+
+          <article class="feature-card feature-new">
+            <span class="feature-new-tag" data-i18n="newTag">New</span>
+            <div class="feature-icon">🗺️</div>
+            <h3 data-i18n="f11Title">Entering a Raid</h3>
+            <p data-i18n="f11Desc">Pick the map you are going to and the overlay shows every active quest on it by itself. Quests on several maps show only that map's objectives; hand-over steps are hidden. Ctrl+Shift+R picks the map without leaving the game.</p>
+            <span class="feature-highlight" data-i18n="f11Badge">Map picker · Ctrl+Shift+R</span>
+          </article>
+
+          <article class="feature-card feature-new">
+            <span class="feature-new-tag" data-i18n="newTag">New</span>
+            <div class="feature-icon">🔑</div>
+            <h3 data-i18n="f12Title">What to Bring Into the Raid</h3>
+            <p data-i18n="f12Desc">Keys, how many markers you need, items to plant, the weapon to use and the clothes to wear are shown at the top of every quest and on its active quest card.</p>
+            <span class="feature-highlight" data-i18n="f12Badge">Keys · Markers · Weapons</span>
+          </article>
+
+          <article class="feature-card feature-new">
+            <span class="feature-new-tag" data-i18n="newTag">New</span>
+            <div class="feature-icon">🔁</div>
+            <h3 data-i18n="f13Title">Hand In, Next Quest Accepted</h3>
+            <p data-i18n="f13Desc">Complete an active quest and the quests it unlocks become active. Make a quest your goal and the step you are at is activated. Nothing is pushed onto the overlay: you decide what to pin.</p>
+            <span class="feature-highlight" data-i18n="f13Badge">Auto-accept · Goal steps</span>
+          </article>
+
           <!-- Feature 1 -->
           <article class="feature-card">
             <div class="feature-icon">🖥️</div>
             <h3 data-i18n="f1Title">Live In-Game Overlay</h3>
-            <p data-i18n="f1Desc">Docked transparently to the side of your screen. Lock it with Ctrl+Shift+T so clicks go directly to the game. Check off items and kill counts mid-raid.</p>
+            <p data-i18n="f1Desc">Sits on top of the game; drag it anywhere on screen. Shows the quests you pin, or in a raid every quest on that map. Lock it with Ctrl+Shift+T so clicks go straight to the game.</p>
             <span class="feature-highlight" data-i18n="f1Badge">Always-on-top · Click-through</span>
           </article>
 
@@ -143,7 +168,7 @@
           <article class="feature-card">
             <div class="feature-icon">🎯</div>
             <h3 data-i18n="f2Title">Goal Planner & Kappa Path</h3>
-            <p data-i18n="f2Desc">Pick any target quest (like Punisher Part 6 or The Collector). The app calculates the exact chain, what to do right now, and what's left.</p>
+            <p data-i18n="f2Desc">Pick any target quest (like Punisher Part 6 or The Collector). The app calculates the exact chain, what to do right now, and what's left. Making a quest your goal activates the step you are at.</p>
             <span class="feature-highlight" data-i18n="f2Badge">Chain solver · Map grouping</span>
           </article>
 
@@ -180,8 +205,7 @@
           </article>
 
           <!-- Feature 7 -->
-          <article class="feature-card feature-new">
-            <span class="feature-new-tag" data-i18n="newTag">New</span>
+          <article class="feature-card">
             <div class="feature-icon">🎒</div>
             <h3 data-i18n="f7Title">Quest Items Tracker</h3>
             <p data-i18n="f7Desc">See which trader needs which items for which quest, grouped by trader, with item icons, counts and Found-in-Raid flags. Search an item to find every quest that wants it.</p>
@@ -189,8 +213,7 @@
           </article>
 
           <!-- Feature 8 -->
-          <article class="feature-card feature-new">
-            <span class="feature-new-tag" data-i18n="newTag">New</span>
+          <article class="feature-card">
             <div class="feature-icon">🖼️</div>
             <h3 data-i18n="f8Title">Item Icons in Every Objective</h3>
             <p data-i18n="f8Desc">Find and hand-over objectives show the item's icon in quest details, the active quest list and the overlay, so you recognise loot at a glance mid-raid.</p>
@@ -198,8 +221,7 @@
           </article>
 
           <!-- Feature 10 -->
-          <article class="feature-card feature-new">
-            <span class="feature-new-tag" data-i18n="newTag">New</span>
+          <article class="feature-card">
             <div class="feature-icon">💰</div>
             <h3 data-i18n="f10Title">Flea Market Prices In Game</h3>
             <p data-i18n="f10Desc">Press Ctrl+Shift+F mid-raid: a price search opens in the middle of the screen. Type 3 letters and see the flea price for your mode (PvP or PvE), price per slot and the best trader. Esc takes you back to the game.</p>
@@ -209,6 +231,13 @@
           <!-- Feature 9 -->
           <article class="feature-card feature-new feature-wide">
             <span class="feature-new-tag" data-i18n="newTag">New</span>
+            <div class="feature-icon">🪶</div>
+            <h3 data-i18n="f14Title">Light on Your PC</h3>
+            <p data-i18n="f14Desc">Made to run next to the game all session: about 0% CPU when idle and a small memory footprint. Flea prices are only prepared for the mode you play.</p>
+            <span class="feature-highlight" data-i18n="f14Badge">~0% CPU when idle</span>
+          </article>
+
+          <article class="feature-card feature-wide">
             <div class="feature-icon">🎫</div>
             <h3 data-i18n="f9Title">End Game: The Ticket Endings</h3>
             <p data-i18n="f9Desc">Which of the 4 endings can you still reach, which way do you go, and where are you right now? Mark your decisions, pick a target ending and follow the route step by step.</p>
@@ -367,7 +396,7 @@
             <span class="step-number">01</span>
             <div class="step-icon">📦</div>
             <h3 data-i18n="step1Title">1. Download & Launch</h3>
-            <p data-i18n="step1Desc">Download the standalone v0.0.2 release from GitHub and run TarkovQuestTracker.exe. No installation needed.</p>
+            <p data-i18n="step1Desc">Download the latest release zip from GitHub, extract it anywhere and run TarkovQuestTracker.exe. No installation needed.</p>
           </div>
 
           <div class="step-card">
@@ -381,14 +410,14 @@
             <span class="step-number">03</span>
             <div class="step-icon">📋</div>
             <h3 data-i18n="step3Title">3. Choose Your Quests</h3>
-            <p data-i18n="step3Desc">Mark your completed quests or pick a goal. Active quests automatically appear on the in-game overlay tracker.</p>
+            <p data-i18n="step3Desc">Mark your completed quests or pick a goal: the quests you can do now become active. Pin the ones you want on the overlay with 📌.</p>
           </div>
 
           <div class="step-card">
             <span class="step-number">04</span>
             <div class="step-icon">🎮</div>
             <h3 data-i18n="step4Title">4. Lock & Raid</h3>
-            <p data-i18n="step4Desc">Press Ctrl+Shift+T to lock overlay click-through, launch into your raid, and track objectives in real-time!</p>
+            <p data-i18n="step4Desc">Before the raid press Ctrl+Shift+R and pick the map: the overlay shows that map's quests. Ctrl+Shift+T locks it so clicks go to the game.</p>
           </div>
         </div>
 
@@ -410,7 +439,15 @@
             </div>
             <div class="hotkey-item">
               <div><kbd>Drag Header</kbd></div>
-              <div class="hotkey-desc" data-i18n="hk4Desc">Reposition overlay vertically on screen</div>
+              <div class="hotkey-desc" data-i18n="hk4Desc">Move the overlay anywhere on screen</div>
+            </div>
+            <div class="hotkey-item">
+              <div><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></div>
+              <div class="hotkey-desc" data-i18n="hk5Desc">Flea market price search mid-raid</div>
+            </div>
+            <div class="hotkey-item">
+              <div><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd></div>
+              <div class="hotkey-desc" data-i18n="hk6Desc">Pick the raid map: the overlay shows its quests</div>
             </div>
           </div>
         </div>
@@ -549,7 +586,7 @@
           <p data-i18n="ctaSub">Download EFT Quest Helper today. Free, open source, and built for PMCs.</p>
           <a href="https://github.com/ugurturna/eft_quest_helper/releases/latest" data-download class="btn btn-primary btn-lg" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span data-i18n="ctaBtn">Download v0.0.2 for Windows</span>
+            <span data-i18n="ctaBtn">Download v0.2.6 for Windows</span>
           </a>
         </div>
       </div>
