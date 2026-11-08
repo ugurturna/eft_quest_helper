@@ -1,6 +1,6 @@
 {
  "id": "accidental-witness",
- "name": "Tesadüfi Tanık",
+ "name": "Accidental Witness",
  "objectives": [
   {"id": "o1", "text": "Kozlov'un nerede yaşadığını bul", "details": []},
   {"id": "o2", "text": "Kozlov'un kapısındaki notu oku", "details": []},
@@ -14,7 +14,7 @@
   {"id": "o6", "text": "Skier'ın suç ortağı hakkında daha fazlasını öğren", "details": [
    "(İsteğe bağlı) Daireyi incele"]},
   {"id": "o7", "text": "Skier'ın suç ortağının dairesindeki belgeleri oku", "details": []},
-  {"id": "o8", "text": "Streets of Tarkov'dan hayatta kalarak tahliye ol", "details": []},
+  {"id": "o8", "text": "Streets of Tarkov'dan hayatta kalarak extract et", "details": []},
   {"id": "o9", "text": "Skier'a rapor ver", "details": []},
   {"id": "o10", "text": "Ragman ile konuş", "details": []},
   {"id": "o11", "text": "Anastasia'nın dairesini bul", "details": []},
@@ -23,14 +23,14 @@
   {"id": "o14", "text": "Kurye Pasha'yı bul", "details": []},
   {"id": "o15", "text": "Pusu kurulan yeri ara", "details": []},
   {"id": "o16", "text": "Skier ile konuş", "details": []},
-  {"id": "o17", "text": "Reshala'nın zulasını bul", "details": [
+  {"id": "o17", "text": "Reshala'nın stash'ini bul", "details": [
    "(İsteğe bağlı) Reshala'yı bul ve etkisiz hale getir",
-   "(İsteğe bağlı) Reshala'nın zulasının anahtarını ele geçir"]},
+   "(İsteğe bağlı) Reshala'nın stash'inin anahtarını ele geçir"]},
   {"id": "o18", "text": "Reshala'nın barakasını incele", "details": [
    "(İsteğe bağlı) Reshala'nın iş notlarını ele geçir",
    "(İsteğe bağlı) Kurye Pasha'nın eşyalarını ele geçir"]},
   {"id": "o19", "text": "Kozlov'un saklandığı yeri bul", "details": []},
   {"id": "o20", "text": "Kozlov'un kanıtını bul ve al", "details": []}
  ],
- "guide": "▸ Kozlov'un nerede yaşadığını bul / Kapısındaki notu oku\nKozlov, Customs'taki iki katlı yurdun birinci katındaki 110 numaralı odada yaşıyordu. Alıp okuman gereken not, oda numarasının hemen altında.\n\n▸ Kozlov'un neyin içinde olduğunu öğren\nBu hedef için önce Dorm room 110 key ile Kozlov'un odasına girmen, ardından komodinin üzerindeki mektubu alıp okuman gerekiyor.\nİsteğe bağlı \"Note from the repair shop\", 110 numaralı odanın yanındaki mutfakta duvarda asılı.\n\n▸ Trader'lara Anastasia'yı sor\nMenüdeki trader ekranından Skier'ı ziyaret et ve ona Anastasia'yı sor.\n\n▸ Skier'ın suç ortağının dairesine gir\nAranan daire, Streets of Tarkov'daki Zmeisky 3 binasının birinci katında. Giriş arka bahçe tarafında. İçeri girmek için Zmeisky 3 apartment key gerekiyor.\n\n▸ Skier'ın suç ortağı hakkında bilgi edin / Dairedeki belgeleri oku\nDairenin içinde alıp okuman gereken 4 belge var; her birinin birden fazla doğma noktası olabilir:\n• The Ninth Circle Issue #19\n• Tarkov Herald summary\n• FSB report\n• The Ninth Circle Issue #14\n\n▸ Streets of Tarkov'dan hayatta kalarak tahliye ol\nStreets of Tarkov'dan \"Survived\" ya da \"Run-Through\" durumuyla tahliye ol.\n\n▸ Skier'a rapor ver\nMenüdeki trader ekranından Skier'ı ziyaret et.\n\n▸ Ragman ile konuş\nMenüdeki trader ekranından Ragman'i ziyaret et.\n\n▸ Anastasia'nın dairesini bul\nAranan daire, Streets of Tarkov'daki Chekannaya 13 apartmanının ikinci katında.\n\n▸ Anastasia hakkında bilgi edin / Binanın girişini incele\nBu hedef için merdivenlerden aşağı geri in ve posta kutusundaki mektubu ve gazeteyi alıp oku.\n\n▸ Kurye Pasha'yı bul / Pusu yerini ara\nPasha'nın pusuya düşürüldüğü yer, Customs'taki iki katlı yurdun yanında. Alıp okuman gereken not bisikletin yanında.\n\n▸ Skier'a rapor ver\nMenüdeki trader ekranından Skier'ı ziyaret et.\n\n▸ Reshala'nın zulasını bul ve incele\nReshala'nın zulası Customs'taki bir baraka. İçeride alıp okuman gereken 3 not var. Girmek için Reshala's bunkhouse key gerekiyor.\n\n▸ Kozlov'un saklandığı yeri bul ve kanıtını al\nKozlov'un saklandığı yer, Shoreline'daki batı köyünün doğu kısmındaki 3 numaralı ev. Kanıt bir ses kaseti; girişin yanındaki çiçek tarhında duruyor, alıp dinlemen gerekiyor.\nİsteğe bağlı \"Newspaper clipping with a photo of Anastasia\" evin içinde, yerde.\n\nÖdüller:\n• +64.000 EXP\n• Pay Your Debt başarımı açılır"
+ "guide": "▸ Kozlov'un nerede yaşadığını bul / Kapısındaki notu oku\nKozlov, Customs'taki iki katlı yurdun birinci katındaki 110 numaralı odada yaşıyordu. Alıp okuman gereken not, oda numarasının hemen altında.\n\n▸ Kozlov'un neyin içinde olduğunu öğren\nBu hedef için önce Dorm room 110 key ile Kozlov'un odasına girmen, ardından komodinin üzerindeki mektubu alıp okuman gerekiyor.\nİsteğe bağlı \"Note from the repair shop\", 110 numaralı odanın yanındaki mutfakta duvarda asılı.\n\n▸ Trader'lara Anastasia'yı sor\nMenüdeki trader ekranından Skier'ı ziyaret et ve ona Anastasia'yı sor.\n\n▸ Skier'ın suç ortağının dairesine gir\nAranan daire, Streets of Tarkov'daki Zmeisky 3 binasının birinci katında. Giriş arka bahçe tarafında. İçeri girmek için Zmeisky 3 apartment key gerekiyor.\n\n▸ Skier'ın suç ortağı hakkında bilgi edin / Dairedeki belgeleri oku\nDairenin içinde alıp okuman gereken 4 belge var; her birinin birden fazla doğma noktası olabilir:\n• The Ninth Circle Issue #19\n• Tarkov Herald summary\n• FSB report\n• The Ninth Circle Issue #14\n\n▸ Streets of Tarkov'dan hayatta kalarak extract et\nStreets of Tarkov'dan \"Survived\" ya da \"Run-Through\" durumuyla extract et.\n\n▸ Skier'a rapor ver\nMenüdeki trader ekranından Skier'ı ziyaret et.\n\n▸ Ragman ile konuş\nMenüdeki trader ekranından Ragman'i ziyaret et.\n\n▸ Anastasia'nın dairesini bul\nAranan daire, Streets of Tarkov'daki Chekannaya 13 apartmanının ikinci katında.\n\n▸ Anastasia hakkında bilgi edin / Binanın girişini incele\nBu hedef için merdivenlerden aşağı geri in ve posta kutusundaki mektubu ve gazeteyi alıp oku.\n\n▸ Kurye Pasha'yı bul / Pusu yerini ara\nPasha'nın pusuya düşürüldüğü yer, Customs'taki iki katlı yurdun yanında. Alıp okuman gereken not bisikletin yanında.\n\n▸ Skier'a rapor ver\nMenüdeki trader ekranından Skier'ı ziyaret et.\n\n▸ Reshala'nın stash'ini bul ve incele\nReshala'nın stash'i Customs'taki bir baraka. İçeride alıp okuman gereken 3 not var. Girmek için Reshala's bunkhouse key gerekiyor.\n\n▸ Kozlov'un saklandığı yeri bul ve kanıtını al\nKozlov'un saklandığı yer, Shoreline'daki batı köyünün doğu kısmındaki 3 numaralı ev. Kanıt bir ses kaseti; girişin yanındaki çiçek tarhında duruyor, alıp dinlemen gerekiyor.\nİsteğe bağlı \"Newspaper clipping with a photo of Anastasia\" evin içinde, yerde.\n\nÖdüller:\n• +64.000 EXP\n• Pay Your Debt başarımı açılır"
 }

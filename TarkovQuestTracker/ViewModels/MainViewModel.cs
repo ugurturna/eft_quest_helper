@@ -32,6 +32,9 @@ public sealed partial class MainViewModel : ObservableObject
     {
         _dataDir = QuestRepository.FindDataDir(AppContext.BaseDirectory);
         Flea = new FleaMarket(Path.Combine(_store.Folder, "flea"));
+        Scanner = CreateScanner();
+        Detector = CreateDetector();
+        _raidClock.Tick += OnRaidClockTick;
         _currentProfile = _store.Profile;
         _searchDelay.Tick += (_, _) =>
         {
@@ -78,6 +81,7 @@ public sealed partial class MainViewModel : ObservableObject
         FleaOpacity = Math.Clamp(Settings.FleaOpacity, MinFleaOpacity, 1);
         OverlayWidth = Settings.OverlayWidth;
         OverlayScale = Math.Clamp(Settings.OverlayScale, MinOverlayScale, MaxOverlayScale);
+        UiScale = Math.Clamp(Settings.UiScale, MinUiScale, MaxUiScale);
         OverlayPosition = Math.Clamp(Settings.OverlayPosition, 0, 1);
         OverlayPositionX = Math.Clamp(Settings.OverlayPositionX, 0, 1);
         OverlayDetailed = Settings.OverlayDetailed;
@@ -86,6 +90,9 @@ public sealed partial class MainViewModel : ObservableObject
         _loading = false;
         OnPropertyChanged(nameof(Settings));
         OnPropertyChanged(nameof(CheckForUpdates));
+        OnPropertyChanged(nameof(AutoRaidDetect));
+        OnPropertyChanged(nameof(AutoRaidDetectOff));
+        ApplyOverlaySettings();
         LoadData();
     }
 
@@ -207,6 +214,8 @@ public sealed partial class MainViewModel : ObservableObject
         _repo = QuestRepository.Load(_dataDir, Settings.Language, Settings.Mode);
         _planner = new QuestPlanner(_repo);
         _search = new SearchService(_repo.Quests);
+        _matcher = null;
+        Scanner.Clear();  // quests read for the previous mode / profile
         _ticket = TicketPlanner.Load(_dataDir);
         Progress = _store.LoadProgress(Settings.Mode);
         _undo = null;
@@ -632,7 +641,8 @@ public sealed partial class MainViewModel : ObservableObject
     /// <summary>What the overlay shows: the pinned quests, or in a raid the map's quests (only their objectives there) + the pinned ones.</summary>
     public BulkObservableCollection<ActiveQuestVm> OverlayQuests { get; } = [];
     public bool HasOverlayQuests => OverlayQuests.Count > 0;
-    public string RaidSummary => RaidMap == null ? "" : Loc.F("raid.active", RaidMap, OverlayQuests.Count);
+    public string RaidSummary => RaidMap == null ? ""
+        : Loc.F("raid.active", RaidMap, OverlayQuests.Count) + (HasRaidTime ? " · " + Loc.F("raid.timeLeft", RaidTimeLeft) : "");
 
     partial void OnRaidMapChanged(string? value)
     {
@@ -644,6 +654,7 @@ public sealed partial class MainViewModel : ObservableObject
     {
         if (string.IsNullOrEmpty(map)) return;
         RaidMap = map;
+        SetRaidClock(null);  // picked by hand: the time left is not known until the exfil list is read
         Toast = Loc.F("t.raidStart", map, OverlayQuests.Count);
     }
 
@@ -652,7 +663,48 @@ public sealed partial class MainViewModel : ObservableObject
     {
         if (RaidMap == null) return;
         RaidMap = null;
+        SetRaidClock(null);
         Toast = Loc.T("t.raidEnd");
+    }
+
+    // raid clock: the time left the game showed on the exfil list, counted down here
+    readonly DispatcherTimer _raidClock = new() { Interval = TimeSpan.FromSeconds(1) };
+    DateTime? _raidEndsAt;
+
+    public bool HasRaidTime => _raidEndsAt != null && RaidMap != null;
+    /// <summary>"32:10" (or "1:02:05"), counting down.</summary>
+    public string RaidTimeLeft
+    {
+        get
+        {
+            if (_raidEndsAt is not { } end) return "";
+            var left = end - DateTime.UtcNow;
+            if (left < TimeSpan.Zero) left = TimeSpan.Zero;
+            return left.TotalHours >= 1 ? left.ToString(@"h\:mm\:ss") : left.ToString(@"mm\:ss");
+        }
+    }
+
+    void SetRaidClock(DateTime? endsAt)
+    {
+        _raidEndsAt = endsAt;
+        if (endsAt == null) _raidClock.Stop();
+        else _raidClock.Start();
+        OnRaidClockTick(null, EventArgs.Empty);
+    }
+
+    void OnRaidClockTick(object? sender, EventArgs e)
+    {
+        if (sender != null && _raidEndsAt is { } end && DateTime.UtcNow >= end)
+        {
+            // the raid time is up: the raid is over whatever happened in it
+            RaidMap = null;
+            SetRaidClock(null);
+            Toast = Loc.T("t.raidTimeUp");
+            return;
+        }
+        OnPropertyChanged(nameof(HasRaidTime));
+        OnPropertyChanged(nameof(RaidTimeLeft));
+        OnPropertyChanged(nameof(RaidSummary));
     }
 
     void RefreshActive()
@@ -673,7 +725,13 @@ public sealed partial class MainViewModel : ObservableObject
             .Where(x => x.show.Count > 0)
             .Select(x => new ActiveQuestVm(x.a.Quest, x.a.Objectives.Where(o => x.show.Contains(o.Objective)), x.a.IsTracked))
             .ToList();
-        Replace(OverlayQuests, onMap.Concat(TrackedQuests.Where(t => onMap.All(m => m.Quest.Id != t.Quest.Id))));
+        // too many for the overlay ("Any location" quests count on every map): the map's own quests win
+        var all = onMap.Concat(TrackedQuests.Where(t => onMap.All(m => m.Quest.Id != t.Quest.Id)))
+                       .OrderBy(a => RaidFilter.OverlayRank(a.Quest, RaidMap, a.IsTracked))
+                       .ToList();
+        var max = Settings.OverlayMaxQuests > 0 ? Settings.OverlayMaxQuests : all.Count;
+        Replace(OverlayQuests, all.Take(max));
+        OverlayHiddenCount = Math.Max(0, all.Count - max);
         Replace(RaidMaps, RaidFilter.Maps(_repo.Quests)
             .Select(m => new MapCardVm(m, ActiveQuests.Count(a => RaidFilter.Objectives(a.Quest, m).Count > 0), m == RaidMap))
             .OrderByDescending(c => c.ActiveCount > 0));
@@ -682,6 +740,7 @@ public sealed partial class MainViewModel : ObservableObject
         OnPropertyChanged(nameof(HasOverlayQuests));
         OnPropertyChanged(nameof(RaidSummary));
         OnPropertyChanged(nameof(ActiveSummary));
+        RefreshActiveFilter();
     }
 
     void OnObjectiveChanged(ObjectiveVm o)
@@ -844,6 +903,26 @@ public sealed partial class MainViewModel : ObservableObject
         Settings.OverlayDetailed = value;
         SaveSettings();
     }
+
+    /// <summary>Size of the whole main window (text, buttons, spacing), for small / large screens.</summary>
+    public const double MinUiScale = 0.25, MaxUiScale = 2.0;
+    [ObservableProperty] private double _uiScale = 1.0;
+
+    partial void OnUiScaleChanged(double value)
+    {
+        var clamped = Math.Round(Math.Clamp(value, MinUiScale, MaxUiScale), 2);
+        if (clamped != value)
+        {
+            UiScale = clamped;
+            return;
+        }
+        if (_loading) return;
+        Settings.UiScale = value;
+        SaveSettings();
+    }
+
+    [RelayCommand]
+    void ResetUiScale() => UiScale = 1.0;
 
     public const double MinOverlayScale = 0.6, MaxOverlayScale = 2.0;
     [ObservableProperty] private double _overlayScale;

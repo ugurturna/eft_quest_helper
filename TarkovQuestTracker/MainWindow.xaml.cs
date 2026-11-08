@@ -25,6 +25,15 @@ public partial class MainWindow : Window
         MinWidth = Math.Min(MinWidth, Width);
         MinHeight = Math.Min(MinHeight, Height);
         Loaded += (_, _) => SearchBox.Focus();
+        PreviewMouseWheel += ZoomWithWheel;
+    }
+
+    /// <summary>Ctrl + mouse wheel: the app size (same as the Settings slider).</summary>
+    void ZoomWithWheel(object sender, MouseWheelEventArgs e)
+    {
+        if ((Keyboard.Modifiers & ModifierKeys.Control) == 0) return;
+        _vm.UiScale += e.Delta > 0 ? 0.05 : -0.05;
+        e.Handled = true;
     }
 
     // list rebuilds clear the selection; only react to real picks so the detail panel stays put
@@ -126,6 +135,9 @@ public partial class MainWindow : Window
         dialog.ShowDialog();
     }
 
+
+    /// <summary>The banner's "review" opens the Read screen page, where the read quests are confirmed.</summary>
+    void ReviewImport_Click(object sender, RoutedEventArgs e) => ScanTab.IsSelected = true;
 
     void Export_Click(object sender, RoutedEventArgs e)
     {

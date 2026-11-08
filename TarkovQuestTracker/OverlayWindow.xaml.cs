@@ -12,6 +12,7 @@ public partial class OverlayWindow : Window
 {
     readonly MainViewModel _vm;
     readonly DispatcherTimer _topmostTimer = new() { Interval = TimeSpan.FromSeconds(2) };
+    readonly DispatcherTimer _autoHideTimer = new();
     HotkeyManager? _hotkeys;
     FleaSearchWindow? _flea;
     IntPtr _hwnd;
@@ -25,12 +26,68 @@ public partial class OverlayWindow : Window
         // content height changes (quests added, detail mode, scale) must not push the overlay off screen
         SizeChanged += (_, _) => ApplyPosition();
         _topmostTimer.Tick += (_, _) => { if (IsVisible) Win32.BringToTop(_hwnd); };
+        _autoHideTimer.Tick += (_, _) => AutoHideTick();
+        vm.OverlayPeek += Peek;
         vm.PropertyChanged += (_, e) =>
         {
             if (e.PropertyName == nameof(MainViewModel.OverlayScale)) FitHeight();
             if (e.PropertyName is nameof(MainViewModel.OverlayPosition) or nameof(MainViewModel.OverlayPositionX)
                 && _dragStart == null) ApplyPosition();
+            if (e.PropertyName == nameof(MainViewModel.RaidMap) && vm.RaidMap != null) LockForRaid();
+            if (e.PropertyName == nameof(MainViewModel.ReadsScreen)) ApplyCaptureExclusion();
+            if (e.PropertyName == nameof(MainViewModel.OverlayAutoHide)) OnAutoHideChanged();
         };
+    }
+
+    // auto-hide: hidden until "O" is pressed in game (or the hotkey), then gone again after a few seconds
+
+    /// <summary>Shows the auto-hidden overlay for the set time (again from the start when it is already up).</summary>
+    void Peek()
+    {
+        if (!_vm.OverlayAutoHide) return;
+        if (!IsVisible) Show();
+        _autoHideTimer.Stop();
+        _autoHideTimer.Interval = TimeSpan.FromSeconds(_vm.OverlayAutoHideSeconds);
+        _autoHideTimer.Start();
+    }
+
+    void AutoHideTick()
+    {
+        // not while the player is using it: the mouse on it, the map list open, dragging
+        if (IsMouseOver || MapPicker.Visibility == Visibility.Visible || _dragStart != null) return;
+        _autoHideTimer.Stop();
+        Hide();
+    }
+
+    void OnAutoHideChanged()
+    {
+        if (_vm.OverlayAutoHide)
+        {
+            Peek();  // shows what it does: up now, gone in a few seconds
+            return;
+        }
+        _autoHideTimer.Stop();
+        if (_vm.Settings.OverlayVisible) Show();
+    }
+
+    /// <summary>
+    /// While the corner is read (auto raid detection / auto-hide), the overlay is left out of screen pictures: it may sit right on the exfil list
+    /// (top right, where most players keep it) and the list is still read. The player keeps seeing it as always;
+    /// only recordings / streams / screenshots don't show it.
+    /// </summary>
+    void ApplyCaptureExclusion()
+    {
+        if (_hwnd != IntPtr.Zero) Win32.ExcludeFromCapture(_hwnd, _vm.ReadsScreen);
+    }
+
+    /// <summary>
+    /// A raid started (picked or detected from the exfil list): clicks must reach the game, so the overlay locks.
+    /// Only on the start: unlocking it mid-raid stays the player's choice (a time update doesn't relock it).
+    /// </summary>
+    void LockForRaid()
+    {
+        if (MapPicker.Visibility == Visibility.Visible) _lockedBeforePicker = true;  // locks when the picker closes
+        else if (!ClickThrough) SetClickThrough(true);
     }
 
     public bool ClickThrough { get; private set; }
@@ -40,6 +97,7 @@ public partial class OverlayWindow : Window
         base.OnSourceInitialized(e);
         _hwnd = new WindowInteropHelper(this).Handle;
         Win32.MakeOverlay(_hwnd);
+        ApplyCaptureExclusion();
         FitHeight();
         ApplyPosition();
 
@@ -50,11 +108,13 @@ public partial class OverlayWindow : Window
 
         SetClickThrough(false);
         _topmostTimer.Start();
+        Dispatcher.BeginInvoke(Peek);  // after the start-up (the handle is made before the window is shown)
     }
 
     protected override void OnClosed(EventArgs e)
     {
         _topmostTimer.Stop();
+        _autoHideTimer.Stop();
         _hotkeys?.Dispose();
         _flea?.Close();
         base.OnClosed(e);
@@ -134,17 +194,21 @@ public partial class OverlayWindow : Window
             failed.Add(_vm.Settings.FleaSearchHotkey);
         if (!_hotkeys.Register(_vm.Settings.RaidHotkey, ToggleMapPicker))
             failed.Add(_vm.Settings.RaidHotkey);
+        if (!_hotkeys.Register(_vm.Settings.ScanHotkey, () => _ = _vm.Scanner.ReadOnceAsync()))
+            failed.Add(_vm.Settings.ScanHotkey);
         if (failed.Count > 0) _vm.Toast = Loc.F("t.hotkeyFail", string.Join(", ", failed));
     }
 
     void OnProfileChanged()
     {
         RegisterHotkeys();
+        ApplyCaptureExclusion();
         FitHeight();
         ApplyPosition();
         SetClickThrough(false);
         if (_vm.Settings.OverlayVisible) Show();
         else Hide();
+        Peek();
     }
 
     public void SetClickThrough(bool on)
@@ -161,6 +225,17 @@ public partial class OverlayWindow : Window
 
     public void ToggleVisible()
     {
+        if (_vm.OverlayAutoHide)
+        {
+            // the hotkey shows it like "O" does; hiding it stays at hand
+            if (IsVisible)
+            {
+                _autoHideTimer.Stop();
+                Hide();
+            }
+            else Peek();
+            return;
+        }
         if (IsVisible) Hide();
         else Show();
         _vm.Settings.OverlayVisible = IsVisible;

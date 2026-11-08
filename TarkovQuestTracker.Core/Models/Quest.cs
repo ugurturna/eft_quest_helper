@@ -37,7 +37,7 @@ public sealed class Quest
 
     // set by QuestRepository, not stored in the JSON
 
-    /// <summary>Name in the selected UI language (falls back to English).</summary>
+    /// <summary>The in-game English name, whatever the quest language (translations only find it in search).</summary>
     [JsonIgnore] public string DisplayName { get; set; } = "";
     /// <summary>Every known name (all languages) for search.</summary>
     [JsonIgnore] public List<string> AllNames { get; set; } = [];

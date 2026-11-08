@@ -298,7 +298,7 @@
                                    FontWeight="SemiBold" VerticalAlignment="Center" ToolTip="Trader loyalty level" />
                         <TextBlock Text="  KAPPA" Foreground="{StaticResource KappaBrush}" FontSize="10" VerticalAlignment="Center"
                                    Visibility="{Binding Quest.IsKappa, Converter={StaticResource BoolToVis}}" />
-                        <TextBlock Text="  ★ hedef" Foreground="{StaticResource AccentBrush}" FontSize="10" VerticalAlignment="Center"
+                        <TextBlock Text="{DynamicResource s.goalTag}" Foreground="{StaticResource AccentBrush}" FontSize="10" VerticalAlignment="Center" Margin="8,0,0,0"
                                    Visibility="{Binding IsGoal, Converter={StaticResource BoolToVis}}" />
                         <TextBlock Text="{Binding CategoryBadge, StringFormat='  {0}'}" Foreground="{StaticResource ActiveBrush}" FontSize="10" VerticalAlignment="Center" />
                     </StackPanel>

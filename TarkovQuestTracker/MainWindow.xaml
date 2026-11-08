@@ -260,6 +260,10 @@
     </Window.Resources>
 
     <DockPanel>
+        <!-- app size (Settings, or Ctrl + mouse wheel): the whole window, text and buttons alike -->
+        <DockPanel.LayoutTransform>
+            <ScaleTransform ScaleX="{Binding UiScale}" ScaleY="{Binding UiScale}" />
+        </DockPanel.LayoutTransform>
         <!-- top bar -->
         <Border DockPanel.Dock="Top" Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource LineBrush}" BorderThickness="0,0,0,1" Padding="14,8">
             <DockPanel>
@@ -316,6 +320,19 @@
             </DockPanel>
         </Border>
 
+        <!-- quests read off the in-game Tasks screen, waiting to be confirmed -->
+        <Border DockPanel.Dock="Top" Background="#16222A" BorderBrush="{StaticResource ActiveBrush}" BorderThickness="0,0,0,1" Padding="14,6"
+                Visibility="{Binding HasPendingImport, Converter={StaticResource BoolToVis}}">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Content="{DynamicResource s.imp.review}" Style="{StaticResource SmallButton}" Click="ReviewImport_Click" />
+                    <Button Content="✕" Style="{StaticResource SmallButton}" Margin="0" Command="{Binding ClearImportCommand}" />
+                </StackPanel>
+                <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" Foreground="{StaticResource ActiveBrush}" FontWeight="SemiBold"
+                           Text="{Binding PendingImportText, Mode=OneWay}" />
+            </DockPanel>
+        </Border>
+
         <!-- toast -->
         <Border DockPanel.Dock="Bottom" Background="{StaticResource PanelBrush}" Padding="14,4" BorderBrush="{StaticResource LineBrush}" BorderThickness="0,1,0,0">
             <DockPanel>
@@ -332,6 +349,8 @@
                     <Run Text="{DynamicResource s.keys.barFlea}" />
                     <Run Text="  ·  " /><Run Text="{Binding Settings.RaidHotkey, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
                     <Run Text="{DynamicResource s.keys.barRaid}" />
+                    <Run Text="  ·  " /><Run Text="{Binding Settings.ScanHotkey, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
+                    <Run Text="{DynamicResource s.keys.barScan}" />
                     <Run Text="  ·  " /><Run Text="Ctrl + 🖱" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
                     <Run Text="{DynamicResource s.keys.barWheel}" />
                 </TextBlock>
@@ -396,6 +415,25 @@
                 <TabItem Header="{DynamicResource s.tab.raid}" Tag="&#xE707;">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <StackPanel Margin="0,8,0,0">
+                            <!-- auto-detect from the exfil list (double "O"): the player's choice, first thing on the page -->
+                            <Border Background="{StaticResource CardBrush}" CornerRadius="4" Padding="10,8" Margin="0,0,0,10">
+                                <StackPanel>
+                                    <DockPanel>
+                                        <Border DockPanel.Dock="Right" Background="{StaticResource BgBrush}" BorderBrush="{StaticResource LineBrush}"
+                                                BorderThickness="1" CornerRadius="4" Padding="2" VerticalAlignment="Center" Margin="8,0,0,0">
+                                            <StackPanel Orientation="Horizontal">
+                                                <RadioButton Content="{DynamicResource s.raid.autoOn}" GroupName="autoRaid" Style="{StaticResource Segment}"
+                                                             IsChecked="{Binding AutoRaidDetect}" />
+                                                <RadioButton Content="{DynamicResource s.raid.autoOff}" GroupName="autoRaid" Style="{StaticResource Segment}"
+                                                             IsChecked="{Binding AutoRaidDetectOff}" />
+                                            </StackPanel>
+                                        </Border>
+                                        <TextBlock Text="{DynamicResource s.raid.auto}" Style="{StaticResource Body}" FontWeight="SemiBold"
+                                                   VerticalAlignment="Center" TextWrapping="Wrap" />
+                                    </DockPanel>
+                                    <TextBlock Text="{DynamicResource s.raid.autoDesc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,4,0,0" />
+                                </StackPanel>
+                            </Border>
                             <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource RaidBanner}" />
                             <TextBlock Text="{DynamicResource s.raid.pick}" Style="{StaticResource Body}" FontWeight="SemiBold" FontSize="15" />
                             <TextBlock Text="{DynamicResource s.raid.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,2,0,10" />
@@ -597,6 +635,17 @@
                                 <TextBlock Text="{DynamicResource s.active.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" />
                             </StackPanel>
                         </DockPanel>
+                        <!-- search + map: only the quests of one map, or the ones matching the words -->
+                        <DockPanel DockPanel.Dock="Top" Margin="0,8,0,0">
+                            <ComboBox DockPanel.Dock="Right" ItemsSource="{Binding ActiveMaps}" DisplayMemberPath="Label" SelectedValuePath="Key"
+                                      SelectedValue="{Binding ActiveMap}" MinWidth="170" Margin="8,0,0,0" ToolTip="{DynamicResource a.mapTip}" />
+                            <Button DockPanel.Dock="Right" Content="{DynamicResource a.clearFilter}" Style="{StaticResource SmallButton}" Margin="8,0,0,0"
+                                    Command="{Binding ClearActiveFilterCommand}"
+                                    Visibility="{Binding IsActiveFiltered, Converter={StaticResource BoolToVis}}" />
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding ActiveShownText}" Style="{StaticResource Muted}" VerticalAlignment="Center"
+                                       Margin="8,0,0,0" Visibility="{Binding IsActiveFiltered, Converter={StaticResource BoolToVis}}" />
+                            <TextBox Text="{Binding ActiveSearch, UpdateSourceTrigger=PropertyChanged}" FontSize="14" ToolTip="{DynamicResource a.searchTip}" />
+                        </DockPanel>
                         <!-- entering a raid from here too: one small button per map -->
                         <StackPanel DockPanel.Dock="Top" Margin="0,8,0,0">
                             <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource RaidBanner}" />
@@ -607,8 +656,10 @@
                                 </ItemsControl.ItemsPanel>
                             </ItemsControl>
                         </StackPanel>
+                        <TextBlock DockPanel.Dock="Top" Text="{DynamicResource a.noMatch}" Style="{StaticResource Muted}" Margin="0,8,0,0"
+                                   Visibility="{Binding HasNoActiveShown, Converter={StaticResource BoolToVis}}" />
                         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
-                            <ItemsControl ItemsSource="{Binding ActiveQuests}">
+                            <ItemsControl ItemsSource="{Binding ActiveShown}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate DataType="{x:Type vm:ActiveQuestVm}">
                                         <Border x:Name="Card" Background="{StaticResource CardBrush}" CornerRadius="4" Padding="10,8" Margin="0,0,0,8"
@@ -679,6 +730,112 @@
                                                 <Setter TargetName="Pin" Property="Foreground" Value="{StaticResource BgBrush}" />
                                             </DataTrigger>
                                         </DataTemplate.Triggers>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </DockPanel>
+                </TabItem>
+
+                <!-- read the in-game Tasks screen (OCR): how-to, countdown while scanning, confirm list -->
+                <TabItem x:Name="ScanTab" Header="{DynamicResource s.tab.scan}" Tag="&#xE722;">
+                    <DockPanel Margin="0,8,0,0">
+                        <StackPanel DockPanel.Dock="Top" MaxWidth="760" HorizontalAlignment="Left">
+                            <!-- what it does and does not do, before anything else -->
+                            <Border Background="#2A2616" BorderBrush="{StaticResource WarnBrush}" BorderThickness="1" CornerRadius="4"
+                                    Padding="12,8" Margin="0,0,0,10">
+                                <TextBlock TextWrapping="Wrap" Style="{StaticResource Body}">
+                                    <Run Text="⚠ " Foreground="{StaticResource WarnBrush}" /><Run Text="{DynamicResource s.scan.notice}" Foreground="{StaticResource WarnBrush}" FontWeight="SemiBold" />
+                                    <LineBreak /><Run Text="{DynamicResource s.scan.safe}" Foreground="{StaticResource MutedBrush}" FontSize="12" />
+                                </TextBlock>
+                            </Border>
+                            <TextBlock Text="{DynamicResource s.scan.title}" Style="{StaticResource Body}" FontWeight="SemiBold" FontSize="15" />
+                            <TextBlock Text="{DynamicResource s.scan.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,2,0,10" />
+
+                            <!-- how to use it -->
+                            <Border Background="{StaticResource CardBrush}" CornerRadius="4" Padding="12,8" Margin="0,0,0,10">
+                                <StackPanel>
+                                    <StackPanel.Resources>
+                                        <Style x:Key="Step" TargetType="TextBlock" BasedOn="{StaticResource Body}">
+                                            <Setter Property="TextWrapping" Value="Wrap" />
+                                            <Setter Property="Margin" Value="0,3" />
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <TextBlock Style="{StaticResource Step}">
+                                        <Run Text="1" Foreground="{StaticResource AccentBrush}" FontWeight="Bold" /> <Run Text="{DynamicResource s.scan.step1}" />
+                                    </TextBlock>
+                                    <TextBlock Style="{StaticResource Step}">
+                                        <Run Text="2" Foreground="{StaticResource AccentBrush}" FontWeight="Bold" /> <Run Text="{DynamicResource s.scan.step2}" />
+                                    </TextBlock>
+                                    <TextBlock Style="{StaticResource Step}">
+                                        <Run Text="3" Foreground="{StaticResource AccentBrush}" FontWeight="Bold" /> <Run Text="{DynamicResource s.scan.step3}" />
+                                    </TextBlock>
+                                    <TextBlock Style="{StaticResource Step}">
+                                        <Run Text="4" Foreground="{StaticResource AccentBrush}" FontWeight="Bold" /> <Run Text="{DynamicResource s.scan.step4}" />
+                                    </TextBlock>
+                                    <TextBlock Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,6,0,0">
+                                        <Run Text="{DynamicResource s.scan.once1}" />
+                                        <Run Text="{Binding Settings.ScanHotkey, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
+                                        <Run Text="{DynamicResource s.scan.once2}" />
+                                    </TextBlock>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- status + countdown -->
+                            <Border CornerRadius="4" Padding="12,10" Margin="0,0,0,10" BorderThickness="1">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="{StaticResource CardBrush}" />
+                                        <Setter Property="BorderBrush" Value="{StaticResource LineBrush}" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsScanning}" Value="True">
+                                                <Setter Property="Background" Value="#16222A" />
+                                                <Setter Property="BorderBrush" Value="{StaticResource ActiveBrush}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <StackPanel>
+                                    <DockPanel>
+                                        <Button DockPanel.Dock="Right" Content="{Binding ScanButtonText}" Command="{Binding ToggleScanCommand}"
+                                                Style="{StaticResource ActionButton}" VerticalAlignment="Center" />
+                                        <TextBlock Text="{Binding ScanStatusText}" Style="{StaticResource Body}" FontWeight="SemiBold"
+                                                   TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,12,0" />
+                                    </DockPanel>
+                                    <ProgressBar Value="{Binding ScanRemaining, Mode=OneWay}" Maximum="1" Height="4" Margin="0,8,0,0"
+                                                 Foreground="{StaticResource ActiveBrush}" Background="{StaticResource BgBrush}" BorderThickness="0"
+                                                 Visibility="{Binding IsScanning, Converter={StaticResource BoolToVis}}" />
+                                    <TextBlock Text="{DynamicResource s.scan.startHint}" Style="{StaticResource Muted}" FontSize="11" TextWrapping="Wrap" Margin="0,6,0,0" />
+                                </StackPanel>
+                            </Border>
+
+                            <!-- confirm -->
+                            <DockPanel Visibility="{Binding HasPendingImport, Converter={StaticResource BoolToVis}}" Margin="0,0,0,6">
+                                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                                    <Button Content="{DynamicResource imp.apply}" Style="{StaticResource SmallButton}" Command="{Binding ApplyImportCommand}" />
+                                    <Button Content="{DynamicResource s.scan.clear}" Style="{StaticResource SmallButton}" Margin="0" Command="{Binding ClearImportCommand}" />
+                                </StackPanel>
+                                <TextBlock Text="{DynamicResource imp.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,12,0" />
+                            </DockPanel>
+                        </StackPanel>
+
+
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" MaxWidth="760" HorizontalAlignment="Left">
+                            <ItemsControl ItemsSource="{Binding ImportRows}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type vm:ImportRow}">
+                                        <Border Background="{StaticResource CardBrush}" CornerRadius="4" Padding="10,6" Margin="0,0,0,4">
+                                            <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" VerticalContentAlignment="Center">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <ContentPresenter Content="{Binding Trader}" ContentTemplate="{StaticResource TraderAvatar}"
+                                                                      Width="22" Height="22" Margin="4,0,8,0" />
+                                                    <TextBlock Text="{Binding Name}" Foreground="{StaticResource TextBrush}" VerticalAlignment="Center" />
+                                                    <TextBlock Text="{Binding Trader, StringFormat='  ·  {0}'}" Style="{StaticResource Muted}" VerticalAlignment="Center" />
+                                                    <TextBlock Text="{Binding State, StringFormat='  ({0})'}" Foreground="{StaticResource WarnBrush}" VerticalAlignment="Center"
+                                                               Visibility="{Binding HasState, Converter={StaticResource BoolToVis}}" />
+                                                </StackPanel>
+                                            </CheckBox>
+                                        </Border>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
@@ -796,12 +953,39 @@
                                         IsEnabled="{Binding CanDeleteProfile}" />
                             </StackPanel>
 
+                            <TextBlock Text="{DynamicResource s.set.app}" Style="{StaticResource H2}" />
+                            <DockPanel Margin="0,2,0,0">
+                                <Button DockPanel.Dock="Right" Content="{DynamicResource s.set.uiScale.reset}" Style="{StaticResource SmallButton}" Margin="8,0,0,0"
+                                        Command="{Binding ResetUiScaleCommand}" />
+                                <TextBlock Style="{StaticResource Body}" VerticalAlignment="Center">
+                                    <Run Text="{DynamicResource s.set.uiScale}" /> <Run Text="{Binding UiScale, StringFormat={}{0:0.00}x, Mode=OneWay}" />
+                                    <Run Text="{DynamicResource s.set.uiScale.hint}" Foreground="{StaticResource MutedBrush}" />
+                                </TextBlock>
+                            </DockPanel>
+                            <Slider Minimum="0.25" Maximum="2" SmallChange="0.05" LargeChange="0.25" IsSnapToTickEnabled="True" TickFrequency="0.05"
+                                    Value="{Binding UiScale}" Margin="0,0,0,8" />
+
                             <TextBlock Text="{DynamicResource s.set.overlay}" Style="{StaticResource H2}" />
                             <TextBlock Text="{DynamicResource s.set.view}" Style="{StaticResource Body}" />
                             <StackPanel Orientation="Horizontal" Margin="0,2,0,8">
                                 <RadioButton Content="{DynamicResource s.view.titles}" Margin="0,0,16,0"
                                              IsChecked="{Binding OverlayDetailed, Converter={StaticResource InvertBool}}" />
                                 <RadioButton Content="{DynamicResource s.view.detailed}" IsChecked="{Binding OverlayDetailed}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,2">
+                                <TextBlock Text="{DynamicResource s.ov.max}" Style="{StaticResource Body}" VerticalAlignment="Center" Margin="0,0,8,0" />
+                                <ComboBox ItemsSource="{Binding OverlayMaxChoices}" DisplayMemberPath="Label" SelectedValuePath="Key"
+                                          SelectedValue="{Binding OverlayMaxKey}" MinWidth="90" />
+                            </StackPanel>
+                            <TextBlock Text="{DynamicResource s.ov.maxHint}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,0,0,8" />
+                            <CheckBox Content="{DynamicResource s.ov.hideDone}" IsChecked="{Binding OverlayHideDoneObjectives}" Margin="0,0,0,8" />
+                            <CheckBox Content="{DynamicResource s.ov.autoHide}" IsChecked="{Binding OverlayAutoHide}" />
+                            <TextBlock Text="{DynamicResource s.ov.autoHideHint}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="22,0,0,4" />
+                            <StackPanel Margin="22,0,0,8" IsEnabled="{Binding OverlayAutoHide}">
+                                <TextBlock Style="{StaticResource Body}">
+                                    <Run Text="{DynamicResource s.ov.autoHideSecs}" /> <Run Text="{Binding OverlayAutoHideSeconds, Mode=OneWay, StringFormat={}{0} s}" />
+                                </TextBlock>
+                                <Slider Minimum="3" Maximum="30" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding OverlayAutoHideSeconds}" />
                             </StackPanel>
                             <TextBlock Style="{StaticResource Body}">
                                 <Run Text="{DynamicResource s.set.position}" /> <Run Text="{Binding OverlayPosition, StringFormat={}{0:P0}, Mode=OneWay}" />

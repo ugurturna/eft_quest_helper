@@ -1,6 +1,6 @@
 {
  "id": "the-labyrinth-story-chapter",
- "name": "Labirent",
+ "name": "The Labyrinth (story chapter)",
  "objectives": [
   {"id": "o1", "text": "Trader'lara yeraltı tesisini sor", "details": [
    "(İsteğe bağlı) Yeraltı tesisine nasıl girileceğini Therapist'e sor"]},
@@ -8,7 +8,7 @@
   {"id": "o3", "text": "BEAR timine ne olduğunu çöz", "details": [
    "(İsteğe bağlı) Sağlık Tesisi'nin (Health Resort) altındaki yeraltı tesisinin girişini bul",
    "(İsteğe bağlı) Tesise gir",
-   "(İsteğe bağlı) Labirent'te BEAR timinin izlerini bul",
+   "(İsteğe bağlı) Labyrinth'te BEAR timinin izlerini bul",
    "(İsteğe bağlı) Item 1156'daki BEAR timi toplanma noktasını incele",
    "(İsteğe bağlı) Tim liderini bul",
    "(İsteğe bağlı) Tim hakkında daha fazla bilgi topla",
@@ -16,8 +16,8 @@
    "(İsteğe bağlı) Kilitli ofise gir"]},
   {"id": "o4", "text": "Ofisteki ses kasetini dinle", "details": []},
   {"id": "o5", "text": "Ses kasetini Jaeger'a teslim et", "details": []},
-  {"id": "o6", "text": "Labirent tesisi araştırma raporunu oku", "details": [
-   "(İsteğe bağlı) Labirent tesisi araştırma raporunu bul ve al"]}
+  {"id": "o6", "text": "Labyrinth tesisi araştırma raporunu oku", "details": [
+   "(İsteğe bağlı) Labyrinth tesisi araştırma raporunu bul ve al"]}
  ],
- "guide": "▸ Jaeger ile konuş\nMenüdeki trader ekranından Jaeger'ı ziyaret et ve ona yeraltı tesisini sor.\n\n▸ Jaeger'ın anahtar kartları toplamasını bekle\n12-24 saat bekle, sonra menüdeki trader ekranından Jaeger'ı ziyaret et ve ona Labirent'i sor. Diyalog bitince Jaeger oyun içi posta ile 2 Labrys access keycard gönderiyor; daha fazlası için takası (barter) da var.\n\n▸ Yeraltı tesisine gir\nLabirent'e yalnızca Labrys access keycard ile, Shoreline'dan geçiş (transit) yaparak girilebilir. Geçiş noktası Sağlık Tesisi batı kanadının bodrumunda ve Knossos LLC facility key gerektiriyor. Not: Bu haritanın kendine has özellikleri var; ilk girişinden önce bunlar hakkında okuman iyi olur.\n\n▸ BEAR timinin izlerini bul\nBu hedef için Leshy's orders bulunmalı. 2 numaralı doğma odasının önünde, yerdeki bir yiyecek kabının içinde.\n\n▸ Item 1156'daki BEAR timi toplanma noktasını incele\nToplanma noktası prototip silah alanında.\n\n▸ Tim liderini bul / Tim hakkında daha fazla bilgi topla\nTim lideri işkence odasında. Leshy's diary hemen yanında.\n\n▸ 5 laboratuvar çalışanının cesedini incele\nBu hedef için laboratuvar bilim insanlarının cesetlerinin yanındaki 5 notu alman gerekiyor. 4 numaralı not için Observation room key gerekiyor.\n\n▸ Kilitli ofise gir\nKilitli ofis, gözlem odası. Girmek için Observation room key gerekiyor.\n\n▸ Ofisteki ses kasetini dinle\nSes kaseti, bilim insanının sağ elinin altında, yerde.\n\n▸ Ses kasetini Jaeger'a teslim et\nDeceased scientist's audio tape'i trader ekranından Jaeger'a teslim et.\nÖdüller:\n• 500.000 Ruble\n• 1× Accuracy International AXMC .338 LM sürgü mekanizmalı keskin nişancı tüfeği\n• 2× AI AXMC .338 LM 10-round magazine\n• 2× .338 Lapua Magnum FMJ ammo pack (20 pcs)\n\n▸ Labirent tesisi araştırma raporunu al ve oku\nRapor, Shoreline'daki iskelenin yanındaki drenaj borusunda.\n\nÖdüller:\n• +160.000 EXP\n• Theseus başarımı açılır"
+ "guide": "▸ Jaeger ile konuş\nMenüdeki trader ekranından Jaeger'ı ziyaret et ve ona yeraltı tesisini sor.\n\n▸ Jaeger'ın anahtar kartları toplamasını bekle\n12-24 saat bekle, sonra menüdeki trader ekranından Jaeger'ı ziyaret et ve ona Labyrinth'i sor. Diyalog bitince Jaeger oyun içi posta ile 2 Labrys access keycard gönderiyor; daha fazlası için barter'ı da var.\n\n▸ Yeraltı tesisine gir\nLabyrinth'e yalnızca Labrys access keycard ile, Shoreline'dan geçiş (transit) yaparak girilebilir. Geçiş noktası Sağlık Tesisi batı kanadının bodrumunda ve Knossos LLC facility key gerektiriyor. Not: Bu haritanın kendine has özellikleri var; ilk girişinden önce bunlar hakkında okuman iyi olur.\n\n▸ BEAR timinin izlerini bul\nBu hedef için Leshy's orders bulunmalı. 2 numaralı doğma odasının önünde, yerdeki bir yiyecek kabının içinde.\n\n▸ Item 1156'daki BEAR timi toplanma noktasını incele\nToplanma noktası prototip silah alanında.\n\n▸ Tim liderini bul / Tim hakkında daha fazla bilgi topla\nTim lideri işkence odasında. Leshy's diary hemen yanında.\n\n▸ 5 laboratuvar çalışanının cesedini incele\nBu hedef için laboratuvar bilim insanlarının cesetlerinin yanındaki 5 notu alman gerekiyor. 4 numaralı not için Observation room key gerekiyor.\n\n▸ Kilitli ofise gir\nKilitli ofis, gözlem odası. Girmek için Observation room key gerekiyor.\n\n▸ Ofisteki ses kasetini dinle\nSes kaseti, bilim insanının sağ elinin altında, yerde.\n\n▸ Ses kasetini Jaeger'a teslim et\nDeceased scientist's audio tape'i trader ekranından Jaeger'a teslim et.\nÖdüller:\n• 500.000 Ruble\n• 1× Accuracy International AXMC .338 LM sürgü mekanizmalı keskin nişancı tüfeği\n• 2× AI AXMC .338 LM 10-round magazine\n• 2× .338 Lapua Magnum FMJ ammo pack (20 pcs)\n\n▸ Labyrinth tesisi araştırma raporunu al ve oku\nRapor, Shoreline'daki iskelenin yanındaki drenaj borusunda.\n\nÖdüller:\n• +160.000 EXP\n• Theseus başarımı açılır"
 }

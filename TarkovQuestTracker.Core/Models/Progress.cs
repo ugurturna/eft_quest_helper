@@ -30,6 +30,8 @@ public sealed class AppSettings
     public double OverlayWidth { get; set; } = 340;
     /// <summary>Overlay zoom (text, buttons, width) so it reads well at any resolution.</summary>
     public double OverlayScale { get; set; } = 1.0;
+    /// <summary>Main window zoom (text, buttons, spacing): 0.25 to 2.</summary>
+    public double UiScale { get; set; } = 1.0;
     /// <summary>Vertical position as a fraction of the free screen height (0 = top, 1 = bottom), resolution independent.</summary>
     public double OverlayPosition { get; set; } = 0.05;
     /// <summary>Horizontal position as a fraction of the free screen width (0 = left, 1 = right edge, the old docked spot).</summary>
@@ -37,14 +39,25 @@ public sealed class AppSettings
     /// <summary>true: quest title + trader/map + objectives; false: titles only.</summary>
     public bool OverlayDetailed { get; set; } = true;
     public bool OverlayVisible { get; set; } = true;
+    /// <summary>At most this many quests on the overlay (0 = all): "Any location" quests can be dozens in a raid.</summary>
+    public int OverlayMaxQuests { get; set; } = 10;
+    /// <summary>Objectives already done are left off the overlay.</summary>
+    public bool OverlayHideDoneObjectives { get; set; } = true;
+    /// <summary>The overlay stays hidden and shows for <see cref="OverlayAutoHideSeconds"/> when "O" is pressed in game.</summary>
+    public bool OverlayAutoHide { get; set; }
+    public int OverlayAutoHideSeconds { get; set; } = 8;
     public string ClickThroughHotkey { get; set; } = "Ctrl+Shift+T";
     public string ToggleOverlayHotkey { get; set; } = "Ctrl+Shift+H";
     /// <summary>Opens the flea market price search in the middle of the screen.</summary>
     public string FleaSearchHotkey { get; set; } = "Ctrl+Shift+F";
     /// <summary>Opens the map list on the overlay to start a raid ("which map am I going to").</summary>
     public string RaidHotkey { get; set; } = "Ctrl+Shift+R";
+    /// <summary>Reads the quest names on the in-game Tasks screen once (screen import).</summary>
+    public string ScanHotkey { get; set; } = "Ctrl+Shift+I";
     /// <summary>Flea price search window opacity (lower = more of the game shows through).</summary>
     public double FleaOpacity { get; set; } = 0.9;
+    /// <summary>Start the raid by itself when the in-game exfil list (double "O") shows a map's exfils.</summary>
+    public bool AutoRaidDetect { get; set; } = true;
     /// <summary>Look for a newer release on GitHub when the app starts.</summary>
     public bool CheckForUpdates { get; set; } = true;
 }

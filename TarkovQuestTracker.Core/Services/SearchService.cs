@@ -75,7 +75,7 @@ public sealed class SearchService(IEnumerable<Quest> quests)
         return sb.ToString().Replace("sh", "s").Replace("ch", "c");
     }
 
-    static int Levenshtein(string a, string b)
+    internal static int Levenshtein(string a, string b)
     {
         var prev = new int[b.Length + 1];
         var cur = new int[b.Length + 1];

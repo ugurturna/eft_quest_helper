@@ -62,7 +62,8 @@ public sealed partial class QuestRepository
 
             QuestTranslation? cur = null;
             current?.TryGetValue(q.Id, out cur);
-            q.DisplayName = string.IsNullOrWhiteSpace(cur?.Name) ? q.Name : cur.Name;
+            // quests are called by their in-game English names; translated names stay searchable (AllNames)
+            q.DisplayName = q.Name;
             q.DisplayNotes = string.IsNullOrWhiteSpace(cur?.Notes) ? q.Notes : cur.Notes;
             q.DisplayGuide = string.IsNullOrWhiteSpace(cur?.Guide) ? q.Guide : cur.Guide;
             var objTr = cur?.Objectives.ToDictionary(o => o.Id) ?? [];

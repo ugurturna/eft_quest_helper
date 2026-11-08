@@ -301,7 +301,7 @@
       "id": "sa-intel3", "endings": [ "savior" ],
       "text": {
         "en": "Build Intelligence Center level 3 (mandatory)",
-        "tr": "İstihbarat Merkezi seviye 3'ü kur (zorunlu)"
+        "tr": "Intelligence Center seviye 3'ü kur (zorunlu)"
       }
     },
     {
@@ -350,7 +350,7 @@
       "id": "sa-solar", "endings": [ "savior" ],
       "text": {
         "en": "Build Solar Power in the Hideout (mandatory)",
-        "tr": "Saklanakta Solar Power'ı kur (zorunlu)"
+        "tr": "Hideout'ta Solar Power'ı kur (zorunlu)"
       }
     },
     {
@@ -365,7 +365,7 @@
       "id": "de-intel3", "endings": [ "debtor" ],
       "text": {
         "en": "Build Intelligence Center level 3 (mandatory)",
-        "tr": "İstihbarat Merkezi seviye 3'ü kur (zorunlu)"
+        "tr": "Intelligence Center seviye 3'ü kur (zorunlu)"
       }
     },
     {
@@ -422,7 +422,7 @@
       "id": "de-stash", "endings": [ "debtor" ],
       "text": {
         "en": "Stash all 6 amulets in Lightkeeper's stash room on the Lighthouse island",
-        "tr": "6 muskanın hepsini Lighthouse adasındaki Lightkeeper'ın zula odasına bırak"
+        "tr": "6 muskanın hepsini Lighthouse adasındaki Lightkeeper'ın stash odasına bırak"
       }
     },
     {
@@ -495,7 +495,7 @@
       "id": "fa-solar", "endings": [ "fallen" ],
       "text": {
         "en": "Build Solar Power in the Hideout (mandatory)",
-        "tr": "Saklanakta Solar Power'ı kur (zorunlu)"
+        "tr": "Hideout'ta Solar Power'ı kur (zorunlu)"
       }
     },
     {

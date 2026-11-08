@@ -35,6 +35,48 @@ static class Win32
     [DllImport("user32.dll")]
     public static extern bool SetForegroundWindow(IntPtr hWnd);
 
+    [DllImport("user32.dll")]
+    static extern uint GetWindowThreadProcessId(IntPtr hwnd, out uint pid);
+
+    [DllImport("user32.dll")]
+    static extern bool SetWindowDisplayAffinity(IntPtr hwnd, uint affinity);
+
+    [DllImport("user32.dll")]
+    static extern bool GetWindowDisplayAffinity(IntPtr hwnd, out uint affinity);
+
+    const uint WDA_NONE = 0, WDA_EXCLUDEFROMCAPTURE = 0x11;
+
+    /// <summary>
+    /// Leaves the window out of screen pictures (Windows 10 2004+): it stays on the monitor for the player, but a
+    /// capture shows what is under it. So the overlay can sit on the exfil list and the list is still readable.
+    /// Returns false when Windows can't do it.
+    /// </summary>
+    public static bool ExcludeFromCapture(IntPtr hwnd, bool on) =>
+        SetWindowDisplayAffinity(hwnd, on ? WDA_EXCLUDEFROMCAPTURE : WDA_NONE);
+
+    public static bool IsExcludedFromCapture(IntPtr hwnd) =>
+        GetWindowDisplayAffinity(hwnd, out var affinity) && affinity == WDA_EXCLUDEFROMCAPTURE;
+
+    static IntPtr _lastWindow;
+    static bool _lastIsGame;
+
+    /// <summary>The window belongs to the game (EscapeFromTarkov.exe). Remembers the last window asked about.</summary>
+    public static bool IsGameWindow(IntPtr hwnd)
+    {
+        if (hwnd == IntPtr.Zero) return false;
+        if (hwnd == _lastWindow) return _lastIsGame;
+        _lastWindow = hwnd;
+        _lastIsGame = false;
+        if (GetWindowThreadProcessId(hwnd, out var pid) == 0) return false;
+        try
+        {
+            using var process = System.Diagnostics.Process.GetProcessById((int)pid);
+            _lastIsGame = process.ProcessName.Equals("EscapeFromTarkov", StringComparison.OrdinalIgnoreCase);
+        }
+        catch (ArgumentException) { }  // the process exited meanwhile
+        return _lastIsGame;
+    }
+
     [StructLayout(LayoutKind.Sequential)]
     struct RECT { public int Left, Top, Right, Bottom; }
 

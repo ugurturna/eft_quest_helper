@@ -20,6 +20,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- screen pictures (raw BGRA, gzipped) cut from real game screenshots -->
+    <None Include="Fixtures\*.gz" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\TarkovQuestTracker.Core\TarkovQuestTracker.Core.csproj" />
   </ItemGroup>
 

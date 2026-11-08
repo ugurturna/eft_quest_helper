@@ -22,7 +22,7 @@
 ## Ban risk
 
 > [!TIP]
-> **No known ban risk.** EFT Quest Helper is a normal, separate Windows application. It does **not** read or write game memory, does **not** inject anything into the game, does **not** read game files or logs, does **not** send input to the game and does **not** talk to the game's servers. The overlay is just an ordinary window kept on top of the screen (like a sticky note), and the hotkeys use the standard Windows `RegisterHotKey` API.
+> **No known ban risk.** EFT Quest Helper is a normal, separate Windows application. It does **not** read or write game memory, does **not** inject anything into the game, does **not** read game files or logs, does **not** send input to the game and does **not** talk to the game's servers. The overlay is just an ordinary window kept on top of the screen (like a sticky note), and the hotkeys use the standard Windows `RegisterHotKey` API. **Read Quests (BETA)** only takes a picture of the screen and reads it with the OCR built into Windows; pictures stay in memory and are never saved or sent. **Auto raid detection** works the same way: no keyboard hook and no key reading, only the top-right corner of the screen is read while the game is in front.
 
 > [!CAUTION]
 > **Use it at your own risk. This project is not affiliated with or endorsed by Battlestate Games, and BSG can change its rules at any time. If BSG ever states that tools like this are not allowed, stop using it.**
@@ -42,9 +42,10 @@
 - **Kappa / Collector path** — the quests Kappa really needs: *Collector* and its whole prerequisite chain. Progress bar, available quests **grouped by map** so you can do several in one raid; each quest shows its required level.
 - **Active quests + overlay** — all the quests you are doing are listed under *Active Quests*; only the ones you pin with **📌 Overlay** appear in the small tracker on the right edge of the screen, with objective checkboxes, kill/item counters and item icons. Activating a quest does not pin it; you decide what goes on the overlay.
 - **Flea market prices in game** — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> opens a price search in the middle of the screen; type 3 letters of an item and see its flea price for your mode (PvP / PvE). See [Flea market prices](#flea-market-prices).
-- **Side menu** — pages (Quests, Goal Planner, Kappa, Items, Active Quests, End Game, Settings) are in a menu on the left.
+- **Side menu** — pages (Entering a raid, Quests, Goal Planner, Kappa, Items, Active Quests, Read Quests (BETA), End Game, Settings) are in a menu on the left.
+- **Read quests from the game (BETA)** — no need to enter quests one by one: open the in-game Tasks screen, scroll it once and the app reads every quest name with the OCR built into Windows. Confirm the list and the quests become active, with everything before them marked done. See [Read quests from the game](#read-quests-from-the-game-beta).
 - **What to bring into the raid** — keys, markers (with how many you need), items to plant, the weapon to use and the clothes to wear are shown at the top of each quest and on its *Active Quests* card.
-- **Entering a raid** — the first item of the side menu: pick the map you are going to (a card per map with how many active quests it has) and the overlay shows every active quest on that map by itself, plus the ones you pinned. For quests on several maps only the objectives of that map are shown, and "hand over" steps are left out. <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> picks the map in game; **Raid over** goes back to the pinned list.
+- **Entering a raid** — the first item of the side menu: pick the map you are going to (a card per map with how many active quests it has) and the overlay shows every active quest on that map by itself, plus the ones you pinned. For quests on several maps only the objectives of that map are shown, and "hand over" steps are left out. <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> picks the map in game; **Raid over** goes back to the pinned list. When a raid starts, an unlocked overlay locks by itself so clicks go to the game. With **auto-detect** on, a double <kbd>O</kbd> in raid is enough: the map and the raid time left are read off the exfil list (see [Auto raid detection](#auto-raid-detection-double-o)).
 - **Handing in accepts the next quests** — complete an active quest and the quests it unlocks become active (not pinned to the overlay: you still have to take them from the trader).
 - **Activating a quest completes its chain** — set *Punisher Part 5* active and Parts 1–4 are marked done automatically (one-click undo).
 - **PvP and PvE** — separate progress for each mode; PvE-specific differences (levels, objectives, items) are shown.
@@ -89,6 +90,35 @@ The story chapter **The Ticket** has 4 endings — **Survivor**, **Savior**, **D
 - Choices, target and ticked steps are saved with your progress, per profile and mode. **Reset** clears them.
 - The route data lives in `data/ticket_endings.json` (English and Turkish) and follows the community *Story Endings* flowchart v1.7.6 by Callsign_Smokey / Kay08x.
 
+### Read quests from the game (BETA)
+
+<p align="center">
+  <img src="docs/screenshots/read-quests.webp" width="780" alt="Read Quests (BETA) page: safety notice, how to use it, countdown and the quests read from the game">
+</p>
+
+> [!NOTE]
+> Works with the text recognition (OCR) built into Windows. **It adds nothing to the game: no mod, no plugin, no injection.** It only takes a picture of the screen; it does not read the game's memory or press keys for you, and the pictures stay in memory and are never saved or sent anywhere.
+
+1. Set the game language to **English** and run the game in **Borderless** or **Windowed** mode (quest names are matched against the English names).
+2. In game, open the **TASKS** page and go to **Side tasks**.
+3. On the **Read Quests (BETA)** page press **Start scan** and switch to the game. Scroll the quest list slowly to the bottom: a frame is read about every 0.7 s, and the scan **stops by itself after 30 seconds** (a countdown shows the time left), so it never keeps the PC busy. Short list? <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> reads just what is on the screen right now.
+4. Back in the app, untick anything read wrong and press **Apply**. The ticked quests become active and their earlier quests are marked done; **Undo** reverts it all. Quests that are already active are marked and left unticked.
+
+### Auto raid detection (double O)
+
+In raid, press <kbd>O</kbd> twice: the game lists your exfils at the top right, and the tracker recognizes the map from their names. The switch at the top of **Entering a raid** turns it **On** / **Off** (on by default).
+
+- **Waits for the list to load.** Not every PC draws it at once: once the first exfils show up, the corner is read again until no new ones appear (up to about 3 s), and only then is the map decided.
+- **Raid time.** The time left shown above the exfils is read too; the overlay and the raid banner count it down (⏱ 32:10), and the raid ends by itself when it runs out. A **single** <kbd>O</kbd> (just the clock) corrects the time of the raid already running. The digits are read by shape in the game's own font (Windows OCR can't read that clock), and a time is only taken when two reads agree, so a misread can't end the raid early.
+- **FPS counter on?** The clock under its dark box is still read (a second, low-light pass ignores the green / red FPS text); when its text runs over the seconds, the time is read to the minute (±30 s). A digit that can't be read means no time, never a guess.
+- **Never restarts a raid.** Already in a raid on that map? A double <kbd>O</kbd> only corrects the time. A different map's list starts the raid there.
+- **No error for an empty screen.** No exfil list in the corner simply means you are not in a raid (or it is closed): nothing happens.
+- **Strict.** It needs an exfil only that map has, and two exfils in all on the big maps; when it is not sure, it does nothing. Exfil names come from tarkov.dev (`tools/scraper/fetch_extracts.py` → `data/extracts.json`).
+- **Requirements:** the game in **Borderless** or **Windowed** mode, and the English text recognition of Windows. The overlay **can stay in the top-right corner**: while auto-detect is on it is left out of screen pictures (Windows display affinity), so the exfil list under it is still read. You keep seeing it as always; it just does not show in recordings, streams or screenshots.
+
+> [!NOTE]
+> No keyboard hook, no key reading, nothing sent to the game. While the game is in front, only the top-right corner of the screen is read now and then with the OCR built into Windows; the picture stays in memory and is never saved or sent.
+
 ### Flea market prices
 
 <p align="center">
@@ -130,6 +160,7 @@ Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> in game to check what an ite
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> | **Show / hide the overlay**, e.g. to clear the screen mid-raid. |
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | **Flea market price search** in the middle of the screen, for your mode (PvP / PvE). <kbd>Esc</kbd> closes it and returns to the game. |
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> | **Entering a raid**: a map list opens on the overlay (unlocked for the click); pick the map and the overlay shows its active quests. Press again to close it. |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> | **Read quests (BETA)**: reads the quest names on the in-game Tasks screen that is open right now (once). Check and apply them on the *Read Quests (BETA)* page. |
 | <kbd>Ctrl</kbd> + mouse wheel | With the mouse over the (unlocked) overlay: **make it bigger / smaller** (60–200 %). |
 | Drag the overlay header | **Move the overlay anywhere** on the screen (unlocked only). |
 

@@ -22,7 +22,7 @@
 ## Ban riski
 
 > [!TIP]
-> **Bilinen bir ban riski yok.** EFT Quest Helper normal, ayrı bir Windows uygulamasıdır. Oyunun belleğini **okumaz ve değiştirmez**, oyuna hiçbir şey **enjekte etmez**, oyunun dosyalarını veya loglarını **okumaz**, oyuna tuş/fare girdisi **göndermez** ve oyunun sunucularıyla **konuşmaz**. Overlay, ekranın üstünde tutulan sıradan bir penceredir (yapışkan not gibi); kısayol tuşları Windows'un standart `RegisterHotKey` API'sini kullanır.
+> **Bilinen bir ban riski yok.** EFT Quest Helper normal, ayrı bir Windows uygulamasıdır. Oyunun belleğini **okumaz ve değiştirmez**, oyuna hiçbir şey **enjekte etmez**, oyunun dosyalarını veya loglarını **okumaz**, oyuna tuş/fare girdisi **göndermez** ve oyunun sunucularıyla **konuşmaz**. Overlay, ekranın üstünde tutulan sıradan bir penceredir (yapışkan not gibi); kısayol tuşları Windows'un standart `RegisterHotKey` API'sini kullanır. **Görevleri Oku (BETA)** sadece ekranın görüntüsünü alır ve Windows'un kendi OCR'ı ile okur; görüntüler sadece bellekte kalır, kaydedilmez ve gönderilmez. **Otomatik raid algılama** da aynı şekilde çalışır: klavye hook'u yok, tuş okunmaz; oyun öndeyken sadece ekranın sağ üst köşesi okunur.
 
 > [!CAUTION]
 > **Kullanım sorumluluğu sana aittir. Bu proje Battlestate Games ile bağlantılı değildir ve onlar tarafından onaylanmamıştır; BSG kurallarını her an değiştirebilir. BSG bir gün bu tür araçlara izin verilmediğini açıklarsa kullanmayı bırak.**
@@ -42,9 +42,10 @@
 - **Kappa / Collector yolu** — Kappa için gerçekten gereken görevler: *Collector* ve tüm ön koşul zinciri. İlerleme çubuğu, yapılabilir görevler **haritaya göre gruplu** (aynı raidde birkaçını birden yap); her görevde gereken seviye yazar.
 - **Aktif görevler + overlay** — yaptığın tüm görevler *Aktif Görevler*'de listelenir; ekranın sağ kenarındaki küçük takipçide sadece **📌 Overlay** ile sabitlediklerin görünür. Hedef kutucukları, öldürme/item sayaçları ve item ikonlarıyla. Görevi aktif yapmak onu overlay'e eklemez; overlay'de ne olacağına sen karar verirsin.
 - **Oyun içinde flea fiyatları** — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> ekranın ortasında fiyat araması açar; item'ın 3 harfini yaz, modundaki (PvP / PvE) flea fiyatını gör. [Flea market fiyatları](#flea-market-fiyatları) bölümüne bak.
-- **Sol menü** — sayfalar (Görevler, Hedef Planlayıcı, Kappa, Eşyalar, Aktif Görevler, End Game, Ayarlar) soldaki menüde.
-- **Baskına ne götürmeli** — anahtarlar, markerlar (kaç tane gerektiğiyle), yerleştirilecek itemler, kullanılacak silah ve giyilecek kıyafet her görevin en üstünde ve *Aktif Görevler* kartında görünür.
-- **Raid'e giriyorum** — sol menünün ilk maddesi: gireceğin haritayı seç (her harita için kaç aktif görevin olduğunu gösteren kartlar), overlay o haritadaki bütün aktif görevleri kendiliğinden göstersin, sabitlediklerin de kalsın. Birden çok haritalı görevlerde sadece o haritanın hedefleri görünür, "teslim et" adımları gizlenir. Oyunda <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> ile harita seçilir; **Raid bitti** sabitlenmiş listeye döner.
+- **Sol menü** — sayfalar (Raid'e giriyorum, Görevler, Hedef Planlayıcı, Kappa, Eşyalar, Aktif Görevler, Görevleri Oku (BETA), End Game, Ayarlar) soldaki menüde.
+- **Görevleri oyundan oku (BETA)** — görevleri tek tek girmene gerek yok: oyundaki Tasks ekranını aç, bir kez kaydır; uygulama tüm görev adlarını Windows'un kendi OCR'ı ile okur. Listeyi onayla, görevler aktif olsun, onlardan önceki her şey tamamlandı sayılsın. [Görevleri oyundan oku](#görevleri-oyundan-oku-beta) bölümüne bak.
+- **Raid'e ne götürmeli** — anahtarlar, markerlar (kaç tane gerektiğiyle), yerleştirilecek itemler, kullanılacak silah ve giyilecek kıyafet her görevin en üstünde ve *Aktif Görevler* kartında görünür.
+- **Raid'e giriyorum** — sol menünün ilk maddesi: gireceğin haritayı seç (her harita için kaç aktif görevin olduğunu gösteren kartlar), overlay o haritadaki bütün aktif görevleri kendiliğinden göstersin, sabitlediklerin de kalsın. Birden çok haritalı görevlerde sadece o haritanın hedefleri görünür, "teslim et" adımları gizlenir. Oyunda <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> ile harita seçilir; **Raid bitti** sabitlenmiş listeye döner. Raid başlayınca kilidi açık overlay kendiliğinden kilitlenir, tıklamalar oyuna gider. **Otomatik algıla** açıksa raid'de çift <kbd>O</kbd> yeter: map ve kalan raid süresi exfil listesinden okunur (bkz. [Otomatik raid algılama](#otomatik-raid-algılama-çift-o)).
 - **Teslim edince sonraki görevler kabul edilir** — aktif bir görevi tamamla, açtığı görevler aktif olsun (overlay'e eklenmez: trader'dan almayı yine sen yaparsın).
 - **Bir görevi aktif yapmak zincirini tamamlar** — *Punisher Part 5*'i aktif yap, Part 1–4 otomatik tamamlandı sayılsın (tek tıkla geri alınabilir).
 - **PvP ve PvE** — her mod için ayrı ilerleme; PvE'ye özel farklar (seviye, hedefler, itemler) gösterilir.
@@ -89,6 +90,35 @@ Item ikonları **görevlerin içinde de** görünür: bulma / teslim / yerleşti
 - Seçimler, hedef ve işaretlenen adımlar ilerlemenle birlikte, profil ve mod başına kaydedilir. **Sıfırla** hepsini temizler.
 - Yol verisi `data/ticket_endings.json` dosyasında (İngilizce ve Türkçe) ve topluluğun *Story Endings* akış şeması v1.7.6'yı (Callsign_Smokey / Kay08x) takip eder.
 
+### Görevleri oyundan oku (BETA)
+
+<p align="center">
+  <img src="docs/screenshots/read-quests.webp" width="780" alt="Görevleri Oku (BETA) sayfası: güvenlik notu, kullanım, geri sayım ve oyundan okunan görevler">
+</p>
+
+> [!NOTE]
+> Windows'un kendi yazı tanıma (OCR) özelliğiyle çalışır. **Oyuna herhangi bir eklenti, mod veya müdahale yapmaz.** Sadece ekranın görüntüsünü alır; oyunun belleğini okumaz, senin yerine tuşa basmaz. Görüntüler sadece bellekte kalır, kaydedilmez ve hiçbir yere gönderilmez.
+
+1. Oyun dilini **İngilizce** yap, oyunu **Borderless** veya **Windowed** modda çalıştır (görev adları İngilizce adlarla eşleştirilir).
+2. Oyun içinden **TASKS** sayfasını aç ve **Side tasks** bölümüne gel.
+3. **Görevleri Oku (BETA)** sayfasında **Taramayı başlat**'a bas ve oyuna geç. Görev listesini yavaşça en alta kaydır: yaklaşık 0,7 sn'de bir kare okunur, tarama **30 saniye sonra kendiliğinden durur** (kalan süre geri sayımla görünür), bilgisayarı boşuna yormaz. Liste kısa mı? <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> sadece o an ekranda görüneni okur.
+4. Uygulamaya dön, yanlış okunanların işaretini kaldır ve **Uygula**'ya bas. İşaretli görevler aktif olur, önceki görevleri tamamlandı sayılır; **Geri al** hepsini geri çevirir. Zaten aktif olanlar belirtilir ve işaretsiz gelir.
+
+### Otomatik raid algılama (çift O)
+
+Raid'de <kbd>O</kbd>'ya iki kez bas: oyun exfillerini sağ üstte listeler, takipçi de isimlerinden map'i tanır. **Raid'e giriyorum** sayfasının en üstündeki anahtar bunu **Açık** / **Kapalı** yapar (varsayılan: açık).
+
+- **Listenin yüklenmesini bekler.** Her PC listeyi bir anda çizmez: ilk exfiller görününce köşe yeni exfil gelmeyene kadar tekrar okunur (en fazla ~3 sn), map ancak ondan sonra belirlenir.
+- **Raid süresi.** Exfillerin üstündeki kalan süre de okunur; overlay ve raid bandı geri sayar (⏱ 32:10), süre bitince raid kendiliğinden kapanır. **Tek** <kbd>O</kbd> (sadece saat) devam eden raid'in süresini düzeltir. Rakamlar oyunun kendi fontundaki şekillerinden okunur (Windows OCR o saati okuyamıyor) ve süre ancak iki okuma aynı çıkarsa alınır; yanlış okunan bir rakam raid'i erken kapatamaz.
+- **FPS sayacı açık mı?** Koyu kutusunun altında kalan saat yine okunur (ikinci, düşük ışıklı bir geçiş yeşil / kırmızı FPS yazısını yok sayar); yazısı saniyelerin üstüne biniyorsa süre dakikasına kadar okunur (±30 sn). Okunamayan bir rakam süre yok demektir, asla tahmin edilmez.
+- **Raid'i baştan başlatmaz.** Zaten o map'te raid'desin? Çift <kbd>O</kbd> sadece süreyi düzeltir. Başka bir map'in listesi görünürse raid orada başlar.
+- **Boş ekranda hata yok.** Köşede exfil listesi yoksa raid'de değilsin (ya da liste kapalı) demektir: hiçbir şey olmaz.
+- **Temkinli.** Sadece o map'te olan bir exfil, büyük map'lerde de toplam iki exfil ister; emin değilse bir şey yapmaz. Exfil isimleri tarkov.dev'den gelir (`tools/scraper/fetch_extracts.py` → `data/extracts.json`).
+- **Gerekenler:** oyun **Borderless** veya **Pencereli** modda, ve Windows'un İngilizce metin tanıma paketi. Overlay **sağ üst köşede kalabilir**: otomatik algılama açıkken ekran görüntülerinden çıkarılır (Windows display affinity), altındaki exfil listesi yine okunur. Sen onu her zamanki gibi görürsün; sadece kayıtlarda, yayında ve ekran görüntülerinde görünmez.
+
+> [!NOTE]
+> Klavye hook'u yok, tuş okunmaz, oyuna hiçbir şey gönderilmez. Oyun öndeyken sadece ekranın sağ üst köşesi Windows'un kendi OCR'ı ile ara ara okunur; görüntü bellekte kalır, kaydedilmez ve gönderilmez.
+
 ### Flea market fiyatları
 
 <p align="center">
@@ -130,6 +160,7 @@ Oyundayken bir item'ın kaça gittiğini görmek için tarayıcıya alt-tab yapm
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> | **Overlay'i göster / gizle**, ör. raid ortasında ekranı temizlemek için. |
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | Ekranın ortasında **flea market fiyat araması**, modundaki (PvP / PvE) fiyatlarla. <kbd>Esc</kbd> kapatır ve oyuna döner. |
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> | **Raid'e giriyorum**: overlay'de harita listesi açılır (tıklayabilmen için kilidi açılır); haritayı seç, overlay o haritanın aktif görevlerini göstersin. Tekrar basınca kapanır. |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> | **Görevleri oku (BETA)**: oyunda o an açık olan Tasks ekranındaki görev adlarını (bir kez) okur. *Görevleri Oku (BETA)* sayfasında kontrol edip uygula. |
 | <kbd>Ctrl</kbd> + fare tekerleği | Fare (kilidi açık) overlay'in üstündeyken: **büyüt / küçült** (%60–200). |
 | Overlay başlığını sürükle | **Overlay'i ekranda istediğin yere taşı** (sadece kilit açıkken). |
 

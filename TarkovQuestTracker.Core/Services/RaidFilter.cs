@@ -30,6 +30,17 @@ public static class RaidFilter
     public static IReadOnlyList<Objective> Objectives(Quest q, string map) =>
         IsOnMap(q, map) ? q.Objectives.Where(o => ShowInRaid(o, map)).ToList() : [];
 
+    /// <summary>The quest has work on this very map (its own map or an objective's), not just "anywhere".</summary>
+    public static bool IsMapSpecific(Quest q, string map) =>
+        q.Map.Contains(map) || q.Objectives.Any(o => o.AllMaps.Contains(map));
+
+    /// <summary>
+    /// Overlay order when it can't show everything: in a raid the quests of that map itself first (pinned ones
+    /// first among them), then the other pinned ones, then the ones that can be done anywhere.
+    /// </summary>
+    public static int OverlayRank(Quest q, string? raidMap, bool pinned) =>
+        raidMap != null && IsMapSpecific(q, raidMap) ? (pinned ? 0 : 1) : pinned ? 2 : 3;
+
     /// <summary>Every real map the quests use (not "Any"), in picker order.</summary>
     public static IReadOnlyList<string> Maps(IEnumerable<Quest> quests) =>
         quests.SelectMany(q => q.Map).Where(m => m != QuestPlanner.AnyMap).Distinct()

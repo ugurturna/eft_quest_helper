@@ -1,8 +1,8 @@
 {
  "id": "the-ticket",
- "name": "Bilet",
+ "name": "The Ticket",
  "objectives": [
-  {"id": "o1", "text": "İstihbarat Merkezi'ni 1. seviyeye yükselt", "details": []},
+  {"id": "o1", "text": "Intelligence Center'ı 1. seviyeye yükselt", "details": []},
   {"id": "o2", "text": "Mr. Kerman ile konuş", "details": []},
   {"id": "o3", "text": "Mr. Kerman'ın sana ulaşmasını bekle", "details": []},
   {"id": "o4", "text": "Prapor ile konuş", "details": []},
@@ -19,7 +19,7 @@
   {"id": "o15", "text": "Interchange'de tek raidde herhangi 15 hedefi etkisiz hale getir", "details": []},
   {"id": "o16", "text": "Lightkeeper ile konuş", "details": []},
   {"id": "o17", "text": "Zırhlı çantanın kilidini aç", "details": []},
-  {"id": "o18", "text": "\"Bilet\"i ele geçir", "details": []},
+  {"id": "o18", "text": "\"Ticket\"ı ele geçir", "details": []},
   {"id": "o19", "text": "Mechanic'ten yardım iste", "details": []},
   {"id": "o20", "text": "Deneysel sinyal karıştırıcıyı (Experimental signal jammer) edin", "details": [
    "(İsteğe bağlı) The Lab'e erişim sağla",
@@ -65,7 +65,7 @@
   {"id": "o43", "text": "Secure container Kappa'yı Prapor'a teslim et", "details": []},
   {"id": "o44", "text": "Mr. Kerman ile konuş", "details": []},
   {"id": "o45", "text": "Mr. Kerman için TerraGroup hakkında kirli bilgi bulmayı kabul et", "details": []},
-  {"id": "o46", "text": "İstihbarat Merkezi'ni 3. seviyeye yükselt", "details": []},
+  {"id": "o46", "text": "Intelligence Center'ı 3. seviyeye yükselt", "details": []},
   {"id": "o47", "text": "Mr. Kerman'ın verdiği ikinci şansı boşa harcama", "details": []},
   {"id": "o48", "text": "8 büyük TerraGroup kanıtını Mr. Kerman'a teslim et", "details": [
    "(İsteğe bağlı) 36 küçük TerraGroup kanıtını Mr. Kerman'a teslim et"]},
@@ -76,8 +76,8 @@
   {"id": "o53", "text": "Fence ile 4.0 itibara ulaş", "details": []},
   {"id": "o54", "text": "Fence'in görevlerini tamamla", "details": []},
   {"id": "o55", "text": "Fence ile itibarını 4.0'ın üzerinde tut", "details": []},
-  {"id": "o56", "text": "Woods'ta Friendship Bridge (Co-Op) üzerinden tahliye ol", "details": []},
-  {"id": "o57", "text": "Reserve'de Scav Lands (Co-Op) üzerinden tahliye ol", "details": []},
+  {"id": "o56", "text": "Woods'ta Friendship Bridge (Co-Op) üzerinden extract et", "details": []},
+  {"id": "o57", "text": "Reserve'de Scav Lands (Co-Op) üzerinden extract et", "details": []},
   {"id": "o58", "text": "BTR Driver ile 0.4 itibara ulaş", "details": []},
   {"id": "o59", "text": "Fence'e görevin tamamlandığını söyle", "details": []},
   {"id": "o60", "text": "Güneş Enerjisi'ni (Solar Power) 1. seviyeye yükselt", "details": []},
@@ -92,17 +92,17 @@
   {"id": "o63", "text": "Woods'ta 30 PMC'yi etkisiz hale getir", "details": []},
   {"id": "o64", "text": "100 PMC künyesini Lightkeeper'a teslim et", "details": [
    "(İsteğe bağlı) 100 PMC künyesi edin"]},
-  {"id": "o65", "text": "Birinci muskayı Lighthouse'taki Lightkeeper'ın zula odasına bırak", "details": [
+  {"id": "o65", "text": "Birinci muskayı Lighthouse'taki Lightkeeper'ın stash odasına bırak", "details": [
    "(İsteğe bağlı) Customs'taki işaretli odadan muskayı al"]},
-  {"id": "o66", "text": "İkinci muskayı Lighthouse'taki Lightkeeper'ın zula odasına bırak", "details": [
+  {"id": "o66", "text": "İkinci muskayı Lighthouse'taki Lightkeeper'ın stash odasına bırak", "details": [
    "(İsteğe bağlı) Streets of Tarkov'daki birinci işaretli odadan muskayı al"]},
-  {"id": "o67", "text": "Üçüncü muskayı Lighthouse'taki Lightkeeper'ın zula odasına bırak", "details": [
+  {"id": "o67", "text": "Üçüncü muskayı Lighthouse'taki Lightkeeper'ın stash odasına bırak", "details": [
    "(İsteğe bağlı) Streets of Tarkov'daki ikinci işaretli odadan muskayı al"]},
-  {"id": "o68", "text": "Dördüncü muskayı Lighthouse'taki Lightkeeper'ın zula odasına bırak", "details": [
+  {"id": "o68", "text": "Dördüncü muskayı Lighthouse'taki Lightkeeper'ın stash odasına bırak", "details": [
    "(İsteğe bağlı) Reserve'deki birinci işaretli odadan muskayı al"]},
-  {"id": "o69", "text": "Beşinci muskayı Lighthouse'taki Lightkeeper'ın zula odasına bırak", "details": [
+  {"id": "o69", "text": "Beşinci muskayı Lighthouse'taki Lightkeeper'ın stash odasına bırak", "details": [
    "(İsteğe bağlı) Reserve'deki ikinci işaretli odadan muskayı al"]},
-  {"id": "o70", "text": "Altıncı muskayı Lighthouse'taki Lightkeeper'ın zula odasına bırak", "details": [
+  {"id": "o70", "text": "Altıncı muskayı Lighthouse'taki Lightkeeper'ın stash odasına bırak", "details": [
    "(İsteğe bağlı) Reserve'deki üçüncü işaretli odadan muskayı al"]},
   {"id": "o71", "text": "Lightkeeper'a rapor ver", "details": []},
   {"id": "o72", "text": "Mr. Kerman ile konuş", "details": []},
@@ -146,7 +146,7 @@
    "(İsteğe bağlı) Pompa istasyonundaki suyu boşalt",
    "(İsteğe bağlı) İskeleye giden yolu kapatan kapının anahtarını edin",
    "(İsteğe bağlı) İskeleye çıkan yolu bul",
-   "(İsteğe bağlı) İskeledeki tahliye bölgesine ulaş"]}
+   "(İsteğe bağlı) İskeledeki extract bölgesine ulaş"]}
  ],
  "guide": ""
 }

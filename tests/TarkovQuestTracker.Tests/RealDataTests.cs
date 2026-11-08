@@ -111,15 +111,15 @@ public sealed class RealDataTests
     public void Story_chapters_are_translated_to_turkish_including_sub_steps()
     {
         var tour = Repo.ById["tour"];
-        Assert.Equal("Tur", tour.DisplayName);
+        Assert.Equal("Tour", tour.DisplayName);  // chapter names stay as in game
         Assert.Equal("Ground Zero'dan kaç", tour.Objectives[0].DisplayText);
         Assert.Equal("Parayı Therapist'e teslim et", tour.Objectives[2].DisplayDetails[0]);
         Assert.StartsWith("▸ Ground Zero'dan kaç", tour.DisplayGuide);
         // names like "Batya" are not translated, objectives always are
         Assert.All(Repo.Quests.Where(q => q.Category == "story"),
             q => Assert.NotEqual(q.Objectives[0].Text, q.Objectives[0].DisplayText));
-        // both languages stay searchable
-        Assert.Equal("blue-fire", new SearchService(Repo.Quests).Search("mavi ateş")[0].Id);
+        // chapter names are not translated (game terms stay as in game)
+        Assert.All(Repo.Quests.Where(q => q.Category == "story"), q => Assert.Equal([q.Name], q.AllNames.Distinct()));
         Assert.Equal("blue-fire", new SearchService(Repo.Quests).Search("blue fire")[0].Id);
     }
 

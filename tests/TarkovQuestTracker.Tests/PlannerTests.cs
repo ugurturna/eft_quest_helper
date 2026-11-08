@@ -106,6 +106,20 @@ public sealed class PlannerTests : IDisposable
     }
 
     [Fact]
+    public void A_full_overlay_keeps_the_maps_own_quests_before_the_any_location_ones()
+    {
+        var onCustoms = new Quest { Id = "c", Map = ["Customs"] };
+        var objectiveOnCustoms = new Quest { Id = "o", Objectives = [new Objective { Id = "o1", Maps = ["Customs"] }] };
+        var anywhere = new Quest { Id = "a", Map = [QuestPlanner.AnyMap] };
+        var ranked = new[] { (anywhere, pinned: true), (anywhere, pinned: false), (onCustoms, pinned: false), (objectiveOnCustoms, pinned: true) }
+            .OrderBy(x => RaidFilter.OverlayRank(x.Item1, "Customs", x.pinned))
+            .Select(x => (x.Item1.Id, x.pinned));
+        Assert.Equal([("o", true), ("c", false), ("a", true), ("a", false)], ranked);
+        // out of a raid only pinning counts
+        Assert.True(RaidFilter.OverlayRank(onCustoms, null, pinned: true) < RaidFilter.OverlayRank(onCustoms, null, pinned: false));
+    }
+
+    [Fact]
     public void A_new_goal_activates_the_step_the_player_is_at()
     {
         var planner = new QuestPlanner(Repo());
@@ -171,9 +185,11 @@ public sealed class PlannerTests : IDisposable
     {
         var repo = Repo(lang: "tr");
         var q = repo.ById["punisher-3"];
-        Assert.Equal("Cezalandırıcı - Bölüm 3", q.DisplayName);
+        // names stay the in-game English ones; the translated name is only for search
+        Assert.Equal(q.Name, q.DisplayName);
+        Assert.Contains("Cezalandırıcı - Bölüm 3", q.AllNames);
         Assert.Equal("Yap", q.Objectives[0].DisplayText);
-        Assert.Equal("Debut", repo.ById["debut"].DisplayName);  // falls back to English
+        Assert.Equal("Debut", repo.ById["debut"].DisplayName);
 
         var search = new SearchService(repo.Quests);
         Assert.Equal("punisher-3", search.Search("cezalandirici 3")[0].Id);

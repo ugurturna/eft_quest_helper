@@ -21,14 +21,15 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="..\data\tasks_*.json;..\data\meta.json;..\data\quest_items.json;..\data\ticket_endings.json" Link="data\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
+      <Content Include="..\data\tasks_*.json;..\data\meta.json;..\data\quest_items.json;..\data\ticket_endings.json;..\data\extracts.json" Link="data\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
       <Content Include="..\data\icons\*.png" Link="data\icons\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
     </ItemGroup>
 
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net10.0-windows</TargetFramework>
+        <!-- 10.0.19041: Windows' built-in OCR (Windows.Media.Ocr) for reading the in-game Tasks screen -->
+        <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>

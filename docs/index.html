@@ -41,6 +41,8 @@
 
       <ul class="nav-links">
         <li><a href="#features" data-i18n="navFeatures">Features</a></li>
+        <li><a href="#read-quests" data-i18n="navRead">Read Quests</a></li>
+        <li><a href="#auto-raid" data-i18n="navRaid">Auto Raid</a></li>
         <li><a href="#endgame" data-i18n="navEndgame">End Game</a></li>
         <li><a href="#screenshots" data-i18n="navShots">Screenshots</a></li>
         <li><a href="#safety" data-i18n="navSafety">Ban Safety</a></li>
@@ -106,11 +108,11 @@
         <!-- Interactive Hero Showcase -->
         <div class="hero-showcase">
           <div class="showcase-inner" data-zoom="screenshots/main-window.webp" title="Click to enlarge">
-            <img src="screenshots/main-window.webp" width="1800" height="1042" class="showcase-main-img" alt="EFT Quest Helper main window: quest list and quest details with item icons">
+            <img src="screenshots/main-window.webp" width="1783" height="1034" class="showcase-main-img" alt="EFT Quest Helper main window: quest list and quest details with item icons">
 
             <div class="showcase-overlay-preview" data-zoom="screenshots/overlay.webp" title="Click to enlarge overlay">
               <span class="overlay-badge-tag" data-i18n="overlayTag">In-Game Overlay</span>
-              <img src="screenshots/overlay.webp" width="520" height="990" alt="EFT Quest Helper in-game overlay with active quests">
+              <img src="screenshots/overlay.webp" width="425" height="790" alt="EFT Quest Helper in-game overlay with active quests">
             </div>
 
             <div class="zoom-hint">
@@ -133,10 +135,26 @@
         <div class="features-grid">
 
           <article class="feature-card feature-new">
+            <span class="feature-new-tag" data-i18n="betaTag">BETA</span>
+            <div class="feature-icon">🎯</div>
+            <h3 data-i18n="f16Title">Auto Raid Detection (Double O)</h3>
+            <p data-i18n="f16Desc">Press O twice in raid: the tracker reads the exfil list, recognizes the map and starts the raid with the time left. Already in a raid? Only the time is updated. No keyboard hook, no key reading.</p>
+            <a href="#auto-raid" class="feature-highlight" data-i18n="f16Badge">Exfil list · raid timer →</a>
+          </article>
+
+          <article class="feature-card feature-new">
+            <span class="feature-new-tag" data-i18n="betaTag">BETA</span>
+            <div class="feature-icon">📷</div>
+            <h3 data-i18n="f15Title">Read Quests From the Game</h3>
+            <p data-i18n="f15Desc">Open the Tasks screen in game and scroll it once: the tracker reads your quests with the OCR built into Windows. Confirm the list and every earlier quest counts as done. Nothing is added to the game.</p>
+            <a href="#read-quests" class="feature-highlight" data-i18n="f15Badge">Windows OCR · 30 s scan →</a>
+          </article>
+
+          <article class="feature-card feature-new">
             <span class="feature-new-tag" data-i18n="newTag">New</span>
             <div class="feature-icon">🗺️</div>
             <h3 data-i18n="f11Title">Entering a Raid</h3>
-            <p data-i18n="f11Desc">Pick the map you are going to and the overlay shows every active quest on it by itself. Quests on several maps show only that map's objectives; hand-over steps are hidden. Ctrl+Shift+R picks the map without leaving the game.</p>
+            <p data-i18n="f11Desc">Pick the map you are going to, or let a double O pick it for you: the overlay shows every active quest on it by itself. Quests on several maps show only that map's objectives; hand-over steps are hidden. Ctrl+Shift+R picks the map without leaving the game.</p>
             <span class="feature-highlight" data-i18n="f11Badge">Map picker · Ctrl+Shift+R</span>
           </article>
 
@@ -247,6 +265,121 @@
       </div>
     </section>
 
+    <!-- Read Quests (BETA): import the quest list from the in-game Tasks screen -->
+    <section id="read-quests" class="endgame-section read-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="rqTag">New · BETA</span>
+          <h2 class="section-title" data-i18n="rqTitle">Read Your Quests From the Game</h2>
+          <p class="section-subtitle" data-i18n="rqSub">No need to enter dozens of quests by hand. Open the Tasks screen in game, scroll it once, and the tracker reads every quest name. Confirm the list: the quests become active and everything before them counts as done.</p>
+        </div>
+
+        <div class="scan-notice">
+          <strong data-i18n="rqNotice">⚠ Works with the text recognition (OCR) built into Windows. It adds nothing to the game: no mod, no plugin, no injection.</strong>
+          <span data-i18n="rqNoticeSub">It only takes a picture of the screen: no reading the game's memory, no fake key presses. Pictures stay in memory and are never saved or sent anywhere.</span>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-number">01</span>
+            <div class="step-icon">🌐</div>
+            <h3 data-i18n="rq1Title">1. English, Borderless</h3>
+            <p data-i18n="rq1Desc">Set the game language to English and run the game in Borderless or Windowed mode. Quest names are matched against the English names.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">02</span>
+            <div class="step-icon">📋</div>
+            <h3 data-i18n="rq2Title">2. Open the Tasks Screen</h3>
+            <p data-i18n="rq2Desc">In game, open the TASKS page and go to Side tasks, so your quest list is on screen.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">03</span>
+            <div class="step-icon">📷</div>
+            <h3 data-i18n="rq3Title">3. Start the Scan</h3>
+            <p data-i18n="rq3Desc">Press "Start scan" on the Read Quests (BETA) page and switch to the game. Scroll the list slowly to the bottom: it is read about every 0.7 s and the scan stops by itself after 30 seconds. Short list? Ctrl+Shift+I reads just the current screen.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">04</span>
+            <div class="step-icon">✅</div>
+            <h3 data-i18n="rq4Title">4. Check and Apply</h3>
+            <p data-i18n="rq4Desc">Back in the tracker, untick anything read wrong and press "Apply". The quests become active, their earlier quests are marked done, and one click on "Undo" reverts it all.</p>
+          </div>
+        </div>
+
+        <figure class="gallery-frame read-frame">
+          <img src="screenshots/read-quests.webp" width="1783" height="1034" loading="lazy" data-zoom="screenshots/read-quests.webp" alt="Read Quests (BETA) page: the safety notice, how to use it, the countdown and the quests read from the game waiting to be confirmed">
+          <figcaption data-i18n="rqCap">The Read Quests (BETA) page: how to use it, the scan countdown and the quests read from the game, ready to confirm.</figcaption>
+        </figure>
+
+        <p class="endgame-note" data-i18n="rqNote">BETA: reading works best at 1080p or higher with the game in English. Nothing is changed until you press "Apply", and only what you tick is used.</p>
+      </div>
+    </section>
+
+    <!-- Auto raid detection (BETA): double O in raid -> map + raid time from the exfil list -->
+    <section id="auto-raid" class="endgame-section read-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="arTag">New · BETA</span>
+          <h2 class="section-title" data-i18n="arTitle">The Raid Starts by Itself: Press O Twice</h2>
+          <p class="section-subtitle" data-i18n="arSub">A double O in raid lists your exfils at the top right. Their names tell the map, and the timer above them tells the time left. The tracker reads both and puts that map's quests and a raid countdown on the overlay.</p>
+        </div>
+
+        <div class="scan-notice">
+          <strong data-i18n="arNotice">⚠ No keyboard hook and no key reading. This is not a keylogger.</strong>
+          <span data-i18n="arNoticeSub">While the game is in front, only the top-right corner of the screen is read now and then with the OCR built into Windows. The picture stays in memory, is never saved or sent, and nothing is sent to the game.</span>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-number">01</span>
+            <div class="step-icon">🔘</div>
+            <h3 data-i18n="ar1Title">1. Turn It On</h3>
+            <p data-i18n="ar1Desc">The On / Off switch sits at the top of the "Entering a raid" page (on by default). Run the game in Borderless or Windowed mode The overlay can stay in the top-right corner: it is left out of screen pictures, so the list under it is still read (it also stays out of recordings and streams).</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">02</span>
+            <div class="step-icon">⌨️</div>
+            <h3 data-i18n="ar2Title">2. Press O Twice</h3>
+            <p data-i18n="ar2Desc">In raid, double-tap O as usual. The exfil list opens in game exactly as before: the tracker only looks at the screen, the key still goes to the game.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">03</span>
+            <div class="step-icon">⏳</div>
+            <h3 data-i18n="ar3Title">3. It Waits for the List</h3>
+            <p data-i18n="ar3Desc">Not every PC draws the list at once. Once the first exfils show up, the corner is read again until no new ones appear (up to about 3 s), and only then is the map decided. An empty corner just means you are not in a raid: no error.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">04</span>
+            <div class="step-icon">⏱️</div>
+            <h3 data-i18n="ar4Title">4. Map + Time on the Overlay</h3>
+            <p data-i18n="ar4Desc">The overlay switches to that map's quests and counts the raid time down. Already in a raid there? A double O only corrects the time, it never restarts the raid. The overlay locks by itself so clicks go to the game. When the time runs out, the raid ends by itself. A single O (just the clock) corrects the time of a raid already running. FPS counter on? The clock under it is still read, to the minute.</p>
+          </div>
+        </div>
+
+        <figure class="exfil-demo-frame">
+          <div class="exfil-demo" aria-hidden="true">
+            <div class="exfil-screen">
+              <div class="exfil-time">00:42:13</div>
+              <ol class="exfil-list">
+                <li><b>EXFIL01</b> Crossroads</li>
+                <li><b>EXFIL02</b> Trailer Park</li>
+                <li><b>EXFIL03</b> ZB-1011</li>
+              </ol>
+            </div>
+            <div class="exfil-arrow">→</div>
+            <div class="exfil-result">
+              <div class="exfil-map">🎯 Customs</div>
+              <div class="exfil-timer">⏱ 42:13 <span data-i18n="arLeft">left</span></div>
+              <div class="exfil-sub" data-i18n="arResult">Raid started · 5 quests on the overlay</div>
+            </div>
+          </div>
+          <figcaption data-i18n="arCap">A double O lists the exfils; the tracker reads them and the raid timer, and starts the raid on that map.</figcaption>
+        </figure>
+
+        <p class="endgame-note" data-i18n="arNote">BETA: it needs an exfil only that map has, and two exfils in all on the big maps. When it is not sure it does nothing, and you can always pick the map yourself with Ctrl+Shift+R.</p>
+      </div>
+    </section>
+
     <!-- End Game: The Ticket endings guide -->
     <section id="endgame" class="endgame-section">
       <div class="container">
@@ -317,6 +450,7 @@
 
         <div class="gallery-tabs" role="tablist">
           <button type="button" class="gallery-tab active" role="tab" aria-selected="true" data-shot="screenshots/main-window.webp" data-caption="capQuests" data-i18n="tabQuests">Quests</button>
+          <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/read-quests.webp" data-caption="capRead" data-i18n="tabRead">Read Quests</button>
           <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/items.webp" data-caption="capItems" data-i18n="tabItems">Items</button>
           <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/kappa.webp" data-caption="capKappa" data-i18n="tabKappa">Kappa</button>
           <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/planner.webp" data-caption="capPlanner" data-i18n="tabPlanner">Goal Planner</button>
@@ -325,7 +459,7 @@
         </div>
 
         <figure class="gallery-frame">
-          <img id="gallery-img" src="screenshots/main-window.webp" width="1800" height="1042" loading="lazy" data-zoom="screenshots/main-window.webp" alt="EFT Quest Helper screenshot">
+          <img id="gallery-img" src="screenshots/main-window.webp" width="1783" height="1034" loading="lazy" data-zoom="screenshots/main-window.webp" alt="EFT Quest Helper screenshot">
           <figcaption id="gallery-caption" data-i18n="capQuests">Search every quest, filter by type, status and trader. The detail panel shows objectives with item icons, required items, prerequisites and rewards.</figcaption>
         </figure>
       </div>
@@ -349,6 +483,8 @@
                 <li><span>🔹</span> <span data-i18n="safeDoes2">Overlay is a standard transparent top-level Windows window (like a sticky note).</span></li>
                 <li><span>🔹</span> <span data-i18n="safeDoes3">Uses standard Windows RegisterHotKey API for hotkeys.</span></li>
                 <li><span>🔹</span> <span data-i18n="safeDoes4">Stores all quest state locally in your AppData folder.</span></li>
+                <li><span>🔹</span> <span data-i18n="safeDoes5">Read Quests (BETA) only takes a picture of the screen and reads it with the OCR built into Windows.</span></li>
+                <li><span>🔹</span> <span data-i18n="safeDoes6">Auto raid detection reads only the top-right corner of the screen (Windows OCR) while the game is in front.</span></li>
               </ul>
             </div>
 
@@ -359,6 +495,8 @@
                 <li><span>🛑</span> <span data-i18n="safeDoesNot2">Does NOT read or modify game files or client logs.</span></li>
                 <li><span>🛑</span> <span data-i18n="safeDoesNot3">Does NOT send simulated keystrokes or mouse clicks to the game.</span></li>
                 <li><span>🛑</span> <span data-i18n="safeDoesNot4">Does NOT intercept network traffic or talk to BSG servers.</span></li>
+                <li><span>🛑</span> <span data-i18n="safeDoesNot5">Does NOT save or upload screen pictures: they stay in memory only.</span></li>
+                <li><span>🛑</span> <span data-i18n="safeDoesNot6">Does NOT hook the keyboard or read your key presses.</span></li>
               </ul>
             </div>
           </div>
@@ -417,7 +555,7 @@
             <span class="step-number">04</span>
             <div class="step-icon">🎮</div>
             <h3 data-i18n="step4Title">4. Lock & Raid</h3>
-            <p data-i18n="step4Desc">Before the raid press Ctrl+Shift+R and pick the map: the overlay shows that map's quests. Ctrl+Shift+T locks it so clicks go to the game.</p>
+            <p data-i18n="step4Desc">In raid press O twice (auto-detect) or Ctrl+Shift+R to pick the map: the overlay shows that map's quests and the raid time left. Ctrl+Shift+T locks it so clicks go to the game.</p>
           </div>
         </div>
 
@@ -527,6 +665,16 @@
         <div class="faq-list">
           <div class="faq-item">
             <button type="button" class="faq-question">
+              <span data-i18n="faqRQ">Is reading quests from the screen safe? Can it get me banned?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faqRA">It works like a screenshot tool: it takes a picture of the screen and reads the text with the OCR built into Windows. It never touches the game: no memory reading, no injection, no fake key or mouse input; you scroll the list yourself. Pictures stay in memory and are never saved or uploaded.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
               <span data-i18n="faq1Q">Do I need to install .NET to run the release?</span>
               <span class="faq-icon">+</span>
             </button>
@@ -547,11 +695,11 @@
 
           <div class="faq-item">
             <button type="button" class="faq-question">
-              <span data-i18n="faq3Q">Does the app automatically detect in-raid progress?</span>
+              <span data-i18n="faq3Q">Does the app detect the raid or my progress automatically?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p data-i18n="faq3A">No, EFT Quest Helper does not read game memory or network packets to ensure 100% ban safety. You check off objectives manually or between raids.</p>
+              <p data-i18n="faq3A">The raid, yes: press O twice in raid and the map and raid time are read off the exfil list at the top right of the screen (Windows OCR, no keyboard hook, nothing saved). Objective progress, no: the game's memory and network packets are never read, so you tick objectives yourself.</p>
             </div>
           </div>
 
@@ -572,6 +720,16 @@
             </button>
             <div class="faq-answer">
               <p data-i18n="faq5A">Your progress lives in the data\profiles folder next to the exe. Extract the new release to a new folder and copy data\profiles over, or use Export in the old version and Import in the new one.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span data-i18n="faq6Q">Is the double O detection a keylogger?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq6A">No. The app never hooks the keyboard and never reads your keys: O goes to the game as always. It only notices that the exfil list is on screen, by reading the top-right corner of the screen with Windows OCR while the game is in front. You can turn it off at the top of the "Entering a raid" page.</p>
             </div>
           </div>
         </div>
