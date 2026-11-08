@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.IO;
 using CommunityToolkit.Mvvm.Input;
 using TarkovQuestTracker.Core.Models;
 using TarkovQuestTracker.Core.Services;
@@ -36,6 +37,34 @@ public sealed partial class MainViewModel
         OnPropertyChanged(nameof(ScanStatusText));
         OnPropertyChanged(nameof(ScanRemaining));
         OnPropertyChanged(nameof(ScanButtonText));
+        OnPropertyChanged(nameof(ScanDiagnosis));
+        OnPropertyChanged(nameof(HasScanFrame));
+    }
+
+    /// <summary>What the last frame showed (size, lines of text, quests), so a scan that finds nothing says why.</summary>
+    public string ScanDiagnosis => Scanner.Diagnosis;
+    public bool HasScanFrame => Scanner.LastFrame != null && !Scanner.IsScanning;
+
+    /// <summary>The last picture the scan took, as a PNG on the desktop: what the app saw, to send with a bug report.</summary>
+    [RelayCommand]
+    void SaveScanFrame()
+    {
+        if (Scanner.LastFrame is not { } frame) return;
+        try
+        {
+            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory),
+                                    $"tarkov-tracker-frame-{DateTime.Now:yyyyMMdd-HHmmss}.png");
+            var image = System.Windows.Media.Imaging.BitmapSource.Create(frame.Width, frame.Height, 96, 96,
+                System.Windows.Media.PixelFormats.Bgr32, null, frame.Pixels, frame.Width * 4);
+            var png = new System.Windows.Media.Imaging.PngBitmapEncoder();
+            png.Frames.Add(System.Windows.Media.Imaging.BitmapFrame.Create(image));
+            using (var file = File.Create(path)) png.Save(file);
+            Toast = Loc.F("t.scan.saved", path);
+        }
+        catch (Exception ex)
+        {
+            Toast = Loc.F("t.scan.failed", ex.Message);
+        }
     }
 
     public bool IsScanning => Scanner.IsScanning;

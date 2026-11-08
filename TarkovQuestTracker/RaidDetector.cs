@@ -164,15 +164,13 @@ public sealed class RaidDetector
         return (await ScreenScanner.ReadCellsAsync(ocr, frame), clock, at);
     }
 
-    /// <summary>The English recognizer; null when Windows has none (the detector then does nothing).</summary>
+    /// <summary>A Latin-script recognizer (<see cref="OcrEngines.Create"/>); null when Windows has none (the detector then does nothing).</summary>
     OcrEngine? Engine()
     {
         if (!_ocrChecked)
         {
             _ocrChecked = true;
-            var english = OcrEngine.AvailableRecognizerLanguages
-                                   .FirstOrDefault(l => l.LanguageTag.StartsWith("en", StringComparison.OrdinalIgnoreCase));
-            _ocr = english == null ? null : OcrEngine.TryCreateFromLanguage(english);
+            _ocr = OcrEngines.Create();
         }
         return _ocr;
     }

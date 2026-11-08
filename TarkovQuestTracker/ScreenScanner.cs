@@ -29,6 +29,7 @@ public sealed class ScreenScanner
     int _lastFingerprint;
     byte[]? _buffer;
     DateTime _scanStarted;
+    string _lastDiagnosisKind = "";
 
     public ScreenScanner(Func<QuestTextMatcher> matcher)
     {
@@ -55,6 +56,22 @@ public sealed class ScreenScanner
 
     /// <summary>Toast text for the player.</summary>
     public event Action<string>? Message;
+
+    /// <summary>What the last frame showed ("1920×1080 · 34 lines of text · 0 quests", "the game is not in front"):
+    /// a scan that finds nothing says why, on the page and (when it changes) on the overlay.</summary>
+    public string Diagnosis { get; private set; } = "";
+
+    /// <summary>The last picture taken (kept until <see cref="Clear"/>), for "save last frame".</summary>
+    internal ScreenCapture.Frame? LastFrame { get; private set; }
+
+    void Diagnose(string kind, string text)
+    {
+        Diagnosis = text;
+        Changed?.Invoke();
+        if (kind == _lastDiagnosisKind) return;
+        _lastDiagnosisKind = kind;
+        if (kind != "ok") Message?.Invoke(text);  // the player is in game: tell it there, once per change
+    }
     /// <summary><see cref="Found"/> or <see cref="IsScanning"/> changed.</summary>
     public event Action? Changed;
 
@@ -74,8 +91,17 @@ public sealed class ScreenScanner
         if (Engine() == null) return;
         _scanStarted = DateTime.UtcNow;
         _lastFingerprint = 0;
+        _lastDiagnosisKind = "";
+        Diagnosis = Loc.T("scan.d.waiting");
         _timer.Start();
         Message?.Invoke(Loc.F("t.scan.started", (int)MaxScan.TotalSeconds));
+        Changed?.Invoke();
+    }
+
+    void StopScanQuietly()
+    {
+        _timer.Stop();
+        _buffer = null;
         Changed?.Invoke();
     }
 
@@ -93,18 +119,18 @@ public sealed class ScreenScanner
         _timer.Stop();
         _found.Clear();
         _buffer = null;
+        LastFrame = null;
+        Diagnosis = "";
         Changed?.Invoke();
     }
 
-    /// <summary>The English recognizer (quest names are matched in English); null + a message when Windows has none.</summary>
+    /// <summary>A Latin-script recognizer (<see cref="OcrEngines.Create"/>); null + a message when Windows has none.</summary>
     OcrEngine? Engine()
     {
         if (!_ocrChecked)
         {
             _ocrChecked = true;
-            var english = OcrEngine.AvailableRecognizerLanguages
-                                   .FirstOrDefault(l => l.LanguageTag.StartsWith("en", StringComparison.OrdinalIgnoreCase));
-            _ocr = english == null ? null : OcrEngine.TryCreateFromLanguage(english);
+            _ocr = OcrEngines.Create();
         }
         if (_ocr == null) Message?.Invoke(Loc.T("t.scan.noOcr"));
         return _ocr;
@@ -121,15 +147,26 @@ public sealed class ScreenScanner
             if (ScreenCapture.IsOwnWindow(game))
             {
                 if (single) Message?.Invoke(Loc.T("t.scan.focusGame"));
+                else Diagnosis = Loc.T("scan.d.own");  // just pressed "Start": no toast, the player is switching
+                Changed?.Invoke();
                 return;
             }
+            var isGame = Win32.IsGameWindow(game);
             var maxSide = (int)OcrEngine.MaxImageDimension;
             var frame = await Task.Run(() => ScreenCapture.Capture(game, TargetHeight, maxSide, _buffer));
-            if (frame == null) return;
+            if (frame == null)
+            {
+                if (single) Message?.Invoke(Loc.T("t.scan.noFrame"));
+                else Diagnose("noFrame", Loc.T("t.scan.noFrame"));
+                return;
+            }
             _buffer = frame.Pixels;
+            LastFrame = frame;
             if (ScreenCapture.IsBlank(frame))
             {
                 Message?.Invoke(Loc.T("t.scan.black"));
+                Diagnosis = Loc.T("t.scan.black");
+                Changed?.Invoke();
                 return;
             }
             var fingerprint = ScreenCapture.Fingerprint(frame);
@@ -142,10 +179,21 @@ public sealed class ScreenScanner
             var added = result.Quests.Where(q => !_found.Contains(q)).ToList();
             _found.AddRange(added);
             if (added.Count > 0) Changed?.Invoke();
+            var seen = Loc.F("scan.d.frame", frame.Width, frame.Height, cells.Count, result.Quests.Count)
+                       + (isGame ? "" : " · " + Loc.T("scan.d.notGame"));
+            if (!single)
+                Diagnose(cells.Count == 0 ? "noText" : result.Quests.Count == 0 ? "noMatch" : "ok",
+                         cells.Count == 0 ? seen + " · " + Loc.T("scan.d.noText") : seen);
 
             if (_found.Count == 0 && result.Unmatched >= 5) Message?.Invoke(Loc.T("t.scan.english"));
             else if (single) Message?.Invoke(Loc.F("t.scan.read", added.Count, _found.Count));
             else if (added.Count > 0) Message?.Invoke(Loc.F("t.scan.progress", _found.Count, (int)Math.Ceiling(Remaining.TotalSeconds)));
+        }
+        catch (Exception ex)
+        {
+            // never take the app down (this runs from a timer); say what went wrong instead
+            StopScanQuietly();
+            Message?.Invoke(Loc.F("t.scan.failed", ex.Message));
         }
         finally
         {
