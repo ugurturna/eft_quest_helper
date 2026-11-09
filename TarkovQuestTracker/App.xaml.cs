@@ -62,6 +62,8 @@ public partial class App : Application
         if (vm.Settings.OverlayVisible) overlay.Show();
         // flea prices for the mode being played, once per start, in the background
         _ = vm.Flea.PrepareAsync(vm.Settings.Mode, vm.Settings.Language);
+        // map pictures for the GPS map: once in the background, a new app version starts them fresh
+        if (vm.MapTracking) _ = MapPictures.PrepareAsync(vm.MapData.Values, vm.MapCacheFolder, MainViewModel.AppVersion);
         vm.RestartRequested += () =>
         {
             // the new exe waits for this process to exit (hotkeys, files) before it starts

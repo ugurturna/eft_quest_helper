@@ -146,7 +146,8 @@ public static class MapPictures
 
     // tiles
 
-    static async Task<IReadOnlyList<MapPicture>> TilesAsync(MapGeometry map, string template, string cacheDir, double opacity)
+    /// <summary>The tiles covering the map at the zoom the window uses, with where each goes (map units).</summary>
+    static IEnumerable<(string Url, Rect Rect)> Tiles(MapGeometry map, string template)
     {
         var (left, top, right, bottom) = MapProjection.Rect(map, map.Bounds);
         var zoom = (int)Math.Clamp(Math.Round(Math.Log2(TileTargetWidth / Math.Max(1, right - left))), map.MinZoom, map.MaxZoom);
@@ -155,14 +156,17 @@ public static class MapPictures
         int x0 = (int)Math.Floor(left * factor / size), x1 = (int)Math.Floor(right * factor / size);
         int y0 = (int)Math.Floor(top * factor / size), y1 = (int)Math.Floor(bottom * factor / size);
         var unit = size / factor;  // one tile in map units
-
-        using var limit = new SemaphoreSlim(8);
-        var tasks = new List<Task<MapPicture?>>();
         for (var x = x0; x <= x1; x++)
             for (var y = y0; y <= y1; y++)
-            {
-                var (tx, ty) = (x, y);
-                var url = template.Replace("{z}", zoom.ToString()).Replace("{x}", tx.ToString()).Replace("{y}", ty.ToString());
+                yield return (template.Replace("{z}", zoom.ToString()).Replace("{x}", x.ToString()).Replace("{y}", y.ToString()),
+                              new Rect(x * unit, y * unit, unit, unit));
+    }
+
+    static async Task<IReadOnlyList<MapPicture>> TilesAsync(MapGeometry map, string template, string cacheDir, double opacity)
+    {
+        using var limit = new SemaphoreSlim(8);
+        var tasks = new List<Task<MapPicture?>>();
+        foreach (var (url, rect) in Tiles(map, template))
                 tasks.Add(Task.Run(async () =>
                 {
                     await limit.WaitAsync();
@@ -175,7 +179,7 @@ public static class MapPictures
                         bitmap.UriSource = new Uri(file);
                         bitmap.EndInit();
                         bitmap.Freeze();
-                        return new MapPicture(bitmap, new Rect(tx * unit, ty * unit, unit, unit), opacity);
+                        return new MapPicture(bitmap, rect, opacity);
                     }
                     catch (Exception ex) when (ex is HttpRequestException or IOException or NotSupportedException or TaskCanceledException)
                     {
@@ -186,7 +190,6 @@ public static class MapPictures
                         limit.Release();
                     }
                 }));
-            }
         var tiles = await Task.WhenAll(tasks);
         return tiles.OfType<MapPicture>().ToList();
     }
@@ -199,10 +202,62 @@ public static class MapPictures
         if (File.Exists(path)) return path;
         var bytes = await Http.GetByteArrayAsync(uri);
         Directory.CreateDirectory(Path.GetDirectoryName(path)!);
-        var tmp = path + ".tmp";
+        var tmp = $"{path}.{Guid.NewGuid():N}.tmp";  // the start-up download and an open map may fetch the same file
         await File.WriteAllBytesAsync(tmp, bytes);
         File.Move(tmp, path, overwrite: true);
         return path;
+    }
+
+    // download once: at start-up, again only when the app version changes
+
+    const string VersionFile = "version.txt";
+
+    /// <summary>
+    /// Maps hardly ever change, so they are fetched once in the background when the app starts (the map window then
+    /// opens at once, also offline). A new app version starts from an empty cache, so its maps.json and the pictures
+    /// match; otherwise only missing files are downloaded. Errors only mean a map is fetched when it is opened.
+    /// </summary>
+    public static async Task PrepareAsync(IEnumerable<MapGeometry> maps, string cacheDir, string appVersion)
+    {
+        try
+        {
+            var versionPath = Path.Combine(cacheDir, VersionFile);
+            var cached = File.Exists(versionPath) ? (await File.ReadAllTextAsync(versionPath)).Trim() : null;
+            if (cached != appVersion)
+            {
+                if (Directory.Exists(cacheDir)) Directory.Delete(cacheDir, recursive: true);
+                Directory.CreateDirectory(cacheDir);
+                await File.WriteAllTextAsync(versionPath, appVersion);
+            }
+            foreach (var map in maps)
+            {
+                // the picture the window opens with; floors (Icebreaker has 16) come when they are first shown
+                var urls = map.SvgPath != null ? [map.SvgPath]
+                         : map.TilePath != null ? Tiles(map, map.TilePath).Select(t => t.Url).ToList()
+                         : new List<string>();
+                using var limit = new SemaphoreSlim(4);
+                await Task.WhenAll(urls.Select(async url =>
+                {
+                    await limit.WaitAsync();
+                    try
+                    {
+                        await CachedAsync(url, cacheDir);
+                    }
+                    catch (Exception ex) when (IsDownloadError(ex))
+                    {
+                        // a tile outside the picture (404) or no network: the window tries again when it opens
+                    }
+                    finally
+                    {
+                        limit.Release();
+                    }
+                }));
+            }
+        }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+        {
+            // the cache folder can't be written: maps are fetched when they are opened
+        }
     }
 
     public static bool IsDownloadError(Exception ex) =>

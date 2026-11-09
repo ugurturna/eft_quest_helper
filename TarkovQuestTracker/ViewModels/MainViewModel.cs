@@ -176,6 +176,7 @@ public sealed partial class MainViewModel : ObservableObject
         DataInfo = BuildDataInfo();
         OnPropertyChanged(nameof(DataInfo));
         OnPropertyChanged(nameof(SelectedSources));
+        OnPropertyChanged(nameof(GpsStatus));
         Refresh();
     }
     [ObservableProperty] private bool _isPve;

@@ -37,7 +37,7 @@ public partial class OverlayWindow : Window
             if (e.PropertyName is nameof(MainViewModel.OverlayPosition) or nameof(MainViewModel.OverlayPositionX)
                 && _dragStart == null) ApplyPosition();
             if (e.PropertyName == nameof(MainViewModel.RaidMap) && vm.RaidMap != null) LockForRaid();
-            if (e.PropertyName == nameof(MainViewModel.ReadsScreen)) ApplyCaptureExclusion();
+            if (e.PropertyName == nameof(MainViewModel.OverlayShowInCapture)) ApplyCaptureExclusion();
             if (e.PropertyName == nameof(MainViewModel.OverlayAutoHide)) OnAutoHideChanged();
         };
     }
@@ -74,13 +74,13 @@ public partial class OverlayWindow : Window
     }
 
     /// <summary>
-    /// While the corner is read (auto raid detection / auto-hide), the overlay is left out of screen pictures: it may sit right on the exfil list
-    /// (top right, where most players keep it) and the list is still read. The player keeps seeing it as always;
-    /// only recordings / streams / screenshots don't show it.
+    /// Unless the player wants it on stream (Settings), the overlay is left out of screen pictures: it may sit right
+    /// on the exfil list (top right, where most players keep it) and the auto raid detection still reads the list.
+    /// The player keeps seeing it as always; only recordings / streams / screenshots don't show it.
     /// </summary>
     void ApplyCaptureExclusion()
     {
-        if (_hwnd != IntPtr.Zero) Win32.ExcludeFromCapture(_hwnd, _vm.ReadsScreen);
+        if (_hwnd != IntPtr.Zero) Win32.ExcludeFromCapture(_hwnd, !_vm.OverlayShowInCapture);
     }
 
     /// <summary>

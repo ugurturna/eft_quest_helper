@@ -39,6 +39,38 @@ static class Win32
     static extern uint GetWindowThreadProcessId(IntPtr hwnd, out uint pid);
 
     [DllImport("user32.dll")]
+    static extern bool AttachThreadInput(uint attach, uint attachTo, bool on);
+
+    [DllImport("user32.dll")]
+    static extern bool BringWindowToTop(IntPtr hwnd);
+
+    [DllImport("kernel32.dll")]
+    static extern uint GetCurrentThreadId();
+
+    /// <summary>
+    /// Gives the window the keyboard even when this app is in the background (a screenshot opened the map, no hotkey):
+    /// Windows refuses SetForegroundWindow then, unless our thread shares input with the foreground one for a moment.
+    /// Nothing is sent to the game.
+    /// </summary>
+    public static void TakeForeground(IntPtr hwnd)
+    {
+        var foreground = GetForegroundWindow();
+        if (foreground == hwnd) return;
+        var theirs = GetWindowThreadProcessId(foreground, out _);
+        var ours = GetCurrentThreadId();
+        var attached = theirs != 0 && theirs != ours && AttachThreadInput(ours, theirs, true);
+        try
+        {
+            BringWindowToTop(hwnd);
+            SetForegroundWindow(hwnd);
+        }
+        finally
+        {
+            if (attached) AttachThreadInput(ours, theirs, false);
+        }
+    }
+
+    [DllImport("user32.dll")]
     static extern bool SetWindowDisplayAffinity(IntPtr hwnd, uint affinity);
 
     [DllImport("user32.dll")]

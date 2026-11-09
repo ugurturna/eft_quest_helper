@@ -446,6 +446,122 @@
                     </ScrollViewer>
                 </TabItem>
 
+                <!-- In-Game GPS: the player's position from the game's screenshot names, on the map window -->
+                <TabItem Header="{DynamicResource s.tab.gps}" Tag="&#xE81D;">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="0,8,0,0" MaxWidth="760" HorizontalAlignment="Left">
+                            <!-- what it reads, before anything else -->
+                            <Border Background="#18241A" BorderBrush="{StaticResource DoneBrush}" BorderThickness="1" CornerRadius="4"
+                                    Padding="12,8" Margin="0,0,0,10">
+                                <TextBlock TextWrapping="Wrap" Style="{StaticResource Body}">
+                                    <Run Text="✔ " Foreground="{StaticResource DoneBrush}" /><Run Text="{DynamicResource s.gps.notice}" Foreground="{StaticResource DoneBrush}" FontWeight="SemiBold" />
+                                    <LineBreak /><Run Text="{DynamicResource s.gps.safe}" Foreground="{StaticResource MutedBrush}" FontSize="12" />
+                                </TextBlock>
+                            </Border>
+
+                            <!-- on / off, like the raid auto-detect -->
+                            <Border Background="{StaticResource CardBrush}" CornerRadius="4" Padding="10,8" Margin="0,0,0,10">
+                                <StackPanel>
+                                    <DockPanel>
+                                        <Border DockPanel.Dock="Right" Background="{StaticResource BgBrush}" BorderBrush="{StaticResource LineBrush}"
+                                                BorderThickness="1" CornerRadius="4" Padding="2" VerticalAlignment="Center" Margin="8,0,0,0">
+                                            <StackPanel Orientation="Horizontal">
+                                                <RadioButton Content="{DynamicResource s.raid.autoOn}" GroupName="gps" Style="{StaticResource Segment}"
+                                                             IsChecked="{Binding MapTracking}" />
+                                                <RadioButton Content="{DynamicResource s.raid.autoOff}" GroupName="gps" Style="{StaticResource Segment}"
+                                                             IsChecked="{Binding MapTrackingOff}" />
+                                            </StackPanel>
+                                        </Border>
+                                        <TextBlock Text="{DynamicResource s.gps.title}" Style="{StaticResource Body}" FontWeight="SemiBold"
+                                                   FontSize="15" VerticalAlignment="Center" TextWrapping="Wrap" />
+                                    </DockPanel>
+                                    <TextBlock Text="{DynamicResource s.gps.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,4,0,0" />
+                                </StackPanel>
+                            </Border>
+
+                            <!-- how to use it -->
+                            <Border Background="{StaticResource CardBrush}" CornerRadius="4" Padding="12,8" Margin="0,0,0,10">
+                                <StackPanel>
+                                    <StackPanel.Resources>
+                                        <Style x:Key="GpsStep" TargetType="TextBlock" BasedOn="{StaticResource Body}">
+                                            <Setter Property="TextWrapping" Value="Wrap" />
+                                            <Setter Property="Margin" Value="0,3" />
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <TextBlock Style="{StaticResource GpsStep}">
+                                        <Run Text="1" Foreground="{StaticResource AccentBrush}" FontWeight="Bold" /> <Run Text="{DynamicResource s.gps.step1}" />
+                                    </TextBlock>
+                                    <TextBlock Style="{StaticResource GpsStep}">
+                                        <Run Text="2" Foreground="{StaticResource AccentBrush}" FontWeight="Bold" /> <Run Text="{DynamicResource s.gps.step2}" />
+                                    </TextBlock>
+                                    <TextBlock Style="{StaticResource GpsStep}">
+                                        <Run Text="3" Foreground="{StaticResource AccentBrush}" FontWeight="Bold" /> <Run Text="{DynamicResource s.gps.step3}" />
+                                    </TextBlock>
+                                    <TextBlock Style="{StaticResource GpsStep}">
+                                        <Run Text="4" Foreground="{StaticResource AccentBrush}" FontWeight="Bold" /> <Run Text="{DynamicResource s.gps.step4}" />
+                                    </TextBlock>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- status: last position, open the map -->
+                            <Border Background="{StaticResource CardBrush}" BorderBrush="{StaticResource LineBrush}" BorderThickness="1"
+                                    CornerRadius="4" Padding="12,10" Margin="0,0,0,10">
+                                <DockPanel>
+                                    <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Button Content="{DynamicResource s.map.set.open}" Style="{StaticResource SmallButton}" Command="{Binding ToggleMapCommand}" />
+                                        <Button Content="⟳" Style="{StaticResource SmallButton}" ToolTip="{DynamicResource s.map.reload}"
+                                                Command="{Binding ReloadScreenshotCommand}" />
+                                    </StackPanel>
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="{DynamicResource s.gps.status}" Style="{StaticResource Muted}" FontSize="11" />
+                                        <TextBlock Text="{Binding GpsStatus}" Style="{StaticResource Body}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </DockPanel>
+                            </Border>
+
+                            <!-- settings -->
+                            <TextBlock Text="{DynamicResource s.gps.settings}" Style="{StaticResource H2}" />
+                            <StackPanel IsEnabled="{Binding MapTracking}">
+                                <CheckBox Content="{DynamicResource s.map.set.autoOpen}" IsChecked="{Binding MapOpenOnScreenshot}" Margin="0,4,0,4" />
+                                <CheckBox Content="{DynamicResource s.gps.exfils}" IsChecked="{Binding MapShowExtracts}" Margin="0,0,0,4" />
+                                <CheckBox Content="{DynamicResource s.gps.quests}" IsChecked="{Binding MapShowQuests}" Margin="0,0,0,8" />
+                                <Grid Margin="0,0,0,6">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{DynamicResource s.map.set.folder}" Style="{StaticResource Body}" VerticalAlignment="Center" Margin="0,0,12,6" />
+                                    <TextBox Grid.Column="1" Text="{Binding ScreenshotsFolder, UpdateSourceTrigger=LostFocus}" Margin="0,0,0,6" />
+                                    <TextBlock Grid.Row="1" Text="{DynamicResource s.ov.opacity}" Style="{StaticResource Body}" VerticalAlignment="Center" Margin="0,0,12,0" />
+                                    <Slider Grid.Row="1" Grid.Column="1" Minimum="0.3" Maximum="1" Value="{Binding MapOpacity}" MaxWidth="260"
+                                            HorizontalAlignment="Left" Width="260" VerticalAlignment="Center" />
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- where the map window opens; dragging its top bar sets this too -->
+                            <DockPanel Margin="0,8,0,0">
+                                <Button DockPanel.Dock="Right" Content="{DynamicResource s.gps.center}" Style="{StaticResource SmallButton}"
+                                        Command="{Binding CenterMapCommand}" VerticalAlignment="Center" />
+                                <TextBlock Text="{DynamicResource s.gps.position}" Style="{StaticResource Body}" FontWeight="SemiBold" VerticalAlignment="Center" />
+                            </DockPanel>
+                            <TextBlock Text="{DynamicResource s.gps.positionHint}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,2,0,4" />
+                            <TextBlock Style="{StaticResource Body}">
+                                <Run Text="{DynamicResource s.set.positionX}" /> <Run Text="{Binding MapPositionX, StringFormat={}{0:P0}, Mode=OneWay}" />
+                            </TextBlock>
+                            <Slider Minimum="0" Maximum="1" Value="{Binding MapPositionX}" Margin="0,0,0,6" />
+                            <TextBlock Style="{StaticResource Body}">
+                                <Run Text="{DynamicResource s.set.position}" /> <Run Text="{Binding MapPositionY, StringFormat={}{0:P0}, Mode=OneWay}" />
+                            </TextBlock>
+                            <Slider Minimum="0" Maximum="1" Value="{Binding MapPositionY}" Margin="0,0,0,6" />
+                            <TextBlock Text="{DynamicResource s.gps.maps}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,6,0,8" />
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+
                 <!-- search -->
                 <TabItem Header="{DynamicResource s.tab.quests}" Tag="&#xE8FD;">
                     <DockPanel Margin="0,8,0,0">
@@ -920,18 +1036,14 @@
                                 </Grid>
                             </Border>
 
-                            <TextBlock Text="{DynamicResource s.map.set.title}" Style="{StaticResource H2}" />
-                            <TextBlock Text="{DynamicResource s.map.set.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" />
-                            <CheckBox Content="{DynamicResource s.map.set.track}" IsChecked="{Binding MapTracking}" Margin="0,6,0,4" />
-                            <CheckBox Content="{DynamicResource s.map.set.autoOpen}" IsChecked="{Binding MapOpenOnScreenshot}" Margin="0,0,0,4"
-                                      IsEnabled="{Binding MapTracking}" />
-                            <DockPanel Margin="0,0,0,4">
-                                <TextBlock Text="{DynamicResource s.map.set.folder}" Style="{StaticResource Body}" VerticalAlignment="Center" Margin="0,0,12,0" />
-                                <TextBox Text="{Binding ScreenshotsFolder, UpdateSourceTrigger=LostFocus}" />
-                            </DockPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                <Button Content="{DynamicResource s.map.set.open}" Style="{StaticResource SmallButton}" Command="{Binding ToggleMapCommand}" />
-                            </StackPanel>
+                            <!-- streams / recordings: which windows show in screen pictures -->
+                            <TextBlock Text="{DynamicResource s.cap.title}" Style="{StaticResource H2}" />
+                            <TextBlock Text="{DynamicResource s.cap.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,0,0,4" />
+                            <CheckBox Content="{DynamicResource s.cap.overlay}" IsChecked="{Binding OverlayShowInCapture}" Margin="0,2,0,2" />
+                            <TextBlock Text="{DynamicResource s.cap.overlayWarn}" Foreground="{StaticResource WarnBrush}" FontSize="12" TextWrapping="Wrap"
+                                       Margin="22,0,0,4" Visibility="{Binding OverlayCaptureWarning, Converter={StaticResource BoolToVis}}" />
+                            <CheckBox Content="{DynamicResource s.cap.flea}" IsChecked="{Binding FleaShowInCapture}" Margin="0,2,0,2" />
+                            <CheckBox Content="{DynamicResource s.cap.map}" IsChecked="{Binding MapShowInCapture}" Margin="0,2,0,8" />
 
                             <TextBlock Text="{DynamicResource s.u.title}" Style="{StaticResource H2}" />
                             <CheckBox Content="{DynamicResource s.u.auto}" IsChecked="{Binding CheckForUpdates}" Margin="0,4,0,4" />

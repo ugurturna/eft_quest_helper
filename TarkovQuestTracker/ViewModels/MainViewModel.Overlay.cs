@@ -80,11 +80,60 @@ public sealed partial class MainViewModel
     {
         Detector.Enabled = ReadsScreen;
         OnPropertyChanged(nameof(ReadsScreen));
+        OnPropertyChanged(nameof(OverlayCaptureWarning));
     }
+
+    // streams / recordings: each window can be left out of screen pictures (the player still sees it)
+
+    public bool OverlayShowInCapture
+    {
+        get => Settings.OverlayShowInCapture;
+        set
+        {
+            if (Settings.OverlayShowInCapture == value) return;
+            Settings.OverlayShowInCapture = value;
+            SaveSettings();
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(OverlayCaptureWarning));
+        }
+    }
+
+    public bool FleaShowInCapture
+    {
+        get => Settings.FleaShowInCapture;
+        set
+        {
+            if (Settings.FleaShowInCapture == value) return;
+            Settings.FleaShowInCapture = value;
+            SaveSettings();
+            OnPropertyChanged();
+        }
+    }
+
+    public bool MapShowInCapture
+    {
+        get => Settings.MapShowInCapture;
+        set
+        {
+            if (Settings.MapShowInCapture == value) return;
+            Settings.MapShowInCapture = value;
+            SaveSettings();
+            OnPropertyChanged();
+        }
+    }
+
+    /// <summary>
+    /// A visible overlay is in the screen pictures the raid detection reads: sitting on the exfil list it hides it.
+    /// </summary>
+    public bool OverlayCaptureWarning => Settings.OverlayShowInCapture && ReadsScreen;
 
     /// <summary>After a profile's settings load: the overlay settings' bindings and the detector follow them.</summary>
     void ApplyOverlaySettings()
     {
+        OnPropertyChanged(nameof(OverlayShowInCapture));
+        OnPropertyChanged(nameof(FleaShowInCapture));
+        OnPropertyChanged(nameof(MapShowInCapture));
+        OnPropertyChanged(nameof(OverlayCaptureWarning));
         OnPropertyChanged(nameof(OverlayMaxKey));
         OnPropertyChanged(nameof(OverlayHideDoneObjectives));
         OnPropertyChanged(nameof(OverlayAutoHide));

@@ -34,6 +34,10 @@ public partial class FleaSearchWindow : Window
         _vm = vm;
         DataContext = vm;  // opacity comes from the settings
         InitializeComponent();
+        vm.PropertyChanged += (_, e) =>
+        {
+            if (e.PropertyName == nameof(MainViewModel.FleaShowInCapture)) ApplyCaptureExclusion();
+        };
     }
 
     protected override void OnSourceInitialized(EventArgs e)
@@ -41,6 +45,13 @@ public partial class FleaSearchWindow : Window
         base.OnSourceInitialized(e);
         _hwnd = new WindowInteropHelper(this).Handle;
         Win32.MakeToolWindow(_hwnd);
+        ApplyCaptureExclusion();
+    }
+
+    /// <summary>Shown on streams / recordings unless the player turned it off in Settings.</summary>
+    void ApplyCaptureExclusion()
+    {
+        if (_hwnd != IntPtr.Zero) Win32.ExcludeFromCapture(_hwnd, !_vm.FleaShowInCapture);
     }
 
     public void Toggle()

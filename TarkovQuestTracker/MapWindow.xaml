@@ -5,7 +5,7 @@
         WindowStyle="None" AllowsTransparency="True" Background="Transparent"
         Topmost="True" ShowInTaskbar="False" ShowActivated="False" ResizeMode="CanResizeWithGrip"
         MinWidth="320" MinHeight="240" Width="720" Height="560"
-        Opacity="{Binding MapOpacity}">
+        Opacity="{Binding MapOpacity}" PreviewKeyDown="Window_PreviewKeyDown">
     <!-- the player's spot from the game's screenshot names, on tarkov.dev's map; stays on top of the game, never takes focus when it opens -->
     <Border Background="{StaticResource BgBrush}" BorderBrush="{StaticResource AccentBrush}" BorderThickness="1" CornerRadius="6">
         <DockPanel>
@@ -13,13 +13,17 @@
             <DockPanel x:Name="Header" DockPanel.Dock="Top" Margin="8,6,6,4" Background="Transparent" MouseLeftButtonDown="Header_MouseDown">
                 <Button DockPanel.Dock="Right" Content="✕" Style="{StaticResource SmallButton}" FontSize="11" Padding="6,0" Margin="4,0,0,0"
                         ToolTip="{DynamicResource s.map.close}" Click="Close_Click" />
+                <TextBlock DockPanel.Dock="Right" Text="{DynamicResource s.flea.esc}" Style="{StaticResource Muted}" FontSize="11"
+                           VerticalAlignment="Center" Margin="8,0,4,0" />
                 <Button DockPanel.Dock="Right" Content="⟳" Style="{StaticResource SmallButton}" FontSize="12" Padding="6,0" Margin="4,0,0,0"
                         ToolTip="{DynamicResource s.map.reload}" Command="{Binding ReloadScreenshotCommand}" />
                 <ToggleButton x:Name="Follow" DockPanel.Dock="Right" Content="◎" FontSize="13" Padding="6,0" Margin="4,0,0,0" IsChecked="True"
                               ToolTip="{DynamicResource s.map.follow}" Checked="Follow_Checked" />
                 <WrapPanel VerticalAlignment="Center">
-                    <TextBlock FontWeight="Bold" Foreground="{StaticResource AccentBrush}" FontSize="13" VerticalAlignment="Center" Margin="0,0,8,0">
-                        <Run Text="◆" /> <Run Text="{DynamicResource s.map.title}" />
+                    <!-- the grip: drag the top bar to move the window -->
+                    <TextBlock FontWeight="Bold" Foreground="{StaticResource AccentBrush}" FontSize="13" VerticalAlignment="Center" Margin="0,0,8,0"
+                               Cursor="SizeAll" ToolTip="{DynamicResource s.map.drag}">
+                        <Run Text="⠿" Foreground="{StaticResource MutedBrush}" /> <Run Text="◆" /> <Run Text="{DynamicResource s.map.title}" />
                     </TextBlock>
                     <ComboBox x:Name="MapBox" ItemsSource="{Binding MapNames}" SelectedItem="{Binding MapName}" MinWidth="140" Margin="0,0,6,0"
                               VerticalAlignment="Center" />
@@ -35,7 +39,7 @@
                 <TextBlock x:Name="Status" Style="{StaticResource Muted}" FontSize="11" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" />
             </DockPanel>
 
-            <Grid x:Name="Viewport" ClipToBounds="True" Background="#FF14171A" Margin="1,0,1,0"
+            <Grid x:Name="Viewport" ClipToBounds="True" Background="#FF14171A" Margin="1,0,1,0" Focusable="True" FocusVisualStyle="{x:Null}"
                   MouseWheel="Viewport_MouseWheel" MouseLeftButtonDown="Viewport_MouseDown" MouseMove="Viewport_MouseMove"
                   MouseLeftButtonUp="Viewport_MouseUp" SizeChanged="Viewport_SizeChanged">
                 <Canvas x:Name="Pictures" IsHitTestVisible="False">

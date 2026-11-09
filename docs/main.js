@@ -225,6 +225,10 @@ const translations = {
     f17Title: "Your Position on the Map",
     f17Desc: "Take a screenshot in raid with your own screenshot key: a map window shows where you are and which way you face, your path, the exfils and your active quests' spots. The floor follows your height. Only the screenshot's file name is read.",
     f17Badge: "Any screenshot key · tarkov.dev maps",
+    tabMap: "Map",
+    tabMapFollow: "Map · Follow",
+    capMap: "Take a screenshot in raid and the map shows where you are: the red arrow points where you face, the dashed line is your path from earlier screenshots. Exfils (PMC / Scav / shared, transits) and your active quests' spots (yellow) are on the map.",
+    capMapFollow: "Follow mode keeps the view on you, zoomed in to the street. The floor follows your height; wheel zooms, dragging looks around, Esc puts you back in the game.",
     safeDoes7: "The map reads only the file names of the screenshots you take yourself (the game writes your position into them); the pictures are never opened.",
     faq7Q: "How does the map know where I am? Which key do I press?",
     faq7A: "When you take a screenshot in raid, the game itself writes your position into the file name. The app watches your screenshot folder (Documents\\Escape from Tarkov\\Screenshots) and reads that name, so whatever key you bound for screenshots in the game works: there is no extra hotkey. The picture is never opened, and nothing touches the game."
@@ -452,6 +456,10 @@ const translations = {
     f17Title: "Haritada Konumun",
     f17Desc: "Raidde kendi ekran görüntüsü tuşunla ekran görüntüsü al: harita penceresi nerede olduğunu ve nereye baktığını, izini, exfilleri ve aktif görevlerinin noktalarını gösterir. Kat yüksekliğine göre değişir. Sadece ekran görüntüsünün dosya adı okunur.",
     f17Badge: "Her ekran görüntüsü tuşu · tarkov.dev haritaları",
+    tabMap: "Harita",
+    tabMapFollow: "Harita · Takip",
+    capMap: "Raidde ekran görüntüsü al, harita nerede olduğunu göstersin: kırmızı ok baktığın yönü, kesikli çizgi önceki ekran görüntülerinden izini gösterir. Exfiller (PMC / Scav / ortak, transitler) ve aktif görevlerinin noktaları (sarı) haritada.",
+    capMapFollow: "Takip modu görünümü sende tutar, sokak seviyesine yakınlaşır. Kat yüksekliğine göre değişir; tekerlek yakınlaştırır, sürüklemek etrafa bakar, Esc seni oyuna geri döndürür.",
     safeDoes7: "Harita sadece senin aldığın ekran görüntülerinin dosya adlarını okur (oyun konumunu bu adlara yazar); görüntüler hiç açılmaz.",
     faq7Q: "Harita nerede olduğumu nasıl biliyor? Hangi tuşa basacağım?",
     faq7A: "Raidde ekran görüntüsü aldığında oyunun kendisi konumunu dosya adına yazar. Uygulama ekran görüntüsü klasörünü (Belgeler\\Escape from Tarkov\\Screenshots) izler ve bu adı okur; yani oyunda ekran görüntüsü için hangi tuşu atadıysan o çalışır, ek bir kısayol yok. Görüntü hiç açılmaz, oyuna hiçbir şekilde dokunulmaz."
@@ -679,6 +687,10 @@ const translations = {
     f17Title: "Ваша позиция на карте",
     f17Desc: "Сделайте скриншот в рейде своей клавишей скриншота: окно карты покажет, где вы и куда смотрите, ваш путь, выходы и точки активных заданий. Этаж выбирается по высоте. Читается только имя файла скриншота.",
     f17Badge: "Любая клавиша скриншота · карты tarkov.dev",
+    tabMap: "Карта",
+    tabMapFollow: "Карта · Слежение",
+    capMap: "Сделайте скриншот в рейде, и карта покажет, где вы: красная стрелка — куда вы смотрите, пунктир — ваш путь по прошлым скриншотам. На карте выходы (ЧВК / Дикий / общие, переходы) и точки активных заданий (жёлтые).",
+    capMapFollow: "Режим слежения держит вид на вас, приближая до уровня улицы. Этаж выбирается по высоте; колесо — масштаб, перетаскивание — обзор, Esc возвращает в игру.",
     safeDoes7: "Карта читает только имена файлов скриншотов, которые вы делаете сами (игра записывает в них вашу позицию); изображения не открываются.",
     faq7Q: "Как карта узнаёт, где я? Какую клавишу нажимать?",
     faq7A: "Когда вы делаете скриншот в рейде, игра сама записывает вашу позицию в имя файла. Приложение следит за папкой скриншотов (Документы\\Escape from Tarkov\\Screenshots) и читает это имя, поэтому работает любая клавиша скриншота, назначенная в игре: дополнительной горячей клавиши нет. Изображение не открывается, игра никак не затрагивается."

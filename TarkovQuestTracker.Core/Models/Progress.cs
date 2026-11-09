@@ -69,9 +69,18 @@ public sealed class AppSettings
     public double MapOpacity { get; set; } = 0.95;
     public bool MapShowExtracts { get; set; } = true;
     public bool MapShowQuests { get; set; } = true;
-    /// <summary>Map window place and size in screen units; 0 width = not placed yet (middle of the screen).</summary>
-    public double MapWindowLeft { get; set; }
-    public double MapWindowTop { get; set; }
+    /// <summary>Map window place as fractions of the free space across all monitors (0.5 = middle), like the overlay's.</summary>
+    public double MapPositionX { get; set; } = 0.5;
+    public double MapPositionY { get; set; } = 0.5;
+    /// <summary>Map window size in screen units; 0 = its default size.</summary>
     public double MapWindowWidth { get; set; }
     public double MapWindowHeight { get; set; }
+    /// <summary>
+    /// Whether each window shows in streams, recordings and screenshots (off = left out of screen pictures; the player
+    /// still sees it). The overlay and the map are left out by default: the auto raid detection reads the screen
+    /// corner they may cover, and streamers rarely want their quests on stream.
+    /// </summary>
+    public bool OverlayShowInCapture { get; set; }
+    public bool FleaShowInCapture { get; set; } = true;
+    public bool MapShowInCapture { get; set; }
 }

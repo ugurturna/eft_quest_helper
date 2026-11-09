@@ -53,6 +53,7 @@ public sealed partial class MainViewModel
 
     partial void OnMapNameChanged(string? value)
     {
+        OnPropertyChanged(nameof(GpsStatus));
         if (_followingCapture) return;
         // another map: the old position and path were on the old one
         PlayerTrail.Clear();
@@ -121,6 +122,7 @@ public sealed partial class MainViewModel
     void ReloadScreenshot()
     {
         Screenshots.Restart();
+        OnPropertyChanged(nameof(GpsStatus));  // the folder may exist by now
         if (Screenshots.Latest() is { } p) OnScreenshot(p);
         else Toast = Loc.F(Screenshots.FolderExists ? "t.map.noShot" : "t.map.noFolder", Screenshots.Folder);
     }
@@ -153,10 +155,31 @@ public sealed partial class MainViewModel
             if (Settings.MapTracking == value) return;
             Settings.MapTracking = value;
             Screenshots.Enabled = value;
+            if (value) _ = MapPictures.PrepareAsync(MapData.Values, MapCacheFolder, AppVersion);
             SaveSettings();
             OnPropertyChanged();
+            OnPropertyChanged(nameof(MapTrackingOff));
+            OnPropertyChanged(nameof(GpsStatus));
         }
     }
+
+    /// <summary>Other side of <see cref="MapTracking"/> for the GPS page's On | Off segmented switch.</summary>
+    public bool MapTrackingOff
+    {
+        get => !MapTracking;
+        set { if (value) MapTracking = false; }
+    }
+
+    /// <summary>GPS page status line: off, no folder, waiting for a screenshot, or the last position.</summary>
+    public string GpsStatus =>
+        !MapTracking ? Loc.T("s.map.off")
+        : !Screenshots.FolderExists ? Loc.F("s.map.noFolder", Screenshots.Folder)
+        : PlayerPosition is not { } p ? Loc.T("s.gps.waiting")
+        : Loc.F("s.gps.pos", p.Taken.ToString("HH:mm"), MapName ?? Loc.T("s.gps.noMap"),
+                p.X.ToString("0", System.Globalization.CultureInfo.InvariantCulture),
+                p.Z.ToString("0", System.Globalization.CultureInfo.InvariantCulture));
+
+    partial void OnPlayerPositionChanged(ScreenshotPosition? value) => OnPropertyChanged(nameof(GpsStatus));
 
     public string ScreenshotsFolder
     {
@@ -168,6 +191,7 @@ public sealed partial class MainViewModel
             Screenshots.Folder = value;
             SaveSettings();
             OnPropertyChanged();
+            OnPropertyChanged(nameof(GpsStatus));
         }
     }
 
@@ -224,12 +248,46 @@ public sealed partial class MainViewModel
         }
     }
 
+    /// <summary>Map window place, 0–1 across the free space of all monitors (sliders on the GPS page; dragging sets it too).</summary>
+    public double MapPositionX
+    {
+        get => Math.Clamp(Settings.MapPositionX, 0, 1);
+        set => SetMapPosition(value, MapPositionY);
+    }
+
+    public double MapPositionY
+    {
+        get => Math.Clamp(Settings.MapPositionY, 0, 1);
+        set => SetMapPosition(MapPositionX, value);
+    }
+
+    /// <summary>
+    /// Both at once; saved right away, like the overlay's position. A drag passes <paramref name="clamp"/> false:
+    /// past 0–1 is another monitor (the sliders show the nearest edge).
+    /// </summary>
+    public void SetMapPosition(double x, double y, bool clamp = true)
+    {
+        if (clamp) (x, y) = (Math.Clamp(x, 0, 1), Math.Clamp(y, 0, 1));
+        if (Settings.MapPositionX == x && Settings.MapPositionY == y) return;
+        (Settings.MapPositionX, Settings.MapPositionY) = (x, y);
+        SaveSettings();
+        OnPropertyChanged(nameof(MapPositionX));
+        OnPropertyChanged(nameof(MapPositionY));
+    }
+
+    [RelayCommand]
+    void CenterMap() => SetMapPosition(0.5, 0.5);
+
     /// <summary>After a profile's settings load.</summary>
     void ApplyMapSettings()
     {
+        OnPropertyChanged(nameof(MapPositionX));
+        OnPropertyChanged(nameof(MapPositionY));
         Screenshots.Folder = Settings.ScreenshotsFolder;
         Screenshots.Enabled = Settings.MapTracking;
         OnPropertyChanged(nameof(MapTracking));
+        OnPropertyChanged(nameof(MapTrackingOff));
+        OnPropertyChanged(nameof(GpsStatus));
         OnPropertyChanged(nameof(MapOpenOnScreenshot));
         OnPropertyChanged(nameof(ScreenshotsFolder));
         OnPropertyChanged(nameof(MapShowExtracts));

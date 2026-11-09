@@ -18,6 +18,7 @@ namespace TarkovQuestTracker;
 /// Map window (opens with a new in-game screenshot, or from the overlay / settings buttons): the raid's map with the player where the last in-game screenshot
 /// was taken, the path of this raid's screenshots, exfils and the active quests' objective spots.
 /// Wheel zooms, dragging pans (and stops following the player), the floor follows the player's height.
+/// Takes the keyboard while open; Esc (or a click on the game) hides it and gives focus back to the game.
 /// </summary>
 public partial class MapWindow : Window
 {
@@ -36,6 +37,9 @@ public partial class MapWindow : Window
     /// <summary>Pictures already made, by map and floor (null = ground).</summary>
     readonly Dictionary<(string Map, string? Floor), IReadOnlyList<MapPicture>> _pictures = [];
     IntPtr _hwnd;
+    /// <summary>Window that had focus before we opened (the game), to return to on Esc.</summary>
+    IntPtr _previous;
+    bool _hiding;
     string? _shownMap;
     MapLayer? _shownLayer;
     int _loadVersion;
@@ -77,27 +81,62 @@ public partial class MapWindow : Window
 
     public void Toggle()
     {
-        if (IsVisible)
-        {
-            SaveBounds();
-            _topmostTimer.Stop();
-            Hide();
-            return;
-        }
-        Show();
-        Win32.BringToTop(_hwnd);
-        _topmostTimer.Start();
-        if (_shownMap != _vm.MapName) LoadMap();
-        else UpdateStatus();
+        if (IsVisible) Dismiss(returnToGame: true);
+        else Open();
     }
 
     /// <summary>Brings the window up if it is hidden (a new screenshot); an open one just stays.</summary>
     public void ShowMap()
     {
-        if (!IsVisible) Toggle();
+        if (!IsVisible) Open();
     }
 
-    void Close_Click(object sender, RoutedEventArgs e) => Toggle();
+    /// <summary>
+    /// Like the flea search: up with the keyboard, so Esc closes it at once and the game gets the keyboard back.
+    /// </summary>
+    void Open()
+    {
+        var foreground = Win32.GetForegroundWindow();
+        _previous = foreground == _hwnd ? IntPtr.Zero : foreground;
+        ApplyPosition();
+        Show();
+        Activate();
+        Win32.TakeForeground(_hwnd);
+        Win32.BringToTop(_hwnd);
+        Keyboard.Focus(Viewport);
+        _topmostTimer.Start();
+        if (_shownMap != _vm.MapName) LoadMap();
+        else UpdateStatus();
+    }
+
+    void Dismiss(bool returnToGame)
+    {
+        if (!IsVisible || _hiding) return;
+        _hiding = true;
+        SaveBounds();
+        _topmostTimer.Stop();
+        Hide();
+        _hiding = false;
+        if (returnToGame && _previous != IntPtr.Zero) Win32.SetForegroundWindow(_previous);
+    }
+
+    // clicking the game (or alt-tab) closes it too, like the flea search
+    protected override void OnDeactivated(EventArgs e)
+    {
+        base.OnDeactivated(e);
+        Dismiss(returnToGame: false);
+    }
+
+    void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key != Key.Escape) return;
+        // Esc on an open list only closes the list
+        if (MapBox.IsDropDownOpen || FloorBox.IsDropDownOpen) return;
+        Dismiss(returnToGame: true);
+        e.Handled = true;
+    }
+
+    void Close_Click(object sender, RoutedEventArgs e) => Dismiss(returnToGame: true);
 
     protected override void OnClosing(CancelEventArgs e)
     {
@@ -117,7 +156,8 @@ public partial class MapWindow : Window
     void OnVmChanged(object? sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName == nameof(MainViewModel.MapName) && IsVisible) LoadMap();
-        if (e.PropertyName == nameof(MainViewModel.ReadsScreen)) ApplyCaptureExclusion();
+        if (e.PropertyName == nameof(MainViewModel.MapShowInCapture)) ApplyCaptureExclusion();
+        if (e.PropertyName is nameof(MainViewModel.MapPositionX) or nameof(MainViewModel.MapPositionY) && !_dragging) ApplyPosition();
         if (e.PropertyName is nameof(MainViewModel.MapTracking) or nameof(MainViewModel.ScreenshotsFolder)) UpdateStatus();
     }
 
@@ -127,40 +167,80 @@ public partial class MapWindow : Window
         Redraw();
     }
 
-    /// <summary>Like the overlay: left out of screen pictures while the corner is read, so it never hides the exfil list.</summary>
+    /// <summary>Shown on streams / recordings only when the player wants it (Settings); the player always sees it.</summary>
     void ApplyCaptureExclusion()
     {
-        if (_hwnd != IntPtr.Zero) Win32.ExcludeFromCapture(_hwnd, _vm.ReadsScreen);
+        if (_hwnd != IntPtr.Zero) Win32.ExcludeFromCapture(_hwnd, !_vm.MapShowInCapture);
     }
 
-    // where it sits
+    // where it sits: fractions of the main screen's free space (sliders on the GPS page), like the overlay;
+    // dragged onto another monitor the fraction goes past 0–1 and the window stays there
+
+    bool _dragging;
 
     void PlaceFromSettings()
     {
         var s = _vm.Settings;
-        var screen = new Rect(SystemParameters.VirtualScreenLeft, SystemParameters.VirtualScreenTop,
-                              SystemParameters.VirtualScreenWidth, SystemParameters.VirtualScreenHeight);
-        var saved = new Rect(s.MapWindowLeft, s.MapWindowTop, Math.Max(MinWidth, s.MapWindowWidth), Math.Max(MinHeight, s.MapWindowHeight));
-        if (s.MapWindowWidth > 0 && screen.IntersectsWith(saved))
+        WindowStartupLocation = WindowStartupLocation.Manual;
+        if (s.MapWindowWidth > 0) (Width, Height) = (Math.Max(MinWidth, s.MapWindowWidth), Math.Max(MinHeight, s.MapWindowHeight));
+        ApplyPosition();
+    }
+
+    (double W, double H) Size => (ActualWidth > 0 ? ActualWidth : Width, ActualHeight > 0 ? ActualHeight : Height);
+
+    void ApplyPosition()
+    {
+        var area = SystemParameters.WorkArea;
+        var (w, h) = Size;
+        var left = area.Left + _vm.Settings.MapPositionX * Math.Max(0, area.Width - w);
+        var top = area.Top + _vm.Settings.MapPositionY * Math.Max(0, area.Height - h);
+        var screens = new Rect(SystemParameters.VirtualScreenLeft, SystemParameters.VirtualScreenTop,
+                               SystemParameters.VirtualScreenWidth, SystemParameters.VirtualScreenHeight);
+        if (!screens.IntersectsWith(new Rect(left, top, w, h)))
         {
-            WindowStartupLocation = WindowStartupLocation.Manual;
-            (Left, Top, Width, Height) = (saved.Left, saved.Top, saved.Width, saved.Height);
+            // its monitor is gone: back to the middle of the main screen
+            left = area.Left + (area.Width - w) / 2;
+            top = area.Top + (area.Height - h) / 2;
         }
-        else WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        (Left, Top) = (left, top);
+    }
+
+    /// <summary>Where the window is now, as the fractions <see cref="ApplyPosition"/> reads (not clamped: another monitor).</summary>
+    void SavePosition()
+    {
+        var area = SystemParameters.WorkArea;
+        var (w, h) = Size;
+        var freeX = area.Width - w;
+        var freeY = area.Height - h;
+        _vm.SetMapPosition(freeX > 0 ? (Left - area.Left) / freeX : 0.5, freeY > 0 ? (Top - area.Top) / freeY : 0.5, clamp: false);
     }
 
     void SaveBounds()
     {
         if (!IsVisible) return;
-        var s = _vm.Settings;
-        (s.MapWindowLeft, s.MapWindowTop, s.MapWindowWidth, s.MapWindowHeight) = (Left, Top, ActualWidth, ActualHeight);
+        (_vm.Settings.MapWindowWidth, _vm.Settings.MapWindowHeight) = (ActualWidth, ActualHeight);
+        SavePosition();
         _vm.SaveSettings();
     }
 
+    /// <summary>The top bar moves the window (not its lists, boxes and buttons, which take their own clicks).</summary>
     void Header_MouseDown(object sender, MouseButtonEventArgs e)
     {
         if (e.OriginalSource is DependencyObject d && FindParent<ComboBox>(d) != null) return;
-        DragMove();
+        _dragging = true;
+        try
+        {
+            DragMove();  // returns when the button is let go
+        }
+        catch (InvalidOperationException)
+        {
+            // the button was already up
+        }
+        finally
+        {
+            _dragging = false;
+        }
+        SavePosition();
     }
 
     static T? FindParent<T>(DependencyObject d) where T : DependencyObject
@@ -368,8 +448,13 @@ public partial class MapWindow : Window
         if (Map is not { } map || Pictures.Children.Count == 0) return;
         if (_vm.MapShowExtracts)
         {
-            foreach (var e in map.Extracts)
-                AddPoint(map, e.Position, FactionBrush(e.Faction), e.Name, $"{e.Name} · {Loc.T("s.map.faction." + e.Faction)}", diamond: false);
+            // tarkov.dev lists an exfil both PMCs and Scavs use once per side: one point, shared
+            foreach (var g in map.Extracts.GroupBy(e => e.Name))
+            {
+                var e = g.First();
+                var faction = g.Select(x => x.Faction).Distinct().Count() > 1 ? "shared" : e.Faction;
+                AddPoint(map, e.Position, FactionBrush(faction), e.Name, $"{e.Name} · {Loc.T("s.map.faction." + faction)}", diamond: false);
+            }
             foreach (var t in map.Transits)
                 AddPoint(map, t.Position, TransitBrush, t.Name, t.Name, diamond: false);
         }
