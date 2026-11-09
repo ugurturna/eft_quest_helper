@@ -28,12 +28,33 @@ public partial class App : Application
         if (MainViewModel.CanSelfUpdate) new AppUpdater(AppContext.BaseDirectory).CleanupOldFiles();
     }
 
+    MainViewModel? _vm;
+
     public App()
     {
         // Fluent dark theme; ThemeMode is still marked experimental (WPF0001)
 #pragma warning disable WPF0001
         ThemeMode = ThemeMode.Dark;
 #pragma warning restore WPF0001
+        // nothing may vanish without a trace: errors nobody caught go to crash.log
+        DispatcherUnhandledException += OnUiError;
+        AppDomain.CurrentDomain.UnhandledException += (_, e) => CrashLog.Write("fatal", e.ExceptionObject as Exception);
+        TaskScheduler.UnobservedTaskException += (_, e) =>
+        {
+            CrashLog.Write("background", e.Exception);
+            e.SetObserved();
+        };
+    }
+
+    /// <summary>
+    /// An error on the UI thread (a click, a window opening, drawing the map): written down and the app stays open, so
+    /// one failing window can't close the overlay mid-raid. The main window says where the log is.
+    /// </summary>
+    void OnUiError(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+    {
+        e.Handled = true;
+        if (!CrashLog.Write("ui", e.Exception) || _vm == null) return;
+        _vm.Toast = Loc.F("t.crash", e.Exception.Message, CrashLog.FilePath);
     }
 
     protected override void OnStartup(StartupEventArgs e)
@@ -48,10 +69,13 @@ public partial class App : Application
         }
         catch (Exception ex)
         {
+            CrashLog.Write("start", ex);
             MessageBox.Show(ex.Message, "Tarkov Quest Tracker", MessageBoxButton.OK, MessageBoxImage.Error);
             Shutdown(1);
             return;
         }
+        _vm = vm;
+        CrashLog.Folder = vm.StoreFolder;
 
         var overlay = new OverlayWindow(vm);
         var main = new MainWindow(vm, overlay);

@@ -331,6 +331,7 @@
     <sys:String x:Key="s.raid.autoDesc">Raid'de "O"ya iki kez bas: takipçi exfil listesi ekrana tam gelene kadar bekler (yavaş PC'lerde de), sağ üstteki exfil isimlerini ve raid süresini okur, map'i tanır ve raid'i kalan süreyle başlatır. Zaten raid'deysen raid baştan başlamaz, sadece süre güncellenir. Köşe boşsa raid'de değilsin demektir, hata verilmez. Klavye hook'u yok, tuş okunmaz: oyun öndeyken yalnızca ekranın sağ üst köşesi okunur (Windows OCR), hiçbir şey kaydedilmez. Overlay o köşede kalabilir: bu açıkken ekran görüntülerinden çıkarılır, altındaki liste yine okunur (bu yüzden kayıtlarda, yayında ve ekran görüntülerinde de görünmez). Oyunu Borderless veya Pencereli modda çalıştır.</sys:String>
     <sys:String x:Key="t.raidAuto">🎯 Map exfillerden tanındı: {0} (overlay'de {1} görev)</sys:String>
     <sys:String x:Key="t.raidTimeUp">⏱ Raid süresi doldu: overlay yine sabitlediğin görevleri gösteriyor</sys:String>
+    <sys:String x:Key="t.crash">⚠ Bir hata oluştu ({0}). Uygulama açık kalıyor; ayrıntılar: {1}</sys:String>
     <sys:String x:Key="raid.timeLeft">⏱ {0} kaldı</sys:String>
     <sys:String x:Key="s.raid.timeTip">Kalan raid süresi, oyunun saatinden ("O") okundu; raid ortasında "O"ya tekrar basarsan düzeltilir. FPS sayacının altındaysa dakikasına kadar okunur.</sys:String>
     <sys:String x:Key="t.raidEnd">Raid bitti: overlay yine sabitlediğin görevleri gösteriyor</sys:String>

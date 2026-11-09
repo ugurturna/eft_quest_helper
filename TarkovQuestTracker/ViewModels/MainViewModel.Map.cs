@@ -26,6 +26,9 @@ public sealed partial class MainViewModel
     /// <summary>Maps the window can draw, in the raid picker's order.</summary>
     public IReadOnlyList<string> MapNames => RaidFilter.InOrder(MapData.Keys);
 
+    /// <summary>Where the profiles, caches and crash.log are kept.</summary>
+    public string StoreFolder => _store.Folder;
+
     /// <summary>Downloaded map pictures (SVG, tiles), next to the profiles.</summary>
     public string MapCacheFolder => Path.Combine(_store.Folder, "maps");
 

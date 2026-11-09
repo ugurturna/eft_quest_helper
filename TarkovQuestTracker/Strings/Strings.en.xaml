@@ -331,6 +331,7 @@
     <sys:String x:Key="s.raid.autoDesc">In raid press "O" twice: the tracker waits until the exfil list is fully on screen (slow PCs too), reads the exfil names and the raid time at the top right, recognizes the map and starts the raid with the time left. Already in a raid? Only the time is updated, the raid is not restarted. An empty corner just means you are not in a raid. No keyboard hook, no key reading: only the top-right corner of the screen is read (Windows OCR) while the game is in front; nothing is saved. The overlay can stay in that corner: while this is on it is left out of screen pictures, so the list under it is still read (it then also does not show in recordings, streams or screenshots). Run the game in Borderless or Windowed mode.</sys:String>
     <sys:String x:Key="t.raidAuto">🎯 Map recognized from the exfils: {0} ({1} quests on the overlay)</sys:String>
     <sys:String x:Key="t.raidTimeUp">⏱ The raid time is up: the overlay shows your pinned quests again</sys:String>
+    <sys:String x:Key="t.crash">⚠ Something went wrong ({0}). The app stays open; the details are in {1}</sys:String>
     <sys:String x:Key="raid.timeLeft">⏱ {0} left</sys:String>
     <sys:String x:Key="s.raid.timeTip">Raid time left, read off the game's clock ("O"); press "O" again mid-raid to correct it. Under an FPS counter it is read to the minute.</sys:String>
     <sys:String x:Key="t.raidEnd">Raid over: the overlay shows your pinned quests again</sys:String>
