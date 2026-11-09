@@ -1,22 +1,22 @@
 {
-  "version": "v0.6.0",
-  "scannedAt": "2026-11-09T12:55:31Z",
+  "version": "v0.6.3",
+  "scannedAt": "2026-11-09T13:28:57Z",
   "files": [
     {
-      "name": "TarkovQuestTracker.exe",
-      "sha256": "ce6af99a08bf68afc2686cb9241307fad2fbd82cfde27ad745a1d2c4d5e30a9c",
+      "name": "TarkovQuestTracker-v0.6.3-win-x64.zip",
+      "sha256": "eb3e3c9b85478b3f23003e6ade747ed5c81538e2176e0c82285e40fb88d991c3",
       "malicious": 0,
       "suspicious": 0,
-      "engines": 69,
-      "url": "https://www.virustotal.com/gui/file/ce6af99a08bf68afc2686cb9241307fad2fbd82cfde27ad745a1d2c4d5e30a9c"
+      "engines": 65,
+      "url": "https://www.virustotal.com/gui/file/eb3e3c9b85478b3f23003e6ade747ed5c81538e2176e0c82285e40fb88d991c3"
     },
     {
-      "name": "TarkovQuestTracker-v0.6.0-win-x64.zip",
-      "sha256": "8127764bfc6b5904558a19f0f93a21ec106fcd9cf7b1a6f002d6e71796b139e8",
+      "name": "TarkovQuestTracker.exe",
+      "sha256": "3f4b8d1f7d6cdd368a24f17286b2cd9eea87a92a09b509cf2797db64607a078e",
       "malicious": 0,
       "suspicious": 0,
       "engines": 66,
-      "url": "https://www.virustotal.com/gui/file/8127764bfc6b5904558a19f0f93a21ec106fcd9cf7b1a6f002d6e71796b139e8"
+      "url": "https://www.virustotal.com/gui/file/3f4b8d1f7d6cdd368a24f17286b2cd9eea87a92a09b509cf2797db64607a078e"
     }
   ]
 }
