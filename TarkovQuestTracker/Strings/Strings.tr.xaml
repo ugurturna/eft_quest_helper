@@ -271,6 +271,17 @@
     <sys:String x:Key="s.raid.end">Raid bitti</sys:String>
     <sys:String x:Key="raid.active">🎯 {0} raid'indesin: {1} görev overlay'de</sys:String>
     <sys:String x:Key="raid.count">{0} aktif görev</sys:String>
+    <sys:String x:Key="s.goon.title">Goons</sys:String>
+    <sys:String x:Key="s.goon.badge">GOONS</sys:String>
+    <sys:String x:Key="s.goon.refresh">Goon bildirimlerini yenile</sys:String>
+    <sys:String x:Key="s.goon.openSite">Goon Tracker ↗</sys:String>
+    <sys:String x:Key="goon.loading">Goon bildirimleri yükleniyor…</sys:String>
+    <sys:String x:Key="goon.none">Henüz Goon bildirimi yok.</sys:String>
+    <sys:String x:Key="goon.failed">Goon bildirimleri yüklenemedi: {0}</sys:String>
+    <sys:String x:Key="goon.justNow">az önce</sys:String>
+    <sys:String x:Key="goon.minAgo">{0} dk önce</sys:String>
+    <sys:String x:Key="goon.hourAgo">{0} sa {1} dk önce</sys:String>
+    <sys:String x:Key="goon.dayAgo">{0} gün önce</sys:String>
     <sys:String x:Key="t.raidStart">🎯 {0}: {1} görev overlay'de</sys:String>
     <sys:String x:Key="s.ov.max">Overlay'deki görev sayısı:</sys:String>
     <sys:String x:Key="s.ov.all">Tümü</sys:String>

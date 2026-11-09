@@ -1294,6 +1294,34 @@ kbd {
   margin-top: 48px;
 }
 
+/* map GPS: the big map on top, the GPS page and follow mode side by side */
+.map-shots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+  align-items: start;
+}
+
+.map-shots .gallery-frame {
+  max-width: none;
+  margin: 0;
+}
+
+.map-shots .map-shot-wide {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .map-shots {
+    grid-template-columns: 1fr;
+  }
+}
+
+.goon-frame {
+  max-width: 820px;
+}
+
 /* auto raid: the in-game exfil list (double O) -> what the tracker makes of it */
 .exfil-demo-frame {
   margin: 48px auto 0;

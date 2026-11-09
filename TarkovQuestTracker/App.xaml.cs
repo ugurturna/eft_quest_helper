@@ -71,5 +71,7 @@ public partial class App : Application
             Shutdown();
         };
         _ = vm.CheckUpdatesAsync(manual: false);
+        // where the Goons were last seen, kept fresh while the app runs
+        vm.StartGoonTracking();
     }
 }

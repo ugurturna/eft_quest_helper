@@ -271,6 +271,17 @@
     <sys:String x:Key="s.raid.end">Raid over</sys:String>
     <sys:String x:Key="raid.active">🎯 In a raid on {0}: {1} quests on the overlay</sys:String>
     <sys:String x:Key="raid.count">{0} active quests</sys:String>
+    <sys:String x:Key="s.goon.title">Goons</sys:String>
+    <sys:String x:Key="s.goon.badge">GOONS</sys:String>
+    <sys:String x:Key="s.goon.refresh">Refresh the Goon reports</sys:String>
+    <sys:String x:Key="s.goon.openSite">Goon Tracker ↗</sys:String>
+    <sys:String x:Key="goon.loading">Loading the Goon reports…</sys:String>
+    <sys:String x:Key="goon.none">No Goon reports yet.</sys:String>
+    <sys:String x:Key="goon.failed">Goon reports could not be loaded: {0}</sys:String>
+    <sys:String x:Key="goon.justNow">just now</sys:String>
+    <sys:String x:Key="goon.minAgo">{0} min ago</sys:String>
+    <sys:String x:Key="goon.hourAgo">{0} h {1} min ago</sys:String>
+    <sys:String x:Key="goon.dayAgo">{0} days ago</sys:String>
     <sys:String x:Key="t.raidStart">🎯 {0}: {1} quests on the overlay</sys:String>
     <sys:String x:Key="s.ov.max">Quests on the overlay:</sys:String>
     <sys:String x:Key="s.ov.all">All</sys:String>

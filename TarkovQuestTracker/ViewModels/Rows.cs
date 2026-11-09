@@ -231,8 +231,10 @@ public sealed partial class ObjectiveVm : ObservableObject
 }
 
 /// <summary>One map in the "entering a raid" picker.</summary>
-public sealed class MapCardVm(string name, int activeCount, bool isSelected)
+public sealed class MapCardVm(string name, int activeCount, bool isSelected, bool isGoonMap = false)
 {
+    /// <summary>The Goon tracker's newest report is on this map.</summary>
+    public bool IsGoonMap { get; } = isGoonMap;
     public string Name { get; } = name;
     /// <summary>"CUSTOMS": the big label of the card.</summary>
     public string Title => Name.ToUpperInvariant();
@@ -242,3 +244,6 @@ public sealed class MapCardVm(string name, int activeCount, bool isSelected)
     public bool HasQuests => ActiveCount > 0;
     public string CountText { get; } = Loc.F("raid.count", activeCount);
 }
+
+/// <summary>One Goon tracker report: "Customs · 12 min ago · reporter".</summary>
+public sealed record GoonRowVm(string MapName, string AgoText, string Reporter);

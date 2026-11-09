@@ -197,6 +197,7 @@ public sealed partial class MainViewModel : ObservableObject
         Settings.Mode = value ? GameMode.Pve : GameMode.Pvp;
         SaveSettings();
         LoadData();
+        if (_goonTimer != null) _ = RefreshGoonsAsync();  // the Goons of the other mode
     }
 
     public string ModeText => IsPve ? "PvE" : "PvP";
@@ -792,9 +793,7 @@ public sealed partial class MainViewModel : ObservableObject
         var max = Settings.OverlayMaxQuests > 0 ? Settings.OverlayMaxQuests : all.Count;
         Replace(OverlayQuests, all.Take(max));
         OverlayHiddenCount = Math.Max(0, all.Count - max);
-        Replace(RaidMaps, RaidFilter.Maps(_repo.Quests)
-            .Select(m => new MapCardVm(m, ActiveQuests.Count(a => RaidFilter.Objectives(a.Quest, m).Count > 0), m == RaidMap))
-            .OrderByDescending(c => c.ActiveCount > 0));
+        RebuildRaidMaps();
         OnPropertyChanged(nameof(HasActive));
         OnPropertyChanged(nameof(HasTracked));
         OnPropertyChanged(nameof(HasOverlayQuests));
