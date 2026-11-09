@@ -30,6 +30,10 @@ public partial class MapWindow : Window
     static readonly Brush PlayerBrush = Frozen(Color.FromRgb(0xFF, 0x45, 0x45));
     static readonly Brush TrailBrush = Frozen(Color.FromArgb(0xB0, 0xFF, 0x70, 0x70));
     static readonly Brush LabelBack = Frozen(Color.FromArgb(0xB0, 0x10, 0x12, 0x14));
+    static readonly Brush BtrBrush = Frozen(Color.FromRgb(0x7F, 0xD1, 0xFF));
+    static readonly Brush BtrRouteBrush = Frozen(Color.FromArgb(0x70, 0x7F, 0xD1, 0xFF));
+    /// <summary>TARKOV_TRACKER_BTR_EDIT=1: a click on the map copies the game [x, z] there (to draw BTR stops and roads in data/btr.json).</summary>
+    static readonly bool BtrEdit = Environment.GetEnvironmentVariable("TARKOV_TRACKER_BTR_EDIT") == "1";
     static readonly Geometry Arrow = Geometry.Parse("M 0,-12 L 8,9 L 0,4 L -8,9 Z");
 
     readonly MainViewModel _vm;
@@ -65,6 +69,7 @@ public partial class MapWindow : Window
         PlaceFromSettings();
         _topmostTimer.Tick += (_, _) => { if (IsVisible) Win32.BringToTop(_hwnd); };
         vm.MapChanged += OnMapChanged;
+        vm.BtrChanged += OnBtrChanged;
         vm.PropertyChanged += OnVmChanged;
         Loc.Changed += OnLocChanged;
     }
@@ -157,6 +162,7 @@ public partial class MapWindow : Window
     {
         _topmostTimer.Stop();
         _vm.MapChanged -= OnMapChanged;
+        _vm.BtrChanged -= OnBtrChanged;
         _vm.PropertyChanged -= OnVmChanged;
         Loc.Changed -= OnLocChanged;
         base.OnClosed(e);
@@ -363,6 +369,12 @@ public partial class MapWindow : Window
         UpdateStatus();
     }
 
+    /// <summary>The BTR moved on (every raid clock second) or its settings changed: only the markers are drawn again.</summary>
+    void OnBtrChanged()
+    {
+        if (IsVisible) Redraw();
+    }
+
     // view: zoom and pan
 
     Rect MapRect(MapGeometry map)
@@ -443,8 +455,19 @@ public partial class MapWindow : Window
         {
             if (_pressed != null) ShowCard(_pressed);
             else HideCard();
+            if (BtrEdit && _pressed == null) CopySpot(e.GetPosition(Viewport));
         }
         _pressed = null;
+    }
+
+    /// <summary>BTR data editing: the clicked spot's game [x, z] to the clipboard and the status line.</summary>
+    void CopySpot(Point screen)
+    {
+        if (Map is not { } map) return;
+        var (x, z) = MapProjection.Unproject(map, new MapPoint((screen.X - _offset.X) / _scale, (screen.Y - _offset.Y) / _scale));
+        var text = string.Create(CultureInfo.InvariantCulture, $"[{x:0}, {z:0}]");
+        try { Clipboard.SetText(text); } catch (System.Runtime.InteropServices.ExternalException) { }  // clipboard busy: the status line still shows it
+        Status.Text = "BTR edit: " + text;
     }
 
     void Viewport_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -485,9 +508,53 @@ public partial class MapWindow : Window
             foreach (var position in spot.Positions)
                 AddPoint(map, position, QuestBrush, null, $"{spot.Quest.Quest.DisplayName}\n{spot.Text}", diamond: true,
                          new QuestMarker(spot.Quest.Quest.Id, spot.Text, position));
+        DrawBtr(map);
         DrawTrail(map);
         DrawPlayer(map);
         UpdateCard(map, spots);
+    }
+
+    /// <summary>
+    /// The raid's BTR on its map: the routes it may still be on (faint), each stop with the soonest ETA, and where it should
+    /// be now (one marker per possible route, named when there are several).
+    /// </summary>
+    void DrawBtr(MapGeometry map)
+    {
+        if (!_vm.BtrShowOnMap || _vm.Btr is not { } btr || btr.Map.Name != map.Name) return;
+        var timeLeft = _vm.BtrTimeLeft;
+        foreach (var route in btr.Candidates)
+        {
+            var line = new Polyline { Stroke = BtrRouteBrush, StrokeThickness = 3, IsHitTestVisible = false };
+            foreach (var p in route.Track) line.Points.Add(Screen(MapProjection.Project(map, p.X, p.Z)));
+            Markers.Children.Add(line);
+        }
+        var etas = timeLeft is { } t ? btr.Etas(t).ToDictionary(e => e.StopId) : [];
+        foreach (var (id, stop) in btr.Map.Stops)
+        {
+            var eta = etas.GetValueOrDefault(id);
+            var when = eta == null ? "" : eta.IsHere ? Loc.T("btr.here") : eta.Seconds is { } s ? MainViewModel.Clock(s) : "—";
+            var label = when.Length > 0 ? $"{stop.Name} · {when}" : stop.Name;
+            AddPoint(map, [stop.Position[0], 0, stop.Position[1]], BtrBrush, label, $"BTR · {label}", diamond: true);
+        }
+        if (timeLeft is not { } now) return;
+        var several = btr.Candidates.Count > 1;
+        foreach (var route in btr.Candidates)
+        {
+            var fix = route.PositionAt(now);
+            if (fix.State == BtrState.Done) continue;
+            var at = Screen(MapProjection.Project(map, fix.X, fix.Z));
+            var marker = new Border
+            {
+                Background = BtrBrush, BorderBrush = Brushes.Black, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(3),
+                Padding = new Thickness(4, 0, 4, 1), Opacity = several || fix.State == BtrState.NotSpawned ? 0.7 : 1,
+                Child = new TextBlock { Text = several ? $"BTR {route.Route.Id}" : "BTR", FontSize = 10.5, FontWeight = FontWeights.Bold, Foreground = Brushes.Black },
+                ToolTip = _vm.BtrStatus,
+            };
+            marker.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+            Canvas.SetLeft(marker, at.X - marker.DesiredSize.Width / 2);
+            Canvas.SetTop(marker, at.Y - marker.DesiredSize.Height / 2);
+            Markers.Children.Add(marker);
+        }
     }
 
     static Brush FactionBrush(string faction) => faction switch

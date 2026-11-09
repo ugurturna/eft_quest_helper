@@ -247,3 +247,6 @@ public sealed class MapCardVm(string name, int activeCount, bool isSelected, boo
 
 /// <summary>One Goon tracker report: "Customs · 12 min ago · reporter".</summary>
 public sealed record GoonRowVm(string MapName, string AgoText, string Reporter);
+
+/// <summary>A BTR stop on the raid page: how long until the BTR gets there ("here" while it waits), and on which route.</summary>
+public sealed record BtrStopRowVm(string StopId, string Name, string EtaText, bool IsHere, string RouteId);

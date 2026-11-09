@@ -47,6 +47,7 @@
 - **What to bring into the raid** — keys, markers (with how many you need), items to plant, the weapon to use and the clothes to wear are shown at the top of each quest and on its *Active Quests* card.
 - **Entering a raid** — the first item of the side menu: pick the map you are going to (a card per map with how many active quests it has) and the overlay shows every active quest on that map by itself, plus the ones you pinned. For quests on several maps only the objectives of that map are shown, and "hand over" steps are left out. <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> picks the map in game; **Raid over** goes back to the pinned list. When a raid starts, an unlocked overlay locks by itself so clicks go to the game. With **auto-detect** on, a double <kbd>O</kbd> in raid is enough: the map and the raid time left are read off the exfil list (see [Auto raid detection](#auto-raid-detection-double-o)).
 - **Your position on the map** — take a screenshot in raid with your own screenshot key and a map window shows where you are and which way you face, the path of your earlier screenshots, the exfils and your active quests' spots; the floor follows your height. See [Map & position](#map--position-screenshots).
+- **BTR tracker** — on Woods, Streets and Lighthouse: where the BTR should be by the raid clock and when it reaches each stop (ETA), on the overlay, the map window and the *Entering a raid* page. See [BTR tracker](#btr-tracker-woods-streets-lighthouse).
 - **Handing in accepts the next quests** — complete an active quest and the quests it unlocks become active (not pinned to the overlay: you still have to take them from the trader).
 - **Activating a quest completes its chain** — set *Punisher Part 5* active and Parts 1–4 are marked done automatically (one-click undo).
 - **PvP and PvE** — separate progress for each mode; PvE-specific differences (levels, objectives, items) are shown.
@@ -134,6 +135,19 @@ When you take a screenshot in raid, the game writes your position into the file 
 
 > [!NOTE]
 > Only the screenshot **file names** are read; the pictures are never opened, and nothing is sent to the game.
+
+### BTR tracker (Woods, Streets, Lighthouse)
+
+On Woods, Streets of Tarkov and Lighthouse the BTR drives fixed routes on a timetable: it spawns at a set raid time, waits at each stop for about two minutes and then goes round again. From the raid time left (read by the double <kbd>O</kbd>) the tracker estimates where it is and when it reaches each stop (ETA):
+
+- **Overlay:** one line under the raid time, e.g. `BTR → Sawmill · ETA 1:20` or `BTR at Sawmill (0:45) → Junction`.
+- **Map window:** the routes it may be on, every stop with its ETA, and a **BTR** marker where it should be now (one per possible route). It opens with your screenshot key like the rest of the map.
+- **Entering a raid page:** every stop sorted by ETA. Pick the route if you know it, or leave it on *Auto*.
+- **Seen.** Press **Seen** next to the stop where you spot the BTR: the times line up with what you saw, and routes that don't stop there at that time are dropped. **↺** forgets the sightings.
+- Each of the three can be turned off under **Settings → Map and position → BTR tracker**.
+
+> [!NOTE]
+> The times are estimates: the spawn time varies by about a minute, and the stop spots and roads in `data/btr.json` are still approximate. One **Seen** brings them much closer. Nothing is read from the game other than the raid clock the double <kbd>O</kbd> already reads.
 
 ### Flea market prices
 

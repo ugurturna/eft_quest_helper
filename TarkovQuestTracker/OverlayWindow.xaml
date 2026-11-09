@@ -57,6 +57,9 @@
                     <Run Text="⏱" /> <Run Text="{Binding RaidTimeLeft, Mode=OneWay}" />
                 </TextBlock>
             </DockPanel>
+            <!-- BTR tracker: the next stop and its ETA by the raid clock -->
+            <TextBlock Text="{Binding BtrStatus}" FontSize="12" FontWeight="SemiBold" Foreground="#FF7FD1FF" TextWrapping="Wrap" Margin="0,2,0,0"
+                       Visibility="{Binding BtrOverlayVisible, Converter={StaticResource BoolToVis}}" ToolTip="{Binding BtrNote}" />
 
             <!-- raid hotkey: pick the map without leaving the game -->
             <Border x:Name="MapPicker" Visibility="Collapsed" Margin="0,6,0,0" Padding="6" CornerRadius="4" Background="#C025251F">

@@ -95,6 +95,7 @@ public sealed partial class MainViewModel : ObservableObject
         OnPropertyChanged(nameof(AutoRaidDetectOff));
         ApplyOverlaySettings();
         ApplyMapSettings();
+        ApplyBtrSettings();
         LoadData();
     }
 
@@ -652,6 +653,7 @@ public sealed partial class MainViewModel : ObservableObject
     {
         if (_repo != null) RefreshActive();
         FollowRaidMap(value);
+        ResetBtr();
     }
 
     [RelayCommand]
@@ -707,6 +709,7 @@ public sealed partial class MainViewModel : ObservableObject
 
     void SetRaidClock(DateTime? endsAt)
     {
+        OnBtrClockSet(_raidEndsAt, endsAt);
         _raidEndsAt = endsAt;
         _raidClockSetAt = DateTime.UtcNow;
         _raidEndConfirmed = false;
@@ -766,6 +769,7 @@ public sealed partial class MainViewModel : ObservableObject
         OnPropertyChanged(nameof(HasRaidTime));
         OnPropertyChanged(nameof(RaidTimeLeft));
         OnPropertyChanged(nameof(RaidSummary));
+        UpdateBtr();
     }
 
     void RefreshActive()

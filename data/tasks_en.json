@@ -813,7 +813,7 @@
     "275,000 Roubles"
    ]
   },
-  "guide": "The control room is located in the center of the Reserve underground bunker system. You can reach it by using any staircase of your choice.\n\nThe hermetic doors are the entry doors to the underground bunker system on Reserve.",
+  "guide": "The underground bunker on Reserve can be reached by using any staircase. The hermetic doors are the entry doors to the bunker. The control room is located in the center of the bunker. All objectives have to be completed in the same raid.",
   "notes": "",
   "modeNotes": {},
   "modeOverrides": {},
@@ -1770,7 +1770,7 @@
    "items": [
     "1× Kalashnikov AK-308 7.62x51 assault rifle",
     "1× AK-308 7.62x51 QD sound suppressor",
-    "1x Document case",
+    "1× Document case",
     "Unlocks purchase of Kalashnikov AK-308 7.62x51 assault rifle at Prapor LL4",
     "Unlocks purchase of AK-308 7.62x51 QD sound suppressor at Prapor LL4"
    ]
@@ -1860,8 +1860,8 @@
    "xp": 28000,
    "rep": [],
    "items": [
-    "5x 9x39mm SP-6 gs ammo pack (20 pcs)",
-    "1x SR-3M 9x39 compact assault rifle",
+    "5× 9x39mm SP-6 gs ammo pack (20 pcs)",
+    "1× SR-3M 9x39 compact assault rifle",
     "1× Secure container Epsilon",
     "Unlocks purchase of SR-3M 9x39 compact assault rifle at Prapor LL4"
    ]
@@ -3807,7 +3807,7 @@
   "objectives": [
    {
     "id": "o1",
-    "text": "Eliminate any 20 any target using Assault rifles or Assault carbines on Streets of Tarkov",
+    "text": "Eliminate any 20 targets using Assault rifles or Assault carbines on Streets of Tarkov",
     "count": 20,
     "optional": false,
     "fir": false,
@@ -5141,7 +5141,7 @@
   "trader": "Therapist",
   "map": [],
   "minLevel": 18,
-  "traderLoyalty": "2",
+  "traderLoyalty": "3",
   "category": "side",
   "eventName": null,
   "eventActive": null,
@@ -5362,7 +5362,7 @@
     "275,000 Roubles"
    ]
   },
-  "guide": "Interchange is great place to go for this quest:\n* OLI (home improvement store) very commonly spawns car batteries and spark plugs on its shelves.\n* Goshan / гошан (grocery store) commonly spawns car batteries on the store shelves located south of the big fire.\n\nDrawers commonly spawn spark plugs. Reserve is a great place to loot these filing cabinets, with several in the Knight buildings, Queen building, and underground office area.",
+  "guide": "",
   "notes": "",
   "modeNotes": {},
   "modeOverrides": {},
@@ -5448,7 +5448,7 @@
   ],
   "requiredItems": [],
   "rewards": {
-   "xp": 2800,
+   "xp": 28000,
    "rep": [
     {
      "trader": "Therapist",
@@ -6087,7 +6087,7 @@
   "objectives": [
    {
     "id": "o1",
-    "text": "Eliminate 40 any target from less than 60 meters away while wearing a gas mask or respirator on The Lab",
+    "text": "Eliminate any 40 targets from less than 60 meters away while wearing a gas mask or respirator on The Lab",
     "count": 40,
     "optional": false,
     "fir": false,
@@ -8285,7 +8285,7 @@
     "Unlocks craft for eTG-change regenerative stimulant injector at Medstation level 2"
    ]
   },
-  "guide": "▸ Streets of Tarkov to The Lab\nUnderground entrance in front of the Klimova 16A building with the Cosmonaut painting. TerraGroup Labs access keycard required. Transits are only available 1 min after raid start.\n\n▸ Scout the control room\nNear the the \"Hangar Gate\" extraction on the second level.\n\n▸ Scout the server room\nAdjacent to the control room on the first level.\n\n▸ Scout the hazard dome\nIn the main working area on the first level. \n\n▸ The Lab to Streets of Tarkov\nNear the orange dome, next to the office with the billiard table. Transits are only available 1 min after raid start.",
+  "guide": "▸ Streets of Tarkov to The Lab\nUnderground entrance in front of the Klimova 16A building with the Cosmonaut painting. TerraGroup Labs access keycard required. Transits are only available 1 min after raid start.\n\n▸ Scout the control room\nNear the the \"Hangar Gate\" extraction on the second level.\n\n▸ Scout the server room\nAdjacent to the control room on the first level.\n\n▸ Scout the hazard dome\nIn the main working area on the first level.",
   "notes": "",
   "modeNotes": {},
   "modeOverrides": {},
@@ -8370,7 +8370,7 @@
     "2× SJ12 TGLabs combat stimulant injector",
     "2× Meldonin injector",
     "2× 3-(b-TG) stimulant injector",
-    "1x Taurus poster"
+    "1× Taurus poster"
    ]
   },
   "guide": "In this quest you first have to find the torture room inside The Labyrinth. Afterwards you have to obtain evidence of the torture in form of a videotape. There are multiple spawn locations near the room.",
@@ -12047,7 +12047,7 @@
   "objectives": [
    {
     "id": "o1",
-    "text": "Eliminate 30 any target with a suppressed 12 gauge shotgun on Reserve, Lighthouse, Ground Zero, or The Lab",
+    "text": "Eliminate any 30 targets with a suppressed 12 gauge shotgun on Reserve, Lighthouse, Ground Zero, or The Lab",
     "count": 30,
     "optional": false,
     "fir": false,
@@ -13671,9 +13671,9 @@
    ],
    "items": [
     "1,650 Euros",
-    "2x Golden neck chain",
-    "2x Glock .45 ACP KRISS G30 MagEx 30-round magazine",
-    "2x .45 ACP RIP ammo pack (50 pcs)",
+    "2× Golden neck chain",
+    "2× Glock .45 ACP KRISS G30 MagEx 30-round magazine",
+    "2× .45 ACP RIP ammo pack (50 pcs)",
     "Unlocks purchase of TDI KRISS Vector Gen.2 .45 ACP submachine gun at Skier LL3"
    ]
   },
@@ -13717,7 +13717,7 @@
   "objectives": [
    {
     "id": "o1",
-    "text": "Eliminate 10 any target at the smuggler bases on Shoreline or Interchange",
+    "text": "Eliminate any 10 targets at the smuggler bases on Shoreline or Interchange",
     "count": 10,
     "optional": false,
     "fir": false,
@@ -13741,7 +13741,7 @@
    ],
    "items": [
     "450 Euros",
-    "2x Pack of screws"
+    "2× Pack of screws"
    ]
   },
   "guide": "In this quest you have to kill any 10 enemies in and around the smugglers base on Shoreline or Interchange.",
@@ -13812,8 +13812,8 @@
    "rep": [],
    "items": [
     "1,650 Euros",
-    "1x MPS Auto Assault-12 Gen 1 12ga automatic shotgun",
-    "2x 12/70 flechette ammo pack (25 pcs)",
+    "1× MPS Auto Assault-12 Gen 1 12ga automatic shotgun",
+    "2× 12/70 flechette ammo pack (25 pcs)",
     "Unlocks purchase of MPS Auto Assault-12 Gen 1 12ga automatic shotgun at Skier LL3"
    ]
   },
@@ -13871,8 +13871,8 @@
    "rep": [],
    "items": [
     "130,000 Roubles",
-    "1x MPS Auto Assault-12 Gen 2 12ga automatic shotgun",
-    "2x 12/70 AP-20 ammo pack (25 pcs)",
+    "1× MPS Auto Assault-12 Gen 2 12ga automatic shotgun",
+    "2× 12/70 AP-20 ammo pack (25 pcs)",
     "Unlocks barter for MPS Auto Assault-12 Gen 2 12ga automatic shotgun at Skier LL4"
    ]
   },
@@ -16559,7 +16559,7 @@
   ],
   "requiredItems": [],
   "rewards": {
-   "xp": 1000,
+   "xp": 10000,
    "rep": [
     {
      "trader": "Peacekeeper",
@@ -16635,7 +16635,7 @@
    },
    {
     "id": "o3",
-    "text": "Locate and mark the the ritual spot with an MS2000 Marker on Shoreline",
+    "text": "Locate and mark the ritual spot with an MS2000 Marker on Shoreline",
     "count": 1,
     "optional": false,
     "fir": false,
@@ -17741,7 +17741,7 @@
    },
    {
     "id": "o6",
-    "text": "Eliminate 15 any targets",
+    "text": "Eliminate any 15 targets",
     "count": 15,
     "optional": false,
     "fir": false,
@@ -18059,9 +18059,9 @@
     "+4 Submachine Guns skill levels",
     "+2 Stress Resistance skill levels",
     "2,750 Dollars",
-    "1x Mesa Tactical Crosshair Hydraulic buffer tube",
-    "1x AR-15 Magpul ACS Carbine stock",
-    "1x AR-15 Magpul ACS Carbine stock (FDE)",
+    "1× Mesa Tactical Crosshair Hydraulic buffer tube",
+    "1× AR-15 Magpul ACS Carbine stock",
+    "1× AR-15 Magpul ACS Carbine stock (FDE)",
     "Unlocks purchase of Mesa Tactical Crosshair Hydraulic buffer tube at Peacekeeper LL4",
     "Unlocks purchase of AR-15 Magpul ACS Carbine stock at Peacekeeper LL4",
     "Unlocks purchase of AR-15 Magpul ACS Carbine stock (FDE) at Peacekeeper LL4"
@@ -18607,7 +18607,7 @@
    },
    {
     "id": "o2",
-    "text": "Eliminate 10 of any targets using M203 40mm underbarrel grenade launcher on Lighthouse or Reserve",
+    "text": "Eliminate any 10 targets with an M203 40mm underbarrel grenade launcher on Lighthouse or Reserve",
     "count": 10,
     "optional": false,
     "fir": false,
@@ -18631,9 +18631,7 @@
    ],
    "items": [
     "1,900 Dollars",
-    "4x Power supply unit",
-    "Unlocks barter for M203 40mm underbarrel grenade launcher at Peacekeeper LL3",
-    "Unlocks purchase of 40x46mm M386 (HE) grenade at Peacekeeper LL3"
+    "4× Power supply unit"
    ]
   },
   "guide": "The wanted cargo is a wooden crate that is located next to a gray shipping container on the western shore of Lighthouse.",
@@ -18842,7 +18840,7 @@
   "objectives": [
    {
     "id": "o1",
-    "text": "Eliminate 10 any targets around the chalets on Lighthouse",
+    "text": "Eliminate any 10 targets around the chalets on Lighthouse",
     "count": 10,
     "optional": false,
     "fir": false,
@@ -19297,7 +19295,7 @@
     "+4 DMRs skill levels",
     "+2 Aim Drills skill levels",
     "2,750 Dollars",
-    "1x Armband (USEC)",
+    "1× Armband (USEC)",
     "Unlocks purchase of 40x46mm M386 (HE) grenade at Peacekeeper LL3",
     "Unlocks purchase of Team Wendy EXFIL Ballistic Helmet (Black) at Peacekeeper LL4",
     "Unlocks purchase of Team Wendy EXFIL Ballistic Mandible (Black) at Peacekeeper LL4",
@@ -19377,7 +19375,7 @@
    ],
    "items": [
     "1,100 Dollars",
-    "2x Military flash drive",
+    "2× Military flash drive",
     "Unlocks purchase of M67 hand grenade at Peacekeeper LL3"
    ]
   },
@@ -19459,7 +19457,7 @@
    ],
    "items": [
     "550 Dollars",
-    "3x CPU fan",
+    "3× CPU fan",
     "Unlocks purchase of SIG MPX 9x19 submachine gun (variant Silenced) at Peacekeeper LL2"
    ]
   },
@@ -22514,7 +22512,7 @@
   "objectives": [
    {
     "id": "o1",
-    "text": "Find the item in raid: 15 Malboro , Wilston, or Strike cigarettes",
+    "text": "Find 15 Malboro, Wilston or Strike cigarettes in raid",
     "count": 15,
     "optional": false,
     "fir": true,
@@ -22548,7 +22546,7 @@
     "80,000 Roubles"
    ]
   },
-  "guide": "All cigarettes can commonly be found inside of:\n* In Buried barrel caches\n* In Dead Scavs\n* In Ground caches\n* In Jackets\n* In Plastic suitcases\n* In Ration supply crates\n* In Sport bags",
+  "guide": "",
   "notes": "",
   "modeNotes": {},
   "modeOverrides": {},
@@ -22787,7 +22785,7 @@
     "+4 Troubleshooting skill levels",
     "400,000 Roubles",
     "Unlocks purchase of 4.6x30mm FMJ SX at Mechanic LL4",
-    "3x 4.6x30mm FMJ SX ammo pack (40 pcs)"
+    "3× 4.6x30mm FMJ SX ammo pack (40 pcs)"
    ]
   },
   "guide": "The kill objective can still fail through dying after completing it.",
@@ -23351,7 +23349,7 @@
     "+2 Intellect skill levels",
     "400,000 Roubles",
     "1× Armband (Kiba Arms)",
-    "1x 5.45x39mm 7N40 ammo pack (120 pcs)",
+    "1× 5.45x39mm 7N40 ammo pack (120 pcs)",
     "Unlocks purchase of 5.45x39mm 7N40 at Prapor LL4"
    ]
   },
@@ -26613,7 +26611,7 @@
   "objectives": [
    {
     "id": "o1",
-    "text": "Eliminate 10 any target on Interchange",
+    "text": "Eliminate any 10 targets on Interchange",
     "count": 10,
     "optional": false,
     "fir": false,
@@ -33294,7 +33292,7 @@
   "objectives": [
    {
     "id": "o1",
-    "text": "Eliminate 6 PMС operatives on Factory",
+    "text": "Eliminate 6 PMC operatives on Factory",
     "count": 6,
     "optional": false,
     "fir": false,
@@ -33319,7 +33317,7 @@
     "275,000 Roubles"
    ]
   },
-  "guide": "In this quest you have to kill 6 PMСs anywhere on Factory",
+  "guide": "In this quest you have to kill 6 PMCs anywhere on Factory",
   "notes": "",
   "modeNotes": {},
   "modeOverrides": {},
@@ -34614,7 +34612,7 @@
   "objectives": [
    {
     "id": "o1",
-    "text": "Eliminate 15 any target with a bolt-action rifle",
+    "text": "Eliminate any 15 targets with a bolt-action rifle",
     "count": 15,
     "optional": false,
     "fir": false,
@@ -34757,7 +34755,7 @@
     "Unlocks purchase of Vortex Razor HD Gen.2 1-6x24 30mm riflescope at Jaeger LL4"
    ]
   },
-  "guide": "Maps with a large number of open spaces where you can effectively engage at 45 m or further such as Woods and Shoreline are recommended for this quest.",
+  "guide": "",
   "notes": "",
   "modeNotes": {},
   "modeOverrides": {},
@@ -36005,8 +36003,8 @@
    },
    {
     "id": "o3",
-    "text": "Eliminate any 6 targets at the train station territory on Lighthouse",
-    "count": 6,
+    "text": "Launch a yellow signal flare at the train station on Lighthouse",
+    "count": 1,
     "optional": false,
     "fir": false,
     "map": "Lighthouse",
@@ -36018,8 +36016,8 @@
    },
    {
     "id": "o4",
-    "text": "Launch a yellow signal flare at the train station on Lighthouse",
-    "count": 1,
+    "text": "Eliminate any 6 targets at the train station territory on Lighthouse",
+    "count": 6,
     "optional": false,
     "fir": false,
     "map": "Lighthouse",
@@ -57947,7 +57945,7 @@
   "traderLoyalty": null,
   "category": "event",
   "eventName": null,
-  "eventActive": true,
+  "eventActive": false,
   "kappaRequired": false,
   "lightkeeperRequired": null,
   "gameModes": [
@@ -64082,7 +64080,7 @@
   "traderLoyalty": null,
   "category": "event",
   "eventName": null,
-  "eventActive": true,
+  "eventActive": false,
   "kappaRequired": false,
   "lightkeeperRequired": null,
   "gameModes": [
@@ -65200,7 +65198,7 @@
   "traderLoyalty": null,
   "category": "event",
   "eventName": null,
-  "eventActive": true,
+  "eventActive": false,
   "kappaRequired": false,
   "lightkeeperRequired": null,
   "gameModes": [
@@ -68776,7 +68774,7 @@
   "traderLoyalty": null,
   "category": "event",
   "eventName": null,
-  "eventActive": true,
+  "eventActive": false,
   "kappaRequired": false,
   "lightkeeperRequired": null,
   "gameModes": [
@@ -71005,7 +71003,7 @@
   "traderLoyalty": null,
   "category": "event",
   "eventName": null,
-  "eventActive": true,
+  "eventActive": false,
   "kappaRequired": false,
   "lightkeeperRequired": null,
   "gameModes": [

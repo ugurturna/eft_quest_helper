@@ -45,6 +45,7 @@
         <li><a href="#auto-raid" data-i18n="navRaid">Auto Raid</a></li>
         <li><a href="#map-gps" data-i18n="navMap">Map GPS</a></li>
         <li><a href="#goons" data-i18n="navGoons">Goons</a></li>
+        <li><a href="#btr" data-i18n="navBtr">BTR</a></li>
         <li><a href="#endgame" data-i18n="navEndgame">End Game</a></li>
         <li><a href="#screenshots" data-i18n="navShots">Screenshots</a></li>
         <li><a href="#safety" data-i18n="navSafety">Ban Safety</a></li>
@@ -150,6 +151,14 @@
             <h3 data-i18n="f18Title">Goon Tracker</h3>
             <p data-i18n="f18Desc">Where were the Goons last seen? The "Entering a raid" page shows the latest reports from tarkov-goon-tracker.com for the mode you play (PvP or PvE), and the map card where they were seen gets a GOONS badge.</p>
             <a href="#goons" class="feature-highlight" data-i18n="f18Badge">PvP + PvE · every 5 min →</a>
+          </article>
+
+          <article class="feature-card feature-new">
+            <span class="feature-new-tag" data-i18n="newTag">New</span>
+            <div class="feature-icon">🚌</div>
+            <h3 data-i18n="f19Title">BTR Tracker</h3>
+            <p data-i18n="f19Desc">Where is the BTR now, and when does it reach the next stop? On Woods, Streets and Lighthouse the tracker works it out from the raid clock: the next stop and its ETA on the overlay, the route and the BTR on the map window, every stop on the raid page.</p>
+            <a href="#btr" class="feature-highlight" data-i18n="f19Badge">Woods · Streets · Lighthouse →</a>
           </article>
 
           <article class="feature-card feature-new">
@@ -494,6 +503,46 @@
         </figure>
 
         <p class="endgame-note" data-i18n="gtNote">Reports come from players on tarkov-goon-tracker.com, so they can be wrong or late. The tracker only reads that public page; nothing is sent from your game.</p>
+      </div>
+    </section>
+
+    <!-- BTR tracker: where the BTR should be by the raid clock, and when it reaches each stop -->
+    <section id="btr" class="endgame-section read-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="btTag">New</span>
+          <h2 class="section-title" data-i18n="btTitle">Where Is the BTR, and When Does It Come?</h2>
+          <p class="section-subtitle" data-i18n="btSub">On Woods, Streets of Tarkov and Lighthouse the BTR drives fixed routes on a timetable: it spawns at a set raid time, waits at each stop and goes round again. From the raid time left, the tracker estimates where it is and when it reaches each stop.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-number">01</span>
+            <div class="step-icon">⏱️</div>
+            <h3 data-i18n="bt1Title">1. Raid Clock</h3>
+            <p data-i18n="bt1Desc">Double O in raid: the map and the raid time left are read off the exfil list. The BTR timetable starts from there.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">02</span>
+            <div class="step-icon">🎯</div>
+            <h3 data-i18n="bt2Title">2. Next Stop on the Overlay</h3>
+            <p data-i18n="bt2Desc">One line under the raid time: where the BTR is heading and its ETA, or which stop it waits at and for how long.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">03</span>
+            <div class="step-icon">🗺️</div>
+            <h3 data-i18n="bt3Title">3. On the Map</h3>
+            <p data-i18n="bt3Desc">Take a screenshot: the map window shows the routes it may be on, every stop with its ETA and where the BTR should be now.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">04</span>
+            <div class="step-icon">👀</div>
+            <h3 data-i18n="bt4Title">4. Seen It? Press Seen</h3>
+            <p data-i18n="bt4Desc">On the raid page, press Seen next to the stop where you spot the BTR: the times line up with it and routes that don't fit are dropped.</p>
+          </div>
+        </div>
+
+        <p class="endgame-note" data-i18n="btNote">The times are estimates (the spawn time varies by about a minute); one Seen brings them much closer. Each view can be turned off in Settings. Nothing is read from the game other than the raid clock the double O already reads.</p>
       </div>
     </section>
 

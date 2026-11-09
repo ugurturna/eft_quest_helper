@@ -69,6 +69,12 @@ public sealed class AppSettings
     public double MapOpacity { get; set; } = 0.95;
     public bool MapShowExtracts { get; set; } = true;
     public bool MapShowQuests { get; set; } = true;
+    /// <summary>BTR tracker: its route, stops and estimated spot on the map window.</summary>
+    public bool BtrShowOnMap { get; set; } = true;
+    /// <summary>BTR tracker: the next stop and its ETA on the overlay.</summary>
+    public bool BtrShowInOverlay { get; set; } = true;
+    /// <summary>BTR tracker: the stop list card on the raid page.</summary>
+    public bool BtrShowCard { get; set; } = true;
     /// <summary>Map window place as fractions of the free space across all monitors (0.5 = middle), like the overlay's.</summary>
     public double MapPositionX { get; set; } = 0.5;
     public double MapPositionY { get; set; } = 0.5;

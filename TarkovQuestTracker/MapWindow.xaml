@@ -29,7 +29,14 @@
                               VerticalAlignment="Center" />
                     <ComboBox x:Name="FloorBox" MinWidth="110" Margin="0,0,8,0" VerticalAlignment="Center" SelectionChanged="FloorBox_SelectionChanged" />
                     <CheckBox Content="{DynamicResource s.map.exfils}" IsChecked="{Binding MapShowExtracts}" VerticalAlignment="Center" Margin="0,0,8,0" />
-                    <CheckBox Content="{DynamicResource s.map.quests}" IsChecked="{Binding MapShowQuests}" VerticalAlignment="Center" />
+                    <CheckBox Content="{DynamicResource s.map.quests}" IsChecked="{Binding MapShowQuests}" VerticalAlignment="Center" Margin="0,0,8,0" />
+                    <!-- BTR tracker (Woods, Streets, Lighthouse in a raid): route, stops with ETA, estimated spot; which route -->
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Visibility="{Binding BtrAvailable, Converter={StaticResource BoolToVis}}">
+                        <CheckBox Content="{DynamicResource s.map.btr}" IsChecked="{Binding BtrShowOnMap}" VerticalAlignment="Center" Margin="0,0,4,0"
+                                  ToolTip="{DynamicResource s.gps.btrMap}" />
+                        <ComboBox ItemsSource="{Binding BtrRouteChoices}" SelectedIndex="{Binding BtrRouteIndex}" MinWidth="80" VerticalAlignment="Center"
+                                  ToolTip="{DynamicResource s.btr.routeTip}" />
+                    </StackPanel>
                 </WrapPanel>
             </DockPanel>
 

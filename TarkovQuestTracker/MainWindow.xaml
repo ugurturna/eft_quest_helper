@@ -469,6 +469,41 @@
                                     </ItemsControl>
                                 </StackPanel>
                             </Border>
+                            <!-- BTR tracker: where the BTR should be by the raid clock, and when it reaches each stop -->
+                            <Border Background="{StaticResource CardBrush}" CornerRadius="4" Padding="10,8" Margin="0,0,0,10"
+                                    Visibility="{Binding BtrCardVisible, Converter={StaticResource BoolToVis}}">
+                                <StackPanel>
+                                    <DockPanel>
+                                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                                            <ComboBox ItemsSource="{Binding BtrRouteChoices}" SelectedIndex="{Binding BtrRouteIndex}" MinWidth="90" Margin="0,0,6,0"
+                                                      ToolTip="{DynamicResource s.btr.routeTip}" />
+                                            <Button Content="↺" Style="{StaticResource SmallButton}" Margin="0" Command="{Binding BtrResetCommand}"
+                                                    ToolTip="{DynamicResource s.btr.reset}" AutomationProperties.Name="{DynamicResource s.btr.reset}" />
+                                        </StackPanel>
+                                        <TextBlock Text="{Binding BtrStatus}" Style="{StaticResource Body}" Foreground="{StaticResource AccentBrush}"
+                                                   FontWeight="Bold" VerticalAlignment="Center" TextWrapping="Wrap" />
+                                    </DockPanel>
+                                    <TextBlock Text="{Binding BtrNote}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,4,0,0" />
+                                    <ItemsControl ItemsSource="{Binding BtrStops}" Margin="0,4,0,0">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate DataType="{x:Type vm:BtrStopRowVm}">
+                                                <DockPanel Margin="0,1,0,0">
+                                                    <Button DockPanel.Dock="Right" Content="{DynamicResource s.btr.seen}" Style="{StaticResource SmallButton}"
+                                                            FontSize="11" Padding="6,0" Margin="8,0,0,0" CommandParameter="{Binding StopId}"
+                                                            Command="{Binding DataContext.BtrSeenCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                                            ToolTip="{DynamicResource s.btr.seenTip}" />
+                                                    <TextBlock DockPanel.Dock="Right" Text="{Binding EtaText}" Style="{StaticResource Body}" FontWeight="SemiBold"
+                                                               VerticalAlignment="Center" />
+                                                    <TextBlock Style="{StaticResource Muted}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis">
+                                                        <Run Text="{Binding Name, Mode=OneWay}" Foreground="{StaticResource TextBrush}" />
+                                                        <Run Text="{Binding RouteId, Mode=OneWay}" />
+                                                    </TextBlock>
+                                                </DockPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </Border>
                             <TextBlock Text="{DynamicResource s.raid.pick}" Style="{StaticResource Body}" FontWeight="SemiBold" FontSize="15" />
                             <TextBlock Text="{DynamicResource s.raid.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,2,0,10" />
                             <ItemsControl ItemsSource="{Binding RaidMaps}" ItemTemplate="{StaticResource MapCard}">
@@ -575,6 +610,13 @@
                                             HorizontalAlignment="Left" Width="260" VerticalAlignment="Center" />
                                 </Grid>
                             </StackPanel>
+
+                            <!-- BTR tracker: where it shows -->
+                            <TextBlock Text="{DynamicResource s.gps.btr}" Style="{StaticResource H2}" />
+                            <TextBlock Text="{DynamicResource s.gps.btrDesc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,0,0,4" />
+                            <CheckBox Content="{DynamicResource s.gps.btrMap}" IsChecked="{Binding BtrShowOnMap}" Margin="0,4,0,4" />
+                            <CheckBox Content="{DynamicResource s.gps.btrOverlay}" IsChecked="{Binding BtrShowInOverlay}" Margin="0,0,0,4" />
+                            <CheckBox Content="{DynamicResource s.gps.btrCard}" IsChecked="{Binding BtrShowCard}" Margin="0,0,0,8" />
 
                             <!-- where the map window opens; dragging its top bar sets this too -->
                             <DockPanel Margin="0,8,0,0">

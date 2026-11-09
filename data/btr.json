@@ -1,0 +1,80 @@
+{
+  "_comment": "BTR routes for the BTR tracker (TarkovQuestTracker.Core/Services/BtrSchedule.cs). Positions are game [x, z]; times are raid time LEFT in seconds. Stop spots are approximate (lined up with tarkov.dev landmarks) and legs are straight lines until roads are drawn: set TARKOV_TRACKER_BTR_EDIT=1 and click the map window to copy a spot. 'observed' lists real arrival times per stop (null = calculated from the speed).",
+  "maps": {
+    "Woods": {
+      "estimated": true,
+      "stopSeconds": 120,
+      "speed": 5.5,
+      "varianceSeconds": 60,
+      "stops": {
+        "checkpoint": { "name": "Checkpoint", "position": [233, -50] },
+        "sawmill": { "name": "Sawmill", "position": [22, -71] },
+        "scavBunker": { "name": "Scav Bunker", "position": [162, -377] },
+        "sunkenVillage": { "name": "Sunken Village", "position": [-173, -321] },
+        "oldSawmill": { "name": "Old Sawmill", "position": [-449, -106] },
+        "trainDepot": { "name": "Train Depot", "position": [-591, 98] },
+        "junction": { "name": "Junction", "position": [-75, -191] },
+        "emercomBase": { "name": "Emercom Base", "position": [-104, 126] }
+      },
+      "spawns": {
+        "western": { "timeLeft": 1842, "position": [330, -40] },
+        "eastern": { "timeLeft": 1811, "position": [-560, -60] }
+      },
+      "roads": {},
+      "routes": [
+        { "id": "R1", "spawn": "western", "stops": ["checkpoint", "sawmill", "scavBunker", "sunkenVillage", "oldSawmill", "trainDepot"] },
+        { "id": "R2", "spawn": "western", "stops": ["checkpoint", "sawmill", "junction", "oldSawmill", "trainDepot", "emercomBase"] },
+        { "id": "R3", "spawn": "eastern", "stops": ["oldSawmill", "trainDepot", "sunkenVillage", "scavBunker", "checkpoint", "sawmill", "junction"] },
+        { "id": "R4", "spawn": "eastern", "stops": ["oldSawmill", "junction", "sawmill", "emercomBase", "trainDepot"] },
+        { "id": "R5", "spawn": "western", "stops": ["checkpoint", "sawmill", "scavBunker", "sunkenVillage", "trainDepot", "oldSawmill", "junction", "emercomBase"] }
+      ]
+    },
+    "Streets of Tarkov": {
+      "estimated": true,
+      "stopSeconds": 100,
+      "speed": 5.5,
+      "varianceSeconds": 60,
+      "stops": {
+        "rodinaCinema": { "name": "Rodina Cinema", "position": [-174, 395] },
+        "tram": { "name": "Tram", "position": [-190, 223] },
+        "pinewoodHotel": { "name": "Pinewood Hotel", "position": [-36, 72] },
+        "scavCheckpoint": { "name": "Scav Checkpoint", "position": [212, 71] },
+        "collapsedCrane": { "name": "Collapsed Crane", "position": [215, 280] },
+        "cityCenter": { "name": "City Center", "position": [31, 219] }
+      },
+      "spawns": {
+        "cinema": { "timeLeft": 2106, "position": [-200, 440] },
+        "crane": { "timeLeft": 2035, "position": [250, 300] },
+        "expo": { "timeLeft": 1814, "position": [230, -100] }
+      },
+      "roads": {},
+      "routes": [
+        { "id": "R1", "spawn": "cinema", "stops": ["rodinaCinema", "tram", "pinewoodHotel", "scavCheckpoint", "collapsedCrane", "cityCenter"] },
+        { "id": "R2", "spawn": "crane", "stops": ["collapsedCrane", "cityCenter", "rodinaCinema", "tram", "pinewoodHotel", "scavCheckpoint"] },
+        { "id": "R3", "spawn": "expo", "stops": ["scavCheckpoint", "pinewoodHotel", "tram", "rodinaCinema", "collapsedCrane"] }
+      ]
+    },
+    "Lighthouse": {
+      "estimated": true,
+      "stopSeconds": 100,
+      "speed": 5.5,
+      "varianceSeconds": 90,
+      "stops": {
+        "northernCheckpoint": { "name": "Northern Checkpoint", "position": [115, -989] },
+        "wtpBuilding1": { "name": "WTP Building 1", "position": [16, -600] },
+        "construction": { "name": "Construction", "position": [0, -188] },
+        "villageCrossroads": { "name": "Village Crossroads", "position": [-269, -225] },
+        "unCheckpoint": { "name": "UN Checkpoint", "position": [-2, 63] },
+        "roadToLighthouse": { "name": "Road to Lighthouse", "position": [-40, 413] },
+        "southernRoad": { "name": "Southern Road", "position": [-296, 421] }
+      },
+      "spawns": {
+        "northern": { "timeLeft": 2100, "position": [129, -1026] }
+      },
+      "roads": {},
+      "routes": [
+        { "id": "R1", "spawn": "northern", "stops": ["northernCheckpoint", "wtpBuilding1", "construction", "unCheckpoint", "roadToLighthouse", "southernRoad", "villageCrossroads", "construction", "wtpBuilding1"] }
+      ]
+    }
+  }
+}

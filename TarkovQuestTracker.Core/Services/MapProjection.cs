@@ -25,6 +25,17 @@ public static class MapProjection
 
     public static MapPoint Project(MapGeometry map, double[] position) => Project(map, position[0], position[2]);
 
+    /// <summary>Back from the map picture to game (x, z): <see cref="Project(MapGeometry, double, double)"/> undone.</summary>
+    public static (double X, double Z) Unproject(MapGeometry map, MapPoint point)
+    {
+        var t = map.Transform;
+        var rx = (point.X - t[1]) / t[0];
+        var ry = -(point.Y - t[3]) / t[2];
+        var angle = map.CoordinateRotation * Math.PI / 180;
+        var (cos, sin) = (Math.Cos(angle), Math.Sin(angle));
+        return (rx * cos + ry * sin, -rx * sin + ry * cos);
+    }
+
     /// <summary>
     /// The picture's rectangle (left, top, right, bottom) for [[x, z], [x, z]] corners, as Leaflet places an overlay:
     /// its north-west and south-east corners, projected.

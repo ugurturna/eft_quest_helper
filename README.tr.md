@@ -54,6 +54,7 @@
 - **Profiller** — aynı bilgisayarda birden fazla oyuncu, herkesin kendi ilerlemesi ve ayarları.
 - **Event görevleri** — aktif eventler listelenir; artık yapılamayan geçmiş eventler gösterilmez.
 - **Haritada konumun** — raidde kendi ekran görüntüsü tuşunla ekran görüntüsü al; harita penceresi nerede olduğunu ve nereye baktığını, önceki ekran görüntülerinden izini, exfilleri ve aktif görevlerinin noktalarını gösterir; kat yüksekliğine göre değişir. Bkz. [Harita ve konum](#harita-ve-konum-ekran-görüntüleri).
+- **BTR takibi** — Woods, Streets ve Lighthouse'ta: raid süresine göre BTR'nin nerede olduğu ve her durağa ne zaman varacağı (TVS: tahmini varış süresi); overlay'de, harita penceresinde ve *Raid'e giriyorum* sayfasında. Bkz. [BTR takibi](#btr-takibi-woods-streets-lighthouse).
 - **End Game (The Ticket sonları)** — 4 sondan hangilerine hâlâ ulaşabileceğin, hedef sonuna giden yol ve şu an nerede olduğun ([End Game](#end-game-the-ticket-sonları) bölümüne bak).
 - **Hızlı** — listeler kaydırdıkça sayfa sayfa yüklenir.
 
@@ -134,6 +135,19 @@ Raidde ekran görüntüsü aldığında oyun konumunu dosya adına yazar (`2026-
 
 > [!NOTE]
 > Sadece ekran görüntülerinin **dosya adları** okunur; görüntüler hiç açılmaz, oyuna hiçbir şey gönderilmez.
+
+### BTR takibi (Woods, Streets, Lighthouse)
+
+Woods, Streets of Tarkov ve Lighthouse'ta BTR sabit rotalarda bir zaman çizelgesiyle gider: belli bir raid süresinde doğar, her durakta yaklaşık iki dakika bekler ve rota bitince başa döner. Takipçi kalan raid süresinden (çift <kbd>O</kbd> ile okunur) BTR'nin nerede olduğunu ve her durağa ne zaman varacağını (TVS) tahmin eder:
+
+- **Overlay:** raid süresinin altında tek satır, örn. `BTR → Sawmill · TVS 1:20` ya da `BTR Sawmill durağında (0:45) → Junction`.
+- **Harita penceresi:** BTR'nin olabileceği rotalar, her durak ve TVS'si, şu an olması gereken yerde bir **BTR** işareti (olası her rota için bir tane). Haritanın geri kalanı gibi ekran görüntüsü tuşunla açılır.
+- **Raid'e giriyorum sayfası:** tüm duraklar TVS'ye göre sıralı. Rotayı biliyorsan seç, bilmiyorsan *Otomatik*'te bırak.
+- **Gördüm.** BTR'yi gördüğün durağın yanındaki **Gördüm**'e bas: süreler gördüğüne göre ayarlanır, o saatte orada durmayan rotalar elenir. **↺** gözlemleri siler.
+- Üçü de **Ayarlar → Harita ve konum → BTR takibi** altından ayrı ayrı kapatılabilir.
+
+> [!NOTE]
+> Süreler tahminidir: doğma süresi yaklaşık bir dakika oynar, `data/btr.json` içindeki durak konumları ve yollar da henüz yaklaşıktır. Tek bir **Gördüm** süreleri çok yaklaştırır. Oyundan, çift <kbd>O</kbd>'nun zaten okuduğu raid süresi dışında hiçbir şey okunmaz.
 
 ### Flea market fiyatları
 
