@@ -6,8 +6,11 @@ using TarkovQuestTracker.Core.Services;
 
 namespace TarkovQuestTracker.ViewModels;
 
-/// <summary>An active quest's objective spot on the map window.</summary>
-public sealed record MapQuestSpot(string Quest, string Objective, IReadOnlyList<double[]> Positions);
+/// <summary>
+/// An active quest's objective spot on the map window; <see cref="Objective"/> is null when tarkov.dev's text matches none of ours
+/// (<see cref="Text"/> is then tarkov.dev's).
+/// </summary>
+public sealed record MapQuestSpot(ActiveQuestVm Quest, ObjectiveVm? Objective, string Text, IReadOnlyList<double[]> Positions);
 
 /// <summary>
 /// Map window: the player's position from the game's screenshot file names (press the screenshot key in raid),
@@ -140,7 +143,7 @@ public sealed partial class MainViewModel
             var objective = quest.Objectives.FirstOrDefault(o =>
                 string.Equals(o.Objective.Text.Trim(), spot.Text.Trim(), StringComparison.OrdinalIgnoreCase));
             if (objective?.IsDone == true) continue;
-            spots.Add(new MapQuestSpot(quest.Quest.DisplayName, objective?.Objective.DisplayText ?? spot.Text, spot.Positions));
+            spots.Add(new MapQuestSpot(quest, objective, objective?.Objective.DisplayText ?? spot.Text, spot.Positions));
         }
         return spots;
     }

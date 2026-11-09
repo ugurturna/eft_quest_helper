@@ -688,18 +688,74 @@ public sealed partial class MainViewModel : ObservableObject
         }
     }
 
+    /// <summary>
+    /// The same digit is misread the same way on every frame, so reads within one "O" press agreeing proves little.
+    /// The clock may end the raid only once a separate press (this much later) read it the same.
+    /// </summary>
+    static readonly TimeSpan SeparatePress = TimeSpan.FromSeconds(15);
+    /// <summary>Two reads of one raid end agree within this (a read without seconds is ±30 s).</summary>
+    static readonly TimeSpan ClockAgree = TimeSpan.FromSeconds(35);
+    /// <summary>A read this much earlier than the running clock waits for a second press before it takes over.</summary>
+    static readonly TimeSpan ClockJump = TimeSpan.FromSeconds(90);
+
+    DateTime _raidClockSetAt;
+    /// <summary>A second "O" press read the running clock the same: it ends the raid when it runs out.</summary>
+    bool _raidEndConfirmed;
+    /// <summary>A read that would cut the running clock short, waiting for a second press that agrees.</summary>
+    (DateTime EndsAt, DateTime ReadAt)? _earlierRaidEnd;
+
     void SetRaidClock(DateTime? endsAt)
     {
         _raidEndsAt = endsAt;
+        _raidClockSetAt = DateTime.UtcNow;
+        _raidEndConfirmed = false;
+        _earlierRaidEnd = null;
         if (endsAt == null) _raidClock.Stop();
         else _raidClock.Start();
         OnRaidClockTick(null, EventArgs.Empty);
+    }
+
+    /// <summary>
+    /// The raid clock was read again during the raid. Agreeing with the running clock on a later press confirms it;
+    /// a later end is taken at once (a new raid on the same map); an end much earlier only once another press agrees,
+    /// so one misread digit can't end the raid half an hour early.
+    /// </summary>
+    void ReadRaidClock(DateTime endsAt)
+    {
+        var now = DateTime.UtcNow;
+        if (_raidEndsAt is { } current)
+        {
+            if ((endsAt - current).Duration() <= ClockAgree)
+            {
+                if (now - _raidClockSetAt >= SeparatePress) _raidEndConfirmed = true;
+                return;
+            }
+            if (endsAt < current - ClockJump)
+            {
+                if (_earlierRaidEnd is { } earlier && (earlier.EndsAt - endsAt).Duration() <= ClockAgree)
+                {
+                    if (now - earlier.ReadAt < SeparatePress) return;  // the same press, still open
+                    SetRaidClock(endsAt);
+                    _raidEndConfirmed = true;
+                    return;
+                }
+                _earlierRaidEnd = (endsAt, now);
+                return;
+            }
+        }
+        SetRaidClock(endsAt);
     }
 
     void OnRaidClockTick(object? sender, EventArgs e)
     {
         if (sender != null && _raidEndsAt is { } end && DateTime.UtcNow >= end)
         {
+            if (!_raidEndConfirmed)
+            {
+                // read on one press only: maybe a misread, so the raid stays on (the next exfil list starts the next one)
+                SetRaidClock(null);
+                return;
+            }
             // the raid time is up: the raid is over whatever happened in it
             RaidMap = null;
             SetRaidClock(null);

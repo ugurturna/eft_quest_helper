@@ -107,10 +107,16 @@ public sealed class RaidDetector
                     hits = nextHits;
                 }
             }
-            if (matcher.Map(best) is not { } map) return;
-            _quietUntil = DateTime.UtcNow + Cooldown;
-            _lastClock = null;
+            var map = matcher.Map(best);
             var time = Confirmed(clocks);
+            _lastClock = null;
+            if (map == null)
+            {
+                // exfils but no sure map: the clock above them still sets the time of the raid running
+                if (time is { } t) Sighted?.Invoke(new Sighting(null, t.Left, t.At));
+                return;
+            }
+            _quietUntil = DateTime.UtcNow + Cooldown;
             Sighted?.Invoke(new Sighting(map, time?.Left, time?.At ?? DateTime.UtcNow));
         }
         catch (Exception)

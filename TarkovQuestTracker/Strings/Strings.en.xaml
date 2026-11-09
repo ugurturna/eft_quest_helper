@@ -384,6 +384,9 @@
     <sys:String x:Key="s.map.noFolder">Screenshot folder not found: {0}. Take one screenshot in game, then press ⟳.</sys:String>
     <sys:String x:Key="s.map.hint">Take a screenshot in raid with your in-game screenshot key (whichever key you bound): your position shows here.</sys:String>
     <sys:String x:Key="s.map.pos">Last position {0} · X {1}, Z {2} · height {3} m · {4}</sys:String>
+    <sys:String x:Key="s.map.card.close">Close</sys:String>
+    <sys:String x:Key="s.map.card.wiki">Open the quest on the wiki ↗</sys:String>
+    <sys:String x:Key="s.map.card.others">Other objectives</sys:String>
     <sys:String x:Key="t.map.pick">Position read: pick the map on the map window (or start the raid).</sys:String>
     <sys:String x:Key="t.map.noShot">No screenshot with a position in {0} yet.</sys:String>
     <sys:String x:Key="t.map.noFolder">Screenshot folder not found: {0}</sys:String>

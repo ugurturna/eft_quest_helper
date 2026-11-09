@@ -120,14 +120,9 @@ public sealed partial class MainViewModel
         if (!Settings.AutoRaidDetect) return;  // the corner is only read for the auto-hide
         // under a minute left is far more likely a misread than a raid in its last minute, and it would end the raid
         var endsAt = s.TimeLeft is { } left && left >= TimeSpan.FromMinutes(1) ? s.ReadAt + left : (DateTime?)null;
-        if (s.Map == null)
+        if (s.Map == null || s.Map == RaidMap)
         {
-            if (RaidMap != null && endsAt != null) SetRaidClock(endsAt);
-            return;
-        }
-        if (s.Map == RaidMap)
-        {
-            if (endsAt != null) SetRaidClock(endsAt);
+            if (RaidMap != null && endsAt is { } end) ReadRaidClock(end);
             return;
         }
         RaidMap = s.Map;

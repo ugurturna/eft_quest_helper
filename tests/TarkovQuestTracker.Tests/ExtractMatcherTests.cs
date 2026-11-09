@@ -48,6 +48,14 @@ public sealed class ExtractMatcherTests
     [Fact]
     public void One_exfil_is_not_enough_on_a_big_map() => Assert.Null(Matcher.Map(["Crossroads"]));
 
+    /// <summary>A name inside a longer one is not read as another map's exfil (it made ties, or the wrong map).</summary>
+    [Theory]
+    [InlineData("EXFIL01 Side Tunnel (Co-Op)")]       // Lighthouse, not Shoreline's "Tunnel"
+    [InlineData("EXFIL01 Courtyard Gate")]            // Factory, not Streets' "Courtyard"
+    [InlineData("EXFIL01 Railway Bridge to Tarkov")]  // Woods, not Shoreline's "Railway Bridge"
+    [InlineData("EXFIL01 Pier Boat")]                 // Shoreline, not Woods' "Boat"
+    public void A_name_inside_a_longer_one_is_not_counted(string line) => Assert.Equal(1, Matcher.Hits([line]));
+
     [Fact]
     public void Other_screen_text_is_no_map() =>
         Assert.Null(Matcher.Map(["Escape from Tarkov", "Character", "Traders", "Flea Market", "Hideout", "12:45:03"]));

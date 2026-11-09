@@ -66,30 +66,42 @@ public sealed class ExtractMatcher
     /// <summary>How many exfil names are readable: grows while a slow PC is still drawing the list.</summary>
     public int Hits(IEnumerable<string> lines) => Found(lines).Count;
 
-    /// <summary>Exfil names that appear in the lines (other text on the line, such as "EXFIL01" or a timer, is fine).</summary>
+    /// <summary>
+    /// Exfil names that appear in the lines (other text on the line, such as "EXFIL01" or a timer, is fine). A name
+    /// inside a longer one found on the same line is not counted: "Side Tunnel" (Lighthouse) is not Shoreline's "Tunnel",
+    /// "Courtyard Gate" (Factory) not Streets' "Courtyard".
+    /// </summary>
     List<(string[] Words, string Text, HashSet<string> Maps)> Found(IEnumerable<string> lines)
     {
         var found = new List<(string[] Words, string Text, HashSet<string> Maps)>();
         foreach (var line in lines.Select(Clean).Where(l => l != ""))
         {
             var words = line.Split(' ');
-            foreach (var entry in _index)
-                if (!found.Contains(entry) && Contains(words, entry.Words, entry.Text)) found.Add(entry);
+            var hits = _index.Select(e => (Entry: e, Start: Find(words, e.Words, e.Text)))
+                             .Where(h => h.Start >= 0).ToList();
+            foreach (var (entry, start) in hits)
+            {
+                var end = start + entry.Words.Length;
+                var inside = hits.Any(o => o.Entry.Words.Length > entry.Words.Length
+                                           && o.Start <= start && end <= o.Start + o.Entry.Words.Length);
+                if (!inside && !found.Contains(entry)) found.Add(entry);
+            }
         }
         return found;
     }
 
-    static bool Contains(string[] words, string[] name, string text)
+    /// <summary>The word the name starts at in the line, or -1.</summary>
+    static int Find(string[] words, string[] name, string text)
     {
         var allowed = Allowed(text.Length);
         for (var i = 0; i + name.Length <= words.Length; i++)
         {
             var window = string.Join(' ', words, i, name.Length);
-            if (window == text) return true;
+            if (window == text) return i;
             if (allowed > 0 && Math.Abs(window.Length - text.Length) <= allowed
-                && SearchService.Levenshtein(window, text) <= allowed) return true;
+                && SearchService.Levenshtein(window, text) <= allowed) return i;
         }
-        return false;
+        return -1;
     }
 
     /// <summary>

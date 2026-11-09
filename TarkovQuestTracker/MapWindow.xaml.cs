@@ -49,6 +49,13 @@ public partial class MapWindow : Window
     Vector _offset;
     Point? _dragStart;
     bool _dragged;
+    /// <summary>The quest marker under the mouse when the button went down; a click (no drag) on it opens its card.</summary>
+    QuestMarker? _pressed;
+    /// <summary>The quest marker whose card is open.</summary>
+    QuestMarker? _card;
+
+    /// <summary>One drawn quest marker: which objective of which quest, and which of its spots.</summary>
+    sealed record QuestMarker(string QuestId, string Text, double[] Position);
 
     public MapWindow(MainViewModel vm)
     {
@@ -132,7 +139,9 @@ public partial class MapWindow : Window
         if (e.Key != Key.Escape) return;
         // Esc on an open list only closes the list
         if (MapBox.IsDropDownOpen || FloorBox.IsDropDownOpen) return;
-        Dismiss(returnToGame: true);
+        // and on an open quest card only the card
+        if (_card != null) HideCard();
+        else Dismiss(returnToGame: true);
         e.Handled = true;
     }
 
@@ -255,6 +264,7 @@ public partial class MapWindow : Window
     void LoadMap()
     {
         _shownMap = _vm.MapName;
+        HideCard();
         FillFloors();
         _ = LoadPicturesAsync(fit: true);
     }
@@ -407,6 +417,7 @@ public partial class MapWindow : Window
     {
         _dragStart = e.GetPosition(Viewport);
         _dragged = false;
+        _pressed = (e.OriginalSource as FrameworkElement)?.Tag as QuestMarker;
         Viewport.CaptureMouse();
     }
 
@@ -427,6 +438,13 @@ public partial class MapWindow : Window
     {
         _dragStart = null;
         Viewport.ReleaseMouseCapture();
+        // a click (not a drag): on a quest marker opens its card, anywhere else closes it
+        if (!_dragged)
+        {
+            if (_pressed != null) ShowCard(_pressed);
+            else HideCard();
+        }
+        _pressed = null;
     }
 
     void Viewport_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -445,7 +463,11 @@ public partial class MapWindow : Window
     void Redraw()
     {
         Markers.Children.Clear();
-        if (Map is not { } map || Pictures.Children.Count == 0) return;
+        if (Map is not { } map || Pictures.Children.Count == 0)
+        {
+            UpdateCard(null, []);
+            return;
+        }
         if (_vm.MapShowExtracts)
         {
             // tarkov.dev lists an exfil both PMCs and Scavs use once per side: one point, shared
@@ -458,12 +480,14 @@ public partial class MapWindow : Window
             foreach (var t in map.Transits)
                 AddPoint(map, t.Position, TransitBrush, t.Name, t.Name, diamond: false);
         }
-        if (_vm.MapShowQuests)
-            foreach (var spot in _vm.QuestSpots(map))
-                foreach (var position in spot.Positions)
-                    AddPoint(map, position, QuestBrush, null, $"{spot.Quest}\n{spot.Objective}", diamond: true);
+        var spots = _vm.MapShowQuests ? _vm.QuestSpots(map) : [];
+        foreach (var spot in spots)
+            foreach (var position in spot.Positions)
+                AddPoint(map, position, QuestBrush, null, $"{spot.Quest.Quest.DisplayName}\n{spot.Text}", diamond: true,
+                         new QuestMarker(spot.Quest.Quest.Id, spot.Text, position));
         DrawTrail(map);
         DrawPlayer(map);
+        UpdateCard(map, spots);
     }
 
     static Brush FactionBrush(string faction) => faction switch
@@ -473,7 +497,7 @@ public partial class MapWindow : Window
         _ => SharedBrush,
     };
 
-    void AddPoint(MapGeometry map, double[] position, Brush fill, string? label, string tip, bool diamond)
+    void AddPoint(MapGeometry map, double[] position, Brush fill, string? label, string tip, bool diamond, QuestMarker? quest = null)
     {
         var at = Screen(MapProjection.Project(map, position));
         if (at.X < -50 || at.Y < -50 || at.X > Viewport.ActualWidth + 50 || at.Y > Viewport.ActualHeight + 50) return;
@@ -485,6 +509,7 @@ public partial class MapWindow : Window
         dot.Stroke = Brushes.Black;
         dot.StrokeThickness = 1;
         dot.ToolTip = tip;
+        dot.Tag = quest;
         dot.Cursor = Cursors.Hand;
         Canvas.SetLeft(dot, at.X - size / 2);
         Canvas.SetTop(dot, at.Y - size / 2);
@@ -536,6 +561,73 @@ public partial class MapWindow : Window
         Canvas.SetTop(arrow, at.Y);
         Markers.Children.Add(arrow);
     }
+
+    // quest card: a click on a quest marker shows the quest's name and objectives next to it
+
+    void ShowCard(QuestMarker marker)
+    {
+        _card = marker;
+        Redraw();
+    }
+
+    void HideCard()
+    {
+        _card = null;
+        QuestCard.Visibility = Visibility.Collapsed;
+    }
+
+    /// <summary>Fills and places the open card; closes it when its spot is gone (objective done, quests hidden, other map).</summary>
+    void UpdateCard(MapGeometry? map, IReadOnlyList<MapQuestSpot> spots)
+    {
+        if (_card is not { } marker) return;
+        var spot = spots.FirstOrDefault(s => s.Quest.Quest.Id == marker.QuestId && s.Text == marker.Text);
+        if (map == null || spot == null)
+        {
+            HideCard();
+            return;
+        }
+        var quest = spot.Quest.Quest;
+        QuestCard.Tag = quest;
+        CardTitle.Text = quest.DisplayName;
+        CardMeta.Text = string.Join(" · ", new[] { quest.Trader, quest.LevelText, quest.LoyaltyText, spot.Quest.Progress }
+                                               .Where(s => !string.IsNullOrEmpty(s)));
+        CardBody.Children.Clear();
+        AddCardLine("◆ " + spot.Text + (spot.Objective is { IsCounter: true } o ? $" ({o.CounterText})" : ""),
+                    QuestBrush, bold: true);
+        foreach (var detail in spot.Objective?.Objective.DisplayDetails ?? [])
+            AddCardLine("• " + detail, (Brush)FindResource("TextBrush"), indent: 10);
+        var others = spot.Quest.Objectives.Where(o => o != spot.Objective).ToList();
+        if (others.Count > 0)
+        {
+            AddCardLine(Loc.T("s.map.card.others"), (Brush)FindResource("MutedBrush"), top: 6);
+            foreach (var other in others)
+                AddCardLine((other.IsDone ? "✓ " : "○ ") + other.Text + (other.IsCounter ? $" ({other.CounterText})" : ""),
+                            (Brush)FindResource(other.IsDone ? "DoneBrush" : "TextBrush"));
+        }
+
+        QuestCard.Visibility = Visibility.Visible;
+        QuestCard.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+        var (w, h) = (QuestCard.DesiredSize.Width, QuestCard.DesiredSize.Height);
+        var at = Screen(MapProjection.Project(map, marker.Position));
+        // right of the marker, or left of it near the right edge; always inside the map
+        var left = at.X + 14 + w <= Viewport.ActualWidth ? at.X + 14 : at.X - 14 - w;
+        Canvas.SetLeft(QuestCard, Math.Max(4, Math.Min(left, Viewport.ActualWidth - w - 4)));
+        Canvas.SetTop(QuestCard, Math.Max(4, Math.Min(at.Y - 14, Viewport.ActualHeight - h - 4)));
+    }
+
+    void AddCardLine(string text, Brush brush, bool bold = false, double indent = 0, double top = 2) =>
+        CardBody.Children.Add(new TextBlock
+        {
+            Text = text, Foreground = brush, FontSize = 11.5, TextWrapping = TextWrapping.Wrap,
+            FontWeight = bold ? FontWeights.SemiBold : FontWeights.Normal, Margin = new Thickness(indent, top, 0, 0),
+        });
+
+    // clicks on the card stay on the card (no drag of the map under it, no closing it)
+    void QuestCard_MouseDown(object sender, MouseButtonEventArgs e) => e.Handled = true;
+
+    void CardClose_Click(object sender, RoutedEventArgs e) => HideCard();
+
+    void CardWiki_Click(object sender, RoutedEventArgs e) => _vm.OpenWikiCommand.Execute(QuestCard.Tag as Quest);
 
     void UpdateStatus()
     {

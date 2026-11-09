@@ -48,6 +48,30 @@
                     </Canvas.RenderTransform>
                 </Canvas>
                 <Canvas x:Name="Markers" />
+                <!-- the quest marker clicked last: name and objectives, next to the marker (filled in code) -->
+                <Canvas>
+                    <Border x:Name="QuestCard" Visibility="Collapsed" Width="290" Background="{StaticResource CardBrush}"
+                            BorderBrush="{StaticResource AccentBrush}" BorderThickness="1" CornerRadius="5" Padding="10,6,6,8"
+                            MouseLeftButtonDown="QuestCard_MouseDown" Cursor="Arrow">
+                        <DockPanel>
+                            <DockPanel DockPanel.Dock="Top">
+                                <Button DockPanel.Dock="Right" Content="✕" Style="{StaticResource SmallButton}" FontSize="10" Padding="5,0"
+                                        Margin="6,0,0,0" VerticalAlignment="Top" ToolTip="{DynamicResource s.map.card.close}" Click="CardClose_Click" />
+                                <TextBlock x:Name="CardTitle" FontWeight="Bold" FontSize="13" Foreground="#FFFFD54A" TextWrapping="Wrap" />
+                            </DockPanel>
+                            <TextBlock x:Name="CardMeta" DockPanel.Dock="Top" Style="{StaticResource Muted}" FontSize="11" TextWrapping="Wrap"
+                                       Margin="0,1,4,6" />
+                            <TextBlock DockPanel.Dock="Bottom" FontSize="11" Margin="0,6,0,0">
+                                <Hyperlink Foreground="{StaticResource AccentBrush}" Click="CardWiki_Click">
+                                    <Run Text="{DynamicResource s.map.card.wiki}" />
+                                </Hyperlink>
+                            </TextBlock>
+                            <ScrollViewer MaxHeight="240" VerticalScrollBarVisibility="Auto" Padding="0,0,4,0">
+                                <StackPanel x:Name="CardBody" />
+                            </ScrollViewer>
+                        </DockPanel>
+                    </Border>
+                </Canvas>
                 <TextBlock x:Name="Message" Style="{StaticResource Muted}" FontSize="13" TextWrapping="Wrap" TextAlignment="Center"
                            HorizontalAlignment="Center" VerticalAlignment="Center" Margin="24" IsHitTestVisible="False" />
             </Grid>

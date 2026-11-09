@@ -384,6 +384,9 @@
     <sys:String x:Key="s.map.noFolder">Ekran görüntüsü klasörü bulunamadı: {0}. Oyunda bir ekran görüntüsü al, sonra ⟳'a bas.</sys:String>
     <sys:String x:Key="s.map.hint">Raidde oyundaki ekran görüntüsü tuşunla (hangi tuşu atadıysan) ekran görüntüsü al: konumun burada görünür.</sys:String>
     <sys:String x:Key="s.map.pos">Son konum {0} · X {1}, Z {2} · yükseklik {3} m · {4}</sys:String>
+    <sys:String x:Key="s.map.card.close">Kapat</sys:String>
+    <sys:String x:Key="s.map.card.wiki">Görevi wikide aç ↗</sys:String>
+    <sys:String x:Key="s.map.card.others">Diğer hedefler</sys:String>
     <sys:String x:Key="t.map.pick">Konum okundu: harita penceresinden haritayı seç (ya da raidi başlat).</sys:String>
     <sys:String x:Key="t.map.noShot">{0} içinde konumlu ekran görüntüsü yok.</sys:String>
     <sys:String x:Key="t.map.noFolder">Ekran görüntüsü klasörü bulunamadı: {0}</sys:String>
