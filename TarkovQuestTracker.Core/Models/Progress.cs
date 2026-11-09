@@ -60,4 +60,18 @@ public sealed class AppSettings
     public bool AutoRaidDetect { get; set; } = true;
     /// <summary>Look for a newer release on GitHub when the app starts.</summary>
     public bool CheckForUpdates { get; set; } = true;
+    /// <summary>Puts the player on the map window from the position in the game's screenshot file names.</summary>
+    public bool MapTracking { get; set; } = true;
+    /// <summary>The game's screenshot folder; empty = Documents\Escape from Tarkov\Screenshots.</summary>
+    public string ScreenshotsFolder { get; set; } = "";
+    /// <summary>A new screenshot (whatever key the player took it with) brings up the map window.</summary>
+    public bool MapOpenOnScreenshot { get; set; } = true;
+    public double MapOpacity { get; set; } = 0.95;
+    public bool MapShowExtracts { get; set; } = true;
+    public bool MapShowQuests { get; set; } = true;
+    /// <summary>Map window place and size in screen units; 0 width = not placed yet (middle of the screen).</summary>
+    public double MapWindowLeft { get; set; }
+    public double MapWindowTop { get; set; }
+    public double MapWindowWidth { get; set; }
+    public double MapWindowHeight { get; set; }
 }

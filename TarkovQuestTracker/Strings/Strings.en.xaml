@@ -362,4 +362,35 @@
     <sys:String x:Key="t.scan.progress">Scanning... {0} quests found ({1} s left)</sys:String>
     <sys:String x:Key="s.scan.notice">Works with the text recognition (OCR) built into Windows. It adds nothing to the game: no mod, no plugin, no injection.</sys:String>
     <sys:String x:Key="s.goalTag">★ goal</sys:String>
+
+    <!-- map window: position from the game's screenshot names -->
+    <sys:String x:Key="s.ov.map">🗺 Map</sys:String>
+    <sys:String x:Key="s.map.title">MAP</sys:String>
+    <sys:String x:Key="s.map.close">Hide the map</sys:String>
+    <sys:String x:Key="s.map.reload">Read the last screenshot again</sys:String>
+    <sys:String x:Key="s.map.follow">Follow me (keep the view on my position)</sys:String>
+    <sys:String x:Key="s.map.exfils">Exfils</sys:String>
+    <sys:String x:Key="s.map.quests">Quests</sys:String>
+    <sys:String x:Key="s.map.floorAuto">Auto floor</sys:String>
+    <sys:String x:Key="s.map.floorGround">Ground floor</sys:String>
+    <sys:String x:Key="s.map.pickMap">Pick a map above, or start a raid: the map follows the raid's map.</sys:String>
+    <sys:String x:Key="s.map.loading">Loading the map from tarkov.dev…</sys:String>
+    <sys:String x:Key="s.map.error">The map could not be downloaded: {0}</sys:String>
+    <sys:String x:Key="s.map.faction.pmc">PMC</sys:String>
+    <sys:String x:Key="s.map.faction.scav">Scav</sys:String>
+    <sys:String x:Key="s.map.faction.shared">PMC + Scav</sys:String>
+    <sys:String x:Key="s.map.you">You (last screenshot)</sys:String>
+    <sys:String x:Key="s.map.off">Position tracking is off (Settings).</sys:String>
+    <sys:String x:Key="s.map.noFolder">Screenshot folder not found: {0}. Take one screenshot in game, then press ⟳.</sys:String>
+    <sys:String x:Key="s.map.hint">Take a screenshot in raid with your in-game screenshot key (whichever key you bound): your position shows here.</sys:String>
+    <sys:String x:Key="s.map.pos">Last position {0} · X {1}, Z {2} · height {3} m · {4}</sys:String>
+    <sys:String x:Key="t.map.pick">Position read: pick the map on the map window (or start the raid).</sys:String>
+    <sys:String x:Key="t.map.noShot">No screenshot with a position in {0} yet.</sys:String>
+    <sys:String x:Key="t.map.noFolder">Screenshot folder not found: {0}</sys:String>
+    <sys:String x:Key="s.map.set.title">Map and position</sys:String>
+    <sys:String x:Key="s.map.set.desc">Take a screenshot in raid with your in-game screenshot key (any key you bound works: the app watches the screenshot folder, not the key). The game writes your position into the screenshot's file name and the map window shows you there, with exfils and your active quests' spots. Only the file name is read, nothing in the game is touched. Map pictures come from tarkov.dev and are kept after the first download.</sys:String>
+    <sys:String x:Key="s.map.set.autoOpen">Open the map when I take a screenshot (it doesn't take focus from the game)</sys:String>
+    <sys:String x:Key="s.map.set.track">Show my position from screenshots</sys:String>
+    <sys:String x:Key="s.map.set.folder">Screenshot folder</sys:String>
+    <sys:String x:Key="s.map.set.open">🗺 Open the map</sys:String>
 </ResourceDictionary>

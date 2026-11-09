@@ -135,6 +135,14 @@
         <div class="features-grid">
 
           <article class="feature-card feature-new">
+            <span class="feature-new-tag" data-i18n="newTag">New</span>
+            <div class="feature-icon">📍</div>
+            <h3 data-i18n="f17Title">Your Position on the Map</h3>
+            <p data-i18n="f17Desc">Take a screenshot in raid with your own screenshot key: a map window shows where you are and which way you face, your path, the exfils and your active quests' spots. The floor follows your height. Only the screenshot's file name is read.</p>
+            <span class="feature-highlight" data-i18n="f17Badge">Any screenshot key · tarkov.dev maps</span>
+          </article>
+
+          <article class="feature-card feature-new">
             <span class="feature-new-tag" data-i18n="betaTag">BETA</span>
             <div class="feature-icon">🎯</div>
             <h3 data-i18n="f16Title">Auto Raid Detection (Double O)</h3>
@@ -485,6 +493,7 @@
                 <li><span>🔹</span> <span data-i18n="safeDoes4">Stores all quest state locally in your AppData folder.</span></li>
                 <li><span>🔹</span> <span data-i18n="safeDoes5">Read Quests (BETA) only takes a picture of the screen and reads it with the OCR built into Windows.</span></li>
                 <li><span>🔹</span> <span data-i18n="safeDoes6">Auto raid detection reads only the top-right corner of the screen (Windows OCR) while the game is in front.</span></li>
+                <li><span>🔹</span> <span data-i18n="safeDoes7">The map reads only the file names of the screenshots you take yourself (the game writes your position into them); the pictures are never opened.</span></li>
               </ul>
             </div>
 
@@ -663,6 +672,16 @@
         </div>
 
         <div class="faq-list">
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span data-i18n="faq7Q">How does the map know where I am? Which key do I press?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-i18n="faq7A">When you take a screenshot in raid, the game itself writes your position into the file name. The app watches your screenshot folder (Documents\Escape from Tarkov\Screenshots) and reads that name, so whatever key you bound for screenshots in the game works: there is no extra hotkey. The picture is never opened, and nothing touches the game.</p>
+            </div>
+          </div>
+
           <div class="faq-item">
             <button type="button" class="faq-question">
               <span data-i18n="faqRQ">Is reading quests from the screen safe? Can it get me banned?</span>

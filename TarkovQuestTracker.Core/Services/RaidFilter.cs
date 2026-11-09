@@ -43,7 +43,11 @@ public static class RaidFilter
 
     /// <summary>Every real map the quests use (not "Any"), in picker order.</summary>
     public static IReadOnlyList<string> Maps(IEnumerable<Quest> quests) =>
-        quests.SelectMany(q => q.Map).Where(m => m != QuestPlanner.AnyMap).Distinct()
-              .OrderBy(m => Array.IndexOf(Order, m) is var i and >= 0 ? i : Order.Length).ThenBy(m => m)
-              .ToList();
+        InOrder(quests.SelectMany(q => q.Map).Where(m => m != QuestPlanner.AnyMap));
+
+    /// <summary>The map names once each, in picker order (unknown ones last, by name).</summary>
+    public static IReadOnlyList<string> InOrder(IEnumerable<string> maps) =>
+        maps.Distinct()
+            .OrderBy(m => Array.IndexOf(Order, m) is var i and >= 0 ? i : Order.Length).ThenBy(m => m)
+            .ToList();
 }

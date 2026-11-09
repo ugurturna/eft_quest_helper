@@ -34,8 +34,11 @@
                 </Grid.RowDefinitions>
                 <TextBlock Text="{DynamicResource s.ov.opacity}" Style="{StaticResource Muted}" FontSize="11" VerticalAlignment="Center" Margin="0,0,6,0" />
                 <Slider Grid.Column="1" Minimum="0.15" Maximum="1" Value="{Binding OverlayOpacity}" VerticalAlignment="Center" />
-                <Button Grid.Column="2" Grid.RowSpan="2" Content="{DynamicResource s.ov.hide}" Style="{StaticResource SmallButton}" Margin="6,0,0,0"
-                        VerticalAlignment="Center" Click="Hide_Click" />
+                <StackPanel Grid.Column="2" Grid.RowSpan="2" Margin="6,0,0,0" VerticalAlignment="Center">
+                    <Button Content="{DynamicResource s.ov.hide}" Style="{StaticResource SmallButton}" Margin="0,0,0,2" Click="Hide_Click" />
+                    <Button Content="{DynamicResource s.ov.map}" Style="{StaticResource SmallButton}" Margin="0"
+                            ToolTip="{DynamicResource s.map.title}" Command="{Binding ToggleMapCommand}" />
+                </StackPanel>
                 <TextBlock Grid.Row="1" Text="{DynamicResource s.ov.size}" Style="{StaticResource Muted}" FontSize="11" VerticalAlignment="Center" Margin="0,0,6,0"
                            ToolTip="{DynamicResource s.ov.sizeTip}" />
                 <Slider Grid.Row="1" Grid.Column="1" Minimum="0.6" Maximum="2" Value="{Binding OverlayScale}" VerticalAlignment="Center"

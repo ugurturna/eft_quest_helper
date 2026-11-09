@@ -221,7 +221,13 @@ const translations = {
     faq6Q: "Is the double O detection a keylogger?",
     faq6A: "No. The app never hooks the keyboard and never reads your keys: O goes to the game as always. It only notices that the exfil list is on screen, by reading the top-right corner of the screen with Windows OCR while the game is in front. You can turn it off at the top of the \"Entering a raid\" page.",
     faqRQ: "Is reading quests from the screen safe? Can it get me banned?",
-    faqRA: "It works like a screenshot tool: it takes a picture of the screen and reads the text with the OCR built into Windows. It never touches the game: no memory reading, no injection, no fake key or mouse input; you scroll the list yourself. Pictures stay in memory and are never saved or uploaded."
+    faqRA: "It works like a screenshot tool: it takes a picture of the screen and reads the text with the OCR built into Windows. It never touches the game: no memory reading, no injection, no fake key or mouse input; you scroll the list yourself. Pictures stay in memory and are never saved or uploaded.",
+    f17Title: "Your Position on the Map",
+    f17Desc: "Take a screenshot in raid with your own screenshot key: a map window shows where you are and which way you face, your path, the exfils and your active quests' spots. The floor follows your height. Only the screenshot's file name is read.",
+    f17Badge: "Any screenshot key · tarkov.dev maps",
+    safeDoes7: "The map reads only the file names of the screenshots you take yourself (the game writes your position into them); the pictures are never opened.",
+    faq7Q: "How does the map know where I am? Which key do I press?",
+    faq7A: "When you take a screenshot in raid, the game itself writes your position into the file name. The app watches your screenshot folder (Documents\\Escape from Tarkov\\Screenshots) and reads that name, so whatever key you bound for screenshots in the game works: there is no extra hotkey. The picture is never opened, and nothing touches the game."
   },
 
   tr: {
@@ -442,7 +448,13 @@ const translations = {
     faq6Q: "Çift O algılaması bir keylogger mı?",
     faq6A: "Hayır. Uygulama klavyeyi hiç hook'lamaz, tuşlarını okumaz: O her zamanki gibi oyuna gider. Sadece exfil listesinin ekranda olduğunu, oyun öndeyken ekranın sağ üst köşesini Windows OCR ile okuyarak fark eder. \"Raid'e giriyorum\" sayfasının en üstünden kapatabilirsin.",
     faqRQ: "Görevleri ekrandan okumak güvenli mi? Ban yer miyim?",
-    faqRA: "Ekran görüntüsü aracı gibi çalışır: ekranın görüntüsünü alır ve yazıyı Windows'un kendi OCR'ı ile okur. Oyuna hiç dokunmaz: bellek okuma, enjeksiyon, sahte tuş veya fare girdisi yok; listeyi sen kaydırırsın. Görüntüler sadece bellekte kalır, kaydedilmez ve yüklenmez."
+    faqRA: "Ekran görüntüsü aracı gibi çalışır: ekranın görüntüsünü alır ve yazıyı Windows'un kendi OCR'ı ile okur. Oyuna hiç dokunmaz: bellek okuma, enjeksiyon, sahte tuş veya fare girdisi yok; listeyi sen kaydırırsın. Görüntüler sadece bellekte kalır, kaydedilmez ve yüklenmez.",
+    f17Title: "Haritada Konumun",
+    f17Desc: "Raidde kendi ekran görüntüsü tuşunla ekran görüntüsü al: harita penceresi nerede olduğunu ve nereye baktığını, izini, exfilleri ve aktif görevlerinin noktalarını gösterir. Kat yüksekliğine göre değişir. Sadece ekran görüntüsünün dosya adı okunur.",
+    f17Badge: "Her ekran görüntüsü tuşu · tarkov.dev haritaları",
+    safeDoes7: "Harita sadece senin aldığın ekran görüntülerinin dosya adlarını okur (oyun konumunu bu adlara yazar); görüntüler hiç açılmaz.",
+    faq7Q: "Harita nerede olduğumu nasıl biliyor? Hangi tuşa basacağım?",
+    faq7A: "Raidde ekran görüntüsü aldığında oyunun kendisi konumunu dosya adına yazar. Uygulama ekran görüntüsü klasörünü (Belgeler\\Escape from Tarkov\\Screenshots) izler ve bu adı okur; yani oyunda ekran görüntüsü için hangi tuşu atadıysan o çalışır, ek bir kısayol yok. Görüntü hiç açılmaz, oyuna hiçbir şekilde dokunulmaz."
   },
 
   ru: {
@@ -663,7 +675,13 @@ const translations = {
     faq6Q: "Определение по двойному O — это кейлоггер?",
     faq6A: "Нет. Приложение никогда не перехватывает клавиатуру и не читает клавиши: O, как всегда, идёт в игру. Оно лишь замечает, что на экране список выходов, читая правый верхний угол экрана через Windows OCR, пока игра на переднем плане. Выключить можно вверху страницы «Захожу в рейд».",
     faqRQ: "Безопасно ли читать задания с экрана? Могут ли забанить?",
-    faqRA: "Работает как программа для скриншотов: делает снимок экрана и читает текст встроенным в Windows OCR. Никогда не трогает игру: без чтения памяти, инъекций и имитации клавиатуры или мыши; список вы прокручиваете сами. Снимки остаются в памяти, не сохраняются и не загружаются."
+    faqRA: "Работает как программа для скриншотов: делает снимок экрана и читает текст встроенным в Windows OCR. Никогда не трогает игру: без чтения памяти, инъекций и имитации клавиатуры или мыши; список вы прокручиваете сами. Снимки остаются в памяти, не сохраняются и не загружаются.",
+    f17Title: "Ваша позиция на карте",
+    f17Desc: "Сделайте скриншот в рейде своей клавишей скриншота: окно карты покажет, где вы и куда смотрите, ваш путь, выходы и точки активных заданий. Этаж выбирается по высоте. Читается только имя файла скриншота.",
+    f17Badge: "Любая клавиша скриншота · карты tarkov.dev",
+    safeDoes7: "Карта читает только имена файлов скриншотов, которые вы делаете сами (игра записывает в них вашу позицию); изображения не открываются.",
+    faq7Q: "Как карта узнаёт, где я? Какую клавишу нажимать?",
+    faq7A: "Когда вы делаете скриншот в рейде, игра сама записывает вашу позицию в имя файла. Приложение следит за папкой скриншотов (Документы\\Escape from Tarkov\\Screenshots) и читает это имя, поэтому работает любая клавиша скриншота, назначенная в игре: дополнительной горячей клавиши нет. Изображение не открывается, игра никак не затрагивается."
   }
 };
 

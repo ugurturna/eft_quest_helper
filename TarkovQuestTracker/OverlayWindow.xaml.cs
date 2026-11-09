@@ -15,6 +15,7 @@ public partial class OverlayWindow : Window
     readonly DispatcherTimer _autoHideTimer = new();
     HotkeyManager? _hotkeys;
     FleaSearchWindow? _flea;
+    MapWindow? _map;
     IntPtr _hwnd;
     Point? _dragStart;
 
@@ -28,6 +29,8 @@ public partial class OverlayWindow : Window
         _topmostTimer.Tick += (_, _) => { if (IsVisible) Win32.BringToTop(_hwnd); };
         _autoHideTimer.Tick += (_, _) => AutoHideTick();
         vm.OverlayPeek += Peek;
+        vm.MapToggleRequested += ToggleMap;
+        vm.MapShowRequested += () => (_map ??= new MapWindow(_vm)).ShowMap();
         vm.PropertyChanged += (_, e) =>
         {
             if (e.PropertyName == nameof(MainViewModel.OverlayScale)) FitHeight();
@@ -117,6 +120,7 @@ public partial class OverlayWindow : Window
         _autoHideTimer.Stop();
         _hotkeys?.Dispose();
         _flea?.Close();
+        _map?.Close();
         base.OnClosed(e);
     }
 
@@ -243,6 +247,9 @@ public partial class OverlayWindow : Window
     }
 
     void Hide_Click(object sender, RoutedEventArgs e) => ToggleVisible();
+
+    /// <summary>The map window (overlay and main window buttons).</summary>
+    void ToggleMap() => (_map ??= new MapWindow(_vm)).Toggle();
 
     // raid hotkey: a map list in the overlay; clicks must reach it, so it unlocks until a map is picked
     bool _lockedBeforePicker;

@@ -34,6 +34,7 @@ public sealed partial class MainViewModel : ObservableObject
         Flea = new FleaMarket(Path.Combine(_store.Folder, "flea"));
         Scanner = CreateScanner();
         Detector = CreateDetector();
+        Screenshots.Captured += OnNewScreenshot;
         _raidClock.Tick += OnRaidClockTick;
         _currentProfile = _store.Profile;
         _searchDelay.Tick += (_, _) =>
@@ -93,6 +94,7 @@ public sealed partial class MainViewModel : ObservableObject
         OnPropertyChanged(nameof(AutoRaidDetect));
         OnPropertyChanged(nameof(AutoRaidDetectOff));
         ApplyOverlaySettings();
+        ApplyMapSettings();
         LoadData();
     }
 
@@ -647,6 +649,7 @@ public sealed partial class MainViewModel : ObservableObject
     partial void OnRaidMapChanged(string? value)
     {
         if (_repo != null) RefreshActive();
+        FollowRaidMap(value);
     }
 
     [RelayCommand]
@@ -741,6 +744,7 @@ public sealed partial class MainViewModel : ObservableObject
         OnPropertyChanged(nameof(RaidSummary));
         OnPropertyChanged(nameof(ActiveSummary));
         RefreshActiveFilter();
+        MapChanged?.Invoke();  // the map's quest spots follow the active quests
     }
 
     void OnObjectiveChanged(ObjectiveVm o)
@@ -752,6 +756,7 @@ public sealed partial class MainViewModel : ObservableObject
         var card = ActiveQuests.FirstOrDefault(a => a.Quest.Id == o.QuestId);
         if (card != null && card.Objectives.Where(x => !x.Objective.Optional).All(x => x.IsDone))
             Toast = Loc.F("t.allObjectives", card.Quest.DisplayName);
+        MapChanged?.Invoke();  // a done objective's spot leaves the map
     }
 
 

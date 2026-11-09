@@ -22,7 +22,7 @@
 ## Ban risk
 
 > [!TIP]
-> **No known ban risk.** EFT Quest Helper is a normal, separate Windows application. It does **not** read or write game memory, does **not** inject anything into the game, does **not** read game files or logs, does **not** send input to the game and does **not** talk to the game's servers. The overlay is just an ordinary window kept on top of the screen (like a sticky note), and the hotkeys use the standard Windows `RegisterHotKey` API. **Read Quests (BETA)** only takes a picture of the screen and reads it with the OCR built into Windows; pictures stay in memory and are never saved or sent. **Auto raid detection** works the same way: no keyboard hook and no key reading, only the top-right corner of the screen is read while the game is in front.
+> **No known ban risk.** EFT Quest Helper is a normal, separate Windows application. It does **not** read or write game memory, does **not** inject anything into the game, does **not** read game files or logs, does **not** send input to the game and does **not** talk to the game's servers. The overlay is just an ordinary window kept on top of the screen (like a sticky note), and the hotkeys use the standard Windows `RegisterHotKey` API. **Read Quests (BETA)** only takes a picture of the screen and reads it with the OCR built into Windows; pictures stay in memory and are never saved or sent. **Auto raid detection** works the same way: no keyboard hook and no key reading, only the top-right corner of the screen is read while the game is in front. **Map & position** only reads the **file names** of the screenshots you take yourself (the game writes your position into them); the pictures themselves are never opened.
 
 > [!CAUTION]
 > **Use it at your own risk. This project is not affiliated with or endorsed by Battlestate Games, and BSG can change its rules at any time. If BSG ever states that tools like this are not allowed, stop using it.**
@@ -46,6 +46,7 @@
 - **Read quests from the game (BETA)** — no need to enter quests one by one: open the in-game Tasks screen, scroll it once and the app reads every quest name with the OCR built into Windows. Confirm the list and the quests become active, with everything before them marked done. See [Read quests from the game](#read-quests-from-the-game-beta).
 - **What to bring into the raid** — keys, markers (with how many you need), items to plant, the weapon to use and the clothes to wear are shown at the top of each quest and on its *Active Quests* card.
 - **Entering a raid** — the first item of the side menu: pick the map you are going to (a card per map with how many active quests it has) and the overlay shows every active quest on that map by itself, plus the ones you pinned. For quests on several maps only the objectives of that map are shown, and "hand over" steps are left out. <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> picks the map in game; **Raid over** goes back to the pinned list. When a raid starts, an unlocked overlay locks by itself so clicks go to the game. With **auto-detect** on, a double <kbd>O</kbd> in raid is enough: the map and the raid time left are read off the exfil list (see [Auto raid detection](#auto-raid-detection-double-o)).
+- **Your position on the map** — take a screenshot in raid with your own screenshot key and a map window shows where you are and which way you face, the path of your earlier screenshots, the exfils and your active quests' spots; the floor follows your height. See [Map & position](#map--position-screenshots).
 - **Handing in accepts the next quests** — complete an active quest and the quests it unlocks become active (not pinned to the overlay: you still have to take them from the trader).
 - **Activating a quest completes its chain** — set *Punisher Part 5* active and Parts 1–4 are marked done automatically (one-click undo).
 - **PvP and PvE** — separate progress for each mode; PvE-specific differences (levels, objectives, items) are shown.
@@ -118,6 +119,21 @@ In raid, press <kbd>O</kbd> twice: the game lists your exfils at the top right, 
 
 > [!NOTE]
 > No keyboard hook, no key reading, nothing sent to the game. While the game is in front, only the top-right corner of the screen is read now and then with the OCR built into Windows; the picture stays in memory and is never saved or sent.
+
+### Map & position (screenshots)
+
+When you take a screenshot in raid, the game writes your position into the file name (`2026-11-09[15-01]_200.5, 1.2, 150.3_…png`: X, height, Z and the direction you face). The tracker watches the screenshot folder and puts you on the map:
+
+- **Any screenshot key.** The app watches the folder, not a key: whatever key you bound for screenshots in the game works. There is no extra hotkey.
+- **Opens by itself.** A new screenshot brings up the map window without taking focus from the game (turn it off under **Settings → Map and position**; the **🗺 Map** button on the overlay and in Settings opens it too). Drag the header to move it, the corner to resize it; its place and size are remembered.
+- **What it shows:** a red arrow where you are and which way you face, a dashed path of this raid's screenshots, the exfils (PMC / Scav / shared, transits) and the spots of your **active** quests' objectives (hover for the quest; done objectives disappear).
+- **Floors.** The floor follows your height (e.g. the 2nd floor of the Customs dorms); pick one by hand from the list if you like.
+- **Follows the raid.** The map follows the raid's map (picked, or found by the double <kbd>O</kbd>); without a raid, pick the map in the window. Wheel zooms, dragging looks around, **◎** centres on you again, **⟳** reads the last screenshot again.
+- **Map pictures** are tarkov.dev's maps (vector maps, satellite tiles where there is no vector map), downloaded the first time a map opens and kept on disk, so they work offline afterwards. Positions of exfils and quest spots come from tarkov.dev (`tools/scraper/fetch_maps.py` → `data/maps.json`).
+- The folder is `Documents\Escape from Tarkov\Screenshots`; another folder can be set under **Settings → Map and position**.
+
+> [!NOTE]
+> Only the screenshot **file names** are read; the pictures are never opened, and nothing is sent to the game.
 
 ### Flea market prices
 
@@ -201,6 +217,7 @@ data\
   profiles\<name>\settings.json overlay, languages, hotkeys
   profiles\<name>\progress_pvp.json
   profiles\<name>\progress_pve.json
+  maps\                         map pictures downloaded from tarkov.dev
 ```
 
 Without a `data` folder next to the exe, the same files go to `%APPDATA%\TarkovQuestTracker\`. Set the `TARKOV_TRACKER_HOME` environment variable to keep them anywhere else.
@@ -211,7 +228,7 @@ Hotkeys can be changed in `settings.json` (`clickThroughHotkey`, `toggleOverlayH
 
 ## Credits & legal
 
-- Quest data: [Escape from Tarkov Wiki (Fandom)](https://escapefromtarkov.fandom.com/), content available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), and [tarkov.dev](https://tarkov.dev/) (quest items and item icons).
+- Quest data: [Escape from Tarkov Wiki (Fandom)](https://escapefromtarkov.fandom.com/), content available under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), and [tarkov.dev](https://tarkov.dev/) (quest items and item icons; maps, exfils and quest spots for the map window).
 - *Escape from Tarkov*, trader names, trader portraits and item images are trademarks/property of **Battlestate Games**. They are used here only to identify in-game content. This is a non-commercial fan project.
 - Free code signing provided by [SignPath.io](https://signpath.io), certificate by [SignPath Foundation](https://signpath.org).
 - Licensed under the [MIT License](LICENSE).

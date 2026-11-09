@@ -22,7 +22,7 @@
 ## Ban riski
 
 > [!TIP]
-> **Bilinen bir ban riski yok.** EFT Quest Helper normal, ayrı bir Windows uygulamasıdır. Oyunun belleğini **okumaz ve değiştirmez**, oyuna hiçbir şey **enjekte etmez**, oyunun dosyalarını veya loglarını **okumaz**, oyuna tuş/fare girdisi **göndermez** ve oyunun sunucularıyla **konuşmaz**. Overlay, ekranın üstünde tutulan sıradan bir penceredir (yapışkan not gibi); kısayol tuşları Windows'un standart `RegisterHotKey` API'sini kullanır. **Görevleri Oku (BETA)** sadece ekranın görüntüsünü alır ve Windows'un kendi OCR'ı ile okur; görüntüler sadece bellekte kalır, kaydedilmez ve gönderilmez. **Otomatik raid algılama** da aynı şekilde çalışır: klavye hook'u yok, tuş okunmaz; oyun öndeyken sadece ekranın sağ üst köşesi okunur.
+> **Bilinen bir ban riski yok.** EFT Quest Helper normal, ayrı bir Windows uygulamasıdır. Oyunun belleğini **okumaz ve değiştirmez**, oyuna hiçbir şey **enjekte etmez**, oyunun dosyalarını veya loglarını **okumaz**, oyuna tuş/fare girdisi **göndermez** ve oyunun sunucularıyla **konuşmaz**. Overlay, ekranın üstünde tutulan sıradan bir penceredir (yapışkan not gibi); kısayol tuşları Windows'un standart `RegisterHotKey` API'sini kullanır. **Görevleri Oku (BETA)** sadece ekranın görüntüsünü alır ve Windows'un kendi OCR'ı ile okur; görüntüler sadece bellekte kalır, kaydedilmez ve gönderilmez. **Otomatik raid algılama** da aynı şekilde çalışır: klavye hook'u yok, tuş okunmaz; oyun öndeyken sadece ekranın sağ üst köşesi okunur. **Harita ve konum** sadece senin aldığın ekran görüntülerinin **dosya adlarını** okur (oyun konumunu bu adlara yazar); görüntülerin kendisi hiç açılmaz.
 
 > [!CAUTION]
 > **Kullanım sorumluluğu sana aittir. Bu proje Battlestate Games ile bağlantılı değildir ve onlar tarafından onaylanmamıştır; BSG kurallarını her an değiştirebilir. BSG bir gün bu tür araçlara izin verilmediğini açıklarsa kullanmayı bırak.**
@@ -53,6 +53,7 @@
 - **İki ayrı dil** — uygulama dili (menüler) ve görev dili (görev ve item adları) farklı olabilir; ör. uygulama Türkçe, görevler İngilizce. Tüm hikaye bölümleri Türkçeye çevrildi.
 - **Profiller** — aynı bilgisayarda birden fazla oyuncu, herkesin kendi ilerlemesi ve ayarları.
 - **Event görevleri** — aktif eventler listelenir; artık yapılamayan geçmiş eventler gösterilmez.
+- **Haritada konumun** — raidde kendi ekran görüntüsü tuşunla ekran görüntüsü al; harita penceresi nerede olduğunu ve nereye baktığını, önceki ekran görüntülerinden izini, exfilleri ve aktif görevlerinin noktalarını gösterir; kat yüksekliğine göre değişir. Bkz. [Harita ve konum](#harita-ve-konum-ekran-görüntüleri).
 - **End Game (The Ticket sonları)** — 4 sondan hangilerine hâlâ ulaşabileceğin, hedef sonuna giden yol ve şu an nerede olduğun ([End Game](#end-game-the-ticket-sonları) bölümüne bak).
 - **Hızlı** — listeler kaydırdıkça sayfa sayfa yüklenir.
 
@@ -118,6 +119,21 @@ Raid'de <kbd>O</kbd>'ya iki kez bas: oyun exfillerini sağ üstte listeler, taki
 
 > [!NOTE]
 > Klavye hook'u yok, tuş okunmaz, oyuna hiçbir şey gönderilmez. Oyun öndeyken sadece ekranın sağ üst köşesi Windows'un kendi OCR'ı ile ara ara okunur; görüntü bellekte kalır, kaydedilmez ve gönderilmez.
+
+### Harita ve konum (ekran görüntüleri)
+
+Raidde ekran görüntüsü aldığında oyun konumunu dosya adına yazar (`2026-11-09[15-01]_200.5, 1.2, 150.3_…png`: X, yükseklik, Z ve baktığın yön). Takipçi ekran görüntüsü klasörünü izler ve seni haritada gösterir:
+
+- **Hangi tuş olursa olsun.** Uygulama tuşu değil klasörü izler: oyunda ekran görüntüsü için hangi tuşu atadıysan o çalışır. Ek bir kısayol yok.
+- **Kendiliğinden açılır.** Yeni bir ekran görüntüsü harita penceresini oyunun odağını almadan açar (**Ayarlar → Harita ve konum**'dan kapatılabilir; overlay'deki ve Ayarlar'daki **🗺 Harita** butonu da açar). Başlığından sürükleyip taşı, köşesinden boyutlandır; yeri ve boyutu hatırlanır.
+- **Neler var:** nerede olduğunu ve nereye baktığını gösteren kırmızı ok, bu raiddeki ekran görüntülerinden kesikli iz, exfiller (PMC / Scav / ortak, transitler) ve **aktif** görevlerinin hedef noktaları (üstüne gelince görev yazar; tamamlanan hedefler kaybolur).
+- **Katlar.** Kat yüksekliğine göre seçilir (ör. Customs yurtlarının 2. katı); istersen listeden elle seç.
+- **Raidi takip eder.** Harita raidin haritasını takip eder (seçilen ya da çift <kbd>O</kbd> ile bulunan); raid yoksa haritayı pencereden seç. Tekerlek yakınlaştırır, sürüklemek etrafa bakar, **◎** tekrar seni ortalar, **⟳** son ekran görüntüsünü yeniden okur.
+- **Harita görselleri** tarkov.dev'in haritalarıdır (vektör haritalar, vektörü olmayanlarda uydu görüntüsü); bir harita ilk açıldığında indirilir ve diskte saklanır, sonra internetsiz de çalışır. Exfil ve görev noktalarının konumları tarkov.dev'den gelir (`tools/scraper/fetch_maps.py` → `data/maps.json`).
+- Klasör `Belgeler\Escape from Tarkov\Screenshots`; başka bir klasör **Ayarlar → Harita ve konum**'dan seçilebilir.
+
+> [!NOTE]
+> Sadece ekran görüntülerinin **dosya adları** okunur; görüntüler hiç açılmaz, oyuna hiçbir şey gönderilmez.
 
 ### Flea market fiyatları
 
@@ -201,6 +217,7 @@ data\
   profiles\<ad>\settings.json   overlay, diller, kısayollar
   profiles\<ad>\progress_pvp.json
   profiles\<ad>\progress_pve.json
+  maps\                         tarkov.dev'den indirilen harita görselleri
 ```
 
 Exe'nin yanında `data` klasörü yoksa aynı dosyalar `%APPDATA%\TarkovQuestTracker\` altına yazılır. Başka bir yerde tutmak için `TARKOV_TRACKER_HOME` ortam değişkenini ayarla.
@@ -211,7 +228,7 @@ Kısayollar `settings.json` içinden değiştirilebilir (`clickThroughHotkey`, `
 
 ## Kaynaklar & yasal
 
-- Görev verisi: [Escape from Tarkov Wiki (Fandom)](https://escapefromtarkov.fandom.com/) — içerik [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) lisansıyla — ve [tarkov.dev](https://tarkov.dev/) (görev itemleri ve item ikonları).
+- Görev verisi: [Escape from Tarkov Wiki (Fandom)](https://escapefromtarkov.fandom.com/) — içerik [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) lisansıyla — ve [tarkov.dev](https://tarkov.dev/) (görev itemleri ve item ikonları; harita penceresi için haritalar, exfiller ve görev noktaları).
 - *Escape from Tarkov*, trader adları, trader portreleri ve item görselleri **Battlestate Games**'in markası/mülküdür. Burada sadece oyun içi içeriği tanımlamak için kullanılmıştır. Bu ticari olmayan bir hayran projesidir.
 - Free code signing provided by [SignPath.io](https://signpath.io), certificate by [SignPath Foundation](https://signpath.org).
 - [MIT Lisansı](LICENSE) altında lisanslanmıştır.

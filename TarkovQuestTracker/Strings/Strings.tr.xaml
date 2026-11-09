@@ -362,4 +362,35 @@
     <sys:String x:Key="t.scan.progress">Taranıyor... {0} görev bulundu ({1} sn kaldı)</sys:String>
     <sys:String x:Key="s.scan.notice">Windows'un kendi yazı tanıma (OCR) özelliğiyle çalışır. Oyuna herhangi bir eklenti, mod veya müdahale yapmaz.</sys:String>
     <sys:String x:Key="s.goalTag">★ hedef</sys:String>
+
+    <!-- harita penceresi: oyunun ekran görüntüsü adlarındaki konum -->
+    <sys:String x:Key="s.ov.map">🗺 Harita</sys:String>
+    <sys:String x:Key="s.map.title">HARİTA</sys:String>
+    <sys:String x:Key="s.map.close">Haritayı gizle</sys:String>
+    <sys:String x:Key="s.map.reload">Son ekran görüntüsünü tekrar oku</sys:String>
+    <sys:String x:Key="s.map.follow">Beni takip et (görünüm konumumda kalsın)</sys:String>
+    <sys:String x:Key="s.map.exfils">Exfiller</sys:String>
+    <sys:String x:Key="s.map.quests">Görevler</sys:String>
+    <sys:String x:Key="s.map.floorAuto">Otomatik kat</sys:String>
+    <sys:String x:Key="s.map.floorGround">Zemin kat</sys:String>
+    <sys:String x:Key="s.map.pickMap">Yukarıdan bir harita seç ya da raid başlat: harita raidin haritasını takip eder.</sys:String>
+    <sys:String x:Key="s.map.loading">Harita tarkov.dev'den yükleniyor…</sys:String>
+    <sys:String x:Key="s.map.error">Harita indirilemedi: {0}</sys:String>
+    <sys:String x:Key="s.map.faction.pmc">PMC</sys:String>
+    <sys:String x:Key="s.map.faction.scav">Scav</sys:String>
+    <sys:String x:Key="s.map.faction.shared">PMC + Scav</sys:String>
+    <sys:String x:Key="s.map.you">Sen (son ekran görüntüsü)</sys:String>
+    <sys:String x:Key="s.map.off">Konum takibi kapalı (Ayarlar).</sys:String>
+    <sys:String x:Key="s.map.noFolder">Ekran görüntüsü klasörü bulunamadı: {0}. Oyunda bir ekran görüntüsü al, sonra ⟳'a bas.</sys:String>
+    <sys:String x:Key="s.map.hint">Raidde oyundaki ekran görüntüsü tuşunla (hangi tuşu atadıysan) ekran görüntüsü al: konumun burada görünür.</sys:String>
+    <sys:String x:Key="s.map.pos">Son konum {0} · X {1}, Z {2} · yükseklik {3} m · {4}</sys:String>
+    <sys:String x:Key="t.map.pick">Konum okundu: harita penceresinden haritayı seç (ya da raidi başlat).</sys:String>
+    <sys:String x:Key="t.map.noShot">{0} içinde konumlu ekran görüntüsü yok.</sys:String>
+    <sys:String x:Key="t.map.noFolder">Ekran görüntüsü klasörü bulunamadı: {0}</sys:String>
+    <sys:String x:Key="s.map.set.title">Harita ve konum</sys:String>
+    <sys:String x:Key="s.map.set.desc">Raidde oyundaki ekran görüntüsü tuşunla ekran görüntüsü al (hangi tuşu atadığın fark etmez: uygulama tuşu değil ekran görüntüsü klasörünü izler). Oyun konumunu ekran görüntüsünün dosya adına yazar, harita penceresi seni orada gösterir; exfiller ve aktif görevlerinin noktaları da haritada. Sadece dosya adı okunur, oyuna hiçbir şekilde dokunulmaz. Harita görselleri tarkov.dev'den gelir, ilk indirmeden sonra saklanır.</sys:String>
+    <sys:String x:Key="s.map.set.autoOpen">Ekran görüntüsü alınca haritayı aç (oyunun odağını almaz)</sys:String>
+    <sys:String x:Key="s.map.set.track">Ekran görüntülerinden konumumu göster</sys:String>
+    <sys:String x:Key="s.map.set.folder">Ekran görüntüsü klasörü</sys:String>
+    <sys:String x:Key="s.map.set.open">🗺 Haritayı aç</sys:String>
 </ResourceDictionary>

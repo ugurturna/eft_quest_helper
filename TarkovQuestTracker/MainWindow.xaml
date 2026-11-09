@@ -920,6 +920,19 @@
                                 </Grid>
                             </Border>
 
+                            <TextBlock Text="{DynamicResource s.map.set.title}" Style="{StaticResource H2}" />
+                            <TextBlock Text="{DynamicResource s.map.set.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" />
+                            <CheckBox Content="{DynamicResource s.map.set.track}" IsChecked="{Binding MapTracking}" Margin="0,6,0,4" />
+                            <CheckBox Content="{DynamicResource s.map.set.autoOpen}" IsChecked="{Binding MapOpenOnScreenshot}" Margin="0,0,0,4"
+                                      IsEnabled="{Binding MapTracking}" />
+                            <DockPanel Margin="0,0,0,4">
+                                <TextBlock Text="{DynamicResource s.map.set.folder}" Style="{StaticResource Body}" VerticalAlignment="Center" Margin="0,0,12,0" />
+                                <TextBox Text="{Binding ScreenshotsFolder, UpdateSourceTrigger=LostFocus}" />
+                            </DockPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                <Button Content="{DynamicResource s.map.set.open}" Style="{StaticResource SmallButton}" Command="{Binding ToggleMapCommand}" />
+                            </StackPanel>
+
                             <TextBlock Text="{DynamicResource s.u.title}" Style="{StaticResource H2}" />
                             <CheckBox Content="{DynamicResource s.u.auto}" IsChecked="{Binding CheckForUpdates}" Margin="0,4,0,4" />
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
