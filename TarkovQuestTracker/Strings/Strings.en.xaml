@@ -410,7 +410,7 @@
     <sys:String x:Key="s.map.floorGround">Ground floor</sys:String>
     <sys:String x:Key="s.map.pickMap">Pick a map above, or start a raid: the map follows the raid's map.</sys:String>
     <sys:String x:Key="s.map.pickMapMini">Which map? Press O twice in raid, or pick it with the raid hotkey.</sys:String>
-    <sys:String x:Key="s.map.loading">Loading the map from tarkov.dev…</sys:String>
+    <sys:String x:Key="s.map.loading">Preparing the map…</sys:String>
     <sys:String x:Key="s.map.error">The map could not be downloaded: {0}</sys:String>
     <sys:String x:Key="s.map.faction.pmc">PMC</sys:String>
     <sys:String x:Key="s.map.faction.scav">Scav</sys:String>
@@ -444,7 +444,7 @@
     <sys:String x:Key="s.gps.settings">Settings</sys:String>
     <sys:String x:Key="s.gps.exfils">Show exfils and transits</sys:String>
     <sys:String x:Key="s.gps.quests">Show my active quests' spots</sys:String>
-    <sys:String x:Key="s.gps.maps">Maps come from tarkov.dev: vector maps (satellite pictures for The Lab, Icebreaker and The Labyrinth). They are downloaded once in the background when the app starts and kept on disk, so the map opens at once and works offline; a new app version downloads them fresh.</sys:String>
+    <sys:String x:Key="s.gps.maps">Maps come from tarkov.dev: vector maps (satellite pictures for The Lab, Icebreaker and The Labyrinth). They are downloaded once in the background when the app starts and kept on disk, so the map opens at once and works offline; each start checks tarkov.dev and downloads only the maps that changed.</sys:String>
     <sys:String x:Key="s.gps.position">Map window position</sys:String>
     <sys:String x:Key="s.gps.positionHint">Where the map opens on the main screen. You can also drag it by its top bar (⠿ MAP), even onto another monitor; it opens there next time.</sys:String>
     <sys:String x:Key="s.gps.center">Centre it</sys:String>
@@ -454,7 +454,7 @@
     <sys:String x:Key="s.gps.mode.mini">Mini map</sys:String>
     <sys:String x:Key="s.gps.mode.app">In app</sys:String>
     <sys:String x:Key="s.gps.mode.overlayDesc">A screenshot opens the map window over the game; Esc takes you back to the game.</sys:String>
-    <sys:String x:Key="s.gps.mode.miniDesc">A screenshot brings up a round mini map around you in a corner of the screen for a few seconds. It never takes the mouse or the keyboard: you keep playing.</sys:String>
+    <sys:String x:Key="s.gps.mode.miniDesc">A screenshot brings up a round mini map around you in a corner of the screen for a few seconds. It never takes the mouse or the keyboard: you keep playing. Your quest spots off the mini map get a yellow arrow on the ring pointing the way, with the distance.</sys:String>
     <sys:String x:Key="s.gps.mode.appDesc">The map stays on inside the app (In-Game GPS → Map in the side menu). Put the app on your second monitor: every screenshot moves you on it, nothing pops up over the game.</sys:String>
     <sys:String x:Key="s.gps.app.open">🗺 Open the map page</sys:String>
     <sys:String x:Key="s.gps.mini">Mini map</sys:String>

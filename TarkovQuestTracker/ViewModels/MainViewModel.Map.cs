@@ -94,7 +94,9 @@ public sealed partial class MainViewModel
     /// <summary>A raid started (picked or detected): the map window follows it with a fresh path.</summary>
     void FollowRaidMap(string? map)
     {
-        if (map == null || !MapData.ContainsKey(map)) return;
+        if (map == null || !MapData.TryGetValue(map, out var geometry)) return;
+        // made ahead in the background: the first screenshot of the raid shows the map at once
+        if (MapTracking) _ = MapPictures.WarmAsync(geometry, MapCacheFolder);
         if (MapName == map)
         {
             PlayerTrail.Clear();

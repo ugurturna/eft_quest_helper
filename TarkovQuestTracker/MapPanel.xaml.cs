@@ -45,8 +45,6 @@ public partial class MapPanel : UserControl
 
     MainViewModel? _vm;
     MapPanelKind _kind = MapPanelKind.Window;
-    /// <summary>Pictures already made, by map and floor (null = ground).</summary>
-    readonly Dictionary<(string Map, string? Floor), IReadOnlyList<MapPicture>> _pictures = [];
     string? _shownMap;
     MapLayer? _shownLayer;
     int _loadVersion;
@@ -213,20 +211,18 @@ public partial class MapPanel : UserControl
         }
         var layer = WantedLayer();
         _shownLayer = layer;
-        var key = (map.Name, layer?.Name);
-        if (!_pictures.TryGetValue(key, out var pictures))
+        // made once for the whole app; only a map not made yet shows the "preparing" line
+        var loading = MapPictures.LoadAsync(map, layer, _vm.MapCacheFolder);
+        if (!loading.IsCompleted) Message.Text = Loc.T("s.map.loading");
+        IReadOnlyList<MapPicture> pictures;
+        try
         {
-            Message.Text = Loc.T("s.map.loading");
-            try
-            {
-                pictures = await MapPictures.LoadAsync(map, layer, _vm.MapCacheFolder);
-                _pictures[key] = pictures;
-            }
-            catch (Exception ex) when (MapPictures.IsDownloadError(ex))
-            {
-                if (version == _loadVersion) Message.Text = Loc.F("s.map.error", ex.Message);
-                return;
-            }
+            pictures = await loading;
+        }
+        catch (Exception ex) when (MapPictures.IsDownloadError(ex))
+        {
+            if (version == _loadVersion) Message.Text = Loc.F("s.map.error", ex.Message);
+            return;
         }
         if (version != _loadVersion) return;  // another map / floor was asked for meanwhile
         Message.Text = "";
@@ -421,8 +417,53 @@ public partial class MapPanel : UserControl
         DrawBtr(map);
         DrawTrail(map);
         DrawPlayer(map);
+        if (IsMini) DrawQuestPointers(map, spots);
         UpdateCard(map, spots);
     }
+
+    static readonly Geometry Pointer = Geometry.Parse("M 0,-7 L 6,5 L -6,5 Z");
+
+    /// <summary>
+    /// Mini map: a quest spot outside the circle gets a pointer on the ring, the way to go, with how far it is
+    /// (the objective's nearest spot; game units are metres).
+    /// </summary>
+    void DrawQuestPointers(MapGeometry map, IReadOnlyList<MapQuestSpot> spots)
+    {
+        if (_vm!.PlayerPosition is not { } me) return;
+        var center = new Point(Viewport.ActualWidth / 2, Viewport.ActualHeight / 2);
+        var radius = Math.Min(Viewport.ActualWidth, Viewport.ActualHeight) / 2;
+        if (radius < 40) return;
+        foreach (var spot in spots)
+        {
+            var nearest = spot.Positions.MinBy(p => Distance(me, p));
+            if (nearest == null) continue;
+            var along = Screen(MapProjection.Project(map, nearest)) - center;
+            if (along.Length <= radius - 8) continue;  // on the mini map already
+            along.Normalize();
+            var tip = center + along * (radius - 8);
+            var angle = Math.Atan2(along.X, -along.Y) * 180 / Math.PI;
+            var arrow = new Path
+            {
+                Data = Pointer, Fill = QuestBrush, Stroke = Brushes.Black, StrokeThickness = 1,
+                RenderTransform = new RotateTransform(angle), IsHitTestVisible = false,
+            };
+            Canvas.SetLeft(arrow, tip.X);
+            Canvas.SetTop(arrow, tip.Y);
+            Markers.Children.Add(arrow);
+            var label = new Border
+            {
+                Background = LabelBack, CornerRadius = new CornerRadius(2), Padding = new Thickness(3, 0, 3, 1), IsHitTestVisible = false,
+                Child = new TextBlock { Text = $"{Distance(me, nearest):0} m", FontSize = 9.5, Foreground = QuestBrush },
+            };
+            label.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+            var at = center + along * (radius - 24);
+            Canvas.SetLeft(label, at.X - label.DesiredSize.Width / 2);
+            Canvas.SetTop(label, at.Y - label.DesiredSize.Height / 2);
+            Markers.Children.Add(label);
+        }
+    }
+
+    static double Distance(ScreenshotPosition me, double[] spot) => Math.Sqrt(Math.Pow(spot[0] - me.X, 2) + Math.Pow(spot[2] - me.Z, 2));
 
     /// <summary>
     /// The raid's BTR on its map: the routes it may still be on (faint), each stop with the soonest ETA, and where it should

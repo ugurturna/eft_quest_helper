@@ -410,7 +410,7 @@
     <sys:String x:Key="s.map.floorGround">Zemin kat</sys:String>
     <sys:String x:Key="s.map.pickMap">Yukarıdan bir harita seç ya da raid başlat: harita raidin haritasını takip eder.</sys:String>
     <sys:String x:Key="s.map.pickMapMini">Hangi harita? Raidde iki kez O'ya bas ya da raid kısayoluyla seç.</sys:String>
-    <sys:String x:Key="s.map.loading">Harita tarkov.dev'den yükleniyor…</sys:String>
+    <sys:String x:Key="s.map.loading">Harita hazırlanıyor…</sys:String>
     <sys:String x:Key="s.map.error">Harita indirilemedi: {0}</sys:String>
     <sys:String x:Key="s.map.faction.pmc">PMC</sys:String>
     <sys:String x:Key="s.map.faction.scav">Scav</sys:String>
@@ -444,7 +444,7 @@
     <sys:String x:Key="s.gps.settings">Ayarlar</sys:String>
     <sys:String x:Key="s.gps.exfils">Exfilleri ve transitleri göster</sys:String>
     <sys:String x:Key="s.gps.quests">Aktif görevlerimin noktalarını göster</sys:String>
-    <sys:String x:Key="s.gps.maps">Haritalar tarkov.dev'den gelir: vektör haritalar (The Lab, Icebreaker ve The Labyrinth için uydu görüntüsü). Uygulama açılınca arka planda bir kez indirilir ve diskte saklanır; harita anında açılır, internetsiz de çalışır. Yeni bir uygulama sürümü haritaları baştan indirir.</sys:String>
+    <sys:String x:Key="s.gps.maps">Haritalar tarkov.dev'den gelir: vektör haritalar (The Lab, Icebreaker ve The Labyrinth için uydu görüntüsü). Uygulama açılınca arka planda bir kez indirilir ve diskte saklanır; harita anında açılır, internetsiz de çalışır. Her açılışta tarkov.dev kontrol edilir, sadece değişen haritalar yeniden indirilir.</sys:String>
     <sys:String x:Key="s.gps.position">Harita penceresinin konumu</sys:String>
     <sys:String x:Key="s.gps.positionHint">Haritanın ana ekranda nerede açılacağı. Üst çubuğundan (⠿ HARİTA) tutup sürükleyerek de taşıyabilirsin, başka monitöre bile; bir dahaki sefere orada açılır.</sys:String>
     <sys:String x:Key="s.gps.center">Ortala</sys:String>
@@ -454,7 +454,7 @@
     <sys:String x:Key="s.gps.mode.mini">Mini harita</sys:String>
     <sys:String x:Key="s.gps.mode.app">Uygulama içi</sys:String>
     <sys:String x:Key="s.gps.mode.overlayDesc">Ekran görüntüsü alınca harita penceresi oyunun üstünde açılır; Esc ile oyuna dönersin.</sys:String>
-    <sys:String x:Key="s.gps.mode.miniDesc">Ekran görüntüsü alınca ekranın bir köşesinde seni ortalayan yuvarlak bir mini harita birkaç saniye görünür. Fareyi ve klavyeyi hiç almaz: oynamaya devam edersin.</sys:String>
+    <sys:String x:Key="s.gps.mode.miniDesc">Ekran görüntüsü alınca ekranın bir köşesinde seni ortalayan yuvarlak bir mini harita birkaç saniye görünür. Fareyi ve klavyeyi hiç almaz: oynamaya devam edersin. Mini haritanın dışında kalan görev noktaların için halkada yönü gösteren sarı bir ok ve mesafe çıkar.</sys:String>
     <sys:String x:Key="s.gps.mode.appDesc">Harita uygulamanın içinde hep açık kalır (yan menüde Oyun İçi GPS → Harita). Uygulamayı ikinci ekranına koy: her ekran görüntüsü seni haritada yürütür, oyunun üstüne hiçbir şey açılmaz.</sys:String>
     <sys:String x:Key="s.gps.app.open">🗺 Harita sayfasını aç</sys:String>
     <sys:String x:Key="s.gps.mini">Mini harita</sys:String>

@@ -86,7 +86,7 @@ public partial class App : Application
         if (vm.Settings.OverlayVisible) overlay.Show();
         // flea prices for the mode being played, once per start, in the background
         _ = vm.Flea.PrepareAsync(vm.Settings.Mode, vm.Settings.Language);
-        // map pictures for the GPS map: once in the background, a new app version starts them fresh
+        // map pictures for the GPS map: in the background, missing ones downloaded and changed ones fetched again
         if (vm.MapTracking) _ = MapPictures.PrepareAsync(vm.MapData.Values, vm.MapCacheFolder, MainViewModel.AppVersion);
         vm.RestartRequested += () =>
         {

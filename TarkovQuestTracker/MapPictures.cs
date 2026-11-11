@@ -35,7 +35,37 @@ public static class MapPictures
         return client;
     }
 
-    public static async Task<IReadOnlyList<MapPicture>> LoadAsync(MapGeometry map, MapLayer? layer, string cacheDir)
+    /// <summary>Pictures made this run, by map and floor: made once, shared by the map window, the mini map and the app's map page.</summary>
+    static readonly Dictionary<(string Map, string? Floor), Task<IReadOnlyList<MapPicture>>> Made = [];
+
+    /// <summary>
+    /// The map's pictures for <paramref name="layer"/> (null = ground floor): from memory when they were made already,
+    /// else from the disk cache (downloaded when missing), drawn off the UI thread. A failed attempt is tried again next time.
+    /// </summary>
+    public static Task<IReadOnlyList<MapPicture>> LoadAsync(MapGeometry map, MapLayer? layer, string cacheDir)
+    {
+        var key = (map.Name, layer?.Name);
+        lock (Made)
+        {
+            if (Made.TryGetValue(key, out var made) && !made.IsFaulted && !made.IsCanceled) return made;
+            return Made[key] = MakeAsync(map, layer, cacheDir);
+        }
+    }
+
+    /// <summary>Makes the map's ground floor ahead (the raid's map is known): the first screenshot then shows it at once.</summary>
+    public static async Task WarmAsync(MapGeometry map, string cacheDir)
+    {
+        try
+        {
+            await LoadAsync(map, null, cacheDir);
+        }
+        catch (Exception ex) when (IsDownloadError(ex) || ex is InvalidOperationException)
+        {
+            // tried again when the map is shown
+        }
+    }
+
+    static async Task<IReadOnlyList<MapPicture>> MakeAsync(MapGeometry map, MapLayer? layer, string cacheDir)
     {
         var pictures = new List<MapPicture>();
         if (map.SvgPath != null)
@@ -63,6 +93,32 @@ public static class MapPictures
     static async Task<MapPicture> SvgAsync(MapGeometry map, string? floor, string cacheDir)
     {
         var path = await CachedAsync(map.SvgPath!, cacheDir);
+        // reading and drawing a big SVG takes a second or two: not on the UI thread (the picture comes back frozen)
+        return await OnStaThread(() => Svg(map, floor, path));
+    }
+
+    /// <summary>Runs <paramref name="work"/> on its own STA thread (WPF drawing objects want one).</summary>
+    static Task<T> OnStaThread<T>(Func<T> work)
+    {
+        var done = new TaskCompletionSource<T>(TaskCreationOptions.RunContinuationsAsynchronously);
+        var thread = new Thread(() =>
+        {
+            try
+            {
+                done.SetResult(work());
+            }
+            catch (Exception ex)
+            {
+                done.SetException(ex);
+            }
+        }) { IsBackground = true, Name = "map picture" };
+        thread.SetApartmentState(ApartmentState.STA);
+        thread.Start();
+        return done.Task;
+    }
+
+    static MapPicture Svg(MapGeometry map, string? floor, string path)
+    {
         var doc = XDocument.Load(path);
         var viewBox = ShowFloor(doc, map.SvgLayer, floor);
         InlineClasses(doc);
@@ -194,41 +250,67 @@ public static class MapPictures
         return tiles.OfType<MapPicture>().ToList();
     }
 
+    static string CachePath(string url, string cacheDir)
+    {
+        var uri = new Uri(url);
+        return Path.Combine(cacheDir, uri.Host, uri.AbsolutePath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
+    }
+
     /// <summary>The local copy of <paramref name="url"/> (the URL's path under the cache folder), downloaded when missing.</summary>
     static async Task<string> CachedAsync(string url, string cacheDir)
     {
-        var uri = new Uri(url);
-        var path = Path.Combine(cacheDir, uri.Host, uri.AbsolutePath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
+        var path = CachePath(url, cacheDir);
         if (File.Exists(path)) return path;
-        var bytes = await Http.GetByteArrayAsync(uri);
-        Directory.CreateDirectory(Path.GetDirectoryName(path)!);
-        var tmp = $"{path}.{Guid.NewGuid():N}.tmp";  // the start-up download and an open map may fetch the same file
-        await File.WriteAllBytesAsync(tmp, bytes);
-        File.Move(tmp, path, overwrite: true);
+        await SaveAsync(path, await Http.GetByteArrayAsync(url), null);
         return path;
     }
 
-    // download once: at start-up, again only when the app version changes
+    static async Task SaveAsync(string path, byte[] bytes, DateTimeOffset? modified)
+    {
+        Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+        var tmp = $"{path}.{Guid.NewGuid():N}.tmp";  // the start-up download and an open map may fetch the same file
+        await File.WriteAllBytesAsync(tmp, bytes);
+        if (modified is { } when) File.SetLastWriteTimeUtc(tmp, when.UtcDateTime);
+        File.Move(tmp, path, overwrite: true);
+    }
+
+    /// <summary>
+    /// The local copy brought up to date: tarkov.dev is asked whether its file changed since ours (If-Modified-Since),
+    /// so an unchanged map costs one small request and a changed one is downloaded again.
+    /// </summary>
+    static async Task RefreshAsync(string url, string cacheDir)
+    {
+        var path = CachePath(url, cacheDir);
+        if (!File.Exists(path))
+        {
+            await CachedAsync(url, cacheDir);
+            return;
+        }
+        using var request = new HttpRequestMessage(HttpMethod.Get, url);
+        request.Headers.IfModifiedSince = File.GetLastWriteTimeUtc(path);
+        using var response = await Http.SendAsync(request);
+        if (response.StatusCode == System.Net.HttpStatusCode.NotModified) return;
+        response.EnsureSuccessStatusCode();
+        await SaveAsync(path, await response.Content.ReadAsByteArrayAsync(), response.Content.Headers.LastModified);
+    }
+
+    // at start-up: missing files downloaded, changed SVGs downloaded again
 
     const string VersionFile = "version.txt";
 
     /// <summary>
-    /// Maps hardly ever change, so they are fetched once in the background when the app starts (the map window then
-    /// opens at once, also offline). A new app version starts from an empty cache, so its maps.json and the pictures
-    /// match; otherwise only missing files are downloaded. Errors only mean a map is fetched when it is opened.
+    /// Every start, in the background: the maps are brought up to date (the map window then opens at once, also offline).
+    /// The SVG maps are checked against tarkov.dev and downloaded again only when they changed; tiles (they don't change)
+    /// only when missing. The cache is kept across app updates (files are stored by their URL).
+    /// Errors only mean a map is fetched when it is opened.
     /// </summary>
     public static async Task PrepareAsync(IEnumerable<MapGeometry> maps, string cacheDir, string appVersion)
     {
         try
         {
-            var versionPath = Path.Combine(cacheDir, VersionFile);
-            var cached = File.Exists(versionPath) ? (await File.ReadAllTextAsync(versionPath)).Trim() : null;
-            if (cached != appVersion)
-            {
-                if (Directory.Exists(cacheDir)) Directory.Delete(cacheDir, recursive: true);
-                Directory.CreateDirectory(cacheDir);
-                await File.WriteAllTextAsync(versionPath, appVersion);
-            }
+            // the cache outlives app updates: files are kept by their URL, and the SVGs are checked below
+            Directory.CreateDirectory(cacheDir);
+            await File.WriteAllTextAsync(Path.Combine(cacheDir, VersionFile), appVersion);
             foreach (var map in maps)
             {
                 // the picture the window opens with; floors (Icebreaker has 16) come when they are first shown
@@ -241,9 +323,10 @@ public static class MapPictures
                     await limit.WaitAsync();
                     try
                     {
-                        await CachedAsync(url, cacheDir);
+                        if (url == map.SvgPath) await RefreshAsync(url, cacheDir);
+                        else await CachedAsync(url, cacheDir);
                     }
-                    catch (Exception ex) when (IsDownloadError(ex))
+                    catch (Exception ex) when (IsDownloadError(ex) || ex is UnauthorizedAccessException)
                     {
                         // a tile outside the picture (404) or no network: the window tries again when it opens
                     }
