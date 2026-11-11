@@ -42,7 +42,7 @@
 - **Kappa / Collector yolu** — Kappa için gerçekten gereken görevler: *Collector* ve tüm ön koşul zinciri. İlerleme çubuğu, yapılabilir görevler **haritaya göre gruplu** (aynı raidde birkaçını birden yap); her görevde gereken seviye yazar.
 - **Aktif görevler + overlay** — yaptığın tüm görevler *Aktif Görevler*'de listelenir; ekranın sağ kenarındaki küçük takipçide sadece **📌 Overlay** ile sabitlediklerin görünür. Hedef kutucukları, öldürme/item sayaçları ve item ikonlarıyla. Görevi aktif yapmak onu overlay'e eklemez; overlay'de ne olacağına sen karar verirsin.
 - **Oyun içinde flea fiyatları** — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> ekranın ortasında fiyat araması açar; item'ın 3 harfini yaz, modundaki (PvP / PvE) flea fiyatını gör. [Flea market fiyatları](#flea-market-fiyatları) bölümüne bak.
-- **Sol menü** — sayfalar (Raid'e giriyorum, Görevler, Hedef Planlayıcı, Kappa, Eşyalar, Aktif Görevler, Görevleri Oku (BETA), End Game, Ayarlar) soldaki menüde.
+- **Sol menü** — sayfalar (Raid'e giriyorum, Görevler, Hedef Planlayıcı, Kappa, Eşyalar, Aktif Görevler, Görevleri Oku (BETA), Hikaye, End Game, Ayarlar) soldaki menüde.
 - **Görevleri oyundan oku (BETA)** — görevleri tek tek girmene gerek yok: oyundaki Tasks ekranını aç, bir kez kaydır; uygulama tüm görev adlarını Windows'un kendi OCR'ı ile okur. Listeyi onayla, görevler aktif olsun, onlardan önceki her şey tamamlandı sayılsın. [Görevleri oyundan oku](#görevleri-oyundan-oku-beta) bölümüne bak.
 - **Raid'e ne götürmeli** — anahtarlar, markerlar (kaç tane gerektiğiyle), yerleştirilecek itemler, kullanılacak silah ve giyilecek kıyafet her görevin en üstünde ve *Aktif Görevler* kartında görünür.
 - **Raid'e giriyorum** — sol menünün ilk maddesi: gireceğin haritayı seç (her harita için kaç aktif görevin olduğunu gösteren kartlar), overlay o haritadaki bütün aktif görevleri kendiliğinden göstersin, sabitlediklerin de kalsın. Birden çok haritalı görevlerde sadece o haritanın hedefleri görünür, "teslim et" adımları gizlenir. Oyunda <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> ile harita seçilir; **Raid bitti** sabitlenmiş listeye döner. Raid başlayınca kilidi açık overlay kendiliğinden kilitlenir, tıklamalar oyuna gider. **Otomatik algıla** açıksa raid'de çift <kbd>O</kbd> yeter: map ve kalan raid süresi exfil listesinden okunur (bkz. [Otomatik raid algılama](#otomatik-raid-algılama-çift-o)).
@@ -56,6 +56,7 @@
 - **Haritada konumun** — raidde kendi ekran görüntüsü tuşunla ekran görüntüsü al; harita penceresi nerede olduğunu ve nereye baktığını, önceki ekran görüntülerinden izini, exfilleri ve aktif görevlerinin noktalarını gösterir; kat yüksekliğine göre değişir. Bkz. [Harita ve konum](#harita-ve-konum-ekran-görüntüleri).
 - **BTR takibi** — Woods, Streets ve Lighthouse'ta: raid süresine göre BTR'nin nerede olduğu ve her durağa ne zaman varacağı (TVS: tahmini varış süresi); overlay'de, harita penceresinde ve *Raid'e giriyorum* sayfasında. Bkz. [BTR takibi](#btr-takibi-woods-streets-lighthouse).
 - **End Game (The Ticket sonları)** — 4 sondan hangilerine hâlâ ulaşabileceğin, hedef sonuna giden yol ve şu an nerede olduğun ([End Game](#end-game-the-ticket-sonları) bölümüne bak).
+- **Hikaye bölümleri adım adım** — 10 hikaye bölümünün hepsi (Tour, Falling Skies, Batya, The Unheard, Blue Fire, They Are Already Here, Accidental Witness, The Labyrinth, Boreas, The Ticket): her adım, her adımın altında rehberi ve bölümlerde vereceğin kararlar ([Hikaye](#hikaye-bölümleri-adım-adım) bölümüne bak).
 - **Hızlı** — listeler kaydırdıkça sayfa sayfa yüklenir.
 
 ### Görev itemleri
@@ -73,6 +74,31 @@
 - Görev adına tıklayınca detay panelinde açılır.
 
 Item ikonları **görevlerin içinde de** görünür: bulma / teslim / yerleştirme hedefleri; görev detayında, *Aktif Görevler* kartlarında ve overlay'de item'ın ikonunu gösterir. Detay paneli de görevin gerekli itemlerini kart olarak listeler. Itemler görev dilinde (İngilizce veya Türkçe) gösterilir.
+
+### Hikaye bölümleri adım adım
+
+<p align="center">
+  <img src="docs/screenshots/story.webp" width="780" alt="Hikaye sayfası: solda bölüm listesi, sağda Blue Fire'ın adımları ve Item 1156 seçimi">
+</p>
+
+**Hikaye** sayfası, End Game sayfasının The Ticket için yaptığını 10 hikaye bölümünün hepsi için yapar:
+
+1. **Bölümü seç** — Tour, Falling Skies, Batya, The Unheard, Blue Fire, They Are Already Here, Accidental Witness, The Labyrinth, Boreas ve The Ticket solda, ne kadar ilerlediğinle birlikte listelenir (**✓** bitti, **▶** aktif).
+2. **Adımları işaretle** — bölümün tüm hedefleri sırayla; birkaç kez yapılan adımlarda **−/+** sayacı var. **◀ ŞU AN BURADASIN** sıradaki adımı gösterir.
+3. **"Nasıl yapılır"ı aç** — her adımın altında o adımın wiki rehberi: eşya nerede, kiminle konuşulur, yanına ne alınır. Sıradaki adımın rehberi kendiliğinden açık gelir; haritaya göre değişen yerler (örneğin Item 1156 notunun üç ayrı yeri) tek tek listelenir.
+4. **Kararlarını kaydet** — bölümde bir seçim varsa **SEÇİM** kartı cevapları ve her birinin ne kazandırdığını gösterir:
+   - *Falling Skies*: zırhlı çantayı sakla, Prapor'a ver ya da "bulamadım" deyip yine de ver. Bu, End Game sayfasının sorduğu kararın aynısı; bir sayfada seçince diğerinde de görünür.
+   - *Blue Fire*: Item 1156 parçasını sakla (*Better Served* başarımı) ya da Mechanic'e ver (1.500.000 ruble).
+
+<p align="center">
+  <img src="docs/screenshots/story-guide.webp" width="780" alt="Hikaye sayfası: Falling Skies, sıradaki adımın rehberi açık">
+</p>
+
+- İşaretler *Aktif Görevler* ve overlay ile **aynı ilerleme**: burada işaretlediğin adım orada da işaretli olur. **➕ Aktif görevlere ekle** bölümü aktif listene (oradan da overlay'e) ekler.
+- Adımlar ve rehberler görev dilinde (İngilizce ya da Türkçe); **Wiki ↗** bölümün wiki sayfasını açar.
+- *The Ticket*, 4 sonunu planlayan **End Game** sayfasına yönlendirir.
+- Hikaye ve Harita sayfalarında sağdaki görev detay paneli kenara çekilir, sayfa tüm genişliği kullanır.
+- Seçimler `data/story_choices.json` dosyasında (İngilizce ve Türkçe).
 
 ### End Game (The Ticket sonları)
 

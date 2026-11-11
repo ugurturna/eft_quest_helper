@@ -47,6 +47,7 @@
         <li><a href="#minimap" data-i18n="navMini">Mini Map</a></li>
         <li><a href="#goons" data-i18n="navGoons">Goons</a></li>
         <li><a href="#btr" data-i18n="navBtr">BTR</a></li>
+        <li><a href="#story" data-i18n="navStory">Story</a></li>
         <li><a href="#endgame" data-i18n="navEndgame">End Game</a></li>
         <li><a href="#screenshots" data-i18n="navShots">Screenshots</a></li>
         <li><a href="#safety" data-i18n="navSafety">Ban Safety</a></li>
@@ -137,6 +138,14 @@
         </div>
 
         <div class="features-grid">
+
+          <article class="feature-card feature-new">
+            <span class="feature-new-tag" data-i18n="newTag">New</span>
+            <div class="feature-icon">📖</div>
+            <h3 data-i18n="f21Title">Story Chapters, Step by Step</h3>
+            <p data-i18n="f21Desc">All 10 story chapters with every step to tick, a walkthrough under each step and the choices you make in them, with what each answer gives.</p>
+            <a href="#story" class="feature-highlight" data-i18n="f21Badge">10 chapters · walkthrough · choices →</a>
+          </article>
 
           <article class="feature-card feature-new">
             <span class="feature-new-tag" data-i18n="newTag">New</span>
@@ -618,6 +627,66 @@
       </div>
     </section>
 
+    <!-- Story: every story chapter step by step, with its walkthrough and the choices made in it -->
+    <section id="story" class="endgame-section read-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="stTag">New</span>
+          <h2 class="section-title" data-i18n="stTitle">Every Story Chapter, Step by Step</h2>
+          <p class="section-subtitle" data-i18n="stSub">Tour, Falling Skies, Batya, The Unheard, Blue Fire, They Are Already Here, Accidental Witness, The Labyrinth, Boreas and The Ticket: every step in order, the walkthrough right under it, and the choices you make along the way.</p>
+        </div>
+
+        <div class="mm-hero">
+          <figure class="gallery-frame">
+            <img src="screenshots/story.webp" width="2040" height="1515" loading="lazy" data-zoom="screenshots/story.webp" alt="Story page: the chapter list on the left, Blue Fire's steps with the choice about Item 1156 on the right">
+            <figcaption data-i18n="stCap1">Blue Fire half way: the steps done, ◀ YOU ARE HERE on the next one and the choice about Item 1156 with what each answer gives.</figcaption>
+          </figure>
+          <ul class="mm-points">
+            <li><span class="mm-icon">📖</span><div><strong data-i18n="stP1Title">All 10 chapters in one place</strong><span data-i18n="stP1Desc">Each chapter with how far you got: ✓ done, ▶ active, and how many steps are left.</span></div></li>
+            <li><span class="mm-icon">☑️</span><div><strong data-i18n="stP2Title">Tick as you go</strong><span data-i18n="stP2Desc">Every objective in order, with −/+ counters for the ones you do several times. ◀ YOU ARE HERE marks the next step.</span></div></li>
+            <li><span class="mm-icon">🧭</span><div><strong data-i18n="stP3Title">"How to do it" under each step</strong><span data-i18n="stP3Desc">Where the item is, who to talk to, what to bring: the wiki walkthrough for that step, in English or Turkish.</span></div></li>
+            <li><span class="mm-icon">⚖️</span><div><strong data-i18n="stP4Title">Choices with their rewards</strong><span data-i18n="stP4Desc">Record what you chose in game; the armored case choice is shared with the End Game planner.</span></div></li>
+            <li><span class="mm-icon">🔁</span><div><strong data-i18n="stP5Title">One progress everywhere</strong><span data-i18n="stP5Desc">A step ticked here is ticked on Active Quests and the overlay too. Add a chapter to your active quests with one click.</span></div></li>
+          </ul>
+        </div>
+
+        <div class="section-header" style="margin-top: 4rem">
+          <h3 class="section-title" data-i18n="stChoicesTitle">The Choices Inside the Chapters</h3>
+          <p class="section-subtitle" data-i18n="stChoicesSub">Where a chapter asks you to choose, the page shows every answer and what it gives, so you decide before you click in game.</p>
+        </div>
+        <div class="story-choices">
+          <article class="story-choice">
+            <span class="story-choice-chapter">Falling Skies</span>
+            <h4 data-i18n="stC1Q">What do you do with the armored case?</h4>
+            <p class="story-choice-note" data-i18n="stC1Note">Point of no return: it decides which endings of The Ticket stay open.</p>
+            <ul>
+              <li><strong data-i18n="stC1A1">Keep it for yourself</strong><span data-i18n="stC1A1R">+80,000 EXP · Prapor rep −0.7 · the Armored case · "Just Business"</span></li>
+              <li><strong data-i18n="stC1A2">Hand it over to Prapor</strong><span data-i18n="stC1A2R">+80,000 EXP · 1,000,000 roubles · "Man of His Word"</span></li>
+              <li><strong data-i18n="stC1A3">Say you didn't find it, still hand it over</strong><span data-i18n="stC1A3R">Same as handing it over</span></li>
+            </ul>
+          </article>
+          <article class="story-choice">
+            <span class="story-choice-chapter">Blue Fire</span>
+            <h4 data-i18n="stC2Q">What do you do with the fragment of Item 1156?</h4>
+            <p class="story-choice-note" data-i18n="stC2Note">The chapter goes on the same way after either answer; only the reward differs.</p>
+            <ul>
+              <li><strong data-i18n="stC2A1">Keep the fragment</strong><span data-i18n="stC2A1R">Achievement "Better Served"</span></li>
+              <li><strong data-i18n="stC2A2">Hand it over to Mechanic</strong><span data-i18n="stC2A2R">1,500,000 roubles</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="map-shots">
+          <figure class="gallery-frame map-shot-wide">
+            <img src="screenshots/story-guide.webp" width="2040" height="1290" loading="lazy" data-zoom="screenshots/story-guide.webp" alt="Story page: Falling Skies with the walkthrough of the next step open">
+            <figcaption data-i18n="stCap2">Falling Skies: the next step's walkthrough opens by itself. The G-Wagon flash drive is by the Tunnel exfil on Shoreline.</figcaption>
+          </figure>
+        </div>
+
+        <p class="endgame-note" data-i18n="stNote">The Ticket has its own page: the End Game planner below works out its 4 endings and the route to the one you want.</p>
+      </div>
+    </section>
+
     <!-- End Game: The Ticket endings guide -->
     <section id="endgame" class="endgame-section">
       <div class="container">
@@ -697,6 +766,7 @@
           <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/items.webp" data-caption="capItems" data-i18n="tabItems">Items</button>
           <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/kappa.webp" data-caption="capKappa" data-i18n="tabKappa">Kappa</button>
           <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/planner.webp" data-caption="capPlanner" data-i18n="tabPlanner">Goal Planner</button>
+          <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/story.webp" data-caption="capStory" data-i18n="tabStory">Story</button>
           <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/endgame.jpg" data-caption="capEndgame" data-i18n="tabEndgame">End Game</button>
           <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-shot="screenshots/flea-gallery.webp" data-caption="capFlea" data-i18n="tabFlea">Flea Market</button>
         </div>

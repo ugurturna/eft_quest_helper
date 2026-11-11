@@ -86,6 +86,17 @@
 
     <!-- The Ticket endings -->
     <sys:String x:Key="s.tab.ticket">End Game</sys:String>
+    <sys:String x:Key="s.tab.story">Hikaye</sys:String>
+    <sys:String x:Key="s.st.desc">Hikaye bölümleri adım adım: yaptıklarını işaretle, rehber için "Nasıl yapılır"ı aç, verdiğin kararları kaydet. İşaretler Aktif Görevler ve overlay ile aynı.</sys:String>
+    <sys:String x:Key="s.st.activate">➕ Aktif görevlere ekle</sys:String>
+    <sys:String x:Key="s.st.deactivate">➖ Aktif görevlerden çıkar</sys:String>
+    <sys:String x:Key="s.st.wiki">Wiki ↗</sys:String>
+    <sys:String x:Key="s.st.openTicket">End Game rehberini aç</sys:String>
+    <sys:String x:Key="s.st.ticket">The Ticket sonunu belirler: adımları, seçimleri ve her sona giden yollar End Game sayfasında.</sys:String>
+    <sys:String x:Key="s.st.how">Nasıl yapılır</sys:String>
+    <sys:String x:Key="s.st.choice">SEÇİM</sys:String>
+    <sys:String x:Key="s.st.chosen">✓ SENİN SEÇİMİN</sys:String>
+    <sys:String x:Key="st.progress">{0}/{1} adım tamamlandı</sys:String>
     <sys:String x:Key="s.tk.plannerTitle">END GAME: SONLAR VE TÜM YOL</sys:String>
     <sys:String x:Key="s.tk.desc">"The Ticket" bölümünün 4 sonu var. Oyunda verdiğin kararları işaretle; hangi sonlara hâlâ ulaşabileceğini, hangi yoldan gitmen gerektiğini ve şu an nerede olduğunu gösterir. Bir sonu hedef yaparsan önündeki kararlarda ne seçmen gerektiğini de söyler.</sys:String>
     <sys:String x:Key="s.tk.reset">Sıfırla</sys:String>

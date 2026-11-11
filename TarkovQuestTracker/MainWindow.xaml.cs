@@ -27,6 +27,7 @@ public partial class MainWindow : Window
         Loaded += (_, _) => SearchBox.Focus();
         PreviewMouseWheel += ZoomWithWheel;
         vm.MapAppRequested += ShowMapTab;
+        vm.TicketPageRequested += () => TicketTab.IsSelected = true;
     }
 
     /// <summary>The map buttons in the GPS "in app" mode: this window comes up on its map page.</summary>
@@ -39,6 +40,23 @@ public partial class MainWindow : Window
     }
 
     void OpenMapTab_Click(object sender, RoutedEventArgs e) => MapTab.IsSelected = true;
+
+    GridLength _detailWidth;
+
+    /// <summary>The story and map pages are wide: the quest detail panel on the right steps aside for them.</summary>
+    void Pages_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (e.Source != Pages) return;  // lists inside the pages raise this too
+        var wide = StoryTab.IsSelected || MapTab.IsSelected;
+        if (wide == (DetailPanel.Visibility != Visibility.Visible)) return;
+        DetailPanel.Visibility = DetailSplitter.Visibility = wide ? Visibility.Collapsed : Visibility.Visible;
+        if (wide)
+        {
+            _detailWidth = DetailColumn.Width;  // as the splitter left it
+            (DetailColumn.MinWidth, DetailColumn.Width, SplitterColumn.Width) = (0, new GridLength(0), new GridLength(0));
+        }
+        else (DetailColumn.MinWidth, DetailColumn.Width, SplitterColumn.Width) = (320, _detailWidth, new GridLength(5));
+    }
 
     /// <summary>Another GPS mode hides the map page: back to the GPS page rather than an empty one.</summary>
     void MapTab_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

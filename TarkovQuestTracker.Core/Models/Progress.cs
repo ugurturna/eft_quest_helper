@@ -14,6 +14,8 @@ public sealed class Progress
     public List<string> Goals { get; set; } = [];
     /// <summary>"The Ticket" endings guide: choices, target ending, ticked steps.</summary>
     public TicketProgress Ticket { get; set; } = new();
+    /// <summary>Choices made inside the story chapters (the story page); The Ticket's own choices stay in <see cref="Ticket"/>.</summary>
+    public StoryProgress Story { get; set; } = new();
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
     public static string ObjectiveKey(string questId, string objectiveId) => $"{questId}/{objectiveId}";

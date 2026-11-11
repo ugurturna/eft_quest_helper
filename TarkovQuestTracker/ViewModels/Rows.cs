@@ -250,3 +250,56 @@ public sealed record GoonRowVm(string MapName, string AgoText, string Reporter);
 
 /// <summary>A BTR stop on the raid page: how long until the BTR gets there ("here" while it waits), and on which route.</summary>
 public sealed record BtrStopRowVm(string StopId, string Name, string EtaText, bool IsHere, string RouteId);
+
+/// <summary>Story page: one chapter in the list, with how many of its (non-optional) objectives are done.</summary>
+public sealed partial class StoryChapterVm(Quest quest, int done, int total, bool isCompleted, bool isActive) : ObservableObject
+{
+    public Quest Quest { get; } = quest;
+    public string Name => Quest.DisplayName;
+    public bool IsActive { get; } = isActive;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ProgressText), nameof(IsDone))]
+    private int _done = done;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ProgressText), nameof(IsDone))]
+    private int _total = total;
+
+    public bool IsDone => isCompleted || (Total > 0 && Done >= Total);
+    public string ProgressText => $"{Done}/{Total}";
+
+    public void Update(int done, int total) => (Done, Total) = (done, total);
+}
+
+/// <summary>Story page: one objective of the chapter, its walkthrough and, where one comes up, the choice made there.</summary>
+public sealed partial class StoryStepVm(ObjectiveVm objective, string help, StoryDecisionVm? decision) : ObservableObject
+{
+    public ObjectiveVm Objective { get; } = objective;
+    public string Help { get; } = help;
+    public bool HasHelp => Help.Length > 0;
+    public StoryDecisionVm? Decision { get; } = decision;
+    public bool HasDecision => Decision != null;
+    public bool IsOptional => Objective.Objective.Optional;
+
+    /// <summary>The first objective not done yet: "you are here".</summary>
+    [ObservableProperty] private bool _isCurrent;
+}
+
+/// <summary>A choice inside a story chapter: the question, what it changes and the answers with their rewards.</summary>
+public sealed class StoryDecisionVm(string title, string note, IReadOnlyList<StoryOptionVm> options)
+{
+    public string Title { get; } = title;
+    public string Note { get; } = note;
+    public bool HasNote => Note.Length > 0;
+    public IReadOnlyList<StoryOptionVm> Options { get; } = options;
+}
+
+public sealed class StoryOptionVm(string decisionId, string optionId, string label, string rewards, bool isChosen)
+{
+    public string DecisionId { get; } = decisionId;
+    public string OptionId { get; } = optionId;
+    public string Label { get; } = label;
+    public string Rewards { get; } = rewards;
+    public bool IsChosen { get; } = isChosen;
+}

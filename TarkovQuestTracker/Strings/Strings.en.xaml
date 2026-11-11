@@ -86,6 +86,17 @@
 
     <!-- The Ticket endings -->
     <sys:String x:Key="s.tab.ticket">End Game</sys:String>
+    <sys:String x:Key="s.tab.story">Story</sys:String>
+    <sys:String x:Key="s.st.desc">The story chapters step by step: tick what you did, open "How to do it" for the walkthrough, and record the choices you make. The ticks are the same as on Active Quests and the overlay.</sys:String>
+    <sys:String x:Key="s.st.activate">➕ Add to active quests</sys:String>
+    <sys:String x:Key="s.st.deactivate">➖ Remove from active quests</sys:String>
+    <sys:String x:Key="s.st.wiki">Wiki ↗</sys:String>
+    <sys:String x:Key="s.st.openTicket">Open the End Game guide</sys:String>
+    <sys:String x:Key="s.st.ticket">The Ticket decides your ending: its steps, choices and routes to each ending are on the End Game page.</sys:String>
+    <sys:String x:Key="s.st.how">How to do it</sys:String>
+    <sys:String x:Key="s.st.choice">CHOICE</sys:String>
+    <sys:String x:Key="s.st.chosen">✓ YOUR CHOICE</sys:String>
+    <sys:String x:Key="st.progress">{0}/{1} steps done</sys:String>
     <sys:String x:Key="s.tk.plannerTitle">END GAME: ENDINGS AND THE WHOLE ROUTE</sys:String>
     <sys:String x:Key="s.tk.desc">"The Ticket" has 4 endings. Mark the decisions you made in game to see which endings are still reachable, which way to go and where you are right now. Make an ending your target and it also tells you what to pick at the decisions ahead.</sys:String>
     <sys:String x:Key="s.tk.reset">Reset</sys:String>

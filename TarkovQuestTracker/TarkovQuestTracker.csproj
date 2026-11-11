@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="..\data\tasks_*.json;..\data\meta.json;..\data\quest_items.json;..\data\ticket_endings.json;..\data\extracts.json;..\data\maps.json;..\data\btr.json" Link="data\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
+      <Content Include="..\data\tasks_*.json;..\data\meta.json;..\data\quest_items.json;..\data\ticket_endings.json;..\data\extracts.json;..\data\maps.json;..\data\btr.json;..\data\story_choices.json" Link="data\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
       <Content Include="..\data\icons\*.png" Link="data\icons\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Always" />
     </ItemGroup>
 
@@ -34,13 +34,13 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
-        <Version>0.9.5</Version>
+        <Version>0.10.0</Version>
         <!-- built with tools\make_icon.ps1 -->
         <ApplicationIcon Condition="Exists('Assets\app.ico')">Assets\app.ico</ApplicationIcon>
         <!-- runs next to the game all session: prefer a small footprint over GC throughput -->
         <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
-        <AssemblyVersion>0.9.5</AssemblyVersion>
-        <FileVersion>0.9.5</FileVersion>
+        <AssemblyVersion>0.10.0</AssemblyVersion>
+        <FileVersion>0.10.0</FileVersion>
         <Title>TarkovQuestTracker</Title>
         <Authors>UgurTurna</Authors>
         <Description>This app is just Helper. NO CHEAT!. Play Safe. have a good hunt</Description>

@@ -1,0 +1,106 @@
+{
+  "source": "Escape from Tarkov Wiki (Fandom), the Guide sections of the story chapters",
+  "order": [
+    "tour",
+    "falling-skies",
+    "batya",
+    "the-unheard",
+    "blue-fire",
+    "they-are-already-here",
+    "accidental-witness",
+    "the-labyrinth-story-chapter",
+    "boreas",
+    "the-ticket"
+  ],
+  "decisions": [
+    {
+      "id": "falling-skies-case",
+      "chapter": "falling-skies",
+      "objective": "o19",
+      "ticketDecision": "case",
+      "title": {
+        "en": "What do you do with the armored case?",
+        "tr": "Zırhlı çantayla ne yapacaksın?"
+      },
+      "note": {
+        "en": "Point of no return: this choice decides which endings of The Ticket stay open.",
+        "tr": "Geri dönüşü yok: bu seçim The Ticket'ın hangi sonlarının açık kalacağını belirler."
+      },
+      "options": [
+        {
+          "id": "keep",
+          "ticketOption": "keep",
+          "label": {
+            "en": "Keep the armored case for yourself",
+            "tr": "Zırhlı çantayı kendine sakla"
+          },
+          "rewards": {
+            "en": "+80,000 EXP · Prapor rep −0.7 · the Armored case · achievement \"Just Business\"",
+            "tr": "+80.000 EXP · Prapor itibarı −0,7 · Zırhlı çanta · \"Just Business\" başarımı"
+          }
+        },
+        {
+          "id": "prapor",
+          "ticketOption": "prapor",
+          "label": {
+            "en": "Hand the armored case over to Prapor",
+            "tr": "Zırhlı çantayı Prapor'a ver"
+          },
+          "rewards": {
+            "en": "+80,000 EXP · 1,000,000 roubles (1,050,000 with Intelligence Center 1, 1,150,000 with level 2) · achievement \"Man of His Word\"",
+            "tr": "+80.000 EXP · 1.000.000 ruble (Intelligence Center 1 ile 1.050.000, 2 ile 1.150.000) · \"Man of His Word\" başarımı"
+          }
+        },
+        {
+          "id": "pretend",
+          "ticketOption": "prapor",
+          "label": {
+            "en": "Say you didn't find it, but still hand it over to Prapor",
+            "tr": "Bulamadım de ama yine de Prapor'a ver"
+          },
+          "rewards": {
+            "en": "Same as handing it over: +80,000 EXP · 1,000,000 roubles · achievement \"Man of His Word\"",
+            "tr": "Teslim etmekle aynı: +80.000 EXP · 1.000.000 ruble · \"Man of His Word\" başarımı"
+          }
+        }
+      ]
+    },
+    {
+      "id": "blue-fire-fragment",
+      "chapter": "blue-fire",
+      "objective": "o6",
+      "title": {
+        "en": "What do you do with the fragment of Item 1156?",
+        "tr": "Item 1156 parçasıyla ne yapacaksın?"
+      },
+      "note": {
+        "en": "The chapter goes on the same way after either answer; only the reward differs.",
+        "tr": "Bölüm iki cevapta da aynı şekilde devam eder; sadece ödül değişir."
+      },
+      "options": [
+        {
+          "id": "keep",
+          "label": {
+            "en": "Keep the fragment for yourself",
+            "tr": "Parçayı kendine sakla"
+          },
+          "rewards": {
+            "en": "Achievement \"Better Served\"",
+            "tr": "\"Better Served\" başarımı"
+          }
+        },
+        {
+          "id": "mechanic",
+          "label": {
+            "en": "Hand the fragment over to Mechanic",
+            "tr": "Parçayı Mechanic'e ver"
+          },
+          "rewards": {
+            "en": "1,500,000 roubles",
+            "tr": "1.500.000 ruble"
+          }
+        }
+      ]
+    }
+  ]
+}

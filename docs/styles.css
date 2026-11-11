@@ -1491,3 +1491,66 @@ kbd {
     grid-template-columns: 1fr;
   }
 }
+
+/* story: the choices inside the chapters, each answer with what it gives */
+.story-choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.story-choice {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--accent-red);
+  border-radius: var(--radius-md, 12px);
+  padding: 22px 24px;
+}
+
+.story-choice-chapter {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 8px;
+}
+
+.story-choice h4 {
+  font-size: 1.12rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.story-choice-note {
+  font-size: 0.88rem;
+  color: var(--accent-red);
+  margin-bottom: 16px;
+}
+
+.story-choice ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.story-choice li {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-medium);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.story-choice li strong {
+  display: block;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.story-choice li span {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}

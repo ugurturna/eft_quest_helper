@@ -42,7 +42,7 @@
 - **Kappa / Collector path** — the quests Kappa really needs: *Collector* and its whole prerequisite chain. Progress bar, available quests **grouped by map** so you can do several in one raid; each quest shows its required level.
 - **Active quests + overlay** — all the quests you are doing are listed under *Active Quests*; only the ones you pin with **📌 Overlay** appear in the small tracker on the right edge of the screen, with objective checkboxes, kill/item counters and item icons. Activating a quest does not pin it; you decide what goes on the overlay.
 - **Flea market prices in game** — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> opens a price search in the middle of the screen; type 3 letters of an item and see its flea price for your mode (PvP / PvE). See [Flea market prices](#flea-market-prices).
-- **Side menu** — pages (Entering a raid, Quests, Goal Planner, Kappa, Items, Active Quests, Read Quests (BETA), End Game, Settings) are in a menu on the left.
+- **Side menu** — pages (Entering a raid, Quests, Goal Planner, Kappa, Items, Active Quests, Read Quests (BETA), Story, End Game, Settings) are in a menu on the left.
 - **Read quests from the game (BETA)** — no need to enter quests one by one: open the in-game Tasks screen, scroll it once and the app reads every quest name with the OCR built into Windows. Confirm the list and the quests become active, with everything before them marked done. See [Read quests from the game](#read-quests-from-the-game-beta).
 - **What to bring into the raid** — keys, markers (with how many you need), items to plant, the weapon to use and the clothes to wear are shown at the top of each quest and on its *Active Quests* card.
 - **Entering a raid** — the first item of the side menu: pick the map you are going to (a card per map with how many active quests it has) and the overlay shows every active quest on that map by itself, plus the ones you pinned. For quests on several maps only the objectives of that map are shown, and "hand over" steps are left out. <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> picks the map in game; **Raid over** goes back to the pinned list. When a raid starts, an unlocked overlay locks by itself so clicks go to the game. With **auto-detect** on, a double <kbd>O</kbd> in raid is enough: the map and the raid time left are read off the exfil list (see [Auto raid detection](#auto-raid-detection-double-o)).
@@ -56,6 +56,7 @@
 - **Profiles** — several players on one PC, each with their own progress and settings.
 - **Event quests** — active events are listed; past events that can't be done any more are left out.
 - **End Game (The Ticket endings)** — which of the 4 endings you can still reach, the route to your target ending and where you are right now (see [End Game](#end-game-the-ticket-endings)).
+- **Story chapters, step by step** — all 10 story chapters (Tour, Falling Skies, Batya, The Unheard, Blue Fire, They Are Already Here, Accidental Witness, The Labyrinth, Boreas, The Ticket) with every step, a walkthrough under each step and the choices you make in them (see [Story](#story-chapters-step-by-step)).
 - **Fast** — lists load page by page while you scroll.
 
 ### Quest items
@@ -73,6 +74,31 @@ The **Items** tab answers "what do I need to keep for my quests?":
 - Click a quest name to open it in the detail panel.
 
 Item icons also appear **inside the quests**: find / hand-over / plant objectives show the item's icon in the quest details, on the *Active Quests* cards and in the overlay, and the detail panel lists the quest's required items as cards. Items are shown in the quest language (English or Turkish).
+
+### Story chapters, step by step
+
+<p align="center">
+  <img src="docs/screenshots/story.webp" width="780" alt="Story page: the chapter list on the left, Blue Fire's steps with the choice about Item 1156 on the right">
+</p>
+
+The **Story** page walks you through all 10 story chapters the way the End Game page does for The Ticket:
+
+1. **Pick a chapter** — Tour, Falling Skies, Batya, The Unheard, Blue Fire, They Are Already Here, Accidental Witness, The Labyrinth, Boreas and The Ticket are listed on the left with how far you got (**✓** done, **▶** active).
+2. **Tick the steps** — every objective of the chapter in order; steps you do several times have **−/+** counters. **◀ YOU ARE HERE** marks the next step to do.
+3. **Open "How to do it"** — under each step: the wiki walkthrough for that step (where the item is, who to talk to, what to bring). The next step's walkthrough opens by itself; places that differ per map (e.g. the three spots of the Item 1156 note) are listed one by one.
+4. **Record your choices** — where a chapter asks you to choose, a **CHOICE** card shows the answers with what each one gives:
+   - *Falling Skies*: keep the armored case, hand it to Prapor, or say you didn't find it and still hand it over. This is the same decision the End Game page asks, so picking it on one page shows on the other.
+   - *Blue Fire*: keep the fragment of Item 1156 (achievement *Better Served*) or hand it to Mechanic (1,500,000 roubles).
+
+<p align="center">
+  <img src="docs/screenshots/story-guide.webp" width="780" alt="Story page: Falling Skies with the walkthrough of the next step open">
+</p>
+
+- The ticks are the **same progress** as *Active Quests* and the overlay: tick a step here and it is ticked there too. **➕ Add to active quests** puts the chapter on your active list (and from there on the overlay).
+- Steps and walkthroughs are in the quest language (English or Turkish); **Wiki ↗** opens the chapter's wiki page.
+- *The Ticket* links to the **End Game** page, which plans its 4 endings.
+- On the Story and Map pages the quest detail panel on the right steps aside, so the page gets the whole width.
+- The choices live in `data/story_choices.json` (English and Turkish).
 
 ### End Game (The Ticket endings)
 

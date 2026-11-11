@@ -222,6 +222,7 @@ public sealed partial class MainViewModel : ObservableObject
         _matcher = null;
         Scanner.Clear();  // quests read for the previous mode / profile
         _ticket = TicketPlanner.Load(_dataDir);
+        _story = StoryPlanner.Load(_dataDir);
         Progress = _store.LoadProgress(Settings.Mode);
         _undo = null;
         OnPropertyChanged(nameof(CanUndo));
@@ -901,6 +902,7 @@ public sealed partial class MainViewModel : ObservableObject
         else choices[option.DecisionId] = option.OptionId;
         SaveProgress();
         RefreshTicket();
+        RefreshStorySteps();  // a story choice may be this one (the armored case)
     }
 
     [RelayCommand]
@@ -909,6 +911,7 @@ public sealed partial class MainViewModel : ObservableObject
         Progress.Ticket = new TicketProgress();
         SaveProgress();
         RefreshTicket();
+        RefreshStorySteps();
         Toast = Loc.T("t.ticketReset");
     }
 
@@ -1087,6 +1090,7 @@ public sealed partial class MainViewModel : ObservableObject
         RefreshItems();
         RefreshActive();
         RefreshTicket();
+        RefreshStory();
         NotifyDetail();
     }
 

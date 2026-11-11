@@ -31,6 +31,31 @@ MAP_ALIASES = {"Daytime Factory": "Factory", "Night Factory": "Factory",
                "Labs": "The Lab", "Laboratory": "The Lab", "Streets": "Streets of Tarkov",
                "Labyrinth": "The Labyrinth"}
 
+NUMBER = re.compile(r"\b\d[\d,]*\b")
+# a number right after one of these words names something (room 303, level 6, Item 1156, Part 2), it isn't an amount
+NAME_WORDS = re.compile(r"(?:room|level|level of|item|office|register|part|bay|station|folder|model|gate|floor|no\.)\s*$", re.I)
+UNITS = re.compile(r"\s*(?:minutes?|seconds?|hours?|meters?|usd|dollars?|roubles?|rub|euros?|eur)\b", re.I)  # time, distance, money
+TIMES = re.compile(r"\s*times\b", re.I)
+
+
+def objective_count(text):
+    """How many times the objective is done: the first number that is an amount, not part of a name."""
+    if text.lower().startswith("modify"):  # gunsmith: "Modify an AK-105 / a Glock 17"
+        return 1
+    for m in NUMBER.finditer(text):
+        before, after = text[:m.start()], text[m.end():]
+        if before.endswith(("#", "-", ".", ":")) or after.startswith(("-", ".", ":")):
+            continue  # #2, AK-74, 5.0, 22:00, 3-4
+        if TIMES.match(after):
+            return int(m.group().replace(",", ""))  # "extract from The Lab 15 times"
+        if NAME_WORDS.search(before) or UNITS.match(after):
+            continue
+        words = before.split()
+        # "Chekannaya 15", "NICE COMM 3": a capitalised name word (not the sentence's first word) before it
+        if len(words) >= 2 and words[-1][:1].isupper() and not words[-1].endswith(":"):
+            continue
+        return int(m.group().replace(",", ""))
+    return 1
 
 
 def api_get(params):
@@ -216,11 +241,10 @@ def parse_objectives(body):
             objs[-1]["details"].append(text)
             continue
         maps = [m for m in (norm_map(l) for l in links(raw)) if m]
-        count = re.search(r"\b(\d[\d,]*)\b", text)
         objs.append({
             "id": f"o{len(objs) + 1}",
             "text": text,
-            "count": int(count.group(1).replace(",", "")) if count else 1,
+            "count": objective_count(text),
             "optional": "(optional)" in text.lower(),
             "fir": "in raid" in text.lower(),
             "map": maps[0] if maps else None,

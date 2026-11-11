@@ -362,12 +362,12 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="5" />
-                <ColumnDefinition Width="430" MinWidth="320" />
+                <ColumnDefinition x:Name="SplitterColumn" Width="5" />
+                <ColumnDefinition x:Name="DetailColumn" Width="430" MinWidth="320" />
             </Grid.ColumnDefinitions>
 
             <!-- pages as a left side menu: icon + name, the selected one gets an accent bar -->
-            <TabControl Margin="0,0,0,8" TabStripPlacement="Left">
+            <TabControl x:Name="Pages" Margin="0,0,0,8" TabStripPlacement="Left" SelectionChanged="Pages_SelectionChanged">
                 <TabControl.Template>
                     <ControlTemplate TargetType="TabControl">
                         <DockPanel>
@@ -1118,6 +1118,169 @@
                     </DockPanel>
                 </TabItem>
 
+                <!-- Story: every story chapter step by step, with its walkthrough and the choices made in it -->
+                <TabItem x:Name="StoryTab" Header="{DynamicResource s.tab.story}" Tag="&#xE736;">
+                    <DockPanel Margin="0,8,0,0">
+                        <!-- the chapters -->
+                        <DockPanel DockPanel.Dock="Left" Width="250" Margin="0,0,12,0">
+                            <TextBlock DockPanel.Dock="Top" Text="{DynamicResource s.st.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,0,0,8" />
+                            <ListBox ItemsSource="{Binding StoryChapters}" SelectedItem="{Binding SelectedStoryChapter}" Background="Transparent"
+                                     BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type vm:StoryChapterVm}">
+                                        <DockPanel Margin="2,4">
+                                            <TextBlock x:Name="count" DockPanel.Dock="Right" Text="{Binding ProgressText}" Style="{StaticResource Muted}"
+                                                       FontSize="12" VerticalAlignment="Center" Margin="8,0,0,0" />
+                                            <TextBlock x:Name="mark" DockPanel.Dock="Left" Text="○" Width="18" Foreground="{StaticResource MutedBrush}"
+                                                       VerticalAlignment="Center" />
+                                            <TextBlock Text="{Binding Name}" Style="{StaticResource Body}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" />
+                                        </DockPanel>
+                                        <DataTemplate.Triggers>
+                                            <DataTrigger Binding="{Binding IsActive}" Value="True">
+                                                <Setter TargetName="mark" Property="Text" Value="▶" />
+                                                <Setter TargetName="mark" Property="Foreground" Value="{StaticResource ActiveBrush}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding IsDone}" Value="True">
+                                                <Setter TargetName="mark" Property="Text" Value="✓" />
+                                                <Setter TargetName="mark" Property="Foreground" Value="{StaticResource DoneBrush}" />
+                                                <Setter TargetName="count" Property="Foreground" Value="{StaticResource DoneBrush}" />
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </DockPanel>
+
+                        <!-- the chapter: its steps, walkthrough and choices -->
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <StackPanel Margin="0,0,6,8" DataContext="{Binding}">
+                                <DockPanel>
+                                    <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Top">
+                                        <Button Style="{StaticResource SmallButton}" Command="{Binding StoryToggleActiveCommand}" Margin="0,0,6,0">
+                                            <Button.Content>
+                                                <TextBlock>
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Setter Property="Text" Value="{DynamicResource s.st.activate}" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding StoryChapterActive}" Value="True">
+                                                                    <Setter Property="Text" Value="{DynamicResource s.st.deactivate}" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </Button.Content>
+                                        </Button>
+                                        <Button Content="{DynamicResource s.st.wiki}" Style="{StaticResource SmallButton}"
+                                                Command="{Binding OpenWikiCommand}" CommandParameter="{Binding SelectedStoryChapter.Quest}" />
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding SelectedStoryChapter.Name}" Style="{StaticResource H1}" />
+                                        <TextBlock Style="{StaticResource Muted}" Margin="0,2,0,0">
+                                            <Run Text="{Binding StoryProgressText, Mode=OneWay}" />
+                                        </TextBlock>
+                                    </StackPanel>
+                                </DockPanel>
+
+                                <!-- The Ticket has its own page -->
+                                <Border Background="{StaticResource CardBrush}" CornerRadius="4" Padding="12,10" Margin="0,12,0,0"
+                                        Visibility="{Binding StoryIsTicket, Converter={StaticResource BoolToVis}}">
+                                    <DockPanel>
+                                        <Button DockPanel.Dock="Right" Content="{DynamicResource s.st.openTicket}" Style="{StaticResource SmallButton}"
+                                                Command="{Binding OpenTicketGuideCommand}" VerticalAlignment="Center" Margin="8,0,0,0" />
+                                        <TextBlock Text="{DynamicResource s.st.ticket}" Style="{StaticResource Body}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                                    </DockPanel>
+                                </Border>
+
+                                <ItemsControl ItemsSource="{Binding StorySteps}" Margin="0,12,0,0"
+                                              Visibility="{Binding StoryShowsSteps, Converter={StaticResource BoolToVis}}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate DataType="{x:Type vm:StoryStepVm}">
+                                            <Border x:Name="card" Background="{StaticResource CardBrush}" BorderBrush="{StaticResource LineBrush}"
+                                                    BorderThickness="3,0,0,0" CornerRadius="0,4,4,0" Padding="10,6" Margin="0,0,0,4">
+                                                <StackPanel>
+                                                    <DockPanel>
+                                                        <TextBlock DockPanel.Dock="Right" Text="{DynamicResource s.tk.here}" Foreground="{StaticResource ActiveBrush}"
+                                                                   FontWeight="Bold" FontSize="11" Margin="8,0,0,0" VerticalAlignment="Center"
+                                                                   Visibility="{Binding IsCurrent, Converter={StaticResource BoolToVis}}" />
+                                                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Margin="8,0,0,0"
+                                                                    Visibility="{Binding Objective.IsCounter, Converter={StaticResource BoolToVis}}">
+                                                            <Button Content="−" Command="{Binding Objective.DecrementCommand}" Style="{StaticResource SmallButton}" />
+                                                            <TextBlock Text="{Binding Objective.CounterText}" Foreground="{StaticResource AccentBrush}" MinWidth="44"
+                                                                       TextAlignment="Center" VerticalAlignment="Center" />
+                                                            <Button Content="+" Command="{Binding Objective.IncrementCommand}" Style="{StaticResource SmallButton}" Margin="6,0,0,0" />
+                                                        </StackPanel>
+                                                        <CheckBox IsChecked="{Binding Objective.IsDone, Mode=TwoWay}" VerticalContentAlignment="Top">
+                                                            <TextBlock x:Name="text" Text="{Binding Objective.Text}" TextWrapping="Wrap" Foreground="{StaticResource TextBrush}" />
+                                                        </CheckBox>
+                                                    </DockPanel>
+                                                    <!-- how to do it: the wiki walkthrough for this objective -->
+                                                    <Expander Header="{DynamicResource s.st.how}" Margin="26,4,0,0" Foreground="{StaticResource MutedBrush}"
+                                                              IsExpanded="{Binding IsCurrent, Mode=OneTime}"
+                                                              Visibility="{Binding HasHelp, Converter={StaticResource BoolToVis}}">
+                                                        <TextBlock Text="{Binding Help}" TextWrapping="Wrap" Foreground="{StaticResource TextBrush}" FontSize="12.5"
+                                                                   Margin="0,4,0,2" />
+                                                    </Expander>
+                                                    <!-- a choice made here -->
+                                                    <Border BorderBrush="{StaticResource DecisionBrush}" BorderThickness="2,0,0,0" Padding="10,4,0,2" Margin="26,6,0,2"
+                                                            Visibility="{Binding HasDecision, Converter={StaticResource BoolToVis}}">
+                                                        <StackPanel>
+                                                            <TextBlock Text="{DynamicResource s.st.choice}" FontSize="10" FontWeight="Bold" Foreground="{StaticResource DecisionBrush}" />
+                                                            <TextBlock Text="{Binding Decision.Title}" Style="{StaticResource Body}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                                                            <TextBlock Text="{Binding Decision.Note}" Foreground="{StaticResource DecisionBrush}" FontSize="12" TextWrapping="Wrap"
+                                                                       Margin="0,2,0,0" Visibility="{Binding Decision.HasNote, Converter={StaticResource BoolToVis}}" />
+                                                            <ItemsControl ItemsSource="{Binding Decision.Options}" Margin="0,6,0,0">
+                                                                <ItemsControl.ItemsPanel>
+                                                                    <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                                                                </ItemsControl.ItemsPanel>
+                                                                <ItemsControl.ItemTemplate>
+                                                                    <DataTemplate DataType="{x:Type vm:StoryOptionVm}">
+                                                                        <Button x:Name="opt" Margin="0,0,6,6" Padding="10,4" HorizontalContentAlignment="Left" MaxWidth="320"
+                                                                                ToolTip="{DynamicResource s.tk.choiceTip}"
+                                                                                Command="{Binding DataContext.StoryChooseCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                                                CommandParameter="{Binding}">
+                                                                            <StackPanel>
+                                                                                <TextBlock x:Name="mark" Text="{DynamicResource s.st.chosen}" FontSize="10" FontWeight="Bold"
+                                                                                           Foreground="{StaticResource AccentBrush}" Visibility="Collapsed" />
+                                                                                <TextBlock Text="{Binding Label}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                                                                                <TextBlock Text="{Binding Rewards}" FontSize="11" Opacity="0.8" TextWrapping="Wrap" />
+                                                                            </StackPanel>
+                                                                        </Button>
+                                                                        <DataTemplate.Triggers>
+                                                                            <DataTrigger Binding="{Binding IsChosen}" Value="True">
+                                                                                <Setter TargetName="mark" Property="Visibility" Value="Visible" />
+                                                                                <Setter TargetName="opt" Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+                                                                                <Setter TargetName="opt" Property="BorderThickness" Value="2" />
+                                                                            </DataTrigger>
+                                                                        </DataTemplate.Triggers>
+                                                                    </DataTemplate>
+                                                                </ItemsControl.ItemTemplate>
+                                                            </ItemsControl>
+                                                        </StackPanel>
+                                                    </Border>
+                                                </StackPanel>
+                                            </Border>
+                                            <DataTemplate.Triggers>
+                                                <DataTrigger Binding="{Binding IsOptional}" Value="True">
+                                                    <Setter TargetName="text" Property="Foreground" Value="{StaticResource MutedBrush}" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Objective.IsDone}" Value="True">
+                                                    <Setter TargetName="card" Property="BorderBrush" Value="{StaticResource DoneBrush}" />
+                                                    <Setter TargetName="card" Property="Opacity" Value="0.6" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsCurrent}" Value="True">
+                                                    <Setter TargetName="card" Property="BorderBrush" Value="{StaticResource ActiveBrush}" />
+                                                </DataTrigger>
+                                            </DataTemplate.Triggers>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </DockPanel>
+                </TabItem>
+
                 <!-- The Ticket: endings, decisions and the route to the chosen ending -->
                 <TabItem x:Name="TicketTab" Header="{DynamicResource s.tab.ticket}" Tag="&#xEA18;">
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
@@ -1355,10 +1518,10 @@
                 </TabItem>
             </TabControl>
 
-            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="Transparent" />
+            <GridSplitter x:Name="DetailSplitter" Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="Transparent" />
 
             <!-- detail panel -->
-            <Border Grid.Column="2" Background="{StaticResource PanelBrush}" Margin="0,8,8,8" CornerRadius="6" Padding="14,10">
+            <Border x:Name="DetailPanel" Grid.Column="2" Background="{StaticResource PanelBrush}" Margin="0,8,8,8" CornerRadius="6" Padding="14,10">
                 <Grid>
                     <TextBlock Text="{DynamicResource s.selectQuest}" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock.Style>
