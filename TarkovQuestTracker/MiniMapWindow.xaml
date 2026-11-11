@@ -1,0 +1,21 @@
+<Window x:Class="TarkovQuestTracker.MiniMapWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:TarkovQuestTracker"
+        Title="Tarkov Tracker Mini Map"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        Topmost="True" ShowInTaskbar="False" ShowActivated="False" ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight" Opacity="{Binding MapOpacity}">
+    <!-- round mini map in a screen corner: comes up with a new screenshot for a few seconds; clicks go through to the game -->
+    <Grid x:Name="Root" Width="{Binding MiniMapSize}" Height="{Binding MiniMapSize}" Margin="2">
+        <Ellipse Fill="{StaticResource BgBrush}" />
+        <local:MapPanel x:Name="Panel" Kind="Mini" />
+        <Ellipse Stroke="{StaticResource AccentBrush}" StrokeThickness="2" />
+        <!-- north on the ring: moves round when the map turns with the player -->
+        <Canvas>
+            <Border x:Name="North" Width="16" Height="16" CornerRadius="8" Background="{StaticResource AccentBrush}">
+                <TextBlock Text="N" FontSize="10" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+        </Canvas>
+    </Grid>
+</Window>

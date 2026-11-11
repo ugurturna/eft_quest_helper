@@ -81,6 +81,18 @@ public sealed class AppSettings
     /// <summary>Map window size in screen units; 0 = its default size.</summary>
     public double MapWindowWidth { get; set; }
     public double MapWindowHeight { get; set; }
+    /// <summary>How the GPS shows the map: "overlay" (map window over the game), "mini" (round mini map in a corner), "app" (the app's map page).</summary>
+    public string GpsMode { get; set; } = "overlay";
+    /// <summary>Mini map corner: 0 top left, 1 top right, 2 bottom left, 3 bottom right.</summary>
+    public int MiniMapCorner { get; set; }
+    /// <summary>Mini map diameter in screen units.</summary>
+    public double MiniMapSize { get; set; } = 260;
+    /// <summary>Mini map zoom, times the whole-map view.</summary>
+    public double MiniMapZoom { get; set; } = 4;
+    /// <summary>The mini map turns so the player's heading is up (off = north up).</summary>
+    public bool MiniMapRotate { get; set; }
+    /// <summary>How long the mini map stays up after a screenshot.</summary>
+    public int MiniMapSeconds { get; set; } = 8;
     /// <summary>
     /// Whether each window shows in streams, recordings and screenshots (off = left out of screen pictures; the player
     /// still sees it). The overlay and the map are left out by default: the auto raid detection reads the screen

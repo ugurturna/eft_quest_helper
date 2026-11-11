@@ -12,6 +12,23 @@ namespace TarkovQuestTracker.ViewModels;
 /// </summary>
 public sealed record MapQuestSpot(ActiveQuestVm Quest, ObjectiveVm? Objective, string Text, IReadOnlyList<double[]> Positions);
 
+/// <summary>How the In-Game GPS shows the map (<see cref="AppSettings.GpsMode"/>).</summary>
+public static class GpsModes
+{
+    /// <summary>The map window over the game, with the keyboard (Esc goes back to the game).</summary>
+    public const string Overlay = "overlay";
+    /// <summary>A round mini map in a screen corner for a few seconds, clicks go through.</summary>
+    public const string Mini = "mini";
+    /// <summary>The app's own map page (In-Game GPS → Map), always on: for a second monitor.</summary>
+    public const string App = "app";
+}
+
+/// <summary>The mini map's corners (<see cref="AppSettings.MiniMapCorner"/>).</summary>
+public static class MiniMapCorners
+{
+    public const int TopLeft = 0, TopRight = 1, BottomLeft = 2, BottomRight = 3;
+}
+
 /// <summary>
 /// Map window: the player's position from the game's screenshot file names (press the screenshot key in raid),
 /// on tarkov.dev's map of the raid's map, with exfils and the active quests' objective spots.
@@ -52,8 +69,15 @@ public sealed partial class MainViewModel
     /// <summary>A new screenshot came in and <see cref="MapOpenOnScreenshot"/> is on: the window comes up (without focus).</summary>
     public event Action? MapShowRequested;
 
+    /// <summary>The map buttons in "app" mode: the main window comes up on its map page.</summary>
+    public event Action? MapAppRequested;
+
     [RelayCommand]
-    void ToggleMap() => MapToggleRequested?.Invoke();
+    void ToggleMap()
+    {
+        if (GpsMode == GpsModes.App) MapAppRequested?.Invoke();
+        else MapToggleRequested?.Invoke();
+    }
 
     bool _followingCapture;
 
@@ -284,6 +308,147 @@ public sealed partial class MainViewModel
     [RelayCommand]
     void CenterMap() => SetMapPosition(0.5, 0.5);
 
+    // how the map shows: map window over the game, round mini map, or the app's map page
+
+    public string GpsMode => Settings.GpsMode is GpsModes.Mini or GpsModes.App ? Settings.GpsMode : GpsModes.Overlay;
+
+    void SetGpsMode(string mode)
+    {
+        if (GpsMode == mode) return;
+        Settings.GpsMode = mode;
+        SaveSettings();
+        OnGpsModeChanged();
+    }
+
+    void OnGpsModeChanged()
+    {
+        OnPropertyChanged(nameof(GpsMode));
+        OnPropertyChanged(nameof(GpsModeOverlay));
+        OnPropertyChanged(nameof(GpsModeMini));
+        OnPropertyChanged(nameof(GpsModeApp));
+    }
+
+    /// <summary>The GPS page's three-way switch.</summary>
+    public bool GpsModeOverlay
+    {
+        get => GpsMode == GpsModes.Overlay;
+        set { if (value) SetGpsMode(GpsModes.Overlay); }
+    }
+
+    public bool GpsModeMini
+    {
+        get => GpsMode == GpsModes.Mini;
+        set { if (value) SetGpsMode(GpsModes.Mini); }
+    }
+
+    public bool GpsModeApp
+    {
+        get => GpsMode == GpsModes.App;
+        set { if (value) SetGpsMode(GpsModes.App); }
+    }
+
+    // mini map
+
+    public int MiniMapCorner => Settings.MiniMapCorner is >= MiniMapCorners.TopLeft and <= MiniMapCorners.BottomRight
+        ? Settings.MiniMapCorner : MiniMapCorners.TopLeft;
+
+    void SetMiniMapCorner(int corner)
+    {
+        if (MiniMapCorner == corner) return;
+        Settings.MiniMapCorner = corner;
+        SaveSettings();
+        OnMiniMapCornerChanged();
+    }
+
+    void OnMiniMapCornerChanged()
+    {
+        OnPropertyChanged(nameof(MiniMapCorner));
+        OnPropertyChanged(nameof(MiniMapTopLeft));
+        OnPropertyChanged(nameof(MiniMapTopRight));
+        OnPropertyChanged(nameof(MiniMapBottomLeft));
+        OnPropertyChanged(nameof(MiniMapBottomRight));
+    }
+
+    /// <summary>The GPS page's corner picker.</summary>
+    public bool MiniMapTopLeft
+    {
+        get => MiniMapCorner == MiniMapCorners.TopLeft;
+        set { if (value) SetMiniMapCorner(MiniMapCorners.TopLeft); }
+    }
+
+    public bool MiniMapTopRight
+    {
+        get => MiniMapCorner == MiniMapCorners.TopRight;
+        set { if (value) SetMiniMapCorner(MiniMapCorners.TopRight); }
+    }
+
+    public bool MiniMapBottomLeft
+    {
+        get => MiniMapCorner == MiniMapCorners.BottomLeft;
+        set { if (value) SetMiniMapCorner(MiniMapCorners.BottomLeft); }
+    }
+
+    public bool MiniMapBottomRight
+    {
+        get => MiniMapCorner == MiniMapCorners.BottomRight;
+        set { if (value) SetMiniMapCorner(MiniMapCorners.BottomRight); }
+    }
+
+    public const double MinMiniMapSize = 140, MaxMiniMapSize = 480;
+
+    public double MiniMapSize
+    {
+        get => Math.Clamp(Settings.MiniMapSize, MinMiniMapSize, MaxMiniMapSize);
+        set
+        {
+            value = Math.Round(Math.Clamp(value, MinMiniMapSize, MaxMiniMapSize));
+            if (Settings.MiniMapSize == value) return;
+            Settings.MiniMapSize = value;
+            SaveSettings();
+            OnPropertyChanged();
+        }
+    }
+
+    public const double MinMiniMapZoom = 1.5, MaxMiniMapZoom = 12;
+
+    public double MiniMapZoom
+    {
+        get => Math.Clamp(Settings.MiniMapZoom, MinMiniMapZoom, MaxMiniMapZoom);
+        set
+        {
+            value = Math.Round(Math.Clamp(value, MinMiniMapZoom, MaxMiniMapZoom), 1);
+            if (Settings.MiniMapZoom == value) return;
+            Settings.MiniMapZoom = value;
+            SaveSettings();
+            OnPropertyChanged();
+        }
+    }
+
+    public bool MiniMapRotate
+    {
+        get => Settings.MiniMapRotate;
+        set
+        {
+            if (Settings.MiniMapRotate == value) return;
+            Settings.MiniMapRotate = value;
+            SaveSettings();
+            OnPropertyChanged();
+        }
+    }
+
+    public int MiniMapSeconds
+    {
+        get => Math.Clamp(Settings.MiniMapSeconds, MinAutoHideSeconds, MaxAutoHideSeconds);
+        set
+        {
+            value = Math.Clamp(value, MinAutoHideSeconds, MaxAutoHideSeconds);
+            if (Settings.MiniMapSeconds == value) return;
+            Settings.MiniMapSeconds = value;
+            SaveSettings();
+            OnPropertyChanged();
+        }
+    }
+
     /// <summary>After a profile's settings load.</summary>
     void ApplyMapSettings()
     {
@@ -299,5 +464,11 @@ public sealed partial class MainViewModel
         OnPropertyChanged(nameof(MapShowExtracts));
         OnPropertyChanged(nameof(MapShowQuests));
         OnPropertyChanged(nameof(MapOpacity));
+        OnGpsModeChanged();
+        OnMiniMapCornerChanged();
+        OnPropertyChanged(nameof(MiniMapSize));
+        OnPropertyChanged(nameof(MiniMapZoom));
+        OnPropertyChanged(nameof(MiniMapRotate));
+        OnPropertyChanged(nameof(MiniMapSeconds));
     }
 }

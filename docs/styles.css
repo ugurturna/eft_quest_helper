@@ -1428,3 +1428,66 @@ kbd {
     width: 100%;
   }
 }
+
+/* mini map: the in-game shot next to what it does */
+.mm-hero {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 32px;
+  margin-top: 40px;
+  align-items: center;
+}
+
+.mm-hero .gallery-frame {
+  max-width: none;
+  margin: 0;
+}
+
+.mm-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mm-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.mm-icon {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  background: var(--accent-gold-glow);
+  border: 1px solid var(--border-glow);
+  border-radius: 10px;
+}
+
+.mm-points strong {
+  display: block;
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.mm-points span:not(.mm-icon) {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.mm-mode-new {
+  position: relative;
+  border-color: var(--border-glow);
+}
+
+@media (max-width: 900px) {
+  .mm-hero {
+    grid-template-columns: 1fr;
+  }
+}

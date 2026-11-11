@@ -26,6 +26,24 @@ public partial class MainWindow : Window
         MinHeight = Math.Min(MinHeight, Height);
         Loaded += (_, _) => SearchBox.Focus();
         PreviewMouseWheel += ZoomWithWheel;
+        vm.MapAppRequested += ShowMapTab;
+    }
+
+    /// <summary>The map buttons in the GPS "in app" mode: this window comes up on its map page.</summary>
+    void ShowMapTab()
+    {
+        if (!IsVisible) Show();
+        if (WindowState == WindowState.Minimized) WindowState = WindowState.Normal;
+        MapTab.IsSelected = true;
+        Activate();
+    }
+
+    void OpenMapTab_Click(object sender, RoutedEventArgs e) => MapTab.IsSelected = true;
+
+    /// <summary>Another GPS mode hides the map page: back to the GPS page rather than an empty one.</summary>
+    void MapTab_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    {
+        if (MapTab.Visibility != Visibility.Visible && MapTab.IsSelected) GpsTab.IsSelected = true;
     }
 
     /// <summary>Ctrl + mouse wheel: the app size (same as the Settings slider).</summary>

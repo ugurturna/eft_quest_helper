@@ -127,6 +127,7 @@ When you take a screenshot in raid, the game writes your position into the file 
 
 - **Any screenshot key.** The app watches the folder, not a key: whatever key you bound for screenshots in the game works. There is no extra hotkey.
 - **Opens by itself.** A new screenshot brings up the map window without taking focus from the game (turn it off under **Settings → Map and position**; the **🗺 Map** button on the overlay and in Settings opens it too). Drag the header to move it, the corner to resize it; its place and size are remembered.
+- **Three ways to show it** (In-Game GPS page): the **in-game overlay** map window above; a **round mini map** in a screen corner you pick, up for a few seconds after each screenshot (size, zoom, north up or turning with you; clicks go through to the game); or **in app**, a *Map* page under In-Game GPS that stays on, for a second monitor.
 - **What it shows:** a red arrow where you are and which way you face, a dashed path of this raid's screenshots, the exfils (PMC / Scav / shared, transits) and the spots of your **active** quests' objectives (hover for the quest; done objectives disappear).
 - **Floors.** The floor follows your height (e.g. the 2nd floor of the Customs dorms); pick one by hand from the list if you like.
 - **Follows the raid.** The map follows the raid's map (picked, or found by the double <kbd>O</kbd>); without a raid, pick the map in the window. Wheel zooms, dragging looks around, **◎** centres on you again, **⟳** reads the last screenshot again.

@@ -127,6 +127,7 @@ Raidde ekran görüntüsü aldığında oyun konumunu dosya adına yazar (`2026-
 
 - **Hangi tuş olursa olsun.** Uygulama tuşu değil klasörü izler: oyunda ekran görüntüsü için hangi tuşu atadıysan o çalışır. Ek bir kısayol yok.
 - **Kendiliğinden açılır.** Yeni bir ekran görüntüsü harita penceresini oyunun odağını almadan açar (**Ayarlar → Harita ve konum**'dan kapatılabilir; overlay'deki ve Ayarlar'daki **🗺 Harita** butonu da açar). Başlığından sürükleyip taşı, köşesinden boyutlandır; yeri ve boyutu hatırlanır.
+- **Üç görünüm** (Oyun İçi GPS sayfası): yukarıdaki **oyun içi overlay** harita penceresi; seçtiğin ekran köşesinde her ekran görüntüsünden sonra birkaç saniye görünen **yuvarlak mini harita** (boyut, yakınlık, kuzey yukarıda ya da seninle dönen; tıklamalar oyuna geçer); ya da **uygulama içi**, Oyun İçi GPS altında hep açık kalan bir *Harita* sayfası, ikinci ekran için.
 - **Neler var:** nerede olduğunu ve nereye baktığını gösteren kırmızı ok, bu raiddeki ekran görüntülerinden kesikli iz, exfiller (PMC / Scav / ortak, transitler) ve **aktif** görevlerinin hedef noktaları (üstüne gelince görev yazar; tamamlanan hedefler kaybolur).
 - **Katlar.** Kat yüksekliğine göre seçilir (ör. Customs yurtlarının 2. katı); istersen listeden elle seç.
 - **Raidi takip eder.** Harita raidin haritasını takip eder (seçilen ya da çift <kbd>O</kbd> ile bulunan); raid yoksa haritayı pencereden seç. Tekerlek yakınlaştırır, sürüklemek etrafa bakar, **◎** tekrar seni ortalar, **⟳** son ekran görüntüsünü yeniden okur.

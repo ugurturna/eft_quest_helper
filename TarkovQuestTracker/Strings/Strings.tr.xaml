@@ -409,6 +409,7 @@
     <sys:String x:Key="s.map.floorAuto">Otomatik kat</sys:String>
     <sys:String x:Key="s.map.floorGround">Zemin kat</sys:String>
     <sys:String x:Key="s.map.pickMap">Yukarıdan bir harita seç ya da raid başlat: harita raidin haritasını takip eder.</sys:String>
+    <sys:String x:Key="s.map.pickMapMini">Hangi harita? Raidde iki kez O'ya bas ya da raid kısayoluyla seç.</sys:String>
     <sys:String x:Key="s.map.loading">Harita tarkov.dev'den yükleniyor…</sys:String>
     <sys:String x:Key="s.map.error">Harita indirilemedi: {0}</sys:String>
     <sys:String x:Key="s.map.faction.pmc">PMC</sys:String>
@@ -447,6 +448,27 @@
     <sys:String x:Key="s.gps.position">Harita penceresinin konumu</sys:String>
     <sys:String x:Key="s.gps.positionHint">Haritanın ana ekranda nerede açılacağı. Üst çubuğundan (⠿ HARİTA) tutup sürükleyerek de taşıyabilirsin, başka monitöre bile; bir dahaki sefere orada açılır.</sys:String>
     <sys:String x:Key="s.gps.center">Ortala</sys:String>
+    <sys:String x:Key="s.tab.gpsMap">Harita</sys:String>
+    <sys:String x:Key="s.gps.mode">Harita nasıl görünsün</sys:String>
+    <sys:String x:Key="s.gps.mode.overlay">Oyun içi overlay</sys:String>
+    <sys:String x:Key="s.gps.mode.mini">Mini harita</sys:String>
+    <sys:String x:Key="s.gps.mode.app">Uygulama içi</sys:String>
+    <sys:String x:Key="s.gps.mode.overlayDesc">Ekran görüntüsü alınca harita penceresi oyunun üstünde açılır; Esc ile oyuna dönersin.</sys:String>
+    <sys:String x:Key="s.gps.mode.miniDesc">Ekran görüntüsü alınca ekranın bir köşesinde seni ortalayan yuvarlak bir mini harita birkaç saniye görünür. Fareyi ve klavyeyi hiç almaz: oynamaya devam edersin.</sys:String>
+    <sys:String x:Key="s.gps.mode.appDesc">Harita uygulamanın içinde hep açık kalır (yan menüde Oyun İçi GPS → Harita). Uygulamayı ikinci ekranına koy: her ekran görüntüsü seni haritada yürütür, oyunun üstüne hiçbir şey açılmaz.</sys:String>
+    <sys:String x:Key="s.gps.app.open">🗺 Harita sayfasını aç</sys:String>
+    <sys:String x:Key="s.gps.mini">Mini harita</sys:String>
+    <sys:String x:Key="s.gps.mini.show">Göster</sys:String>
+    <sys:String x:Key="s.gps.mini.autoOpen">Ekran görüntüsü alınca mini haritayı göster</sys:String>
+    <sys:String x:Key="s.gps.mini.corner">Köşe</sys:String>
+    <sys:String x:Key="s.gps.mini.tl">↖ Sol üst</sys:String>
+    <sys:String x:Key="s.gps.mini.tr">↗ Sağ üst</sys:String>
+    <sys:String x:Key="s.gps.mini.bl">↙ Sol alt</sys:String>
+    <sys:String x:Key="s.gps.mini.br">↘ Sağ alt</sys:String>
+    <sys:String x:Key="s.gps.mini.size">Boyut:</sys:String>
+    <sys:String x:Key="s.gps.mini.zoom">Yakınlık:</sys:String>
+    <sys:String x:Key="s.gps.mini.seconds">Ekran görüntüsünden sonra ekranda kalma süresi (saniye):</sys:String>
+    <sys:String x:Key="s.gps.mini.rotate">Harita benimle dönsün (baktığım yön yukarıda; kapalı = kuzey yukarıda)</sys:String>
     <sys:String x:Key="s.map.drag">Haritayı taşımak için sürükle (başka monitöre bile)</sys:String>
     <sys:String x:Key="s.cap.title">Yayın ve kayıtlar</sys:String>
     <sys:String x:Key="s.cap.desc">Hangi pencerelerin yayında, kayıtlarda ve ekran görüntülerinde (OBS, Discord, Windows kaydı…) görüneceğini seç. Kapalıyken pencere ekran görüntülerinin dışında kalır; sen yine her zamanki gibi görürsün.</sys:String>

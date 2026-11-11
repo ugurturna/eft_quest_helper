@@ -409,6 +409,7 @@
     <sys:String x:Key="s.map.floorAuto">Auto floor</sys:String>
     <sys:String x:Key="s.map.floorGround">Ground floor</sys:String>
     <sys:String x:Key="s.map.pickMap">Pick a map above, or start a raid: the map follows the raid's map.</sys:String>
+    <sys:String x:Key="s.map.pickMapMini">Which map? Press O twice in raid, or pick it with the raid hotkey.</sys:String>
     <sys:String x:Key="s.map.loading">Loading the map from tarkov.dev…</sys:String>
     <sys:String x:Key="s.map.error">The map could not be downloaded: {0}</sys:String>
     <sys:String x:Key="s.map.faction.pmc">PMC</sys:String>
@@ -447,6 +448,27 @@
     <sys:String x:Key="s.gps.position">Map window position</sys:String>
     <sys:String x:Key="s.gps.positionHint">Where the map opens on the main screen. You can also drag it by its top bar (⠿ MAP), even onto another monitor; it opens there next time.</sys:String>
     <sys:String x:Key="s.gps.center">Centre it</sys:String>
+    <sys:String x:Key="s.tab.gpsMap">Map</sys:String>
+    <sys:String x:Key="s.gps.mode">How the map shows</sys:String>
+    <sys:String x:Key="s.gps.mode.overlay">In-game overlay</sys:String>
+    <sys:String x:Key="s.gps.mode.mini">Mini map</sys:String>
+    <sys:String x:Key="s.gps.mode.app">In app</sys:String>
+    <sys:String x:Key="s.gps.mode.overlayDesc">A screenshot opens the map window over the game; Esc takes you back to the game.</sys:String>
+    <sys:String x:Key="s.gps.mode.miniDesc">A screenshot brings up a round mini map around you in a corner of the screen for a few seconds. It never takes the mouse or the keyboard: you keep playing.</sys:String>
+    <sys:String x:Key="s.gps.mode.appDesc">The map stays on inside the app (In-Game GPS → Map in the side menu). Put the app on your second monitor: every screenshot moves you on it, nothing pops up over the game.</sys:String>
+    <sys:String x:Key="s.gps.app.open">🗺 Open the map page</sys:String>
+    <sys:String x:Key="s.gps.mini">Mini map</sys:String>
+    <sys:String x:Key="s.gps.mini.show">Show it</sys:String>
+    <sys:String x:Key="s.gps.mini.autoOpen">Show the mini map when I take a screenshot</sys:String>
+    <sys:String x:Key="s.gps.mini.corner">Corner</sys:String>
+    <sys:String x:Key="s.gps.mini.tl">↖ Top left</sys:String>
+    <sys:String x:Key="s.gps.mini.tr">↗ Top right</sys:String>
+    <sys:String x:Key="s.gps.mini.bl">↙ Bottom left</sys:String>
+    <sys:String x:Key="s.gps.mini.br">↘ Bottom right</sys:String>
+    <sys:String x:Key="s.gps.mini.size">Size:</sys:String>
+    <sys:String x:Key="s.gps.mini.zoom">Zoom:</sys:String>
+    <sys:String x:Key="s.gps.mini.seconds">Stays up after a screenshot (seconds):</sys:String>
+    <sys:String x:Key="s.gps.mini.rotate">Turn the map with me (where I look is up; off = north up)</sys:String>
     <sys:String x:Key="s.map.drag">Drag to move the map (even onto another monitor)</sys:String>
     <sys:String x:Key="s.cap.title">Streams and recordings</sys:String>
     <sys:String x:Key="s.cap.desc">Choose which windows show in streams, recordings and screenshots (OBS, Discord, Windows capture…). Turned off, a window is left out of screen pictures; you still see it as always.</sys:String>

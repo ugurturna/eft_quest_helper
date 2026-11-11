@@ -2,6 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:TarkovQuestTracker.ViewModels"
+        xmlns:local="clr-namespace:TarkovQuestTracker"
         xmlns:core="clr-namespace:TarkovQuestTracker.Core.Models;assembly=TarkovQuestTracker.Core"
         Title="Tarkov Quest Tracker" Height="820" Width="1280" MinWidth="900" MinHeight="560"
         Background="{StaticResource BgBrush}" WindowStartupLocation="CenterScreen">
@@ -516,7 +517,7 @@
                 </TabItem>
 
                 <!-- In-Game GPS: the player's position from the game's screenshot names, on the map window -->
-                <TabItem Header="{DynamicResource s.tab.gps}" Tag="&#xE81D;">
+                <TabItem x:Name="GpsTab" Header="{DynamicResource s.tab.gps}" Tag="&#xE81D;">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <StackPanel Margin="0,8,0,0" MaxWidth="760" HorizontalAlignment="Left">
                             <!-- what it reads, before anything else -->
@@ -545,6 +546,33 @@
                                                    FontSize="15" VerticalAlignment="Center" TextWrapping="Wrap" />
                                     </DockPanel>
                                     <TextBlock Text="{DynamicResource s.gps.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,4,0,0" />
+                                </StackPanel>
+                            </Border>
+
+                            <!-- how the map shows: map window over the game, round mini map in a corner, or the app's map page -->
+                            <Border Background="{StaticResource CardBrush}" CornerRadius="4" Padding="10,8" Margin="0,0,0,10">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.gps.mode}" Style="{StaticResource Body}" FontWeight="SemiBold" FontSize="15" />
+                                    <Border Background="{StaticResource BgBrush}" BorderBrush="{StaticResource LineBrush}" BorderThickness="1" CornerRadius="4"
+                                            Padding="2" Margin="0,6,0,6" HorizontalAlignment="Left">
+                                        <StackPanel Orientation="Horizontal">
+                                            <RadioButton Content="{DynamicResource s.gps.mode.overlay}" GroupName="gpsMode" Style="{StaticResource Segment}"
+                                                         IsChecked="{Binding GpsModeOverlay}" />
+                                            <RadioButton Content="{DynamicResource s.gps.mode.mini}" GroupName="gpsMode" Style="{StaticResource Segment}"
+                                                         IsChecked="{Binding GpsModeMini}" />
+                                            <RadioButton Content="{DynamicResource s.gps.mode.app}" GroupName="gpsMode" Style="{StaticResource Segment}"
+                                                         IsChecked="{Binding GpsModeApp}" />
+                                        </StackPanel>
+                                    </Border>
+                                    <TextBlock Text="{DynamicResource s.gps.mode.overlayDesc}" Style="{StaticResource Muted}" TextWrapping="Wrap"
+                                               Visibility="{Binding GpsModeOverlay, Converter={StaticResource BoolToVis}}" />
+                                    <TextBlock Text="{DynamicResource s.gps.mode.miniDesc}" Style="{StaticResource Muted}" TextWrapping="Wrap"
+                                               Visibility="{Binding GpsModeMini, Converter={StaticResource BoolToVis}}" />
+                                    <DockPanel Visibility="{Binding GpsModeApp, Converter={StaticResource BoolToVis}}">
+                                        <Button DockPanel.Dock="Right" Content="{DynamicResource s.gps.app.open}" Style="{StaticResource SmallButton}"
+                                                Click="OpenMapTab_Click" VerticalAlignment="Center" Margin="8,0,0,0" />
+                                        <TextBlock Text="{DynamicResource s.gps.mode.appDesc}" Style="{StaticResource Muted}" TextWrapping="Wrap" />
+                                    </DockPanel>
                                 </StackPanel>
                             </Border>
 
@@ -591,7 +619,10 @@
                             <!-- settings -->
                             <TextBlock Text="{DynamicResource s.gps.settings}" Style="{StaticResource H2}" />
                             <StackPanel IsEnabled="{Binding MapTracking}">
-                                <CheckBox Content="{DynamicResource s.map.set.autoOpen}" IsChecked="{Binding MapOpenOnScreenshot}" Margin="0,4,0,4" />
+                                <CheckBox Content="{DynamicResource s.map.set.autoOpen}" IsChecked="{Binding MapOpenOnScreenshot}" Margin="0,4,0,4"
+                                          Visibility="{Binding GpsModeOverlay, Converter={StaticResource BoolToVis}}" />
+                                <CheckBox Content="{DynamicResource s.gps.mini.autoOpen}" IsChecked="{Binding MapOpenOnScreenshot}" Margin="0,4,0,4"
+                                          Visibility="{Binding GpsModeMini, Converter={StaticResource BoolToVis}}" />
                                 <CheckBox Content="{DynamicResource s.gps.exfils}" IsChecked="{Binding MapShowExtracts}" Margin="0,0,0,4" />
                                 <CheckBox Content="{DynamicResource s.gps.quests}" IsChecked="{Binding MapShowQuests}" Margin="0,0,0,8" />
                                 <Grid Margin="0,0,0,6">
@@ -618,7 +649,44 @@
                             <CheckBox Content="{DynamicResource s.gps.btrOverlay}" IsChecked="{Binding BtrShowInOverlay}" Margin="0,0,0,4" />
                             <CheckBox Content="{DynamicResource s.gps.btrCard}" IsChecked="{Binding BtrShowCard}" Margin="0,0,0,8" />
 
+                            <!-- mini map: corner, size, zoom, turning, how long it stays -->
+                            <StackPanel Visibility="{Binding GpsModeMini, Converter={StaticResource BoolToVis}}">
+                                <DockPanel Margin="0,8,0,0">
+                                    <Button DockPanel.Dock="Right" Content="{DynamicResource s.gps.mini.show}" Style="{StaticResource SmallButton}"
+                                            Command="{Binding ToggleMapCommand}" VerticalAlignment="Center" />
+                                    <TextBlock Text="{DynamicResource s.gps.mini}" Style="{StaticResource H2}" />
+                                </DockPanel>
+                                <TextBlock Text="{DynamicResource s.gps.mini.corner}" Style="{StaticResource Body}" Margin="0,4,0,4" />
+                                <Border Background="{StaticResource BgBrush}" BorderBrush="{StaticResource LineBrush}" BorderThickness="1" CornerRadius="4"
+                                        Padding="2" Margin="0,0,0,8" HorizontalAlignment="Left">
+                                    <UniformGrid Columns="2">
+                                        <RadioButton Content="{DynamicResource s.gps.mini.tl}" GroupName="miniCorner" Style="{StaticResource Segment}"
+                                                     IsChecked="{Binding MiniMapTopLeft}" />
+                                        <RadioButton Content="{DynamicResource s.gps.mini.tr}" GroupName="miniCorner" Style="{StaticResource Segment}"
+                                                     IsChecked="{Binding MiniMapTopRight}" />
+                                        <RadioButton Content="{DynamicResource s.gps.mini.bl}" GroupName="miniCorner" Style="{StaticResource Segment}"
+                                                     IsChecked="{Binding MiniMapBottomLeft}" />
+                                        <RadioButton Content="{DynamicResource s.gps.mini.br}" GroupName="miniCorner" Style="{StaticResource Segment}"
+                                                     IsChecked="{Binding MiniMapBottomRight}" />
+                                    </UniformGrid>
+                                </Border>
+                                <TextBlock Style="{StaticResource Body}">
+                                    <Run Text="{DynamicResource s.gps.mini.size}" /> <Run Text="{Binding MiniMapSize, StringFormat={}{0:0} px, Mode=OneWay}" />
+                                </TextBlock>
+                                <Slider Minimum="140" Maximum="480" Value="{Binding MiniMapSize}" SmallChange="10" LargeChange="40" Margin="0,0,0,6" />
+                                <TextBlock Style="{StaticResource Body}">
+                                    <Run Text="{DynamicResource s.gps.mini.zoom}" /> <Run Text="{Binding MiniMapZoom, StringFormat={}{0:0.0}×, Mode=OneWay}" />
+                                </TextBlock>
+                                <Slider Minimum="1.5" Maximum="12" Value="{Binding MiniMapZoom}" SmallChange="0.5" LargeChange="1" Margin="0,0,0,6" />
+                                <TextBlock Style="{StaticResource Body}">
+                                    <Run Text="{DynamicResource s.gps.mini.seconds}" /> <Run Text="{Binding MiniMapSeconds, Mode=OneWay}" />
+                                </TextBlock>
+                                <Slider Minimum="3" Maximum="30" Value="{Binding MiniMapSeconds}" IsSnapToTickEnabled="True" TickFrequency="1" Margin="0,0,0,6" />
+                                <CheckBox Content="{DynamicResource s.gps.mini.rotate}" IsChecked="{Binding MiniMapRotate}" Margin="0,2,0,8" />
+                            </StackPanel>
+
                             <!-- where the map window opens; dragging its top bar sets this too -->
+                            <StackPanel Visibility="{Binding GpsModeOverlay, Converter={StaticResource BoolToVis}}">
                             <DockPanel Margin="0,8,0,0">
                                 <Button DockPanel.Dock="Right" Content="{DynamicResource s.gps.center}" Style="{StaticResource SmallButton}"
                                         Command="{Binding CenterMapCommand}" VerticalAlignment="Center" />
@@ -633,9 +701,19 @@
                                 <Run Text="{DynamicResource s.set.position}" /> <Run Text="{Binding MapPositionY, StringFormat={}{0:P0}, Mode=OneWay}" />
                             </TextBlock>
                             <Slider Minimum="0" Maximum="1" Value="{Binding MapPositionY}" Margin="0,0,0,6" />
+                            </StackPanel>
                             <TextBlock Text="{DynamicResource s.gps.maps}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,6,0,8" />
                         </StackPanel>
                     </ScrollViewer>
+                </TabItem>
+
+                <!-- In-Game GPS → Map ("in app" mode): the map window's map inside the app, always on, for a second monitor -->
+                <TabItem x:Name="MapTab" Header="{DynamicResource s.tab.gpsMap}" Tag="&#xE81E;" FontSize="13" Margin="18,0,0,0"
+                         Visibility="{Binding GpsModeApp, Converter={StaticResource BoolToVis}}" IsVisibleChanged="MapTab_IsVisibleChanged">
+                    <Border Background="{StaticResource BgBrush}" BorderBrush="{StaticResource LineBrush}" BorderThickness="1" CornerRadius="6"
+                            Margin="0,8,0,0">
+                        <local:MapPanel x:Name="AppMap" Kind="App" />
+                    </Border>
                 </TabItem>
 
                 <!-- search -->

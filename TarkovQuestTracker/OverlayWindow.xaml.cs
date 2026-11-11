@@ -30,7 +30,7 @@ public partial class OverlayWindow : Window
         _autoHideTimer.Tick += (_, _) => AutoHideTick();
         vm.OverlayPeek += Peek;
         vm.MapToggleRequested += ToggleMap;
-        vm.MapShowRequested += () => (_map ??= new MapWindow(_vm)).ShowMap();
+        vm.MapShowRequested += ShowMap;
         vm.PropertyChanged += (_, e) =>
         {
             if (e.PropertyName == nameof(MainViewModel.OverlayScale)) FitHeight();
@@ -39,6 +39,7 @@ public partial class OverlayWindow : Window
             if (e.PropertyName == nameof(MainViewModel.RaidMap) && vm.RaidMap != null) LockForRaid();
             if (e.PropertyName == nameof(MainViewModel.OverlayShowInCapture)) ApplyCaptureExclusion();
             if (e.PropertyName == nameof(MainViewModel.OverlayAutoHide)) OnAutoHideChanged();
+            if (e.PropertyName == nameof(MainViewModel.GpsMode)) OnGpsModeChanged();
         };
     }
 
@@ -121,6 +122,7 @@ public partial class OverlayWindow : Window
         _hotkeys?.Dispose();
         _flea?.Close();
         _map?.Close();
+        _miniMap?.Close();
         base.OnClosed(e);
     }
 
@@ -248,8 +250,29 @@ public partial class OverlayWindow : Window
 
     void Hide_Click(object sender, RoutedEventArgs e) => ToggleVisible();
 
-    /// <summary>The map window (overlay and main window buttons).</summary>
-    void ToggleMap() => (_map ??= new MapWindow(_vm)).Toggle();
+    /// <summary>The map buttons (overlay and main window), by the GPS mode ("app" mode is the main window's own).</summary>
+    void ToggleMap()
+    {
+        if (_vm.GpsMode == GpsModes.Mini) MiniMap.Peek();
+        else (_map ??= new MapWindow(_vm)).Toggle();
+    }
+
+    /// <summary>A new screenshot: the map window or the mini map comes up; the app's map page just follows.</summary>
+    void ShowMap()
+    {
+        if (_vm.GpsMode == GpsModes.Mini) MiniMap.Peek();
+        else if (_vm.GpsMode == GpsModes.Overlay) (_map ??= new MapWindow(_vm)).ShowMap();
+    }
+
+    MiniMapWindow? _miniMap;
+    MiniMapWindow MiniMap => _miniMap ??= new MiniMapWindow(_vm);
+
+    /// <summary>Another GPS mode: the other mode's window goes away.</summary>
+    void OnGpsModeChanged()
+    {
+        if (_vm.GpsMode != GpsModes.Overlay) _map?.Dismiss(returnToGame: false);
+        if (_vm.GpsMode != GpsModes.Mini) _miniMap?.Dismiss();
+    }
 
     // raid hotkey: a map list in the overlay; clicks must reach it, so it unlocks until a map is picked
     bool _lockedBeforePicker;
