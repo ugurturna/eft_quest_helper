@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -41,13 +42,20 @@ public partial class MainWindow : Window
 
     void OpenMapTab_Click(object sender, RoutedEventArgs e) => MapTab.IsSelected = true;
 
+    /// <summary>The help page's links open in the default browser.</summary>
+    void Link_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+    {
+        Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
+        e.Handled = true;
+    }
+
     GridLength _detailWidth;
 
-    /// <summary>The story and map pages are wide: the quest detail panel on the right steps aside for them.</summary>
+    /// <summary>The story, map and help pages are wide: the quest detail panel on the right steps aside for them.</summary>
     void Pages_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (e.Source != Pages) return;  // lists inside the pages raise this too
-        var wide = StoryTab.IsSelected || MapTab.IsSelected;
+        var wide = StoryTab.IsSelected || MapTab.IsSelected || HelpTab.IsSelected;
         if (wide == (DetailPanel.Visibility != Visibility.Visible)) return;
         DetailPanel.Visibility = DetailSplitter.Visibility = wide ? Visibility.Collapsed : Visibility.Visible;
         if (wide)

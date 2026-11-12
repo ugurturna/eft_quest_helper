@@ -68,6 +68,9 @@ public sealed class AppSettings
     public string ScreenshotsFolder { get; set; } = "";
     /// <summary>A new screenshot (whatever key the player took it with) brings up the map window.</summary>
     public bool MapOpenOnScreenshot { get; set; } = true;
+    /// <summary>Deletes the raid screenshots (the ones with a position) taken while the app runs, <see cref="MapCleanupMinutes"/> after.</summary>
+    public bool MapCleanupScreenshots { get; set; } = true;
+    public int MapCleanupMinutes { get; set; } = 20;
     public double MapOpacity { get; set; } = 0.95;
     public bool MapShowExtracts { get; set; } = true;
     public bool MapShowQuests { get; set; } = true;

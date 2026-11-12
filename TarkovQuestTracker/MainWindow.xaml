@@ -625,6 +625,15 @@
                                           Visibility="{Binding GpsModeMini, Converter={StaticResource BoolToVis}}" />
                                 <CheckBox Content="{DynamicResource s.gps.exfils}" IsChecked="{Binding MapShowExtracts}" Margin="0,0,0,4" />
                                 <CheckBox Content="{DynamicResource s.gps.quests}" IsChecked="{Binding MapShowQuests}" Margin="0,0,0,8" />
+                                <CheckBox Content="{DynamicResource s.gps.cleanup}" IsChecked="{Binding MapCleanupScreenshots}" Margin="0,0,0,2" />
+                                <StackPanel IsEnabled="{Binding MapCleanupScreenshots}" Margin="22,0,0,8">
+                                    <TextBlock Text="{DynamicResource s.gps.cleanupDesc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,0,0,4" />
+                                    <TextBlock Style="{StaticResource Body}">
+                                        <Run Text="{DynamicResource s.gps.cleanupAfter}" /> <Run Text="{Binding MapCleanupMinutes, Mode=OneWay, StringFormat={}{0} min}" />
+                                    </TextBlock>
+                                    <Slider Minimum="1" Maximum="120" Value="{Binding MapCleanupMinutes}" IsSnapToTickEnabled="True" TickFrequency="1"
+                                            SmallChange="1" LargeChange="5" MaxWidth="260" HorizontalAlignment="Left" Width="260" />
+                                </StackPanel>
                                 <Grid Margin="0,0,0,6">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
@@ -1513,6 +1522,182 @@
                             <TextBox Text="{Binding UpdateLog, Mode=OneWay}" IsReadOnly="True" TextWrapping="NoWrap" FontFamily="Consolas" FontSize="11"
                                      Height="200" Margin="0,6,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
                                      TextChanged="UpdateLog_TextChanged" />
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <!-- help & about: the best setup, a static FAQ and app info -->
+                <TabItem x:Name="HelpTab" Header="{DynamicResource s.help.tab}" Tag="&#xE897;">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
+                        <StackPanel MaxWidth="760" HorizontalAlignment="Left" Margin="0,0,6,12">
+                            <StackPanel.Resources>
+                                <Style x:Key="HelpCard" TargetType="Border">
+                                    <Setter Property="Background" Value="{StaticResource CardBrush}" />
+                                    <Setter Property="CornerRadius" Value="4" />
+                                    <Setter Property="Padding" Value="12,8" />
+                                    <Setter Property="Margin" Value="0,0,0,6" />
+                                </Style>
+                                <Style x:Key="HelpHead" TargetType="TextBlock" BasedOn="{StaticResource Body}">
+                                    <Setter Property="FontWeight" Value="SemiBold" />
+                                    <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                </Style>
+                                <Style x:Key="HelpText" TargetType="TextBlock" BasedOn="{StaticResource Body}">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                    <Setter Property="Margin" Value="0,3,0,0" />
+                                </Style>
+                            </StackPanel.Resources>
+
+                            <!-- about -->
+                            <TextBlock Text="{DynamicResource s.help.about.title}" Style="{StaticResource H2}" Margin="0,0,0,4" />
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource Body}" FontSize="16">
+                                        <Run Text="{DynamicResource s.help.about.name}" FontWeight="Bold" />
+                                        <Run Text="{x:Static vm:MainViewModel.AppVersion}" Foreground="{StaticResource AccentBrush}" FontWeight="SemiBold" />
+                                    </TextBlock>
+                                    <TextBlock Text="{DynamicResource s.help.about.desc}" Style="{StaticResource HelpText}" Margin="0,6,0,0" />
+                                    <TextBlock Text="{DynamicResource s.help.about.data}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,6,0,6" />
+                                    <TextBlock Margin="0,2,0,0"><Hyperlink NavigateUri="https://ugurturna.github.io/eft_quest_helper/" RequestNavigate="Link_RequestNavigate" Foreground="{StaticResource AccentBrush}"><Run Text="{DynamicResource s.help.about.site}" /></Hyperlink></TextBlock>
+                                    <TextBlock Margin="0,2,0,0"><Hyperlink NavigateUri="https://github.com/ugurturna/eft_quest_helper" RequestNavigate="Link_RequestNavigate" Foreground="{StaticResource AccentBrush}"><Run Text="{DynamicResource s.help.about.github}" /></Hyperlink></TextBlock>
+                                    <TextBlock Margin="0,2,0,0"><Hyperlink NavigateUri="https://github.com/ugurturna/eft_quest_helper/releases" RequestNavigate="Link_RequestNavigate" Foreground="{StaticResource AccentBrush}"><Run Text="{DynamicResource s.help.about.releases}" /></Hyperlink></TextBlock>
+                                    <TextBlock Margin="0,2,0,0"><Hyperlink NavigateUri="https://github.com/ugurturna/eft_quest_helper/issues" RequestNavigate="Link_RequestNavigate" Foreground="{StaticResource AccentBrush}"><Run Text="{DynamicResource s.help.about.issues}" /></Hyperlink></TextBlock>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- the settings that get the most out of the app -->
+                            <TextBlock Text="{DynamicResource s.help.setup.title}" Style="{StaticResource H2}" Margin="0,14,0,2" />
+                            <TextBlock Text="{DynamicResource s.help.setup.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,0,0,6" />
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.s1.t}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.s1.d}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.s2.t}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.s2.d}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.s3.t}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.s3.d}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.s4.t}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.s4.d}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.s5.t}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.s5.d}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.s6.t}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.s6.d}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.s7.t}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.s7.d}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.s8.t}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.s8.d}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.s9.t}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.s9.d}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.s10.t}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.s10.d}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.s11.t}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.s11.d}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+
+                            <!-- frequently asked questions, written into the app -->
+                            <TextBlock Text="{DynamicResource s.help.faq.title}" Style="{StaticResource H2}" Margin="0,14,0,6" />
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.q1.q}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.q1.a}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.q2.q}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.q2.a}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.q3.q}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.q3.a}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.q4.q}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.q4.a}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.q5.q}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.q5.a}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.q6.q}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.q6.a}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.q7.q}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.q7.a}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.q8.q}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.q8.a}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.q9.q}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.q9.a}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.q10.q}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.q10.a}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+
+                            <TextBlock Text="{DynamicResource s.help.about.disclaimer}" Style="{StaticResource Muted}" FontSize="11" TextWrapping="Wrap" Margin="0,10,0,0" />
                         </StackPanel>
                     </ScrollViewer>
                 </TabItem>

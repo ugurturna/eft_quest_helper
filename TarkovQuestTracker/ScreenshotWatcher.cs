@@ -7,6 +7,9 @@ namespace TarkovQuestTracker;
 /// <summary>
 /// Watches the game's screenshot folder: a screenshot taken in raid has the player's position in its file name
 /// (<see cref="ScreenshotPosition"/>). Only the name is read, never the picture. Positions arrive on the UI thread.
+/// With <see cref="CleanupMinutes"/> set, the raid screenshots seen while the app runs are deleted that long after
+/// they came in (and the rest when the app closes); pictures without a position (menus, hideout, desktop) and the
+/// ones from before the app started are never touched.
 /// </summary>
 public sealed class ScreenshotWatcher : IDisposable
 {
@@ -17,6 +20,17 @@ public sealed class ScreenshotWatcher : IDisposable
     FileSystemWatcher? _watcher;
     string _folder = DefaultFolder;
     bool _enabled;
+    int _cleanupMinutes;
+    /// <summary>Raid screenshots seen this session that are still on disk, with when they came in.</summary>
+    readonly Dictionary<string, DateTime> _seen = new(StringComparer.OrdinalIgnoreCase);
+    readonly DispatcherTimer _cleanupTimer;
+
+    public ScreenshotWatcher()
+    {
+        _cleanupTimer = new DispatcherTimer(TimeSpan.FromMinutes(1), DispatcherPriority.Background, (_, _) => Cleanup(false), _dispatcher);
+        _cleanupTimer.Stop();
+        _dispatcher.ShutdownStarted += (_, _) => Cleanup(true);
+    }
 
     public event Action<ScreenshotPosition>? Captured;
 
@@ -41,6 +55,18 @@ public sealed class ScreenshotWatcher : IDisposable
             if (value == _enabled) return;
             _enabled = value;
             Restart();
+        }
+    }
+
+    /// <summary>Deletes this session's raid screenshots this many minutes after they came in; 0 = keep them.</summary>
+    public int CleanupMinutes
+    {
+        get => _cleanupMinutes;
+        set
+        {
+            _cleanupMinutes = Math.Max(0, value);
+            if (_cleanupMinutes == 0) _seen.Clear();
+            _cleanupTimer.IsEnabled = _cleanupMinutes > 0;
         }
     }
 
@@ -86,11 +112,37 @@ public sealed class ScreenshotWatcher : IDisposable
     void OnFile(object sender, FileSystemEventArgs e)
     {
         if (!ScreenshotPosition.TryParse(e.Name ?? "", out var position)) return;
-        _dispatcher.BeginInvoke(() => Captured?.Invoke(position));
+        var path = e.FullPath;
+        _dispatcher.BeginInvoke(() =>
+        {
+            if (_cleanupMinutes > 0) _seen.TryAdd(path, DateTime.UtcNow);
+            Captured?.Invoke(position);
+        });
+    }
+
+    /// <summary>Deletes the session's raid screenshots older than <see cref="CleanupMinutes"/> (all of them when <paramref name="all"/>).</summary>
+    void Cleanup(bool all)
+    {
+        if (_cleanupMinutes <= 0 || _seen.Count == 0) return;
+        var cutoff = DateTime.UtcNow.AddMinutes(-_cleanupMinutes);
+        foreach (var (path, seen) in _seen.ToList())
+        {
+            if (!all && seen > cutoff) continue;
+            try
+            {
+                File.Delete(path);
+                _seen.Remove(path);
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            {
+                // still open (the game writing it, a viewer): next round
+            }
+        }
     }
 
     public void Dispose()
     {
+        _cleanupTimer.Stop();
         _watcher?.Dispose();
         _watcher = null;
     }

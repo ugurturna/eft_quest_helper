@@ -239,6 +239,38 @@ public sealed partial class MainViewModel
         }
     }
 
+    public const int MinCleanupMinutes = 1, MaxCleanupMinutes = 120;
+
+    public bool MapCleanupScreenshots
+    {
+        get => Settings.MapCleanupScreenshots;
+        set
+        {
+            if (Settings.MapCleanupScreenshots == value) return;
+            Settings.MapCleanupScreenshots = value;
+            ApplyScreenshotCleanup();
+            SaveSettings();
+            OnPropertyChanged();
+        }
+    }
+
+    public int MapCleanupMinutes
+    {
+        get => Math.Clamp(Settings.MapCleanupMinutes, MinCleanupMinutes, MaxCleanupMinutes);
+        set
+        {
+            value = Math.Clamp(value, MinCleanupMinutes, MaxCleanupMinutes);
+            if (Settings.MapCleanupMinutes == value) return;
+            Settings.MapCleanupMinutes = value;
+            ApplyScreenshotCleanup();
+            SaveSettings();
+            OnPropertyChanged();
+        }
+    }
+
+    void ApplyScreenshotCleanup() =>
+        Screenshots.CleanupMinutes = Settings.MapCleanupScreenshots ? MapCleanupMinutes : 0;
+
     public bool MapShowExtracts
     {
         get => Settings.MapShowExtracts;
@@ -458,11 +490,14 @@ public sealed partial class MainViewModel
         OnPropertyChanged(nameof(MapPositionY));
         Screenshots.Folder = Settings.ScreenshotsFolder;
         Screenshots.Enabled = Settings.MapTracking;
+        ApplyScreenshotCleanup();
         OnPropertyChanged(nameof(MapTracking));
         OnPropertyChanged(nameof(MapTrackingOff));
         OnPropertyChanged(nameof(GpsStatus));
         OnPropertyChanged(nameof(MapOpenOnScreenshot));
         OnPropertyChanged(nameof(ScreenshotsFolder));
+        OnPropertyChanged(nameof(MapCleanupScreenshots));
+        OnPropertyChanged(nameof(MapCleanupMinutes));
         OnPropertyChanged(nameof(MapShowExtracts));
         OnPropertyChanged(nameof(MapShowQuests));
         OnPropertyChanged(nameof(MapOpacity));
