@@ -35,6 +35,7 @@ public sealed partial class MainViewModel : ObservableObject
         Scanner = CreateScanner();
         Detector = CreateDetector();
         Screenshots.Captured += OnNewScreenshot;
+        Screenshots.CleanupBlocked += () => Toast = Loc.T("t.map.cleanupBlocked");
         _raidClock.Tick += OnRaidClockTick;
         _currentProfile = _store.Profile;
         _searchDelay.Tick += (_, _) =>

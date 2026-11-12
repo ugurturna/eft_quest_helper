@@ -263,11 +263,11 @@ public sealed partial class MainViewModel
 
     public bool MapCleanupScreenshots
     {
-        get => Settings.MapCleanupScreenshots;
+        get => Settings.MapRecycleScreenshots;
         set
         {
-            if (Settings.MapCleanupScreenshots == value) return;
-            Settings.MapCleanupScreenshots = value;
+            if (Settings.MapRecycleScreenshots == value) return;
+            Settings.MapRecycleScreenshots = value;
             ApplyScreenshotCleanup();
             SaveSettings();
             OnPropertyChanged();
@@ -288,8 +288,11 @@ public sealed partial class MainViewModel
         }
     }
 
-    void ApplyScreenshotCleanup() =>
-        Screenshots.CleanupMinutes = Settings.MapCleanupScreenshots ? MapCleanupMinutes : 0;
+    void ApplyScreenshotCleanup()
+    {
+        Screenshots.PendingFile ??= Path.Combine(_store.Folder, "screenshot-cleanup.txt");
+        Screenshots.CleanupMinutes = Settings.MapRecycleScreenshots ? MapCleanupMinutes : 0;
+    }
 
     public bool MapShowExtracts
     {

@@ -438,9 +438,9 @@
     <sys:String x:Key="t.map.noShot">No screenshot with a position in {0} yet.</sys:String>
     <sys:String x:Key="t.map.noFolder">Screenshot folder not found: {0}</sys:String>
     <sys:String x:Key="s.map.set.autoOpen">Open the map when I take a screenshot (Esc takes you back to the game)</sys:String>
-    <sys:String x:Key="s.gps.cleanup">Clean up my raid screenshots</sys:String>
-    <sys:String x:Key="s.gps.cleanupDesc">Only the in-raid screenshots taken while the app is open are deleted (the ones with a position in their name). Menu, hideout and desktop screenshots and the older ones in the folder are never touched.</sys:String>
-    <sys:String x:Key="s.gps.cleanupAfter">Delete them after:</sys:String>
+    <sys:String x:Key="s.gps.cleanup">Clean up my raid screenshots (to the Recycle Bin)</sys:String>
+    <sys:String x:Key="s.gps.cleanupDesc">Only in-raid screenshots taken while the app is open go (the ones with a position in their name), a few a minute, to the Recycle Bin: you can put them back. Menu, hideout and desktop screenshots and the older ones are never touched. Some antivirus programs (or Windows' Controlled folder access) may still ask about an app removing files from Documents; if one says no, the app stops and tells you.</sys:String>
+    <sys:String x:Key="s.gps.cleanupAfter">Recycle them after:</sys:String>
     <sys:String x:Key="s.gps.layers">Map layers</sys:String>
     <sys:String x:Key="s.gps.layersDesc">From the game's own map data (tarkov.dev). Each one shows on the map window, the map page and the mini map. Points on another floor are drawn faded.</sys:String>
     <sys:String x:Key="s.gps.layer.pmc">PMC spawns (players and AI PMCs)</sys:String>
@@ -476,6 +476,7 @@
     <sys:String x:Key="s.map.search.otherMap">other maps</sys:String>
     <sys:String x:Key="s.map.search.loose">Loose loot spot (may spawn here)</sys:String>
     <sys:String x:Key="s.map.search.count">◆ {0} spots</sys:String>
+    <sys:String x:Key="t.map.cleanupBlocked">Windows or your antivirus did not let the app move a screenshot to the Recycle Bin, so cleanup stopped for now. Allow the app in Controlled folder access / your antivirus, or turn the cleanup off in In-Game GPS settings.</sys:String>
     <sys:String x:Key="s.map.set.folder">Screenshot folder</sys:String>
     <sys:String x:Key="s.tab.gps">In-Game GPS</sys:String>
     <sys:String x:Key="s.gps.notice">Only the file names of your own screenshots are read. Nothing is added to the game: no mod, no plugin, no injection.</sys:String>

@@ -438,9 +438,9 @@
     <sys:String x:Key="t.map.noShot">{0} içinde konumlu ekran görüntüsü yok.</sys:String>
     <sys:String x:Key="t.map.noFolder">Ekran görüntüsü klasörü bulunamadı: {0}</sys:String>
     <sys:String x:Key="s.map.set.autoOpen">Ekran görüntüsü alınca haritayı aç (Esc seni oyuna geri döndürür)</sys:String>
-    <sys:String x:Key="s.gps.cleanup">Raid ekran görüntülerimi temizle</sys:String>
-    <sys:String x:Key="s.gps.cleanupDesc">Sadece uygulama açıkken raid içinde alınan ekran görüntüleri silinir (adında konum olanlar). Menü, hideout ve masaüstü görüntüleri ile klasördeki eski görüntülere asla dokunulmaz.</sys:String>
-    <sys:String x:Key="s.gps.cleanupAfter">Şu kadar sonra sil:</sys:String>
+    <sys:String x:Key="s.gps.cleanup">Raid ekran görüntülerimi temizle (Geri Dönüşüm Kutusu'na)</sys:String>
+    <sys:String x:Key="s.gps.cleanupDesc">Sadece uygulama açıkken raid içinde alınan ekran görüntüleri (adında konum olanlar), dakikada birkaç tane, Geri Dönüşüm Kutusu'na gider: istersen geri alırsın. Menü, hideout ve masaüstü görüntülerine ve eski görüntülere asla dokunulmaz. Bazı antivirüsler (ya da Windows'un Denetimli klasör erişimi) Belgeler'den dosya kaldıran bir uygulamayı yine de sorabilir; biri izin vermezse uygulama durur ve sana söyler.</sys:String>
+    <sys:String x:Key="s.gps.cleanupAfter">Şu kadar sonra kutuya at:</sys:String>
     <sys:String x:Key="s.gps.layers">Harita katmanları</sys:String>
     <sys:String x:Key="s.gps.layersDesc">Oyunun kendi harita verisinden (tarkov.dev). Hepsi harita penceresinde, harita sayfasında ve mini haritada görünür. Başka kattaki noktalar soluk çizilir.</sys:String>
     <sys:String x:Key="s.gps.layer.pmc">PMC spawn'ları (oyuncular ve AI PMC'ler)</sys:String>
@@ -476,6 +476,7 @@
     <sys:String x:Key="s.map.search.otherMap">başka haritada</sys:String>
     <sys:String x:Key="s.map.search.loose">Loose loot noktası (burada spawn olabilir)</sys:String>
     <sys:String x:Key="s.map.search.count">◆ {0} nokta</sys:String>
+    <sys:String x:Key="t.map.cleanupBlocked">Windows ya da antivirüsün, uygulamanın bir ekran görüntüsünü Geri Dönüşüm Kutusu'na taşımasına izin vermedi; temizleme şimdilik durdu. Uygulamaya Denetimli klasör erişiminde / antivirüsünde izin ver ya da temizlemeyi Oyun İçi GPS ayarlarından kapat.</sys:String>
     <sys:String x:Key="s.map.set.folder">Ekran görüntüsü klasörü</sys:String>
     <sys:String x:Key="s.tab.gps">Oyun İçi GPS</sys:String>
     <sys:String x:Key="s.gps.notice">Sadece kendi ekran görüntülerinin dosya adları okunur. Oyuna herhangi bir eklenti, mod veya müdahale yapılmaz.</sys:String>

@@ -68,8 +68,12 @@ public sealed class AppSettings
     public string ScreenshotsFolder { get; set; } = "";
     /// <summary>A new screenshot (whatever key the player took it with) brings up the map window.</summary>
     public bool MapOpenOnScreenshot { get; set; } = true;
-    /// <summary>Deletes the raid screenshots (the ones with a position) taken while the app runs, <see cref="MapCleanupMinutes"/> after.</summary>
-    public bool MapCleanupScreenshots { get; set; } = true;
+    /// <summary>
+    /// Moves the raid screenshots (the ones with a position) this app saw to the Recycle Bin, <see cref="MapCleanupMinutes"/>
+    /// after. Off unless the player turns it on: antivirus programs may flag an app that removes files from Documents.
+    /// (Named anew: v0.10.5 / v0.11.0 had it on by default as MapCleanupScreenshots, which is left unread on purpose.)
+    /// </summary>
+    public bool MapRecycleScreenshots { get; set; }
     public int MapCleanupMinutes { get; set; } = 20;
     public double MapOpacity { get; set; } = 0.95;
     public bool MapShowExtracts { get; set; } = true;
