@@ -89,6 +89,119 @@ def geometry(m):
     return out
 
 
+def xyz1(p):
+    return [round(p["x"], 1), round(p["y"], 1), round(p["z"], 1)]
+
+
+class Names:
+    """English + Turkish names of the keys, loose loot items, bosses and container types the maps use.
+    `table` is {id: [en, tr]} (tr left out when it is the same); `items` are the loose loot item ids, which
+    the maps' loose spots point into by index."""
+
+    def __init__(self, maps_en, maps_tr, items_en, items_tr):
+        self.maps_en, self.maps_tr, self.items_en, self.items_tr = maps_en, maps_tr, items_en, items_tr
+        self.table = {}
+        self.items = []
+        self._index = {}
+
+    def _put(self, key, en, tr):
+        if key in self.table or not en:
+            return
+        self.table[key] = [en] if not tr or tr == en else [en, tr]
+
+    def item(self, item_id):
+        """An item (key or loot) by its id; its short name too, for the search box."""
+        en = self.items_en.get(f"{item_id} Name")
+        self._put(item_id, en, self.items_tr.get(f"{item_id} Name"))
+        short = self.items_en.get(f"{item_id} ShortName")
+        if en and short and short != en:
+            self._put(f"{item_id} short", short, self.items_tr.get(f"{item_id} ShortName"))
+        return item_id
+
+    def loose(self, item_id):
+        if item_id not in self._index:
+            self._index[item_id] = len(self.items)
+            self.items.append(self.item(item_id))
+        return self._index[item_id]
+
+    def label(self, key, text_key):
+        """A boss or container type, by the key the maps dump's translation tables use."""
+        self._put(key, self.maps_en.get(text_key, key), self.maps_tr.get(text_key))
+        return key
+
+
+# spawn sides/categories -> who spawns there; boss spots are in the boss list
+def spawn_kind(s):
+    cats, sides = s.get("categories") or [], s.get("sides") or []
+    if "botpmc" in cats:
+        return "aipmc"
+    if ("pmc" in sides or "all" in sides) and "player" in cats:
+        return "pmc"  # "all": a spot PMCs and player scavs share (Factory)
+    if "scav" in sides and ({"bot", "player", "all"} & set(cats)):
+        return "scav"
+    return None
+
+
+def escorts(boss):
+    """Most escorts the boss can come with."""
+    return sum(max((a.get("count") or 0) for a in e.get("amount") or [{}]) for e in boss.get("escorts") or [])
+
+
+def layers(m, dump, names):
+    """The optional map layers: spawns, bosses, locked doors, containers, loose loot, hazards."""
+    spawns = m.get("spawns") or []
+    out = {"spawns": [], "bosses": [], "locks": [], "containers": [], "loose": [], "hazards": []}
+    for s in spawns:
+        kind = spawn_kind(s)
+        if kind and s.get("position"):
+            out["spawns"].append({"kind": kind, "zone": s.get("zoneName") or "", "position": xyz1(s["position"])})
+
+    bosses = {}
+    for b in m.get("bosses") or []:
+        mob = b.get("mob")
+        if not mob or b.get("spawnChance", 0) <= 0:
+            continue
+        positions = []
+        for loc in b.get("spawnLocations") or []:
+            # no spots of its own: the zone's boss spots, else any spot in the zone
+            zone = [s for s in spawns if s.get("zoneName") == loc.get("spawnKey") and s.get("position")]
+            spots = (loc.get("positions")
+                     or [s["position"] for s in zone if "boss" in (s.get("categories") or [])]
+                     or [s["position"] for s in zone])
+            positions.extend(xyz1(p) for p in spots)
+        if not positions:
+            continue
+        entry = bosses.setdefault(mob, {"name": names.label(mob, mob), "chance": 0, "escorts": 0, "positions": []})
+        entry["chance"] = max(entry["chance"], round(b["spawnChance"], 2))
+        entry["escorts"] = max(entry["escorts"], escorts(b))
+        entry["positions"] = [list(p) for p in dict.fromkeys(map(tuple, entry["positions"] + positions))]
+    out["bosses"] = list(bosses.values())
+
+    for lock in m.get("locks") or []:
+        if not lock.get("position") or not lock.get("key"):
+            continue
+        out["locks"].append({"type": lock.get("lockType") or "door", "key": names.item(lock["key"]),
+                             "power": bool(lock.get("needsPower")), "position": xyz1(lock["position"])})
+
+    types = dump.get("lootContainers") or {}
+    for c in m.get("lootContainers") or []:
+        t = types.get(c.get("lootContainer"))
+        if t and c.get("position"):
+            out["containers"].append({"type": names.label(t["normalizedName"], t["name"]),
+                                      "position": xyz1(c["position"])})
+
+    for spot in m.get("lootLoose") or []:
+        if spot.get("position") and spot.get("items"):
+            out["loose"].append({"position": xyz1(spot["position"]),
+                                 "items": [names.loose(i) for i in dict.fromkeys(spot["items"])]})
+
+    for h in m.get("hazards") or []:
+        if h.get("hazardType") and h.get("outline"):
+            out["hazards"].append({"type": h["hazardType"],
+                                   "outline": [[round(p["x"], 1), round(p["z"], 1)] for p in h["outline"]]})
+    return out
+
+
 def main():
     dev_maps = fetch(DEV_MAPS)
     dump = get("regular/maps")
@@ -99,6 +212,7 @@ def main():
         print("FAILED (tarkov-dev maps.json or json.tarkov.dev maps unavailable)")
         sys.exit(1)
     settings = interactive(dev_maps)
+    names = Names(en, get("regular/maps_tr") or {}, get("regular/items_en") or {}, get("regular/items_tr") or {})
 
     maps = {}      # our map name -> entry
     by_id = {}     # tarkov.dev map id -> our map name
@@ -121,6 +235,7 @@ def main():
         entry["transits"] = [{"name": en.get(x["description"], x["description"]), "position": xyz(x["position"])}
                              for x in m.get("transits") or [] if x.get("position")]
         entry["objectives"] = []
+        entry.update(layers(m, dump, names))
         maps[title] = entry
 
     task_list = (tasks or {}).get("tasks") or {}
@@ -145,13 +260,18 @@ def main():
     data = {
         "fetchedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source": f"{DEV_MAPS} + {BASE}",
+        "items": names.items,
+        "names": names.table,
         "maps": dict(sorted(maps.items())),
     }
     OUT.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     for k, v in data["maps"].items():
         print(f"{k}: {len(v['extracts'])} extracts, {len(v['transits'])} transits, "
               f"{len(v['objectives'])} objectives, {len(v['layers'])} floors, "
+              f"{len(v['spawns'])} spawns, {len(v['bosses'])} bosses, {len(v['locks'])} locks, "
+              f"{len(v['containers'])} containers, {len(v['loose'])} loose, {len(v['hazards'])} hazards, "
               f"{'svg' if 'svgPath' in v else 'tiles'}")
+    print(f"{len(names.items)} loose items, {OUT.stat().st_size // 1024} KB")
     sys.exit(0 if tasks is not None else 1)
 
 

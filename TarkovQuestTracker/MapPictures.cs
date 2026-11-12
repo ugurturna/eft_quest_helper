@@ -121,6 +121,7 @@ public static class MapPictures
     {
         var doc = XDocument.Load(path);
         var viewBox = ShowFloor(doc, map.SvgLayer, floor);
+        DropHazards(doc);
         InlineClasses(doc);
         using var stream = new MemoryStream();
         doc.Save(stream);
@@ -164,6 +165,19 @@ public static class MapPictures
         var box = ((string?)root.Attribute("viewBox") ?? "").Split([' ', ','], StringSplitOptions.RemoveEmptyEntries)
             .Select(v => double.Parse(v, System.Globalization.CultureInfo.InvariantCulture)).ToArray();
         return box.Length == 4 ? new Rect(box[0], box[1], box[2], box[3]) : new Rect(0, 0, 1000, 1000);
+    }
+
+    static readonly System.Text.RegularExpressions.Regex HazardGroup =
+        new(@"^(mines?|minefields?|sniper)(-\d+)?$", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+
+    /// <summary>
+    /// Takes out the SVG's drawn minefields and sniper zones: they are a year old (Lighthouse still showed the water
+    /// treatment plant's mines). The map draws them from the game's own data instead (In-Game GPS settings).
+    /// </summary>
+    static void DropHazards(XDocument doc)
+    {
+        foreach (var group in doc.Descendants().Where(e => e.Name.LocalName == "g" && HazardGroup.IsMatch((string?)e.Attribute("id") ?? "")).ToList())
+            group.Remove();
     }
 
     /// <summary>

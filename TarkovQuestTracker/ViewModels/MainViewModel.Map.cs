@@ -37,8 +37,28 @@ public sealed partial class MainViewModel
 {
     IReadOnlyDictionary<string, MapGeometry>? _maps;
 
-    /// <summary>data/maps.json, by the map names the quests use.</summary>
-    public IReadOnlyDictionary<string, MapGeometry> MapData => _maps ??= MapRepository.Load(_dataDir);
+    /// <summary>
+    /// The maps by the names the quests use: the newest good maps.json (downloaded at start-up, else the last download,
+    /// else the app's own data/maps.json; see <see cref="MapDataUpdater"/>).
+    /// </summary>
+    public IReadOnlyDictionary<string, MapGeometry> MapData => _maps ??= MapDataUpdater.LoadBest(_dataDir, MapDataFolder);
+
+    /// <summary>Where the downloaded maps.json is kept, next to the map pictures.</summary>
+    string MapDataFolder => Path.Combine(MapCacheFolder, "data");
+
+    /// <summary>
+    /// App start, in the background: the newest map data (spawns, loot, exfils…) from the repository. When a new file
+    /// came, the maps are read again and every map view redraws; any failure keeps the maps there are.
+    /// </summary>
+    public async Task RefreshMapDataAsync()
+    {
+        if (!await MapDataUpdater.RefreshAsync(MapDataFolder)) return;
+        var fresh = MapDataUpdater.LoadBest(_dataDir, MapDataFolder);
+        if (!MapDataUpdater.IsUsable(fresh)) return;
+        _maps = fresh;
+        OnPropertyChanged(nameof(MapNames));
+        MapChanged?.Invoke();
+    }
 
     /// <summary>Maps the window can draw, in the raid picker's order.</summary>
     public IReadOnlyList<string> MapNames => RaidFilter.InOrder(MapData.Keys);
@@ -498,6 +518,7 @@ public sealed partial class MainViewModel
         OnPropertyChanged(nameof(ScreenshotsFolder));
         OnPropertyChanged(nameof(MapCleanupScreenshots));
         OnPropertyChanged(nameof(MapCleanupMinutes));
+        ApplyMapLayerSettings();
         OnPropertyChanged(nameof(MapShowExtracts));
         OnPropertyChanged(nameof(MapShowQuests));
         OnPropertyChanged(nameof(MapOpacity));

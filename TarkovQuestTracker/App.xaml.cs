@@ -86,8 +86,9 @@ public partial class App : Application
         if (vm.Settings.OverlayVisible) overlay.Show();
         // flea prices for the mode being played, once per start, in the background
         _ = vm.Flea.PrepareAsync(vm.Settings.Mode, vm.Settings.Language);
-        // map pictures for the GPS map: in the background, missing ones downloaded and changed ones fetched again
-        if (vm.MapTracking) _ = MapPictures.PrepareAsync(vm.MapData.Values, vm.MapCacheFolder, MainViewModel.AppVersion);
+        // the newest map data (spawns, loot, exfils), then the map pictures for the GPS map: in the background,
+        // missing ones downloaded and changed ones fetched again; any failure keeps the maps there are
+        _ = PrepareMapsAsync(vm);
         vm.RestartRequested += () =>
         {
             // the new exe waits for this process to exit (hotkeys, files) before it starts
@@ -97,5 +98,11 @@ public partial class App : Application
         _ = vm.CheckUpdatesAsync(manual: false);
         // where the Goons were last seen, kept fresh while the app runs
         vm.StartGoonTracking();
+    }
+
+    static async Task PrepareMapsAsync(MainViewModel vm)
+    {
+        await vm.RefreshMapDataAsync();
+        if (vm.MapTracking) await MapPictures.PrepareAsync(vm.MapData.Values, vm.MapCacheFolder, MainViewModel.AppVersion);
     }
 }

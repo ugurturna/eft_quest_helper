@@ -92,18 +92,64 @@ public static class MapRepository
 
     sealed class MapData
     {
+        public DateTimeOffset FetchedAt { get; set; }
         public Dictionary<string, MapGeometry> Maps { get; set; } = [];
+        public List<string> Items { get; set; } = [];
+        public Dictionary<string, string[]> Names { get; set; } = [];
     }
 
+    /// <summary>A maps.json file read: its maps and when the scraper made it.</summary>
+    public sealed record Loaded(IReadOnlyDictionary<string, MapGeometry> Maps, DateTimeOffset FetchedAt);
+
     /// <summary>Loads data/maps.json; empty when the file is missing.</summary>
-    public static IReadOnlyDictionary<string, MapGeometry> Load(string dataDir)
+    public static IReadOnlyDictionary<string, MapGeometry> Load(string dataDir) =>
+        TryLoad(Path.Combine(dataDir, FileName))?.Maps ?? new Dictionary<string, MapGeometry>();
+
+    /// <summary>Reads a maps.json; null when it is missing or broken.</summary>
+    public static Loaded? TryLoad(string path)
     {
-        var path = Path.Combine(dataDir, FileName);
-        var data = File.Exists(path)
-            ? JsonSerializer.Deserialize<MapData>(File.ReadAllText(path), QuestRepository.Json)
-            : null;
-        var maps = data?.Maps ?? [];
-        foreach (var (name, map) in maps) map.Name = name;
-        return maps;
+        try
+        {
+            return File.Exists(path) ? Parse(File.ReadAllText(path)) : null;
+        }
+        catch (Exception e) when (e is IOException or UnauthorizedAccessException)
+        {
+            return null;
+        }
+    }
+
+    /// <summary>Parses maps.json text; null when it is not one.</summary>
+    public static Loaded? Parse(string json)
+    {
+        MapData? data;
+        try
+        {
+            data = JsonSerializer.Deserialize<MapData>(json, QuestRepository.Json);
+        }
+        catch (JsonException)
+        {
+            return null;
+        }
+        if (data == null) return null;
+        var names = new MapNames { Table = data.Names ?? [], Items = data.Items ?? [] };
+        foreach (var (name, map) in data.Maps ?? [])
+        {
+            map.Name = name;
+            map.Names = names;
+            // a field written as null (a scraper hiccup) draws as nothing instead of failing the whole map
+            map.Layers ??= [];
+            map.Extracts ??= [];
+            map.Transits ??= [];
+            map.Objectives ??= [];
+            map.Spawns ??= [];
+            map.Bosses ??= [];
+            map.Locks ??= [];
+            map.Containers ??= [];
+            map.Loose ??= [];
+            map.Hazards ??= [];
+            map.Transform ??= [1, 0, 1, 0];
+            map.Bounds ??= [];
+        }
+        return new Loaded(data.Maps ?? [], data.FetchedAt);
     }
 }

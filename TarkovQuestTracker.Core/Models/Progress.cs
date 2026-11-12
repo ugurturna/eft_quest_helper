@@ -74,6 +74,16 @@ public sealed class AppSettings
     public double MapOpacity { get; set; } = 0.95;
     public bool MapShowExtracts { get; set; } = true;
     public bool MapShowQuests { get; set; } = true;
+    /// <summary>Optional map layers from the game's map data (In-Game GPS settings): off by default, the map stays clean.</summary>
+    public bool MapShowPmcSpawns { get; set; }
+    public bool MapShowScavSpawns { get; set; }
+    public bool MapShowBosses { get; set; }
+    public bool MapShowLocks { get; set; }
+    public bool MapShowContainers { get; set; }
+    /// <summary>The <see cref="MapContainerGroups"/> drawn when <see cref="MapShowContainers"/> is on.</summary>
+    public List<string> MapContainerGroups { get; set; } = Models.MapContainerGroups.Defaults();
+    /// <summary>Minefields and sniper zones (from the game's data: the map pictures' own are out of date).</summary>
+    public bool MapShowHazards { get; set; } = true;
     /// <summary>BTR tracker: its route, stops and estimated spot on the map window.</summary>
     public bool BtrShowOnMap { get; set; } = true;
     /// <summary>BTR tracker: the next stop and its ETA on the overlay.</summary>

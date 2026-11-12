@@ -25,6 +25,42 @@
                 <ComboBox x:Name="FloorBox" MinWidth="110" Margin="0,0,8,0" VerticalAlignment="Center" SelectionChanged="FloorBox_SelectionChanged" />
                 <CheckBox Content="{DynamicResource s.map.exfils}" IsChecked="{Binding MapShowExtracts}" VerticalAlignment="Center" Margin="0,0,8,0" />
                 <CheckBox Content="{DynamicResource s.map.quests}" IsChecked="{Binding MapShowQuests}" VerticalAlignment="Center" Margin="0,0,8,0" />
+                <!-- item search: where the item can lie as loose loot on this map -->
+                <Grid VerticalAlignment="Center" Margin="0,0,8,0">
+                    <TextBox x:Name="SearchBox" Width="170" Padding="20,1,18,1" VerticalContentAlignment="Center"
+                             ToolTip="{DynamicResource s.map.search.tip}" TextChanged="SearchBox_TextChanged" PreviewKeyDown="SearchBox_PreviewKeyDown" />
+                    <TextBlock Text="&#x2315;" Foreground="{StaticResource MutedBrush}" FontSize="13" Margin="6,0,0,0" VerticalAlignment="Center"
+                               IsHitTestVisible="False" />
+                    <TextBlock x:Name="SearchHint" Text="{DynamicResource s.map.search.hint}" Style="{StaticResource Muted}" FontSize="11"
+                               Margin="22,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False" />
+                    <Button x:Name="SearchClear" Content="&#x2715;" Style="{StaticResource SmallButton}" FontSize="9" Padding="4,0"
+                            HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,2,0" Visibility="Collapsed"
+                            ToolTip="{DynamicResource s.map.search.clear}" Click="SearchClear_Click" />
+                    <Popup x:Name="SearchPopup" PlacementTarget="{Binding ElementName=SearchBox}" Placement="Bottom" StaysOpen="False"
+                           AllowsTransparency="True">
+                        <Border Background="{StaticResource CardBrush}" BorderBrush="{StaticResource LineBrush}" BorderThickness="1"
+                                CornerRadius="4" Padding="2" MinWidth="240">
+                            <ListBox x:Name="SearchList" MaxHeight="300" Background="Transparent" BorderThickness="0"
+                                     MouseLeftButtonUp="SearchList_MouseUp" PreviewKeyDown="SearchList_PreviewKeyDown">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <DockPanel>
+                                            <TextBlock x:Name="Spots" DockPanel.Dock="Right" Style="{StaticResource Muted}" FontSize="11" Margin="10,0,0,0"
+                                                       Text="{Binding Spots, StringFormat={}{0} ◆}" />
+                                            <TextBlock Text="{Binding Name}" Style="{StaticResource Body}" TextTrimming="CharacterEllipsis" />
+                                        </DockPanel>
+                                        <DataTemplate.Triggers>
+                                            <DataTrigger Binding="{Binding Spots}" Value="0">
+                                                <Setter TargetName="Spots" Property="Text" Value="{DynamicResource s.map.search.otherMap}" />
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Border>
+                    </Popup>
+                </Grid>
+                <TextBlock x:Name="SearchCount" Foreground="#FFFF5CC8" FontSize="11" VerticalAlignment="Center" Margin="0,0,8,0" Visibility="Collapsed" />
                 <!-- BTR tracker (Woods, Streets, Lighthouse in a raid): route, stops with ETA, estimated spot; which route -->
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Visibility="{Binding BtrAvailable, Converter={StaticResource BoolToVis}}">
                     <CheckBox Content="{DynamicResource s.map.btr}" IsChecked="{Binding BtrShowOnMap}" VerticalAlignment="Center" Margin="0,0,4,0"

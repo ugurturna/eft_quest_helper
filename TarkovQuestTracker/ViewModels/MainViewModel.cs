@@ -174,6 +174,7 @@ public sealed partial class MainViewModel : ObservableObject
     {
         if (_loading || _repo == null) return;  // a data load follows and builds everything anyway
         foreach (var o in Filters.Concat(Categories).Concat(Traders).Concat(Loyalties).Concat(KappaGroupings)) o.Relabel();
+        foreach (var o in _containerGroups ?? []) o.RefreshLabel();
         DataInfo = BuildDataInfo();
         OnPropertyChanged(nameof(DataInfo));
         OnPropertyChanged(nameof(SelectedSources));

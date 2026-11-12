@@ -651,6 +651,29 @@
                                 </Grid>
                             </StackPanel>
 
+                            <!-- map layers from the game's own map data: spawns, bosses, locks, containers, hazards -->
+                            <TextBlock Text="{DynamicResource s.gps.layers}" Style="{StaticResource H2}" />
+                            <TextBlock Text="{DynamicResource s.gps.layersDesc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,0,0,4" />
+                            <CheckBox Content="{DynamicResource s.gps.layer.pmc}" IsChecked="{Binding MapShowPmcSpawns}" Margin="0,4,0,4" />
+                            <CheckBox Content="{DynamicResource s.gps.layer.scav}" IsChecked="{Binding MapShowScavSpawns}" Margin="0,0,0,4" />
+                            <CheckBox Content="{DynamicResource s.gps.layer.bosses}" IsChecked="{Binding MapShowBosses}" Margin="0,0,0,4" />
+                            <CheckBox Content="{DynamicResource s.gps.layer.locks}" IsChecked="{Binding MapShowLocks}" Margin="0,0,0,4" />
+                            <CheckBox Content="{DynamicResource s.gps.layer.hazards}" IsChecked="{Binding MapShowHazards}" Margin="0,0,0,4" />
+                            <CheckBox Content="{DynamicResource s.gps.layer.containers}" IsChecked="{Binding MapShowContainers}" Margin="0,0,0,2" />
+                            <ItemsControl ItemsSource="{Binding MapContainerGroupOptions}" IsEnabled="{Binding MapShowContainers}" Margin="22,0,0,4">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <CheckBox Content="{Binding Label}" IsChecked="{Binding IsChecked}" Margin="0,2,14,2" MinWidth="120" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <TextBlock Text="{DynamicResource s.gps.layersSearch}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,2,0,10" />
+
                             <!-- BTR tracker: where it shows -->
                             <TextBlock Text="{DynamicResource s.gps.btr}" Style="{StaticResource H2}" />
                             <TextBlock Text="{DynamicResource s.gps.btrDesc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,0,0,4" />
@@ -1694,6 +1717,12 @@
                                 <StackPanel>
                                     <TextBlock Text="{DynamicResource s.help.q10.q}" Style="{StaticResource HelpHead}" />
                                     <TextBlock Text="{DynamicResource s.help.q10.a}" Style="{StaticResource HelpText}" />
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource HelpCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.help.q11.q}" Style="{StaticResource HelpHead}" />
+                                    <TextBlock Text="{DynamicResource s.help.q11.a}" Style="{StaticResource HelpText}" />
                                 </StackPanel>
                             </Border>
 

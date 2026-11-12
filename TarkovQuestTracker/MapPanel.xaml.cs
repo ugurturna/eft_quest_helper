@@ -39,6 +39,30 @@ public partial class MapPanel : UserControl
     static readonly Brush LabelBack = Frozen(Color.FromArgb(0xB0, 0x10, 0x12, 0x14));
     static readonly Brush BtrBrush = Frozen(Color.FromRgb(0x7F, 0xD1, 0xFF));
     static readonly Brush BtrRouteBrush = Frozen(Color.FromArgb(0x70, 0x7F, 0xD1, 0xFF));
+    static readonly Brush AiPmcBrush = Frozen(Color.FromRgb(0xE0, 0x6B, 0xD8));
+    static readonly Brush BossBrush = Frozen(Color.FromRgb(0xFF, 0x3B, 0x3B));
+    static readonly Brush LockBrush = Frozen(Color.FromRgb(0xD8, 0xC0, 0x7A));
+    static readonly Brush SearchBrush = Frozen(Color.FromRgb(0xFF, 0x5C, 0xC8));
+    static readonly Brush MineFill = Frozen(Color.FromArgb(0x48, 0xFF, 0x30, 0x30));
+    static readonly Brush MineStroke = Frozen(Color.FromArgb(0xC0, 0xFF, 0x40, 0x40));
+    static readonly Brush SniperFill = Frozen(Color.FromArgb(0x30, 0xFF, 0x9A, 0x2E));
+    static readonly Brush SniperStroke = Frozen(Color.FromArgb(0xA0, 0xFF, 0x9A, 0x2E));
+    /// <summary>Container groups (<see cref="MapContainerGroups"/>), by group key.</summary>
+    static readonly Dictionary<string, Brush> ContainerBrushes = new()
+    {
+        ["safe"] = Frozen(Color.FromRgb(0xFF, 0xC1, 0x07)),
+        ["pc"] = Frozen(Color.FromRgb(0x4F, 0xC3, 0xF7)),
+        ["weapon"] = Frozen(Color.FromRgb(0x8B, 0xC3, 0x4A)),
+        ["medical"] = Frozen(Color.FromRgb(0xF0, 0x62, 0x92)),
+        ["bags"] = Frozen(Color.FromRgb(0xBC, 0xAA, 0xA4)),
+        ["cash"] = Frozen(Color.FromRgb(0xFF, 0xEB, 0x3B)),
+        ["tools"] = Frozen(Color.FromRgb(0x90, 0xA4, 0xAE)),
+        ["caches"] = Frozen(Color.FromRgb(0xFF, 0x98, 0x00)),
+        ["bodies"] = Frozen(Color.FromRgb(0x9E, 0x9E, 0x9E)),
+        [MapContainerGroups.Other] = Frozen(Color.FromRgb(0xCE, 0x93, 0xD8)),
+    };
+    /// <summary>Points on another floor than the one shown.</summary>
+    const double OtherFloorOpacity = 0.3;
     /// <summary>TARKOV_TRACKER_BTR_EDIT=1: a click on the map copies the game [x, z] there (to draw BTR stops and roads in data/btr.json).</summary>
     static readonly bool BtrEdit = Environment.GetEnvironmentVariable("TARKOV_TRACKER_BTR_EDIT") == "1";
     static readonly Geometry Arrow = Geometry.Parse("M 0,-12 L 8,9 L 0,4 L -8,9 Z");
@@ -141,6 +165,8 @@ public partial class MapPanel : UserControl
     {
         if (e.PropertyName == nameof(MainViewModel.MapName) && IsVisible) LoadMap();
         if (e.PropertyName is nameof(MainViewModel.MapTracking) or nameof(MainViewModel.ScreenshotsFolder)) UpdateStatus();
+        if (e.PropertyName == nameof(MainViewModel.MapSearchItem)) ShowSearchItem();
+        if (e.PropertyName == nameof(MainViewModel.MapNames)) OnMapDataReloaded();
         if (IsMini && e.PropertyName is nameof(MainViewModel.MiniMapZoom) or nameof(MainViewModel.MiniMapRotate) && IsVisible)
         {
             CenterOnPlayer();
@@ -162,6 +188,19 @@ public partial class MapPanel : UserControl
         HideCard();
         FillFloors();
         _ = LoadPicturesAsync(fit: true);
+    }
+
+    /// <summary>Newer map data came (app start): same map and view, the floors and pictures from the new data.</summary>
+    void OnMapDataReloaded()
+    {
+        if (!IsVisible)
+        {
+            _shownMap = null;  // reloaded when the panel shows
+            return;
+        }
+        if (_shownMap != _vm?.MapName) return;
+        FillFloors();
+        _ = LoadPicturesAsync(fit: false);
     }
 
     /// <summary>Floor list: automatic (by the player's height), ground floor, then the map's floors.</summary>
@@ -397,6 +436,8 @@ public partial class MapPanel : UserControl
             UpdateCard(null, []);
             return;
         }
+        DrawLayers(map);
+        UpdateSearchCount(map);
         if (_vm.MapShowExtracts)
         {
             // tarkov.dev lists an exfil both PMCs and Scavs use once per side: one point, shared
@@ -419,6 +460,195 @@ public partial class MapPanel : UserControl
         DrawPlayer(map);
         if (IsMini) DrawQuestPointers(map, spots);
         UpdateCard(map, spots);
+    }
+
+    // optional layers (In-Game GPS settings): hazards under everything, then containers, spawns, the searched item, locks, bosses
+
+    void DrawLayers(MapGeometry map)
+    {
+        _layerLabels.Clear();
+        DrawLayerPoints(map);
+        foreach (var label in _layerLabels) Markers.Children.Add(label);
+        _layerLabels.Clear();
+    }
+
+    void DrawLayerPoints(MapGeometry map)
+    {
+        var vm = _vm!;
+        var lang = Loc.Lang;
+        // labels only where there is room: not on the mini map, and zoomed in
+        var labels = !IsMini && _scale >= _fitScale * 2.5;
+        if (vm.MapShowHazards)
+            foreach (var h in map.Hazards)
+            {
+                var mines = h.Type == "minefield";
+                AddArea(map, h.Outline, mines ? MineFill : SniperFill, mines ? MineStroke : SniperStroke,
+                        Loc.T(mines ? "s.map.minefield" : "s.map.sniper"));
+            }
+        if (vm.MapShowContainers)
+            foreach (var c in map.Containers)
+                if (vm.ShowsContainer(c.Type))
+                    AddMark(map, c.Position, ContainerBrushes[MapContainerGroups.Of(c.Type)], 6, Mark.Square, map.Names.Of(c.Type, lang));
+        foreach (var s in map.Spawns)
+        {
+            var (show, brush, key) = s.Kind switch
+            {
+                "pmc" => (vm.MapShowPmcSpawns, PmcBrush, "s.map.spawn.pmc"),
+                "aipmc" => (vm.MapShowPmcSpawns, AiPmcBrush, "s.map.spawn.aipmc"),
+                _ => (vm.MapShowScavSpawns, ScavBrush, "s.map.spawn.scav"),
+            };
+            if (show) AddMark(map, s.Position, brush, 8, Mark.Ring, Loc.T(key));
+        }
+        if (vm.MapSearchIndex(map) is var item and >= 0)
+        {
+            var name = vm.MapSearchItem!.Name;
+            foreach (var spot in map.Loose)
+                if (spot.Items.Contains(item))
+                    AddMark(map, spot.Position, SearchBrush, 12, Mark.Diamond, $"{name}\n{Loc.T("s.map.search.loose")}", labels ? name : null);
+        }
+        if (vm.MapShowLocks)
+            foreach (var l in map.Locks)
+            {
+                var tip = $"\U0001F511 {map.Names.Of(l.Key, lang)}\n{Loc.T("s.map.lock." + l.Type)}"
+                          + (l.Power ? $" · {Loc.T("s.map.lock.power")}" : "");
+                AddMark(map, l.Position, LockBrush, 8, Mark.Square, tip, labels ? "\U0001F511 " + Short(map, l.Key, lang) : null);
+            }
+        if (vm.MapShowBosses)
+        {
+            // bosses sharing a spot (Knight and the Rogues on Lighthouse) get one marker with every name
+            var spots = map.Bosses
+                .SelectMany(b => b.Positions.Select((p, i) => (Boss: b, Position: p, First: i == 0)))
+                .GroupBy(x => (x.Position[0], x.Position[1], x.Position[2]));
+            foreach (var spot in spots)
+            {
+                var bosses = spot.Select(x => x.Boss).Distinct().ToList();
+                var tip = string.Join("\n", bosses.Select(b => Loc.F("s.map.boss.tip", map.Names.Of(b.Name, lang),
+                    (b.Chance * 100).ToString("0", CultureInfo.InvariantCulture), b.Escorts)));
+                // named once: a boss has several spots close together
+                var label = IsMini || (!labels && !spot.Any(x => x.First)) ? null
+                    : "\u2620 " + string.Join(", ", bosses.Select(b => map.Names.Of(b.Name, lang)));
+                AddMark(map, spot.First().Position, BossBrush, 10, Mark.Diamond, tip, label);
+            }
+        }
+    }
+
+    // item search box: the picked item's loose loot spots are marked (on the mini map too)
+
+    bool _settingSearchText;
+
+    void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        SearchHint.Visibility = SearchBox.Text.Length == 0 ? Visibility.Visible : Visibility.Collapsed;
+        SearchClear.Visibility = SearchBox.Text.Length == 0 && _vm?.MapSearchItem == null ? Visibility.Collapsed : Visibility.Visible;
+        if (_settingSearchText || _vm == null) return;
+        var found = _vm.FindMapItems(SearchBox.Text);
+        SearchList.ItemsSource = found;
+        SearchPopup.IsOpen = found.Count > 0;
+    }
+
+    void SearchBox_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (!SearchPopup.IsOpen || SearchList.Items.Count == 0) return;
+        if (e.Key == Key.Down)
+        {
+            SearchList.SelectedIndex = 0;
+            (SearchList.ItemContainerGenerator.ContainerFromIndex(0) as ListBoxItem)?.Focus();
+            e.Handled = true;
+        }
+        else if (e.Key == Key.Enter)
+        {
+            PickSearchItem(SearchList.Items[0] as MapItemChoice);
+            e.Handled = true;
+        }
+    }
+
+    void SearchList_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key != Key.Enter) return;
+        PickSearchItem(SearchList.SelectedItem as MapItemChoice);
+        e.Handled = true;
+    }
+
+    void SearchList_MouseUp(object sender, MouseButtonEventArgs e) => PickSearchItem(SearchList.SelectedItem as MapItemChoice);
+
+    void PickSearchItem(MapItemChoice? item)
+    {
+        if (item == null || _vm == null) return;
+        SearchPopup.IsOpen = false;
+        _vm.MapSearchItem = item;
+        Keyboard.Focus(Viewport);
+    }
+
+    void SearchClear_Click(object sender, RoutedEventArgs e)
+    {
+        if (_vm != null) _vm.MapSearchItem = null;
+        ShowSearchItem();
+    }
+
+    /// <summary>The box shows the picked item (it may have been picked on another map panel).</summary>
+    void ShowSearchItem()
+    {
+        _settingSearchText = true;
+        SearchBox.Text = _vm?.MapSearchItem?.Name ?? "";
+        _settingSearchText = false;
+        SearchPopup.IsOpen = false;
+    }
+
+    void UpdateSearchCount(MapGeometry map)
+    {
+        var item = _vm!.MapSearchIndex(map);
+        SearchCount.Visibility = item >= 0 ? Visibility.Visible : Visibility.Collapsed;
+        if (item >= 0) SearchCount.Text = Loc.F("s.map.search.count", map.Loose.Count(s => s.Items.Contains(item)));
+    }
+
+    static string Short(MapGeometry map, string id, string lang) =>
+        map.Names.Table.ContainsKey(id + " short") ? map.Names.Of(id + " short", lang) : map.Names.Of(id, lang);
+
+    enum Mark { Square, Ring, Diamond }
+
+    /// <summary>A small screen-sized marker; dimmed when it is on another floor than the one shown.</summary>
+    void AddMark(MapGeometry map, double[] position, Brush brush, double size, Mark shape, string tip, string? label = null)
+    {
+        var at = Screen(MapProjection.Project(map, position));
+        if (at.X < -20 || at.Y < -20 || at.X > Viewport.ActualWidth + 20 || at.Y > Viewport.ActualHeight + 20) return;
+        if (IsMini) size *= 0.8;
+        Shape dot = shape switch
+        {
+            Mark.Ring => new Ellipse { Width = size, Height = size, Stroke = brush, StrokeThickness = 2, Fill = Brushes.Transparent },
+            Mark.Diamond => new Rectangle { Width = size, Height = size, Fill = brush, Stroke = Brushes.Black, StrokeThickness = 1,
+                                            RenderTransform = new RotateTransform(45, size / 2, size / 2) },
+            _ => new Rectangle { Width = size, Height = size, Fill = brush, Stroke = Brushes.Black, StrokeThickness = 0.8 },
+        };
+        var opacity = OnShownFloor(map, position) ? 1 : OtherFloorOpacity;
+        dot.ToolTip = tip;
+        dot.Opacity = opacity;
+        Canvas.SetLeft(dot, at.X - size / 2);
+        Canvas.SetTop(dot, at.Y - size / 2);
+        Markers.Children.Add(dot);
+        if (label == null) return;
+        var text = new Border
+        {
+            Background = LabelBack, CornerRadius = new CornerRadius(2), Padding = new Thickness(3, 0, 3, 1), IsHitTestVisible = false,
+            Opacity = opacity, Child = new TextBlock { Text = label, FontSize = IsMini ? 9.5 : 10.5, Foreground = brush },
+        };
+        Canvas.SetLeft(text, at.X + size / 2 + 2);
+        Canvas.SetTop(text, at.Y - 8);
+        _layerLabels.Add(text);
+    }
+
+    /// <summary>The layers' labels, drawn after all their points so no point covers one.</summary>
+    readonly List<UIElement> _layerLabels = [];
+
+    /// <summary>Whether a point is on the floor drawn now (a map without floors has only the ground).</summary>
+    bool OnShownFloor(MapGeometry map, double[] p) =>
+        map.Layers.Count == 0 || MapProjection.LayerFor(map, p[0], p[1], p[2])?.Name == _shownLayer?.Name;
+
+    void AddArea(MapGeometry map, List<double[]> outline, Brush fill, Brush stroke, string tip)
+    {
+        if (outline.Count < 3) return;
+        var area = new Polygon { Fill = fill, Stroke = stroke, StrokeThickness = 1.2, ToolTip = tip };
+        foreach (var p in outline) area.Points.Add(Screen(MapProjection.Project(map, p[0], p[1])));
+        Markers.Children.Add(area);
     }
 
     static readonly Geometry Pointer = Geometry.Parse("M 0,-7 L 6,5 L -6,5 Z");

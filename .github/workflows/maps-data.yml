@@ -1,0 +1,60 @@
+# Every day: data/maps.json rebuilt from tarkov.dev (spawns, bosses, locks, loot, hazards, exfils, quest spots).
+# The app downloads this file at start-up (MapDataUpdater), so it is committed only when the map tests pass on it
+# and something besides the fetch time changed. A failed fetch or test leaves the last good file in place.
+name: Map data
+
+on:
+  schedule:
+    - cron: '30 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: maps-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Fetch
+        run: python tools/scraper/fetch_maps.py
+
+      - name: Changed?
+        id: diff
+        run: |
+          python - <<'EOF'
+          import json, os, subprocess
+          new = json.load(open("data/maps.json", encoding="utf-8"))
+          old = json.loads(subprocess.run(["git", "show", "HEAD:data/maps.json"], capture_output=True, text=True, encoding="utf-8").stdout or "{}")
+          for d in (new, old):
+              d.pop("fetchedAt", None)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              out.write(f"changed={'true' if new != old else 'false'}\n")
+          EOF
+
+      # the same checks the app's tests make on the map file: every map drawable, every layer readable
+      - name: Test
+        if: steps.diff.outputs.changed == 'true'
+        run: dotnet test tests/TarkovQuestTracker.Tests --filter "FullyQualifiedName~MapProjectionTests|FullyQualifiedName~MapLayersTests|FullyQualifiedName~MapDataUpdaterTests"
+
+      - name: Commit
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/maps.json
+          git commit -m "Map data from tarkov.dev"
+          git push
