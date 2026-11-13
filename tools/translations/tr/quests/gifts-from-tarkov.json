@@ -1,0 +1,17 @@
+{
+ "id": "gifts-from-tarkov",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Deniz Feneri'nde kıyıda bulunan TerraGroup kargosunu tespit et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Lighthouse ya da Reserve'de M203 40mm namlu altı bombaatarıyla herhangi 10 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Aranan kargo, Lighthouse'un batı kıyısında gri bir nakliye konteynerinin yanındaki tahta bir sandık.",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

@@ -1,0 +1,16 @@
+{
+ "id": "reconnaissance",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta herhangi bir su arıtma tesisi binasının çatısını incele",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Hayatta kal ve bölgeden ayrıl",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Lighthouse'taki üç ofis binasından birini bulup çatısına çıkman gerekiyor. Ofis binaları kuzeydeki su arıtma tesisi bölgesinde. Çatılara dış merdivenlerden çıkılır. Görev ilerlemesi için çatıdayken binalardan birinin dış merdivenlerine yaklaşman gerekir."
+}

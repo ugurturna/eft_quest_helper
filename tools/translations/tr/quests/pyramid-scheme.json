@@ -1,0 +1,22 @@
+{
+ "id": "pyramid-scheme",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da Klimov Caddesi'ndeki herhangi bir ATM'yi MS2000 Marker ile işaretle",
+   "details": [
+    "(İsteğe bağlı) Streets of Tarkov'da Klimov Alışveriş Merkezi'ndeki birinci ATM'yi bul",
+    "(İsteğe bağlı) Streets of Tarkov'da Klimov Alışveriş Merkezi'ndeki ikinci ATM'yi bul",
+    "(İsteğe bağlı) Streets of Tarkov'da Klimov Alışveriş Merkezi'ndeki üçüncü ATM'yi bul",
+    "(İsteğe bağlı) Streets of Tarkov'da Klimov Caddesi'ndeki birinci ATM grubunu bul",
+    "(İsteğe bağlı) Streets of Tarkov'da Klimov Alışveriş Merkezi'ndeki ikinci ATM grubunu bul",
+    "(İsteğe bağlı) Streets of Tarkov'da Klimov Alışveriş Merkezi'ndeki üçüncü ATM grubunu bul",
+    "(İsteğe bağlı) Streets of Tarkov'da Klimov Caddesi'ndeki birinci ATM grubunu bul",
+    "(İsteğe bağlı) Streets of Tarkov'da Klimov Caddesi'ndeki birinci ATM'yi bul",
+    "(İsteğe bağlı) Streets of Tarkov'da Klimov Caddesi'ndeki ikinci ATM'yi bul",
+    "(İsteğe bağlı) Streets of Tarkov'da Klimov Caddesi'ndeki üçüncü ATM'yi bul"
+   ]
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'daki Cardinal apartman kompleksinin \"Unity Credit Bank\" şubesinin içindeki bir ATM'yi MS2000 Marker ile işaretlemen gerekiyor."
+}

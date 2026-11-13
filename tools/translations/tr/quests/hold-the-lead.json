@@ -1,0 +1,10 @@
+{
+ "id": "hold-the-lead",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Arena'da 75 düşman öldür",
+   "details": []
+  }
+ ]
+}

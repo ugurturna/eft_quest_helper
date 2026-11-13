@@ -1,0 +1,36 @@
+{
+ "id": "needle-in-a-haystack",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Ground Zero'da TerraGroup genel merkezinin yanındaki avlu parkını incele",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Interchange'te go-kart pistini incele",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Interchange'te kapalı çocuk oyun alanını incele",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Streets of Tarkov'da Concordia'nın yanındaki çocuk oyun alanını incele",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Shoreline'da kıyıdaki inşaat alanını incele",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Shoreline'da sağlık tesisinin yanındaki çocuk oyun alanını incele",
+   "details": []
+  }
+ ],
+ "guide": "▸ Ground Zero\nTerraGroup binasının önünde.\n\n▸ Interchange\nAlışveriş merkezinin önünde ve içeride IDEA mağazasının önünde.\n\n▸ Streets of Tarkov\nConcordia binasının avlusunda.\n\n▸ Shoreline\nSağlık tesisinin doğu kanadının arkasında ve güneydeki ana yol boyunca inşaat alanında."
+}

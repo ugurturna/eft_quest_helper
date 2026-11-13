@@ -1,0 +1,16 @@
+{
+ "id": "youve-got-mail",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da taahhütlü postayı ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Mektubu teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'daki postanede bir mektup bulman gerekiyor. Binanın içinde birden çok çıkma noktası var.\n\n▸ Birinci nokta\nTezgâhın arkasındaki sağ dolabın sol üstteki hafif açık çekmecesinde.\n\n▸ İkinci nokta\nTezgâhın arkasında, spor çantası ile ölü Scav'ın arasında yerde.\n\n▸ Üçüncü nokta\nTezgâhın altındaki sağ rafın sağ alt bölmesinde.\n\n▸ Dördüncü nokta\nBitişikteki depo odasında, bir rafın en altında paketlerin arasında."
+}

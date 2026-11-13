@@ -15,6 +15,7 @@ public partial class OverlayWindow : Window
     readonly DispatcherTimer _autoHideTimer = new();
     HotkeyManager? _hotkeys;
     FleaSearchWindow? _flea;
+    ItemCardWindow? _itemCard;
     MapWindow? _map;
     IntPtr _hwnd;
     Point? _dragStart;
@@ -107,6 +108,8 @@ public partial class OverlayWindow : Window
 
         _hotkeys = new HotkeyManager(_hwnd);
         RegisterHotkeys();
+        _vm.ItemCheck.Found += (item, at) => (_itemCard ??= new ItemCardWindow(_vm)).ShowFor(item, at);
+        _vm.ItemCheck.Lost += () => _itemCard?.HideCard();
         _vm.ProfileChanged += OnProfileChanged;
         Loc.Changed += UpdateLockText;
 
@@ -121,6 +124,7 @@ public partial class OverlayWindow : Window
         _autoHideTimer.Stop();
         _hotkeys?.Dispose();
         _flea?.Close();
+        _itemCard?.Close();
         _map?.Close();
         _miniMap?.Close();
         base.OnClosed(e);
@@ -188,7 +192,11 @@ public partial class OverlayWindow : Window
     }
 
 
-    void RegisterHotkeys()
+    /// <summary>While Settings records a new key: the current ones must reach the app, not fire.</summary>
+    public void PauseHotkeys() => _hotkeys?.Dispose();
+
+    /// <summary>Registers the profile's hotkeys again; returns the ones Windows would not take.</summary>
+    public List<string> RegisterHotkeys()
     {
         _hotkeys!.Dispose();  // drop the previous profile's keys; the window hook stays
         var failed = new List<string>();
@@ -202,7 +210,11 @@ public partial class OverlayWindow : Window
             failed.Add(_vm.Settings.RaidHotkey);
         if (!_hotkeys.Register(_vm.Settings.ScanHotkey, () => _ = _vm.Scanner.ReadOnceAsync()))
             failed.Add(_vm.Settings.ScanHotkey);
+        if (!_hotkeys.Register(_vm.Settings.ItemCheckHotkey, () => _ = _vm.ItemCheck.CheckOnceAsync()))
+            failed.Add(_vm.Settings.ItemCheckHotkey);
         if (failed.Count > 0) _vm.Toast = Loc.F("t.hotkeyFail", string.Join(", ", failed));
+        UpdateLockText();
+        return failed;
     }
 
     void OnProfileChanged()

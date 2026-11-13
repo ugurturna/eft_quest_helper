@@ -1,0 +1,16 @@
+{
+ "id": "protect-the-sky",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta belirtilen yerdeki paketi bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Paketi teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görev önce tamamlanırsa Lightkeeper'ın Simple Side Job görevi kendiliğinden başarısız olur.\n\n*Bu eşya, görevi kabul ettikten sonraki ilk Woods raidinde çıkar.\n\nBu görevde Woods'ta bir KOSA UAV electronic jamming device bulman gerekiyor. Kuzeydeki harap köyün güneyindeki bir mezarlıkta birden çok çıkma noktası var."
+}

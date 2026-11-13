@@ -1,0 +1,13 @@
+{
+ "id": "work-smarter",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta gizli exfil'i bul",
+   "details": [
+    "(İsteğe bağlı) Gizli exfil'den çıkmak için gereken özel eşyayı ele geçir"
+   ]
+  }
+ ],
+ "guide": "Bu görevde Customs'taki 2 gizli exfil'den birini ziyaret etmen gerekiyor. Gizli olanlar \"Smugglers' Boat\" ve \"Smugglers' Bunker (ZB-1012)\". Bunlardan çıkman gerekmez."
+}

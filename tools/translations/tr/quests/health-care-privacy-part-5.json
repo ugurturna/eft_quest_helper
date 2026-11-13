@@ -1,0 +1,16 @@
+{
+ "id": "health-care-privacy-part-5",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Gece vakti Fabrika'daki teslimatın yerini bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "3 paket Gunpowder \"Kite\" ele geçir ve belirtilen yere sakla",
+   "details": []
+  }
+ ],
+ "guide": "Gereken oda Factory'deki \"Breach Room\". Orada gece 3x Gunpowder \"Kite\" yerleştir.\n\"Breach Room\", üçüncü kattaki ofis ile kilitli oda arasındaki oda. Her Gunpowder \"Kite\"ı yerleştirmek 30 saniye sürer, yani toplam 90 saniye. Scav'lar ara ara koridordan geçtiği için yerleştirirken Breach Room'un kapısını kapatman önerilir. Görevi hiç ya da çok az dirençle bitirmek istiyorsan eşyaları yerleştirirken seni koruyacak bir takımla gitmen önerilir. Görevi bitirmek için başarıyla exfil yapman gerekmez."
+}

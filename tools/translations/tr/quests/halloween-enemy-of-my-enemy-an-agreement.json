@@ -1,0 +1,13 @@
+{
+ "id": "halloween-enemy-of-my-enemy-an-agreement",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "İpuçlarını teslim et",
+   "details": [
+    "(İsteğe bağlı) Virüs ipucunu ele geçir"
+   ]
+  }
+ ],
+ "guide": "Skier'ın Halloween: Enemy of My Enemy görevinde verdiği klasörü teslim et."
+}

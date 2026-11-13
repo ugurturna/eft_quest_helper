@@ -1,0 +1,10 @@
+{
+ "id": "superhuman",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Ghoul mask takarken yakın dövüş silahıyla bir düşman öldür",
+   "details": []
+  }
+ ]
+}

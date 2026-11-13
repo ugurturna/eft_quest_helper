@@ -1,0 +1,26 @@
+{
+ "id": "peacekeeping-mission",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods ya da Reserve'de UNTAR kask ve zırhı ile 5.56x45 BM silahları kullanırken 12 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Customs ya da Lighthouse'ta UNTAR kask ve zırhı ile 5.56x45 BM silahları kullanırken 12 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Shoreline ya da Streets of Tarkov'da UNTAR kask ve zırhı ile 5.56x45 BM silahları kullanırken 12 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Ground Zero ya da Interchange'te UNTAR kask ve zırhı ile 5.56x45 BM silahları kullanırken 12 Scav öldür",
+   "details": []
+  }
+ ],
+ "guide": "Scav öldürmeleri sırasında belirtilen UNTAR kask ve zırhın giyilmesi ve şu silahlardan herhangi birinin kullanılması gerekir:\n* Colt M16A1 5.56x45 assault rifle\n* Colt M16A2 5.56x45 assault rifle\n* Colt M4A1 5.56x45 assault rifle\n* FN SCAR-L 5.56x45 assault rifle\n* HK 416A5 5.56x45 assault rifle\n* HK G36 5.56x45 assault rifle\n* Howa Type 20 5.56x45 assault rifle\n* Lone Star TX-15 DML 5.56x45 carbine\n* Radian Weapons Model 1 FA 5.56x45 assault rifle\n* Steyr AUG A1 5.56x45 assault rifle\n* Steyr AUG A3 5.56x45 assault rifle"
+}

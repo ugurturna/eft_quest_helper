@@ -1,0 +1,11 @@
+{
+ "id": "stick-in-the-wheel",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Herhangi bir haritada herhangi 30 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde herhangi bir haritada herhangi 30 hedefi öldürmen gerekiyor."
+}

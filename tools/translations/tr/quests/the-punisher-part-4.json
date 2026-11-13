@@ -1,0 +1,26 @@
+{
+ "id": "the-punisher-part-4",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta SVDS ya da TKPD kullanırken 10 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Lighthouse'ta Scav Vest giyerken 10 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde 5 Bars A-2607 95Kh18 knife bul",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Scav öldürmeleri için Scav Vest ya da Security vest kullanılabilir.\n\nBars A-2607 95Kh18 bıçaklarını Scav'lar taşır. Bunları benzer görünen Bars A-2607 Damascus bıçaklarıyla karıştırma."
+}

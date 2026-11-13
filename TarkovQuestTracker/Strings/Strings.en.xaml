@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=System.Runtime"
                     xml:space="preserve">
@@ -23,6 +23,10 @@
     <sys:String x:Key="s.items.firOnly">FIR only</sys:String>
     <sys:String x:Key="s.tab.active">Active Quests</sys:String>
     <sys:String x:Key="s.tab.settings">Settings</sys:String>
+    <sys:String x:Key="s.set.tab.keys">Shortcuts</sys:String>
+    <sys:String x:Key="s.set.tab.overlay">Overlay</sys:String>
+    <sys:String x:Key="s.set.tab.general">General</sys:String>
+    <sys:String x:Key="s.set.tab.data">Data</sys:String>
 
     <!-- search -->
     <sys:String x:Key="s.search.tip">Search in English or Turkish: punisher 3, cezalandırıcı...</sys:String>
@@ -202,6 +206,12 @@
     <sys:String x:Key="t.profile">Profile: {0}</sys:String>
     <sys:String x:Key="t.profileDeleted">Deleted: {0}</sys:String>
     <sys:String x:Key="t.hotkeyFail">Could not register hotkey (another program may be using it): {0}</sys:String>
+    <sys:String x:Key="t.key.saved">Shortcut saved: {0}</sys:String>
+    <sys:String x:Key="t.key.needsMod">{0} won't work: a letter alone is also pressed while playing. Hold Ctrl, Alt or Win with it (F keys work alone).</sys:String>
+    <sys:String x:Key="t.key.reserved">{0} is a Windows shortcut and can't be used.</sys:String>
+    <sys:String x:Key="t.key.inUse">{0} is already used: {1}. Change that one first.</sys:String>
+    <sys:String x:Key="t.key.taken">{0} is used by another program; kept {1}.</sys:String>
+    <sys:String x:Key="t.key.reset">Shortcuts are back to their defaults.</sys:String>
     <sys:String x:Key="g.none">Search a quest and press "Set as goal" (e.g. Punisher Part 3 or Collector).</sys:String>
     <sys:String x:Key="g.allDone">{0}: all done!</sys:String>
     <sys:String x:Key="g.progress">{0}: {1}/{2} done, {3} quests left. Tick what you already did (earlier ones are ticked automatically).</sys:String>
@@ -247,7 +257,7 @@
     <sys:String x:Key="s.keys.wheel.desc">With the mouse over the overlay: make it bigger / smaller (60–200 %). The overlay must be unlocked.</sys:String>
     <sys:String x:Key="s.keys.drag">Drag the header</sys:String>
     <sys:String x:Key="s.keys.drag.desc">Move the overlay anywhere on the screen. The overlay must be unlocked.</sys:String>
-    <sys:String x:Key="s.keys.note">Shortcuts work while the game is running and the app is in the background. To change the keys, edit clickThroughHotkey / toggleOverlayHotkey / fleaSearchHotkey in the profile's settings.json (e.g. "Ctrl+Alt+F9"). If a shortcut clashes with another program, the app warns you at start.</sys:String>
+    <sys:String x:Key="s.keys.note">Shortcuts work while the game is running and the app is in the background. To change one, click the key and press the new combination: a key with Ctrl, Alt or Win (F1–F12 also work alone). If another program uses that key, the old shortcut stays. Each profile has its own shortcuts.</sys:String>
     <sys:String x:Key="s.keys.barLock">lock</sys:String>
     <sys:String x:Key="s.keys.barToggle">show/hide</sys:String>
     <sys:String x:Key="s.keys.barWheel">overlay size</sys:String>
@@ -259,6 +269,27 @@
     <sys:String x:Key="s.flea.title">FLEA MARKET</sys:String>
     <sys:String x:Key="s.flea.esc">Esc: back to game</sys:String>
     <sys:String x:Key="s.flea.placeholder">Type an item name (at least 3 letters)…</sys:String>
+    <sys:String x:Key="s.keys.item">Item check: reads the item under the mouse in game and opens a small card next to it. The card says whether a quest still needs the item ("KEEP") and where it sells best. It closes when the mouse moves away.</sys:String>
+    <sys:String x:Key="s.keys.scan">Read quests: press it with the in-game Tasks screen open and the quest names on screen are read once; you confirm the list (Read Quests page).</sys:String>
+    <sys:String x:Key="s.keys.changeTip">Click to change, then press the new key combination. Esc cancels.</sys:String>
+    <sys:String x:Key="s.keys.press">Press keys… (Esc: cancel)</sys:String>
+    <sys:String x:Key="s.keys.reset">Reset to defaults</sys:String>
+    <sys:String x:Key="s.keys.barItem">item check</sys:String>
+    <sys:String x:Key="s.item.title">Item check (keep / sell)</sys:String>
+    <sys:String x:Key="s.item.auto">Open without the hotkey: show the card by itself when the mouse rests on an item in game</sys:String>
+    <sys:String x:Key="s.item.desc">The game's item name box is read with Windows text recognition from a small area around the mouse. Nothing is saved or sent anywhere, and the game is never touched. Automatic mode only reads while the game is in front and the mouse is still. Prices are the selected mode's (PvP / PvE) tarkov.dev prices.</sys:String>
+    <sys:String x:Key="ic.keep">KEEP · needed for {0} quest(s)</sys:String>
+    <sys:String x:Key="ic.noQuest">No quest needs it</sys:String>
+    <sys:String x:Key="ic.more">+{0} more quests</sys:String>
+    <sys:String x:Key="ic.anyOf">any of {0} items</sys:String>
+    <sys:String x:Key="ic.active">active</sys:String>
+    <sys:String x:Key="ic.locked">locked</sys:String>
+    <sys:String x:Key="ic.sellFlea">Best sold on flea: {0}</sys:String>
+    <sys:String x:Key="ic.sellTrader">Best sold to {0}: {1}</sys:String>
+    <sys:String x:Key="ic.sellNone">Neither the flea nor the traders buy it</sys:String>
+    <sys:String x:Key="t.item.focusGame">Switch to the game first, put the mouse on an item, then press the hotkey.</sys:String>
+    <sys:String x:Key="t.item.noPrices">The item list is not downloaded yet (tarkov.dev). Check the internet connection and try again in a moment.</sys:String>
+    <sys:String x:Key="t.item.none">No item name found next to the mouse. Hold the mouse on the item until its name box shows, then press again.</sys:String>
     <sys:String x:Key="flea.hint">Type at least 3 letters</sys:String>
     <sys:String x:Key="flea.loading">Loading {0} prices from tarkov.dev…</sys:String>
     <sys:String x:Key="flea.error">Could not load prices: {0}</sys:String>
@@ -387,7 +418,7 @@
     <sys:String x:Key="s.scan.saveFrameTip">Saves the last picture the scan took to your desktop (PNG), so you can see or send what the app saw.</sys:String>
     <sys:String x:Key="t.scan.saved">Saved: {0}</sys:String>
     <sys:String x:Key="t.scan.noOcr">Windows has no text recognition for Latin letters: add English under Settings → Time &amp; language → Language.</sys:String>
-    <sys:String x:Key="s.tab.scan">Read Quests (BETA)</sys:String>
+    <sys:String x:Key="s.tab.scan">Read Quests</sys:String>
     <sys:String x:Key="s.scan.title">Read your quests from the game</sys:String>
     <sys:String x:Key="s.scan.desc">No need to enter quests one by one: the tracker reads the quest names on the in-game Tasks screen. You confirm the list, the quests become active and everything before them counts as done.</sys:String>
     <sys:String x:Key="s.scan.step1">Set the game language to English and run the game in Borderless or Windowed mode.</sys:String>
@@ -484,7 +515,7 @@
     <sys:String x:Key="s.gps.title">Show my position on the map</sys:String>
     <sys:String x:Key="s.gps.desc">Take a screenshot in raid and a map window shows where you are and which way you face, the path of your earlier screenshots, the exfils and your active quests' spots. The floor follows your height.</sys:String>
     <sys:String x:Key="s.gps.step1">Enter a raid. The map follows the raid's map (picked on "Entering a raid" or found by the double O); without a raid, pick the map in the map window.</sys:String>
-    <sys:String x:Key="s.gps.step2">Take a screenshot with your in-game screenshot key. Any key you bound works: the app watches the screenshot folder, not the key.</sys:String>
+    <sys:String x:Key="s.gps.step2">Take a screenshot with your in-game screenshot key. The game's default is Print Screen, but on Windows Print Screen often opens the Snipping Tool too, so we suggest binding a free key such as F11 (in game: Settings → Controls → screenshot). Any key you bound works: the app watches the screenshot folder, not the key.</sys:String>
     <sys:String x:Key="s.gps.step3">The map comes up with you on it. Wheel zooms, dragging looks around, ◎ centres on you again.</sys:String>
     <sys:String x:Key="s.gps.step4">Press Esc (or click the game): the map closes and the game gets the keyboard back. Take another screenshot when you want to see where you are.</sys:String>
     <sys:String x:Key="s.gps.status">STATUS</sys:String>
@@ -524,7 +555,7 @@
     <sys:String x:Key="s.cap.desc">Choose which windows show in streams, recordings and screenshots (OBS, Discord, Windows capture…). Turned off, a window is left out of screen pictures; you still see it as always.</sys:String>
     <sys:String x:Key="s.cap.overlay">Show the overlay in streams and recordings</sys:String>
     <sys:String x:Key="s.cap.overlayWarn">⚠ Auto raid detection reads the top-right corner of the screen: if the overlay sits on the exfil list there, the list can't be read. Move the overlay elsewhere, or keep it out of streams.</sys:String>
-    <sys:String x:Key="s.cap.flea">Show the flea market search in streams and recordings</sys:String>
+    <sys:String x:Key="s.cap.flea">Show the flea market search and the item card in streams and recordings</sys:String>
     <sys:String x:Key="s.cap.map">Show the map (GPS) in streams and recordings</sys:String>
     <sys:String x:Key="s.map.set.open">🗺 Open the map</sys:String>
     <!-- Help & About page -->
@@ -549,7 +580,7 @@
     <sys:String x:Key="s.help.s3.t">3. Set the languages</sys:String>
     <sys:String x:Key="s.help.s3.d">Top bar or Settings: the app language changes menus and buttons, the quest language changes quest names and objectives. Search works in both languages.</sys:String>
     <sys:String x:Key="s.help.s4.t">4. Enter your progress once</sys:String>
-    <sys:String x:Key="s.help.s4.d">Fastest: Read Quests (BETA) scans the in-game Tasks screen in 30 seconds. Or mark the quest you are on as active, or make it your goal in the Goal Planner: every earlier quest in its chain counts as done. A wrong click is one "Undo" away.</sys:String>
+    <sys:String x:Key="s.help.s4.d">Fastest: Read Quests scans the in-game Tasks screen in 30 seconds. Or mark the quest you are on as active, or make it your goal in the Goal Planner: every earlier quest in its chain counts as done. A wrong click is one "Undo" away.</sys:String>
     <sys:String x:Key="s.help.s5.t">5. Game in English for screen reading</sys:String>
     <sys:String x:Key="s.help.s5.d">Read Quests and the double O raid detection read English text with Windows OCR. They work best with the game in English at 1080p or higher.</sys:String>
     <sys:String x:Key="s.help.s6.t">6. Keep the auto raid detection on</sys:String>
@@ -559,7 +590,7 @@
     <sys:String x:Key="s.help.s8.t">8. Pin what you want to see</sys:String>
     <sys:String x:Key="s.help.s8.d">Active Quests: turn on 📌 Overlay for the quests you want on the overlay outside a raid. In a raid the overlay shows that map's active quests by itself.</sys:String>
     <sys:String x:Key="s.help.s9.t">9. Set up the GPS map</sys:String>
-    <sys:String x:Key="s.help.s9.d">Bind a screenshot key in the game. If your screenshots are not in Documents\Escape from Tarkov\Screenshots, pick the folder on the In-Game GPS page. Then choose how the map shows: over the game, as a round mini map, or inside the app on a second monitor.</sys:String>
+    <sys:String x:Key="s.help.s9.d">Bind a screenshot key in the game: the default is Print Screen, but a free key such as F11 avoids clashing with the Windows Snipping Tool (Settings → Controls). If your screenshots are not in Documents\Escape from Tarkov\Screenshots, pick the folder on the In-Game GPS page. Then choose how the map shows: over the game, as a round mini map, or inside the app on a second monitor.</sys:String>
     <sys:String x:Key="s.help.s10.t">10. Learn the hotkeys</sys:String>
     <sys:String x:Key="s.help.s10.d">Ctrl+Shift+T locks the overlay so clicks go to the game, Ctrl+Shift+R picks the raid map, Ctrl+Shift+F opens the flea price search. They are listed under Settings and at the bottom of the window. If one clashes with another program, the app warns you at start.</sys:String>
     <sys:String x:Key="s.help.s11.t">11. Updates and backups</sys:String>

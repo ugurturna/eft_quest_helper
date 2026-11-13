@@ -139,6 +139,36 @@ static class Win32
                      SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE);
     }
 
+    [StructLayout(LayoutKind.Sequential)]
+    struct POINT { public int X, Y; }
+
+    [DllImport("user32.dll")]
+    static extern bool GetCursorPos(out POINT point);
+
+    [DllImport("user32.dll")]
+    static extern IntPtr MonitorFromPoint(POINT point, uint flags);
+
+    /// <summary>The mouse position on the screen, physical pixels.</summary>
+    public static (int X, int Y)? Cursor() => GetCursorPos(out var p) ? (p.X, p.Y) : null;
+
+    /// <summary>The window's size in physical pixels.</summary>
+    public static (int Width, int Height) Size(IntPtr hwnd) =>
+        GetWindowRect(hwnd, out var r) ? (r.Right - r.Left, r.Bottom - r.Top) : (0, 0);
+
+    /// <summary>The whole monitor the point is on (left, top, right, bottom), physical pixels.</summary>
+    public static (int Left, int Top, int Right, int Bottom) MonitorAt(int x, int y)
+    {
+        const uint MONITOR_DEFAULTTONEAREST = 2;
+        var info = new MONITORINFO { Size = Marshal.SizeOf<MONITORINFO>() };
+        if (!GetMonitorInfo(MonitorFromPoint(new POINT { X = x, Y = y }, MONITOR_DEFAULTTONEAREST), ref info))
+            return (0, 0, 1920, 1080);
+        return (info.Monitor.Left, info.Monitor.Top, info.Monitor.Right, info.Monitor.Bottom);
+    }
+
+    /// <summary>Moves the window to a point in physical pixels, above the game, without focusing it.</summary>
+    public static void MoveTo(IntPtr hwnd, int x, int y) =>
+        SetWindowPos(hwnd, HWND_TOPMOST, x, y, 0, 0, SWP_NOSIZE | SWP_NOACTIVATE);
+
     /// <summary>No taskbar/alt-tab entry, but can take keyboard focus (for typing).</summary>
     public static void MakeToolWindow(IntPtr hwnd) => SetExStyle(hwnd, Ex(hwnd) | WS_EX_TOOLWINDOW);
 

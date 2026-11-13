@@ -1,0 +1,10 @@
+{
+ "id": "stirrup",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'de tabancalarla herhangi 10 hedefi öldür",
+   "details": []
+  }
+ ]
+}

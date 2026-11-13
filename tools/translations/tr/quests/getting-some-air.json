@@ -1,0 +1,11 @@
+{
+ "id": "getting-some-air",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Shoreline, Lighthouse ya da Reserve'de EKP-1S-03 nişangâhlı bir RPDN ile herhangi 40 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "RPD DS Arms Railed Handguard kullanırken öldürmeler için EKP-1S-03 reflex nişangâh yerine eğik (canted) raya takılı kompakt bir reflex nişangâh kullanabilirsin. Görev için nişangâhın sadece takılı olması yeterli."
+}

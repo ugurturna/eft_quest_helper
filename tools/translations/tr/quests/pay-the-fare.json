@@ -1,0 +1,35 @@
+{
+ "id": "pay-the-fare",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde eşyayı bul: Pipe grip wrench",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyayı teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde eşyayı bul: Ratchet wrench",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Eşyayı teslim et",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Raidde eşyayı bul: Electric drill",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Eşyayı teslim et",
+   "details": []
+  }
+ ]
+}

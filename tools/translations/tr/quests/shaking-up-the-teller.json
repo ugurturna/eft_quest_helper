@@ -1,0 +1,18 @@
+{
+ "id": "shaking-up-the-teller",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta yurttaki 203 numaralı odada değerli eşyayı bul ve ele geçir",
+   "details": [
+    "(İsteğe bağlı) Customs'ta yurttaki 214 numaralı odaya gir"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Değerli eşyayı teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Customs'ta bir banka çantası (bank case) bulman gerekiyor. Üç katlı yurt binasının ikinci katındaki 203 numaralı odada, yatağın altında. Odaya girmek için Dorm room 203 key gerekir."
+}

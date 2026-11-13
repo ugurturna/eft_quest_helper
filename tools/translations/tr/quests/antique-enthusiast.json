@@ -1,0 +1,55 @@
+{
+ "id": "antique-enthusiast",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde 3 Antique teapot bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde 3 Antique vase bul",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde 2 Axel parrot figurine bul",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Raidde 2 Raven figurine bul",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Raidde 5 Gold skull ring bul",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "3 Antique teapot'u Ragman'e teslim et",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "3 Antique vase'i Ragman'e teslim et",
+   "details": []
+  },
+  {
+   "id": "o8",
+   "text": "2 Axel parrot figurine'i Ragman'e teslim et",
+   "details": []
+  },
+  {
+   "id": "o9",
+   "text": "2 Raven figurine'i Ragman'e teslim et",
+   "details": []
+  },
+  {
+   "id": "o10",
+   "text": "5 Gold skull ring'i Ragman'e teslim et",
+   "details": []
+  }
+ ]
+}

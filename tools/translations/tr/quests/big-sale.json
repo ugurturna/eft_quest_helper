@@ -1,0 +1,36 @@
+{
+ "id": "big-sale",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Interchange'te AVOKADO mağazasını bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Interchange'te KOSTIN mağazasını bul",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Interchange'te tRend mağazasını bul",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Interchange'te DINO CLOTHES mağazasını bul",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Interchange'te TOP BRAND mağazasını bul",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Haritadan sağ çık (Survive and extract)",
+   "details": []
+  }
+ ],
+ "guide": "Görevi bitirmek için aynı raidde listelenen mağazaların her birine gir ve hayatta kal. Bütün mağazalar ULTRA alışveriş merkezinin birinci katında."
+}

@@ -1,0 +1,30 @@
+{
+ "id": "humanitarian-supplies",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Birinci kamyonu bul ve MS2000 Marker ile işaretle",
+   "details": [
+    "(İsteğe bağlı) Shoreline'da kayıp BM kargosunu taşıyan birinci kamyonu bul"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "İkinci kamyonu bul ve MS2000 Marker ile işaretle",
+   "details": [
+    "(İsteğe bağlı) Shoreline'da kayıp BM kargosunu taşıyan ikinci kamyonu bul"
+   ]
+  },
+  {
+   "id": "o3",
+   "text": "Eşyayı ele geçir: 5 MRE ration pack",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ],
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır."
+}

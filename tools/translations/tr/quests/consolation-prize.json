@@ -1,0 +1,15 @@
+{
+ "id": "consolation-prize",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "The Lab'den 15 kez sağ çık",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "The Lab'de herhangi 100 hedefi öldür",
+   "details": []
+  }
+ ]
+}

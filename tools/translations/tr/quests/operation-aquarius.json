@@ -1,0 +1,16 @@
+{
+ "id": "operation-aquarius",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Gümrük'teki yatakhanede gizlenmiş suyu bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde bulunmuş herhangi 3 içme suyu eşyası teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Customs'ta saklanan suyu bulman gerekiyor. Su, iki katlı yurt binasının ikinci katındaki 206 numaralı odada. Odaya girmek için Dorm room 206 key gerekir. Ayrıca raidde bulunmuş (FIR) 3 içme suyu eşyasını Therapist'e teslim etmen gerekiyor."
+}

@@ -1,0 +1,21 @@
+{
+ "id": "house-arrest",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da kayıp grubun esir tutulduğu yeri bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Streets of Tarkov'da borçluyu bul",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Eşyayı teslim et: Chekannaya 15 apartment key",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce kayıp grubun esir tutulduğu yeri bulman gerekiyor. Aranan yer, Streets of Tarkov'daki Chekannaya 15 apartmanının üçüncü katındaki 1 numaralı hücre. Oraya sadece batı merdiveninden ulaşılır. Hücreye girmek için Iron gate key gerekir.\n\nSonra Streets of Tarkov'da borçluyu bulman gerekiyor. Borçlu, kuzeydeki Pinewood otel binasının ikinci katındaki 206 numaralı odada. Oda için anahtar gerekmez."
+}

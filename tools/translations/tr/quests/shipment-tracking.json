@@ -1,0 +1,16 @@
+{
+ "id": "shipment-tracking",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta TerraGroup sevkiyat listelerini bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bulduğun bilgiyi teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Customs'ta TerraGroup sevkiyat listelerini bulman gerekiyor. Listeler kazan dairesi binasının ikinci katındaki müdür odasında. Odaya girmek için Company director's room key gerekir. Odanın içinde birden çok çıkma noktası var."
+}

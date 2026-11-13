@@ -1,0 +1,25 @@
+{
+ "id": "shooter-born-in-heaven",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs ya da Lighthouse'ta sürgülü (bolt-action) bir tüfek kullanırken kafadan vuruşla 5 PMC öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Streets of Tarkov ya da Shoreline'da sürgülü (bolt-action) bir tüfek kullanırken kafadan vuruşla 5 PMC öldür",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Interchange ya da Ground Zero'da sürgülü (bolt-action) bir tüfek kullanırken kafadan vuruşla 5 PMC öldür",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Woods ya da Reserve'de sürgülü (bolt-action) bir tüfek kullanırken kafadan vuruşla 5 PMC öldür",
+   "details": []
+  }
+ ]
+}

@@ -1,0 +1,26 @@
+{
+ "id": "hindsight-20-20",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta dağın altındaki sığınağı bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Birinci Rus zırh delici mermi paketini sığınağın içine sakla",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "İkinci Rus zırh delici mermi paketini sığınağın içine sakla",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Üçüncü Rus zırh delici mermi paketini sığınağın içine sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods'ta dağın altındaki sığınağı bulup oraya 3 Rus zırh delici mermi paketi saklaman gerekiyor."
+}

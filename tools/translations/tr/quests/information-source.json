@@ -1,0 +1,40 @@
+{
+ "id": "information-source",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Hayatta kalın ve South V-Ex aracılığıyla Ormanlıktan çıkın",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Dorms V-Ex aracılığıyla hayatta kalın ve Gümrükten kurtulun",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Power Station V-Ex aracılığıyla Interchange'te hayatta kalın ve ayıklayın",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "High-rise Taxi V-Ex ile Streets of Tarkov'dan hayatta kalın ve kurtulun",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Ground Zero'dan Police Cordon V-Ex üzerinden sağ çık",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Lighthouse'tan Road to Military Base V-Ex üzerinden sağ çık",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "Shoreline'dan Road to North V-Ex üzerinden sağ çık",
+   "details": []
+  }
+ ]
+}

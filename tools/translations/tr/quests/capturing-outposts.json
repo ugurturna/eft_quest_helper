@@ -1,0 +1,11 @@
+{
+ "id": "capturing-outposts",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs, Shoreline ya da Woods'taki belirtilen Scav üslerinde 12 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Öldürmelerin hedefe sayılması için sadece düşman PMC'lerin işaretli alanlarda olması gerekir. İşaretli alanların dışındaki öldürmeler hedefe sayılmaz."
+}

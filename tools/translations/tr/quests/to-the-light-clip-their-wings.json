@@ -1,0 +1,36 @@
+{
+ "id": "to-the-light-clip-their-wings",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta dağdaki meteoroloji istasyonuna bir Signal jammer yerleştir (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Woods'ta kereste fabrikasının nöbetçi kulübesine bir Signal jammer yerleştir (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Woods'tan Customs'a transit kullan (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Customs'ta yol kenarındaki inşaat alanının ikinci katına bir Signal jammer yerleştir (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Customs'tan Shoreline'a transit kullan (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Shoreline'da sağlık tesisi yönetim binasının ikinci katındaki arşive bir Signal jammer yerleştir (Tek raidde)",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde tek bir raidde şunları yapman gerekiyor: Woods'ta dağdaki meteoroloji istasyonuna bir Signal Jammer sakla, sonra kereste fabrikasının nöbetçi kulübesine bir tane daha koy; bunları koyduktan sonra Woods'tan Customs'a transit yap, yol kenarındaki inşaat alanının ikinci katına bir signal jammer koy, sonra Customs'tan Shoreline'a transit yap ve sağlık tesisi yönetim binasının ikinci katındaki arşive bir signal jammer koy. Son hedeften önce herhangi bir anda exfil yaparsan her şeyi baştan yapman gerekir.\n\n▸ Woods\n\n▸ Customs\n\n▸ Shoreline"
+}

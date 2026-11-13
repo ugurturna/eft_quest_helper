@@ -1,0 +1,17 @@
+{
+ "id": "serious-allegations",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Shoreline'da eski evdeki sabit diski bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bulduğun eşyayı teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Shoreline'da bir sabit disk bulman gerekiyor. Bu eşyanın 13 çıkma noktası var: kuzeybatıdaki bataklık köyünde 5 evde 9 nokta, yazlık evlerin (cottages) batısındaki bir evde 3 nokta ve haritanın güneydoğusunda bir kayanın üstünde 1 nokta.\n\n▸ Bataklık köyü evleri\n\n▸ 1 numaralı ev - 2 nokta\n\n▸ 2 numaralı ev - 2 nokta\n\n▸ 3 numaralı ev - 2 nokta\n\n▸ 4 numaralı ev - 1 nokta\n\n▸ 5 numaralı ev - 2 nokta\n\n▸ 6 numaralı ev - 3 nokta\n\n▸ Güneydoğudaki kaya",
+ "notes": "Görev diyaloğu, 2018'de içerik üreticisi Eroktic ile Battlestate Games arasında yaşanan bir olaya gönderme yapıyor. Eroktic, hiçbir gerçek kanıt göstermeden 1.900.000 oyun hesabının kullanıcı verilerinin sızdırıldığı iddiasından bahsettiği bir YouTube videosu yükledi. Buna karşılık Battlestate Games, yanlış bilginin yayılmasını durdurmak için YouTube kanalına 47 DMCA ihtarı gönderdi; bunlar daha sonra kaldırıldı. Battlestate Games iddialar hakkında bir Facebook gönderisiyle açıklama yaptı."
+}

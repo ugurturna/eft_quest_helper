@@ -1,0 +1,15 @@
+{
+ "id": "all-for-the-show-major-sponsor",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Tek canda 5 düşmanı 10 kez öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Tek rauntta kafadan vuruşlarla 2 ya da daha fazla düşmanı 10 kez öldür",
+   "details": []
+  }
+ ]
+}

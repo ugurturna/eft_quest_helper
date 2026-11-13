@@ -1,0 +1,21 @@
+{
+ "id": "gunsmith-master-part-12",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Bir PP-19-01'i verilen özelliklere uyacak şekilde modifiye et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bir T-5000M'i verilen özelliklere uyacak şekilde modifiye et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Bir Glock 17'yi verilen özelliklere uyacak şekilde modifiye et",
+   "details": []
+  }
+ ],
+ "guide": "PP-19-01 özellikleri:\n* 60 dayanıklılık\n* 49'dan yüksek ergonomi\n* 400 ya da daha düşük geri tepme\n* En az 30 kapasiteli bir şarjör\n* Aimpoint Micro T-1 reflex sight\n* Aimpoint Micro Spacer High\n* Zenit RK-6 tactical foregrip\n* AK Zenit RK-3 pistol grip (Black)\n* AK Zenit PT-3 \"Klassika\" stock\n* L3Harris AN/PEQ-15 tactical device (Tan)\n* Zenit Klesch-2P flashlight with laser\n* PP-19-01 Vityaz 9x19 sound suppressor\n\nT-5000M özellikleri:\n* 60 dayanıklılık\n* 18'den yüksek ergonomi\n* Bir şarjör\n* Bir susturucu\n* Nightforce ATACR 7-35x56 34mm riflescope\n* Harris S-BRM 6-9\" Bipod\n\nGlock 17 özellikleri:\n* 60 dayanıklılık\n* Glock 9x19 Double Diamond 114mm threaded barrel\n* Glock 9x19 Double Diamond thread protector\n* Glock Pachmayr Tactical Grip Glove\n* Zenit Klesch-2P flashlight with laser\n* Glock 9x19 Magpul PMAG GL9 21-round magazine"
+}

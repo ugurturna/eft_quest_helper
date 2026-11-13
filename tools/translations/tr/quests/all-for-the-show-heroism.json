@@ -1,0 +1,10 @@
+{
+ "id": "all-for-the-show-heroism",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Hafif ya da ağır kanama varken 5 düşman öldür",
+   "details": []
+  }
+ ]
+}

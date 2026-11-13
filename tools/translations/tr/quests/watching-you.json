@@ -1,0 +1,21 @@
+{
+ "id": "watching-you",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da gözetleme noktasını bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Gözlem sonuçlarını ele geçir",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Verileri teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'da bir gözetleme noktası bulup bir flash drive alman gerekiyor. Gözetleme noktası, kuzeydeki Pinewood otel binasının ikinci katındaki 215 numaralı odada. Odaya girmek için Pinewood hotel room 215 key gerekir. Flash drive'ın odanın içinde birden çok çıkma noktası var."
+}

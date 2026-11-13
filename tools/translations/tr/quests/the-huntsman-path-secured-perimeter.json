@@ -1,0 +1,11 @@
+{
+ "id": "the-huntsman-path-secured-perimeter",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'de 6 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Factory'nin herhangi bir yerinde 6 PMC öldürmen gerekiyor"
+}

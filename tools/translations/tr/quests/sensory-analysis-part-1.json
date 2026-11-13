@@ -1,0 +1,21 @@
+{
+ "id": "sensory-analysis-part-1",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Eşyayı ele geçir: Bottle of Fierce Hatchling moonshine",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Go to Woods or Streets of Tarkov",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Bottle of Fierce Hatchling moonshine'ı BTR sürücüsüne teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde BTR sürücüsüne bir Bottle of Fierce Hatchling moonshine teslim etmen gerekiyor. Ragman oyun içi postayla bir tane gönderir."
+}

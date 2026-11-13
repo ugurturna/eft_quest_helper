@@ -1,0 +1,21 @@
+{
+ "id": "foresters-duty",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta 5 Scav öldür (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Lighthouse'tan Shoreline'a transit kullan (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Shoreline'da 5 Scav öldür (Tek raidde)",
+   "details": []
+  }
+ ],
+ "guide": "▸ Lighthouse'tan Shoreline'a\nPath to Shoreline exfil'inde. Transit'ler raid başladıktan ancak 1 dk sonra kullanılabilir."
+}

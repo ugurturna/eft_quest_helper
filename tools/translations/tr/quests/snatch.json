@@ -1,0 +1,31 @@
+{
+ "id": "snatch",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'tan çık",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Lighthouse'daki Rogue üssündeki sahte istihbaratı bulun",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Reserve'deki yeraltı sığınağında orijinal zekayı bulun",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Sahte zekayı orijinalin yerine saklayın",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Orijinal zekayı Lightkeeper'a getirin",
+   "details": []
+  }
+ ],
+ "guide": "*Bu eşya, görevi kabul ettikten sonraki ilk Lighthouse raidinde çıkar.\n\nBu görevde Lighthouse'ta sahte istihbaratı alman ve Reserve'de asıl istihbaratla değiştirmen gerekiyor. Sonra asıl istihbaratı Lightkeeper'a götürmen gerekiyor.\n\n▸ Lighthouse'ta sahte istihbaratın yerleri\nSahte istihbarat, su arıtma tesisinin batı girişinin yakınındaki yeşil ya da mavi bir konteynerde bulunur.\n\n▸ Reserve'de asıl istihbaratın ve değiştirme noktasının yeri\nAsıl istihbarat, Reserve'deki onarım merkezinde (white knight) iki garaj binasından büyük olanının içindeki kilitli bir odada duran bir BMP-2'nin sağ paletlerine sıkıştırılmış. Kapıyı açmak için RB-ST key gerekir. Sahte istihbarat BMP-2'nin arkasına konmalı."
+}

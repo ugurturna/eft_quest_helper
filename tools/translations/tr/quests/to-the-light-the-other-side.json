@@ -1,0 +1,21 @@
+{
+ "id": "to-the-light-the-other-side",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve'de işaretli herhangi bir odaya TerraGroup \"Blue Folders\" materials sakla",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Streets of Tarkov'da işaretli herhangi bir odaya TerraGroup \"Blue Folders\" materials sakla",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Customs'ta işaretli herhangi bir odaya TerraGroup \"Blue Folders\" materials sakla",
+   "details": []
+  }
+ ],
+ "guide": "*Hedefleri tamamlamak için her harita için sadece bir anahtar gerekir.\n\nBu görevde Reserve, Streets of Tarkov ve Customs'ta birer tane olmak üzere 3 işaretli odaya 3 TerraGroup \"Blue Folders\" materials saklaman gerekiyor.\n\n▸ Reserve\nKlasörlerin sadece aşağıdakilerden birine saklanması yeterli.\n\n▸ RB-BK\nBlack pawn kışla binasının birinci katındaki işaretli oda. Girmek için RB-BK marked key gerekir.\n\n▸ RB-PKPM\nYeraltı tünel sistemindeki komuta ofisinin yanındaki işaretli oda. Girmek için RB-PKPM marked key gerekir.\n\n▸ RB-VO\nReserve'deki güvenlik kışlası binasındaki işaretli oda. Girmek için RB-VO marked key gerekir.\n\n▸ Streets of Tarkov\nKlasörlerin sadece aşağıdakilerden birine saklanması yeterli.\n\n▸ Terk edilmiş fabrika\n\n▸ Gizemli oda\n\n▸ Customs"
+}

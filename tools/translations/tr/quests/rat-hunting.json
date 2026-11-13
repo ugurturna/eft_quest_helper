@@ -1,0 +1,35 @@
+{
+ "id": "rat-hunting",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde eşyayı bul: PC CPU",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "PC CPUları teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde eşyayı bul: Rechargeable battery",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Şarj edilebilir bataryaları teslim et",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Raidde eşyayı bul: Printed circuit board",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Baskılı devre kartlarını teslim et",
+   "details": []
+  }
+ ]
+}

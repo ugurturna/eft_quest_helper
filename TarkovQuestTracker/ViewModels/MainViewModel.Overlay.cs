@@ -133,6 +133,8 @@ public sealed partial class MainViewModel
         OnPropertyChanged(nameof(OverlayShowInCapture));
         OnPropertyChanged(nameof(FleaShowInCapture));
         OnPropertyChanged(nameof(MapShowInCapture));
+        OnPropertyChanged(nameof(ItemCheckAuto));
+        ItemCheck.Auto = Settings.ItemCheckAuto;
         OnPropertyChanged(nameof(OverlayCaptureWarning));
         OnPropertyChanged(nameof(OverlayMaxKey));
         OnPropertyChanged(nameof(OverlayHideDoneObjectives));

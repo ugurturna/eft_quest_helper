@@ -1,0 +1,12 @@
+{
+ "id": "the-good-times-part-1",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'de 6B43 zırh ve Kiver-M kask giyerken 5 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Factory'de hem FORT Kiver-M bulletproof helmet hem de 6B43 Zabralo-Sh body armor (EMR) giyerken 5 PMC öldürmen gerekiyor.",
+ "notes": "Bu görev oyunun ilk günlerine bir göndermedir. O zamanlar tek kask FORT Kiver-M bulletproof helmet, tek zırhlar da PACA Soft Armor ve 6B43 Zabralo-Sh body armor (EMR) idi. Bu yüzden Factory'de Kiver-M kask + 6B43 zırh kombinasyonu meta idi."
+}

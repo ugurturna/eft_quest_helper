@@ -1,0 +1,12 @@
+{
+ "id": "oil-run",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta yakıt tankerlerinden herhangi birini bul ve MS2000 Marker ile işaretle",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Customs'taki 4 yakıt tankerinden 1'ini MS2000 Marker ile işaretlemen gerekiyor.\nPrapor oyun içi posta ile bir MS2000 Marker gönderir.",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den ek MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

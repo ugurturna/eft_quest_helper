@@ -1,0 +1,20 @@
+{
+ "id": "gladiator-doping-part-4",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Zagustin stimülanının etkisi altındayken 30 düşman öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Propital stimülanının etkisi altındayken 30 düşman öldür",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Meldonin stimülanının etkisi altındayken 30 düşman öldür",
+   "details": []
+  }
+ ]
+}

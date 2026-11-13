@@ -1,0 +1,22 @@
+{
+ "id": "saving-private-roman",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta Lighthouse'a giden transit'i MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Woods'tan Lighthouse'a transit kullan",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Lighthouse'ta Woods'a giden transit'i MS2000 Marker ile işaretle",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce Woods'taki Lighthouse transit'ini MS2000 Marker ile işaretleyip kullanman gerekiyor. Sonra Lighthouse'taki Woods transit'ini MS2000 Marker ile işaretlemen gerekiyor.\n\n▸ Woods'tan Lighthouse'a transit\n\n▸ Lighthouse'tan Woods'a transit",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

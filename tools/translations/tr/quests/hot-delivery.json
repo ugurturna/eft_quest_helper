@@ -1,0 +1,21 @@
+{
+ "id": "hot-delivery",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Interchange'te belirtilen yere bir ComTac II kulaklık sakla",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Interchange'te belirtilen yere bir 6B47 kask (Olive Drab) sakla",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "BNTI Gzhel-K zırhını yerine bırak",
+   "details": []
+  }
+ ],
+ "guide": "Kulaklık ve kask, \"Avokado\" mağazasındaki bir çöp yığınına yerleştirilmeli. 6B47 kaskın EMR cover ve EMR Arctic cover çeşitleri kullanılamaz.\n\nZırh, alışveriş merkezinin dışında, \"ULTRA\" mağazasının önündeki sahnenin yanındaki bir çöp yığınına yerleştirilmeli. Ağırlığı azaltmak için zırh plakaları çıkarılabilir."
+}

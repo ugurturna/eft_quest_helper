@@ -1,0 +1,66 @@
+{
+ "id": "camera-action",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde bulunmuş eşyayı teslim et: SSD drive",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde bulunmuş eşyayı teslim et: USB Adapter",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde bulunmuş eşyayı teslim et: Portable Powerbank",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Raidde bulunmuş eşyayı teslim et: Rechargeable battery",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Raidde bulunmuş eşyayı teslim et: PC CPU",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Raidde bulunmuş eşyayı teslim et: Electronic components",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "Raidde bulunmuş eşyayı teslim et: Bundle of wires",
+   "details": []
+  },
+  {
+   "id": "o8",
+   "text": "Raidde bulunmuş eşyayı teslim et: Capacitors",
+   "details": []
+  },
+  {
+   "id": "o9",
+   "text": "Raidde bulunmuş eşyayı teslim et: NIXXOR lens",
+   "details": []
+  },
+  {
+   "id": "o10",
+   "text": "Raidde bulunmuş eşyayı teslim et: RAM stick",
+   "details": []
+  },
+  {
+   "id": "o11",
+   "text": "Raidde bulunmuş eşyayı teslim et: Working LCD",
+   "details": []
+  },
+  {
+   "id": "o12",
+   "text": "Raidde bulunmuş eşyayı teslim et: Light bulb",
+   "details": []
+  }
+ ],
+ "notes": "Görev diyaloğu, Battlestate Games'in çektiği ve YouTube'da ücretsiz izlenebilen \"Raid\" filmine gönderme yapıyor."
+}

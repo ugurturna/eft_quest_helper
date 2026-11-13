@@ -1,0 +1,11 @@
+{
+ "id": "silent-caliber",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve, Lighthouse, Ground Zero ya da The Lab'de susturuculu 12 kalibre pompalıyla herhangi 30 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görev 12/70 mermi kullanan herhangi bir pompalıyla yapılabilir."
+}

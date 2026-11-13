@@ -1,0 +1,22 @@
+{
+ "id": "shady-contractor",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Ground Zero'da Knossos LLC kıdemli müdürünün arabasını bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Müdürün günlüğünü bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Günlüğü teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Müdürün arabası Ground Zero'daki oto galerisinin yanında. Arabanın içinde birden çok günlük çıkma noktası var.",
+ "notes": "* Bu görev \"The Λabyrinth\" videosuyla birlikte yayınlandı"
+}

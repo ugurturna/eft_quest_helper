@@ -1,0 +1,17 @@
+{
+ "id": "revision-lighthouse",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta BRDM araçlarından herhangi birini bul ve MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Lighthouse'ta Stryker araçlarından herhangi birini bul ve MS2000 Marker ile işaretle",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Lighthouse'ta bir BRDM ve bir Stryker aracını bulup MS2000 Marker'larla işaretlemen gerekiyor. Her biri için 3 olası yer var.",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

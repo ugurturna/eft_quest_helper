@@ -1,0 +1,10 @@
+{
+ "id": "all-for-the-show-soldier",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "CheckPoint modunda herhangi bir bere takarken 50 düşman öldür",
+   "details": []
+  }
+ ]
+}

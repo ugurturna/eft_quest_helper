@@ -1,0 +1,101 @@
+{
+ "id": "new-beginning-prestige-6",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "50 PMC öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "100 Rogue öldür",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Herhangi bir Boss'u kafadan vuruşla bul ve etkisiz hale getir",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "5 kapüşonlu adamı öldür",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "The Lab'den sağ çık",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Streets of Tarkov'dan Interchange'e transit kullan",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "Interchange'ten Customs'a transit kullan",
+   "details": []
+  },
+  {
+   "id": "o8",
+   "text": "Customs'tan Reserve'e transit kullan",
+   "details": []
+  },
+  {
+   "id": "o9",
+   "text": "Reserve'den sağ çık",
+   "details": []
+  },
+  {
+   "id": "o10",
+   "text": "Raidde bulunmuş eşyayı teslim et: BEAR operative figurine",
+   "details": []
+  },
+  {
+   "id": "o11",
+   "text": "Raidde bulunmuş eşyayı teslim et: Politician Mutkevich figurine",
+   "details": []
+  },
+  {
+   "id": "o12",
+   "text": "Raidde bulunmuş eşyayı teslim et: Killa figurine",
+   "details": []
+  },
+  {
+   "id": "o13",
+   "text": "Raidde bulunmuş eşyayı teslim et: Reshala figurine",
+   "details": []
+  },
+  {
+   "id": "o14",
+   "text": "Raidde bulunmuş eşyayı teslim et: Ryzhy figurine",
+   "details": []
+  },
+  {
+   "id": "o15",
+   "text": "Raidde bulunmuş eşyayı teslim et: Scav figurine",
+   "details": []
+  },
+  {
+   "id": "o16",
+   "text": "Raidde bulunmuş eşyayı teslim et: Tagilla figurine",
+   "details": []
+  },
+  {
+   "id": "o17",
+   "text": "Raidde bulunmuş eşyayı teslim et: USEC operative figurine",
+   "details": []
+  },
+  {
+   "id": "o18",
+   "text": "Raidde bulunmuş eşyayı teslim et: Cultist figurine",
+   "details": []
+  },
+  {
+   "id": "o19",
+   "text": "Raidde bulunmuş eşyayı teslim et: Den figurine",
+   "details": []
+  }
+ ],
+ "guide": "▸ Streets of Tarkov'dan Interchange'e\nConcordia apartman kompleksinin güneybatısında.\n\n▸ Interchange'ten Customs'a\nOtoyolun güney ucunda.\n\n▸ Customs'tan Reserve'e"
+}

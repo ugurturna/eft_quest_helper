@@ -1,0 +1,24 @@
+{
+ "id": "saving-the-mole",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Ground Zero'da laboratuvar bilim insanının ofisine gir",
+   "details": [
+    "(İsteğe bağlı) TerraGroup kompleksinin otoparkında USEC grubunu bul",
+    "(İsteğe bağlı) TerraGroup kompleksinde laboratuvar bilim insanını bul"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Bilim insanının sabit diskini bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Sabit diski teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce TerraGroup bina kompleksinin ana binasında laboratuvar bilim insanını bulman gerekiyor. Bilim insanı, giriş holündeki büyük TerraGroup tabelasının arkasındaki koridorda, molozun altında. Cesedinin içinde ikinci kattaki 4 numaralı ofisi açan bir TerraGroup science office key bulunur. Her raidde tek bir anahtar kesin çıkar, ama başka oyuncular alabilir.\n\nSonra ikinci kattaki bilim insanının ofisinde (4 numara) bir sabit disk bulman gerekiyor. Ofis TerraGroup science office key ile açılır.\n\nOfise girince sabit disk, ekranları açık olan tek masada bulunur. Masanın üstünde ya da sağdaki rafta olabilir."
+}

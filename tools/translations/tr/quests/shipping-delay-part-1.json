@@ -1,0 +1,11 @@
+{
+ "id": "shipping-delay-part-1",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'taki depodan aldığın paketi teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods'ta Prapor'un paketini bulman gerekiyor. Paket, tren deposunun kuzeybatı binasında 2 noktadan birinde çıkar. Depoya sadece BTR sürücüsünün taksi hizmetiyle ulaşılabilir.\n\nDepodan batıdaki trenin üstünde yürüyerek de çıkılabilir. Trenin üstünde yürürken keskin nişancılara ya da mayınlara yakalanmamak için ortadan yürümen önemli."
+}

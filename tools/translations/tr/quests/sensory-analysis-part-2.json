@@ -1,0 +1,17 @@
+{
+ "id": "sensory-analysis-part-2",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Bir Bottle of Fierce Hatchling moonshine bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bir Bottle of Fierce Hatchling moonshine teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde BTR sürücüsüne bir Bottle of Fierce Hatchling moonshine teslim etmen ve ona sağlık tesisinin altındaki tesisi ve oraya girmek için gereken kartları sorman gerekiyor.",
+ "notes": "* Bu görev, Sensory Analysis - Part 1'i kabul edince görev listesine kendiliğinden eklenir."
+}

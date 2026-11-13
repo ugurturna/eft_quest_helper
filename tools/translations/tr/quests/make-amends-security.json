@@ -1,0 +1,26 @@
+{
+ "id": "make-amends-security",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta su arıtma tesisine yaklaşan güney köprüsündeki sarı otobüse bir WI-FI Camera yerleştir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Lighthouse'ta su arıtma tesisinin güneydoğusundaki sarı buldozere bir WI-FI Camera yerleştir",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Lighthouse'ta su arıtma tesisinin batısındaki polis kamyonuna bir WI-FI Camera yerleştir",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Lighthouse'ta su arıtma tesisinin kuzeyindeki sanayi bölgesinin yakınındaki askeri kamyona bir WI-FI Camera yerleştir",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Lighthouse'taki su arıtma tesisinin çevresindeki farklı araçlara 4 WI-FI Camera yerleştirmen gerekiyor."
+}

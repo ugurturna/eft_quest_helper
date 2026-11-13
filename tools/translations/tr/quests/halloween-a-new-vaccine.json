@@ -1,0 +1,28 @@
+{
+ "id": "halloween-a-new-vaccine",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Infected Factory'den sağ çık",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Infected Lab'den sağ çık",
+   "details": [
+    "(İsteğe bağlı) Exfil'i kullanmak için gereken özel eşyayı ele geçir"
+   ]
+  },
+  {
+   "id": "o3",
+   "text": "2.000 USD teslim et",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Infected Factory ya da Infected Lab'den sağ çık",
+   "details": []
+  }
+ ],
+ "guide": "▸ Skier görev serisi\nBu görevde hem Infected Factory'den hem de Infected Lab'den sağ çıkman ve 2.000 dolar teslim etmen gerekiyor.\n\n▸ Therapist görev serisi\nBu görevde Infected Factory ya da Infected Lab'den birinden sağ çıkman gerekiyor."
+}

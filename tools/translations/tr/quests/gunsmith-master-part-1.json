@@ -1,0 +1,11 @@
+{
+ "id": "gunsmith-master-part-1",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Bir HK 416A5'i verilen özelliklere uyacak şekilde modifiye et",
+   "details": []
+  }
+ ],
+ "guide": "HK 416A5 özellikleri:\n* 80 dayanıklılık\n* 50 ya da daha yüksek ergonomi\n* 310 ya da daha düşük geri tepme\n* 4 kg ya da daha hafif\n* 300 ya da daha yüksek nişan mesafesi\n* En az 30 kapasiteli bir şarjör\n*SureFire SOCOM556-RC2 5.56x45 sound suppressor\n*Magpul RVG foregrip (FDE)\n*EOTech EXPS3-0 holographic sight (Tan)\n*AR-15 Magpul UBR GEN2 stock (FDE)\n*AR-15 Magpul MOE pistol grip (FDE)\n*L3Harris LA-5B/PEQ tactical device"
+}

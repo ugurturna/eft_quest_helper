@@ -1,0 +1,21 @@
+{
+ "id": "a-helping-hand",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta Prapor'un paketini bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Haritadan sağ çık (Survive and extract)",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Shipping Delay - Part 1 görevini tamamla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods'ta Prapor'un paketini bulman gerekiyor. Paket, tren deposunun kuzeybatı binasında 2 noktadan birinde çıkar. Depoya sadece BTR sürücüsünün taksi hizmetiyle ulaşılabilir. Paketi aldıktan sonra Prapor'un Shipping Delay - Part 1 görevinde ona teslim etmen gerekir, sonra bu görevi tamamlayabilirsin.\n\nDepodan batıdaki trenin üstünde yürüyerek de çıkılabilir. Trenin üstünde yürürken keskin nişancılara ya da mayınlara yakalanmamak için ortadan yürümen önemli."
+}

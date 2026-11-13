@@ -1,0 +1,12 @@
+{
+ "id": "belka-and-strelka",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'tan Railroad Passage (Flare) üzerinden sağ çık",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Customs'tan \"Railroad Passage\" exfil'inden \"survived\" durumuyla çıkman gerekiyor. Exfil'in açılması için işaret fişeği alanının içindeyken gökyüzüne yeşil bir işaret fişeği atman gerekir. İşaret fişeği alanına girince ekranın sağ alt köşesinde bir bildirim çıkar: Fişek belli bir yüksekliğe ulaşmazsa exfil açılmaz. Fişek doğru atıldıysa yeni bir bildirim çıkar: Prapor'un oyun içi postayla gönderdiği elde tutulan RSP-30 yeşil fişeği ya da işaret tabancasından atılan 26x75mm yeşil fişek kartuşunu kullanabilirsin. Elde tutulan RSP-30 yeşil fişeği kullanıyorsan yukarı doğru nişan al, ama çok fazla değil, yoksa arkana düşer. Ek fişeğe ihtiyacın olursa Jaeger'dan alabilirsin. \"Run through\" durumundan kaçınmak için çıkmadan önce raidde en az 200 EXP kazan (öldürerek ya da loot toplayarak) ya da raidde en az 7 dakika kal.",
+ "notes": "Belka ve Strelka, Dünya yörüngesine çıkıp canlı dönen ilk iki köpeğin adlarıdır."
+}

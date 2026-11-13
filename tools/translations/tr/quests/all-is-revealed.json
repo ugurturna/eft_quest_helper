@@ -1,0 +1,16 @@
+{
+ "id": "all-is-revealed",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'de hasarlı tank konteynerindeki kimyasallardan örnek al",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Topladığın örneği teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Factory'deki 28 numaralı tank konteynerindeki kimyasaldan örnek alman gerekiyor."
+}

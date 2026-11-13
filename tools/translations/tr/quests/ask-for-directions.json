@@ -1,0 +1,27 @@
+{
+ "id": "ask-for-directions",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta uçurum yolunun birinci bölümünü bul ve MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Lighthouse'ta uçurum yolunun ikinci bölümünü bul ve MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Lighthouse'ta uçurum yolunun üçüncü bölümünü bul ve MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Lighthouse'ta uçurum yolunun dördüncü bölümünü bul ve MS2000 Marker ile işaretle",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Lighthouse'taki uçurum yolunun 4 bölümünü işaretlemen gerekiyor. Yol, mavi (kuzeydeki) dağ evinin üstünde.",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

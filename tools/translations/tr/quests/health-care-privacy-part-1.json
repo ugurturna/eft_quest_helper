@@ -1,0 +1,27 @@
+{
+ "id": "health-care-privacy-part-1",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Sahil Şeridi'nde birinci ambulansı bulun ve MS2000 İşaretleyici ile işaretleyin",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Sahil Şeridi'nde ikinci ambulansı bulun ve MS2000 İşaretleyici ile işaretleyin",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Sahil Şeridi'nde üçüncü ambulansı bulun ve MS2000 İşaretleyici ile işaretleyin",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Shoreline'da dördüncü ambulansı bul ve MS2000 Marker ile işaretle",
+   "details": []
+  }
+ ],
+ "guide": "Aranan ambulanslardan ikisi \"Tunnel\" exfil'inde. Üçüncüsü helikopterin yakınındaki sağlık tesisinde (resort). Dördüncüsü yazlık evlerin (cottages) yanında.",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

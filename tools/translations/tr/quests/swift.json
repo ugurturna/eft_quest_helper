@@ -1,0 +1,11 @@
+{
+ "id": "swift",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta hiçbir zırh ya da kask kullanmadan 10 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görev Woods'ta geçiyor. Hiçbir zırh yeleği, zırhlı göğüs teçhizatı (chest rig), zırhlı başlık ya da zırhlı yüz koruması giymeden 10 PMC öldürmen gerekiyor. Zırhlı gözlük serbest.\n\nHata: ANA Tactical Alpha chest rig (MultiCam) zırhlı olmadığı halde şu an bu görevde zırhlı sayılıyor.\n\nBu görev sırasında kendini korumak istiyorsan yine zırh giyebilirsin, ama bir PMC'yi öldürmeden önce çıkar."
+}

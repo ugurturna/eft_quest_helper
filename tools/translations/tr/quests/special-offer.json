@@ -1,0 +1,56 @@
+{
+ "id": "special-offer",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde Sanitar's bag bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Teçhizatı teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde Crye Precision AVS plate carrier (Tagilla Edition) bul",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Teçhizatı teslim et",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Raidde LBT-1961A Load Bearing Chest Rig (Goons Edition) bul",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Teçhizatı teslim et",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "Raidde Mystery Ranch NICE COMM 3 BVS frame system (Coyote) bul",
+   "details": []
+  },
+  {
+   "id": "o8",
+   "text": "Teçhizatı teslim et",
+   "details": []
+  },
+  {
+   "id": "o9",
+   "text": "Raidde Crye Precision CPC plate carrier (Goons Edition) bul",
+   "details": []
+  },
+  {
+   "id": "o10",
+   "text": "Teçhizatı teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Gereken teçhizat ilgili bosslardan ya da Cultist Circle'dan elde edilebilir."
+}

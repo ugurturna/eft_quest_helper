@@ -1,0 +1,21 @@
+{
+ "id": "inevitable-response",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta 5 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Woods'tan Reserve'e transit kullan",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Reserve'de 5 Scav öldür",
+   "details": []
+  }
+ ],
+ "guide": "▸ Woods'tan Reserve'e\nTransit'ler raid başladıktan ancak 1 dk sonra kullanılabilir."
+}

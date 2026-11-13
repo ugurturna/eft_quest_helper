@@ -1,0 +1,11 @@
+{
+ "id": "health-care-privacy-part-4",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Yorgunluk (Fatigue) durumunu kazan ve 8 dakika boyunca koru",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde etkiyi kazanıp 8 dakika boyunca koruman gerekiyor. Etki, dayanıklılık (stamina) kritik seviyedeyken (kırmızı çubuk) sürekli stamina kullanmakla oluşur ve sınırsız üst üste eklenebilir. Bir yığın sadece 3 dakika sürer, bu yüzden etkiyi 8 dakika tutmak için kritik seviyede sürekli stamina kullanman gerekir. Süreyi sağlık sekmesinde göğüs (thorax) bölgesinden kontrol edebilirsin."
+}

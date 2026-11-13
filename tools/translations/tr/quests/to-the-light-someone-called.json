@@ -1,0 +1,11 @@
+{
+ "id": "to-the-light-someone-called",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Hideout'a dön",
+   "details": []
+  }
+ ],
+ "guide": "Oyun menüsüne dönmek hedefi tamamlar."
+}

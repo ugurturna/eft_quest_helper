@@ -1,0 +1,22 @@
+{
+ "id": "revision-streets-of-tarkov",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da birinci LAV III'ü bul ve MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Streets of Tarkov'da Stryker'ı bul ve MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Streets of Tarkov'da ikinci LAV III'ü bul ve MS2000 Marker ile işaretle",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'da 3 aracı bulup MS2000 marker'larla işaretlemen gerekiyor.",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

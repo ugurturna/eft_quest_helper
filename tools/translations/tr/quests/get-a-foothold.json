@@ -1,0 +1,45 @@
+{
+ "id": "get-a-foothold",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Eşyayı teslim et: 30 SJ6 TGLabs combat stimulant injector",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyayı teslim et: 30 Obdolbos 2 cocktail injector",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Eşyayı teslim et: 30 Propital regenerative stimulant injector",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Eşyayı teslim et: 30 M.U.L.E. stimulant injector",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Eşyayı teslim et: 30 ETG-change regenerative stimulant injector",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Eşyayı teslim et: 30 SJ9 TGLabs combat stimulant injector",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "Eşyayı teslim et: 30 SJ12 TGLabs combat stimulant injector",
+   "details": []
+  },
+  {
+   "id": "o8",
+   "text": "Eşyayı teslim et: 30 Meldonin injector",
+   "details": []
+  }
+ ]
+}

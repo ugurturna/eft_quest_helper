@@ -1,0 +1,10 @@
+{
+ "id": "i-am-speed-part-3",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "CheckPoint, BlastGang, LastHero ya da TeamFight'ta tek maçta 25 düşman öldür",
+   "details": []
+  }
+ ]
+}

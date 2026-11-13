@@ -1,0 +1,18 @@
+{
+ "id": "to-great-heights-part-4",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "1.000.000 ruble teslim et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Arena'da TeamFight, BlastGang ya da CheckPoint modunda altı maçın üçünü kazan",
+   "details": [
+    "Başarısızlık koşulu: 4 maç kaybetmek"
+   ]
+  }
+ ],
+ "guide": "1.000.000 ruble hem ana oyunun hem de Arena'nın deposundan teslim edilebilir. 6 maçın 4'ü kaybedilirse görev başarısız olur ve yeni bir deneme için rublelerin yeniden teslim edilmesi gerekir."
+}

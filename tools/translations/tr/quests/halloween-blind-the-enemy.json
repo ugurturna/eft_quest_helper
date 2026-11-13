@@ -1,0 +1,36 @@
+{
+ "id": "halloween-blind-the-enemy",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "RDA-78 aşısını teslim et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Woods'taki tren deposunda 2 kamerayı yok et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Customs'taki yurtlarda 3 kamerayı yok et",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Lighthouse'taki su arıtma tesisinde 3 kamerayı yok et",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Reserve'deki tren deposunda 3 kamerayı yok et",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Shoreline'daki sağlık tesisinde 3 kamerayı yok et",
+   "details": []
+  }
+ ],
+ "guide": "▸ Woods\n\n▸ Customs\n\n▸ Lighthouse\n\n▸ Reserve\n\n▸ Shoreline"
+}

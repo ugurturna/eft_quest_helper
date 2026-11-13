@@ -1,0 +1,16 @@
+{
+ "id": "safe-corridor",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve'de yeraltı deposunda 5 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Yeraltı deposunun raidde bulunmuş herhangi 3 anahtarını teslim et (RB-PSP ve RB-PSV)",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Reserve'deki yeraltı deposunda ve ona inen rampalarda 5 Scav öldürmen gerekiyor. Aranan depo kuzeybatıda ve \"Д\" ile işaretli."
+}

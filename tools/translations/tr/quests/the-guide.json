@@ -1,0 +1,36 @@
+{
+ "id": "the-guide",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods ya da Interchange'ten \"Survived\" çıkış durumuyla sağ çık",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Factory ya da Customs'tan \"Survived\" çıkış durumuyla sağ çık",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Shoreline ya da Reserve'den \"Survived\" çıkış durumuyla sağ çık",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "The Lab ya da Lighthouse'tan \"Survived\" çıkış durumuyla sağ çık",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Ground Zero ya da Streets of Tarkov'dan \"Survived\" çıkış durumuyla sağ çık",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Herhangi 15 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Her haritada arka arkaya ölmeden, bağlantın kopmadan ya da süre dolmadan bir raidden sağ çıkman gerekiyor. Bunlardan biri olursa baştan başlaman gerekir. Raidden \"Run Through\" durumuyla çıkarsan görev sıfırlanmaz, ama o raid tamamlanmış sayılmaz. \"Run Through\" durumundan kaçınmak için çıkmadan önce raidde en az 200 EXP kazan (öldürerek ya da loot toplayarak) ya da raidde en az 7 dakika kal. Haritaları belli bir sırayla yapman gerekmez; hayatta kaldığın sürece istediğin gibi yapabilirsin.\n\nBu görev transit'ler kullanılarak tek bir raidde de tamamlanabilir."
+}

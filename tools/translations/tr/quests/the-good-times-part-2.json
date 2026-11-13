@@ -1,0 +1,12 @@
+{
+ "id": "the-good-times-part-2",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Altın TT-33 tabancayı kullanırken herhangi 10 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Tokarev TT-33 7.62x25 TT pistol (Golden), Customs'ta Reshala'yı öldürerek elde edilebilir.",
+ "notes": "Görev diyaloğu, oyuna bossların eklenmesine gönderme yapıyor; bu 19 Temmuz 2018'de 0.9.0.1580 yamasıyla Reshala ile başladı."
+}

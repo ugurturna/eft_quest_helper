@@ -6,6 +6,8 @@ re-scraping. Each file:
     {"id": "tour", "name": "...", "objectives": [{"id": "o1", "text": "...", "details": ["..."]}],
      "guide": "...", "notes": "..."}
 
+Every key but "id" is optional: a file with only a guide keeps the quest's other Turkish text.
+
     python tools/scraper/build_translations.py tr
 """
 import json
@@ -36,7 +38,8 @@ def main():
                 problems.append(f"{f.name}: unknown objective {o['id']}")
             elif len(o.get("details", [])) != len(eo["details"]):
                 problems.append(f"{f.name}: {o['id']} has {len(o.get('details', []))} details, English has {len(eo['details'])}")
-        missing = [o for o in en_objs if o not in {x["id"] for x in tr.get("objectives", [])}]
+        # a file may translate only the guide / notes; when it has objectives, it has all of them
+        missing = [o for o in en_objs if o not in {x["id"] for x in tr.get("objectives", [])}] if tr.get("objectives") else []
         if missing:
             problems.append(f"{f.name}: untranslated objectives {missing}")
         entry = out.get(tr["id"], {"id": tr["id"], "sources": {}})

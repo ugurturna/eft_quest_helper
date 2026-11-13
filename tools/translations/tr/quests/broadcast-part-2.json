@@ -1,0 +1,16 @@
+{
+ "id": "broadcast-part-2",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da market içinde kanlı yayının yapıldığı yeri bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Haritadan sağ çık (Survive and extract)",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'da kanlı yayının yapıldığı yeri bulman gerekiyor. Yayın yeri Primorsky bulvarındaki Sparja mağazasının içinde."
+}

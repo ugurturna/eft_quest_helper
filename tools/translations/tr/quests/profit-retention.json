@@ -1,0 +1,15 @@
+{
+ "id": "profit-retention",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Eşyayı teslim et: 30 Graphics card",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyayı teslim et: 15 Physical Bitcoin",
+   "details": []
+  }
+ ]
+}

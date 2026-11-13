@@ -1,0 +1,11 @@
+{
+ "id": "balancing-part-1",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Herhangi bir haritada Steyr AUG kullanırken 5 Scav öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde herhangi bir haritada Steyr AUG saldırı tüfeğiyle 5 Scav öldürmen gerekiyor. Hem AUG A1 hem AUG A3 kullanılabilir."
+}

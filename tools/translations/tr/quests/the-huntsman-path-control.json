@@ -1,0 +1,10 @@
+{
+ "id": "the-huntsman-path-control",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "The Lab'de herhangi 10 hedefi öldür (tek raidde)",
+   "details": []
+  }
+ ]
+}

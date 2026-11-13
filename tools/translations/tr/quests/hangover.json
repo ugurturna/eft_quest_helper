@@ -1,0 +1,11 @@
+{
+ "id": "hangover",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "BTR sürücüsüne geri dön ve kaçakçılarla yapılan görüşmeleri sor",
+   "details": []
+  }
+ ],
+ "notes": "Diyalog sırasında BTR sürücüsünün akşamdan kalmalığına yardım etmek için şu eşyalardan biri teslim edilebilir. Bu tamamen isteğe bağlı ve ödülleri değiştirmez.\n* Analgin painkillers\n* Aquamari water bottle with filter\n* Bottle of Pevko Light beer\n* Can of beef stew (Large)\n* Can of beef stew (Small)\n* Canister with purified water\n* Jar of pickles\n* Pack of Tarker dried meat"
+}

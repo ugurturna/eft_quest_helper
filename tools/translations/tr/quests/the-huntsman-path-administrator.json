@@ -1,0 +1,27 @@
+{
+ "id": "the-huntsman-path-administrator",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve'deki tren deposunda sarı bir işaret fişeği at",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Reserve'deki tren deposunda herhangi 6 hedefi öldür",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Lighthouse'taki tren istasyonunda sarı bir işaret fişeği at",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Lighthouse'taki tren istasyonu bölgesinde herhangi 6 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce tarafına göre Reserve ya da Lighthouse'taki tren bölgesinin içindeyken gökyüzüne sarı bir işaret fişeği atman gerekiyor. Fişek belli bir yüksekliğe ulaşmazsa görev hedefi tamamlanmaz. Prapor LL1'den alınabilen elde tutulan RSP-30 sarı fişeği ya da Jaeger LL1'den alınabilen, işaret tabancasından atılan 26x75mm sarı fişek kartuşunu kullanabilirsin. Elde tutulan RSP-30 sarı fişeği kullanıyorsan yukarı doğru nişan al, ama çok fazla değil, yoksa arkana düşer. Sonra aynı raidde bölgede herhangi 6 hedefi öldürmen gerekiyor.",
+ "notes": "Oyuncunun tarafına (BEAR/USEC) göre diyaloglar ve hedefler farklı olur."
+}

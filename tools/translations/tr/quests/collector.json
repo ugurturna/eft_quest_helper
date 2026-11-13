@@ -1,0 +1,226 @@
+{
+ "id": "collector",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Antika baltayı teslim et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Yıpranmış antik kitabı teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "#FireKlean silah yağını teslim et",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Gümüş rozeti teslim et",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Deadlyslob'un sakal yağını teslim et",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Altın 1GPhone'u teslim et",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "Sahte bıyığı teslim et",
+   "details": []
+  },
+  {
+   "id": "o8",
+   "text": "Raven heykelciğini teslim et",
+   "details": []
+  },
+  {
+   "id": "o9",
+   "text": "Pestily veba maskesini teslim et",
+   "details": []
+  },
+  {
+   "id": "o10",
+   "text": "Shroud yarım maskesini teslim et",
+   "details": []
+  },
+  {
+   "id": "o11",
+   "text": "Bir kavanoz Dr. Lupo kahve çekirdeğini teslim et",
+   "details": []
+  },
+  {
+   "id": "o12",
+   "text": "42nd Signature Blend İngiliz Çayı'nı teslim et",
+   "details": []
+  },
+  {
+   "id": "o13",
+   "text": "Veritas gitar penasını teslim et",
+   "details": []
+  },
+  {
+   "id": "o14",
+   "text": "Raidde bulunmuş eşyayı teslim et: Domontovich ushanka hat",
+   "details": []
+  },
+  {
+   "id": "o15",
+   "text": "RatCola Kutusu ver",
+   "details": []
+  },
+  {
+   "id": "o16",
+   "text": "Raidde bulunmuş eşyayı teslim et: Dunduk floppy disk",
+   "details": []
+  },
+  {
+   "id": "o17",
+   "text": "Raidde bulunmuş eşyayı teslim et: Fake mustache",
+   "details": []
+  },
+  {
+   "id": "o18",
+   "text": "Raidde bulunmuş eşyayı teslim et: #FireKlean gun lube",
+   "details": []
+  },
+  {
+   "id": "o19",
+   "text": "Raidde bulunmuş eşyayı teslim et: French bakery baguette",
+   "details": []
+  },
+  {
+   "id": "o20",
+   "text": "Loot Lord peluş ver",
+   "details": []
+  },
+  {
+   "id": "o21",
+   "text": "Raidde bulunmuş eşyayı teslim et: Glorious E mask",
+   "details": []
+  },
+  {
+   "id": "o22",
+   "text": "Raidde bulunmuş eşyayı teslim et: Golden 1GPhone smartphone",
+   "details": []
+  },
+  {
+   "id": "o23",
+   "text": "Smoke kar maskesini teslim et",
+   "details": []
+  },
+  {
+   "id": "o24",
+   "text": "Raidde bulunmuş eşyayı teslim et: Inseq gas pipe wrench",
+   "details": []
+  },
+  {
+   "id": "o25",
+   "text": "Raidde bulunmuş eşyayı teslim et: JohnB Liquid DNB glasses",
+   "details": []
+  },
+  {
+   "id": "o26",
+   "text": "Raidde bulunmuş eşyayı teslim et: LM KC-130 model aircraft",
+   "details": []
+  },
+  {
+   "id": "o27",
+   "text": "Raidde bulunmuş eşyayı teslim et: Loot Lord plushie",
+   "details": []
+  },
+  {
+   "id": "o28",
+   "text": "WZ Cüzdanı ver",
+   "details": []
+  },
+  {
+   "id": "o29",
+   "text": "LVNDMARK'ın fare zehrini ver",
+   "details": []
+  },
+  {
+   "id": "o30",
+   "text": "Baskında bulunan öğeyi teslim edin: Missam forklift anahtarı",
+   "details": []
+  },
+  {
+   "id": "o31",
+   "text": "Baskında bulunan öğeyi teslim edin: Cyborg Killer filminin yer aldığı video kaseti",
+   "details": []
+  },
+  {
+   "id": "o32",
+   "text": "Baskında bulunan eşyayı teslim et: BakeEzy yemek kitabı",
+   "details": []
+  },
+  {
+   "id": "o33",
+   "text": "Baskında bulunan öğeyi teslim edin: JohnB Liquid DNB gözlükleri",
+   "details": []
+  },
+  {
+   "id": "o34",
+   "text": "Baskında bulunan eşyayı teslim et: Baddie'nin kızıl sakalı",
+   "details": []
+  },
+  {
+   "id": "o35",
+   "text": "Baskında bulunan öğeyi teslim edin: DRD vücut zırhı",
+   "details": []
+  },
+  {
+   "id": "o36",
+   "text": "Baskında bulunan eşyayı teslim et: Gingy anahtarlık",
+   "details": []
+  },
+  {
+   "id": "o37",
+   "text": "Baskında bulunan öğeyi teslim et: Altın yumurta",
+   "details": []
+  },
+  {
+   "id": "o38",
+   "text": "Baskında bulunan öğeyi teslim edin: Basın izni (NoiceGuy için verilir)",
+   "details": []
+  },
+  {
+   "id": "o39",
+   "text": "Baskında bulunan eşyayı teslim et: Axel papağan heykelciği",
+   "details": []
+  },
+  {
+   "id": "o40",
+   "text": "Baskında bulunan eşyayı teslim et: BEAR Buddy pelüş oyuncağı",
+   "details": []
+  },
+  {
+   "id": "o41",
+   "text": "Baskında bulunan öğeyi teslim edin: Glorious E hafif zırhlı maske",
+   "details": []
+  },
+  {
+   "id": "o42",
+   "text": "Raidde bulunmuş eşyayı teslim et: Video cassette with the Cyborg Killer movie",
+   "details": []
+  },
+  {
+   "id": "o43",
+   "text": "Raidde bulunmuş eşyayı teslim et: Viibiin sneaker",
+   "details": []
+  },
+  {
+   "id": "o44",
+   "text": "Raidde bulunmuş eşyayı teslim et: WZ Wallet",
+   "details": []
+  }
+ ],
+ "notes": "* 1.1.0.0 yamasından önce bu görev The Kappa Path başarımını veriyordu.\n\n* Aşağıdaki bilmeceden bulunan video klipler, daha sonra Battlestate Games'in çektiği ve YouTube'da ücretsiz izlenebilen \"Raid\" filminde yer aldı.\n\n===Bilmece===\n19 Nisan 2019'a kadar bu görevin adı \"A049 C026 0101PD\" idi. Diyalog ve ödül metninde gizlenmiş bir bilmece vardı.\n\n=====Eski açıklama=====\n417420696e7465726368616e676520776520776572652061742062617 \n368207a797877767574737271706f6e6d6c6b6a6968676665646362612 \n07072797a317574733871356f6e6d6c6b6a336867666534633261 \n\n\n36742074683120316e61206f6620387420366c6c2c20326f75206d7573 \n742035386c6c207468312035386c6c3620616e64205572416743652044 \n45726f5252694d\n\n=====Eski ödül metni=====\n=EjNyQzY2MzMjZjM3kjNyIjY2YjM - 3 \n==Qdy5yaqBybx1G \n31IqhWZ4lGI1hnagwSdytmagYXZgUnZxhXagEH \n31IklHI2JWdph2al9GIiFXdsVHagUmagU3cxJmZg \n31IWc5NXdmlGIxBSa5BSdoVHeqpgZpNGdgQ3Y \n31gMnZvlWZnBybgI2dgQnezdmZpNWbgInY3RHI \n316p3drBSaj1GIscmYvt2ZgYHa3tGI1J2d692cyBiZ \n31zhGdvpgcyVWdnBSZiBichJGIsgXeupGIypnYlB \n31yciBSZiVmcjpncgEXeoJWdmBiZjJ3ZmBCbh5m \n31egomY1pgC0tGe1BCazFGZ3dXa4xGIjBHboBS \n31dkByZ0FnYqNGI0dXaKAiZlJ3b6hWYgcmZlZ3cg \n31IXdnByciBiYqdGIoJGbgcWd0hmYl9GIyFmdzNnT - 2 \n==AdpBiZvBCd19GI \nmxWZzJXdvlHIlRXY09mcgwCbsV2dgMXYgI \nXZi1WduBiblRHI09mcgMXag4WZlRncphGd - 1 \nrebmun eslaf si neetriht taht si hturt dnoces ,6 dna 4 fo mus eht ees \nuoy esab eht ta ,si hturt tsriF\n\n====Görev açıklamasının çözümü====\nBilmecenin çözümü görev açıklamasıyla başlar: hex kodlu metnin ilk paragrafı At interchange we were at bash zyxwvutsrqponmlkjihgfedcba pryz1uts8q5onmlkj3hgfe4c2a, ikincisi 6t th1 1na of 8t 6ll, 2ou must 58ll th1 58ll6 and UrAgCe DEroRRiM metnine denk gelir. Ortaya çıkan ilk paragraf Atbash ile şifrelenmiş bir metin olduğunu gösterir; zyxwvutsrqponmlkjihgfedcba pryz1uts8q5onmlkj3hgfe4c2a metni abcdefghijklmnopqrstuvwxyz kiba1fgh8j5lmnopq3stuv4x2z'ye denk gelir, yani açık bir yerine koyma düzeni. Bu yerine koyma düzenini kullanarak görev açıklamasındaki ikinci paragrafı 6t the end of it 6ll, you must kill the kill6 olarak çevirebiliriz; bu ipucu, UrAgCe ve DEroRRiM metinleriyle birlikte ileride işe yarayacak.\n\n====Görev ödül metninin çözümü====\nGörev ödül metnine uygulanacak ilk işlem, ister DEroRRiM metninden (aynalanınca MiRRorED) ister metnin yapısından, açık görünüyor: bütün metin bloğunu basitçe aynalamak. Aynalamadan sonra First truth is, at the base you see the sum of 4 and 6, second truth is that thirteen is false number paragrafı ortaya çıkar; bu da bundan sonraki bütün bulgularda 13 sayısının atılması gerektiğini ve tabanın insanların kullandığı 10 yerine 64 olacağını anlatır. Böylece kullanılmış metni çıkarıp, 13 sayısını silip metni Base64'ten çözünce şu metni görürüz: thirteen is rot ten number as well, rotate yourself out of it; bu da rot13 şifresinin kullanıldığını gösterir. Kullandığımız metni bir kez daha çıkarıp rot13 çözünce şu satırları görürüz: Affine brought you two of the first numbers ile birlikte vjg pwodgt qh uycp ykvjjqnfu hkxg ve how many steps should emperor of rome walk, one or three ile birlikte bgufs efbmjoh xjui txbot, zpv xjmm gjoe zpvstfmg jo b trvbsf pg gpvs / wkhuh lv d vshfldo sodfh wr uhyhdo brxuvhoi lq d vkdsh ri wxeh, wkh vkruw zdb wx.eh; bunlar sırasıyla Affine ve Caesar şifrelerini gösterir. Affine ile şifrelenmiş metni a = 1; b = 2 değerleriyle çözünce the number of swan withholds five elde edilir; Caesar ile şifrelenmiş metinleri sırasıyla 1 ve 3 kaydırmayla çözünce after dealing with swans, you will find yourself in a square of four / there is a special place to reveal yourself in a shape of tube, the short way tu.be elde edilir; iki ipucu da ileride işe yarar.\n\n====Hepsini birleştirmek====\nDevam etmek için görev ödül metninin kalanıyla başlıyoruz: 266b2269726c336c4261, şimdilik çözmememiz gereken hex kodlu bir metin. the number of swan withholds five ipucu, 2'nin (kuğuya benzeyen bir rakam) 5 ile değiştirilmesi gerektiğini gösterir; bunu hex metnimizde yapıp sonunda square of four ipucunun gösterdiği şekilde çözünce VkUiul3lEa elde edilir. Elde edilen metne dikkatle bakınca içinde killa kelimesinin olduğunu görürüz; 6t the end of it 6ll, you must kill the kill6 ipucu bunu metinden çıkarmamızı söyler. Bunu yapınca sonunda VUu3E metni ortaya çıkar; bu metin daha önce elde edilen UrAgCe metninin sonuna eklenip there is a special place to reveal yourself in a shape of tube, the short way tu.be ipucunun gösterdiği gibi bir YouTube kısa linkine eklenince bir YouTube videosu açılır.\n\n====Pastebin====\nİlk YouTube videosu bulunduktan yaklaşık bir hafta sonra video açıklamasında bir Pastebin linki ortaya çıktı. Çözüm sürecini anlatmayı kolaylaştırmak için belgeyi her paragraf için bir tane olmak üzere 4 bölüme ayıracağız ve süreçteki 1. adımı gösterdiği için sonuncusundan başlayacağız.\n\n=====4. paragraf=====\nParagraf Base64 kodlu, ama çözmeden önce + karakterleri arasında kalan bütün karakterlerin silinmesi ve içeriklerinin bir kenara ayrılıp 524f543437 metninin oluşturulması gerekir; bu da onaltılık sistemde ROT47'ye denk gelir. Garip karakterler silinince File119111====T10p2 ...Be advised, we've got... (transmission interrupted)====end of file metni ortaya çıkar. \"Dosya numarasını\" not alabiliriz; gerisi süs metni.\n\n=====3. paragraf=====\nÖnceki ROT47 ipucunu kullanarak bu paragrafı çözebiliriz: Base64 çözümünden sonra ROT47 çözümü uygulamak gereken içeriği verir, ama biraz bozuk halde. Bu bozukluğu gidermek için orijinal metindeki her 22. karakterin (hepsi 0) silinmesi gerekir; böylece File108070107==== T10p1 Overseer, this is team 8 unit 13 Foreman callsign. We got ambushed, requesting backup.... ====end of file ortaya çıkar. Önceki paragraf gibi, dosya numarası dışındaki bütün metni yok sayabiliriz.\n\n=====2. paragraf=====\nBu paragrafı ters çevirince m1560red})>/|:\\ metninin (aslında t3bahpl4{()}der0651m) aykırı olduğunu ve ileride ipucu olacağını görürüz, bu yüzden onu çıkarabiliriz. Paragrafın kalanı (hâlâ ters haliyle) basitçe Base64'ten çözülünce File086078121==== OVRp2 ...Possible locals ambush. ====end of file bulunur. Önceki paragraflardaki gibi dosya numarasını tut, gerisini yok say.\n\n=====1. paragraf=====\nÖnceki paragraflardaki gibi basit bir Base64 çözümüyle başlıyoruz. Şimdi m1560red})>/|:\\ ipucunu alıp önemli sayıları yok sayarak yerine koyma alfabesi olarak kullanabiliriz; bu da File082056117==== OVRp1 team 10, recon detail, moving to polikhim 1-12. backup call from team 8, unknown detail.... ====end of file metnini verir; yine dosya numarası dışında yok sayılabilir.\n\n====Final====\nBütün dosya numaraları birleştirilince 082056117086078121108070107119111 elde edilir. Karakterleri gruplayıp karşılık gelen ASCII karakterlerini alınca son YouTube videosuna götüren R8uVNylFkwo elde edilir. Videonun açıklamasında birkaç oyun anahtarı vardı."
+}

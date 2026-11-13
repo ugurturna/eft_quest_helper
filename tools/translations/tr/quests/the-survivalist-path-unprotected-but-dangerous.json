@@ -1,0 +1,11 @@
+{
+ "id": "the-survivalist-path-unprotected-but-dangerous",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Hiçbir zırh ya da plaka taşıyıcı giymeden 5 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde hiçbir zırh yeleği ya da zırhlı göğüs teçhizatı (chest rig) giymeden 5 PMC öldürmen gerekiyor. Zırhlı başlık, yüz koruması ve gözlük serbest. Bu görev sırasında kendini korumak istiyorsan yine zırh giyebilirsin, ama bir PMC'yi öldürmeden önce çıkar."
+}

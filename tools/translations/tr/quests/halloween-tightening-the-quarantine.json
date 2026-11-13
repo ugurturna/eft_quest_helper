@@ -1,0 +1,36 @@
+{
+ "id": "halloween-tightening-the-quarantine",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde bulunmuş eşyayı teslim et: Ağır kanamayı durdurabilen herhangi 5 ilk yardım çantası",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde bulunmuş eşyayı teslim et: Herhangi 2 tıbbi merhem",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde bulunmuş eşyayı teslim et: Herhangi 2 cerrahi set",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Raidde bulunmuş eşyayı teslim et: Ağır kanamayı durdurabilen herhangi 7 ilk yardım çantası",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Raidde bulunmuş eşyayı teslim et: Herhangi 3 tıbbi merhem",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Raidde bulunmuş eşyayı teslim et: Herhangi 3 cerrahi set",
+   "details": []
+  }
+ ],
+ "notes": "* Bu görev, Halloween: A New Vaccine'i kabul edince görev listesine kendiliğinden eklenir."
+}

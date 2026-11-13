@@ -1,0 +1,25 @@
+{
+ "id": "sew-it-good-part-3",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "2 HighCom Trooper TFO body armor (MultiCam) ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyaları teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "2 BNTI Gzhel-K body armor ele geçir",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ]
+}

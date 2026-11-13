@@ -1,0 +1,20 @@
+{
+ "id": "arena-business",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Professional Fitness - Part 2 görevini tamamla",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "To Great Heights! - Part 6 görevini tamamla",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Hold the Lead görevini tamamla",
+   "details": []
+  }
+ ]
+}

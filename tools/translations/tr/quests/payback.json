@@ -1,0 +1,23 @@
+{
+ "id": "payback",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve'de Glukhar'ı ya da korumalarını bul ve toplam 4 öldürme yap (Tek raidde)",
+   "details": [
+    "(İsteğe bağlı) Raide sarı bir işaret fişeği getir"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Reserve'deki radar istasyonunda sarı bir işaret fişeği at (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Reserve'den Cliff Descent üzerinden sağ çık (Tek raidde)",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce Glukhar'ı ya da korumalarını öldürerek toplam 4 öldürme yapman gerekiyor. Sonra Reserve'deki radar istasyonu bölgesindeyken gökyüzüne sarı bir işaret fişeği atman gerekiyor. Fişek belli bir yüksekliğe ulaşmazsa görev hedefi tamamlanmaz. Prapor LL1'den alınabilen elde tutulan RSP-30 sarı fişeği ya da Jaeger LL1'den alınabilen, işaret tabancasından atılan 26x75mm sarı fişek kartuşunu kullanabilirsin. Elde tutulan RSP-30 sarı fişeği kullanıyorsan yukarı doğru nişan al, ama çok fazla değil, yoksa arkana düşer. Son olarak \"Cliff Descent\" exfil'inden çıkman gerekiyor. Bunu kullanmak için Red Rebel ice pick ve Paracord gerekir; ayrıca hiçbir zırh yeleği giymemelisin."
+}

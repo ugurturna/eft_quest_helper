@@ -1,0 +1,26 @@
+{
+ "id": "bullshit",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta dağ evinin tenis kortundaki çöp torbalarına bir AXMC sniper rifle sakla",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Lighthouse'ta dağ evinin tenis kortundaki çöp torbalarına bir Roler Submariner gold wrist watch sakla",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Lighthouse'ta dağ evinin tenis kortundaki çöp torbalarına bir Military flash drive sakla",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Görev aktifken hiçbir Rogue'u ya da The Goons'u öldürmemelisin",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde belirtilen 3 eşyayı Lighthouse'taki tenis kortundaki çöp torbalarına saklaman gerekiyor. Görev aktifken hiçbir Rogue'u ya da The Goons'u öldürmemelisin. AXMC tüfeğini tamamen sökebilirsin; saklanması için çalışır durumda olması gerekmez."
+}

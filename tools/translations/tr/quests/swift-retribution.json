@@ -1,0 +1,11 @@
+{
+ "id": "swift-retribution",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta 10 Scav öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods'ta 10 Scav öldürmen gerekiyor."
+}

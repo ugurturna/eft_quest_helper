@@ -1,0 +1,15 @@
+{
+ "id": "gladiator-life-part-10",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "CheckPoint modunda 1.500 hedef puanı kazan",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "CheckPoint modunda 20 düşman öldür",
+   "details": []
+  }
+ ]
+}

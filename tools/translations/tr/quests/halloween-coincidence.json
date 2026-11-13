@@ -1,0 +1,21 @@
+{
+ "id": "halloween-coincidence",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta sinyalin kaynağını bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bölgede herhangi bir ipucu ele geçir",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Bulduğun ipucunu teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Lighthouse'ta sinyal kaynağını bulman ve bir klasör alman gerekiyor.\n\n▸ Lighthouse'ta sinyalin kaynağını bul\nSinyalin kaynağı, 2 numaralı su arıtma binasının içinde, birinci katta dünya haritası olan odada.\n\n▸ Bölgede herhangi bir ipucu ele geçir\nKlasör aynı odada, kapılardan birinin yanında."
+}

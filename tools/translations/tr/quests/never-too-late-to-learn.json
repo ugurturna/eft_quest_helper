@@ -1,0 +1,21 @@
+{
+ "id": "never-too-late-to-learn",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Eşyayı teslim et: 15 HK 416A5 5.56x45 assault rifle",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyayı teslim et: 4.500 5.56x45mm MK 318 Mod 0 (SOST)",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Eşyayı teslim et: 8 UVSR Taiga-1 survival machete",
+   "details": []
+  }
+ ],
+ "guide": "Not: HK 416A5 5.56x45 assault rifle'ın yeşil-kahverengi çeşidi kullanılamaz."
+}

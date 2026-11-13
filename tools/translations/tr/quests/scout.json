@@ -1,0 +1,31 @@
+{
+ "id": "scout",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "İlk Fabrika çıkışını işaretle",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "İkinci Fabrika çıkışını işaretle",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Üçüncü Fabrika çıkışını işaretle",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Dördüncü Factory exfil'ini bul",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Hayatta kal ve bölgeden çık",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde listelenen 4 Factory exfil'ini ziyaret etmen gerekiyor. Bütün yerleri aynı raidde ziyaret edip exfil yapman gerekir."
+}

@@ -1,0 +1,16 @@
+{
+ "id": "forge-a-friendship",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Shoreline'da Prapor'un kargosunu bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bulduğun kargoyu teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Shoreline'da Prapor'un kargosunu bulman gerekiyor. Kargo iskeledeki ofis binasında. Binanın içinde birden çok çıkma noktası var.\n\n▸ Birinci kat\n▸ Birinci nokta\nSol taraftaki odada, masanın üstünde.\n\n▸ İkinci nokta\nTezgâhın arkasında yerde.\n\n▸ Üçüncü nokta\nBinanın sağ tarafındaki depo odasında, tahta bir sandığın üstünde.\n\n▸ İkinci kat\n▸ Dördüncü nokta\nBinanın sol tarafında, gardırobun arkasında.\n\n▸ Beşinci nokta\nBinanın sağ tarafında, masalardan birinin altında."
+}

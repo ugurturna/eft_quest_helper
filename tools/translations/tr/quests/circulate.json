@@ -1,0 +1,11 @@
+{
+ "id": "circulate",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Ragman'e herhangi 250 sırt çantası ya da taktik yelek (rig) sat",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Ragman'e herhangi 250 sırt çantası ya da taktik yelek (rig) satman gerekiyor.\n\nSatış sayacı her zaman hemen güncellenmeyebilir. Oyunu yeniden başlatmak yenilenmesini sağlar."
+}

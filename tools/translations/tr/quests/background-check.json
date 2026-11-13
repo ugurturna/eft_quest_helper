@@ -1,0 +1,18 @@
+{
+ "id": "background-check",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta bronz cep saatini ele geçir",
+   "details": [
+    "(İsteğe bağlı) Yakıt tankerinin anahtarını ele geçir"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Bulduğun eşyayı teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Customs haritasına gir. Bronz cep saatine ulaşmak için Machinery key gerekir. Sende yoksa güneydeki üç katlı yurt binasının ikinci katındaki 205 numaralı odaya git.\n\nOdaya girmek için koridoru kapatan molozun üstüne zıplayıp eğilerek odanın kapısından içeri girmen gerekir. Machinery key, gardırobun yanındaki mavi ceketlerin içinde bulunur.\n\nAnahtarı aldıktan sonra kuzeye, inşaat alanındaki yakıt tankerine git. Kabinin sürücü kapısı Machinery key ile açılır.\n\nBronz cep saati içeride, koltuğun önünde yerde duruyor. Yakındaki kazan dairesinin çatısından tankeri gözeten keskin nişancı Scav'a dikkat et.\n\nCep saatini alınca görev eşyaları envanterine geçer. Teslim edebilmek için saatle birlikte başarıyla exfil yapman gerekir. Exfil'den önce ölürsen saati yeniden almak zorunda kalırsın. Görevi bitirmek için cep saatini Prapor'a teslim et."
+}

@@ -1,0 +1,11 @@
+{
+ "id": "gunsmith-master-part-6",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Bir SVDS'i verilen özelliklere uyacak şekilde modifiye et",
+   "details": []
+  }
+ ],
+ "guide": "SVDS özellikleri:\n* 60 dayanıklılık\n* 10 ya da daha yüksek ergonomi\n* 500 ya da daha düşük geri tepme\n* Bir susturucu\n* 10 kapasiteli bir şarjör ya da şarjörsüz\n* AR-15 Magpul UBR GEN2 stock (Black)\n* SVD SAG MK1 chassis\n* AK Magpul MOE pistol grip (Black)\n* March Tactical 3-24x42 FFP 30mm riflescope"
+}

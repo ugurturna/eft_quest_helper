@@ -1,0 +1,12 @@
+{
+ "id": "black-swan",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'de ısı eşanjörlerinden herhangi birini bul ve MS2000 Marker ile işaretle",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Factory'deki yeraltı tünellerinde 3 olası ısı eşanjöründen 1'ini bulup MS2000 Marker ile işaretlemen gerekiyor.",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den ek MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

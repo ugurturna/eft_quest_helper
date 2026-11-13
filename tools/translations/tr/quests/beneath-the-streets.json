@@ -1,0 +1,29 @@
+{
+ "id": "beneath-the-streets",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'dan The Lab'e transit kullan (Tek raidde)",
+   "details": [
+    "(İsteğe bağlı) Streets of Tarkov'da The Lab'e giden geçidi bul (Tek raidde)",
+    "(İsteğe bağlı) The Lab'de Streets of Tarkov'a giden geçidi bul (Tek raidde)"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "The Lab'de sunucu odasını keşfet (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "The Lab'de tehlike kubbesini keşfet (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "The Lab'de kontrol odasını keşfet (Tek raidde)",
+   "details": []
+  }
+ ],
+ "guide": "▸ Streets of Tarkov'dan The Lab'e\nKozmonot resminin olduğu Klimova 16A binasının önündeki yeraltı girişi. TerraGroup Labs access keycard gerekir. Transit'ler raid başladıktan ancak 1 dk sonra kullanılabilir.\n\n▸ Kontrol odasını keşfet\nİkinci seviyede \"Hangar Gate\" exfil'inin yakınında.\n\n▸ Sunucu odasını keşfet\nBirinci seviyede, kontrol odasının bitişiğinde.\n\n▸ Tehlike kubbesini keşfet\nBirinci seviyedeki ana çalışma alanında."
+}

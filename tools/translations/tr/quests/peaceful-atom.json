@@ -1,0 +1,16 @@
+{
+ "id": "peaceful-atom",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Icebreaker'da nükleer güç ünitesi kontrol kayıtlarını bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bulduğun eşyayı teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Icebreaker'da Nuclear power unit control log'u bulman gerekiyor. Merkezi kontrol istasyonu odasında, makine dairesindeki gözetim kabininde ya da makine dairesinin altındaki otomasyon odasında bulunabilir.\n\n▸ Merkezi kontrol istasyonu odası - Seviye 0\n\n▸ Makine dairesindeki gözetim kabini - Seviye -2\n\n▸ Makine dairesinin altındaki otomasyon odası - Seviye -3\nBu odaya girmek için bir kod girmen gerekir. Kod, yakındaki bir gözetim kabininde bir pano üstünde. Kod her raidde değişir."
+}

@@ -1,0 +1,16 @@
+{
+ "id": "indisputable-authority",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "The Labyrinth'in içinde \"Minotaur\"u bul ve etkisiz hale getir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "The Labyrinth'in içinde \"Minotaur\"un korumalarından 6'sını öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde The Labyrinth'in içinde Shadow of Tagilla'yı ve 6 Scav'ı öldürmen gerekiyor."
+}

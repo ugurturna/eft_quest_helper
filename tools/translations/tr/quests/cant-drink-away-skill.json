@@ -1,0 +1,55 @@
+{
+ "id": "cant-drink-away-skill",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde 10 Golden neck chain bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyaları teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde 5 Golden rooster figurine bul",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Eşyaları teslim et",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Raidde 5 Golden 1GPhone smartphone bul",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Eşyaları teslim et",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "Raidde 10 Simple wallet bul",
+   "details": []
+  },
+  {
+   "id": "o8",
+   "text": "Eşyaları teslim et",
+   "details": []
+  },
+  {
+   "id": "o9",
+   "text": "Raidde 5 WZ Wallet bul",
+   "details": []
+  },
+  {
+   "id": "o10",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ]
+}

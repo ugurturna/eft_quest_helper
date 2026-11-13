@@ -1,0 +1,21 @@
+{
+ "id": "surprise-gift",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta eski şampiyonun saklandığı yere geri dön",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Ref hakkındaki tehlikeli bilgiyi bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Bulduğun bilgiyi teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Between Two Fires ya da Decisions, Decisions görevlerini bitirirsen bu görev başarısız olur ve ona erişimini kaybedersin.\n\nŞampiyonun odası, Customs'taki üç katlı yurt binasının ikinci katında, 209 ve 211 numaralı odaların arasında. Odaya girmek için Dorm overseer key gerekir.\n\nTehlikeli bilgiler gardırobun yanında, yerdeki kan birikintisinin içinde bulunur."
+}

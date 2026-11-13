@@ -1,0 +1,21 @@
+{
+ "id": "discombobulate",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta birinci RPG cephane sandığına bir VOG-25 Khattabka bombası sakla",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Woods'ta ikinci RPG cephane sandığına bir VOG-25 Khattabka bombası sakla",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Woods'ta üçüncü RPG cephane sandığına bir VOG-25 Khattabka bombası sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods'taki RPG cephane sandıklarına 3 VOG-25 Khattabka improvised hand grenade saklaman gerekiyor.\n\nHata: Görevi kabul edip aynı raidde bombaları saklamak şu an yerel PvE oyun modu raidlerinde çalışmıyor."
+}

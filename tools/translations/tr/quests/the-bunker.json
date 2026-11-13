@@ -1,0 +1,41 @@
+{
+ "id": "the-bunker",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Yeraltı sığınağını bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Yeraltı sığınağında kontrol odasının yerini bul",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Reserve'de hastaneye (White Bishop) giden hermetik kapıyı bul",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Reserve'de akademi binasına (Black Bishop) giden iki hermetik kapıdan birini bul",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Reserve'de 1 numaralı kışlaya (Black Pawn) giden iki hermetik kapıdan birini bul",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Reserve'de 2 numaralı kışlaya (White Pawn) giden iki hermetik kapıdan birini bul",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "Reserve'de hava kontrol merkezi binasına (King) giden hermetik kapıyı bul",
+   "details": []
+  }
+ ],
+ "guide": "Reserve'deki yeraltı sığınağına herhangi bir merdivenle inebilirsin. Hermetik kapılar sığınağın giriş kapılarıdır. Kontrol odası sığınağın ortasında. Bütün hedefler aynı raidde tamamlanmalı."
+}

@@ -1,0 +1,11 @@
+{
+ "id": "the-cleaner",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve ya da The Lab'de 10 Raider ya da Black Division askeri öldür",
+   "details": []
+  }
+ ],
+ "guide": "Scav Raider'lar bazen raidin başında yeraltı tünel sisteminin komuta bölümünde bulunabilir; \"D-2\" exfil güç şalteri indirildikten sonra da ek Raider'lar gelebilir. Trenin gelmesi de tren sahasında doğmalarına yol açabilir. Ayrıca \"Bunker hermetic door\" exfil kolunu çekmek de tren sahasında doğmalarına yol açabilir."
+}

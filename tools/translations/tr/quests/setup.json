@@ -1,0 +1,11 @@
+{
+ "id": "setup",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta belirtilen teçhizatı giyerken Scav silahlarıyla 8 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde yukarıdaki şapkalardan ve göğüs teçhizatlarından (chest rig) birini giyerken şu silahlardan herhangi biriyle 8 PMC öldürmen gerekiyor:\n* ADAR 2-15 5.56x45 carbine\n* MP-133 12ga pump-action shotgun\n* MP-153 12ga semi-automatic shotgun\n* MP-155 12ga semi-automatic shotgun\n* MP-18 7.62x54R single-shot rifle\n* MP-43 12ga sawed-off double-barrel shotgun\n* MP-43-1C 12ga double-barrel shotgun\n* Molot Arms Simonov OP-SKS 7.62x39 carbine\n* Molot Arms VPO-101 Vepr-Hunter 7.62x51 carbine\n* Molot Arms VPO-136 Vepr-KM 7.62x39 carbine\n* Molot Arms VPO-209 .366 TKM carbine\n* Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle\n* Mosin 7.62x54R bolt-action rifle (Infantry)\n* Mosin 7.62x54R bolt-action rifle (Sniper)\n* PPSh-41 7.62x25 submachine gun\n* Saiga-12K 12ga automatic shotgun\n* Saiga-12K 12ga automatic shotgun (Redline)\n* Saiga-12K ver.10 12ga semi-automatic shotgun\n* Saiga-9 9x19 carbine\n* TOZ KS-23M 23x75mm pump-action shotgun\n* TOZ Simonov SKS 7.62x39 carbine\n* TOZ-106 20ga bolt-action shotgun"
+}

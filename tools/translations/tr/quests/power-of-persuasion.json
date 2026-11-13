@@ -1,0 +1,11 @@
+{
+ "id": "power-of-persuasion",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods, Ground Zero, Interchange ya da Customs'ta MP5SD ile 5 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bir MP5'in bu görev için geçerli sayılması için üzerinde şu parçaların olması gerekir:\n* HK MP5SD 9x19 upper receiver\n* HK MP5SD 9x19 sound suppressor\n* HK MP5SD polymer handguard"
+}

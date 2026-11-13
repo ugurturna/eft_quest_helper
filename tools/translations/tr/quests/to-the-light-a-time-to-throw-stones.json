@@ -1,0 +1,11 @@
+{
+ "id": "to-the-light-a-time-to-throw-stones",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "The Lab'de tek bir raidde 2 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde The Lab'de tek bir raidde 2 PMC öldürmen gerekiyor."
+}

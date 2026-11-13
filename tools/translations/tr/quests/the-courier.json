@@ -1,0 +1,11 @@
+{
+ "id": "the-courier",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta yeni benzin istasyonundaki çöp konteynerlerinin arkasına bir Trijicon REAP-IR dürbün sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Customs'a bir Trijicon REAP-IR thermal scope yerleştirmen gerekiyor. Dürbün güvenli konteynerine (secure container) konamaz.\n\nDürbün, \"yeni\" benzin istasyonunun arkasındaki bir varil yığınına yerleştirilmeli."
+}

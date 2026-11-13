@@ -1,0 +1,25 @@
+{
+ "id": "sew-it-good-part-2",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde 2 WARTECH TV-109 + TV-106 chest rig bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Chest rig'leri teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde 2 BlackRock chest rig bul",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Chest rig'leri teslim et",
+   "details": []
+  }
+ ]
+}

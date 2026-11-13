@@ -1,0 +1,17 @@
+{
+ "id": "fuel-crisis",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Interchange'te elektrik santralinin yakınındaki herhangi bir yakıt tankını bul ve MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Interchange'te kuzey bölgedeki herhangi bir yakıt tankını bul ve MS2000 Marker ile işaretle",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Interchange'te elektrik santralinin yakınındaki bir yakıt tankerini ve kuzey bölgedeki bir tankeri bulup MS2000 Marker'larla işaretlemen gerekiyor. Her hedef için 2 tanker var.",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

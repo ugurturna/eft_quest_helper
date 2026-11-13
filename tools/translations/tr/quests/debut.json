@@ -1,0 +1,11 @@
+{
+ "id": "debut",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods, Ground Zero, Interchange ya da Customs'ta 5 Scav öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods, Ground Zero, Interchange ya da Customs'ta 5 Scav öldürmen gerekiyor."
+}

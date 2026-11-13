@@ -1,0 +1,26 @@
+{
+ "id": "semiconductor-crisis",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde eşyayı bul: 1 Graphics card",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Grafik kartlarını teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde eşyayı bul: 8 CPU fan",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "CPU Fanlarını teslim et",
+   "details": []
+  }
+ ],
+ "guide": "* CPU fan'ler elektronik mağazalarında bulunabilir, ama en çok PC kasalarının içinde çıkar.\n\n*Graphics card'lar şuralarda bulunabilir:\n** PC kasalarında\n** Sport bag'lerde\n** Buried barrel cache'lerin içinde\n** Ground cache'lerin içinde\n\n▸ Customs\n* Green Screen odasında PC masasının altında\n* Benzin istasyonundaki soldaki market rafında\n* 3 katlı yurtta 1. kattaki kanepede\n* Benzin istasyonundaki kilitsiz odada masanın üstünde\n* Big Red'in içindeki ikinci odanın ortasında yerde\n* Kavşak ile karavan parkı arasındaki küçük garajlarda yerde.\n\n▸ Interchange\n* Elektronik mağazalarının raflarında (Texho, Techlight, Rasmussen, Germany)\n* Emercom sağlık biriminde\n* Idea ofisinde\n* Elektrik santralinin arkasındaki teknik rafta\n\n▸ Shoreline\n* East wing room 222, East wing room 328, West wing room 216, West wing room 301 ve East wing office 107'de\n* Yönetim binasının ikinci katındaki masalarda\n* Meteoroloji istasyonunun ikinci katında, sunucu bölmesinin önünde\n* Doğu kanadının depo odasında\n* Köyün en güneyindeki evde tezgâhın üstünde (tankın tam önünde)\n\n▸ Factory\n* \"Pompa istasyonunda\"\n* Gate 3'ün dışındaki alttaki mavi konteynerde (üst üste iki mavi konteyner)\n* Çukurun yanındaki sarı arabalardan birinin üstünde\n* Ofis koridorundaki rafta\n\n▸ Woods\n* İşaretli çember\n* Dead Man`s Place kampında ölü Scav'ın yanında çıkan nokta\n* Köydeki binaların zemininde\n\n▸ Reserve\n* Birçok binanın içindeki sunucu dolaplarında bulunabilir\n* Helikopterin kuzeyindeki black bishop binasının ikinci katında RB-AK'nin raflarında\n* Black Knight'ta, ana girişten soldaki 3. odada bir masanın üstünde\n* Black pawn'ın bodrumundaki RB-BK'nin zemininde bulunabilir\n* RB-VO'nun zemininde bulunabilir\n\n▸ The Lab\n* Turuncu kubbenin sağ tarafında, beyaz bir rafın yanındaki beyaz kutuların üstünde\n* Turuncu kubbenin sağ tarafında, yönetim ofisine çıkan merdivenlerden önceki son beyaz masanın üstünde."
+}

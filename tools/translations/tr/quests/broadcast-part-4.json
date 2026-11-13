@@ -1,0 +1,16 @@
+{
+ "id": "broadcast-part-4",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da Cultist buluşma yerini bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Haritadan sağ çık (Survive and extract)",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'da Cultist buluşma yerini bulman gerekiyor. Buluşma yeri, kuzeydeki terk edilmiş fabrika binasının üçüncü katındaki işaretli odada."
+}

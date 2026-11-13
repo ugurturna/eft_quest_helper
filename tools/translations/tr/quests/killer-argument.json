@@ -1,0 +1,16 @@
+{
+ "id": "killer-argument",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta RPG mermili paketi bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Paketi teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods'taki Scav evinden Lightkeeper'ın çantasını alman gerekiyor. Birden çok çıkma noktası var. Ev, haritanın güneybatısındaki \"Outskirts\" exfil'inin yakınında."
+}

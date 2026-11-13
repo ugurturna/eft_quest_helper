@@ -1,0 +1,11 @@
+{
+ "id": "preserve-a-valuable-piece",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta 7 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Cut Down to the Root görevini bitirirsen bu görev başarısız olur ve ona erişimini kaybedersin."
+}

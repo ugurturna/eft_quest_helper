@@ -56,6 +56,10 @@ public sealed class AppSettings
     public string RaidHotkey { get; set; } = "Ctrl+Shift+R";
     /// <summary>Reads the quest names on the in-game Tasks screen once (screen import).</summary>
     public string ScanHotkey { get; set; } = "Ctrl+Shift+I";
+    /// <summary>"Keep or sell?" card for the item under the mouse in game.</summary>
+    public string ItemCheckHotkey { get; set; } = "Ctrl+Shift+E";
+    /// <summary>The item card opens by itself when the mouse rests on an item in game (no hotkey needed).</summary>
+    public bool ItemCheckAuto { get; set; }
     /// <summary>Flea price search window opacity (lower = more of the game shows through).</summary>
     public double FleaOpacity { get; set; } = 0.9;
     /// <summary>Start the raid by itself when the in-game exfil list (double "O") shows a map's exfils.</summary>

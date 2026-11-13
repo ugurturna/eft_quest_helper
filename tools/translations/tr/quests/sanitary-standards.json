@@ -1,0 +1,23 @@
+{
+ "id": "sanitary-standards",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde 2 Gas analyzer bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Factory'deki sağlık laboratuvarına bir Gas analyzer sakla",
+   "details": [
+    "(İsteğe bağlı) Factory'de Gas analyzer'ların olduğu odayı bul"
+   ]
+  },
+  {
+   "id": "o3",
+   "text": "Gündüz Factory'sinde sağlık laboratuvarına bir Gas analyzer sakla",
+   "details": []
+  }
+ ],
+ "guide": "Gas analyzer, gündüz Factory'sinde laboratuvarın ikinci katına, tam olarak ikinci odanın penceresine saklanmalı."
+}

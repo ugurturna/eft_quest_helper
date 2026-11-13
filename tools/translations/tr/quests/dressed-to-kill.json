@@ -1,0 +1,25 @@
+{
+ "id": "dressed-to-kill",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde eşyayı bul: 2 Kinda cowboy hat",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyaları teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde eşyayı bul: herhangi 2 Ushanka hat",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ]
+}

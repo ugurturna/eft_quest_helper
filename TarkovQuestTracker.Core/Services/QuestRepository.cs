@@ -111,7 +111,7 @@ public sealed partial class QuestRepository
             var icon = Path.Combine(iconDir, id + ".png");
             return new ItemNeed(id, Pick(info?.Name, id), Pick(info?.Short, id), o.Count, o.Fir,
                 o.Items.Skip(1).Select(a => Pick(data.Items.GetValueOrDefault(a)?.Name, a)).ToList(),
-                File.Exists(icon) ? icon : null);
+                File.Exists(icon) ? icon : null) { AlternativeIds = o.Items.Skip(1).ToList() };
         }
 
         foreach (var q in quests)

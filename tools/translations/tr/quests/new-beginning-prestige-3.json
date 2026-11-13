@@ -1,0 +1,45 @@
+{
+ "id": "new-beginning-prestige-3",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "15 PMC öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "20 Raider öldür",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "The Lab'den sağ çık",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Streets of Tarkov'dan sağ çık",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Raidde bulunmuş 3 PMC figürü teslim et",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Raidde bulunmuş 3 Scav figürü teslim et",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "Raidde bulunmuş 3 Boss figürü teslim et",
+   "details": []
+  },
+  {
+   "id": "o8",
+   "text": "Raidde bulunmuş 3 Trader figürü teslim et",
+   "details": []
+  }
+ ]
+}

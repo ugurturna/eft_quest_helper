@@ -1,0 +1,11 @@
+{
+ "id": "gunsmith-vector-9x19",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Bir KRISS Vector 9x19'u verilen özelliklere uyacak şekilde modifiye et",
+   "details": []
+  }
+ ],
+ "guide": "KRISS Vector 9x19 özellikleri:\n* 60 dayanıklılık\n* 48 ya da daha yüksek ergonomi\n* 240 ya da daha düşük geri tepme\n* 300 ya da daha yüksek nişan mesafesi\n* Bir susturucu\n* KRISS Vector Mk.5 modular rail\n* Tactical Dynamics Skeletonized Foregrip\n* Glock 9x19 \"Big Stick\" 33-round magazine"
+}

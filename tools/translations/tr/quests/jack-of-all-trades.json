@@ -1,0 +1,25 @@
+{
+ "id": "jack-of-all-trades",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Assault olarak 20 düşman öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Enforcer olarak 20 düşman öldür",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Scout olarak 20 düşman öldür",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Marksman olarak 20 düşman öldür",
+   "details": []
+  }
+ ]
+}

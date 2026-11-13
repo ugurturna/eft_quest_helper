@@ -1,0 +1,16 @@
+{
+ "id": "wet-job-part-3",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Kıyı Şeridi'nde Artyom'un arabasını bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Artyom'un arabasını MS2000 Marker ile işaretle",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Shoreline'da Artyom'un arabasını bulman gerekiyor. Araba sarı ve kıyı boyunca uzanan ana yolun üstünde. Sarı bir otobüs ile bir polis arabasının yanında bulunur."
+}

@@ -1,0 +1,11 @@
+{
+ "id": "make-amends-quarantine",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "The Lab'de karantina bölgesinin içine bir WI-FI Camera yerleştir",
+   "details": []
+  }
+ ],
+ "guide": "Görev hedefi WI-FI Camera'nın karantina bölgesine (mavi kart) yerleştirilmesini söylese de aslında insan deney alanına (siyah kart) yerleştirilmesi gerekiyor."
+}

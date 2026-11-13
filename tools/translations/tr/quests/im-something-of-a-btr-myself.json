@@ -1,0 +1,16 @@
+{
+ "id": "im-something-of-a-btr-myself",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta herhangi bir 7.62x54R kalibre silahla 15 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "BTR sürücüsüne rapor ver",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Lighthouse'ta 7.62x54mmR bir silah kullanarak 15 Scav öldürmen gerekiyor."
+}

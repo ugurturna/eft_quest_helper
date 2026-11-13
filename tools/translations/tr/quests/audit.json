@@ -1,0 +1,16 @@
+{
+ "id": "audit",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da mali kayıtları ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Günlüğü teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'daki \"ФИНАНС\" (\"FİNANS\") binasında muhasebecinin notlarını alman gerekiyor. Notlar ikinci katta, sağdaki ilk ofiste. Notların olduğu günlük, yerdeki kırmızı bir dosyanın içine sıkıştırılmış."
+}

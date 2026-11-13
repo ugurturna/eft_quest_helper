@@ -1,0 +1,11 @@
+{
+ "id": "halloween-enemy-of-my-enemy",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "İpuçlarını Therapist'e teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Klasörü Halloween: Enemy of My Enemy - An Agreement görevinde Therapist'e teslim et."
+}

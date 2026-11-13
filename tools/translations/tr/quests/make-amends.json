@@ -1,0 +1,26 @@
+{
+ "id": "make-amends",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta V3 Flash drive'ı ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Radio transmitter'ı yeniden programla",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Flash drive'ı Mechanic'e teslim et",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Deniz feneri binasını ziyaret et",
+   "details": []
+  }
+ ],
+ "guide": "Zryachiy'yi öldürürsen bu görev başarısız olur ve ona erişimini kaybedersin.\n\nV3 flash drive'ın Lighthouse'taki siyah (güneydeki) dağ evinde birden çok çıkma noktası var. Aldıktan sonra vericiyi Hideout'taki 2. seviye Intelligence Center'da yeniden programlaman gerekir. Bütün süreç boyunca elektrik gerekir, yoksa işlem yarıda kesilir. Programlama bitince verici tamamen çalışır hale gelir ve deniz feneri yarımadasına giden köprüyü koruyan Claymore'ları ve Zryachiy'yi atlatmak için kullanılabilir; böylece deniz feneri binasını ziyaret edip Lightkeeper'la tanışabilirsin.\n\nNot: Lobide kurulan grubundaki herkesin kodlanmış vericisi yoksa verici \"blocked\" (engelli) durumda olur ve köprüden geçilemez.\n\n▸ Birinci katta birinci/ikinci nokta\n\n▸ Bodrumda üçüncü nokta\n\n▸ Tenis kortunda dördüncü nokta"
+}

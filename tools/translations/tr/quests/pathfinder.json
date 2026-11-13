@@ -1,0 +1,21 @@
+{
+ "id": "pathfinder",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Railway Exfil çıkışını ziyaret et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Emercom Checkpoint çıkışını ziyaret et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Power Station V-Ex çıkışını ziyaret et",
+   "details": []
+  }
+ ],
+ "guide": "Interchange'teki 3 exfil'i ziyaret et. Bütün yerleri tek bir raidde ziyaret etmen gerekmez."
+}

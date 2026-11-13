@@ -1,0 +1,36 @@
+{
+ "id": "vitamins",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'de kimyasal konteynerini bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Konteyneri teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde 4 Respirator bul",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "4 Respirator'ı Skier'a teslim et",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Raidde 3 Medical bloodset bul",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "3 Medical bloodset'i Skier'a teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Kimyasal konteyneri, Factory'deki laboratuvarın ikinci katında bulunur."
+}

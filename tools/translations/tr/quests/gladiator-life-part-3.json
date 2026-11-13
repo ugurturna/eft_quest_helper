@@ -1,0 +1,10 @@
+{
+ "id": "gladiator-life-part-3",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "CheckPoint modunda Enforcer ya da Assault olarak 10 düşman öldür",
+   "details": []
+  }
+ ]
+}

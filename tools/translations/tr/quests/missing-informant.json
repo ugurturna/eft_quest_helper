@@ -1,0 +1,28 @@
+{
+ "id": "missing-informant",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da muhbirin saklandığı yeri bul",
+   "details": [
+    "(İsteğe bağlı) İkinci saklanma yerinin anahtarını ele geçir"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Muhbirin yedek saklanma yerini bul",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Muhbirin günlüğünü ele geçir",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Bilgiyi Lightkeeper'a götür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'da muhbirin iki saklanma yerini de bulman ve günlüğünü bulman gerekiyor.\n\n▸ Birinci saklanma yeri\nBirinci saklanma yeri, küçük sinemanın arkasındaki bir elektrik işletme odası. Odanın içinde her raidde kesin bir Backup hideout key çıkan bir spor çantası var.\n\n▸ İkinci saklanma yeri ve günlük\nİkinci saklanma yeri, sinemaya çıkan merdivenlerin içinde. Girmek için Backup hideout key gerekir. Günlüğün saklanma yerinin içinde birden çok çıkma noktası var."
+}

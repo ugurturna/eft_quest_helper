@@ -1,0 +1,25 @@
+{
+ "id": "import",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde eşyayı bul: 1 UHF RFID Reader",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde eşyayı bul: 1 VPX Flash Storage Module",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Eşyayı teslim et",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Eşyayı teslim et",
+   "details": []
+  }
+ ]
+}

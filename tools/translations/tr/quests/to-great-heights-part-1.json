@@ -1,0 +1,10 @@
+{
+ "id": "to-great-heights-part-1",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Arena'da CheckPoint ya da LastHero modunda bir maç kazan",
+   "details": []
+  }
+ ]
+}

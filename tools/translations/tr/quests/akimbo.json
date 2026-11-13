@@ -1,0 +1,15 @@
+{
+ "id": "akimbo",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta 7.62x39 kalibre silahlarla göğüs ya da mide vuruşlarıyla herhangi 3 hedefi öldür (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Lighthouse'ta 7.62x51 kalibre silahlarla göğüs ya da mide vuruşlarıyla herhangi 3 hedefi öldür (Tek raidde)",
+   "details": []
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "id": "bad-rep-evidence",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'taki işçi barakalarından birinde Secure Folder 0031'i bul ve ele geçir",
+   "details": [
+    "(İsteğe bağlı) Factory'de üçüncü kattaki ofis koridorunda bulunan kilitli odaya gir",
+    "(İsteğe bağlı) Portable bunkhouse key'i ele geçir"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Klasörü teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Haritadan sağ çık (Survive and extract)",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Customs'taki bir işçi barakasından secure folder 0031'i alman gerekiyor. Baraka kilitli olsa da eşya pencereden alınabilir, anahtarı gerekmez."
+}

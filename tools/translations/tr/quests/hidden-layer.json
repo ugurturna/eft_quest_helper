@@ -1,0 +1,18 @@
+{
+ "id": "hidden-layer",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Knossos LLC ile ilgili iyi bir ipucu bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Knossos LLC tesisine girmenin bir yolunu bul",
+   "details": [
+    "(İsteğe bağlı) Knossos LLC facility key'i bul ve ele geçir"
+   ]
+  }
+ ],
+ "guide": "Bu görevde Knossos LLC tesisinin, yani The Labyrinth'e giden transit'in kapısını bulup açman gerekiyor. Kapı Shoreline'daki sağlık tesisinin batı kanadının bodrumunda. Kapıyı açmak için Knossos LLC facility key gerekir. Transit yapman gerekmez."
+}

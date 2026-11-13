@@ -1,0 +1,21 @@
+{
+ "id": "know-your-place",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da herhangi 5 hedefi öldür (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Streets of Tarkov'dan Interchange'e transit kullan (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Interchange'te herhangi 5 hedefi öldür (Tek raidde)",
+   "details": []
+  }
+ ],
+ "guide": "▸ Streets of Tarkov'dan Interchange'e\nConcordia apartman kompleksinin güneybatısında. Transit'ler raid başladıktan ancak 1 dk sonra kullanılabilir."
+}

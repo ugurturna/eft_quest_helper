@@ -1,0 +1,11 @@
+{
+ "id": "best-job-in-the-world",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve ya da Lighthouse'ta AK-74 serisi silahlarla herhangi 30 düşmanı öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde AK-74 serisi silahlarla herhangi 30 düşmanı öldürmen gerekiyor. Şunlardan herhangi birini kullanabilirsin:\n*AK-74\n*AK-74M\n*AK-74N\n*AKS-74\n*AKS-74N"
+}

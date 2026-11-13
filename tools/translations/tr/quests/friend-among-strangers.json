@@ -1,0 +1,11 @@
+{
+ "id": "friend-among-strangers",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Scav, Scav Raider, Rogue ya da Boss öldürmeden 7 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde hiçbir Scav, Scav Raider, Rogue ya da Boss öldürmeden 7 PMC öldürmen gerekiyor.\n\nNot: Bütün PMC'leri öldürdükten sonra bile, raidden çıkıp görevi teslim etmeden önce yukarıdakilerden birini öldürürsen görev başarısız olur. Herhangi bir şekilde ölebilirsin, görev yine tamamlanır."
+}

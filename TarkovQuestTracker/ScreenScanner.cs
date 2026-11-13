@@ -215,7 +215,11 @@ public sealed class ScreenScanner
     /// the pieces far apart. So rows are rebuilt from the word boxes (same height on screen = same row), and a row is
     /// cut into cells where the gap between two words is wider than the text is high (the next column starts there).
     /// </summary>
-    internal static List<string> Cells(IEnumerable<(string Text, Windows.Foundation.Rect Box)> words)
+    internal static List<string> Cells(IEnumerable<(string Text, Windows.Foundation.Rect Box)> words) =>
+        CellBoxes(words).Select(c => c.Text).ToList();
+
+    /// <summary><see cref="Cells"/> with where each cell is in the picture.</summary>
+    internal static List<(string Text, Windows.Foundation.Rect Box)> CellBoxes(IEnumerable<(string Text, Windows.Foundation.Rect Box)> words)
     {
         var rows = new List<List<(string Text, Windows.Foundation.Rect Box)>>();
         foreach (var w in words.OrderBy(w => w.Box.Y + w.Box.Height / 2))
@@ -227,24 +231,31 @@ public sealed class ScreenScanner
             if (row != null && Math.Abs(mid - row.Average(x => x.Box.Y + x.Box.Height / 2)) < rowHeight / 2) row.Add(w);
             else rows.Add([w]);
         }
-        var cells = new List<string>();
+        var cells = new List<(string Text, Windows.Foundation.Rect Box)>();
         foreach (var row in rows)
         {
             var height = row.Max(x => x.Box.Height);
-            var cell = new List<string>();
+            var cell = new List<(string Text, Windows.Foundation.Rect Box)>();
             double? lastRight = null;
-            foreach (var (word, box) in row.OrderBy(x => x.Box.X))
+            foreach (var w in row.OrderBy(x => x.Box.X))
             {
-                if (lastRight is { } right && box.X - right > 1.5 * height && cell.Count > 0)
+                if (lastRight is { } right && w.Box.X - right > 1.5 * height && cell.Count > 0)
                 {
-                    cells.Add(string.Join(' ', cell));
+                    cells.Add(Join(cell));
                     cell.Clear();
                 }
-                cell.Add(word);
-                lastRight = box.X + box.Width;
+                cell.Add(w);
+                lastRight = w.Box.X + w.Box.Width;
             }
-            if (cell.Count > 0) cells.Add(string.Join(' ', cell));
+            if (cell.Count > 0) cells.Add(Join(cell));
         }
         return cells;
+
+        static (string, Windows.Foundation.Rect) Join(List<(string Text, Windows.Foundation.Rect Box)> cell)
+        {
+            double left = cell.Min(w => w.Box.X), top = cell.Min(w => w.Box.Y);
+            double right = cell.Max(w => w.Box.X + w.Box.Width), bottom = cell.Max(w => w.Box.Y + w.Box.Height);
+            return (string.Join(' ', cell.Select(w => w.Text)), new Windows.Foundation.Rect(left, top, right - left, bottom - top));
+        }
     }
 }

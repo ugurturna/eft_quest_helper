@@ -1,0 +1,66 @@
+{
+ "id": "living-high-is-not-a-crime",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde 2 Bronze lion figurine bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde 2 Horse figurine bul",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde 2 Golden rooster figurine bul",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Raidde 2 Cat figurine bul",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Raidde 2 Roler Submariner gold wrist watch bul",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Raidde 2 Golden egg bul",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "2 Bronze lion figurine'i Ragman'e teslim et",
+   "details": []
+  },
+  {
+   "id": "o8",
+   "text": "2 Horse figurine'i Ragman'e teslim et",
+   "details": []
+  },
+  {
+   "id": "o9",
+   "text": "2 Golden rooster figurine'i Ragman'e teslim et",
+   "details": []
+  },
+  {
+   "id": "o10",
+   "text": "2 Cat figurine'i Ragman'e teslim et",
+   "details": []
+  },
+  {
+   "id": "o11",
+   "text": "2 Roler Submariner gold wrist watch'ı Ragman'e teslim et",
+   "details": []
+  },
+  {
+   "id": "o12",
+   "text": "2 Golden egg'i Ragman'e teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Heykeller/figürler genelde Interchange'teki IDEA mağazasının her yerindeki mobilya teşhirlerinde bulunur. Alternatif olarak bunlar, Roler Submariner gold wrist watch ve Golden egg ile birlikte kasalarda (Safe) bulunabilir. Çok nadiren çekmeceler, Sport bag'ler, Dead Scav'lar gibi başka konteynerlerde de bulunabilirler."
+}

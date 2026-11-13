@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=System.Runtime"
                     xml:space="preserve">
@@ -23,6 +23,10 @@
     <sys:String x:Key="s.items.firOnly">Sadece FIR</sys:String>
     <sys:String x:Key="s.tab.active">Aktif Görevler</sys:String>
     <sys:String x:Key="s.tab.settings">Ayarlar</sys:String>
+    <sys:String x:Key="s.set.tab.keys">Kısayollar</sys:String>
+    <sys:String x:Key="s.set.tab.overlay">Overlay</sys:String>
+    <sys:String x:Key="s.set.tab.general">Genel</sys:String>
+    <sys:String x:Key="s.set.tab.data">Veri</sys:String>
 
     <!-- search -->
     <sys:String x:Key="s.search.tip">İngilizce veya Türkçe ara: punisher 3, punişır, cezalandırıcı...</sys:String>
@@ -202,6 +206,12 @@
     <sys:String x:Key="t.profile">Profil: {0}</sys:String>
     <sys:String x:Key="t.profileDeleted">Silindi: {0}</sys:String>
     <sys:String x:Key="t.hotkeyFail">Kısayol kaydedilemedi (başka program kullanıyor olabilir): {0}</sys:String>
+    <sys:String x:Key="t.key.saved">Kısayol kaydedildi: {0}</sys:String>
+    <sys:String x:Key="t.key.needsMod">{0} olmaz: tek başına harf oyunda da basılır. Ctrl, Alt ya da Win ile birlikte bas (F tuşları tek başına olur).</sys:String>
+    <sys:String x:Key="t.key.reserved">{0} Windows'un kendi kısayolu, seçilemez.</sys:String>
+    <sys:String x:Key="t.key.inUse">{0} zaten kullanılıyor: {1}. Önce onu değiştir.</sys:String>
+    <sys:String x:Key="t.key.taken">{0} başka bir program tarafından kullanılıyor; {1} olarak kaldı.</sys:String>
+    <sys:String x:Key="t.key.reset">Kısayollar varsayılana döndü.</sys:String>
     <sys:String x:Key="g.none">Bir hedef görev ara ve "Hedef yap" de (ör. Punisher Part 3 veya Collector).</sys:String>
     <sys:String x:Key="g.allDone">{0}: hepsi tamam!</sys:String>
     <sys:String x:Key="g.progress">{0}: {1}/{2} tamam, {3} görev kaldı. Önceden yaptıklarını işaretle (öncekiler otomatik işaretlenir).</sys:String>
@@ -247,7 +257,7 @@
     <sys:String x:Key="s.keys.wheel.desc">Fare overlay'in üstündeyken: overlay'i büyüt / küçült (%60–200). Kilit açık olmalı.</sys:String>
     <sys:String x:Key="s.keys.drag">Başlığı sürükle</sys:String>
     <sys:String x:Key="s.keys.drag.desc">Overlay'i ekranda istediğin yere taşı. Kilit açık olmalı.</sys:String>
-    <sys:String x:Key="s.keys.note">Kısayollar oyun açıkken de, uygulama arka plandayken de çalışır. Tuşları değiştirmek için profilin settings.json dosyasında clickThroughHotkey / toggleOverlayHotkey / fleaSearchHotkey (ör. "Ctrl+Alt+F9"). Bir kısayol başka bir programla çakışırsa uygulama açılışta uyarır.</sys:String>
+    <sys:String x:Key="s.keys.note">Kısayollar oyun açıkken de, uygulama arka plandayken de çalışır. Değiştirmek için tuşa tıkla ve yeni kombinasyona bas: Ctrl, Alt ya da Win ile birlikte bir tuş (F1–F12 tek başına da olur). Başka bir program o tuşu kullanıyorsa eski kısayol kalır. Her profilin kısayolları ayrıdır.</sys:String>
     <sys:String x:Key="s.keys.barLock">kilitle</sys:String>
     <sys:String x:Key="s.keys.barToggle">göster/gizle</sys:String>
     <sys:String x:Key="s.keys.barWheel">overlay boyutu</sys:String>
@@ -259,6 +269,27 @@
     <sys:String x:Key="s.flea.title">FLEA MARKET</sys:String>
     <sys:String x:Key="s.flea.esc">Esc: oyuna dön</sys:String>
     <sys:String x:Key="s.flea.placeholder">Eşya adı yaz (en az 3 harf)…</sys:String>
+    <sys:String x:Key="s.keys.item">Eşya kontrolü: oyunda farenin altındaki eşyayı okur, yanında küçük bir kart açar. Kartta eşyanın hâlâ bir görevde lazım olup olmadığı ("SAKLA") ve en iyi nerede satılacağı yazar. Fareyi uzaklaştırınca kapanır.</sys:String>
+    <sys:String x:Key="s.keys.scan">Görevleri oku: oyunda Tasks ekranı açıkken basınca ekrandaki görev adlarını bir kez okur; listeyi sen onaylarsın (Görevleri Oku sayfası).</sys:String>
+    <sys:String x:Key="s.keys.changeTip">Değiştirmek için tıkla, sonra yeni tuş kombinasyonuna bas. Esc vazgeçer.</sys:String>
+    <sys:String x:Key="s.keys.press">Tuşa bas… (Esc: vazgeç)</sys:String>
+    <sys:String x:Key="s.keys.reset">Varsayılanlara dön</sys:String>
+    <sys:String x:Key="s.keys.barItem">eşya kontrolü</sys:String>
+    <sys:String x:Key="s.item.title">Eşya kontrolü (sakla / sat)</sys:String>
+    <sys:String x:Key="s.item.auto">Kısayol beklemeden açılsın: fare oyunda bir eşyanın üstünde durunca kart kendiliğinden çıksın</sys:String>
+    <sys:String x:Key="s.item.desc">Oyunun eşya adı kutusu, farenin etrafındaki küçük bir alandan Windows yazı tanımayla okunur. Görüntü kaydedilmez, bir yere gönderilmez, oyuna dokunulmaz. Otomatik mod sadece oyun öndeyken ve fare durduğunda okur. Fiyatlar seçili modun (PvP / PvE) tarkov.dev fiyatlarıdır.</sys:String>
+    <sys:String x:Key="ic.keep">SAKLA · {0} görevde lazım</sys:String>
+    <sys:String x:Key="ic.noQuest">Görevlerde gerekmiyor</sys:String>
+    <sys:String x:Key="ic.more">+{0} görev daha</sys:String>
+    <sys:String x:Key="ic.anyOf">{0} eşyadan herhangi biri</sys:String>
+    <sys:String x:Key="ic.active">aktif</sys:String>
+    <sys:String x:Key="ic.locked">kilitli</sys:String>
+    <sys:String x:Key="ic.sellFlea">En iyisi flea: {0}</sys:String>
+    <sys:String x:Key="ic.sellTrader">En iyisi {0}: {1}</sys:String>
+    <sys:String x:Key="ic.sellNone">Flea'da da tüccarlarda da satılmıyor</sys:String>
+    <sys:String x:Key="t.item.focusGame">Önce oyuna geç, fareyi bir eşyanın üstüne getir, sonra kısayola bas.</sys:String>
+    <sys:String x:Key="t.item.noPrices">Eşya listesi henüz inmedi (tarkov.dev). İnternet bağlantısını kontrol et, birazdan tekrar dene.</sys:String>
+    <sys:String x:Key="t.item.none">Farenin yanında eşya adı okunamadı. Eşyanın adı kutusu görünene kadar fareyi üstünde tut, sonra tekrar bas.</sys:String>
     <sys:String x:Key="flea.hint">En az 3 harf yaz</sys:String>
     <sys:String x:Key="flea.loading">{0} fiyatları tarkov.dev'den yükleniyor…</sys:String>
     <sys:String x:Key="flea.error">Fiyatlar alınamadı: {0}</sys:String>
@@ -387,7 +418,7 @@
     <sys:String x:Key="s.scan.saveFrameTip">Taramanın aldığı son görüntüyü masaüstüne kaydeder (PNG): uygulamanın ne gördüğünü görebilir ya da gönderebilirsin.</sys:String>
     <sys:String x:Key="t.scan.saved">Kaydedildi: {0}</sys:String>
     <sys:String x:Key="t.scan.noOcr">Windows'ta Latin harfler için yazı tanıma yok: Ayarlar → Saat ve dil → Dil bölümünden English ekle.</sys:String>
-    <sys:String x:Key="s.tab.scan">Görevleri Oku (BETA)</sys:String>
+    <sys:String x:Key="s.tab.scan">Görevleri Oku</sys:String>
     <sys:String x:Key="s.scan.title">Görevlerini oyundan oku</sys:String>
     <sys:String x:Key="s.scan.desc">Görevleri tek tek girmene gerek yok: uygulama oyundaki Tasks ekranındaki görev adlarını okur. Listeyi sen onaylarsın, görevler aktif olur ve onlardan önceki her şey tamamlandı sayılır.</sys:String>
     <sys:String x:Key="s.scan.step1">Oyun dilini İngilizce yap, oyunu Borderless veya Windowed modda çalıştır.</sys:String>
@@ -484,7 +515,7 @@
     <sys:String x:Key="s.gps.title">Konumumu haritada göster</sys:String>
     <sys:String x:Key="s.gps.desc">Raidde ekran görüntüsü al, harita penceresi nerede olduğunu ve nereye baktığını, önceki ekran görüntülerinden izini, exfilleri ve aktif görevlerinin noktalarını göstersin. Kat yüksekliğine göre değişir.</sys:String>
     <sys:String x:Key="s.gps.step1">Raide gir. Harita raidin haritasını takip eder ("Raid'e giriyorum"dan seçilen ya da çift O ile bulunan); raid yoksa haritayı harita penceresinden seç.</sys:String>
-    <sys:String x:Key="s.gps.step2">Oyundaki ekran görüntüsü tuşunla ekran görüntüsü al. Hangi tuşu atadıysan çalışır: uygulama tuşu değil ekran görüntüsü klasörünü izler.</sys:String>
+    <sys:String x:Key="s.gps.step2">Oyundaki ekran görüntüsü tuşunla ekran görüntüsü al. Oyunun varsayılanı Print Screen'dir; ama Windows'ta Print Screen çoğu zaman Ekran Alıntısı Aracı'nı da açar, o yüzden F11 gibi boş bir tuş atamanı öneririz (oyunda Ayarlar → Kontroller → ekran görüntüsü). Hangi tuşu atadıysan çalışır: uygulama tuşu değil ekran görüntüsü klasörünü izler.</sys:String>
     <sys:String x:Key="s.gps.step3">Harita seni üzerinde göstererek açılır. Tekerlek yakınlaştırır, sürüklemek etrafa bakar, ◎ tekrar seni ortalar.</sys:String>
     <sys:String x:Key="s.gps.step4">Esc'ye bas (ya da oyuna tıkla): harita kapanır, klavye oyuna geri döner. Nerede olduğunu görmek istediğinde yine ekran görüntüsü al.</sys:String>
     <sys:String x:Key="s.gps.status">DURUM</sys:String>
@@ -524,7 +555,7 @@
     <sys:String x:Key="s.cap.desc">Hangi pencerelerin yayında, kayıtlarda ve ekran görüntülerinde (OBS, Discord, Windows kaydı…) görüneceğini seç. Kapalıyken pencere ekran görüntülerinin dışında kalır; sen yine her zamanki gibi görürsün.</sys:String>
     <sys:String x:Key="s.cap.overlay">Overlay yayında ve kayıtlarda görünsün</sys:String>
     <sys:String x:Key="s.cap.overlayWarn">⚠ Otomatik raid algılama ekranın sağ üst köşesini okur: overlay oradaki exfil listesinin üstündeyse liste okunamaz. Overlay'i başka yere taşı ya da yayında gizle.</sys:String>
-    <sys:String x:Key="s.cap.flea">Flea market araması yayında ve kayıtlarda görünsün</sys:String>
+    <sys:String x:Key="s.cap.flea">Flea market araması ve eşya kartı yayında ve kayıtlarda görünsün</sys:String>
     <sys:String x:Key="s.cap.map">Harita (GPS) yayında ve kayıtlarda görünsün</sys:String>
     <sys:String x:Key="s.map.set.open">🗺 Haritayı aç</sys:String>
     <!-- Help & About page -->
@@ -549,7 +580,7 @@
     <sys:String x:Key="s.help.s3.t">3. Dilleri ayarla</sys:String>
     <sys:String x:Key="s.help.s3.d">Üst çubuk ya da Ayarlar: uygulama dili menüleri ve düğmeleri, görev dili görev adlarını ve hedefleri değiştirir. Arama iki dilde de çalışır.</sys:String>
     <sys:String x:Key="s.help.s4.t">4. İlerlemeni bir kez gir</sys:String>
-    <sys:String x:Key="s.help.s4.d">En hızlısı: Görevleri Oku (BETA) oyundaki Tasks ekranını 30 saniyede tarar. Ya da bulunduğun görevi aktif yap veya Hedef Planlayıcı'da hedefin yap: zincirdeki önceki tüm görevler tamamlandı sayılır. Yanlış tıklama tek "Geri al" ile düzelir.</sys:String>
+    <sys:String x:Key="s.help.s4.d">En hızlısı: Görevleri Oku oyundaki Tasks ekranını 30 saniyede tarar. Ya da bulunduğun görevi aktif yap veya Hedef Planlayıcı'da hedefin yap: zincirdeki önceki tüm görevler tamamlandı sayılır. Yanlış tıklama tek "Geri al" ile düzelir.</sys:String>
     <sys:String x:Key="s.help.s5.t">5. Ekran okuma için oyun İngilizce olsun</sys:String>
     <sys:String x:Key="s.help.s5.d">Görevleri Oku ve çift O raid algılama, İngilizce yazıyı Windows OCR ile okur. En iyi sonuç için oyun İngilizce ve 1080p ya da üstünde olsun.</sys:String>
     <sys:String x:Key="s.help.s6.t">6. Otomatik raid algılamayı açık tut</sys:String>
@@ -559,7 +590,7 @@
     <sys:String x:Key="s.help.s8.t">8. Görmek istediklerini sabitle</sys:String>
     <sys:String x:Key="s.help.s8.d">Aktif Görevler: raid dışında overlay'de görmek istediğin görevlerde 📌 Overlay'i aç. Raid'deyken overlay o haritanın aktif görevlerini kendiliğinden gösterir.</sys:String>
     <sys:String x:Key="s.help.s9.t">9. GPS haritasını kur</sys:String>
-    <sys:String x:Key="s.help.s9.d">Oyunda bir ekran görüntüsü tuşu ata. Ekran görüntülerin Belgeler\Escape from Tarkov\Screenshots içinde değilse klasörü Oyun İçi GPS sayfasından seç. Sonra haritanın nasıl görüneceğini seç: oyunun üstünde, yuvarlak mini harita olarak ya da ikinci ekranda uygulamanın içinde.</sys:String>
+    <sys:String x:Key="s.help.s9.d">Oyunda bir ekran görüntüsü tuşu ata: varsayılan Print Screen'dir, ama Windows'un Ekran Alıntısı Aracı'yla çakışmasın diye F11 gibi boş bir tuş öneririz (Ayarlar → Kontroller). Ekran görüntülerin Belgeler\Escape from Tarkov\Screenshots içinde değilse klasörü Oyun İçi GPS sayfasından seç. Sonra haritanın nasıl görüneceğini seç: oyunun üstünde, yuvarlak mini harita olarak ya da ikinci ekranda uygulamanın içinde.</sys:String>
     <sys:String x:Key="s.help.s10.t">10. Kısayolları öğren</sys:String>
     <sys:String x:Key="s.help.s10.d">Ctrl+Shift+T overlay'i kilitler, tıklamalar oyuna geçer; Ctrl+Shift+R raid haritasını seçer; Ctrl+Shift+F flea fiyat aramasını açar. Hepsi Ayarlar'da ve pencerenin altında listelenir. Biri başka bir programla çakışırsa uygulama açılışta uyarır.</sys:String>
     <sys:String x:Key="s.help.s11.t">11. Güncellemeler ve yedek</sys:String>

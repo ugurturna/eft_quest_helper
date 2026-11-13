@@ -1,4 +1,4 @@
-﻿<Window x:Class="TarkovQuestTracker.MainWindow"
+<Window x:Class="TarkovQuestTracker.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:TarkovQuestTracker.ViewModels"
@@ -271,6 +271,11 @@
                 <TextBlock Text="◆ TARKOV QUEST TRACKER" Style="{StaticResource H1}" FontSize="16" VerticalAlignment="Center" />
                 <TextBlock Text="{x:Static vm:MainViewModel.AppVersion}" Style="{StaticResource Muted}" FontSize="11"
                            VerticalAlignment="Center" Margin="8,3,0,0" />
+                <!-- the whole app is in beta (no single feature carries the label) -->
+                <Border BorderBrush="{StaticResource AccentBrush}" BorderThickness="1" CornerRadius="3" Padding="5,0"
+                        VerticalAlignment="Center" Margin="6,3,0,0">
+                    <TextBlock Text="Beta" Foreground="{StaticResource AccentBrush}" FontSize="10" FontWeight="SemiBold" />
+                </Border>
                 <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal" Margin="0,2,14,2">
                         <TextBlock Text="{DynamicResource s.profile}" Style="{StaticResource Muted}" VerticalAlignment="Center" Margin="0,0,6,0" />
@@ -1322,231 +1327,335 @@
                     </ScrollViewer>
                 </TabItem>
 
-                <!-- settings -->
+                <!-- settings: sub-pages along the top, the selected one underlined -->
                 <TabItem Header="{DynamicResource s.tab.settings}" Tag="&#xE713;">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
-                        <StackPanel MaxWidth="640" HorizontalAlignment="Left">
-                            <!-- shortcuts, explained -->
-                            <TextBlock Text="{DynamicResource s.keys.title}" Style="{StaticResource H2}" Margin="0,0,0,4" />
-                            <Border Background="{StaticResource CardBrush}" CornerRadius="4" Padding="12,8" Margin="0,0,0,4">
-                                <Grid>
-                                    <Grid.Resources>
-                                        <Style x:Key="KeyCap" TargetType="Border">
-                                            <Setter Property="Background" Value="{StaticResource BgBrush}" />
-                                            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
-                                            <Setter Property="BorderThickness" Value="1" />
-                                            <Setter Property="CornerRadius" Value="3" />
-                                            <Setter Property="Padding" Value="8,3" />
-                                            <Setter Property="Margin" Value="0,4,14,4" />
-                                            <Setter Property="HorizontalAlignment" Value="Left" />
-                                            <Setter Property="VerticalAlignment" Value="Top" />
-                                        </Style>
-                                        <Style x:Key="KeyText" TargetType="TextBlock">
-                                            <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
-                                            <Setter Property="FontWeight" Value="SemiBold" />
-                                            <Setter Property="FontFamily" Value="Consolas" />
-                                        </Style>
-                                        <Style x:Key="KeyDesc" TargetType="TextBlock" BasedOn="{StaticResource Body}">
-                                            <Setter Property="Margin" Value="0,6,0,4" />
-                                        </Style>
-                                    </Grid.Resources>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition />
-                                    </Grid.RowDefinitions>
-                                    <Border Style="{StaticResource KeyCap}">
-                                        <TextBlock Text="{Binding Settings.ClickThroughHotkey}" Style="{StaticResource KeyText}" />
+                    <TabControl Margin="0,4,0,0">
+                        <TabControl.Template>
+                            <ControlTemplate TargetType="TabControl">
+                                <DockPanel>
+                                    <Border DockPanel.Dock="Top" BorderBrush="{StaticResource LineBrush}" BorderThickness="0,0,0,1" Margin="0,0,0,4">
+                                        <WrapPanel IsItemsHost="True" KeyboardNavigation.TabNavigation="Once" />
                                     </Border>
-                                    <TextBlock Grid.Column="1" Text="{DynamicResource s.keys.lock}" Style="{StaticResource KeyDesc}" />
-                                    <Border Grid.Row="1" Style="{StaticResource KeyCap}">
-                                        <TextBlock Text="{Binding Settings.ToggleOverlayHotkey}" Style="{StaticResource KeyText}" />
+                                    <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" />
+                                </DockPanel>
+                            </ControlTemplate>
+                        </TabControl.Template>
+                        <TabControl.Resources>
+                            <!-- replaces the side menu's TabItem look for these tabs -->
+                            <Style TargetType="TabItem">
+                                <Setter Property="Foreground" Value="{StaticResource MutedBrush}" />
+                                <Setter Property="FontSize" Value="13" />
+                                <Setter Property="Cursor" Value="Hand" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TabItem">
+                                            <Border x:Name="Bd" Background="Transparent" CornerRadius="4,4,0,0" Margin="0,0,2,0">
+                                                <DockPanel>
+                                                    <Border x:Name="Bar" DockPanel.Dock="Bottom" Height="2" Background="Transparent" />
+                                                    <TextBlock Text="{TemplateBinding Header}" Margin="14,7" Foreground="{TemplateBinding Foreground}" />
+                                                </DockPanel>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="Bd" Property="Background" Value="{StaticResource CardBrush}" />
+                                                    <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+                                                </Trigger>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter TargetName="Bar" Property="Background" Value="{StaticResource AccentBrush}" />
+                                                    <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+                                                    <Setter Property="FontWeight" Value="SemiBold" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TabControl.Resources>
+                        <!-- shortcuts, explained -->
+                        <TabItem Header="{DynamicResource s.set.tab.keys}">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <StackPanel MaxWidth="640" HorizontalAlignment="Left" Margin="0,0,0,8">
+                                    <TextBlock Text="{DynamicResource s.keys.title}" Style="{StaticResource H2}" Margin="0,0,0,4" />
+                                    <Border Background="{StaticResource CardBrush}" CornerRadius="4" Padding="12,8" Margin="0,0,0,4">
+                                        <Grid>
+                                            <Grid.Resources>
+                                                <Style x:Key="KeyCap" TargetType="Border">
+                                                    <Setter Property="Background" Value="{StaticResource BgBrush}" />
+                                                    <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+                                                    <Setter Property="BorderThickness" Value="1" />
+                                                    <Setter Property="CornerRadius" Value="3" />
+                                                    <Setter Property="Padding" Value="8,3" />
+                                                    <Setter Property="Margin" Value="0,4,14,4" />
+                                                    <Setter Property="HorizontalAlignment" Value="Left" />
+                                                    <Setter Property="VerticalAlignment" Value="Top" />
+                                                </Style>
+                                                <Style x:Key="KeyText" TargetType="TextBlock">
+                                                    <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+                                                    <Setter Property="FontWeight" Value="SemiBold" />
+                                                    <Setter Property="FontFamily" Value="Consolas" />
+                                                </Style>
+                                                <Style x:Key="KeyDesc" TargetType="TextBlock" BasedOn="{StaticResource Body}">
+                                                    <Setter Property="Margin" Value="0,6,0,4" />
+                                                </Style>
+                                                <!-- a hotkey the player can change: looks like the key caps, click to record a new one -->
+                                                <Style x:Key="KeyButton" TargetType="Button">
+                                                    <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+                                                    <Setter Property="FontWeight" Value="SemiBold" />
+                                                    <Setter Property="FontFamily" Value="Consolas" />
+                                                    <Setter Property="Cursor" Value="Hand" />
+                                                    <Setter Property="Margin" Value="0,4,14,4" />
+                                                    <Setter Property="HorizontalAlignment" Value="Left" />
+                                                    <Setter Property="VerticalAlignment" Value="Top" />
+                                                    <Setter Property="ToolTip" Value="{DynamicResource s.keys.changeTip}" />
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="Button">
+                                                                <Border x:Name="Bd" Background="{StaticResource BgBrush}" BorderBrush="{StaticResource AccentBrush}"
+                                                                        BorderThickness="1" CornerRadius="3" Padding="8,3">
+                                                                    <StackPanel Orientation="Horizontal">
+                                                                        <ContentPresenter VerticalAlignment="Center" />
+                                                                        <TextBlock Text="&#xE70F;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="10" FontWeight="Normal"
+                                                                                   Margin="8,0,0,0" VerticalAlignment="Center" Foreground="{StaticResource MutedBrush}" />
+                                                                    </StackPanel>
+                                                                </Border>
+                                                                <ControlTemplate.Triggers>
+                                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                                        <Setter TargetName="Bd" Property="Background" Value="{StaticResource CardBrush}" />
+                                                                    </Trigger>
+                                                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                                                        <Setter TargetName="Bd" Property="BorderThickness" Value="2" />
+                                                                    </Trigger>
+                                                                </ControlTemplate.Triggers>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Grid.Resources>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition /><RowDefinition />
+                                            </Grid.RowDefinitions>
+                                            <Button Tag="clickThrough" Content="{Binding Settings.ClickThroughHotkey}" Style="{StaticResource KeyButton}" Click="Hotkey_Click" />
+                                            <TextBlock Grid.Column="1" Text="{DynamicResource s.keys.lock}" Style="{StaticResource KeyDesc}" />
+                                            <Button Grid.Row="1" Tag="toggleOverlay" Content="{Binding Settings.ToggleOverlayHotkey}" Style="{StaticResource KeyButton}" Click="Hotkey_Click" />
+                                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{DynamicResource s.keys.toggle}" Style="{StaticResource KeyDesc}" />
+                                            <Border Grid.Row="2" Style="{StaticResource KeyCap}">
+                                                <TextBlock Text="{DynamicResource s.keys.wheel}" Style="{StaticResource KeyText}" />
+                                            </Border>
+                                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{DynamicResource s.keys.wheel.desc}" Style="{StaticResource KeyDesc}" />
+                                            <Border Grid.Row="3" Style="{StaticResource KeyCap}">
+                                                <TextBlock Text="{DynamicResource s.keys.drag}" Style="{StaticResource KeyText}" />
+                                            </Border>
+                                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{DynamicResource s.keys.drag.desc}" Style="{StaticResource KeyDesc}" />
+                                            <Button Grid.Row="4" Tag="fleaSearch" Content="{Binding Settings.FleaSearchHotkey}" Style="{StaticResource KeyButton}" Click="Hotkey_Click" />
+                                            <TextBlock Grid.Row="4" Grid.Column="1" Text="{DynamicResource s.keys.flea}" Style="{StaticResource KeyDesc}" />
+                                            <Button Grid.Row="5" Tag="raid" Content="{Binding Settings.RaidHotkey}" Style="{StaticResource KeyButton}" Click="Hotkey_Click" />
+                                            <TextBlock Grid.Row="5" Grid.Column="1" Text="{DynamicResource s.keys.raid}" Style="{StaticResource KeyDesc}" />
+                                            <Button Grid.Row="6" Tag="scan" Content="{Binding Settings.ScanHotkey}" Style="{StaticResource KeyButton}" Click="Hotkey_Click" />
+                                            <TextBlock Grid.Row="6" Grid.Column="1" Text="{DynamicResource s.keys.scan}" Style="{StaticResource KeyDesc}" />
+                                            <Button Grid.Row="7" Tag="itemCheck" Content="{Binding Settings.ItemCheckHotkey}" Style="{StaticResource KeyButton}" Click="Hotkey_Click" />
+                                            <TextBlock Grid.Row="7" Grid.Column="1" Text="{DynamicResource s.keys.item}" Style="{StaticResource KeyDesc}" />
+                                            <DockPanel Grid.Row="8" Grid.ColumnSpan="2" Margin="0,6,0,0">
+                                                <Button DockPanel.Dock="Right" Content="{DynamicResource s.keys.reset}" Style="{StaticResource SmallButton}" Margin="12,0,0,0"
+                                                        VerticalAlignment="Top" Click="ResetHotkeys_Click" />
+                                                <TextBlock Text="{DynamicResource s.keys.note}" Style="{StaticResource Muted}" FontSize="11" TextWrapping="Wrap" />
+                                            </DockPanel>
+                                        </Grid>
                                     </Border>
-                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{DynamicResource s.keys.toggle}" Style="{StaticResource KeyDesc}" />
-                                    <Border Grid.Row="2" Style="{StaticResource KeyCap}">
-                                        <TextBlock Text="{DynamicResource s.keys.wheel}" Style="{StaticResource KeyText}" />
-                                    </Border>
-                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{DynamicResource s.keys.wheel.desc}" Style="{StaticResource KeyDesc}" />
-                                    <Border Grid.Row="3" Style="{StaticResource KeyCap}">
-                                        <TextBlock Text="{DynamicResource s.keys.drag}" Style="{StaticResource KeyText}" />
-                                    </Border>
-                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{DynamicResource s.keys.drag.desc}" Style="{StaticResource KeyDesc}" />
-                                    <Border Grid.Row="4" Style="{StaticResource KeyCap}">
-                                        <TextBlock Text="{Binding Settings.FleaSearchHotkey}" Style="{StaticResource KeyText}" />
-                                    </Border>
-                                    <TextBlock Grid.Row="4" Grid.Column="1" Text="{DynamicResource s.keys.flea}" Style="{StaticResource KeyDesc}" />
-                                    <Border Grid.Row="5" Style="{StaticResource KeyCap}">
-                                        <TextBlock Text="{Binding Settings.RaidHotkey}" Style="{StaticResource KeyText}" />
-                                    </Border>
-                                    <TextBlock Grid.Row="5" Grid.Column="1" Text="{DynamicResource s.keys.raid}" Style="{StaticResource KeyDesc}" />
-                                    <TextBlock Grid.Row="6" Grid.ColumnSpan="2" Text="{DynamicResource s.keys.note}" Style="{StaticResource Muted}" FontSize="11" Margin="0,6,0,0" />
-                                </Grid>
-                            </Border>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </TabItem>
 
-                            <!-- streams / recordings: which windows show in screen pictures -->
-                            <TextBlock Text="{DynamicResource s.cap.title}" Style="{StaticResource H2}" />
-                            <TextBlock Text="{DynamicResource s.cap.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,0,0,4" />
-                            <CheckBox Content="{DynamicResource s.cap.overlay}" IsChecked="{Binding OverlayShowInCapture}" Margin="0,2,0,2" />
-                            <TextBlock Text="{DynamicResource s.cap.overlayWarn}" Foreground="{StaticResource WarnBrush}" FontSize="12" TextWrapping="Wrap"
-                                       Margin="22,0,0,4" Visibility="{Binding OverlayCaptureWarning, Converter={StaticResource BoolToVis}}" />
-                            <CheckBox Content="{DynamicResource s.cap.flea}" IsChecked="{Binding FleaShowInCapture}" Margin="0,2,0,2" />
-                            <CheckBox Content="{DynamicResource s.cap.map}" IsChecked="{Binding MapShowInCapture}" Margin="0,2,0,8" />
+                        <!-- overlay look, item check, streams / recordings -->
+                        <TabItem Header="{DynamicResource s.set.tab.overlay}">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <StackPanel MaxWidth="640" HorizontalAlignment="Left" Margin="0,0,0,8">
+                                    <TextBlock Text="{DynamicResource s.set.overlay}" Style="{StaticResource H2}" />
+                                    <TextBlock Text="{DynamicResource s.set.view}" Style="{StaticResource Body}" />
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,8">
+                                        <RadioButton Content="{DynamicResource s.view.titles}" Margin="0,0,16,0"
+                                                     IsChecked="{Binding OverlayDetailed, Converter={StaticResource InvertBool}}" />
+                                        <RadioButton Content="{DynamicResource s.view.detailed}" IsChecked="{Binding OverlayDetailed}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,2">
+                                        <TextBlock Text="{DynamicResource s.ov.max}" Style="{StaticResource Body}" VerticalAlignment="Center" Margin="0,0,8,0" />
+                                        <ComboBox ItemsSource="{Binding OverlayMaxChoices}" DisplayMemberPath="Label" SelectedValuePath="Key"
+                                                  SelectedValue="{Binding OverlayMaxKey}" MinWidth="90" />
+                                    </StackPanel>
+                                    <TextBlock Text="{DynamicResource s.ov.maxHint}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,0,0,8" />
+                                    <CheckBox Content="{DynamicResource s.ov.hideDone}" IsChecked="{Binding OverlayHideDoneObjectives}" Margin="0,0,0,8" />
+                                    <CheckBox Content="{DynamicResource s.ov.autoHide}" IsChecked="{Binding OverlayAutoHide}" />
+                                    <TextBlock Text="{DynamicResource s.ov.autoHideHint}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="22,0,0,4" />
+                                    <StackPanel Margin="22,0,0,8" IsEnabled="{Binding OverlayAutoHide}">
+                                        <TextBlock Style="{StaticResource Body}">
+                                            <Run Text="{DynamicResource s.ov.autoHideSecs}" /> <Run Text="{Binding OverlayAutoHideSeconds, Mode=OneWay, StringFormat={}{0} s}" />
+                                        </TextBlock>
+                                        <Slider Minimum="3" Maximum="30" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding OverlayAutoHideSeconds}" />
+                                    </StackPanel>
+                                    <TextBlock Style="{StaticResource Body}">
+                                        <Run Text="{DynamicResource s.set.position}" /> <Run Text="{Binding OverlayPosition, StringFormat={}{0:P0}, Mode=OneWay}" />
+                                        <Run Text="{DynamicResource s.set.position.hint}" Foreground="{StaticResource MutedBrush}" />
+                                    </TextBlock>
+                                    <Slider Minimum="0" Maximum="1" Value="{Binding OverlayPosition}" Margin="0,0,0,8" />
+                                    <TextBlock Style="{StaticResource Body}">
+                                        <Run Text="{DynamicResource s.set.positionX}" /> <Run Text="{Binding OverlayPositionX, StringFormat={}{0:P0}, Mode=OneWay}" />
+                                        <Run Text="{DynamicResource s.set.positionX.hint}" Foreground="{StaticResource MutedBrush}" />
+                                    </TextBlock>
+                                    <Slider Minimum="0" Maximum="1" Value="{Binding OverlayPositionX}" Margin="0,0,0,8" />
+                                    <TextBlock Style="{StaticResource Body}">
+                                        <Run Text="{DynamicResource s.set.opacity}" /> <Run Text="{Binding OverlayOpacity, StringFormat={}{0:P0}, Mode=OneWay}" />
+                                    </TextBlock>
+                                    <Slider Minimum="0.15" Maximum="1" Value="{Binding OverlayOpacity}" />
+                                    <TextBlock Style="{StaticResource Body}" Margin="0,8,0,0">
+                                        <Run Text="{DynamicResource s.set.width}" /> <Run Text="{Binding OverlayWidth, StringFormat={}{0:0}px, Mode=OneWay}" />
+                                    </TextBlock>
+                                    <Slider Minimum="240" Maximum="600" Value="{Binding OverlayWidth}" />
+                                    <TextBlock Style="{StaticResource Body}" Margin="0,8,0,0">
+                                        <Run Text="{DynamicResource s.set.scale}" /> <Run Text="{Binding OverlayScale, StringFormat={}{0:P0}, Mode=OneWay}" />
+                                        <Run Text="{DynamicResource s.set.scale.hint}" Foreground="{StaticResource MutedBrush}" />
+                                    </TextBlock>
+                                    <Slider Minimum="0.6" Maximum="2" Value="{Binding OverlayScale}" />
+                                    <TextBlock Style="{StaticResource Body}" Margin="0,8,0,0">
+                                        <Run Text="{DynamicResource s.set.fleaOpacity}" /> <Run Text="{Binding FleaOpacity, StringFormat={}{0:P0}, Mode=OneWay}" />
+                                        <Run Text="{DynamicResource s.set.fleaOpacity.hint}" Foreground="{StaticResource MutedBrush}" />
+                                    </TextBlock>
+                                    <Slider Minimum="0.3" Maximum="1" Value="{Binding FleaOpacity}" />
+                                    <TextBlock Text="{DynamicResource s.set.borderless}" Style="{StaticResource Muted}" Margin="0,8,0,0" />
 
-                            <TextBlock Text="{DynamicResource s.u.title}" Style="{StaticResource H2}" />
-                            <CheckBox Content="{DynamicResource s.u.auto}" IsChecked="{Binding CheckForUpdates}" Margin="0,4,0,4" />
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                <Button Content="{DynamicResource s.u.check}" Style="{StaticResource SmallButton}" Command="{Binding CheckUpdatesCommand}" />
-                                <TextBlock Text="{Binding UpdateStatus}" Style="{StaticResource Muted}" VerticalAlignment="Center" TextWrapping="Wrap" />
-                            </StackPanel>
+                                    <!-- item check: keep or sell the item under the mouse -->
+                                    <TextBlock Text="{DynamicResource s.item.title}" Style="{StaticResource H2}" />
+                                    <CheckBox Content="{DynamicResource s.item.auto}" IsChecked="{Binding ItemCheckAuto}" Margin="0,2,0,2" />
+                                    <TextBlock Text="{DynamicResource s.item.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="22,0,0,8" />
 
-                            <TextBlock Text="{DynamicResource s.set.lang}" Style="{StaticResource H2}" />
-                            <TextBlock Text="{DynamicResource s.set.lang.desc}" Style="{StaticResource Muted}" />
-                            <Grid Margin="0,6,0,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="200" />
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <TextBlock Text="{DynamicResource s.appLang}" Style="{StaticResource Body}" VerticalAlignment="Center" Margin="0,0,12,4" />
-                                <ComboBox Grid.Column="1" ItemsSource="{Binding UiLanguages}" DisplayMemberPath="Label" SelectedValuePath="Key"
-                                          SelectedValue="{Binding UiLanguage}" Margin="0,0,0,4" />
-                                <TextBlock Grid.Row="1" Text="{DynamicResource s.questLang}" Style="{StaticResource Body}" VerticalAlignment="Center" Margin="0,0,12,0" />
-                                <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Languages}" DisplayMemberPath="Label" SelectedValuePath="Key"
-                                          SelectedValue="{Binding Language}" />
-                            </Grid>
+                                    <!-- streams / recordings: which windows show in screen pictures -->
+                                    <TextBlock Text="{DynamicResource s.cap.title}" Style="{StaticResource H2}" />
+                                    <TextBlock Text="{DynamicResource s.cap.desc}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,0,0,4" />
+                                    <CheckBox Content="{DynamicResource s.cap.overlay}" IsChecked="{Binding OverlayShowInCapture}" Margin="0,2,0,2" />
+                                    <TextBlock Text="{DynamicResource s.cap.overlayWarn}" Foreground="{StaticResource WarnBrush}" FontSize="12" TextWrapping="Wrap"
+                                               Margin="22,0,0,4" Visibility="{Binding OverlayCaptureWarning, Converter={StaticResource BoolToVis}}" />
+                                    <CheckBox Content="{DynamicResource s.cap.flea}" IsChecked="{Binding FleaShowInCapture}" Margin="0,2,0,2" />
+                                    <CheckBox Content="{DynamicResource s.cap.map}" IsChecked="{Binding MapShowInCapture}" Margin="0,2,0,8" />
+                                </StackPanel>
+                            </ScrollViewer>
+                        </TabItem>
 
-                            <TextBlock Text="{DynamicResource s.set.profile}" Style="{StaticResource H2}" />
-                            <TextBlock Style="{StaticResource Muted}">
-                                <Run Text="{DynamicResource s.set.profile.current}" /> <Run Text="{Binding CurrentProfile, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" />
-                                <LineBreak /><Run Text="{DynamicResource s.set.profile.desc}" />
-                            </TextBlock>
-                            <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
-                                <Button Content="{DynamicResource s.profile.newDots}" Style="{StaticResource SmallButton}" Click="NewProfile_Click" />
-                                <Button Content="{DynamicResource s.profile.rename}" Style="{StaticResource SmallButton}" Click="RenameProfile_Click" />
-                                <Button Content="{DynamicResource s.profile.delete}" Style="{StaticResource SmallButton}" Click="DeleteProfile_Click"
-                                        IsEnabled="{Binding CanDeleteProfile}" />
-                            </StackPanel>
+                        <!-- app size, languages, profiles, updates -->
+                        <TabItem Header="{DynamicResource s.set.tab.general}">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <StackPanel MaxWidth="640" HorizontalAlignment="Left" Margin="0,0,0,8">
+                                    <TextBlock Text="{DynamicResource s.set.app}" Style="{StaticResource H2}" />
+                                    <DockPanel Margin="0,2,0,0">
+                                        <Button DockPanel.Dock="Right" Content="{DynamicResource s.set.uiScale.reset}" Style="{StaticResource SmallButton}" Margin="8,0,0,0"
+                                                Command="{Binding ResetUiScaleCommand}" />
+                                        <TextBlock Style="{StaticResource Body}" VerticalAlignment="Center">
+                                            <Run Text="{DynamicResource s.set.uiScale}" /> <Run Text="{Binding UiScale, StringFormat={}{0:0.00}x, Mode=OneWay}" />
+                                            <Run Text="{DynamicResource s.set.uiScale.hint}" Foreground="{StaticResource MutedBrush}" />
+                                        </TextBlock>
+                                    </DockPanel>
+                                    <Slider Minimum="0.25" Maximum="2" SmallChange="0.05" LargeChange="0.25" IsSnapToTickEnabled="True" TickFrequency="0.05"
+                                            Value="{Binding UiScale}" Margin="0,0,0,8" />
 
-                            <TextBlock Text="{DynamicResource s.set.app}" Style="{StaticResource H2}" />
-                            <DockPanel Margin="0,2,0,0">
-                                <Button DockPanel.Dock="Right" Content="{DynamicResource s.set.uiScale.reset}" Style="{StaticResource SmallButton}" Margin="8,0,0,0"
-                                        Command="{Binding ResetUiScaleCommand}" />
-                                <TextBlock Style="{StaticResource Body}" VerticalAlignment="Center">
-                                    <Run Text="{DynamicResource s.set.uiScale}" /> <Run Text="{Binding UiScale, StringFormat={}{0:0.00}x, Mode=OneWay}" />
-                                    <Run Text="{DynamicResource s.set.uiScale.hint}" Foreground="{StaticResource MutedBrush}" />
-                                </TextBlock>
-                            </DockPanel>
-                            <Slider Minimum="0.25" Maximum="2" SmallChange="0.05" LargeChange="0.25" IsSnapToTickEnabled="True" TickFrequency="0.05"
-                                    Value="{Binding UiScale}" Margin="0,0,0,8" />
+                                    <TextBlock Text="{DynamicResource s.set.lang}" Style="{StaticResource H2}" />
+                                    <TextBlock Text="{DynamicResource s.set.lang.desc}" Style="{StaticResource Muted}" />
+                                    <Grid Margin="0,6,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="200" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Text="{DynamicResource s.appLang}" Style="{StaticResource Body}" VerticalAlignment="Center" Margin="0,0,12,4" />
+                                        <ComboBox Grid.Column="1" ItemsSource="{Binding UiLanguages}" DisplayMemberPath="Label" SelectedValuePath="Key"
+                                                  SelectedValue="{Binding UiLanguage}" Margin="0,0,0,4" />
+                                        <TextBlock Grid.Row="1" Text="{DynamicResource s.questLang}" Style="{StaticResource Body}" VerticalAlignment="Center" Margin="0,0,12,0" />
+                                        <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Languages}" DisplayMemberPath="Label" SelectedValuePath="Key"
+                                                  SelectedValue="{Binding Language}" />
+                                    </Grid>
 
-                            <TextBlock Text="{DynamicResource s.set.overlay}" Style="{StaticResource H2}" />
-                            <TextBlock Text="{DynamicResource s.set.view}" Style="{StaticResource Body}" />
-                            <StackPanel Orientation="Horizontal" Margin="0,2,0,8">
-                                <RadioButton Content="{DynamicResource s.view.titles}" Margin="0,0,16,0"
-                                             IsChecked="{Binding OverlayDetailed, Converter={StaticResource InvertBool}}" />
-                                <RadioButton Content="{DynamicResource s.view.detailed}" IsChecked="{Binding OverlayDetailed}" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,2">
-                                <TextBlock Text="{DynamicResource s.ov.max}" Style="{StaticResource Body}" VerticalAlignment="Center" Margin="0,0,8,0" />
-                                <ComboBox ItemsSource="{Binding OverlayMaxChoices}" DisplayMemberPath="Label" SelectedValuePath="Key"
-                                          SelectedValue="{Binding OverlayMaxKey}" MinWidth="90" />
-                            </StackPanel>
-                            <TextBlock Text="{DynamicResource s.ov.maxHint}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,0,0,8" />
-                            <CheckBox Content="{DynamicResource s.ov.hideDone}" IsChecked="{Binding OverlayHideDoneObjectives}" Margin="0,0,0,8" />
-                            <CheckBox Content="{DynamicResource s.ov.autoHide}" IsChecked="{Binding OverlayAutoHide}" />
-                            <TextBlock Text="{DynamicResource s.ov.autoHideHint}" Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="22,0,0,4" />
-                            <StackPanel Margin="22,0,0,8" IsEnabled="{Binding OverlayAutoHide}">
-                                <TextBlock Style="{StaticResource Body}">
-                                    <Run Text="{DynamicResource s.ov.autoHideSecs}" /> <Run Text="{Binding OverlayAutoHideSeconds, Mode=OneWay, StringFormat={}{0} s}" />
-                                </TextBlock>
-                                <Slider Minimum="3" Maximum="30" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding OverlayAutoHideSeconds}" />
-                            </StackPanel>
-                            <TextBlock Style="{StaticResource Body}">
-                                <Run Text="{DynamicResource s.set.position}" /> <Run Text="{Binding OverlayPosition, StringFormat={}{0:P0}, Mode=OneWay}" />
-                                <Run Text="{DynamicResource s.set.position.hint}" Foreground="{StaticResource MutedBrush}" />
-                            </TextBlock>
-                            <Slider Minimum="0" Maximum="1" Value="{Binding OverlayPosition}" Margin="0,0,0,8" />
-                            <TextBlock Style="{StaticResource Body}">
-                                <Run Text="{DynamicResource s.set.positionX}" /> <Run Text="{Binding OverlayPositionX, StringFormat={}{0:P0}, Mode=OneWay}" />
-                                <Run Text="{DynamicResource s.set.positionX.hint}" Foreground="{StaticResource MutedBrush}" />
-                            </TextBlock>
-                            <Slider Minimum="0" Maximum="1" Value="{Binding OverlayPositionX}" Margin="0,0,0,8" />
-                            <TextBlock Style="{StaticResource Body}">
-                                <Run Text="{DynamicResource s.set.opacity}" /> <Run Text="{Binding OverlayOpacity, StringFormat={}{0:P0}, Mode=OneWay}" />
-                            </TextBlock>
-                            <Slider Minimum="0.15" Maximum="1" Value="{Binding OverlayOpacity}" />
-                            <TextBlock Style="{StaticResource Body}" Margin="0,8,0,0">
-                                <Run Text="{DynamicResource s.set.width}" /> <Run Text="{Binding OverlayWidth, StringFormat={}{0:0}px, Mode=OneWay}" />
-                            </TextBlock>
-                            <Slider Minimum="240" Maximum="600" Value="{Binding OverlayWidth}" />
-                            <TextBlock Style="{StaticResource Body}" Margin="0,8,0,0">
-                                <Run Text="{DynamicResource s.set.scale}" /> <Run Text="{Binding OverlayScale, StringFormat={}{0:P0}, Mode=OneWay}" />
-                                <Run Text="{DynamicResource s.set.scale.hint}" Foreground="{StaticResource MutedBrush}" />
-                            </TextBlock>
-                            <Slider Minimum="0.6" Maximum="2" Value="{Binding OverlayScale}" />
-                            <TextBlock Style="{StaticResource Body}" Margin="0,8,0,0">
-                                <Run Text="{DynamicResource s.set.fleaOpacity}" /> <Run Text="{Binding FleaOpacity, StringFormat={}{0:P0}, Mode=OneWay}" />
-                                <Run Text="{DynamicResource s.set.fleaOpacity.hint}" Foreground="{StaticResource MutedBrush}" />
-                            </TextBlock>
-                            <Slider Minimum="0.3" Maximum="1" Value="{Binding FleaOpacity}" />
-                            <TextBlock Text="{DynamicResource s.set.borderless}" Style="{StaticResource Muted}" Margin="0,8,0,0" />
+                                    <TextBlock Text="{DynamicResource s.set.profile}" Style="{StaticResource H2}" />
+                                    <TextBlock Style="{StaticResource Muted}">
+                                        <Run Text="{DynamicResource s.set.profile.current}" /> <Run Text="{Binding CurrentProfile, Mode=OneWay}" Foreground="{StaticResource AccentBrush}" />
+                                        <LineBreak /><Run Text="{DynamicResource s.set.profile.desc}" />
+                                    </TextBlock>
+                                    <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                                        <Button Content="{DynamicResource s.profile.newDots}" Style="{StaticResource SmallButton}" Click="NewProfile_Click" />
+                                        <Button Content="{DynamicResource s.profile.rename}" Style="{StaticResource SmallButton}" Click="RenameProfile_Click" />
+                                        <Button Content="{DynamicResource s.profile.delete}" Style="{StaticResource SmallButton}" Click="DeleteProfile_Click"
+                                                IsEnabled="{Binding CanDeleteProfile}" />
+                                    </StackPanel>
 
-                            <TextBlock Text="{DynamicResource s.set.progress}" Style="{StaticResource H2}" />
-                            <TextBlock Style="{StaticResource Muted}">
-                                <Run Text="{DynamicResource s.set.progress.desc}" /> <Run Text="{Binding ProgressFolder, Mode=OneWay}" />
-                            </TextBlock>
-                            <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
-                                <Button Content="{DynamicResource s.export}" Style="{StaticResource SmallButton}" Click="Export_Click" />
-                                <Button Content="{DynamicResource s.import}" Style="{StaticResource SmallButton}" Click="Import_Click" />
-                            </StackPanel>
+                                    <TextBlock Text="{DynamicResource s.u.title}" Style="{StaticResource H2}" />
+                                    <CheckBox Content="{DynamicResource s.u.auto}" IsChecked="{Binding CheckForUpdates}" Margin="0,4,0,4" />
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                        <Button Content="{DynamicResource s.u.check}" Style="{StaticResource SmallButton}" Command="{Binding CheckUpdatesCommand}" />
+                                        <TextBlock Text="{Binding UpdateStatus}" Style="{StaticResource Muted}" VerticalAlignment="Center" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </TabItem>
 
-                            <TextBlock Text="{DynamicResource s.set.data}" Style="{StaticResource H2}" />
-                            <TextBox Text="{Binding DataInfo, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Consolas" FontSize="11" />
-                            <TextBlock Style="{StaticResource Muted}" Margin="0,6,0,0">
-                                <Run Text="{DynamicResource s.set.data.update}" /><LineBreak />
-                                python tools/scraper/scrape_wiki.py --refresh<LineBreak />
-                                python tools/scraper/fetch_tarkovdev.py<LineBreak />
-                                python tools/scraper/merge.py<LineBreak />
-                                python tools/scraper/fetch_quest_items.py
-                            </TextBlock>
-                            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                                <Button Command="{Binding UpdateFromWikiCommand}" IsEnabled="{Binding CanUpdateFromWiki}">
-                                    <Button.Style>
-                                        <Style TargetType="Button" BasedOn="{StaticResource SmallButton}">
-                                            <Setter Property="Content" Value="{DynamicResource s.wiki.update}" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding IsUpdating}" Value="True">
-                                                    <Setter Property="Content" Value="{DynamicResource s.wiki.stop}" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Button.Style>
-                                </Button>
-                                <TextBlock Text="{DynamicResource s.wiki.running}" Foreground="{StaticResource ActiveBrush}" VerticalAlignment="Center"
-                                           Visibility="{Binding IsUpdating, Converter={StaticResource BoolToVis}}" />
-                            </StackPanel>
-                            <TextBlock Text="{DynamicResource s.wiki.desc}" Style="{StaticResource Muted}" FontSize="11" Margin="0,4,0,0" />
-                            <TextBlock Text="{DynamicResource s.wiki.unavailable}" Foreground="{StaticResource WarnBrush}" TextWrapping="Wrap" Margin="0,4,0,0">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding CanUpdateFromWiki}" Value="True">
-                                                <Setter Property="Visibility" Value="Collapsed" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                            <TextBox Text="{Binding UpdateLog, Mode=OneWay}" IsReadOnly="True" TextWrapping="NoWrap" FontFamily="Consolas" FontSize="11"
-                                     Height="200" Margin="0,6,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
-                                     TextChanged="UpdateLog_TextChanged" />
-                        </StackPanel>
-                    </ScrollViewer>
+                        <!-- progress backup and quest data -->
+                        <TabItem Header="{DynamicResource s.set.tab.data}">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <StackPanel MaxWidth="640" HorizontalAlignment="Left" Margin="0,0,0,8">
+                                    <TextBlock Text="{DynamicResource s.set.progress}" Style="{StaticResource H2}" />
+                                    <TextBlock Style="{StaticResource Muted}">
+                                        <Run Text="{DynamicResource s.set.progress.desc}" /> <Run Text="{Binding ProgressFolder, Mode=OneWay}" />
+                                    </TextBlock>
+                                    <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                                        <Button Content="{DynamicResource s.export}" Style="{StaticResource SmallButton}" Click="Export_Click" />
+                                        <Button Content="{DynamicResource s.import}" Style="{StaticResource SmallButton}" Click="Import_Click" />
+                                    </StackPanel>
+
+                                    <TextBlock Text="{DynamicResource s.set.data}" Style="{StaticResource H2}" />
+                                    <TextBox Text="{Binding DataInfo, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Consolas" FontSize="11" />
+                                    <TextBlock Style="{StaticResource Muted}" Margin="0,6,0,0">
+                                        <Run Text="{DynamicResource s.set.data.update}" /><LineBreak />
+                                        python tools/scraper/scrape_wiki.py --refresh<LineBreak />
+                                        python tools/scraper/fetch_tarkovdev.py<LineBreak />
+                                        python tools/scraper/merge.py<LineBreak />
+                                        python tools/scraper/fetch_quest_items.py
+                                    </TextBlock>
+                                    <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                                        <Button Command="{Binding UpdateFromWikiCommand}" IsEnabled="{Binding CanUpdateFromWiki}">
+                                            <Button.Style>
+                                                <Style TargetType="Button" BasedOn="{StaticResource SmallButton}">
+                                                    <Setter Property="Content" Value="{DynamicResource s.wiki.update}" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsUpdating}" Value="True">
+                                                            <Setter Property="Content" Value="{DynamicResource s.wiki.stop}" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+                                        <TextBlock Text="{DynamicResource s.wiki.running}" Foreground="{StaticResource ActiveBrush}" VerticalAlignment="Center"
+                                                   Visibility="{Binding IsUpdating, Converter={StaticResource BoolToVis}}" />
+                                    </StackPanel>
+                                    <TextBlock Text="{DynamicResource s.wiki.desc}" Style="{StaticResource Muted}" FontSize="11" Margin="0,4,0,0" />
+                                    <TextBlock Text="{DynamicResource s.wiki.unavailable}" Foreground="{StaticResource WarnBrush}" TextWrapping="Wrap" Margin="0,4,0,0">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding CanUpdateFromWiki}" Value="True">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <TextBox Text="{Binding UpdateLog, Mode=OneWay}" IsReadOnly="True" TextWrapping="NoWrap" FontFamily="Consolas" FontSize="11"
+                                             Height="200" Margin="0,6,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                                             TextChanged="UpdateLog_TextChanged" />
+                                </StackPanel>
+                            </ScrollViewer>
+                        </TabItem>
+                    </TabControl>
                 </TabItem>
                 <!-- help & about: the best setup, a static FAQ and app info -->
                 <TabItem x:Name="HelpTab" Header="{DynamicResource s.help.tab}" Tag="&#xE897;">

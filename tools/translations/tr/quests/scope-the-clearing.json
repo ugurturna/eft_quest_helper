@@ -1,0 +1,21 @@
+{
+ "id": "scope-the-clearing",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta kaçakçı tren peronuna birinci Wi-Fi Camera'yı yerleştir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Lighthouse'ta kaçakçı tren peronuna ikinci Wi-Fi Camera'yı yerleştir",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Lighthouse'ta Woods transit'ine üçüncü Wi-Fi Camera'yı yerleştir",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Lighthouse'un kuzeyine 3 WI-FI Camera saklaman gerekiyor."
+}

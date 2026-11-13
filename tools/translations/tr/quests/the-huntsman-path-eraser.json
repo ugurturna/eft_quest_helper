@@ -1,0 +1,18 @@
+{
+ "id": "the-huntsman-path-eraser",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Glukhar'ı bul ve etkisiz hale getir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Glukhar'ın korumalarına ait raidde bulunmuş 2 kaskı teslim et",
+   "details": [
+    "(İsteğe bağlı) Glukhar'ın korumalarının üstünü ara ve 4. sınıf ya da daha yüksek kasklarını topla"
+   ]
+  }
+ ],
+ "guide": "Bu görevde Glukhar'ı öldürmen ve raidde bulunmuş (FIR) 4. sınıf ya da daha yüksek 2 kask teslim etmen gerekiyor. Şu kasklardan herhangi birini teslim edebilirsin:\n* Altyn assault helmet (Olive Drab)\n* Vulkan-5 LShZ-5 bulletproof helmet (Black)\n* HighCom Striker ULACH IIIA helmet (Black)\n* HighCom Striker ULACH IIIA helmet (Desert Tan)\n* MSA Gallet TC 800 High Cut combat helmet (Black)\n* Ops-Core FAST MT Super High Cut helmet (Black)\n* BNTI LShZ-2DTM helmet (Black)\n* Maska-1SCh bulletproof helmet (Olive Drab)\n* MSA ACH TC-2002 MICH Series helmet (Olive Drab)\n* 6B47 Ratnik-BSh helmet (EMR cover)\n* NPP KlASS Tor-2 helmet (Olive Drab)\n* NFM HJELM helmet (Hellhound Grey)\n* ZSh-1-2M helmet (Black cover)\n* ZSh-1-2M helmet (Olive Drab)"
+}

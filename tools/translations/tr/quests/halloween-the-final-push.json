@@ -1,0 +1,18 @@
+{
+ "id": "halloween-the-final-push",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Deneysel gaz bombasının etkisi altındayken 15 enfekte öldür",
+   "details": [
+    "(İsteğe bağlı) RDA-78 deneysel CS gaz bombasını ele geçir"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Enfekte Tagilla'yı öldür",
+   "details": []
+  }
+ ],
+ "guide": "15 enfektenin, Model 8230 CS gas grenade (RDA-78)'in gaz alanının içindeyken öldürülmesi gerekiyor. Enfekte Tagilla, Infected Factory'de ve Infected Lab'de, ayrıca ara sıra Factory'de ve Interchange'te bulunabilir."
+}

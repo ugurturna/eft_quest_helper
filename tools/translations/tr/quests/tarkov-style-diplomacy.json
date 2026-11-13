@@ -1,0 +1,26 @@
+{
+ "id": "tarkov-style-diplomacy",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Shoreline'da Sanitar'ın surgery kit'ini bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Sanitar'ın surgery kit'ini Therapist'e teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Baskın esnasında Sanitar'ın oftalmoskopunu edin",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Sanitar'ın ophthalmoscope'unu Therapist'e teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Shoreline'da Sanitar'ın mavi simgeli Surgery kit'ini ve Marked Ophthalmoscope'unu bulman gerekiyor.\n\nSurgery kit, iskeledeki ofis binasının ikinci katında, bir gardırobun üstünde.\n\nOphthalmoscope, haritanın batısında, bataklığın yakınındaki kilitli villada. Villaya arka kapıdan girmek için Cottage back door key gerekir. Ophthalmoscope, ikinci kattaki sol odada, masadaki saksı bitkisinin içinde."
+}

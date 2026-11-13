@@ -1,0 +1,15 @@
+{
+ "id": "charity",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde 5 adet Adrenaline injector bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "5 eşyayı teslim et",
+   "details": []
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "id": "the-extortionist",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta saklanan değerli kargoyu bul ve ele geçir",
+   "details": [
+    "(İsteğe bağlı) Customs'ta kuryenin cesedini bul",
+    "(İsteğe bağlı) Customs'ta kuryenin kargoyu sakladığı yeri bul"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Değerli kargoyu teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Customs'taki kilitli bir kulübeden bir klasör alman gerekiyor. Gereken Unknown key, yine Customs'ta bulunan ölü bir Scav'ın üstünde. Raidde bu görevi aktif olan bir oyuncu olsun ya da olmasın, her raidde tek bir anahtar kesin çıkar."
+}

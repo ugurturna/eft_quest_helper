@@ -1,0 +1,13 @@
+{
+ "id": "offensive-reconnaissance",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Shoreline'da sağlık tesisinin sığınak kapısının arkasında ne olduğunu öğren",
+   "details": [
+    "(İsteğe bağlı) Labrys access keycard'ı ele geçir"
+   ]
+  }
+ ],
+ "guide": "Bu görevde Shoreline'dan The Labyrinth'e transit yapman gerekiyor. Transit, sağlık tesisinin batı kanadının bodrumunda ve Labrys access keycard gerektiriyor. Transit'e giden kapı kilitli ve Knossos LLC facility key gerektiriyor. Raidden sağ çıkman gerekmez."
+}

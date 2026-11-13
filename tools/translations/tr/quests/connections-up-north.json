@@ -1,0 +1,11 @@
+{
+ "id": "connections-up-north",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Gece görüşlü ya da termal dürbünlü sürgülü (bolt-action) bir tüfekle 20 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde gece görüşlü ya da termal nişangâhlı sürgülü (bolt-action) bir tüfekle 20 PMC öldürmen gerekiyor. Öldürmelerin bu görev için sayılması için nişangâhın silaha takılı olması yeterli, aktif olarak kullanılması gerekmez. Yani Armasight Vulcan MG 3.5x Bravo night vision scope gibi yedek nişangâh destekleyen bir nişangâh kullanıp üstüne istediğin kompakt reflex nişangâhı takabilirsin."
+}

@@ -1,0 +1,16 @@
+{
+ "id": "seizing-the-initiative",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'tan Shoreline'a transit kullan",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Shoreline'dan sağ çık",
+   "details": []
+  }
+ ],
+ "guide": "Transit, ana kavşağın güneyindeki barikatın arkasında, otobüsün içinde. Transit'ler raid başladıktan ancak 1 dk sonra kullanılabilir."
+}

@@ -1,0 +1,56 @@
+{
+ "id": "the-price-of-independence",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta suç delili mektubu bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Customs'tan Reserve'e transit kullan",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Mektubu Reserve'de askeri karargâhın üçüncü katına sakla",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Reserve'den Woods'a transit kullan",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Woods'ta herhangi 3 hedefi öldür",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Woods'tan Lighthouse'a transit kullan",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "Lighthouse'ta tren istasyonu deposunda sarı bir işaret fişeği at",
+   "details": []
+  },
+  {
+   "id": "o8",
+   "text": "Lighthouse'ta iskelede sarı bir işaret fişeği at",
+   "details": []
+  },
+  {
+   "id": "o9",
+   "text": "Lighthouse'tan sağ çık",
+   "details": []
+  },
+  {
+   "id": "o10",
+   "text": "Diğer hedefleri tamamlarken 10 Scav öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce Customs'taki sanayi tesisinin kuzey binasının üçüncü katında Incriminating letter'ı bulman gerekiyor. Sonra Reserve'e transit yapıp mektubu askeri karargâhın (Black Bishop) üçüncü katına saklaman gerekiyor. Sonra Woods'a transit yapıp orada herhangi 3 hedefi öldürmen gerekiyor. Son olarak Lighthouse'a transit yapıp tren istasyonunda ve iskelede sarı birer işaret fişeği atman ve exfil yapman gerekiyor. Bu hedefleri yaparken 10 Scav da öldürmen gerekiyor. Bütün hedefleri tamamlamadan önce herhangi bir anda ölmek ya da exfil yapmak, Incriminating letter'ı almak dışında tamamlanan hedefleri sıfırlar.\n\n▸ Customs'ta mektubun yeri\nMektup, sanayi tesisinin kuzey binasının üçüncü katındaki ofiste farklı noktalarda bulunabilir.\n\n▸ Customs'tan Reserve'e transit\n\n▸ Reserve'de mektubun saklanacağı yer\nAskeri karargâhın (Black Bishop) üçüncü katında, binanın batı tarafındaki kırık sandıklarda.\n\n▸ Reserve'den Woods'a transit\nTren sahasının kuzeybatısında, harita sınırında.\n\n▸ Woods'tan Lighthouse'a transit\n\n▸ Lighthouse'ta sarı fişek atılacak yerler\nBelirtilen alanlardayken gökyüzüne sarı bir işaret fişeği at. Fişek belli bir yüksekliğe ulaşmazsa görev hedefi tamamlanmaz. Elde tutulan RSP-30 sarı fişeği kullanıyorsan yukarı doğru nişan al, ama çok fazla değil, yoksa arkana düşer."
+}

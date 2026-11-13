@@ -1,0 +1,16 @@
+{
+ "id": "order-from-outside",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve'de elektromekanik depoda elektronik karıştırıcıyı (jammer) bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Cihazı Woods'ta belirtilen yere sakla",
+   "details": []
+  }
+ ],
+ "guide": "BTR sürücüsünün Battery Change görevini bitirmek bu görevi kendiliğinden başarısız yapar.\n\nBu görevde önce Reserve'deki hava sahası kontrol merkezinde (White King) bir KOSA UAV electronic jamming device bulman gerekiyor. Birden çok çıkma noktası var. Sonra cihazı Woods'ta, kuzeydeki harap köyün güneyindeki bir mezarlığa saklaman gerekiyor.\n\n▸ Reserve'de alma yeri\nCihaz, hava sahası kontrol merkezinin (White King) birinci katındaki bir depo odasında farklı noktalarda bulunabilir.\n\n▸ Woods'ta saklama yeri"
+}

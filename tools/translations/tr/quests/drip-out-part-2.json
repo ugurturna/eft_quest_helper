@@ -1,0 +1,16 @@
+{
+ "id": "drip-out-part-2",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Rogue'ları ortadan kaldır",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde bulunmuş 50 LBT marka teçhizat teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde 100 Rogue öldürmen ve raidde bulunmuş (FIR) 50 parça LBT marka teçhizat teslim etmen gerekiyor."
+}

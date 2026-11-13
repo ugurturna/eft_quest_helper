@@ -1,0 +1,11 @@
+{
+ "id": "shootout-picnic",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods, Ground Zero, Customs ya da Interchange'te herhangi 15 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods, Ground Zero, Customs ya da Interchange'te herhangi 15 hedefi öldürmen gerekiyor."
+}

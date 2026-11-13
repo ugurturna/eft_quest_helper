@@ -1,0 +1,28 @@
+{
+ "id": "chemical-part-1",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta Güvenlik Müdür Yardımcısı'nın geçmiş hayatı hakkında herhangi bir bilgi bul ve ele geçir",
+   "details": [
+    "(İsteğe bağlı) Customs'ta eski Güvenlik Müdür Yardımcısı'nın uyuduğu yeri bul"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Bilgiyi Skier'a teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Soruşturmaya yardımcı olabilecek herhangi bir eşyayı bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Eşyaları Skier'a teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde bir secure folder alman ve bir Dorm room 220 key teslim etmen gerekiyor. Aranan klasör, Customs'un batı tarafındaki bir tren vagonunda. Vagonun içinde birden çok çıkma noktası var. Klasörü aldıktan sonra haritadan başarıyla exfil yapman gerekir.\n\n▸ Birinci nokta\nVagonun kuzeybatı köşesinde, tuğla paletinin altında.\n\n▸ İkinci nokta\nVagonun güneydoğu köşesinde, bir paletin altında.\n\n▸ Üçüncü nokta\nVagonun kuzeydoğu köşesinde, duvar ile bir palet arasında."
+}

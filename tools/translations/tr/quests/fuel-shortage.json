@@ -1,0 +1,16 @@
+{
+ "id": "fuel-shortage",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Ev eşyaları (Household goods) kategorisinden raidde bulunmuş 5 eşya teslim et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Yanıcı maddeler (Flammable materials) kategorisinden raidde bulunmuş 5 eşya teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu eşyaları raidde bulmak ya da craft ederken raidde aramak istersen, işte bu eşyaların bazı çıkma noktaları."
+}

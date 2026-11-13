@@ -1,0 +1,11 @@
+{
+ "id": "make-amends-sweep-up",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve'de 25 Raider öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Reserve'de 25 Scav Raider öldürmen gerekiyor."
+}

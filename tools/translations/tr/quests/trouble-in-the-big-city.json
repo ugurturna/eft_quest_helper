@@ -1,0 +1,35 @@
+{
+ "id": "trouble-in-the-big-city",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da kargoyu taşıyan zırhlı konvoyu bul",
+   "details": [
+    "(İsteğe bağlı) Raide bir MS2000 Marker getir",
+    "(İsteğe bağlı) Raide sarı bir işaret fişeği getir"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Streets of Tarkov'da 10 PMC öldür",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Streets of Tarkov'da herhangi bir Boss'u ya da korumalarını bul ve toplam 20 öldürme yap",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Kargo alanını MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Zırhlı konvoyun yakınında sarı bir işaret fişeği at",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce Streets of Tarkov'da zırhlı konvoyu bulman ve 10 PMC öldürmen gerekiyor. Sonra Streets of Tarkov'da herhangi bossları ya da korumalarını öldürerek toplam 20 öldürme yapman gerekiyor. Ardından konvoydaki kargo kamyonu römorkunun içindeki ızgaralı kapıya bir MS2000 Marker yerleştirmen gerekiyor. Son olarak konvoy bölgesindeyken gökyüzüne sarı bir işaret fişeği atman gerekiyor. Fişek belli bir yüksekliğe ulaşmazsa görev hedefi tamamlanmaz. Prapor LL1'den alınabilen elde tutulan RSP-30 sarı fişeği ya da Jaeger LL1'den alınabilen, işaret tabancasından atılan 26x75mm sarı fişek kartuşunu kullanabilirsin. Elde tutulan RSP-30 sarı fişeği kullanıyorsan yukarı doğru nişan al, ama çok fazla değil, yoksa arkana düşer.",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

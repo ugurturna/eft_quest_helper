@@ -1,0 +1,11 @@
+{
+ "id": "halloween-high-risk-high-reward",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Infected Factory ya da Infected Lab'de 30 enfekte öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Infected Factory'de ya da Infected Lab'de 10 enfekte öldürmen gerekiyor."
+}

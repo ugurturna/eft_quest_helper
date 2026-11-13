@@ -1,0 +1,16 @@
+{
+ "id": "surveillance",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Tarkov Sokakları'ndaki Concordia konut kompleksi otoparkındaki araç hareketiyle ilgili verileri elde edin",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bilgiyi teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'da bir sabit disk bulman gerekiyor. Disk, Concordia binasının bodrum otoparkındaki Concordia güvenlik odasında. Odanın içinde birden çok çıkma noktası var.\n\n▸ Birinci nokta\nKöşe masanın sol tarafının altındaki bilgisayarın üstünde.\n\n▸ İkinci nokta\nKöşe masanın sağ tarafında, masaüstü bilgisayar ile çekmeceler arasında.\n\n▸ Üçüncü nokta\nArka soldaki kasanın üstündeki pizza kutusunun içinde.\n\n▸ Dördüncü nokta\nSağdaki masanın altındaki bölmede."
+}

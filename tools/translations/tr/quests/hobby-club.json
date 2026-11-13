@@ -1,0 +1,42 @@
+{
+ "id": "hobby-club",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve'de AK-50 barrel'ı bul ve ele geçir",
+   "details": [
+    "(İsteğe bağlı) Reserve'de Glukhar'ın atölyesini bul"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Tarkov'un güvenlik kontrol noktalarından birinde AK-50 dust cover'ı bul ve ele geçir",
+   "details": [
+    "(İsteğe bağlı) El konulmuş kargonun olduğu kontrol noktasını bul"
+   ]
+  },
+  {
+   "id": "o3",
+   "text": "AK-50 gövdesini Customs'ta belirtilen yere sakla",
+   "details": [
+    "(İsteğe bağlı) AK-50 gövdesini yap"
+   ]
+  },
+  {
+   "id": "o4",
+   "text": "AK-50 handguard'ı Customs'ta belirtilen yere sakla",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "AK-50 barrel'ı Customs'ta belirtilen yere sakla",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "AK-50 dust cover'ı Customs'ta belirtilen yere sakla",
+   "details": []
+  }
+ ],
+ "guide": "Gövdenin Hideout'ta seviye 3 Workbench'te craft edilmesi gerekiyor; handguard ise bu görevi kabul edince açılan Fair Price görev serisinden alınmalı.\n\n▸ Reserve'de namlunun yeri\n\"K\" ile işaretli depo binalarından 6 ya da 4 numaralı olanda.\n\n▸ Customs'ta dust cover'ın yeri\nAskeri kontrol noktası kulesinin ikinci katında bir koltuğun üstünde.\n\n▸ Customs'ta saklama yeri\nDört eşya, yeni benzin istasyonunun güneybatısındaki tepenin üstündeki kulübenin içinde mavi bir dolaba saklanmalı."
+}

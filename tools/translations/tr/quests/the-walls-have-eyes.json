@@ -1,0 +1,21 @@
+{
+ "id": "the-walls-have-eyes",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'de birinci vincin kabinine bir WI-FI Camera kur",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Factory'de ikinci vincin kabinine bir WI-FI Camera kur",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Factory'de üçüncü vincin kabinine bir WI-FI Camera kur",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Factory'deki vinç kabinlerinin içine 3 WI-FI Camera yerleştirmen gerekiyor. Kabinlere sadece yukarıdan, çatı kirişlerinden girilebilir.\n\nHer kamerayı yerleştirmek için 40 saniye hareketsiz kalman gerekir, bu yüzden önce bölgeyi güvenli hale getir."
+}

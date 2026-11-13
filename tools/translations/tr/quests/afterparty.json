@@ -1,0 +1,56 @@
+{
+ "id": "afterparty",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reshala'yı bul ve öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Glukhar'ı bul ve öldür",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Killa'yı bul ve öldür",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Shturman'ı bul ve öldür",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Sanitar'ı bul ve öldür",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Tagilla'yı bul ve öldür",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "Kaban'ı bul ve öldür",
+   "details": []
+  },
+  {
+   "id": "o8",
+   "text": "Knight'ı bul ve öldür",
+   "details": []
+  },
+  {
+   "id": "o9",
+   "text": "Big Pipe'ı bul ve öldür",
+   "details": []
+  },
+  {
+   "id": "o10",
+   "text": "Birdeye'ı bul ve öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde belirtilen bütün bossları öldürmen gerekiyor. Bossların yerleri için ilgili sayfalarına bak."
+}

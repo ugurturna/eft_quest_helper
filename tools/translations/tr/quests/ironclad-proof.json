@@ -1,0 +1,15 @@
+{
+ "id": "ironclad-proof",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde bulunmuş herhangi 10 Rus el bombasını Prapor'a teslim et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "GP-25 bombaatarıyla herhangi 10 hedefi öldür",
+   "details": []
+  }
+ ]
+}

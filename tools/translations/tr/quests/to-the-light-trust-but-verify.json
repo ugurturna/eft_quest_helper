@@ -1,0 +1,18 @@
+{
+ "id": "to-the-light-trust-but-verify",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "The Lab'de silah test alanının yakınındaki sunucu odasına Hard drive with false data'yı sakla (Tek raidde)",
+   "details": [
+    "(İsteğe bağlı) Sonra Ventilation Shaft üzerinden çık"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "The Lab'den Ventilation Shaft üzerinden çık (Tek raidde)",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce raid dışı görev envanterine verilen sabit diski The Lab'in birinci seviyesindeki ana çalışma alanında (O11) sunuculara saklaman gerekiyor. Ölünce kaybolmaz. Sonra aynı raidde \"Ventilation Shaft\" exfil'inden çıkman gerekiyor. Bu exfil sadece sırt çantası takılı değilken kullanılabilir."
+}

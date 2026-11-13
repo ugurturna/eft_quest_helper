@@ -1,0 +1,12 @@
+{
+ "id": "make-ultra-great-again",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Interchange'te herhangi 10 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Scav'lar genelde OLI, Goshan ve IDEA'nın önünde bulunur. Bir başka doğma noktası alışveriş merkezinin ana orta salonunda, Kiba silah mağazasının yakınında. Elektrik santralinde ve otoparkın karşı tarafında alışveriş merkezine paralel uzanan yolda da daha fazlasını bulabilirsin.",
+ "notes": "Görevin adı büyük ihtimalle birkaç ABD başkan adayının seçim kampanyalarında kullandığı \"Make America Great Again\" (Amerika'yı Yeniden Büyük Yap) sloganına bir göndermedir."
+}

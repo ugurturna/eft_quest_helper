@@ -1,0 +1,11 @@
+{
+ "id": "chemical-experiments",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta sağlık laboratuvarına bir Corrugated hose sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Customs'taki laboratuvar binasının ikinci katındaki deney bölümünde herhangi bir masaya bir Corrugated hose saklaman gerekiyor."
+}

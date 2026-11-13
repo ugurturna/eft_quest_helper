@@ -1,0 +1,17 @@
+{
+ "id": "hypotheses-testing",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "The Labyrinth'in içinde prototip silahın olduğu laboratuvar bölümünü bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde bulunmuş 5 Labrys research notes teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde The Labyrinth'in içindeki prototip silah bölümünü bulman ve raidde bulunmuş (FIR) 5 Labrys research notes teslim etmen gerekiyor.",
+ "notes": "The Labyrinth etkinliği sırasında bu görev In Search of an Exit başarımını açıyordu."
+}

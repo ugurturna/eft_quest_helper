@@ -1,0 +1,16 @@
+{
+ "id": "natural-exchange",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Shoreline'daki kaçakçı üssüne birinci metal yakıt tankını sakla",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Shoreline'daki kaçakçı üssüne ikinci metal yakıt tankını sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Shoreline'daki kaçakçı üssündeki depolara 2 metal yakıt tankı saklaman gerekiyor."
+}

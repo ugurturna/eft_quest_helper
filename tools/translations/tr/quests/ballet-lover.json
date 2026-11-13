@@ -1,0 +1,16 @@
+{
+ "id": "ballet-lover",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da bale ustasının dairesini bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Haritadan sağ çık (Survive and extract)",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'da bale ustasının dairesini bulman gerekiyor. Aranan daire, Primorsky 48 apartmanının dördüncü katındaki 10 numaralı daire. Bitişikteki Primorsky 46 merdiveninden hava köprüsüyle girmek için Primorsky 46-48 skybridge key gerekir. Çıkmak için 10 numaralı dairenin giriş kapısı içeriden kırılabilir."
+}

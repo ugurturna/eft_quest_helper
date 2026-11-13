@@ -1,0 +1,15 @@
+{
+ "id": "oil-change",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde 5 AMG-10 hydraulic fluid bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ]
+}

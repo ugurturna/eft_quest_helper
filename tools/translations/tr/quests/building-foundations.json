@@ -1,0 +1,21 @@
+{
+ "id": "building-foundations",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Ragman'e herhangi 50 eşya sat",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Prapor'a herhangi 50 eşya sat",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Peacekeeper'a herhangi 50 eşya sat",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde mermi ve Balaclava (White) hariç Ragman'e, Prapor'a ve Peacekeeper'a ayrı ayrı herhangi 50'şer eşya satman gerekiyor.\n\nNot: Satış sayacı bazen hemen güncellenmez. Güncellemeyi zorlamak için bir raide hazır olup hemen iptal edebilir ya da profilini yenilemek için oyunu yeniden başlatabilirsin."
+}

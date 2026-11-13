@@ -1,0 +1,11 @@
+{
+ "id": "psycho-sniper",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Sürgülü (bolt-action) bir tüfek kullanırken ölmeden herhangi 15 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Öldürme hedefi tamamlandıktan sonra ölürsen yine başarısız olabilir."
+}

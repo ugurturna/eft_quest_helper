@@ -1,0 +1,26 @@
+{
+ "id": "supervisor",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Goshan cash register key'i Interchange'teki BIZARRO mağazasının soyunma kabinlerine sakla",
+   "details": [
+    "(İsteğe bağlı) Goshan cash register key'i ele geçir"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "IDEA cash register key'i Interchange'teki 9 numaralı kasaya sakla",
+   "details": [
+    "(İsteğe bağlı) IDEA cash register key'i ele geçir"
+   ]
+  },
+  {
+   "id": "o3",
+   "text": "OLI cash register key'i Interchange'teki 7-8 numaralı kasaya sakla",
+   "details": [
+    "(İsteğe bağlı) OLI cash register key'i ele geçir"
+   ]
+  }
+ ]
+}

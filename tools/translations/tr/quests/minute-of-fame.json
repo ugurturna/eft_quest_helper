@@ -1,0 +1,17 @@
+{
+ "id": "minute-of-fame",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Interchange'te oyun dergisinin özel sayısını bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bulduğun eşyayı teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Dergi, Interchange'teki ULTRA alışveriş merkezinin ikinci katında, \"МУЗЕЙ ИСТОРИИ\" (\"Tarih Müzesi\") adlı bir kitapçıda bulunur. Mağazanın içinde birden çok çıkma noktası var.\n\n▸ Birinci nokta\nBilardo masalarından birinin üstünde.\n\n▸ İkinci nokta\nErkekler tuvaletindeki çöp kutusunda.\n\n▸ Üçüncü nokta\nGrup odasında, sondan ikinci oturma sırasında yerde.\n\n▸ Dördüncü nokta\nGrup odasının yanındaki kitaplığın altında yerde.\n\n▸ Beşinci nokta\nTrenin yanındaki yuvarlak masanın üstünde.\n\n▸ Altıncı/Yedinci nokta\nOyun salonu makinelerine en yakın ortadaki kitaplığın iki yanında.\n\n▸ Sekizinci/Dokuzuncu nokta\nTuvalete en yakın ortadaki kitaplığın iki yanında.",
+ "notes": "Bu görevde bahsedilen dergi, Rus bilgisayar oyunları dergisi \"Навигатор игрового мира\"nın (Game World Navigator) 216. sayısıdır."
+}

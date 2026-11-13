@@ -1,0 +1,10 @@
+{
+ "id": "dangerous-props",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "AA-12 pompalıyla herhangi 20 hedefi öldür",
+   "details": []
+  }
+ ]
+}

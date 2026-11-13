@@ -1,0 +1,16 @@
+{
+ "id": "create-a-distraction-part-2",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da Kaban'ın ya da Kollontay'ın korumalarından 2'sini öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Kaban'a ya da Kollontay'a zarar verme",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde ana bosslardan hiçbirine zarar vermeden Kaban'ın ya da Kollontay'ın korumalarından 2'sini öldürmen gerekiyor. Görev aktifken onlara zarar vermek görevi başarısız yapar.\n\nDikkat: Kaban'ın bulunduğu LexOs oto galerisinin arazisi Claymore'larla dolu."
+}

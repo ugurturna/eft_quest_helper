@@ -1,0 +1,21 @@
+{
+ "id": "this-tape-sucks",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "The Labyrinth'in içinde işkence odasını bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "İşkenceye dair herhangi bir kanıt bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Bulduğun bilgiyi teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce The Labyrinth'in içindeki işkence odasını bulman gerekiyor. Sonra işkencenin kanıtını bir video kaseti olarak alman gerekiyor. Odanın yakınında birden çok çıkma noktası var."
+}

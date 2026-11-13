@@ -1,0 +1,11 @@
+{
+ "id": "small-business-part-2",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Bossları öldürmeden herhangi 10 Boss korumasını öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde hiçbir boss öldürmeden 10 boss koruması öldürmen gerekiyor. Herhangi bir boss'u öldürmek görevi başarısız yapar.\n\nKorumalarının davranışı ve onları öldürme stratejisi için ilgili boss sayfalarına bak.\n\nBu görevi görece risksiz bitirmenin bir yolu, Streets of Tarkov'da LexOs oto galerisinin çatısındaki Kaban'ın keskin nişancı korumalarını uzaktan öldürmek."
+}

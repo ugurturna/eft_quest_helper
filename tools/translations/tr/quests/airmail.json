@@ -1,0 +1,12 @@
+{
+ "id": "airmail",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'taki eski kereste fabrikasında kırmızı bir işaret fişeği at",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods'un doğusundaki eski kereste fabrikasının ortasındayken gökyüzüne kırmızı bir işaret fişeği atman gerekiyor. Fişek belli bir yüksekliğe ulaşmazsa görev hedefi tamamlanmaz. Mechanic'in oyun içi postayla gönderdiği elde tutulan RSP-30 kırmızı fişeği ya da Ref LL3'ten alınabilen, işaret tabancasından atılan 26x75mm kırmızı fişek kartuşunu kullanabilirsin. Elde tutulan RSP-30 kırmızı fişeği kullanıyorsan yukarı doğru nişan al, ama çok fazla değil, yoksa arkana düşer.",
+ "notes": "Görev diyaloğu, airdrop'ların 30 Aralık 2021'de duyurulmadan eklenip sürpriz şekilde açılmasına gönderme yapıyor."
+}

@@ -1,0 +1,22 @@
+{
+ "id": "keepers-word",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "The Labyrinth'in içindeki birinci özel yere bir Cultist knife sakla",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "The Labyrinth'in içindeki ikinci özel yere bir Cultist knife sakla",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "The Labyrinth'in içindeki üçüncü özel yere bir Cultist knife sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde The Labyrinth'in içinde belirtilen 3 yere 3 Cultist knife saklaman gerekiyor. Yerlerden biri için Corpse room key gerekir.",
+ "notes": "Ödül için boş bir özel slotun yoksa bu görevi teslim edemezsin.\n\nThe Labyrinth etkinliği sırasında bu görev Dungeon Master başarımını açıyordu."
+}

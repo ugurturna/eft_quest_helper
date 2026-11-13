@@ -1,0 +1,21 @@
+{
+ "id": "green-corridor",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da kargo konvoyunu bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Pusu noktasını belirle",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Haritadan sağ çık (Survive and extract)",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'da kargo konvoyunu ve pusu noktasını bulman gerekiyor. Konvoy, LexOs oto galerisi ile Pinewood oteli arasında. Pusu noktası, oto galerisinin arkasındaki AGS-30 bombaatarlı yeşil konteynerden oto galerisinin kuzeydoğu kısmına kadar uzanan bir alan.\n\nDikkat: LexOs oto galerisinin arazisi Claymore'larla dolu."
+}

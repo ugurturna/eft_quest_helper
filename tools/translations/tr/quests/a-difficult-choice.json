@@ -1,0 +1,41 @@
+{
+ "id": "a-difficult-choice",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Sanitar'ı öldürme",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde 10 TerraGroup Labs access keycard bul",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Kartları teslim et",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Raidde AHF1-M stimulant injector bul",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "AHF1-M'i Therapist'e ver",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Raidde 3-(b-TG) stimulant injector bul",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "3-(b-TG)'yi Therapist'e ver",
+   "details": []
+  }
+ ],
+ "guide": "The Huntsman Path - Sadist görevini bitirirsen bu görev başarısız olur ve ona erişimini kaybedersin."
+}

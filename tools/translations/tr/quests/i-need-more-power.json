@@ -1,0 +1,21 @@
+{
+ "id": "i-need-more-power",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Sağlık Tesisi'nin doğu kanadındaki jeneratörleri bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Shoreline'da sağlık tesisinin batı kanadındaki jeneratörleri bul",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Sağlık Tesisi'nin batı kanadındaki jeneratörleri bul",
+   "details": []
+  }
+ ],
+ "guide": "*Görevi bitirmek için anahtarlardan sadece biri gerekir.\n\nBu görevde Shoreline'daki sağlık tesisinde (resort) iki odadaki jeneratörleri bulman gerekiyor.\n\n▸ Doğu kanadındaki jeneratörlerin yeri\nDoğu kanadındaki jeneratörler ikinci kattaki 220 numaralı odada. Oda her zaman açık.\n\n▸ Batı kanadındaki jeneratörlerin yeri\nBatı kanadındaki jeneratörler ikinci kattaki 219 numaralı odada. Hedefi odaya girerek (Health Resort west wing room 219 key gerekir) ya da 220 numaralı odanın ortak balkonundan içeri bakarak (Health Resort west wing room 220 key gerekir) tamamlayabilirsin."
+}

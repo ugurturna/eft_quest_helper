@@ -1,0 +1,35 @@
+{
+ "id": "new-beginning-prestige-2",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "10 PMC öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "The Lab'den sağ çık",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde bulunmuş 2 PMC figürü teslim et",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Raidde bulunmuş 2 Scav figürü teslim et",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Raidde bulunmuş 2 Boss figürü teslim et",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Raidde bulunmuş 2 Trader figürü teslim et",
+   "details": []
+  }
+ ]
+}

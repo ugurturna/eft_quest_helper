@@ -1,0 +1,21 @@
+{
+ "id": "the-punisher-part-6",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse, Shoreline, Reserve, Ground Zero ya da The Lab'de belirtilen silahlarla 30 PMC öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "10 BEAR ya da USEC künyesi (dogtag) teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Herhangi 5 Boss'u bul ve etkisiz hale getir",
+   "details": []
+  }
+ ],
+ "guide": "Boss öldürmelerinde Partisan ve Zryachiy sayılmaz.\n\nLighthouse, Shoreline, Reserve, Ground Zero ya da The Lab'deki PMC öldürmeleri için şu silahlardan herhangi birini kullanabilirsin:\n* AS VAL 9x39 special assault rifle\n* AS VAL MOD.4 9x39 special assault rifle\n* Degtyarev RPD 7.62x39 machine gun\n* Degtyarev RPDN 7.62x39 machine gun\n* Kalashnikov AK-103 7.62x39 assault rifle\n* Kalashnikov AK-104 7.62x39 assault rifle\n* Kalashnikov AKM 7.62x39 assault rifle\n* Kalashnikov AKMN 7.62x39 assault rifle\n* Kalashnikov AKMS 7.62x39 assault rifle\n* Kalashnikov AKMSN 7.62x39 assault rifle\n* Kalashnikov AKS-74U 5.45x39 assault rifle\n* Kalashnikov AKS-74UB 5.45x39 assault rifle\n* Kalashnikov AKS-74UN 5.45x39 assault rifle\n* Kalashnikov PKM 7.62x54R machine gun\n* Kalashnikov PKP 7.62x54R infantry machine gun\n* KBP 9A-91 9x39 compact assault rifle\n* KBP VSK-94 9x39 rifle\n* Molot Arms VPO-136 Vepr-KM 7.62x39 carbine\n* RPK-16 5.45x39 light machine gun\n* SAG AK-545 5.45x39 carbine\n* SR-3M 9x39 compact assault rifle\n* SVDS 7.62x54R sniper rifle\n* TKPD 9.3x64 carbine\n* U.S. Ordnance M60E4 7.62x51 light machine gun\n* U.S. Ordnance M60E6 7.62x51 light machine gun\n* VSS Vintorez 9x39 special sniper rifle"
+}

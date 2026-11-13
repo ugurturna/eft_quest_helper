@@ -1,0 +1,19 @@
+{
+ "id": "halloween-the-best-defense",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Infected Lab'i ziyaret et",
+   "details": [
+    "(İsteğe bağlı) Exfil'i kullanmak için gereken özel eşyayı ele geçir",
+    "(İsteğe bağlı) Infected Lab'den sağ çık"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Infected Lab'de 10 enfekte öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Infected Lab'de 10 enfekte öldürmen gerekiyor. \"Parking\" ve \"Sewage Conduit\" exfil'lerini sadece ilgili özel eşyalarla kullanabilirsin.\n\n▸ Parking exfil'i - Araba anahtarları\n* İkinci seviyedeki dinlenme alanında (R21) kedi heykelli yuvarlak masanın üstünde ve çevresinde.\n\n* İkinci seviyedeki O23 ofisinde bir su sebilinin üstündeki enfekte kafasının ağzında.\n\n▸ Sewage Conduit exfil'i - Kollektör haritası\n* İkinci seviyedeki dinlenme alanında (R21) kedi heykelli yuvarlak masanın üstünde ve çevresinde.\n\n* İkinci seviyedeki Kruglov'un ofisinde (R22) masadaki ekranın arkasında.\n\n* İkinci seviyedeki O23 ofisinde bir masanın üstünde."
+}

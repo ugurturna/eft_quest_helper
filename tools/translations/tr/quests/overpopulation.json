@@ -1,0 +1,16 @@
+{
+ "id": "overpopulation",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta dağ evlerinin çevresinde herhangi 10 hedefi öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde bulunmuş (FIR) 5 Topographic survey maps, Intelligence folder ya da TerraGroup \"Blue Folders\" materials teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Lighthouse'taki yazlık evlerin (cottages) çevresinde ve arasında 10 hedef öldürmen, sonra şu eşyalardan herhangi 5 tanesini teslim etmen gerekiyor: Topographic survey maps, Intelligence folder ya da TerraGroup \"Blue Folders\" materials"
+}

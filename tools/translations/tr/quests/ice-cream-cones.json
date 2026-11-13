@@ -1,0 +1,19 @@
+{
+ "id": "ice-cream-cones",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde 3 adet AK-74 5.45x39 6L31 60'lık şarjör bul",
+   "details": [
+    "(İsteğe bağlı) TerraGroup çalışanının yurt odasındaki sığınak anahtarını ele geçir",
+    "(İsteğe bağlı) Woods'taki kilitli sığınağı bul"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Prapor'un bahsettiği Woods'taki ZB-014 sığınağının kilitli bölümünde aranan şarjörlerin çıkması garanti değil, ama oldukça sık bulunurlar. İçeri girmek için ZB-014 key gerekir.\n\nŞarjörler silah kutularından, yeşil tahta sandıklardan ya da bosslardan ve korumalarından da (örneğin Sanitar) çıkabilir."
+}

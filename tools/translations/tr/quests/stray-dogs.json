@@ -1,0 +1,21 @@
+{
+ "id": "stray-dogs",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Knight'ı bul ve öldür (tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Big Pipe'ı bul ve öldür (tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Birdeye'ı bul ve öldür (tek raidde)",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Knight, Big Pipe ve Birdeye'ı öldürmen gerekiyor."
+}

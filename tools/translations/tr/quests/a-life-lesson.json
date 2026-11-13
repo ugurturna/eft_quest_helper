@@ -1,0 +1,20 @@
+{
+ "id": "a-life-lesson",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Eşyayı teslim et: 12 Bottle of Tarkovskaya vodka",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyayı teslim et: 20 Bottle of Dan Jackiel whiskey",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Eşyayı teslim et: 20 Bottle of Fierce Hatchling moonshine",
+   "details": []
+  }
+ ]
+}

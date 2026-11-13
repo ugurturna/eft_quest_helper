@@ -33,6 +33,7 @@ public sealed partial class MainViewModel : ObservableObject
         _dataDir = QuestRepository.FindDataDir(AppContext.BaseDirectory);
         Flea = new FleaMarket(Path.Combine(_store.Folder, "flea"));
         Scanner = CreateScanner();
+        ItemCheck = CreateItemChecker();
         Detector = CreateDetector();
         Screenshots.Captured += OnNewScreenshot;
         Screenshots.CleanupBlocked += () => Toast = Loc.T("t.map.cleanupBlocked");

@@ -1,0 +1,21 @@
+{
+ "id": "stimulating-demand",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta 7.62x54R kalibre silahlarla 5 Rogue ya da The Goons öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Lighthouse'ta Rogue dağ evlerinde kargo paketini bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Paketi teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Kargo paketi, Lighthouse'taki siyah (güneydeki) dağ evinde bulunur. Bodrumda, yeşil metal bir masanın altında."
+}

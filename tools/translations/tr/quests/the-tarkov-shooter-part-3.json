@@ -1,0 +1,11 @@
+{
+ "id": "the-tarkov-shooter-part-3",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Sürgülü (bolt-action) bir tüfek kullanırken 25 metreden yakından 3 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görev için sürgülü (bolt-action) bir tüfek ya da MP-18 al. Bu görev için Factory önerilir; PMC'lerle 25 m ya da daha yakından çatışmak için bol fırsat vardır.\n\nPMC'leri kör edip sersemletmek ve kolay hedef haline getirmek için M7290 bombası, Zarya bombası ya da Zvezda flashbang mermili bir KS-23M kullanabilirsin."
+}

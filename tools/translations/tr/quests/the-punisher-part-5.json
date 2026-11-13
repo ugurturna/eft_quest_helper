@@ -1,0 +1,46 @@
+{
+ "id": "the-punisher-part-5",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde herhangi bir Kalashnikov AK-74 assault rifle bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "AK-74'ü teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde bir Colt M4A1 assault rifle bul",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "M4A1 taarruz tüfeğini teslim et",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Raidde herhangi 2 Makarov PM pistol bul",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Tabancaları teslim et",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "Hafif makineli tüfeklerle 10 PMC öldür",
+   "details": []
+  },
+  {
+   "id": "o8",
+   "text": "Hafif makineli tüfeklerle 20 Scav öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bir silahı teslim edebilmek için kullanılabilir durumda olması gerekir. Silahın simgesi kırmızıysa önemli parçaları eksiktir ve teslim edilemez."
+}

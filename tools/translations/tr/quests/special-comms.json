@@ -1,0 +1,21 @@
+{
+ "id": "special-comms",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta RUAF gate'in yanındaki kayaya bir Military cable sakla",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Woods'tan Reserve'e transit kullan",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Reserve'de depo binasının üstündeki LAV III'ün yanındaki kum torbalarına bir Bulbex cable cutter sakla",
+   "details": []
+  }
+ ],
+ "guide": "▸ Woods'ta saklama yeri\n\"RUAF Gate\" exfil'inin yanındaki bir kayada.\n\n▸ Woods'tan Reserve'e\nTransit'ler raid başladıktan ancak 1 dk sonra kullanılabilir.\n\n▸ Reserve'de saklama yeri\n\"Д\" ile işaretli doğu depo binasının üstündeki kum torbası mevzisinde (\"Bunker Hermetic Door\" exfil'i)."
+}

@@ -1,0 +1,21 @@
+{
+ "id": "thirsty-echo",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Shoreline'da Thirsty hakkında herhangi bir bilgi bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Thirsty'nin saklandığı yerdeki bilgiyi ele geçir",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Bulduğun bilgiyi teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Shoreline'da sağlık tesisinin (resort) batı kanadının bodrumunda Thirsty'nin yıpranmış günlüğünü alman gerekiyor. Günlük havuzun yakınındaki bir odada. Odanın içinde birden çok çıkma noktası var."
+}

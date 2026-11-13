@@ -1,0 +1,11 @@
+{
+ "id": "the-tarkov-shooter-part-7",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Ölmeden sürgülü (bolt-action) bir tüfekle 5 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Öldürmeler birden çok raidde yapılabilir, ama tamamlanan görevi teslim etmeden önce herhangi bir anda ölmek görevi başarısız yapar."
+}

@@ -1,0 +1,11 @@
+{
+ "id": "immunity-quest",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "\"Unknown toxin\" etkisi üstündeyken haritadan çık",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde \"Unknown toxin\" (bilinmeyen toksin) etkisi üstündeyken bir raidden çıkman gerekiyor.\n\nEtki, bir Cultist ya da başka bir oyuncu tarafından Cultist knife ile bıçaklanınca oluşur. The Labyrinth'teki dikenli teller de temas edince bu etkiyi verebilir.\n\nEtki üstündeyken can puanın dakikada 140 azalır. Can kaybını 5 dakika boyunca kısmen karşılamak için Propital injector, hasarı 60 saniye boyunca tamamen sıfırlamak için ETG injector kullanabilirsin. Birden çok ilk yardım çantası getirmen şiddetle önerilir."
+}

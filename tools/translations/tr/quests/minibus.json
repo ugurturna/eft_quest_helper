@@ -1,0 +1,27 @@
+{
+ "id": "minibus",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Interchange'te birinci sarı minibüsü bul ve MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Interchange'te ikinci sarı minibüsü bul ve MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Interchange'te üçüncü sarı minibüsü bul ve MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Alet (Tools) kategorisinden raidde bulunmuş herhangi 10 eşyayı teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Interchange'te 3 sarı minibüsü MS2000 Marker'larla işaretlemen ve alet kategorisinden raidde bulunmuş (FIR) 10 eşya teslim etmen gerekiyor.\n\nBirincisi alışveriş merkezinin güneybatısındaki konteyner sahasında.\n\nDiğer ikisi batıdaki kapalı otoparkta.\nBiri B bölümünden C bölümüne geçişte, kapatılmış iniş rampasının yakınında.\nİkincisi C bölümünde, \"Saferoom Exfil\" exfil'inin ve batı otoparkı doğu otoparkına bağlayan duvardaki deliğin hemen yanında.",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

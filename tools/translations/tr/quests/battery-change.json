@@ -1,0 +1,16 @@
+{
+ "id": "battery-change",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Eşyayı bul: 6-STEN-140-M military battery",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyayı teslim et: 6-STEN-140-M military battery",
+   "details": []
+  }
+ ],
+ "guide": "Bu görev önce tamamlanırsa Lightkeeper'ın Order From Outside görevi kendiliğinden başarısız olur.\n\nGörevi kabul etmeden önce elde ettiğin bir 6-STEN-140-M military battery'yi teslim etmek istiyorsan, \"Bul\" hedefinin tetiklenmesi için onu envanterinde başka bir slota taşıman gerekir.\n\nHata: Görevi kabul edip aynı raidde akü teslim etmek şu an yerel PvE oyun modu raidlerinde çalışmıyor."
+}

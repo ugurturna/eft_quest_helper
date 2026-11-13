@@ -1,0 +1,16 @@
+{
+ "id": "simple-side-job",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve'de askeri hastanenin çatısında Lightkeeper'ın kargo sandığını bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Kargoyu Woods'taki Scav evine sakla",
+   "details": []
+  }
+ ],
+ "guide": "BTR sürücüsünün Protect the Sky görevini bitirmek bu görevi kendiliğinden başarısız yapar.\n\nBu görevde önce Reserve'deki hastane binasının (White Bishop) çatısından Lightkeeper'ın çantasını alman gerekiyor. Birden çok çıkma noktası var. Sonra çantayı Woods'taki Scav evine saklaman gerekiyor. Ev, haritanın güneybatısındaki \"Outskirts\" exfil'inin yakınında.\n\n▸ Reserve'de çantanın yeri\n\n▸ Woods'ta saklama yeri"
+}

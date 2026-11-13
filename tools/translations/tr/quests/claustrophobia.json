@@ -1,0 +1,11 @@
+{
+ "id": "claustrophobia",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'de bodrum tünel ağında herhangi 5 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Factory'nin yeraltı bölümünde herhangi 5 hedefi öldürmen gerekiyor. Öldürmelerin göreve sayılması için sadece hedeflerin o bölgede olması gerekir."
+}

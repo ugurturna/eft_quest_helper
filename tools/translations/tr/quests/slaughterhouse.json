@@ -1,0 +1,51 @@
+{
+ "id": "slaughterhouse",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Gündüz Factory'sinde yakın dövüş silahlarıyla 10 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Streets of Tarkov'da yakın dövüş silahlarıyla 10 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Lighthouse'ta yakın dövüş silahlarıyla 10 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Woods'ta yakın dövüş silahlarıyla 10 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Shoreline'da yakın dövüş silahlarıyla 10 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Interchange'te yakın dövüş silahlarıyla 10 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "Customs'ta yakın dövüş silahlarıyla 10 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o8",
+   "text": "Reserve'de yakın dövüş silahlarıyla 10 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o9",
+   "text": "Ground Zero'da yakın dövüş silahlarıyla 10 Scav öldür",
+   "details": []
+  }
+ ],
+ "guide": "Öldürmeyi kolaylaştırmak için sersemletme bombaları (stun grenade) kullanman önerilir.\n\nHata: Miller Bros. Blades M-2 Tactical Sword (Brown) ve Kasatka push dagger şu an bu görevde çalışmıyor."
+}

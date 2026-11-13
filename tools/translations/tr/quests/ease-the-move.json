@@ -1,0 +1,21 @@
+{
+ "id": "ease-the-move",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta terk edilmiş ada köyündeki birinci Rogue zulasını bul ve MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Lighthouse'ta terk edilmiş ada köyündeki ikinci Rogue zulasını bul ve MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Lighthouse'ta mağaradaki Rogue zulasını bul ve MS2000 Marker ile işaretle",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Lighthouse'ta Rogue zulalarını MS2000 Marker'larla işaretlemen gerekiyor. Birinci hedef için 3, ikinci hedef için 2 olası yer var."
+}

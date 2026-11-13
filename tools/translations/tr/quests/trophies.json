@@ -1,0 +1,20 @@
+{
+ "id": "trophies",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "20+ seviye 10 BEAR PMC künyesi (dogtag) bul ve Peacekeeper'a teslim et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "20+ seviye 10 USEC PMC künyesi (dogtag) bul ve Peacekeeper'a teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "12 PMC öldür",
+   "details": []
+  }
+ ]
+}

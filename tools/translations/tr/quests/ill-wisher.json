@@ -1,0 +1,26 @@
+{
+ "id": "ill-wisher",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "İlk sinyal kaynağını bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Birinci sinyal kaynağına bir Signal jammer yerleştir",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "İkinci sinyal kaynağını bul",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "İkinci sinyal kaynağına bir Signal jammer yerleştir",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Shoreline'da iki anteni bulup üstlerine birer Signal Jammer yerleştirmen gerekiyor."
+}

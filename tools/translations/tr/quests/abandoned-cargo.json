@@ -1,0 +1,20 @@
+{
+ "id": "abandoned-cargo",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'taki özel TerraGroup kargo kutularından herhangi birini MS2000 Marker ile işaretle",
+   "details": [
+    "(İsteğe bağlı) Customs'taki birinci özel TerraGroup kargosunu bul",
+    "(İsteğe bağlı) Customs'taki ikinci özel TerraGroup kargosunu bul",
+    "(İsteğe bağlı) Customs'taki üçüncü özel TerraGroup kargosunu bul",
+    "(İsteğe bağlı) Customs'taki dördüncü özel TerraGroup kargosunu bul",
+    "(İsteğe bağlı) Customs'taki beşinci özel TerraGroup kargosunu bul",
+    "(İsteğe bağlı) Customs'taki altıncı özel TerraGroup kargosunu bul",
+    "(İsteğe bağlı) Customs'taki yedinci özel TerraGroup kargosunu bul"
+   ]
+  }
+ ],
+ "guide": "Bu görevde Customs'taki 7 kargo paletinden 1'ini MS2000 Marker ile işaretlemen gerekiyor.\n\n▸ Kırmızı gümrük kontrol deposu - 1 kargo\n\n▸ Warehouse 17 - 3 kargo\n\n▸ Kazan dairesi binası - 3 kargo",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den ek MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

@@ -1,0 +1,45 @@
+{
+ "id": "aid-stations",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "1 Dorm room 303 key ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "1 ZB-014 key ele geçir",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "1 Military checkpoint key ele geçir",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "1 Gas station storage room key ele geçir",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "1 Dorm room 303 key teslim et",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "1 ZB-014 key teslim et",
+   "details": []
+  },
+  {
+   "id": "o7",
+   "text": "1 Customs military checkpoint key teslim et",
+   "details": []
+  },
+  {
+   "id": "o8",
+   "text": "1 Gas station storage room key teslim et",
+   "details": []
+  }
+ ]
+}

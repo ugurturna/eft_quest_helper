@@ -1,0 +1,11 @@
+{
+ "id": "to-the-light-dangerous-ambitions",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Amulet from Lightkeeper'ı Peacekeeper'a teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevin tamamlanması için Amulet from Lightkeeper'ın Peacekeeper'ın To the Light - Bite the Dust görevi için ona teslim edilmesi gerekir."
+}

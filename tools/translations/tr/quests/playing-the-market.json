@@ -1,0 +1,4 @@
+{
+ "id": "playing-the-market",
+ "guide": "Bu görevde Factory'de 2 kontrol panelini 2 Toolset ile onarman gerekiyor. Paneller yanıp sönen kırmızı ışıklarından tanınır. Toolset'leri güvenli konteynerinde (secure container) taşıyarak ayrı raidlerde onarman önerilir. Secure container Epsilon ya da Secure container Theta'n varsa bir raidde 2'sini güvenle yerleştirebilirsin."
+}

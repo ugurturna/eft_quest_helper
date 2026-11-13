@@ -1,0 +1,11 @@
+{
+ "id": "exit-here",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'den ana çıkıştan sağ çık",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Factory'den \"Courtyard Gate\" exfil'inden \"Survived\" durumuyla çıkman gerekiyor. Raidden \"Run Through\" durumuyla çıkarsan görev tamamlanmış sayılmaz. \"Run Through\" durumundan kaçınmak için çıkmadan önce raidde en az 200 EXP kazan (öldürerek ya da loot toplayarak) ya da raidde en az 7 dakika kal."
+}

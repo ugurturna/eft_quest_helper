@@ -1,0 +1,11 @@
+{
+ "id": "district-patrol",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da saldırı tüfekleri ya da saldırı karabinaları kullanarak herhangi 20 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'da saldırı tüfekleri ya da saldırı karabinaları kullanarak herhangi 20 hedefi öldürmen gerekiyor."
+}

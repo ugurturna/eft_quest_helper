@@ -1,0 +1,21 @@
+{
+ "id": "paramedic",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Ambulans sağlık görevlisinin akıllı telefonunu Tarkov Sokaklarında bulun ve alın",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Streets of Tarkov'dan Primorsky Ave Taxi V-Ex üzerinden çık",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Akıllı telefonu teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'da ambulans sağlık görevlisinin akıllı telefonunu bulman ve telefon raid içi görev envanterindeyken \"Primorsky Ave Taxi V-Ex\" exfil'inden çıkman gerekiyor. Telefonla taksi exfil'ini telefonu bulduğun raidde yapman gerekmez. Telefon haritadaki sekiz ambulanstan birinde çıkar.\n\n▸ Birinci nokta\nCardinal apartman kompleksinin güneyindeki ambulansın yolcu tarafı ayak boşluğunda, \"President restaurant\" tabelalarının altında.\n\n▸ İkinci nokta\nKlimova caddesi 18'deki ambulansın yolcu tarafı ayak boşluğunda, \"Basement Descent\" Scav exfil'inin yakınında.\n\n▸ Üçüncü nokta\nPinewood otelinin güneyindeki ambulansın arkasında yerde.\n\n▸ Dördüncü nokta\nChekannaya caddesi 15'teki ambulansın yolcu koltuğunda, Sparja mağazasının karşısında.\n\n▸ Beşinci nokta\nPrimorsky bulvarındaki ambulansın yolcu tarafı ayak boşluğunda, LexOs oto galerisinin karşısında.\n\n▸ Altıncı nokta\nConcordia apartman kompleksinin oyun parkındaki ambulansın sağ tarafında yerde.\n\n▸ Yedinci nokta\n\"Crash Site\" exfil'indeki ambulansın yolcu kapısının hemen dışında yerde. Not: Telefon exfil alanının içinde.\n\n▸ Sekizinci nokta\nRazvedchikov caddesinin güneyindeki yükleme alanında, ambulansın arka kısmında."
+}

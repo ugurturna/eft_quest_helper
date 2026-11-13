@@ -1,0 +1,11 @@
+{
+ "id": "grenadier",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "El bombaları ya da bombaatarlarla herhangi 5 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde el bombalarıyla ya da namlu altı bombaatarlarla herhangi 5 hedefi öldürmen gerekiyor.\n\nAyrı bombaatarlar ve roketatarlar kullanılamaz."
+}

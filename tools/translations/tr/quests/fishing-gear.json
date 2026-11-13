@@ -1,0 +1,21 @@
+{
+ "id": "fishing-gear",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Kıyı Şeridi'nde dalgakıranın yanında gizlenmiş botu bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "MF-UNTAR body armor'ı kayığa sakla",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Bota çoklu aleti zulala",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde belirtilen 2 eşyayı Shoreline'da benzin istasyonunun yakınındaki kumsaldaki bir kayığa saklaman gerekiyor. Görevi kabul edince oyun içi postayla bir MF-UNTAR body armor ve bir Leatherman Multitool gönderilir. Leatherman Multitool özel eşya slotuna konduğu sürece oyunculardan loot'lanamaz ve ölünce kaybolmaz. Her eşyayı saklamak 10 saniye sürer."
+}

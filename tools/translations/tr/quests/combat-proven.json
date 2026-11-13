@@ -1,0 +1,11 @@
+{
+ "id": "combat-proven",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Herhangi bir Goons Edition taktik yelek kullanırken herhangi 5 Boss'u (The Goons, The Wedge ve Partisan hariç) bul ve etkisiz hale getir",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde herhangi bir Goons edition taktik yelek (rig) kullanırken The Goons, The Wedge ve Partisan dışında herhangi 5 Boss öldürmen gerekiyor."
+}

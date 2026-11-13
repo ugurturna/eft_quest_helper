@@ -1,0 +1,26 @@
+{
+ "id": "spotter",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Concordia'da şantiyeye bakan iyi bir keskin nişancılık pozisyonu bulun",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bir AI Taktik Ses Moderatörü .338 LM saklayın",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Primorsky'de sinemaya bakan iyi bir keskin nişancı mevzisi bul",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Bir Trijicon REAP-IR termal kapsamı saklayın",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'da Concordia binasında ve Primorsky caddesinde keskin nişancı mevzileri bulman ve bunlara bir AI .338 LM Tactical Sound Moderator ile bir Trijicon REAP-IR thermal scope yerleştirmen gerekiyor.\n\n▸ Concordia'daki nişancı mevzisi\nConcordia'daki nişancı mevzisi, üçüncü kattaki 8 numaralı dairenin mutfağında kırmızı bir masada.\n\n▸ Primorsky'deki nişancı mevzisi\nPrimorsky'deki nişancı mevzisi, Primorsky 48 apartmanının dördüncü katındaki 10 numaralı dairenin yatak odasında, yatakta. Oraya sadece Primorsky 46 merdivenine bağlanan hava köprüsünden ulaşılır. Bitişikteki Primorsky 46 merdiveninden hava köprüsüyle girmek için Primorsky 46-48 skybridge key gerekir. Çıkmak için 10 numaralı dairenin giriş kapısı içeriden kırılabilir."
+}

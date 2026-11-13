@@ -1,0 +1,12 @@
+{
+ "id": "halloween-for-the-greater-good-an-agreement",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Enfeksiyon verilerini teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Therapist'in Halloween: For the Greater Good görevinde verdiği flash drive'ı teslim et.",
+ "notes": "* Bu görev, Halloween: For the Greater Good'u kabul edince görev listesine kendiliğinden eklenir."
+}

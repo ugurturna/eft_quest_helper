@@ -1,0 +1,12 @@
+{
+ "id": "halloween-initial-examination",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Aşı sevkiyatını teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Lighthouse'ta aşı sevkiyatını bulup alman ve Therapist'e teslim etmen gerekiyor. Sevkiyat, 3 numaralı su arıtma binasının ikinci katında, batıdaki ofiste bir masanın üstünde.",
+ "notes": "* Bu görev, Halloween: Unexpected Help'i kabul edince görev listesine kendiliğinden eklenir."
+}

@@ -73,6 +73,25 @@ static class ScreenCapture
         int w = r.Right - r.Left, h = r.Bottom - r.Top;
         if (w < 20 || h < 20) return null;
         var scale = Math.Min(Math.Clamp((double)targetHeight / h, 1, 2), (double)maxSide / Math.Max(w, h));
+        return Grab(r, scale, reuse);
+    }
+
+    /// <summary>
+    /// The screen rectangle (physical pixels; the parts off the window <paramref name="hwnd"/> are cut off), enlarged
+    /// by <paramref name="scale"/>. Also gives where the rectangle ended up on the screen. Null when nothing is left.
+    /// </summary>
+    public static (Frame Frame, int Left, int Top)? CaptureArea(IntPtr hwnd, int left, int top, int right, int bottom, double scale)
+    {
+        if (!GetWindowRect(hwnd, out var win)) return null;
+        var r = new RECT { Left = Math.Max(left, win.Left), Top = Math.Max(top, win.Top),
+                           Right = Math.Min(right, win.Right), Bottom = Math.Min(bottom, win.Bottom) };
+        if (r.Right - r.Left < 20 || r.Bottom - r.Top < 20) return null;
+        return Grab(r, scale, null) is { } frame ? (frame, r.Left, r.Top) : null;
+    }
+
+    static Frame? Grab(RECT r, double scale, byte[]? reuse)
+    {
+        int w = r.Right - r.Left, h = r.Bottom - r.Top;
         int tw = (int)(w * scale), th = (int)(h * scale);
 
         var screen = GetDC(IntPtr.Zero);

@@ -1,0 +1,16 @@
+{
+ "id": "halloween-prototyping",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "2 yeni TG-Vi-24 aşı prototipi ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ],
+ "guide": "TG-Vi-24 vaccine prototype (B.1.2 strain) sadece Therapist'in etkinlik görevlerinin ödülü olarak alınabildiği için flea market'ten satın alınması gerekiyor."
+}

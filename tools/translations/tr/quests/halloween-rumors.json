@@ -1,0 +1,17 @@
+{
+ "id": "halloween-rumors",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Infected Factory'yi ziyaret et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Infected Factory'de 10 enfekte öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Infected Factory'de 10 enfekte öldürmen gerekiyor.",
+ "notes": "* Bu görev serisi \"Escape from Undead Tarkov\" videosuyla birlikte yayınlandı."
+}

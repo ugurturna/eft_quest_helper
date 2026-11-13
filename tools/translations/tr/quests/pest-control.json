@@ -1,0 +1,11 @@
+{
+ "id": "pest-control",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve'de ana kışlaların çevresinde 10 Scav öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde black pawn ve white pawn kışla binalarının çevresinde 10 Scav öldürmen gerekiyor. Bilerek \"tagged and cursed\" etkisini almak, görev alanına Scav çekmeye yardımcı olabilir."
+}

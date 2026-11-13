@@ -1,0 +1,25 @@
+{
+ "id": "halloween-danger-zone",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Ground Zero ya da Customs'ta herhangi 15 hedefi öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Woods ya da Interchange'te herhangi 15 hedefi öldür",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Shoreline ya da Streets of Tarkov'da herhangi 15 hedefi öldür",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Lighthouse ya da Reserve'de herhangi 15 hedefi öldür",
+   "details": []
+  }
+ ]
+}

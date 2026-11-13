@@ -1,0 +1,25 @@
+{
+ "id": "sew-it-good-part-4",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Bir 6B43 Zabralo-Sh body armor (EMR) ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyayı teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "5. ya da 6. sınıf 10 balistik plaka ele geçir",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ]
+}

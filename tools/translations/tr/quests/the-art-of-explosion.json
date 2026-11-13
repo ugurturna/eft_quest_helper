@@ -1,0 +1,12 @@
+{
+ "id": "the-art-of-explosion",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "El bombaları ya da bombaatarlarla 20 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde el bombaları, namlu altı bombaatarlar, bombaatarlar ya da roketatarlarla 20 PMC öldürmen gerekiyor. Sabit AGS-30 bombaatarıyla yapılan öldürmeler sayılmaz.\n\nNot: 40x46mm M576 (MP-APERS) bombası bu görevde işe yaramaz, çünkü gerçek bir bomba değil, saçma fişeğidir.",
+ "notes": "* Bu görev \"Art of Explosion\" videosuyla birlikte yayınlandı"
+}

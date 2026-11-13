@@ -1,0 +1,15 @@
+{
+ "id": "easy-money-part-2",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "İçecek (Drinks) kategorisinden raidde bulunmuş 5 eşya teslim et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Yiyecek (Food) kategorisinden raidde bulunmuş 5 eşya teslim et",
+   "details": []
+  }
+ ]
+}

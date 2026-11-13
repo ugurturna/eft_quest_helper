@@ -1,0 +1,15 @@
+{
+ "id": "counteraction",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse, Ground Zero, Reserve, Shoreline ya da Streets of Tarkov'da 20 BEAR PMC öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Baskında bulunmuş BEAR PMC künyelerini teslim et",
+   "details": []
+  }
+ ]
+}

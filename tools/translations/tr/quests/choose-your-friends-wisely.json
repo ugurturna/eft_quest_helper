@@ -1,0 +1,31 @@
+{
+ "id": "choose-your-friends-wisely",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'tan Reserve'e transit kullan",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Reserve'den Woods'a transit kullan",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Woods'tan Lighthouse'a transit kullan",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Lighthouse'tan sağ çık",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Diğer hedefleri tamamlarken 5 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde tek bir raidde Customs'tan Reserve'e, oradan Woods'a, oradan Lighthouse'a transit yapman, bu sırada 5 PMC öldürmen ve Lighthouse'tan exfil yapman gerekiyor. Transit'ler raid başladıktan ancak 1 dk sonra kullanılabilir.\n\n▸ Customs'tan Reserve'e\n\n▸ Reserve'den Woods'a\nTren sahasının kuzeybatısında, harita sınırında.\n\n▸ Woods'tan Lighthouse'a"
+}

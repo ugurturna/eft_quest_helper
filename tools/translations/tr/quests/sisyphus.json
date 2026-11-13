@@ -1,0 +1,31 @@
+{
+ "id": "sisyphus",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'taki ZB-014 sığınağında birinci kaçakçı çantasını bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Birinci çantayı Reserve'de Woods transit'inin yakınındaki nöbetçi kulübesine sakla",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Woods'ta USEC kontrol noktasındaki kulübenin arkasında ikinci kaçakçı çantasını bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "İkinci çantayı Lighthouse'taki tren peronunda Ural kamyonlu vagona sakla",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Lighthouse ya da Reserve'den Zırhlı Tren (Armored Train) ile çık",
+   "details": []
+  }
+ ],
+ "guide": "▸ Birinci çanta\nBirinci çanta Woods'taki ZB-014 sığınağında bulunur. Reserve'de tren deposunun batısındaki nöbetçi kulübesinin yanındaki tahta kalaslara saklanmalı.\n\n▸ İkinci çanta\nİkinci çanta Woods'taki USEC kontrol noktasında seyyar tuvaletlerin yanında bulunur. Lighthouse'un kuzeyindeki tren peronunda Ural kamyonlu vagona saklanmalı."
+}

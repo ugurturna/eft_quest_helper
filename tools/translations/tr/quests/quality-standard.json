@@ -1,0 +1,17 @@
+{
+ "id": "quality-standard",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "The Lab'de LEDX Skin Transilluminator'ın özel sürümünü bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bulduğun eşyayı teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde The Lab'de LEDX Skin Transilluminator (US Version) bulman gerekiyor. Birinci seviyedeki ana çalışma alanında (O11), turuncu kubbenin içinde mavi bir varilin üstünde.",
+ "notes": "Görev eşyasının yeri, tam aynı yerde eskiden bulunan bir LEDX Skin Transilluminator çıkma noktasının hatırasıdır."
+}

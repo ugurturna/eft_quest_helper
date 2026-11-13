@@ -1,0 +1,21 @@
+{
+ "id": "health-care-privacy-part-6",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'de ölü işçiyi bul ve kan örneğini al",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde bulunmuş eşyayı teslim et: LEDX Skin Transilluminator",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Kan örneğini The Lab'de Sanitar'ın ofisine sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce Factory'deki ölü işçiden kan örneği alman gerekiyor; işçi \"Med Tent Gate\" exfil'inin içinde. Oraya girmek için Factory emergency exit key gerekir.\n\nSonra örneği The Lab'de Sanitar'ın odasına saklaman gerekiyor. Oda ikinci katta, laboratuvar bloğunun (G22) tam karşısında; girmek için mavi işaretli Keycard gerekir."
+}

@@ -1,0 +1,30 @@
+{
+ "id": "scavenger",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Yüz koruması (Facecovers) kategorisinden raidde bulunmuş herhangi 15 eşya teslim et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Başlık (Headgear) kategorisinden raidde bulunmuş herhangi 15 eşya teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Kulaklık (Headsets) kategorisinden raidde bulunmuş herhangi 15 eşya teslim et",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Gözlük (Eyewear) kategorisinden raidde bulunmuş herhangi 15 eşya teslim et",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Zırh (Body Armor) kategorisinden raidde bulunmuş herhangi 15 eşya teslim et",
+   "details": []
+  }
+ ]
+}

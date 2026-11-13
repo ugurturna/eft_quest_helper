@@ -1,0 +1,25 @@
+{
+ "id": "first-aid",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde ilk yardım çantası (Medkits) kategorisinden 4 eşya bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyaları teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Raidde yara tedavisi (Injury treatment) kategorisinden 4 eşya bul",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ]
+}

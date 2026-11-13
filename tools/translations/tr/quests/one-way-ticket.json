@@ -1,0 +1,10 @@
+{
+ "id": "one-way-ticket",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'de AUG kullanırken kafadan vuruşlarla 15 hedefi öldür",
+   "details": []
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "id": "the-punisher-part-1",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta AKS-74U ile 25 Scav öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Customs'ta kısa AK serisi saldırı tüfekleriyle 25 Scav öldürmen gerekiyor. Şunlardan herhangi birini kullanabilirsin:\n* AKS-74U\n* AKS-74UN\n* AKS-74UB\n* SAG AK Short"
+}

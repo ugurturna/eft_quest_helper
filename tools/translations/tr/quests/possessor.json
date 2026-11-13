@@ -1,0 +1,16 @@
+{
+ "id": "possessor",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'de helikopterin seyir defterini bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bulduğun bilgiyi teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Seyir defteri, Factory'de çatının altındaki düşmüş helikopterin kokpitinde, pilot koltuğunun altında."
+}

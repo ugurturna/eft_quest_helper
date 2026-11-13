@@ -1,0 +1,11 @@
+{
+ "id": "no-swiping",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Shoreline ya da Interchange'teki kaçakçı üslerinde herhangi 10 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Shoreline'daki ya da Interchange'teki kaçakçı üssünün içinde ve çevresinde herhangi 10 düşmanı öldürmen gerekiyor."
+}

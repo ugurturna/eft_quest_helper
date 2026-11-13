@@ -1,0 +1,16 @@
+{
+ "id": "another-shipping-delay",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta kayıp kurye ekibini bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Haritadan sağ çık (Survive and extract)",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods'ta Ragman'in kayıp kuryesini bulman gerekiyor. Kurye, büyük kavşak ile kereste fabrikası arasındaki kapıda, yanmış arabasının yanında. Hedefi tamamlamak için kapıdan geç."
+}

@@ -1,0 +1,36 @@
+{
+ "id": "pets-wont-need-it",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Tarkov Sokaklarındaki veteriner kliniğini bulun ve inceleyin",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "X-ray teknisyeninin Tarkov Sokaklarındaki odasını bulun ve göz atın",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Streets of Tarkov'da Primorsky bulvarındaki birinci eczaneyi bul",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Streets of Tarkov'da Primorsky bulvarındaki ikinci eczaneyi bul",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Streets of Tarkov'da Cardinal apartman kompleksindeki üçüncü eczaneyi bul",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Raidde bulunmuş herhangi 5 tıbbi eşya teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'da veteriner kliniğini ve çocuk polikliniğinin içindeki röntgen teknisyeninin odasını keşfetmen, ayrıca üç eczane bulman gerekiyor. Raidde bulunmuş (FIR) herhangi 5 tıbbi eşyayı da teslim etmen gerekiyor.\n\n▸ Veteriner kliniği\n\n▸ Röntgen teknisyeninin odası\n\n▸ Eczaneler"
+}

@@ -1,0 +1,11 @@
+{
+ "id": "gunsmith-p226r",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Bir P226R'yi verilen özelliklere uyacak şekilde modifiye et",
+   "details": []
+  }
+ ],
+ "guide": "P226R özellikleri:\n* 60 dayanıklılık\n* 610 ya da daha düşük geri tepme\n* 77 ya da daha yüksek ergonomi\n* P226 Stainless Elite pistol slide\n* P226 Stainless Elite Wooden pistol grip\n* P226 9x19 20-round extended magazine\n* Herhangi bir taktik cihaz (örneğin NcSTAR Tactical Blue Laser)"
+}

@@ -1,0 +1,19 @@
+{
+ "id": "pharmacist",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta içinde cihaz olan çantayı bul ve ele geçir",
+   "details": [
+    "(İsteğe bağlı) Customs'ta sağlık görevlisinin arabasını bul",
+    "(İsteğe bağlı) Customs'ta iki katlı yurttaki 114 numaralı odaya girmenin bir yolunu bul"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Çantayı teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Customs'ta bir karbon çanta (carbon case) bulman gerekiyor. Çanta, iki katlı yurt binasının birinci katındaki 114 numaralı odada bir kasanın üstünde. Odaya girmek için Dorm room 114 key gerekir."
+}

@@ -1,0 +1,36 @@
+{
+ "id": "new-beginning-prestige-1",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "50 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "The Lab'den sağ çık",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Herhangi bir PMC figürü teslim et",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Herhangi bir Scav figürü teslim et",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Herhangi bir Boss figürü teslim et",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Herhangi bir Trader figürü teslim et",
+   "details": []
+  }
+ ],
+ "notes": "Bu görev Prestige 1. seviye için gerekli olmadığından PvE oyun modunda yok."
+}

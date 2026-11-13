@@ -1,0 +1,16 @@
+{
+ "id": "every-hunter-knows-this",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'de tuzak teli (tripwire) kurmak için iyi bir yer bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Customs'ta tuzak teli (tripwire) kurmak için iyi bir yer bul",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Factory ve Customs'ta tuzak teli (tripwire) kurma yerlerini bulman gerekiyor. Tripwire installation kit gerekmez.\n\n▸ Factory'de tuzak teli yeri\nYer, ofislerin 3. katında, kırılması gereken bir kapının arkasındaki odada.\n\n▸ Customs'ta tuzak teli yeri\nYer, üç katlı yurtta, iç merdivende 1. kattan 2. kata çıkan basamaklarda."
+}

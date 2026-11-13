@@ -1,0 +1,16 @@
+{
+ "id": "make-an-impression",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Bolt-action Rifles becerisinde gereken 10. seviyeye ulaş",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "200 metreden uzaktan 10 keskin nişancı Scav öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Scav tarafından 10 keskin nişancıyı 200 metreden uzaktan öldürmen ve bolt-action rifles becerisinde 10. seviyeye ulaşman gerekiyor. Gereken mesafeyi ölçmek için Vortex Ranger 1500 rangefinder ya da Wilcox RAPTAR ES Tactical Rangefinder kullanılabilir.\n\nNormal keskin nişancı Scav'ların yanında şu düşmanlar da sayılır:\n* Shturman\n* Shturman'ın korumaları\n* Glukhar'ın gözcü korumaları\n* Kaban'ın keskin nişancıları"
+}

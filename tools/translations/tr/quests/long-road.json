@@ -1,0 +1,10 @@
+{
+ "id": "long-road",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse ya da Shoreline'da kıyı ve ana yol boyunca 7 Scav öldür",
+   "details": []
+  }
+ ]
+}

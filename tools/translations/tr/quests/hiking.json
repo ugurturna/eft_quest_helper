@@ -1,0 +1,11 @@
+{
+ "id": "hiking",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta USEC kampında, Scav kampında, kereste fabrikasında ya da terk edilmiş köyde 10 Scav öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods'ta belirtilen 4 yerde ve çevresinde 10 Scav öldürmen gerekiyor."
+}

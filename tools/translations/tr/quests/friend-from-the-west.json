@@ -1,0 +1,11 @@
+{
+ "id": "friend-from-the-west",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "5 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde herhangi bir haritada 5 PMC öldürmen gerekiyor."
+}

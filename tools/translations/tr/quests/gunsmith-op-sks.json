@@ -1,0 +1,11 @@
+{
+ "id": "gunsmith-op-sks",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Bir OP-SKS'i verilen özelliklere uyacak şekilde modifiye et",
+   "details": []
+  }
+ ],
+ "guide": "OP-SKS özellikleri:\n*60 dayanıklılık\n*35 ya da daha yüksek ergonomi\n*350 ya da daha düşük geri tepme\n*600 ya da daha yüksek nişan mesafesi\n*6 kg ya da daha hafif\n*En az 20 kapasiteli bir şarjör\n*Bir susturucu"
+}

@@ -1,0 +1,23 @@
+{
+ "id": "glory-to-cpsu",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da Prapor'un arkadaşının iş yerini bul",
+   "details": [
+    "(İsteğe bağlı) Streets of Tarkov'da Prapor'un arkadaşının dairesini bul"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Prapor'un arkadaşının akıbeti hakkında herhangi bir bilgi edin",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Bulduğun bilgiyi teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'daki müzede Prapor'un arkadaşının günlüğünü bulman gerekiyor. İkinci kattaki bir odada birden çok çıkma noktası var.\n\n▸ Birinci nokta\nAçık mutfak çekmecesinde.\n\n▸ İkinci nokta\nSandalyedeki oyuncak ayının arkasında.\n\n▸ Üçüncü nokta\nSolda, cam dolabın alt bölmesinde.\n\n▸ Dördüncü nokta\nKitaplığın alt bölmesinde, kitapların üstünde."
+}

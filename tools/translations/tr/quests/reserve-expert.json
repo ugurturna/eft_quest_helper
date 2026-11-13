@@ -1,0 +1,38 @@
+{
+ "id": "reserve-expert",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve'de doğu kışlasındaki (Black Pawn) birinci cephaneliği kontrol et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Reserve'de doğu kışlasındaki (Black Pawn) nöbetçi odasını kontrol et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Reserve'de doğu kışlasındaki (Black Pawn) ikinci cephaneliği kontrol et",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Reserve'de güney kışlasındaki (White Pawn) birinci cephaneliği kontrol et",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Reserve'de güney kışlasındaki (White Pawn) ikinci cephaneliği kontrol et",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Odalarda bulunan teçhizatı teslim et",
+   "details": [
+    "(İsteğe bağlı) Cephanelik odalarında herhangi bir Rus teçhizatını bul ve ele geçir"
+   ]
+  }
+ ],
+ "guide": "▸ Doğu kışlası - Black Pawn\n*Birinci cephanelik odası: Black Pawn'ın 4. katı, Black bishop (okul) tarafındaki ızgaralı kapı. Bu kapı her zaman açık.\n*Nöbetçi odası: Black Pawn'ın 3. katı, Black bishop (okul) tarafındaki kilitli kapı (RB-OB)\n*İkinci cephanelik odası: Black Pawn'ın 2. katı, Black bishop (okul) tarafındaki kilitli ızgaralı kapı (RB-ORB3)\n\n▸ Güney kışlası - White Pawn\n*Birinci cephanelik odası: White Pawn'ın 4. katı, black pawn tarafındaki kilitli ızgaralı kapı (RB-ORB1)\n*İkinci cephanelik odası: White Pawn'ın 2. katı, black pawn tarafındaki kilitli ızgaralı kapı (RB-ORB2)"
+}

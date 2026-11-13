@@ -1,0 +1,16 @@
+{
+ "id": "rough-tarkov",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta yoğun mayınlı alanı bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Ground Zero'da Claymore mayınını bul",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods'taki yoğun mayınlı alanı ve Ground Zero'daki claymore mayınını bulman gerekiyor.\n\n▸ Woods'taki yoğun mayınlı alan\nYoğun mayınlı alan, kuzeybatıdaki \"USEC kampı\"na batıdan ve kuzeybatıdan gelen yollar. Hedefi yerine getirmenin en güvenli yolu kampa kuzeyden, doğudan ya da güneyden girip kampın batısındaki büyük kayaların arasında mayınlara giden yolu kapatan kum torbalarına kadar yürümek.\n\nUzak durman gereken mayınlı alanlar\n\n▸ Ground Zero'daki claymore mayını\nClaymore mayını, Tarbank binasının birinci katında, 3 numaralı müşteri gişesinde. Hedefi yerine getirmek için gişenin önüne gelmen yeterli, içine girmen gerekmez."
+}

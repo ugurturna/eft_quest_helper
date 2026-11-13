@@ -1,0 +1,35 @@
+{
+ "id": "invasive-therapy",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde bulunmuş 5 adet P22 (Product 22) stimulant injector teslim et",
+   "details": [
+    "(İsteğe bağlı) Raidde 5 adet P22 (Product 22) stimulant injector bul"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Raidde bulunmuş 5 adet xTG-12 antidote injector teslim et",
+   "details": [
+    "(İsteğe bağlı) Raidde 5 adet xTG-12 antidote injector bul"
+   ]
+  },
+  {
+   "id": "o3",
+   "text": "Lighthouse'ta üst Rogue dağ evindeki revire herhangi bir Obdolbos cocktail injector sakla",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Lighthouse'ta üst Rogue dağ evindeki misafir salonu erzakına herhangi bir Obdolbos cocktail injector sakla",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Lighthouse'ta alt Rogue dağ evindeki cephane deposuna herhangi bir Obdolbos cocktail injector sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Lighthouse'taki dağ evlerine (chalet) 3 Obdolbos injector saklaman gerekiyor.\n\n▸ Üst dağ evindeki revir\nBodrumda.\n\n▸ Üst dağ evindeki misafir salonu erzakı\nBirinci katta, ana girişin yanında.\n\n▸ Alt dağ evindeki cephane deposu\nBirinci katta, yemek bölümünde, şöminenin karşısında."
+}

@@ -1,0 +1,10 @@
+{
+ "id": "gladiator-life-part-4",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "CheckPoint modunda bir maç kazan",
+   "details": []
+  }
+ ]
+}

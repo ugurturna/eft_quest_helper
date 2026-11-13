@@ -1,0 +1,16 @@
+{
+ "id": "thirsty-breadwinner",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde 2 Propane tank (5L) bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevi bitirmenin en kolay yolu, Interchange'te Scav karakterinle OLI mağazasını yağmalamak; propan tüpleri bu bölümdeki raflarda sık çıkar."
+}

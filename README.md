@@ -22,7 +22,7 @@
 ## Ban risk
 
 > [!TIP]
-> **No known ban risk.** EFT Quest Helper is a normal, separate Windows application. It does **not** read or write game memory, does **not** inject anything into the game, does **not** read game files or logs, does **not** send input to the game and does **not** talk to the game's servers. The overlay is just an ordinary window kept on top of the screen (like a sticky note), and the hotkeys use the standard Windows `RegisterHotKey` API. **Read Quests (BETA)** only takes a picture of the screen and reads it with the OCR built into Windows; pictures stay in memory and are never saved or sent. **Auto raid detection** works the same way: no keyboard hook and no key reading, only the top-right corner of the screen is read while the game is in front. **Map & position** only reads the **file names** of the screenshots you take yourself (the game writes your position into them); the pictures themselves are never opened.
+> **No known ban risk.** EFT Quest Helper is a normal, separate Windows application. It does **not** read or write game memory, does **not** inject anything into the game, does **not** read game files or logs, does **not** send input to the game and does **not** talk to the game's servers. The overlay is just an ordinary window kept on top of the screen (like a sticky note), and the hotkeys use the standard Windows `RegisterHotKey` API. **Read Quests** only takes a picture of the screen and reads it with the OCR built into Windows; pictures stay in memory and are never saved or sent. **Auto raid detection** works the same way: no keyboard hook and no key reading, only the top-right corner of the screen is read while the game is in front. **Map & position** only reads the **file names** of the screenshots you take yourself (the game writes your position into them); the pictures themselves are never opened.
 
 > [!CAUTION]
 > **Use it at your own risk. This project is not affiliated with or endorsed by Battlestate Games, and BSG can change its rules at any time. If BSG ever states that tools like this are not allowed, stop using it.**
@@ -42,8 +42,9 @@
 - **Kappa / Collector path** — the quests Kappa really needs: *Collector* and its whole prerequisite chain. Progress bar, available quests **grouped by map** so you can do several in one raid; each quest shows its required level.
 - **Active quests + overlay** — all the quests you are doing are listed under *Active Quests*; only the ones you pin with **📌 Overlay** appear in the small tracker on the right edge of the screen, with objective checkboxes, kill/item counters and item icons. Activating a quest does not pin it; you decide what goes on the overlay.
 - **Flea market prices in game** — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> opens a price search in the middle of the screen; type 3 letters of an item and see its flea price for your mode (PvP / PvE). See [Flea market prices](#flea-market-prices).
-- **Side menu** — pages (Entering a raid, Quests, Goal Planner, Kappa, Items, Active Quests, Read Quests (BETA), Story, End Game, Settings) are in a menu on the left.
-- **Read quests from the game (BETA)** — no need to enter quests one by one: open the in-game Tasks screen, scroll it once and the app reads every quest name with the OCR built into Windows. Confirm the list and the quests become active, with everything before them marked done. See [Read quests from the game](#read-quests-from-the-game-beta).
+- **Keep or sell?** — <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> with the mouse on an item in game (or by itself, if you turn it on) opens a small card next to it: which unfinished quests still need it (**KEEP**), or where it sells best. See [Keep or sell](#keep-or-sell).
+- **Side menu** — pages (Entering a raid, Quests, Goal Planner, Kappa, Items, Active Quests, Read Quests, Story, End Game, Settings) are in a menu on the left.
+- **Read quests from the game** — no need to enter quests one by one: open the in-game Tasks screen, scroll it once and the app reads every quest name with the OCR built into Windows. Confirm the list and the quests become active, with everything before them marked done. See [Read quests from the game](#read-quests-from-the-game).
 - **What to bring into the raid** — keys, markers (with how many you need), items to plant, the weapon to use and the clothes to wear are shown at the top of each quest and on its *Active Quests* card.
 - **Entering a raid** — the first item of the side menu: pick the map you are going to (a card per map with how many active quests it has) and the overlay shows every active quest on that map by itself, plus the ones you pinned. For quests on several maps only the objectives of that map are shown, and "hand over" steps are left out. <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> picks the map in game; **Raid over** goes back to the pinned list. When a raid starts, an unlocked overlay locks by itself so clicks go to the game. With **auto-detect** on, a double <kbd>O</kbd> in raid is enough: the map and the raid time left are read off the exfil list (see [Auto raid detection](#auto-raid-detection-double-o)).
 - **Your position on the map** — take a screenshot in raid with your own screenshot key and a map window shows where you are and which way you face, the path of your earlier screenshots, the exfils and your active quests' spots; the floor follows your height. See [Map & position](#map--position-screenshots).
@@ -118,10 +119,10 @@ The story chapter **The Ticket** has 4 endings — **Survivor**, **Savior**, **D
 - Choices, target and ticked steps are saved with your progress, per profile and mode. **Reset** clears them.
 - The route data lives in `data/ticket_endings.json` (English and Turkish) and follows the community *Story Endings* flowchart v1.7.6 by Callsign_Smokey / Kay08x.
 
-### Read quests from the game (BETA)
+### Read quests from the game
 
 <p align="center">
-  <img src="docs/screenshots/read-quests.webp" width="780" alt="Read Quests (BETA) page: safety notice, how to use it, countdown and the quests read from the game">
+  <img src="docs/screenshots/read-quests.webp" width="780" alt="Read Quests page: safety notice, how to use it, countdown and the quests read from the game">
 </p>
 
 > [!NOTE]
@@ -129,7 +130,7 @@ The story chapter **The Ticket** has 4 endings — **Survivor**, **Savior**, **D
 
 1. Set the game language to **English** and run the game in **Borderless** or **Windowed** mode (quest names are matched against the English names).
 2. In game, open the **TASKS** page and go to **Side tasks**.
-3. On the **Read Quests (BETA)** page press **Start scan** and switch to the game. Scroll the quest list slowly to the bottom: a frame is read about every 0.7 s, and the scan **stops by itself after 30 seconds** (a countdown shows the time left), so it never keeps the PC busy. Short list? <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> reads just what is on the screen right now.
+3. On the **Read Quests** page press **Start scan** and switch to the game. Scroll the quest list slowly to the bottom: a frame is read about every 0.7 s, and the scan **stops by itself after 30 seconds** (a countdown shows the time left), so it never keeps the PC busy. Short list? <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> reads just what is on the screen right now.
 4. Back in the app, untick anything read wrong and press **Apply**. The ticked quests become active and their earlier quests are marked done; **Undo** reverts it all. Quests that are already active are marked and left unticked.
 
 ### Auto raid detection (double O)
@@ -191,6 +192,16 @@ Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> in game to check what an ite
 - For each item: **flea price** (lowest offer, or the 24 h average when nobody is selling), **price per slot** for bigger items, **24 h average**, **48 h trend**, the **best trader** to sell to, and *Can't be sold on flea* for banned items.
 - Prices come from [tarkov.dev](https://tarkov.dev) (`json.tarkov.dev/regular/items` and `/pve/items`). The mode you play is downloaded in the background when the app starts (the other one when you search in it) and kept on disk with a timestamp; if they are older than **15 minutes** when you open the search, your mode is downloaded again while you search the saved copy. Searching never waits for the network.
 
+### Keep or sell
+
+Hover an item in your stash or a loot container and press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd>: a small card opens next to the mouse.
+
+- **KEEP · needed for N quests**: the unfinished quests that ask for the item (hand over, plant, or bring into the raid), with the amount and *FiR*. Your active quests come first, then the ones you can start now, then the locked ones with their level.
+- **No quest needs it**: where it sells best. That is the flea price, unless a trader pays at least 85 % of it (no fee, no waiting), and *Can't be sold on flea* for banned items.
+- The card closes when the mouse moves away (or after 12 s). It never takes focus or clicks.
+- **Settings → Item check → Open without the hotkey**: the card opens by itself when the mouse rests on an item while the game is in front.
+- How it works: the game's own item name box next to the mouse is read with the text recognition built into Windows, from a small picture around the mouse. The picture stays in memory, nothing is saved or sent anywhere, and the game is never touched. Prices are the same tarkov.dev prices as the flea search, for your mode.
+
 ### Overlay
 
 <img src="docs/screenshots/overlay.webp" width="320" align="right" alt="Overlay">
@@ -217,13 +228,14 @@ Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> in game to check what an ite
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> | **Show / hide the overlay**, e.g. to clear the screen mid-raid. |
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> | **Flea market price search** in the middle of the screen, for your mode (PvP / PvE). <kbd>Esc</kbd> closes it and returns to the game. |
 | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> | **Entering a raid**: a map list opens on the overlay (unlocked for the click); pick the map and the overlay shows its active quests. Press again to close it. |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> | **Read quests (BETA)**: reads the quest names on the in-game Tasks screen that is open right now (once). Check and apply them on the *Read Quests (BETA)* page. |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> | **Keep or sell**: with the mouse on an item in game, a card says which quests still need it, or where it sells best. |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> | **Read quests**: reads the quest names on the in-game Tasks screen that is open right now (once). Check and apply them on the *Read Quests* page. |
 | <kbd>Ctrl</kbd> + mouse wheel | With the mouse over the (unlocked) overlay: **make it bigger / smaller** (60–200 %). |
 | Drag the overlay header | **Move the overlay anywhere** on the screen (unlocked only). |
 
 - The shortcuts work while the game is running and the app is in the background.
 - They are always shown in the bottom bar of the main window, and explained at the top of **Settings**, because the overlay's own hint can be hard to read in game.
-- To change them, edit `clickThroughHotkey` / `toggleOverlayHotkey` / `fleaSearchHotkey` / `raidHotkey` in the profile's `settings.json` (e.g. `"Ctrl+Alt+F9"`). If a shortcut is already taken by another program, the app tells you at start.
+- To change them, edit `clickThroughHotkey` / `toggleOverlayHotkey` / `fleaSearchHotkey` / `raidHotkey` / `itemCheckHotkey` in the profile's `settings.json` (e.g. `"Ctrl+Alt+F9"`). If a shortcut is already taken by another program, the app tells you at start.
 
 ## Download & run
 
@@ -265,7 +277,7 @@ Without a `data` folder next to the exe, the same files go to `%APPDATA%\TarkovQ
 
 Progress is saved on every click. Use **Settings → Export / Import** to back it up or move it to another PC.
 
-Hotkeys can be changed in `settings.json` (`clickThroughHotkey`, `toggleOverlayHotkey`, `fleaSearchHotkey`, `raidHotkey`, e.g. `"Ctrl+Alt+F9"`).
+Hotkeys can be changed in `settings.json` (`clickThroughHotkey`, `toggleOverlayHotkey`, `fleaSearchHotkey`, `raidHotkey`, `itemCheckHotkey`, e.g. `"Ctrl+Alt+F9"`).
 
 ## Credits & legal
 

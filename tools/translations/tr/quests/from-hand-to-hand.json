@@ -1,0 +1,16 @@
+{
+ "id": "from-hand-to-hand",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'taki derme çatma laboratuvarın içine bir Virtex programmable processor sakla",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Lighthouse'taki derme çatma laboratuvarın içine bir Military COFDM Wireless Signal Transmitter sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Lighthouse'taki gizli uyuşturucu laboratuvarına bir Virtex programmable processor ve bir Military COFDM Wireless Signal Transmitter saklaman gerekiyor. Laboratuvar, kuzeydeki tren sahasının konteyner bölümünde üst üste dizilmiş bir grup nakliye konteynerinin içinde."
+}

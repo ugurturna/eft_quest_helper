@@ -1,0 +1,20 @@
+{
+ "id": "the-punisher-part-3",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve'de 9x39mm kalibre silahlarla 12 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde 7 Lower half-mask bul",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ]
+}

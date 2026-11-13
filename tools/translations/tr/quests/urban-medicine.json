@@ -1,0 +1,21 @@
+{
+ "id": "urban-medicine",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da kimya laboratuvarını bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "İlaç örneklerinin olduğu konteyneri ele geçir",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Konteyneri teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'da kimya laboratuvarını ve bir örnek konteynerini bulman gerekiyor. Laboratuvar, LexOs oto servisindeki bir garajın içinde. Garajın içinde birden çok konteyner çıkma noktası var.\n\nDikkat: LexOs oto galerisinin arazisi Claymore'larla dolu.\n\n▸ Birinci nokta\nSoldaki ilk yatağın altında.\n\n▸ İkinci/Üçüncü/Dördüncü nokta\nSoldaki ilk rafın üst ve alt bölmelerinde, ayrıca hemen yanında cesedin altında.\n\n▸ Beşinci nokta\nSoldaki ikinci rafın yanında.\n\n▸ Altıncı nokta\nArkadaki tekerlekli sehpanın altında.\n\n▸ Yedinci/Sekizinci nokta\nOrgan taşıma kutusunun olduğu sağdaki yatağın altında.\n\n▸ Dokuzuncu nokta\nArka sağ köşede, turuncu ve siyah kutuların arasında.\n\n▸ Onuncu nokta\nArka sağ köşede, kutuların arkasında."
+}

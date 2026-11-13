@@ -1,0 +1,11 @@
+{
+ "id": "stick-to-it",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "30 Rogue öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde herhangi bir haritada 30 Rogue öldürmen gerekiyor."
+}

@@ -1,0 +1,26 @@
+{
+ "id": "to-the-light-false-call",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta 21:00-06:00 arasında 5 Scav öldür (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Customs'ta 21:00-06:00 arasında 1 PMC öldür (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Customs'ta köprünün yakınındaki marketin klima ünitesine bir Wi-Fi camera sakla (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Customs'ta Shoreline transit'inde sarı bir işaret fişeği at (Tek raidde)",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Customs'ta tek bir raidde şunları yapman gerekiyor: 21:00-06:00 arasında 1 PMC ve 5 Scav öldür, ana köprünün yakınındaki büfeye bir WI-FI Camera sakla ve Shoreline transit'inde sarı bir fişek at.\n\n▸ WI-FI Camera saklama yeri\n\n▸ Shoreline transit'i\nTransit, ana kavşağın güneyindeki barikatın arkasında. Otobüsün yakınındayken gökyüzüne sarı bir işaret fişeği at. Fişek belli bir yüksekliğe ulaşmazsa görev hedefi tamamlanmaz. Prapor LL1'den alınabilen elde tutulan RSP-30 sarı fişeği ya da Jaeger LL1'den alınabilen, işaret tabancasından atılan 26x75mm sarı fişek kartuşunu kullanabilirsin. Elde tutulan RSP-30 sarı fişeği kullanıyorsan yukarı doğru nişan al, ama çok fazla değil, yoksa arkana düşer."
+}

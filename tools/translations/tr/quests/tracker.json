@@ -1,0 +1,26 @@
+{
+ "id": "tracker",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Gönderinin ikinci kısmı hakkında herhangi bir bilgi bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Sağlık Tesisi'nde rezervuarları olan bir oda bulunuz",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Kargonun ikinci bölümündeki bilgileri Peacekeeper'a ver",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Shoreline'da sağlık tesisindeki gizli TerraGroup kargosunu bul",
+   "details": []
+  }
+ ],
+ "guide": "Secure folder, Shoreline'daki sağlık tesisinin doğu kanadındaki 108 numaralı odada mavi varillerin üstünde.\n\nKargo, Shoreline'daki sağlık tesisinin batı kanadının bodrumunda, havuzun yakınında."
+}

@@ -1,0 +1,15 @@
+{
+ "id": "bad-habit",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde 15 Malboro, Wilston ya da Strike sigara bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Wilston sigarasını teslim et",
+   "details": []
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "id": "to-the-light-fallen-bird",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Hideout'a dön",
+   "details": []
+  }
+ ],
+ "guide": "Bu görev, önceki To the Light - Clip Their Wings görevi tamamlanınca kendiliğinden kabul edilir. Yapman gereken tek şey raidden çıkınca görevi tamamlamak."
+}

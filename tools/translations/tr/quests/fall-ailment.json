@@ -1,0 +1,15 @@
+{
+ "id": "fall-ailment",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde 5 Disposable syringe bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ]
+}

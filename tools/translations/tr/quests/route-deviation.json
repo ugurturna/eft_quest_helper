@@ -1,0 +1,37 @@
+{
+ "id": "route-deviation",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da Collapsed Crane BTR durağını MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Streets of Tarkov'da Old Scav Checkpoint BTR durağını MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Streets of Tarkov'da Pinewood Hotel BTR durağını MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Streets of Tarkov'da City Center BTR durağını MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Streets of Tarkov'da Tram BTR durağını MS2000 Marker ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Streets of Tarkov'da Rodina Cinema BTR durağını MS2000 Marker ile işaretle",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'daki 6 BTR durağının hepsini MS2000 marker'larla işaretlemen gerekiyor.",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den ek MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

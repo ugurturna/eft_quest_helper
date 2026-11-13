@@ -1,0 +1,11 @@
+{
+ "id": "key-partner",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Peacekeeper'a herhangi 75 eşya sat",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde mermi hariç herhangi 75 eşyayı Peacekeeper'a satman gerekiyor.\n\nSatış sayacı her zaman hemen güncellenmeyebilir. Oyunu yeniden başlatmak yenilenmesini sağlar."
+}

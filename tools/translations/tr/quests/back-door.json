@@ -1,0 +1,18 @@
+{
+ "id": "back-door",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve'de gizli yeraltı sığınağı çıkışını bul",
+   "details": [
+    "(İsteğe bağlı) Çıkışı açan şalteri bul"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "Gizli çıkıştan haritadan sağ çık",
+   "details": []
+  }
+ ],
+ "guide": "Bu görev Reserve'de \"D-2\" exfil'inden çıkmanı gerektiriyor.\n\nÖnce yeraltı sığınak sisteminin komuta bölümündeki bir şalterle elektriği aç. Dikkat: şalteri indirmek, sığınağın komuta bölümünde Scav Raider'ların doğmasına yol açabilir. Sonra exfil'deki sürgülü kapının yanındaki duvarda bulunan düğmeye bas. Görevin tamamlanması için raidden \"Survived\" durumuyla çıkman gerekir. \"Run Through\" durumu görevi tamamlamaz. \"Run Through\" durumundan kaçınmak için çıkmadan önce raidde en az 200 EXP kazan (öldürerek ya da loot toplayarak) ya da raidde en az 7 dakika kal."
+}

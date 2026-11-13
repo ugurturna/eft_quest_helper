@@ -1,0 +1,10 @@
+{
+ "id": "gladiator-life-part-2",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "CheckPoint modunda hedefi 5 kez ele geçir",
+   "details": []
+  }
+ ]
+}

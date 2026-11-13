@@ -1,0 +1,21 @@
+{
+ "id": "golden-swag",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta Dorm room 303'ten Golden Zibbo lighter'ı bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Customs'ta Dorm room 303'e normal bir Zibbo sakla",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Golden Zibbo lighter'ı teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce Customs'ta altın bir Zibbo çakmağı bulman gerekiyor. Çakmak, üç katlı yurt binasının üçüncü katındaki 303 numaralı odada bir masanın üstünde. Odaya girmek için Dorm room 303 key gerekir. Sonra aynı yere bir Zibbo çakmağı saklaman gerekiyor."
+}

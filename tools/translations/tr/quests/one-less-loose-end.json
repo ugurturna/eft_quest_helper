@@ -1,0 +1,16 @@
+{
+ "id": "one-less-loose-end",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'de laboratuvar defterini bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Defteri Woods'taki eski kereste fabrikasına sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce Factory'de bir defter bulup alman gerekiyor. Sonra defterin Woods'a saklanması gerekiyor.\n\n▸ Factory'de defterin yeri\nDefter ikinci kattaki laboratuvarda bulunur. İki odanın içinde de birden çok çıkma noktası var.\n\n▸ Woods'ta saklama yeri\nDefter, haritanın doğusundaki eski kereste fabrikasındaki bir evin içine saklanmalı."
+}

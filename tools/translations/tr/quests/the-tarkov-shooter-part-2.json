@@ -1,0 +1,16 @@
+{
+ "id": "the-tarkov-shooter-part-2",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Sürgülü (bolt-action) bir tüfek kullanırken 40 metreden uzaktan herhangi bir hedefi 3 kez bacaklarından vur",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Sürgülü (bolt-action) bir tüfek kullanırken 40 metreden uzaktan herhangi bir hedefi 2 kez kafasından vur",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde sürgülü (bolt-action) bir tüfek ya da MP-18 ile 40 metreden uzaktan herhangi hedeflerin bacaklarına 3, kafalarına 2 isabet yapman gerekiyor. Bacak isabetlerinin hepsi aynı hedefe yapılabilir. Grup üyelerine yapılan isabetler sayılmaz."
+}

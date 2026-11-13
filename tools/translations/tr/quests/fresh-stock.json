@@ -1,0 +1,15 @@
+{
+ "id": "fresh-stock",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde 5 Black Division plate carrier bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ]
+}

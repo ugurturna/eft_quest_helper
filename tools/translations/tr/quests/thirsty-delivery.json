@@ -1,0 +1,26 @@
+{
+ "id": "thirsty-delivery",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta belirtilen saklama yerini bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Customs'ta belirtilen saklama yerini bul",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Birinci Propane tank (5L)'ı sakla",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "İkinci Propane tank (5L)'ı sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Skier'ın oyun içi postayla gönderdiği 2 Propane tank (5L)'ı Woods ve Customs'a saklaman gerekiyor.\n\n▸ Woods'ta saklama yeri\n\n▸ Customs'ta saklama yeri"
+}

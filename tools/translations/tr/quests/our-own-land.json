@@ -1,0 +1,10 @@
+{
+ "id": "our-own-land",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "GP-25 bombaatarıyla 10 Rogue öldür",
+   "details": []
+  }
+ ]
+}

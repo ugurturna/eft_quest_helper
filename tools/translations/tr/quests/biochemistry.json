@@ -1,0 +1,15 @@
+{
+ "id": "biochemistry",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde 3 adet Aceso Xpress semi-automatic biochemical analyzer bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Eşyaları teslim et",
+   "details": []
+  }
+ ]
+}

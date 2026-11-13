@@ -1,0 +1,16 @@
+{
+ "id": "halloween-unexpected-help",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'taki su arıtma tesisinde aşı sevkiyatını bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Aşı sevkiyatını Customs'taki iki katlı yurdun 105 numaralı odasına sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce Lighthouse'ta aşı sevkiyatını bulup alman gerekiyor. Sevkiyat, 3 numaralı su arıtma binasının ikinci katında, batıdaki ofiste bir masanın üstünde.\n\nSonra Customs'taki iki katlı yurdun 105 numaralı odasına saklanması gerekiyor. Odaya girmek için Dorm room 105 key gerekir."
+}

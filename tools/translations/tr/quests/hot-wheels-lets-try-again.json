@@ -1,0 +1,12 @@
+{
+ "id": "hot-wheels-lets-try-again",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve'de yedek BTR tekerleklerini bul ve MS2000 Marker ile işaretle",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde BTR tekerleklerini bulup MS2000 Marker ile işaretlemen gerekiyor. Tekerlekler, onarım merkezinde (white knight) iki garaj binasından büyük olanında.",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

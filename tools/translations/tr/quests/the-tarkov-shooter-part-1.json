@@ -1,0 +1,12 @@
+{
+ "id": "the-tarkov-shooter-part-1",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Gez-arpacıklı sürgülü (bolt-action) bir tüfek kullanırken 40 metreden uzaktan 5 Scav öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görev için sürgülü (bolt-action) bir tüfek ya da MP-18 al ve hiçbir dürbün ya da nişangâh takma. Sadece gez-arpacık kullan. Bu görev için Factory önerilmez, çünkü 40 m ya da daha uzaktan etkili çatışabileceğin pek yer yok. Bu göreve sadece Scav'lar sayılır, PMC'ler sayılmaz. Uzaktan görülebilen keskin nişancı Scav'lar yüzünden Woods, Shoreline ve Customs iyi haritalar.",
+ "notes": "Başarı diyaloğu, İkinci Dünya Savaşı'nın ünlü Sovyet keskin nişancısı Vasily Zaitsev'e gönderme yapıyor."
+}

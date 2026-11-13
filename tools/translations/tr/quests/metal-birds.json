@@ -1,0 +1,26 @@
+{
+ "id": "metal-birds",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta motor kontrolcüsünü bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bulduğun eşyayı teslim et",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Woods'ta tek eksenli fiber optik jiroskopu bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Bulduğun eşyayı teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods'ta bir motor kontrolcüsü ve tek eksenli fiber optik jiroskop alman gerekiyor.\n\nMotor kontrolcüsü, kereste fabrikasının batısındaki USEC kontrol noktasında siyah bir SUV'un orta konsolunda.\n\nTek eksenli fiber optik jiroskop, kereste fabrikasındaki mavi bir kamyonetin arkasındaki açık bir silah kutusunda."
+}

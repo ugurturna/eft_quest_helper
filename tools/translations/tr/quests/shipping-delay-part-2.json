@@ -1,0 +1,26 @@
+{
+ "id": "shipping-delay-part-2",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'taki depoda ambarları bul ve keşfet",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Woods'taki depoda ofisi bul ve keşfet",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Woods'taki depoda garajları bul ve keşfet",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "A Helping Hand görevini tamamla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods'taki tren deposunda belirtilen 3 yeri keşfetmen gerekiyor. Depoya sadece BTR sürücüsünün taksi hizmetiyle ulaşılabilir. Keşiften sonra bu görevi teslim etmek için A Helping Hand görevinin de tamamlanması gerekir.\n\nDepodan batıdaki trenin üstünde yürüyerek de çıkılabilir. Trenin üstünde yürürken keskin nişancılara ya da mayınlara yakalanmamak için ortadan yürümen önemli."
+}

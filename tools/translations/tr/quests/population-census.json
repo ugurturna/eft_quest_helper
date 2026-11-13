@@ -1,0 +1,16 @@
+{
+ "id": "population-census",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da sakinlerin bilgilerini içeren defteri ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Günlüğü teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'daki konut müdürlüğü binasında bir defter bulman gerekiyor. Binanın içinde birden çok çıkma noktası var.\n\n▸ Birinci kat\n▸ Birinci nokta\nGirince sağdaki ikinci ofiste, rafın sol alt bölmesinde.\n\n▸ İkinci nokta\nSağdaki üçüncü ofiste, lambalı masanın üstünde.\n\n▸ Üçüncü nokta\nMerdivenlerin yanındaki resepsiyonda, tezgâhın arkasındaki bir rafta.\n\n▸ Dördüncü nokta\nKoridorun sol tarafındaki son ofiste, sağdaki masada.\n\n▸ İkinci kat\n▸ Beşinci nokta\nSoldaki kilitsiz ofiste, üstüne kitaplık devrilmiş masanın altında."
+}

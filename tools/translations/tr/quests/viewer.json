@@ -1,0 +1,22 @@
+{
+ "id": "viewer",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta dağdaki kaya çıkıntısına bir WI-FI Camera kur",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Shoreline'da iskele kulesine bir WI-FI Camera kur",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Factory'de ofis koridoruna bir WI-FI Camera kur",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods, Shoreline ve Factory'ye birer WI-FI Camera yerleştirmen gerekiyor.\n\nWoods'ta dağdaki ağaçlı bir kaya çıkıntısına yerleştirilmeli.\n\nShoreline'da iskelenin yakınındaki deniz fenerinin tepesine yerleştirilmeli.\n\nFactory'de \"Gate 3\" exfil tarafındaki ofis bölümü merdivenlerinin en üstünde, kırık bir sandalyenin yanındaki duvara yerleştirilmeli. Not: Şu an gece yapılamıyor.",
+ "notes": "Görev diyaloğu ve başarı mesajı, oyunun yayın platformu Twitch'te hızla artan popülerliğine gönderme yapıyor; büyük ihtimalle 30 Aralık 2019 – 5 Ocak 2020 arasındaki ilk \"Drops\" kampanyasıyla doğrudan ilgili."
+}

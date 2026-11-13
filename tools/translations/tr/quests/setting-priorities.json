@@ -1,0 +1,16 @@
+{
+ "id": "setting-priorities",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Hiçbir zırh giymeden aktif bir kulaklık kullanırken 10 PMC öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Hiçbir aktif kulaklık takmadan TSh-4M-L soft tank crew helmet giyerken 10 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Birinci hedef için hiçbir zırh yeleği, zırhlı göğüs teçhizatı (chest rig), zırhlı başlık ya da zırhlı yüz koruması takmamalısın.\n\n*Hata: Bu görevde şu an çalışan kulaklıklar sadece şunlar:\n* CENS ProFlex DX5 tactical earplug\n* GSSh-01 active headset\n* MSA Sordin Supreme PRO-X/L headset\n* Ops-Core FAST RAC Headset\n* OPSMEN Earmor M32 headset\n* OPSMEN Earmor M32 headset (White)\n* Peltor ComTac II headset (OD Green)\n* Peltor ComTac IV Hybrid headset (Coyote Brown)\n* Peltor ComTac V headset (OD Green)\n* Peltor ComTac VI headset (Coyote Brown)\n* Peltor Tactical Sport headset\n* Peltor TEP-300 tactical earplug (Coyote Brown)\n* Safariland Liberator HP 2.0 Hearing Protection Headset (FDE)\n* TW EXFIL Peltor ComTac V headset (OD Green)\n* TW EXFIL Peltor ComTac VI headset (Coyote Brown)\n* Walker's Razor Digital headset\n* Walker's XCEL 500BT Digital headset"
+}

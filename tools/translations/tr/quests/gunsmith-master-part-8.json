@@ -1,0 +1,16 @@
+{
+ "id": "gunsmith-master-part-8",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Bir M700'ü verilen özelliklere uyacak şekilde modifiye et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bir M1911'i verilen özelliklere uyacak şekilde modifiye et",
+   "details": []
+  }
+ ],
+ "guide": "M700 özellikleri:\n* 60 dayanıklılık\n* 35 ya da daha yüksek ergonomi\n* 500 ya da daha düşük geri tepme\n* 6 kg ya da daha hafif\n* 1500 ya da daha yüksek nişan mesafesi\n* Bir susturucu\n* 5 kapasiteli bir şarjör ya da şarjörsüz\n* M700 AB Arms MOD*X GEN 3 chassis\n* M700 AB Arms MOD*X GEN 3 KeyMod handguard\n* M700 AB Arms MOD*X rail mount\n\nM1911 özellikleri:\n* 60 dayanıklılık\n* 75 ya da daha yüksek ergonomi\n* 200 ya da daha yüksek nişan mesafesi\n* Herhangi bir taktik cihaz (örneğin NcSTAR Tactical Blue Laser)\n* Bir şarjör\n* M1911 Pachmayr American Legend Grip #423\n* M1911 Anarchy Outdoors .45 ACP muzzle brake"
+}

@@ -1,0 +1,11 @@
+{
+ "id": "kings-of-the-rooftops",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da çatılardaki 8 keskin nişancıyı öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'da 8 keskin nişancı Scav öldürmen gerekiyor."
+}

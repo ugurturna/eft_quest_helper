@@ -1,0 +1,16 @@
+{
+ "id": "dragnet",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Factory'deki TerraGroup deposunda kimyasal konteynerini bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Kimyasal konteynerini teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Kimyasal konteyneri, Factory'deki TerraGroup depo odasında bulunur; oda yeraltı tünellerinde \"Camera Bunker Door\" Scav exfil'inin hemen yanında. Girmek için TerraGroup storage room keycard gerekir. Odanın içinde birden çok çıkma noktası var."
+}

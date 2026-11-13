@@ -1,0 +1,11 @@
+{
+ "id": "demonstration-model",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reserve'de 7.62x51 saldırı tüfekleri ya da DMR'larla kafadan vuruşlarla herhangi 15 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde 7.62x51mm NATO saldırı tüfeği ya da nişancı tüfeği (DMR) kullanarak kafadan vuruşlarla herhangi 15 düşmanı öldürmen gerekiyor. Şunlardan herhangi birini kullanabilirsin:\n* DS Arms SA58 7.62x51 assault rifle\n* Desert Tech MDR 7.62x51 assault rifle\n* FN SCAR-H 7.62x51 assault rifle\n* FN SCAR-H X-17 7.62x51 assault rifle\n* HK G28 7.62x51 marksman rifle\n* Kalashnikov AK-308 7.62x51 assault rifle\n* Kel-Tec RFB 7.62x51 rifle\n* Knight's Armament Company SR-25 7.62x51 marksman rifle\n* Remington R11 RSASS 7.62x51 marksman rifle\n* Springfield Armory M1A 7.62x51 rifle"
+}

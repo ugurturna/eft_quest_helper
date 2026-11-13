@@ -1,0 +1,31 @@
+{
+ "id": "provide-viewership",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta sanayi tesisinin içine birinci WI-FI Camera'yı kur",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Customs'ta sanayi tesisinin içine ikinci WI-FI Camera'yı kur",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Customs'ta sanayi tesisinin içine üçüncü WI-FI Camera'yı kur",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Customs'ta sanayi tesisinin içine dördüncü WI-FI Camera'yı kur",
+   "details": []
+  },
+  {
+   "id": "o5",
+   "text": "Customs'ta sanayi tesisinin içinde herhangi 15 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce Customs'taki sanayi tesisine 4 WI-FI Camera kurman gerekiyor. Sonra tesisin içinde ve çevresinde herhangi 15 hedefi öldürmen gerekiyor.\n\n▸ Kamera 4 ve 2 - Birinci kattaki garaj ve kuzey bina\n\n▸ Kamera 1 - Kuzey binanın üçüncü katı\n\n▸ Kamera 3 - Güney binanın ikinci katı"
+}

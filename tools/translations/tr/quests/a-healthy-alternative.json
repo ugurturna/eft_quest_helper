@@ -1,0 +1,11 @@
+{
+ "id": "a-healthy-alternative",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Laboratuvar defterini teslim et",
+   "details": []
+  }
+ ],
+ "guide": "One Less Loose End görevini bitirirsen bu göreve erişimini kaybedersin.\n\nDefter, Factory'nin ikinci katındaki laboratuvarda bulunur. İki odanın içinde de birden çok çıkma noktası var."
+}

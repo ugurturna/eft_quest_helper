@@ -1,0 +1,11 @@
+{
+ "id": "cut-down-to-the-root",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta 15 Rogue öldür",
+   "details": []
+  }
+ ],
+ "guide": "Preserve a Valuable Piece görevini bitirirsen bu görev başarısız olur ve ona erişimini kaybedersin."
+}

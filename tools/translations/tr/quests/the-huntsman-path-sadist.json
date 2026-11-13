@@ -1,0 +1,16 @@
+{
+ "id": "the-huntsman-path-sadist",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Sanitar'ı öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde bulunmuş Sanitar's bag'i teslim et",
+   "details": []
+  }
+ ],
+ "guide": "A Difficult Choice görevini bitirirsen bu görev başarısız olur ve ona erişimini kaybedersin.\n\nBu görevde Sanitar'ı öldürmen ve raidde bulunmuş (FIR) çantasını teslim etmen gerekiyor."
+}

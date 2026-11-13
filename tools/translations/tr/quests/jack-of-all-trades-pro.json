@@ -1,0 +1,25 @@
+{
+ "id": "jack-of-all-trades-pro",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "BlastGang ya da TeamFight modunda Assault olarak bir raunt kazan",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "BlastGang ya da TeamFight modunda Enforcer olarak bir raunt kazan",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "BlastGang ya da TeamFight modunda Scout olarak bir raunt kazan",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "BlastGang ya da TeamFight modunda Marksman olarak bir raunt kazan",
+   "details": []
+  }
+ ]
+}

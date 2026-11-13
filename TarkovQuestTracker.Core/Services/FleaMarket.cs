@@ -11,6 +11,9 @@ public sealed class FleaItem
     public string Id { get; init; } = "";
     public string Name { get; init; } = "";
     public string ShortName { get; init; } = "";
+    /// <summary>The game's English names: the screen reader matches them whatever the app language.</summary>
+    public string EnglishName { get; init; } = "";
+    public string EnglishShortName { get; init; } = "";
     public string? IconLink { get; init; }
     public int Width { get; init; } = 1;
     public int Height { get; init; } = 1;
@@ -251,6 +254,8 @@ public sealed class FleaMarket(string folder)
                 Id = Str(i, "id") ?? p.Name,
                 Name = name,
                 ShortName = shortName,
+                EnglishName = enName,
+                EnglishShortName = enShort,
                 IconLink = Str(i, "iconLink"),
                 Width = Int(i, "width") ?? 1,
                 Height = Int(i, "height") ?? 1,

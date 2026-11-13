@@ -1,0 +1,10 @@
+{
+ "id": "acquaintance",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Yiyecek (Food) kategorisinden herhangi 10 eşya teslim et",
+   "details": []
+  }
+ ]
+}

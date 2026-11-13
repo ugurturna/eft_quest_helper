@@ -1,0 +1,22 @@
+{
+ "id": "easy-job",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Deniz Feneri'ndeki su arıtma tesisindeki helikopteri bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Helikopteri MS2000 İşaretleyici ile işaretle",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Helikopter bölgesinin çevresinde herhangi 10 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Helikopter, kuzeydeki su arıtma tesisinin havuzlarından birinde.\n\nAyrıca bu görevde Lighthouse'taki su arıtma tesisinin belirli bir alanında 10 Rogue, Scav ya da PMC öldürmen gerekiyor. İşaretli alanın dışındaki öldürmeler hedefe sayılmaz.",
+ "notes": "* Gerekirse Prapor'dan ya da Ragman'den MS2000 Marker alabilirsin.\n* MS2000 Marker'ları ölünce kaybolmasınlar diye özel slotlarında ya da kesende (pouch) tutman önerilir.\n* MS2000 Marker'lar, anahtarlar gibi, gerektiğinde envanterinden kendiliğinden kullanılır"
+}

@@ -1,0 +1,16 @@
+{
+ "id": "private-club",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta Skier'ın cüzdanını bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bulduğun eşyayı teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Customs'ta Skier'ın cüzdanını bulman gerekiyor. Cüzdan Warehouse 17'nin ikinci katındaki bir odada. Odanın içinde birden çok çıkma noktası var."
+}

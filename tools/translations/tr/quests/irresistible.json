@@ -1,0 +1,16 @@
+{
+ "id": "irresistible",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Interchange'te kayıp silah sandığını bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Geri aldığın kargoyu teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Kayıp silah sandığı, Interchange'te alışveriş merkezinin güneybatısındaki konteyner sahasında kırmızı bir konteynerin içinde. Elektrik santralinin açılmış olması ve Object #21WS keycard gerekir."
+}

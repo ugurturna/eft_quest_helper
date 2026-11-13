@@ -1,0 +1,11 @@
+{
+ "id": "gladiator-doping-part-1",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Bir ağrı kesicinin etkisi altındayken 30 düşman öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde ağrı kesici etkisi üstündeyken herhangi bir oyun modunda 30 düşman öldürmen gerekiyor."
+}

@@ -1,0 +1,26 @@
+{
+ "id": "halloween-follow-up-examination",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Infected Lab ya da Infected Factory'de koruyucu tulumlu ölü bilim insanını bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bilim insanının cesedini Medical instruments ile aç",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Infected Lab ya da Infected Factory'de kan örneğini ele geçir",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Kan örneğini teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Infected Lab ya da Infected Factory'de koruyucu tulumlu (hazmat) ölü bir bilim insanını bulman ve kan örneği alman gerekiyor. Örnek çıkması garanti değil ve her açma için bir set Medical tools gerekir.\n\n▸ Infected Lab\n\n▸ Infected Factory"
+}

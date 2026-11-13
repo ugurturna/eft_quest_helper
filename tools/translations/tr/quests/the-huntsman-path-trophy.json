@@ -1,0 +1,16 @@
+{
+ "id": "the-huntsman-path-trophy",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reshala'yı bul ve etkisiz hale getir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde bulunmuş Reshala's Golden TT-33 pistol'ü Jaeger'a teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Reshala'yı öldürmen ve raidde onun altın TT tabancasını bulman gerekiyor."
+}

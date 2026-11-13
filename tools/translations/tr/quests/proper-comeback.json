@@ -1,0 +1,22 @@
+{
+ "id": "proper-comeback",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Woods'ta Prapor'un WI-FI Camera'sının yanına bir Golden rooster figurine sakla",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Shoreline'da Prapor'un WI-FI Camera'sının yanına bir Golden rooster figurine sakla",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Factory'de Prapor'un WI-FI Camera'sının yanına bir Golden rooster figurine sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Woods, Shoreline ve Factory'ye birer Golden rooster figurine yerleştirmen gerekiyor. Yerler, Prapor'un önceki Viewer görevindekilerle aynı.\n\n(Yerleştirme süreleri 40 saniye.)\n\nWoods'ta dağdaki bir kaya çıkıntısında, bir ağacın yanına yerleştirilmeli.\n\nShoreline'da iskelenin yakınındaki deniz fenerinin tepesine yerleştirilmeli.\n\nFactory'de \"Gate 3\" exfil tarafındaki ofis bölümü merdivenlerinin en üstünde, podyum (catwalk) kapısının karşısına yerleştirilmeli. Not: Şu an gece yapılamıyor.",
+ "notes": "Görev diyaloğu, \"saldırgan dil\" kullanarak topluluk kurallarını çiğnediği için Battlestate Games'in Twitch kanalına verilen bir yasağa gönderme yapıyor."
+}

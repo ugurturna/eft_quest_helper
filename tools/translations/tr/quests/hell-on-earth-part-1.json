@@ -1,0 +1,12 @@
+{
+ "id": "hell-on-earth-part-1",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Bir MP-43-1C pompalıyı verilen özelliklere uyacak şekilde modifiye et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde daha kısa MP-43-1C 12ga 510mm namlusuyla değiştirilmiş bir MP-43-1C 12ga double-barrel shotgun'ı Prapor'a teslim etmen gerekiyor. İkisi de Jaeger LL1'den alınabilir.",
+ "notes": "Bu görev serisi, kesik namlulu çift namlulu bir pompalı olan \"Super shotgun\"ın bulunduğu \"Doom II: Hell on Earth\" oyununa bir göndermedir."
+}

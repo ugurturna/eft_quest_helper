@@ -1,0 +1,26 @@
+{
+ "id": "break-the-deal",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Customs'ta belirtilen yere bir DVL-10 keskin nişancı tüfeği sakla",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Customs'ta belirtilen yere bir DVL-10 şarjörü sakla",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Customs'ta belirtilen yere bir ELCAN SpecterDR dürbün sakla",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Customs'ta belirtilen yere herhangi bir 7.62x51 mermi paketi sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde belirtilen 4 eşyayı Customs'taki güney sanayi tesisi binasının iskelesine saklaman gerekiyor. Görevi kabul edince gereken eşyalardan bir set oyun içi postayla gönderilir. DVL-10 tüfeğini tamamen sökebilirsin; saklanması için çalışır durumda olması gerekmez.\n\nNot: Birincil ya da ikincil silah olarak takılı bir DVL-10'un varsa saklama için ilk o kullanılır."
+}

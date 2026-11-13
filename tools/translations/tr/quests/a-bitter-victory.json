@@ -1,0 +1,44 @@
+{
+ "id": "a-bitter-victory",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "BTR sürücüsüne 2 Bottle of Fierce Hatchling moonshine teslim et",
+   "details": [
+    "(İsteğe bağlı) 2 Bottle of Fierce Hatchling moonshine ele geçir"
+   ]
+  },
+  {
+   "id": "o2",
+   "text": "BTR sürücüsüne 4 Rye croutons teslim et",
+   "details": [
+    "(İsteğe bağlı) 4 Rye croutons ele geçir"
+   ]
+  },
+  {
+   "id": "o3",
+   "text": "BTR sürücüsüne 4 Bottle of Tarkovskaya vodka teslim et",
+   "details": [
+    "(İsteğe bağlı) 4 Bottle of Tarkovskaya vodka ele geçir"
+   ]
+  },
+  {
+   "id": "o4",
+   "text": "BTR sürücüsüne 2 Salty Dog beef sausage teslim et",
+   "details": [
+    "(İsteğe bağlı) 2 Salty Dog beef sausage ele geçir"
+   ]
+  },
+  {
+   "id": "o5",
+   "text": "BTR sürücüsüyle konuş",
+   "details": []
+  },
+  {
+   "id": "o6",
+   "text": "Haritadan sağ çık (Survive and extract)",
+   "details": []
+  }
+ ],
+ "guide": "Herhangi biri teslim edilmeden önce bütün eşyaların toplanmış ve envanterinde olması gerekir. Görevi kabul etmeden önce elde ettiğin eşyaları teslim etmek istiyorsan, oyunun onları algılaması için envanterinde başka bir slota taşıman gerekir."
+}

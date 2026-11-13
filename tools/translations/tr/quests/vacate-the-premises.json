@@ -1,0 +1,11 @@
+{
+ "id": "vacate-the-premises",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "The Labyrinth'in içinde 24 PMC öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde The Labyrinth'te 24 PMC öldürmen gerekiyor.\n\nNot: PvE modunda hedef bunun yerine The Labyrinth'te herhangi 36 hedefi öldürmek."
+}

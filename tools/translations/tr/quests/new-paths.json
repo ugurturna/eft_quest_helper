@@ -1,0 +1,28 @@
+{
+ "id": "new-paths",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Ground Zero'da Mira Ave ile üst geçidin kesiştiği yeri keşfet (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Ground Zero'da Streets of Tarkov'a giden geçidi bul (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Ground Zero'dan Streets of Tarkov'a transit kullan (Tek raidde)",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Streets of Tarkov'dan sağ çık (ya da sonraki haritaya transit yap)",
+   "details": [
+    "(İsteğe bağlı) Streets of Tarkov'da Rodina sinemasının çevresini keşfet (Tek raidde)"
+   ]
+  }
+ ],
+ "guide": "▸ Ground Zero kavşağı\n\n▸ Ground Zero'dan Streets of Tarkov'a\nMira Ave exfil'inin yanında. Transit'ler raid başladıktan ancak 1 dk sonra kullanılabilir."
+}

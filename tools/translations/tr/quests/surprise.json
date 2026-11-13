@@ -1,0 +1,11 @@
+{
+ "id": "surprise",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde bulunmuş 4. sınıf ya da daha yüksek 3 balistik plakayı Ref'e teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Hata: 6B13 custom ballistic plates (Back) şu an bu görevde çalışmıyor."
+}

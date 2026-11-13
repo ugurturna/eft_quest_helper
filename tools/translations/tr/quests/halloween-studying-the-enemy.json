@@ -1,0 +1,11 @@
+{
+ "id": "halloween-studying-the-enemy",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "2 yeni enfekte doku örneği teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Infected tissue sample'lar sadece Skier'ın etkinlik görevlerinin ödülü olarak alınabildiği için flea market'ten satın alınması gerekiyor."
+}

@@ -1,0 +1,21 @@
+{
+ "id": "shooting-cans",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Utyos makineli tüfeğini Ground Zero'da bulun",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "AGS el bombası fırlatıcısını Ground Zero'da bulun",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Ground Zero'da herhangi 5 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Ground Zero'da Utyos makineli tüfeğini ve AGS bombaatarını bulman, ayrıca haritada herhangi 5 düşmanı öldürmen gerekiyor.\n\n▸ Utyos\nUtyos makineli tüfeği, Tarbank binasının üçüncü katındaki (5 numaralı) bir ofiste.\n\n▸ AGS\nAGS bombaatarı, Capital Insight binasının üçüncü katındaki arka ofiste."
+}

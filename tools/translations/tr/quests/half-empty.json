@@ -1,0 +1,16 @@
+{
+ "id": "half-empty",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Raidde bulunmuş 5 askeri elektronik eşya teslim et",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Raidde bulunmuş 10 PC parçası eşya teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Prapor'un oyun içi postayla gönderdiği RSP-30 reactive signal cartridge (Special Yellow) ile içinde gereken eşyalardan birkaçı olan özel bir airdrop çağırabilirsin.\n\nAskeri elektronik eşyalar:\n* Iridium military thermal vision module\n* Military COFDM Wireless Signal Transmitter\n* Military cable\n* Military circuit board\n* Military gyrotachometer\n*Military power filter\n* Virtex programmable processor\n\nPC parçası eşyalar:\n* Bundle of wires\n* CPU fan\n* DVD drive\n* Damaged hard drive\n* Electronic components\n* Graphics card\n* PC CPU\n* Power cord\n* Power supply unit\n* Printed circuit board\n* RAM stick"
+}

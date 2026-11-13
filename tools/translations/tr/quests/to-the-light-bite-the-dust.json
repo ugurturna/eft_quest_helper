@@ -1,0 +1,11 @@
+{
+ "id": "to-the-light-bite-the-dust",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Sorunların arkasındaki kişiyi suçlayan kanıtı teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Mechanic'in To the Light - Dangerous Ambitions görevinden aldığın Amulet from Lightkeeper'ı teslim et."
+}

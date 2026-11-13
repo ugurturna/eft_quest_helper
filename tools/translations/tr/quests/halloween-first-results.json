@@ -1,0 +1,13 @@
+{
+ "id": "halloween-first-results",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Deneysel gaz bombasının etkisi altındayken 15 enfekte öldür",
+   "details": [
+    "(İsteğe bağlı) RDA-68 deneysel CS gaz bombasını ele geçir"
+   ]
+  }
+ ],
+ "guide": "15 enfektenin, Model 8230 CS gas grenade (RDA-68)'in gaz alanının içindeyken öldürülmesi gerekiyor."
+}

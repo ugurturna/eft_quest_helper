@@ -1,0 +1,21 @@
+{
+ "id": "debtor",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da borçluyu bul",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Streets of Tarkov'da özel hapishane müdürünün dairesini bul",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Eşyayı teslim et: Iron gate key",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce Streets of Tarkov'da borçluyu bulman gerekiyor. Borçlu, kuzeydeki Pinewood otel binasının ikinci katındaki 206 numaralı odada. Oda için anahtar gerekmez.\n\nSonra hapishane müdürünün dairesini bulman gerekiyor. Daire, Streets of Tarkov'daki Chekannaya 15 apartmanında. Daireye girmek için Chekannaya 15 apartment key gerekir. Aranan daire ikinci kattaki en doğudaki daire. Oraya sadece batı merdiveninden, üçüncü kattan 5 numaralı hücrenin zeminindeki delikten inilerek ulaşılır. İkinci kat koridorundaki molozun altından ancak yüzüstü yatarak (prone) geçilir."
+}

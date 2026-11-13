@@ -1,0 +1,20 @@
+{
+ "id": "a-wedge-between-us",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "The Wedge'in timinden 4 üyeyi bul ve etkisiz hale getir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "The Wedge'den bir ganimet al",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Bulduğun eşyayı teslim et",
+   "details": []
+  }
+ ]
+}

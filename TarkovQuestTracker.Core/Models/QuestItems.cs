@@ -32,6 +32,9 @@ public sealed class ItemObjective
 public sealed record ItemNeed(string ItemId, string Name, string ShortName, int Count, bool Fir,
                               IReadOnlyList<string> Alternatives, string? IconPath)
 {
+    /// <summary>Ids of <see cref="Alternatives"/>, same order.</summary>
+    public IReadOnlyList<string> AlternativeIds { get; init; } = [];
+
     public string CountText => $"×{Count}";
     public string MoreText => Alternatives.Count > 0 ? $"+{Alternatives.Count}" : "";
     public string ToolTip => string.Join("\n", new[] { Name }.Concat(Alternatives.Take(12))

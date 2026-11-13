@@ -1,0 +1,11 @@
+{
+ "id": "decontamination-service",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "The Lab'de gaz maskesi ya da respiratör takarken 60 metreden yakından herhangi 40 hedefi öldür",
+   "details": []
+  }
+ ],
+ "guide": "Hata: MSA Millennium Riot Control gas mask şu an bu görevde çalışmıyor.\n\nBu görevde The Lab'de Respirator, GP-5 gas mask, GP-7 gas mask, Gentex Ops-Core SOTR respirator ya da Avon M53A1 gas mask takarken 60 metreden yakın mesafeden herhangi 40 hedefi öldürmen gerekiyor."
+}

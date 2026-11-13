@@ -1,0 +1,16 @@
+{
+ "id": "stabilize-business",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Ground Zero'da tek bir raidde 7 Scav öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Haritadan sağ çık (Survive and extract)",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Ground Zero'da tek bir raidde 7 Scav öldürüp hayatta kalman gerekiyor."
+}

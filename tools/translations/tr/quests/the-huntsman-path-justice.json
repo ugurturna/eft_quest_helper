@@ -1,0 +1,16 @@
+{
+ "id": "the-huntsman-path-justice",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Reshala'nın 3 korumasını öldür",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Reshala'nın korumalarından birinin zırh yeleğini teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Reshala'nın korumalarından 3'ünü öldürmen ve raidde bulunmuş (FIR) zırhlarından 1'ini teslim etmen gerekiyor. Şunlardan herhangi birini teslim edebilirsin:\n* 6B43 Zabralo-Sh body armor (EMR)\n* BNTI Gzhel-K body armor\n* BNTI Zhuk body armor (EMR)\n* BNTI Zhuk body armor (EMR)\n* FORT Defender-2 body armor\n* FORT Redut-M body armor\n* NPP KlASS Korund-VM body armor (Black)"
+}

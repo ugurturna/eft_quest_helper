@@ -1,0 +1,26 @@
+{
+ "id": "honest-review",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Lighthouse'ta köydeki kavşağı keşfet",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Lighthouse'ta ana yoldaki BM kontrol noktasını keşfet",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Lighthouse'ta su arıtma tesisindeki iki ana bina arasındaki otoparkı keşfet",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Görüşlerini BTR sürücüsüyle paylaş",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Lighthouse'ta \"UN Checkpoint\", \"Village Crossroads\" ve \"WTP Building 2 Parking\" BTR duraklarını keşfetmen gerekiyor."
+}

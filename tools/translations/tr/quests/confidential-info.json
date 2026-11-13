@@ -1,0 +1,21 @@
+{
+ "id": "confidential-info",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "The Labyrinth'in içinde özel depolama modülünü bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Labyrinth'in içindeki montaj atölyesine bir el bombası yerleştir",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Bulduğun bilgiyi teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce The Labyrinth'in içindeki prototip silah bölümünde özel bir depolama modülü bulman gerekiyor. Sonra prototip silahın içine bir parçalı el bombası saklaman gerekiyor. Not: F-1 hand grenade (Reduced delay) kullanılamaz."
+}

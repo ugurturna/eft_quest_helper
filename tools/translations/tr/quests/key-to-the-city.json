@@ -1,0 +1,17 @@
+{
+ "id": "key-to-the-city",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Streets of Tarkov'da şehrin hatıra anahtarını bul ve ele geçir",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Bulduğun eşyayı teslim et",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Streets of Tarkov'daki müzede Tarkov City souvenir key'i bulman gerekiyor. Binanın içinde birden çok çıkma noktası var.\n\n▸ Birinci kat\n\n▸ İkinci kat",
+ "notes": "Görev eşyasının sapına kazınmış tarih (5 Ağustos 2016), oyunun Kapalı Alfa'sının başladığı güne işaret ediyor."
+}

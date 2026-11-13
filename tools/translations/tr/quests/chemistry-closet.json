@@ -1,0 +1,11 @@
+{
+ "id": "chemistry-closet",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Shoreline'daki sağlık tesisinde Sanitar'ın ofisini bul",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde Shoreline'daki sağlık tesisinde (resort) bulunan Sanitar'ın ofisini bulman gerekiyor. Aranan ofis, resort'un doğu kanadının birinci katındaki 110 numaralı oda. Odayı açmak için Health Resort office key with a blue tape gerekir. Kapıyı açtıktan sonra hedefi tamamlamak için odaya girmen yeterli. Hedefi tamamladıktan sonra Shoreline'dan exfil yapman gerekir."
+}

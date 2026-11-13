@@ -1,0 +1,26 @@
+{
+ "id": "wiring-the-vessel",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Icebreaker'da makine dairesine giden otomasyon odasındaki ekipmanı onar",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Icebreaker'da makine dairesinin altındaki otomasyon odasındaki ekipmanı onar",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Icebreaker'da depo odasının yakınındaki otomasyon odasındaki ekipmanı onar",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Icebreaker'da merkezi kontrol istasyonu odasına hacking cihazını kur",
+   "details": []
+  }
+ ],
+ "guide": "Bu görev Icebreaker'da geçiyor. Önce otomasyon odalarındaki 3 ekipmanı bir Toolset ile onarman, sonra merkezi kontrol istasyonu odasına bir Local network hacking device kurman gerekiyor.\n\n▸ Motora giden otomasyon odasındaki ekipman - Seviye 0\n\n▸ Depo odasının yakınındaki otomasyon odasındaki ekipman - Seviye 0\n\nHata: Bu hedef ile üçüncü onarım hedefi oyunda yanlışlıkla yer değiştirmiş; bu ekipmanı onarmak, makine dairesinin altındaki otomasyon odasıyla ilgili hedefi tamamlar.\n\n▸ Makine dairesinin altındaki otomasyon odasındaki ekipman - Seviye -3\nBu odaya girmek için bir kod girmen gerekir. Kod, yakındaki bir gözetim kabininde bir pano üstünde. Kod her raidde değişir.\n\nHata: Bu hedef ile depo odasının yakınındaki otomasyon odasıyla ilgili hedef oyunda yanlışlıkla yer değiştirmiş; bu ekipmanı onarmak diğer hedefi tamamlar.\n\n▸ Hacking cihazını merkezi kontrol istasyonu odasına kur - Seviye 0"
+}
