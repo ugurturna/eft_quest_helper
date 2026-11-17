@@ -29,7 +29,7 @@ public sealed partial class MainViewModel
     public string GoonLastMap => GoonSightings.FirstOrDefault()?.MapName ?? "";
     public string GoonLastSeenText => GoonSightings.FirstOrDefault() is { } s ? Ago(s.SeenAt) : "";
     public IReadOnlyList<GoonRowVm> GoonRecent =>
-        GoonSightings.Take(GoonRows).Select(s => new GoonRowVm(s.MapName, Ago(s.SeenAt), s.Reporter)).ToList();
+        GoonSightings.Take(GoonRows).Select(s => new GoonRowVm(s.MapName, Ago(s.SeenAt))).ToList();
 
     partial void OnGoonSightingsChanged(IReadOnlyList<GoonSighting> value)
     {

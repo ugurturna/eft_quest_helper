@@ -468,7 +468,6 @@
                                                     <Run Text="{Binding MapName, Mode=OneWay}" Foreground="{StaticResource TextBrush}" />
                                                     <Run Text="·" />
                                                     <Run Text="{Binding AgoText, Mode=OneWay}" />
-                                                    <Run Text="{Binding Reporter, Mode=OneWay}" FontStyle="Italic" />
                                                 </TextBlock>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
