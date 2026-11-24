@@ -39,21 +39,32 @@
         <span class="brand-tag" data-version>v0.2.6</span>
       </a>
 
+      <!-- every feature section sits under one "Features" menu, so the top bar stays short in every language -->
       <ul class="nav-links">
-        <li><a href="#features" data-i18n="navFeatures">Features</a></li>
-        <li><a href="#ram-cleaner" data-i18n="navRam">RAM Cleaner</a></li>
-        <li><a href="#read-quests" data-i18n="navRead">Read Quests</a></li>
-        <li><a href="#auto-raid" data-i18n="navRaid">Auto Raid</a></li>
-        <li><a href="#map-gps" data-i18n="navMap">Map GPS</a></li>
-        <li><a href="#minimap" data-i18n="navMini">Mini Map</a></li>
-        <li><a href="#goons" data-i18n="navGoons">Goons</a></li>
-        <li><a href="#btr" data-i18n="navBtr">BTR</a></li>
-        <li><a href="#story" data-i18n="navStory">Story</a></li>
-        <li><a href="#endgame" data-i18n="navEndgame">End Game</a></li>
+        <li class="nav-dropdown">
+          <button type="button" class="nav-drop-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-features-menu">
+            <span data-i18n="navFeatures">Features</span>
+            <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-menu" id="nav-features-menu">
+            <a href="#features" class="nav-menu-all"><span data-i18n="navAllFeatures">All features</span> →</a>
+            <div class="nav-menu-grid">
+              <a href="#ram-cleaner"><span class="nav-menu-icon">🧹</span><span data-i18n="navRam">RAM Cleaner</span><span class="nav-menu-new" data-i18n="newTag">New</span></a>
+              <a href="#read-quests"><span class="nav-menu-icon">📷</span><span data-i18n="navRead">Read Quests</span></a>
+              <a href="#auto-raid"><span class="nav-menu-icon">🎯</span><span data-i18n="navRaid">Auto Raid</span></a>
+              <a href="#map-gps"><span class="nav-menu-icon">📍</span><span data-i18n="navMap">Map GPS</span></a>
+              <a href="#minimap"><span class="nav-menu-icon">🧭</span><span data-i18n="navMini">Mini Map</span></a>
+              <a href="#goons"><span class="nav-menu-icon">💀</span><span data-i18n="navGoons">Goon Tracker</span></a>
+              <a href="#btr"><span class="nav-menu-icon">🚌</span><span data-i18n="navBtr">BTR</span></a>
+              <a href="#story"><span class="nav-menu-icon">📖</span><span data-i18n="navStory">Story</span></a>
+              <a href="#endgame"><span class="nav-menu-icon">🎫</span><span data-i18n="navEndgame">End Game</span></a>
+              <a href="#traders"><span class="nav-menu-icon">🤝</span><span data-i18n="navTraders">Traders</span></a>
+            </div>
+          </div>
+        </li>
         <li><a href="#screenshots" data-i18n="navShots">Screenshots</a></li>
         <li><a href="#safety" data-i18n="navSafety">Ban Safety</a></li>
         <li><a href="#guide" data-i18n="navGuide">How to Use</a></li>
-        <li><a href="#traders" data-i18n="navTraders">Traders</a></li>
         <li><a href="#faq" data-i18n="navFaq">FAQ</a></li>
       </ul>
 

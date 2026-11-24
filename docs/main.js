@@ -6,6 +6,7 @@ const translations = {
   en: {
     announcement: "🚀 {v} is here! Zero ban risk, instant quest overlay for Escape from Tarkov.",
     navFeatures: "Features",
+    navAllFeatures: "All features",
     navSafety: "Ban Safety",
     navGuide: "How to Use",
     navTraders: "Traders",
@@ -269,7 +270,7 @@ const translations = {
     capMap: "Take a screenshot in raid and the map shows where you are: the red arrow points where you face, the dashed line is your path from earlier screenshots. Exfils (PMC / Scav / shared, transits) and your active quests' spots (yellow) are on the map.",
     capMapFollow: "Follow mode keeps the view on you, zoomed in to the street. The floor follows your height; wheel zooms, dragging looks around, Esc puts you back in the game.",
     navMap: "Map GPS",
-    navGoons: "Goons",
+    navGoons: "Goon Tracker",
     f18Title: "Goon Tracker",
     f18Desc: "Where were the Goons last seen? The \"Entering a raid\" page shows the latest reports from tarkov-goon-tracker.com for the mode you play (PvP or PvE), and the map card where they were seen gets a GOONS badge.",
     f18Badge: "PvP + PvE · every 5 min →",
@@ -417,6 +418,7 @@ const translations = {
   tr: {
     announcement: "🚀 {v} yayında! Sıfır ban riski, Escape from Tarkov için anlık görev overlay'i.",
     navFeatures: "Özellikler",
+    navAllFeatures: "Tüm özellikler",
     navSafety: "Ban Güvenliği",
     navGuide: "Nasıl Kullanılır",
     navTraders: "Tüccarlar",
@@ -560,13 +562,13 @@ const translations = {
     rcNote: "En çok 16 GB ve altı RAM'de işe yarar; 32 GB ve üstünde farkı hissetmeyebilirsin. En iyisi raid'den önce, menüdeyken kullanmak. Bu bir beta: senin bilgisayarında nasıl çalıştığını GitHub'da bize yaz.",
     faqRcQ: "RAM Temizleyici güvenli mi? Ban yer miyim?",
     faqRcA: "Oyuncuların yıllardır Tarkov'un yanında kullandığı Mem Reduct ve ISLC'nin yaptığı aynı sistem geneli Windows çağrılarını yapar. Oyunun process'ine hiç erişmez, belleğini okumaz ya da yazmaz, hiçbir şey enjekte etmez. Sen açana kadar kapalıdır ve uygulamayı yönetici olarak çalıştırmıyorsan her temizlikten önce Windows izin (UAC) sorar.",
-    navEndgame: "End Game",
+    navEndgame: "Oyun Sonu",
     f9Title: "End Game: The Ticket Sonları",
     f9Desc: "4 sondan hangilerine hâlâ ulaşabilirsin, hangi yoldan gitmelisin, şu an neredesin? Kararlarını işaretle, hedef sonunu seç ve yolu adım adım takip et.",
     f9Badge: "4 son · Yol planlayıcı →",
-    tabEndgame: "End Game",
+    tabEndgame: "Oyun Sonu",
     capEndgame: "The Ticket için End Game rehberi: başarım ikonlarıyla 4 son, verdiğin kararlar ve \"Şu an buradasın\" işaretiyle hedef sonuna giden yol.",
-    tabFlea: "Flea Market",
+    tabFlea: "Bit Pazarı",
     capFlea: "Oyunda Ctrl+Shift+F: 3 harf yaz, modundaki flea fiyatlarını gör (solda PvP, sağda PvE); slot başı fiyat, 24 saatlik ortalama, 48 saatlik değişim ve en iyi tüccar. Esc oyuna döndürür.",
     f10Title: "Oyun İçinde Flea Fiyatları",
     f10Desc: "Raid ortasında Ctrl+Shift+F: ekranın ortasında fiyat araması açılır. 3 harf yaz, modundaki (PvP ya da PvE) flea fiyatını, slot başı fiyatı ve en iyi tüccarı gör. Esc seni oyuna döndürür.",
@@ -585,7 +587,7 @@ const translations = {
     f14Badge: "Boştayken ~%0 CPU",
     hk5Desc: "Raid ortasında flea fiyat araması",
     hk6Desc: "Raid haritasını seç: overlay o haritanın görevlerini gösterir",
-    egTag: "End Game · The Ticket",
+    egTag: "Oyun Sonu · The Ticket",
     egTitle: "The Ticket'ta Sonunu Planla",
     egSub: "The Ticket'ın 4 sonu ve geri dönüşü olmayan 3 kararı var. End Game rehberi hangi sonlara hâlâ ulaşabileceğini, hangi yoldan gitmen gerektiğini ve şu an nerede olduğunu gösterir.",
     egSurvivor: "Kerman'ı reddet, Prapor'a para öde ve onun görevlerini bitir.",
@@ -680,7 +682,7 @@ const translations = {
     capMap: "Raid'de ekran görüntüsü al, harita nerede olduğunu göstersin: kırmızı ok baktığın yönü, kesikli çizgi önceki ekran görüntülerinden izini gösterir. Exfiller (PMC / Scav / ortak, transitler) ve aktif görevlerinin noktaları (sarı) haritada.",
     capMapFollow: "Takip modu görünümü sende tutar, sokak seviyesine yakınlaşır. Kat yüksekliğine göre değişir; tekerlek yakınlaştırır, sürüklemek etrafa bakar, Esc seni oyuna geri döndürür.",
     navMap: "Harita GPS",
-    navGoons: "Goons",
+    navGoons: "Goon Takibi",
     f18Title: "Goon Takibi",
     f18Desc: "Goons en son nerede görüldü? \"Raid'e giriyorum\" sayfası, oynadığın modun (PvP veya PvE) tarkov-goon-tracker.com'daki son bildirimlerini gösterir; görüldükleri haritanın kartına GOONS rozeti gelir.",
     f18Badge: "PvP + PvE · 5 dakikada bir →",
@@ -779,7 +781,7 @@ const translations = {
     gt3Desc: "Uygulama açıkken 5 dakikada bir, ya da ⟳ ile hemen yenilenir. \"Goon Tracker ↗\" o modun sitesini açar.",
     gtCap: "\"Raid'e giriyorum\"daki Goon kartı: en son görüldükleri yer, son bildirimler ve o haritadaki GOONS rozeti.",
     gtNote: "Bildirimler tarkov-goon-tracker.com'daki oyunculardan gelir; yanlış ya da geç olabilir. Uygulama sadece o herkese açık sayfayı okur, oyunundan hiçbir şey gönderilmez.",
-    tabGoons: "Goons",
+    tabGoons: "Goon Takibi",
     tabMini: "Mini Harita",
     capMini: "Ekran görüntüsünden sonra oyunun köşesinde yuvarlak mini harita: sen ortada, çevrende exfiller ve BTR'nin rotası. Tıklamalar oyuna geçer.",
     tabInApp: "Harita · Uygulama İçi",
@@ -828,10 +830,11 @@ const translations = {
   ru: {
     announcement: "🚀 Доступна версия {v}! Без риска бана, оверлей для Escape from Tarkov.",
     navFeatures: "Функции",
+    navAllFeatures: "Все функции",
     navSafety: "Безопасность",
     navGuide: "Инструкция",
     navTraders: "Торговцы",
-    navFaq: "FAQ",
+    navFaq: "Вопросы",
     navDownload: "Скачать {v}",
     
     heroBadge: "Десктопный помощник для Escape from Tarkov",
@@ -971,11 +974,11 @@ const translations = {
     rcNote: "Больше всего помогает при 16 ГБ RAM и меньше; на 32 ГБ и больше разницы можно не заметить. Лучше всего чистить в меню, перед рейдом. Это бета: расскажите на GitHub, как она работает на вашем ПК.",
     faqRcQ: "Очистка RAM безопасна? Можно получить бан?",
     faqRcA: "Она делает те же общесистемные вызовы Windows, что и Mem Reduct и ISLC, которыми игроки годами пользуются вместе с Tarkov. Она не открывает процесс игры, не читает и не пишет её память и ничего не внедряет. Она выключена, пока вы её не включите, и Windows спрашивает разрешение (UAC) перед каждой очисткой, если приложение не запущено от имени администратора.",
-    navEndgame: "End Game",
+    navEndgame: "Концовки",
     f9Title: "End Game: концовки «Билета»",
     f9Desc: "Какие из 4 концовок ещё доступны, каким путём идти и где вы сейчас? Отметьте свои решения, выберите целевую концовку и проходите маршрут шаг за шагом.",
     f9Badge: "4 концовки · Планировщик маршрута →",
-    tabEndgame: "End Game",
+    tabEndgame: "Концовки",
     capEndgame: "Гид End Game для «Билета» (The Ticket): 4 концовки с иконками достижений, ваши решения и маршрут к целевой концовке с отметкой «Вы здесь».",
     tabFlea: "Барахолка",
     capFlea: "Ctrl+Shift+F в игре: цены барахолки для вашего режима (слева PvP, справа PvE) после 3 букв, с ценой за слот, средним за 24 ч, изменением за 48 ч и лучшим торговцем. Esc возвращает в игру.",
@@ -996,7 +999,7 @@ const translations = {
     f14Badge: "~0% CPU в простое",
     hk5Desc: "Поиск цен барахолки прямо в рейде",
     hk6Desc: "Выбрать карту рейда: оверлей покажет её задания",
-    egTag: "End Game · The Ticket",
+    egTag: "Концовки · The Ticket",
     egTitle: "Спланируйте свою концовку в «Билете»",
     egSub: "У «Билета» 4 концовки и 3 решения без возврата. Гид End Game показывает, какие концовки ещё доступны, каким путём идти и где вы сейчас.",
     egSurvivor: "Откажите Керману, заплатите Прапору и выполните его задания.",
@@ -1091,7 +1094,7 @@ const translations = {
     capMap: "Сделайте скриншот в рейде, и карта покажет, где вы: красная стрелка — куда вы смотрите, пунктир — ваш путь по прошлым скриншотам. На карте выходы (ЧВК / Дикий / общие, переходы) и точки активных заданий (жёлтые).",
     capMapFollow: "Режим слежения держит вид на вас, приближая до уровня улицы. Этаж выбирается по высоте; колесо — масштаб, перетаскивание — обзор, Esc возвращает в игру.",
     navMap: "GPS на карте",
-    navGoons: "Goons",
+    navGoons: "Трекер Гунов",
     f18Title: "Трекер Goons",
     f18Desc: "Где последний раз видели Goons? Страница «Entering a raid» показывает последние сообщения с tarkov-goon-tracker.com для вашего режима (PvP или PvE), а карточка карты, где их видели, получает значок GOONS.",
     f18Badge: "PvP + PvE · каждые 5 мин →",
@@ -1190,7 +1193,7 @@ const translations = {
     gt3Desc: "Обновляется каждые 5 минут, пока приложение работает, или сразу кнопкой ⟳. «Goon Tracker ↗» открывает сайт для этого режима.",
     gtCap: "Карточка Goons на странице «Entering a raid»: где их видели последний раз, последние сообщения и значок GOONS на карте.",
     gtNote: "Сообщения присылают игроки на tarkov-goon-tracker.com, поэтому они могут быть неточными или запоздалыми. Трекер только читает эту публичную страницу; из вашей игры ничего не отправляется.",
-    tabGoons: "Goons",
+    tabGoons: "Гуны",
     tabMini: "Миникарта",
     capMini: "Круглая миникарта в углу игры после скриншота: вы в центре, вокруг выходы и маршрут БТР. Клики проходят в игру.",
     tabInApp: "Карта · В приложении",
@@ -1425,6 +1428,32 @@ function setupMobileMenu() {
       });
     });
   }
+
+  // "Features" drop-down: click opens it (hover too on desktop, in CSS); a link, a click outside or Esc closes it
+  const dropdown = document.querySelector('.nav-dropdown');
+  if (!dropdown) return;
+  const dropToggle = dropdown.querySelector('.nav-drop-toggle');
+  const setOpen = open => {
+    dropdown.classList.toggle('open', open);
+    dropToggle.setAttribute('aria-expanded', String(open));
+  };
+  dropToggle.addEventListener('click', () => setOpen(!dropdown.classList.contains('open')));
+  // after a pick the mouse is still over the menu: keep the hover from holding it open until the mouse leaves
+  dropdown.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    setOpen(false);
+    dropdown.classList.add('picked');
+    dropToggle.blur();
+  }));
+  dropdown.addEventListener('mouseleave', () => dropdown.classList.remove('picked'));
+  document.addEventListener('click', e => {
+    if (!dropdown.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && dropdown.classList.contains('open')) {
+      setOpen(false);
+      dropToggle.focus();
+    }
+  });
 }
 
 // Initialize on DOM ready
