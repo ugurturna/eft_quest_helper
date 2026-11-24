@@ -1554,3 +1554,29 @@ kbd {
   color: var(--text-secondary);
   font-size: 0.85rem;
 }
+
+/* RAM cleaner (beta): the full-width first feature card gets a warm glow, the risky area card a red edge */
+.feature-card.feature-ram {
+  background: linear-gradient(135deg, rgba(229, 184, 92, 0.14) 0%, var(--bg-card) 55%);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-glow);
+}
+
+.feature-card.feature-ram h3 {
+  font-size: 1.35rem;
+}
+
+.step-card.rc-risky {
+  border-color: rgba(248, 81, 73, 0.45);
+}
+
+.step-card.rc-risky .feature-new-tag {
+  background: var(--accent-red);
+}
+
+/* six cleanable areas: 3 + 3 instead of 4 + 2 */
+@media (min-width: 900px) {
+  .steps-grid.rc-areas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

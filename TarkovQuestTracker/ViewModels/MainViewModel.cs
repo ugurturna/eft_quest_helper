@@ -98,6 +98,7 @@ public sealed partial class MainViewModel : ObservableObject
         ApplyOverlaySettings();
         ApplyMapSettings();
         ApplyBtrSettings();
+        ApplyMemorySettings();
         LoadData();
     }
 

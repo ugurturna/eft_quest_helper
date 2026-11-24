@@ -124,4 +124,11 @@ public sealed class AppSettings
     public bool OverlayShowInCapture { get; set; }
     public bool FleaShowInCapture { get; set; } = true;
     public bool MapShowInCapture { get; set; }
+    /// <summary>RAM cleaner (beta): off until the player reads what it does and turns it on.</summary>
+    public bool MemoryCleanEnabled { get; set; }
+    /// <summary>What a clean empties, as <see cref="Services.MemoryAreas"/> flags.</summary>
+    public int MemoryCleanAreas { get; set; } = (int)Services.MemoryAreas.Default;
+    /// <summary>Clean by itself when RAM use reaches <see cref="MemoryAutoCleanPercent"/> (only works when the app runs as administrator).</summary>
+    public bool MemoryAutoClean { get; set; }
+    public int MemoryAutoCleanPercent { get; set; } = Services.MemoryCleanPolicy.DefaultPercent;
 }

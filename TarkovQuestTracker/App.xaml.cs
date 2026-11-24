@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Interop;
 using TarkovQuestTracker.Core.Services;
+using TarkovQuestTracker.Interop;
 using TarkovQuestTracker.ViewModels;
 
 namespace TarkovQuestTracker;
@@ -60,6 +61,12 @@ public partial class App : Application
     protected override void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
+        // the RAM cleaner's administrator copy: clean, report the areas that failed as the exit code, no window
+        if (e.Args.Length == 2 && e.Args[0] == MemoryCleaner.CleanArg && int.TryParse(e.Args[1], out var areas))
+        {
+            Shutdown((int)MemoryCleaner.Clean(MemoryCleanPolicy.Sanitize(areas)));
+            return;
+        }
         FinishUpdate(e.Args);
         Loc.Set("tr");  // the profile's own UI language is applied when the view model loads it
         MainViewModel vm;
@@ -95,6 +102,11 @@ public partial class App : Application
             Process.Start(new ProcessStartInfo(Environment.ProcessPath!, $"{WaitArg} {Environment.ProcessId}") { UseShellExecute = false });
             Shutdown();
         };
+        vm.RestartAsAdminRequested += () =>
+        {
+            if (MemoryCleaner.RestartElevated($"{WaitArg} {Environment.ProcessId}")) Shutdown();
+        };
+        vm.StartMemoryWatch();
         _ = vm.CheckUpdatesAsync(manual: false);
         // where the Goons were last seen, kept fresh while the app runs
         vm.StartGoonTracking();

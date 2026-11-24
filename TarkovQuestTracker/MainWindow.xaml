@@ -1326,6 +1326,131 @@
                     </ScrollViewer>
                 </TabItem>
 
+                <!-- RAM cleaner (beta): off until the player reads what it does and turns it on -->
+                <TabItem x:Name="MemoryTab" Header="{DynamicResource s.tab.memory}" Tag="&#xE9D9;">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
+                        <StackPanel MaxWidth="760" HorizontalAlignment="Left" Margin="0,0,6,12">
+                            <StackPanel.Resources>
+                                <Style x:Key="MemCard" TargetType="Border">
+                                    <Setter Property="Background" Value="{StaticResource CardBrush}" />
+                                    <Setter Property="CornerRadius" Value="4" />
+                                    <Setter Property="Padding" Value="12,8" />
+                                    <Setter Property="Margin" Value="0,0,0,8" />
+                                </Style>
+                                <Style x:Key="AreaHint" TargetType="TextBlock" BasedOn="{StaticResource Muted}">
+                                    <Setter Property="FontSize" Value="12" />
+                                    <Setter Property="Margin" Value="22,0,0,8" />
+                                </Style>
+                            </StackPanel.Resources>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{DynamicResource s.mem.title}" Style="{StaticResource H1}" />
+                                <Border Background="{StaticResource WarnBrush}" CornerRadius="3" Padding="6,1" Margin="10,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="BETA" FontSize="11" FontWeight="Bold" Foreground="{StaticResource BgBrush}" />
+                                </Border>
+                            </StackPanel>
+                            <TextBlock Text="{DynamicResource s.mem.intro}" Style="{StaticResource Body}" Margin="0,4,0,8" />
+
+                            <!-- the player's decision first -->
+                            <Border Style="{StaticResource MemCard}" BorderBrush="{StaticResource WarnBrush}" BorderThickness="1">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.mem.beta}" Foreground="{StaticResource WarnBrush}" TextWrapping="Wrap" FontSize="12" />
+                                    <CheckBox Content="{DynamicResource s.mem.enable}" IsChecked="{Binding MemoryCleanEnabled}" FontWeight="SemiBold" Margin="0,8,0,0" />
+                                </StackPanel>
+                            </Border>
+
+                            <!-- RAM now -->
+                            <TextBlock Text="{DynamicResource s.mem.now}" Style="{StaticResource H2}" />
+                            <Border Style="{StaticResource MemCard}">
+                                <StackPanel>
+                                    <ProgressBar Value="{Binding MemoryLoad, Mode=OneWay}" Maximum="100" Height="8" Margin="0,2,0,6" />
+                                    <TextBlock Text="{Binding MemoryUsedText}" Style="{StaticResource Body}" />
+                                    <TextBlock Text="{Binding MemoryCacheText}" Style="{StaticResource Muted}" FontSize="12" />
+                                </StackPanel>
+                            </Border>
+
+                            <StackPanel IsEnabled="{Binding MemoryCleanEnabled}">
+                                <!-- faded while off: the dark theme's disabled checkboxes look almost the same as enabled ones -->
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter Property="Opacity" Value="0.45" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                                <!-- what gets cleaned, each explained -->
+                                <TextBlock Text="{DynamicResource s.mem.areas}" Style="{StaticResource H2}" />
+                                <Border Style="{StaticResource MemCard}">
+                                    <StackPanel>
+                                        <CheckBox Content="{DynamicResource s.mem.standby}" IsChecked="{Binding CleanStandby}" />
+                                        <TextBlock Text="{DynamicResource s.mem.standby.desc}" Style="{StaticResource AreaHint}" />
+                                        <CheckBox Content="{DynamicResource s.mem.standbyLow}" IsChecked="{Binding CleanStandbyLow}" />
+                                        <TextBlock Text="{DynamicResource s.mem.standbyLow.desc}" Style="{StaticResource AreaHint}" />
+                                        <CheckBox Content="{DynamicResource s.mem.modified}" IsChecked="{Binding CleanModified}" />
+                                        <TextBlock Text="{DynamicResource s.mem.modified.desc}" Style="{StaticResource AreaHint}" />
+                                        <CheckBox Content="{DynamicResource s.mem.fileCache}" IsChecked="{Binding CleanFileCache}" />
+                                        <TextBlock Text="{DynamicResource s.mem.fileCache.desc}" Style="{StaticResource AreaHint}" />
+                                        <CheckBox Content="{DynamicResource s.mem.combine}" IsChecked="{Binding CleanCombine}" />
+                                        <TextBlock Text="{DynamicResource s.mem.combine.desc}" Style="{StaticResource AreaHint}" />
+                                        <CheckBox Content="{DynamicResource s.mem.workingSets}" IsChecked="{Binding CleanWorkingSets}" />
+                                        <TextBlock Text="{DynamicResource s.mem.workingSets.desc}" Style="{StaticResource AreaHint}" Foreground="{StaticResource WarnBrush}" />
+                                    </StackPanel>
+                                </Border>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                                    <Button Content="{DynamicResource s.mem.clean}" Style="{StaticResource SmallButton}" Command="{Binding CleanMemoryCommand}" />
+                                    <TextBlock Text="{DynamicResource s.mem.cleaning}" Foreground="{StaticResource ActiveBrush}" VerticalAlignment="Center"
+                                               Visibility="{Binding IsCleaningMemory, Converter={StaticResource BoolToVis}}" Margin="0,0,8,0" />
+                                    <TextBlock Text="{Binding MemoryCleanStatus}" Style="{StaticResource Muted}" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <TextBlock Text="{DynamicResource s.mem.uac}" Style="{StaticResource Muted}" FontSize="12" Margin="0,0,0,4"
+                                           Visibility="{Binding IsNotAdmin, Converter={StaticResource BoolToVis}}" />
+
+                                <!-- auto clean: only as administrator, a UAC prompt mid-raid would be worse than the stutter -->
+                                <TextBlock Text="{DynamicResource s.mem.auto.title}" Style="{StaticResource H2}" />
+                                <Border Style="{StaticResource MemCard}">
+                                    <StackPanel>
+                                        <StackPanel Visibility="{Binding IsNotAdmin, Converter={StaticResource BoolToVis}}" Margin="0,0,0,8">
+                                            <TextBlock Text="{DynamicResource s.mem.auto.needAdmin}" Foreground="{StaticResource WarnBrush}" TextWrapping="Wrap" FontSize="12" />
+                                            <Button Content="{DynamicResource s.mem.restartAdmin}" Style="{StaticResource SmallButton}" HorizontalAlignment="Left"
+                                                    Margin="0,6,0,0" Command="{Binding RestartAsAdminCommand}" />
+                                        </StackPanel>
+                                        <StackPanel IsEnabled="{Binding IsAdmin}">
+                                            <CheckBox Content="{DynamicResource s.mem.auto}" IsChecked="{Binding MemoryAutoClean}" />
+                                            <StackPanel Margin="22,4,0,0" IsEnabled="{Binding MemoryAutoClean}">
+                                                <TextBlock Style="{StaticResource Body}">
+                                                    <Run Text="{DynamicResource s.mem.auto.limit}" /> <Run Text="{Binding MemoryAutoCleanPercent, Mode=OneWay, StringFormat={}%{0}}" Foreground="{StaticResource AccentBrush}" />
+                                                </TextBlock>
+                                                <Slider Minimum="50" Maximum="98" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding MemoryAutoCleanPercent}" />
+                                                <TextBlock Text="{DynamicResource s.mem.auto.desc}" Style="{StaticResource Muted}" FontSize="12" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+
+                            <!-- what to know before turning it on -->
+                            <TextBlock Text="{DynamicResource s.mem.faq}" Style="{StaticResource H2}" />
+                            <Border Style="{StaticResource MemCard}">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource s.mem.faq.why.q}" Style="{StaticResource Body}" FontWeight="SemiBold" />
+                                    <TextBlock Text="{DynamicResource s.mem.faq.why.a}" Style="{StaticResource Muted}" Margin="0,2,0,8" />
+                                    <TextBlock Text="{DynamicResource s.mem.faq.game.q}" Style="{StaticResource Body}" FontWeight="SemiBold" />
+                                    <TextBlock Text="{DynamicResource s.mem.faq.game.a}" Style="{StaticResource Muted}" Margin="0,2,0,8" />
+                                    <TextBlock Text="{DynamicResource s.mem.faq.admin.q}" Style="{StaticResource Body}" FontWeight="SemiBold" />
+                                    <TextBlock Text="{DynamicResource s.mem.faq.admin.a}" Style="{StaticResource Muted}" Margin="0,2,0,8" />
+                                    <TextBlock Text="{DynamicResource s.mem.faq.when.q}" Style="{StaticResource Body}" FontWeight="SemiBold" />
+                                    <TextBlock Text="{DynamicResource s.mem.faq.when.a}" Style="{StaticResource Muted}" Margin="0,2,0,8" />
+                                    <TextBlock Text="{DynamicResource s.mem.faq.free.q}" Style="{StaticResource Body}" FontWeight="SemiBold" />
+                                    <TextBlock Text="{DynamicResource s.mem.faq.free.a}" Style="{StaticResource Muted}" Margin="0,2,0,0" />
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+
                 <!-- settings: sub-pages along the top, the selected one underlined -->
                 <TabItem Header="{DynamicResource s.tab.settings}" Tag="&#xE713;">
                     <TabControl Margin="0,4,0,0">
