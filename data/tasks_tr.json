@@ -2558,6 +2558,28 @@
   ]
  },
  {
+  "id": "the-tarkov-butcher",
+  "name": null,
+  "objectives": [
+   {
+    "id": "o1",
+    "text": "Ground Zero'daki kimyasal kabı bul ve al",
+    "details": []
+   },
+   {
+    "id": "o2",
+    "text": "Kabı Streets of Tarkov'daki karakolun yanına sakla",
+    "details": []
+   }
+  ],
+  "notes": null,
+  "guide": "Bu görevde önce Ground Zero'nun yeraltı bölümündeki bir kamyon dorsesinin içinden kimyasal kabı bulman gerekiyor. Sonra kabı Streets of Tarkov'daki İçişleri Bakanlığı akademisinin önüne saklaman gerekiyor.\n\n▸ Ground Zero kabın yeri\n\n▸ Streets of Tarkov saklama yeri",
+  "sources": {
+   "objectives": "manual",
+   "guide": "manual"
+  }
+ },
+ {
   "id": "this-tape-sucks",
   "name": null,
   "objectives": [
@@ -17476,6 +17498,38 @@
   "notes": null,
   "guide": null,
   "sources": {}
+ },
+ {
+  "id": "keep-them-in-line",
+  "name": null,
+  "objectives": [
+   {
+    "id": "o1",
+    "text": "Knight'ı bul ve etkisiz hale getir (tek raid'de)",
+    "details": []
+   },
+   {
+    "id": "o2",
+    "text": "Big Pipe'ı bul ve etkisiz hale getir (tek raid'de)",
+    "details": []
+   },
+   {
+    "id": "o3",
+    "text": "Birdeye'ı bul ve etkisiz hale getir (tek raid'de)",
+    "details": []
+   },
+   {
+    "id": "o4",
+    "text": "Hayatta kal ve lokasyondan çık (tek raid'de)",
+    "details": []
+   }
+  ],
+  "notes": null,
+  "guide": "Bütün hedefler tek bir raid'de tamamlanmalı; ölürsen ya da erken çıkarsan görev başarısız olur.",
+  "sources": {
+   "objectives": "manual",
+   "guide": "manual"
+  }
  },
  {
   "id": "key-component",

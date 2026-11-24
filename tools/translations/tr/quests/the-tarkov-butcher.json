@@ -1,0 +1,16 @@
+{
+ "id": "the-tarkov-butcher",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Ground Zero'daki kimyasal kabı bul ve al",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Kabı Streets of Tarkov'daki karakolun yanına sakla",
+   "details": []
+  }
+ ],
+ "guide": "Bu görevde önce Ground Zero'nun yeraltı bölümündeki bir kamyon dorsesinin içinden kimyasal kabı bulman gerekiyor. Sonra kabı Streets of Tarkov'daki İçişleri Bakanlığı akademisinin önüne saklaman gerekiyor.\n\n▸ Ground Zero kabın yeri\n\n▸ Streets of Tarkov saklama yeri"
+}

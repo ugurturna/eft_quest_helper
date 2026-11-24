@@ -1,0 +1,26 @@
+{
+ "id": "keep-them-in-line",
+ "objectives": [
+  {
+   "id": "o1",
+   "text": "Knight'ı bul ve etkisiz hale getir (tek raid'de)",
+   "details": []
+  },
+  {
+   "id": "o2",
+   "text": "Big Pipe'ı bul ve etkisiz hale getir (tek raid'de)",
+   "details": []
+  },
+  {
+   "id": "o3",
+   "text": "Birdeye'ı bul ve etkisiz hale getir (tek raid'de)",
+   "details": []
+  },
+  {
+   "id": "o4",
+   "text": "Hayatta kal ve lokasyondan çık (tek raid'de)",
+   "details": []
+  }
+ ],
+ "guide": "Bütün hedefler tek bir raid'de tamamlanmalı; ölürsen ya da erken çıkarsan görev başarısız olur."
+}

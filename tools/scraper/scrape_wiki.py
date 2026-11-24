@@ -31,6 +31,11 @@ MAP_ALIASES = {"Daytime Factory": "Factory", "Night Factory": "Factory",
                "Labs": "The Lab", "Laboratory": "The Lab", "Streets": "Streets of Tarkov",
                "Labyrinth": "The Labyrinth"}
 
+# events the game has ended but the wiki doesn't mark {{Historical content}} yet
+ENDED_EVENTS = {
+    "Halloween 2026 (29 October 2026)",  # ended with patch 1.3.5.0 (24 November 2026)
+}
+
 NUMBER = re.compile(r"\b\d[\d,]*\b")
 # a number right after one of these words names something (room 303, level 6, Item 1156, Part 2), it isn't an amount
 NAME_WORDS = re.compile(r"(?:room|level|level of|item|office|register|part|bay|station|folder|model|gate|floor|no\.)\s*$", re.I)
@@ -425,7 +430,7 @@ def main():
             q["trader"] = "Story"
         if category == "event":
             q["eventName"] = events.get(name) or events.get(final)
-            q["eventActive"] = not page_flags(text)["historical"]
+            q["eventActive"] = not page_flags(text)["historical"] and q["eventName"] not in ENDED_EVENTS
         title_to_id[name] = title_to_id[final] = q["id"]
         raw.append(q)
 
